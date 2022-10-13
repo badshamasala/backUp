@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
               TextField(
                 controller: username,
                 decoration: InputDecoration(
-                  labelText: 'Enter Your Username',
+                  labelText: 'Enter Your Usernam',
                   labelStyle: const TextStyle(
                       color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
                   enabledBorder: OutlineInputBorder(
