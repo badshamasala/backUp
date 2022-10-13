@@ -31,6 +31,8 @@ class _UploadImageState extends State<UploadImage> {
   bool select = true;
   bool birth = true;
 
+  bool btnchng = true;
+
   var size, height, width;
   File? image;
   Future pickImage(ImageSource source) async {
@@ -86,177 +88,159 @@ class _UploadImageState extends State<UploadImage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                      onPressed: () {
-                        showModalBottomSheet(
-                            isScrollControlled: true,
-                            shape: const RoundedRectangleBorder(
-                              // <-- SEE HERE
-                              borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(20.0),
+                        style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                        onPressed: () {
+                          showModalBottomSheet(
+                              isScrollControlled: true,
+                              shape: const RoundedRectangleBorder(
+                                // <-- SEE HERE
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(20.0),
+                                ),
                               ),
-                            ),
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  SizedBox(
-                                    height: height * 0.02,
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Container(
-                                      color: const Color(0xff515253),
-                                      height: 5,
-                                      width: 100,
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SizedBox(
+                                      height: height * 0.01,
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: height * 0.02,
-                                  ),
-                                  const Text(
-                                    'Choose Image Type',
-                                    style: TextStyle(
-                                        color: Color(0xff515253),
-                                        fontSize: 20,
-                                        fontFamily: 'Poppins'),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          border: Border.all(
-                                              width: 1,
-                                              color: const Color(0xff515253))),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            GestureDetector(
-                                              onTap: () {
-                                                pickImage(ImageSource.camera);
-                                              },
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    border: Border.all(
-                                                        width: 1,
-                                                        color:
-                                                            const Color(0xff0087FF))),
-                                                child: Column(
-                                                  children: const [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.all(
-                                                              8.0),
-                                                      child: FaIcon(
-                                                        FontAwesomeIcons.camera,
-                                                        color:
-                                                            Color(0xff0087FF),
-                                                        size: 30,
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.all(
-                                                              8.0),
-                                                      child: Text(
-                                                        'Camera',
-                                                        style: TextStyle(
-                                                            color: Color(
-                                                                0xff515253),
-                                                            fontSize: 20,
-                                                            fontFamily:
-                                                                'Poppins'),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                            /* SizedBox(
-                                              height: height * 0.02,
-                                            ), */
-                                            const Text(
-                                              'or',
-                                              style: TextStyle(
-                                                  color: Color(0xff515253),
-                                                  fontSize: 20,
-                                                  fontFamily: 'Poppins'),
-                                            ),
-                                            GestureDetector(
-                                              onTap: () {
-                                                pickImage(ImageSource.gallery);
-                                              },
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    border: Border.all(
-                                                        width: 1,
-                                                        color:
-                                                            const Color(0xff0087FF))),
-                                                child: Column(
-                                                  children: const [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.all(
-                                                              8.0),
-                                                      child: Icon(
-                                                        Icons.photo,
-                                                        color:
-                                                            Color(0xff0087FF),
-                                                        size: 32,
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.all(
-                                                              8.0),
-                                                      child: Text(
-                                                        'Gallery',
-                                                        style: TextStyle(
-                                                            color: Color(
-                                                                0xff515253),
-                                                            fontSize: 20,
-                                                            fontFamily:
-                                                                'Poppins'),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Container(
+                                        color: const Color(0xffE2E2E2),
+                                        height: 7,
+                                        width: 70,
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: height * 0.1,
-                                  ),
-                                ],
-                              );
-                            });
-                      },
-                      child: Text(
-                        'upload profile image',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: width * 0.04,
-                            color: const Color(0xff0087FF)),
-                      ),
-                    )
+                                    SizedBox(
+                                      height: height * 0.02,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 80.0),
+                                          child: const Text(
+                                            'Your Profile Photo',
+                                            style: TextStyle(
+                                                color: Color(0xff333333),
+                                                fontSize: 15,
+                                                fontFamily: 'Poppins'),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.01,
+                                    ),
+                                    Divider(),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            RawMaterialButton(
+                                              padding: EdgeInsets.zero,
+                                              constraints: BoxConstraints(
+                                                  minHeight: 45, minWidth: 45),
+                                              onPressed: () {
+                                                pickImage(ImageSource.camera);
+                                                Navigator.of(context).pop();
+                                                setState(() {
+                                                  btnchng = false;
+                                                });
+                                              },
+                                              elevation: 0,
+                                              fillColor: Color(0xffDADADA),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.camera,
+                                                color: Color(0xff0087FF),
+                                                size: 17,
+                                              ),
+                                              /*  padding: EdgeInsets.all(15.0), */
+                                              shape: CircleBorder(
+                                                  /* side: BorderSide(
+                                                    width: 1,
+                                                    color: Color(0xff0087FF)) */
+                                                  ),
+                                            ),
+                                            Text(
+                                              'camera',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xff333333)),
+                                            )
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            RawMaterialButton(
+                                              padding: EdgeInsets.zero,
+                                              constraints: BoxConstraints(
+                                                  minHeight: 45, minWidth: 45),
+                                              onPressed: () {
+                                                pickImage(ImageSource.gallery);
+                                                Navigator.of(context).pop();
+                                                setState(() {
+                                                  btnchng = false;
+                                                });
+                                              },
+                                              elevation: 0,
+                                              fillColor: Color(0xffDADADA),
+                                              child: Icon(
+                                                Icons.photo,
+                                                color: Color(0xff0087FF),
+                                                size: 17,
+                                              ),
+                                              /*  padding: EdgeInsets.all(15.0), */
+                                              shape: CircleBorder(
+                                                  /* side: BorderSide(
+                                                    width: 1,
+                                                    color: Color(0xff0087FF)) */
+                                                  ),
+                                            ),
+                                            Text(
+                                              'gallery',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xff333333)),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.1,
+                                    ),
+                                  ],
+                                );
+                              });
+                        },
+                        child: btnchng
+                            ? Text(
+                                'upload profile image',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: width * 0.04,
+                                    color: const Color(0xff0087FF)),
+                              )
+                            : Text(
+                                'change profile image',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: width * 0.04,
+                                    color: const Color(0xff0087FF)),
+                              ))
                   ],
                 ),
               ),
@@ -312,8 +296,9 @@ class _UploadImageState extends State<UploadImage> {
                             padding: const EdgeInsets.all(2.0),
                             child: Icon(
                               Icons.male,
-                              color:
-                                  male ? const Color(0xff515253) : const Color(0xff0087FF),
+                              color: male
+                                  ? const Color(0xff515253)
+                                  : const Color(0xff0087FF),
                             ),
                           ),
                           Padding(
@@ -360,8 +345,9 @@ class _UploadImageState extends State<UploadImage> {
                         children: [
                           Icon(
                             Icons.female,
-                            color:
-                                female ? const Color(0xff515253) : const Color(0xffF96A70),
+                            color: female
+                                ? const Color(0xff515253)
+                                : const Color(0xffF96A70),
                           ),
                           Text(
                             'female',
@@ -406,8 +392,9 @@ class _UploadImageState extends State<UploadImage> {
                             padding: const EdgeInsets.all(2.0),
                             child: Icon(
                               Icons.transgender,
-                              color:
-                                  other ? const Color(0xff515253) : const Color(0xff56027D),
+                              color: other
+                                  ? const Color(0xff515253)
+                                  : const Color(0xff56027D),
                             ),
                           ),
                           Text(
@@ -443,8 +430,9 @@ class _UploadImageState extends State<UploadImage> {
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        foregroundColor:
-                            select ? const Color(0xff515253) : const Color(0xff0087FF),
+                        foregroundColor: select
+                            ? const Color(0xff515253)
+                            : const Color(0xff0087FF),
                       ),
                       child: const Text(
                         'Select Your Age Group',
@@ -653,8 +641,9 @@ class _UploadImageState extends State<UploadImage> {
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        foregroundColor:
-                            birth ? const Color(0xff515253) : const Color(0xff0087FF),
+                        foregroundColor: birth
+                            ? const Color(0xff515253)
+                            : const Color(0xff0087FF),
                       ),
                       child: const Text(
                         'Your Birthday',
@@ -696,8 +685,9 @@ class _UploadImageState extends State<UploadImage> {
                         child: Text(
                           'Your Age Group',
                           style: TextStyle(
-                              color:
-                                  age1 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                              color: age1
+                                  ? const Color(0xff515253)
+                                  : const Color(0xff0087FF)),
                         ),
                       ),
                       SizedBox(
@@ -708,8 +698,9 @@ class _UploadImageState extends State<UploadImage> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: width * 0.04,
-                            color:
-                                age1 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                            color: age1
+                                ? const Color(0xff515253)
+                                : const Color(0xff0087FF)),
                       ),
                     ],
                   ),
@@ -747,8 +738,9 @@ class _UploadImageState extends State<UploadImage> {
                         child: Text(
                           'Your Age Group',
                           style: TextStyle(
-                              color:
-                                  age2 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                              color: age2
+                                  ? const Color(0xff515253)
+                                  : const Color(0xff0087FF)),
                         ),
                       ),
                       SizedBox(
@@ -759,8 +751,9 @@ class _UploadImageState extends State<UploadImage> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: width * 0.04,
-                            color:
-                                age2 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                            color: age2
+                                ? const Color(0xff515253)
+                                : const Color(0xff0087FF)),
                       ),
                     ],
                   ),
@@ -798,8 +791,9 @@ class _UploadImageState extends State<UploadImage> {
                         child: Text(
                           'Your Age Group',
                           style: TextStyle(
-                              color:
-                                  age3 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                              color: age3
+                                  ? const Color(0xff515253)
+                                  : const Color(0xff0087FF)),
                         ),
                       ),
                       SizedBox(
@@ -810,8 +804,9 @@ class _UploadImageState extends State<UploadImage> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: width * 0.04,
-                            color:
-                                age3 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                            color: age3
+                                ? const Color(0xff515253)
+                                : const Color(0xff0087FF)),
                       ),
                     ],
                   ),
@@ -849,8 +844,9 @@ class _UploadImageState extends State<UploadImage> {
                         child: Text(
                           'Your Age Group',
                           style: TextStyle(
-                              color:
-                                  age4 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                              color: age4
+                                  ? const Color(0xff515253)
+                                  : const Color(0xff0087FF)),
                         ),
                       ),
                       SizedBox(
@@ -861,8 +857,9 @@ class _UploadImageState extends State<UploadImage> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: width * 0.04,
-                            color:
-                                age4 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                            color: age4
+                                ? const Color(0xff515253)
+                                : const Color(0xff0087FF)),
                       ),
                     ],
                   ),
@@ -900,8 +897,9 @@ class _UploadImageState extends State<UploadImage> {
                         child: Text(
                           'Your Age Group',
                           style: TextStyle(
-                              color:
-                                  age5 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                              color: age5
+                                  ? const Color(0xff515253)
+                                  : const Color(0xff0087FF)),
                         ),
                       ),
                       SizedBox(
@@ -912,8 +910,9 @@ class _UploadImageState extends State<UploadImage> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: width * 0.04,
-                            color:
-                                age5 ? const Color(0xff515253) : const Color(0xff0087FF)),
+                            color: age5
+                                ? const Color(0xff515253)
+                                : const Color(0xff0087FF)),
                       ),
                     ],
                   ),
