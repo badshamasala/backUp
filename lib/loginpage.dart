@@ -50,14 +50,14 @@ class _LoginPageState extends State<LoginPage> {
           body: SingleChildScrollView(
         reverse: true,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: height * 0.03,
               ),
-              Center(child: Image(image: AssetImage('assets/signup.png'))),
+              const Center(child: Image(image: AssetImage('assets/signup.png'))),
               SizedBox(
                 height: height * 0.03,
               ),
@@ -65,17 +65,17 @@ class _LoginPageState extends State<LoginPage> {
                 controller: username,
                 decoration: InputDecoration(
                   labelText: 'Enter Your Username',
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                       color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff333333), width: 1)),
+                          const BorderSide(color: Color(0xff333333), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff0087FF), width: 1)),
-                  suffixIcon: Icon(Icons.check),
+                          const BorderSide(color: Color(0xff0087FF), width: 1)),
+                  suffixIcon: const Icon(Icons.check),
                   // hintText: 'Enter Your Username',
                   contentPadding: const EdgeInsets.all(15),
                   /*  border: OutlineInputBorder(
@@ -97,16 +97,16 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: obscure,
                 decoration: InputDecoration(
                   labelText: 'Enter Password',
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                       color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff333333), width: 1)),
+                          const BorderSide(color: Color(0xff333333), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff0087FF), width: 1)),
+                          const BorderSide(color: Color(0xff0087FF), width: 1)),
                   suffixIcon: GestureDetector(
                     child:
                         Icon(obscure ? Icons.visibility_off : Icons.visibility),
@@ -147,13 +147,13 @@ class _LoginPageState extends State<LoginPage> {
                   } :null,
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      minimumSize: Size(0.0, 40),
+                      minimumSize: const Size(0.0, 40),
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
-                      backgroundColor: Color(0xff0087FF),
+                      backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
-                  child: Text(
+                  child: const Text(
                     "Login",
                     style: TextStyle(
                         color: Colors.white,
@@ -171,23 +171,23 @@ class _LoginPageState extends State<LoginPage> {
                     width: width * 0.023,
                   ),
                   Container(
-                    color: Color(0xff515253),
+                    color: const Color(0xff515253),
                     height: height * 0.001,
                     width: width * 0.37,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
-                  Text(
+                  const Text(
                     'OR',
                     style: TextStyle(
                         color: Color(0xff515253), fontFamily: 'Poppins'),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   Container(
-                    color: Color(0xff515253),
+                    color: const Color(0xff515253),
                     height: height * 0.001,
                     width: width * 0.37,
                   ),
@@ -200,17 +200,17 @@ class _LoginPageState extends State<LoginPage> {
                 height: 45,
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  icon: FaIcon(
+                  icon: const FaIcon(
                     FontAwesomeIcons.google,
                     color: Color.fromARGB(255, 235, 26, 85),
                   ),
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
-                      minimumSize: Size(0, 40),
+                      minimumSize: const Size(0, 40),
                       /*  padding: EdgeInsets.symmetric(
                               horizontal: 40.0, vertical: 20.0), */
                       backgroundColor: Colors.white,
@@ -219,7 +219,7 @@ class _LoginPageState extends State<LoginPage> {
                   label: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Continue with Google",
                         style: TextStyle(
                             color: Colors.black, fontFamily: 'Poppins'),
@@ -235,7 +235,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: width * 0.04),
-                    child: Text(
+                    child: const Text(
                       "don\'t have an account?",
                       style: TextStyle(
                           color: Color(0xff515253), fontFamily: 'Poppins'),
@@ -254,7 +254,7 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   },
                   style: OutlinedButton.styleFrom(
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
                       /*  padding: EdgeInsets.symmetric(
@@ -262,7 +262,7 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
-                  child: Text(
+                  child: const Text(
                     "Sign Up",
                     style: TextStyle(
                         color: Color(0xff0087FF),
@@ -271,7 +271,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               /*   Container(

@@ -1,20 +1,25 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class DatePickerPage extends StatefulWidget {
+  const DatePickerPage({super.key});
+
   @override
   _DatePickerPageState createState() => _DatePickerPageState();
 }
 
 class _DatePickerPageState extends State<DatePickerPage> {
   DateTime dateTime = DateTime.now();
-  var size, height, width;
+
   bool value = false;
   bool value1 = false;
   bool value2 = false;
   @override
   Widget build(BuildContext context) {
+      Size size;
+  double height, width;
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
@@ -42,23 +47,23 @@ class _DatePickerPageState extends State<DatePickerPage> {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
-                              Text(
+                              const Text(
                                 'Select Your Birthday',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 20,
                                     color: Color(0xff000000)),
                               ),
-                              Divider(
+                              const Divider(
                                 color: Colors.black,
                               ),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
-                                children: [
+                                children: const [
                                   Text(
                                     'Month',
                                     style: TextStyle(
@@ -107,7 +112,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                                     /* SizedBox(
                                         width: 15,
                                       ), */
-                                    Text(
+                                    const Text(
                                       'this won\'t be shared any ror anywhere',
                                       style: TextStyle(
                                           fontSize: 12,
@@ -121,7 +126,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Show your birthday info everyone',
                                     style: TextStyle(
                                         fontSize: 12,
@@ -143,7 +148,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Show your birthday info everyone',
                                     style: TextStyle(
                                         fontSize: 12,
@@ -168,10 +173,10 @@ class _DatePickerPageState extends State<DatePickerPage> {
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                       elevation: 0,
-                                      minimumSize: Size(0.0, 40),
+                                      minimumSize: const Size(0.0, 40),
                                       // padding: EdgeInsets.symmetric(
                                       //     horizontal: 40.0, vertical: 20.0),
-                                      backgroundColor: Color(0xff0087FF),
+                                      backgroundColor: const Color(0xff0087FF),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(10.0))),
@@ -194,7 +199,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                       });
                     });
               },
-              child: Text('btn')),
+              child: const Text('btn')),
           const SizedBox(height: 24),
         ],
       ),

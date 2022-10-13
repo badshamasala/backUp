@@ -1,15 +1,6 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/accounttype.dart';
-import 'package:flutter_application_1/datepicker.dart';
-import 'package:flutter_application_1/formfill.dart';
-import 'package:flutter_application_1/hsjhjs.dart';
 import 'package:flutter_application_1/loginpage.dart';
-import 'package:flutter_application_1/position.dart';
-import 'package:flutter_application_1/slider.dart';
-import 'package:flutter_application_1/startPage.dart';
-import 'package:flutter_application_1/uploadimage.dart';
 
 void main() {
   runApp(const MyApp());

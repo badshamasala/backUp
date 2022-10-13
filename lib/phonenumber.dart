@@ -43,13 +43,13 @@ class _PhoneNumberState extends State<PhoneNumber> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
+                  const Center(
                       child:
                           Image(image: AssetImage('assets/mobilelogin.png'))),
                   SizedBox(
                     height: height * 0.02,
                   ),
-                  Center(
+                  const Center(
                     child: Text(
                       'Sign Up',
                       style: TextStyle(
@@ -58,15 +58,15 @@ class _PhoneNumberState extends State<PhoneNumber> {
                           fontFamily: 'Poppins'),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Center(
+                  const Center(
                       child: Text(
                     'Enter Your Phone Number to Proceed Sign Up',
                     style: TextStyle(fontFamily: 'Poppins'),
                   )),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -90,7 +90,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                   return Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       ClipRRect(
@@ -101,15 +101,15 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                           width: 100,
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
-                                      Text('choose language'),
+                                      const Text('choose language'),
                                      
-                                      Divider(),
+                                      const Divider(),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text(
                                           'English',
@@ -130,7 +130,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text(
                                           'Hindi',
@@ -150,7 +150,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text('Bengali',
                                             style: TextStyle(
@@ -168,7 +168,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text('Gujarati',
                                             style: TextStyle(
@@ -186,7 +186,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text('Marathi',
                                             style: TextStyle(
@@ -204,7 +204,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text('Urdu',
                                             style: TextStyle(
@@ -222,7 +222,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text('Odia (oria)',
                                             style: TextStyle(
@@ -240,7 +240,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text('Kannada',
                                             style: TextStyle(
@@ -258,7 +258,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text('Tamil',
                                             style: TextStyle(
@@ -276,7 +276,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       ListTile(
                                         visualDensity:
-                                            VisualDensity(vertical: -3),
+                                            const VisualDensity(vertical: -3),
                                         dense: true,
                                         leading: const Text('Telugu',
                                             style: TextStyle(
@@ -298,23 +298,23 @@ class _PhoneNumberState extends State<PhoneNumber> {
                               },
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Choose language',
                             style: TextStyle(
                                 fontFamily: 'Poppins', color: Colors.black),
                           )),
-                      FaIcon(
+                      const FaIcon(
                         FontAwesomeIcons.globe,
                         size: 15,
                       )
                     ],
                   ),
                   IntlPhoneField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Phone Number',
                       border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xff0087FF)),
-                          borderRadius: const BorderRadius.all(
+                          borderRadius: BorderRadius.all(
                             Radius.circular(14.0),
                           )),
                     ),
@@ -325,7 +325,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                       print('Country changed to: ' + country.name);
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
@@ -356,11 +356,11 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                               onPressed: () {
                                                 Navigator.pop(context);
                                               },
-                                              icon: Icon(Icons.arrow_back)),
-                                          SizedBox(
+                                              icon: const Icon(Icons.arrow_back)),
+                                          const SizedBox(
                                             width: 65,
                                           ),
-                                          Text(
+                                          const Text(
                                             'Enter OTP',
                                             style: TextStyle(
                                               fontFamily: 'Poppins',
@@ -369,7 +369,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                           ),
                                         ],
                                       ),
-                                      Text(
+                                      const Text(
                                         'Otp has been sent to +91 8689880061',
                                         style: TextStyle(
                                           fontFamily: 'Poppins',
@@ -381,7 +381,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       OtpTextField(
                                         numberOfFields: 6,
-                                        borderColor: Color(0xFF0087FF),
+                                        borderColor: const Color(0xFF0087FF),
                                         //set to true to show as box or false to show as dash
                                         showFieldAsBox: true,
                                         //runs when a code is typed in
@@ -395,7 +395,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                               builder: (context) {
                                                 return AlertDialog(
                                                   title:
-                                                      Text("Verification Code"),
+                                                      const Text("Verification Code"),
                                                   content: Text(
                                                       'Code entered is $verificationCode'),
                                                 );
@@ -408,7 +408,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       ),
                                       TextButton(
                                           onPressed: () {},
-                                          child: Text(
+                                          child: const Text(
                                             'Resen Otp in 30sec',
                                             style: TextStyle(
                                               fontFamily: 'Poppins',
@@ -425,20 +425,20 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      AccountType()),
+                                                      const AccountType()),
                                             );
                                           },
                                           style: ElevatedButton.styleFrom(
-                                              minimumSize: Size(0.0, 40),
+                                              minimumSize: const Size(0.0, 40),
                                               // padding: EdgeInsets.symmetric(
                                               //     horizontal: 40.0, vertical: 20.0),
                                               backgroundColor:
-                                                  Color(0xff0087FF),
+                                                  const Color(0xff0087FF),
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10.0))),
-                                          child: Text(
+                                          child: const Text(
                                             "Verify & Continue",
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -452,13 +452,13 @@ class _PhoneNumberState extends State<PhoneNumber> {
                             });
                       },
                       style: ElevatedButton.styleFrom(
-                          minimumSize: Size(0.0, 40),
+                          minimumSize: const Size(0.0, 40),
                           // padding: EdgeInsets.symmetric(
                           //     horizontal: 40.0, vertical: 20.0),
-                          backgroundColor: Color(0xff0087FF),
+                          backgroundColor: const Color(0xff0087FF),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0))),
-                      child: Text(
+                      child: const Text(
                         "Continue",
                         style: TextStyle(
                             color: Colors.white,

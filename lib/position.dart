@@ -14,7 +14,7 @@ class _StackAndPositionedDemoState extends State<StackAndPositionedDemo> {
     width = size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stack & Positioned Widget'),
+        title: const Text('Stack & Positioned Widget'),
         centerTitle: true,
       ),
       body: Column(
@@ -32,7 +32,7 @@ class _StackAndPositionedDemoState extends State<StackAndPositionedDemo> {
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(width: 0.5, color: Color(0xff515253)),
+                        border: Border.all(width: 0.5, color: const Color(0xff515253)),
                         borderRadius: BorderRadius.circular(10)),
                     /*  width: 150,
                     height: 150, */
@@ -42,7 +42,7 @@ class _StackAndPositionedDemoState extends State<StackAndPositionedDemo> {
                         SizedBox(
                           width: width * 0.08,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.lock,
                           color: Color(0xffC4C4C4),
                         ),
@@ -52,14 +52,14 @@ class _StackAndPositionedDemoState extends State<StackAndPositionedDemo> {
                         Text(
                           '+91 8689880061',
                           style: TextStyle(
-                              color: Color(0xffC4C4C4),
+                              color: const Color(0xffC4C4C4),
                               fontFamily: 'Poppins',
                               fontSize: width * 0.06),
                         ),
                         SizedBox(
                           width: width * 0.15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.check_circle_outline,
                           color: Colors.green,
                         ),
@@ -76,7 +76,7 @@ class _StackAndPositionedDemoState extends State<StackAndPositionedDemo> {
                     /*   width: 200,
                     height: 150, */
                     color: Colors.white,
-                    child: Text(
+                    child: const Text(
                       'Your 10 digit Mobile number is verified',
                       style: TextStyle(
                           color: Color(0xff515253),

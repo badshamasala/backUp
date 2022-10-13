@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-enum language {
+enum Language {
   english,
   hindi,
   marathi,
@@ -23,15 +21,17 @@ class AccountType extends StatefulWidget {
 }
 
 class _AccountTypeState extends State<AccountType> {
-  var size, height, width;
-  language _site = language.english;
+  
+  Language _site = Language.english;
   @override
   Widget build(BuildContext context) {
+    Size size ;
+    double height, width;
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
     return Scaffold(
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: const Color(0xffFFFFFF),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: width * 0.05),
         child: Column(
@@ -52,7 +52,7 @@ class _AccountTypeState extends State<AccountType> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           border:
-                              Border.all(width: 0.5, color: Color(0xff515253)),
+                              Border.all(width: 0.5, color: const Color(0xff515253)),
                           borderRadius: BorderRadius.circular(10)),
                       /*  width: 150,
               height: 150, */
@@ -62,7 +62,7 @@ class _AccountTypeState extends State<AccountType> {
                           SizedBox(
                             width: width * 0.08,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.lock,
                             color: Color(0xffC4C4C4),
                           ),
@@ -72,14 +72,14 @@ class _AccountTypeState extends State<AccountType> {
                           Text(
                             '+91 8689880061',
                             style: TextStyle(
-                                color: Color(0xffC4C4C4),
+                                color: const Color(0xffC4C4C4),
                                 fontFamily: 'Poppins',
                                 fontSize: width * 0.06),
                           ),
                           SizedBox(
                             width: width * 0.18,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.check_circle_outline,
                             color: Colors.green,
                           ),
@@ -96,7 +96,7 @@ class _AccountTypeState extends State<AccountType> {
                       /*   width: 200,
               height: 150, */
                       color: Colors.white,
-                      child: Text(
+                      child: const Text(
                         'Your 10 digit Mobile number is verified',
                         style: TextStyle(
                             color: Color(0xff515253),
@@ -111,7 +111,7 @@ class _AccountTypeState extends State<AccountType> {
             Padding(
               padding: EdgeInsets.only(left: width * 0.05),
               child: Row(
-                children: [
+                children: const [
                   Text(
                     'this contact won\'t be shared anyone or anywhere',
                     style: TextStyle(
@@ -129,7 +129,7 @@ class _AccountTypeState extends State<AccountType> {
               padding: EdgeInsets.only(left: width * 0.05),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: const [
                   Text(
                     'select type of Account',
                     style: TextStyle(
@@ -150,7 +150,7 @@ class _AccountTypeState extends State<AccountType> {
                     style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: width * 0.045,
-                        color: Color(0xff515253)),
+                        color: const Color(0xff515253)),
                   ),
                 ],
               ),
@@ -163,8 +163,8 @@ class _AccountTypeState extends State<AccountType> {
                   border: Border.all(width: 0.5, color: Colors.black),
                   borderRadius: BorderRadius.circular(10)),
               child: ListTile(
-                visualDensity: VisualDensity(vertical: 3),
-                title: Text(
+                visualDensity: const VisualDensity(vertical: 3),
+                title: const Text(
                   'Viewer or private',
                   style: TextStyle(
                       fontFamily: 'Poppins',
@@ -174,9 +174,9 @@ class _AccountTypeState extends State<AccountType> {
                 trailing: Transform.scale(
                   scale: 1.3,
                   child: Radio(
-                    value: language.english,
+                    value: Language.english,
                     groupValue: _site,
-                    onChanged: (language? value) {
+                    onChanged: (Language? value) {
                       setState(() {
                         _site = value!;
                       });
@@ -198,8 +198,8 @@ class _AccountTypeState extends State<AccountType> {
                   border: Border.all(width: 0.5, color: Colors.black),
                   borderRadius: BorderRadius.circular(10)),
               child: ListTile(
-                visualDensity: VisualDensity(vertical: 3),
-                title: Text(
+                visualDensity: const VisualDensity(vertical: 3),
+                title: const Text(
                   'Business or Brand',
                   style: TextStyle(
                       fontFamily: 'Poppins',
@@ -209,9 +209,9 @@ class _AccountTypeState extends State<AccountType> {
                 trailing: Transform.scale(
                   scale: 1.3,
                   child: Radio(
-                    value: language.hindi,
+                    value: Language.hindi,
                     groupValue: _site,
-                    onChanged: (language? value) {
+                    onChanged: (Language? value) {
                       setState(() {
                         _site = value!;
                       });
@@ -233,8 +233,8 @@ class _AccountTypeState extends State<AccountType> {
                   border: Border.all(width: 0.5, color: Colors.black),
                   borderRadius: BorderRadius.circular(10)),
               child: ListTile(
-                visualDensity: VisualDensity(vertical: 3),
-                title: Text(
+                visualDensity: const VisualDensity(vertical: 3),
+                title: const Text(
                   'creator or public figure',
                   style: TextStyle(
                       fontFamily: 'Poppins',
@@ -244,9 +244,9 @@ class _AccountTypeState extends State<AccountType> {
                 trailing: Transform.scale(
                   scale: 1.3,
                   child: Radio(
-                    value: language.marathi,
+                    value: Language.marathi,
                     groupValue: _site,
-                    onChanged: (language? value) {
+                    onChanged: (Language? value) {
                       setState(() {
                         _site = value!;
                       });
@@ -270,10 +270,10 @@ class _AccountTypeState extends State<AccountType> {
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
-                    minimumSize: Size(0.0, 40),
+                    minimumSize: const Size(0.0, 40),
                     // padding: EdgeInsets.symmetric(
                     //     horizontal: 40.0, vertical: 20.0),
-                    backgroundColor: Color(0xff0087FF),
+                    backgroundColor: const Color(0xff0087FF),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0))),
                 child: Text(
@@ -299,22 +299,22 @@ class _AccountTypeState extends State<AccountType> {
                       'I accepted ',
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          color: Color(0xff515253),
+                          color: const Color(0xff515253),
                           fontSize: width * 0.03),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text(
-                        'terms of services ',
-                        style: TextStyle(fontSize: 11),
-                      ),
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        foregroundColor: Color(0xff0087FF),
+                        foregroundColor: const Color(0xff0087FF),
+                      ),
+                      child: const Text(
+                        'terms of services ',
+                        style: TextStyle(fontSize: 11),
                       ),
                     ),
-                    Text(
+                    const Text(
                       '& ',
                       style: TextStyle(
                         fontFamily: 'Poppins',
@@ -323,13 +323,13 @@ class _AccountTypeState extends State<AccountType> {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text('privacy policy',
-                          style: TextStyle(fontSize: 11)),
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        foregroundColor: Color(0xff0087FF),
+                        foregroundColor: const Color(0xff0087FF),
                       ),
+                      child: const Text('privacy policy',
+                          style: TextStyle(fontSize: 11)),
                     ),
                   ],
                 ),
@@ -345,20 +345,20 @@ class _AccountTypeState extends State<AccountType> {
                       'and ',
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          color: Color(0xff515253),
+                          color: const Color(0xff515253),
                           fontSize: width * 0.03),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text('license agreement',
-                          style: TextStyle(fontSize: 11)),
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        foregroundColor: Color(0xff0087FF),
+                        foregroundColor: const Color(0xff0087FF),
                       ),
+                      child: const Text('license agreement',
+                          style: TextStyle(fontSize: 11)),
                     ),
-                    Text(
+                    const Text(
                       ' &',
                       style: TextStyle(
                         fontFamily: 'Poppins',
@@ -367,12 +367,12 @@ class _AccountTypeState extends State<AccountType> {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text('read more', style: TextStyle(fontSize: 11)),
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        foregroundColor: Color(0xff0087FF),
+                        foregroundColor: const Color(0xff0087FF),
                       ),
+                      child: const Text('read more', style: TextStyle(fontSize: 11)),
                     ),
                   ],
                 ),
@@ -389,7 +389,7 @@ class _AccountTypeState extends State<AccountType> {
                           fontSize: width * 0.04)),
                   TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'login',
                         style: TextStyle(
                             color: Color(

@@ -50,7 +50,7 @@ class _Slider1State extends State<Slider1> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
               Row(
@@ -58,7 +58,7 @@ class _Slider1State extends State<Slider1> {
                 children: [
                   TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'Skip',
                         style: TextStyle(
                           color: Color(
@@ -91,7 +91,7 @@ class _Slider1State extends State<Slider1> {
               Text(
                 "Find Friends & Get Inspiration\nthe world",
                 style: TextStyle(
-                    color: Color(0xff0087FF),
+                    color: const Color(0xff0087FF),
                     fontSize: width * 0.05,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400),
@@ -100,7 +100,7 @@ class _Slider1State extends State<Slider1> {
               Text(
                 "welcome to the myttube",
                 style: TextStyle(
-                    color: Color(0xff0087FF),
+                    color: const Color(0xff0087FF),
                     fontSize: width * 0.05,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400),
@@ -125,7 +125,7 @@ class _Slider1State extends State<Slider1> {
                               return Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   ClipRRect(
@@ -136,13 +136,13 @@ class _Slider1State extends State<Slider1> {
                                       width: 100,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
-                                  Text('choose language'),
-                                  Divider(),
+                                  const Text('choose language'),
+                                  const Divider(),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text(
                                       'English',
@@ -159,7 +159,7 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text(
                                       'Hindi',
@@ -176,7 +176,7 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Bengali',
                                         style:
@@ -192,7 +192,7 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Gujarati',
                                         style:
@@ -208,7 +208,7 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Marathi',
                                         style:
@@ -224,7 +224,7 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Urdu',
                                         style:
@@ -240,7 +240,7 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Odia (oria)',
                                         style:
@@ -256,7 +256,7 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Kannada',
                                         style:
@@ -272,7 +272,7 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Tamil',
                                         style:
@@ -288,7 +288,7 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity: const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Telugu',
                                         style:
@@ -309,12 +309,12 @@ class _Slider1State extends State<Slider1> {
                           },
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Choose language',
                         style: TextStyle(
                             fontFamily: 'Poppins', color: Colors.black),
                       )),
-                  FaIcon(
+                  const FaIcon(
                     FontAwesomeIcons.globe,
                     size: 15,
                   )
@@ -327,18 +327,18 @@ class _Slider1State extends State<Slider1> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => GuestLogin()),
+                      MaterialPageRoute(builder: (context) => const GuestLogin()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      minimumSize: Size(0.0, 40),
+                      minimumSize: const Size(0.0, 40),
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
-                      backgroundColor: Color(0xff0087FF),
+                      backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
-                  child: Text(
+                  child: const Text(
                     "Login",
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
@@ -357,7 +357,7 @@ class _Slider1State extends State<Slider1> {
                     );
                   },
                   style: OutlinedButton.styleFrom(
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
                       /*  padding: EdgeInsets.symmetric(
@@ -365,7 +365,7 @@ class _Slider1State extends State<Slider1> {
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
-                  child: Text(
+                  child: const Text(
                     "Sign Up",
                     style: TextStyle(color: Color(0xff0087FF), fontSize: 18),
                   ),
@@ -379,7 +379,7 @@ class _Slider1State extends State<Slider1> {
   }
 
   Widget buildIndicator() => AnimatedSmoothIndicator(
-      effect: ExpandingDotsEffect(
+      effect: const ExpandingDotsEffect(
           activeDotColor: Color(0xff0087FF),
           dotColor: Color(0xffD9D9D9),
           dotHeight: 7,

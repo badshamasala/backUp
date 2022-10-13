@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/phonenumber.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -12,10 +10,11 @@ class GuestLogin extends StatefulWidget {
 }
 
 class _GuestLoginState extends State<GuestLogin> {
-  var size, height, width;
-  language _site = language.english;
+  Language _site = Language.english;
   @override
   Widget build(BuildContext context) {
+    Size size;
+    double height, width;
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
@@ -26,7 +25,7 @@ class _GuestLoginState extends State<GuestLogin> {
           child: Column(
             children: [
               Image.asset('assets/group1.png'),
-              Text(
+              const Text(
                 'your favorite star',
                 style: TextStyle(
                   color: Color(0xff515253),
@@ -53,7 +52,7 @@ class _GuestLoginState extends State<GuestLogin> {
                               return Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   ClipRRect(
@@ -64,22 +63,23 @@ class _GuestLoginState extends State<GuestLogin> {
                                       width: 100,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
-                                  Text('choose language'),
-                                  Divider(),
+                                  const Text('choose Language'),
+                                  const Divider(),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text(
                                       'English',
                                       style: TextStyle(fontFamily: 'Poppins'),
                                     ),
                                     trailing: Radio(
-                                      value: language.english,
+                                      value: Language.english,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -87,16 +87,17 @@ class _GuestLoginState extends State<GuestLogin> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text(
                                       'Hindi',
                                       style: TextStyle(fontFamily: 'Poppins'),
                                     ),
                                     trailing: Radio(
-                                      value: language.hindi,
+                                      value: Language.hindi,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -104,15 +105,16 @@ class _GuestLoginState extends State<GuestLogin> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Bengali',
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: language.bengali,
+                                      value: Language.bengali,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -120,15 +122,16 @@ class _GuestLoginState extends State<GuestLogin> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Gujarati',
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: language.gujrati,
+                                      value: Language.gujrati,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -136,15 +139,16 @@ class _GuestLoginState extends State<GuestLogin> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Marathi',
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: language.marathi,
+                                      value: Language.marathi,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -152,15 +156,16 @@ class _GuestLoginState extends State<GuestLogin> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Urdu',
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: language.urud,
+                                      value: Language.urud,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -168,15 +173,16 @@ class _GuestLoginState extends State<GuestLogin> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Odia (oria)',
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: language.odia,
+                                      value: Language.odia,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -184,15 +190,16 @@ class _GuestLoginState extends State<GuestLogin> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Kannada',
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: language.kannada,
+                                      value: Language.kannada,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -200,15 +207,16 @@ class _GuestLoginState extends State<GuestLogin> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Tamil',
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: language.tamil,
+                                      value: Language.tamil,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -216,15 +224,16 @@ class _GuestLoginState extends State<GuestLogin> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Telugu',
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: language.telugu,
+                                      value: Language.telugu,
                                       groupValue: _site,
-                                      onChanged: (language? value) {
+                                      onChanged: (Language? value) {
                                         setState(() {
                                           _site = value!;
                                         });
@@ -237,12 +246,12 @@ class _GuestLoginState extends State<GuestLogin> {
                           },
                         );
                       },
-                      child: Text(
-                        'Choose language',
+                      child: const Text(
+                        'Choose Language',
                         style: TextStyle(
                             fontFamily: 'Poppins', color: Colors.black),
                       )),
-                  FaIcon(
+                  const FaIcon(
                     FontAwesomeIcons.globe,
                     size: 15,
                   )
@@ -255,13 +264,13 @@ class _GuestLoginState extends State<GuestLogin> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      minimumSize: Size(0.0, 40),
+                      minimumSize: const Size(0.0, 40),
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
-                      backgroundColor: Color(0xff0087FF),
+                      backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
-                  child: Text(
+                  child: const Text(
                     "Login",
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
@@ -280,7 +289,7 @@ class _GuestLoginState extends State<GuestLogin> {
                     );
                   },
                   style: OutlinedButton.styleFrom(
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
                       /*  padding: EdgeInsets.symmetric(
@@ -288,7 +297,7 @@ class _GuestLoginState extends State<GuestLogin> {
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
-                  child: Text(
+                  child: const Text(
                     "Guest Login",
                     style: TextStyle(color: Color(0xff0087FF), fontSize: 18),
                   ),
@@ -299,7 +308,7 @@ class _GuestLoginState extends State<GuestLogin> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: const [
                   Text('don\'t have an account?'),
                 ],
               ),
@@ -313,7 +322,7 @@ class _GuestLoginState extends State<GuestLogin> {
                     );
                   },
                   style: OutlinedButton.styleFrom(
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
                       /*  padding: EdgeInsets.symmetric(
@@ -321,7 +330,7 @@ class _GuestLoginState extends State<GuestLogin> {
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
-                  child: Text(
+                  child: const Text(
                     "Sign Up",
                     style: TextStyle(color: Color(0xff0087FF), fontSize: 18),
                   ),
@@ -335,7 +344,7 @@ class _GuestLoginState extends State<GuestLogin> {
   }
 }
 
-enum language {
+enum Language {
   english,
   hindi,
   marathi,

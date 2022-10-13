@@ -26,7 +26,7 @@ class _IntroScreenState extends State<IntroScreen> {
             ),
             ShaderMask(
                 blendMode: BlendMode.srcIn,
-                shaderCallback: (rect) => LinearGradient(
+                shaderCallback: (rect) => const LinearGradient(
                         begin: Alignment.topRight,
                         end: Alignment.topLeft,
                         colors: [Color(0xff03194B), Color(0xff2C81F8)])
@@ -46,7 +46,7 @@ class _IntroScreenState extends State<IntroScreen> {
             ),
             ShaderMask(
                 blendMode: BlendMode.srcIn,
-                shaderCallback: (rect) => LinearGradient(
+                shaderCallback: (rect) => const LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
@@ -65,7 +65,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 )),
             ShaderMask(
                 blendMode: BlendMode.srcIn,
-                shaderCallback: (rect) => LinearGradient(
+                shaderCallback: (rect) => const LinearGradient(
                         begin: Alignment.topRight,
                         end: Alignment.topLeft,
                         colors: [
@@ -87,7 +87,7 @@ class _IntroScreenState extends State<IntroScreen> {
             ),
             ShaderMask(
                 blendMode: BlendMode.srcIn,
-                shaderCallback: (rect) => LinearGradient(
+                shaderCallback: (rect) => const LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
@@ -111,7 +111,7 @@ class _IntroScreenState extends State<IntroScreen> {
               height: height * 0.07,
             ),
             Image(
-                image: AssetImage(
+                image: const AssetImage(
                   'assets/logo.png',
                 ),
                 height: height * 0.06,
@@ -121,11 +121,11 @@ class _IntroScreenState extends State<IntroScreen> {
               'myttube',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Color(0xff18346D),
+                color: const Color(0xff18346D),
                 fontFamily: 'Satisfy',
                 fontSize: width * 0.07,
                 shadows: [
-                  Shadow(
+                  const Shadow(
                     blurRadius: 8.0,
                     color: Color(0xff0087FF),
                     offset: Offset(1.0, 1.0),

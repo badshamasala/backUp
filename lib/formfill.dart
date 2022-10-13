@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-enum language {
+enum Language {
   english,
   hindi,
   marathi,
@@ -24,15 +22,16 @@ class Formfill extends StatefulWidget {
 
 class _FormfillState extends State<Formfill> {
   bool obscure = true;
-  var size, height, width;
-  language _site = language.english;
+
   @override
   Widget build(BuildContext context) {
+    Size size;
+    double height, width;
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
     return Scaffold(
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: const Color(0xffFFFFFF),
       body: SingleChildScrollView(
         reverse: true,
         child: Padding(
@@ -55,7 +54,7 @@ class _FormfillState extends State<Formfill> {
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(
-                                width: 0.5, color: Color(0xff515253)),
+                                width: 0.5, color: const Color(0xff515253)),
                             borderRadius: BorderRadius.circular(10)),
                         /*  width: 150,
                 height: 150, */
@@ -65,7 +64,7 @@ class _FormfillState extends State<Formfill> {
                             SizedBox(
                               width: width * 0.08,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.lock,
                               color: Color(0xffC4C4C4),
                             ),
@@ -75,14 +74,14 @@ class _FormfillState extends State<Formfill> {
                             Text(
                               '+91 8689880061',
                               style: TextStyle(
-                                  color: Color(0xffC4C4C4),
+                                  color: const Color(0xffC4C4C4),
                                   fontFamily: 'Poppins',
                                   fontSize: width * 0.06),
                             ),
                             SizedBox(
                               width: width * 0.18,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.check_circle_outline,
                               color: Colors.green,
                             ),
@@ -99,7 +98,7 @@ class _FormfillState extends State<Formfill> {
                         /*   width: 200,
                 height: 150, */
                         color: Colors.white,
-                        child: Text(
+                        child: const Text(
                           'Your 10 digit Mobile number is verified',
                           style: TextStyle(
                               color: Color(0xff515253),
@@ -114,7 +113,7 @@ class _FormfillState extends State<Formfill> {
               Padding(
                 padding: EdgeInsets.only(left: width * 0.05),
                 child: Row(
-                  children: [
+                  children: const [
                     Text(
                       'this contact won\'t be shared anyone or anywhere',
                       style: TextStyle(
@@ -140,7 +139,7 @@ class _FormfillState extends State<Formfill> {
                             fontSize: width * 0.03)),
                     TextButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           'change ?',
                           style: TextStyle(
                               color: Color(
@@ -157,7 +156,7 @@ class _FormfillState extends State<Formfill> {
                 padding: EdgeInsets.only(left: width * 0.05),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'fill the details',
                       style: TextStyle(
@@ -178,7 +177,7 @@ class _FormfillState extends State<Formfill> {
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: width * 0.045,
-                          color: Color(0xff515253)),
+                          color: const Color(0xff515253)),
                     ),
                   ],
                 ),
@@ -188,18 +187,17 @@ class _FormfillState extends State<Formfill> {
               ),
               TextField(
                 decoration: InputDecoration(
-                  
                   labelText: 'Enter Your Full Name',
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                       color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff333333), width: 1)),
+                          const BorderSide(color: Color(0xff333333), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff0087FF), width: 1)),
+                          const BorderSide(color: Color(0xff0087FF), width: 1)),
                   /* suffixIcon: Icon(Icons.check), */
                   // hintText: 'Enter Your Username',
                   contentPadding: const EdgeInsets.all(15),
@@ -220,17 +218,17 @@ class _FormfillState extends State<Formfill> {
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Enter Your Username',
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                       color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff333333), width: 1)),
+                          const BorderSide(color: Color(0xff333333), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff0087FF), width: 1)),
-                  suffixIcon: Icon(Icons.check),
+                          const BorderSide(color: Color(0xff0087FF), width: 1)),
+                  suffixIcon: const Icon(Icons.check),
                   // hintText: 'Enter Your Username',
                   contentPadding: const EdgeInsets.all(15),
                   /*  border: OutlineInputBorder(
@@ -251,16 +249,16 @@ class _FormfillState extends State<Formfill> {
                 obscureText: obscure,
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                       color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff333333), width: 1)),
+                          const BorderSide(color: Color(0xff333333), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff0087FF), width: 1)),
+                          const BorderSide(color: Color(0xff0087FF), width: 1)),
                   suffixIcon: GestureDetector(
                     child:
                         Icon(obscure ? Icons.visibility_off : Icons.visibility),
@@ -288,16 +286,16 @@ class _FormfillState extends State<Formfill> {
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Enter Your Email',
-                  labelStyle: TextStyle(
+                  labelStyle: const TextStyle(
                       color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff333333), width: 1)),
+                          const BorderSide(color: Color(0xff333333), width: 1)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
-                          BorderSide(color: Color(0xff0087FF), width: 1)),
+                          const BorderSide(color: Color(0xff0087FF), width: 1)),
                   /* suffixIcon: Icon(Icons.check), */
                   // hintText: 'Enter Your Username',
                   contentPadding: const EdgeInsets.all(15),
@@ -322,7 +320,7 @@ class _FormfillState extends State<Formfill> {
                     child: Text(
                       "Show your email contact info everyone",
                       style: TextStyle(
-                          color: Color(0xff515253),
+                          color: const Color(0xff515253),
                           fontFamily: 'Poppins',
                           fontSize: width * 0.03),
                     ),
@@ -339,10 +337,10 @@ class _FormfillState extends State<Formfill> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      minimumSize: Size(0.0, 40),
+                      minimumSize: const Size(0.0, 40),
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
-                      backgroundColor: Color(0xff0087FF),
+                      backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
                   child: Text(
