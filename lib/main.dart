@@ -1,9 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/api.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
-import 'package:flutter_application_1/loginpage.dart';
-import 'package:flutter_application_1/uploadimage.dart';
+import 'package:flutter_application_1/practise.dart';
+import 'package:flutter_application_1/startPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UploadImage(),
+      home: HomePage(),
     );
   }
 }

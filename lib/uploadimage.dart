@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/splashscreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -925,7 +926,12 @@ class _UploadImageState extends State<UploadImage> {
                 width: double.infinity,
                 // height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SplashScreen()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       padding: EdgeInsets.zero,

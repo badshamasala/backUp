@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/formfill.dart';
 
 enum Language {
   english,
@@ -21,11 +22,10 @@ class AccountType extends StatefulWidget {
 }
 
 class _AccountTypeState extends State<AccountType> {
-  
   Language _site = Language.english;
   @override
   Widget build(BuildContext context) {
-    Size size ;
+    Size size;
     double height, width;
     size = MediaQuery.of(context).size;
     height = size.height;
@@ -51,8 +51,8 @@ class _AccountTypeState extends State<AccountType> {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          border:
-                              Border.all(width: 0.5, color: const Color(0xff515253)),
+                          border: Border.all(
+                              width: 0.5, color: const Color(0xff515253)),
                           borderRadius: BorderRadius.circular(10)),
                       /*  width: 150,
               height: 150, */
@@ -267,7 +267,12 @@ class _AccountTypeState extends State<AccountType> {
               width: double.infinity,
               // height: 50,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Formfill()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
                     minimumSize: const Size(0.0, 40),
@@ -372,7 +377,8 @@ class _AccountTypeState extends State<AccountType> {
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         foregroundColor: const Color(0xff0087FF),
                       ),
-                      child: const Text('read more', style: TextStyle(fontSize: 11)),
+                      child: const Text('read more',
+                          style: TextStyle(fontSize: 11)),
                     ),
                   ],
                 ),

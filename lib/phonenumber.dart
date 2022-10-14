@@ -105,7 +105,6 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                         height: 10,
                                       ),
                                       const Text('choose language'),
-                                     
                                       const Divider(),
                                       ListTile(
                                         visualDensity:
@@ -116,7 +115,6 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                           style:
                                               TextStyle(fontFamily: 'Poppins'),
                                         ),
-                                        
                                         trailing: Radio(
                                           value: language.english,
                                           groupValue: _site,
@@ -356,7 +354,8 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                               onPressed: () {
                                                 Navigator.pop(context);
                                               },
-                                              icon: const Icon(Icons.arrow_back)),
+                                              icon:
+                                                  const Icon(Icons.arrow_back)),
                                           const SizedBox(
                                             width: 65,
                                           ),
@@ -394,8 +393,8 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                               context: context,
                                               builder: (context) {
                                                 return AlertDialog(
-                                                  title:
-                                                      const Text("Verification Code"),
+                                                  title: const Text(
+                                                      "Verification Code"),
                                                   content: Text(
                                                       'Code entered is $verificationCode'),
                                                 );
@@ -446,6 +445,9 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                 fontFamily: 'Poppins'),
                                           ),
                                         ),
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.35,
                                       ),
                                     ]),
                               );

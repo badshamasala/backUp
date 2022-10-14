@@ -57,7 +57,8 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: height * 0.03,
               ),
-              const Center(child: Image(image: AssetImage('assets/signup.png'))),
+              const Center(
+                  child: Image(image: AssetImage('assets/signup.png'))),
               SizedBox(
                 height: height * 0.03,
               ),
@@ -136,15 +137,22 @@ class _LoginPageState extends State<LoginPage> {
                 width: double.infinity,
                 // height: 50,
                 child: ElevatedButton(
-                  onPressed: isbuttonactive/* username.text.isNotEmpty && password.text.isNotEmpty */ ? () {
-                    /* if( username.text.isNotEmpty && password.text.isNotEmpty){
+                  onPressed:
+                      isbuttonactive /* username.text.isNotEmpty && password.text.isNotEmpty */ ? () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PhoneNumber()),
+                              );
+                              /* if( username.text.isNotEmpty && password.text.isNotEmpty){
                       final isbuttonactive = username.text.isNotEmpty;
 
       setState(() {
         this.isbuttonactive = isbuttonactive;
       });
                     } */
-                  } :null,
+                            }
+                          : null,
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
                       minimumSize: const Size(0.0, 40),

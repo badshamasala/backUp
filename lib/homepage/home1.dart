@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home1 extends StatefulWidget {
   const Home1({super.key});
@@ -102,53 +102,248 @@ class _Home1State extends State<Home1> {
           ],
         ),
         body: ListView.builder(
+            shrinkWrap: true,
             itemCount: userlist.length,
             itemBuilder: ((context, index) {
-              return Column(
-                children: [
-                  ListTile(
-                    leading:
-                        ClipOval(child: Image.network(userlist[index].image)),
-                    title: Text(userlist[index].userId),
-                    subtitle: Text(userlist[index].des),
-                  )
-                ],
+              return Card(
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        radius: 20,
+                        backgroundImage: NetworkImage(userlist[index].image),
+                      ),
+                      /* ClipOval(child: Image.network(userlist[index].image)), */
+                      title: Text(userlist[index].userId,
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 13)),
+                      subtitle: Text(userlist[index].des,
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 10)),
+                      trailing: SizedBox(
+                        width: 72,
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.zero,
+                                    tapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                    elevation: 0,
+                                    minimumSize: const Size(45.0, 25.0),
+                                    // padding: EdgeInsets.symmetric(
+                                    //     horizontal: 40.0, vertical: 20.0),
+                                    backgroundColor: const Color(0xff0087FF),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0))),
+                                onPressed: () {},
+                                child: Text(
+                                  'Follow',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins', fontSize: 10),
+                                )),
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {},
+                                icon: Icon(Icons.more_vert)),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Image.network(userlist[index].image),
+                    sizedbox(context),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {},
+                                icon: Icon(Icons.thumb_up)),
+                            Text(
+                              'Like',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 10),
+                            ),
+                            Text(
+                              userlist[index].likecount.toString(),
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 10),
+                            ),
+                          ],
+                        ),
+                        /*  sizedbox(context), */
+                        Column(
+                          children: [
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {},
+                                icon: Icon(Icons.chat_bubble_outline)),
+                            Text(
+                              'Comments',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 10),
+                            ),
+                            Text(
+                              userlist[index].commentcount.toString(),
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 10),
+                            ),
+                          ],
+                        ),
+                        /*    sizedbox(context), */
+                        Column(
+                          children: [
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {},
+                                icon: FaIcon(FontAwesomeIcons.shareFromSquare)),
+                            Text(
+                              'Share',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 10),
+                            ),
+                            Text(
+                              userlist[index].sharecount.toString(),
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 10),
+                            ),
+                          ],
+                        ),
+                        /*    sizedbox(context), */
+                        Column(
+                          children: [
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {},
+                                icon: FaIcon(FontAwesomeIcons.gift)),
+                            Text(
+                              'Gift',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 10),
+                            ),
+                            Text(
+                              userlist[index].giftcount.toString(),
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 10),
+                            ),
+                          ],
+                        ),
+                        /* sizedbox(context), */
+                        Text(
+                          userlist[index].viewcount.toString() + " View",
+                          style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
+                        ),
+                        /*  Text(
+                          'View',
+                          style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
+                        ), */
+                        Column(
+                          children: [
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {},
+                                icon: Icon(Icons.turned_in_not_sharp)),
+                            Text(
+                              'Save',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 10),
+                            ),
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
               );
             })));
   }
+}
+
+sizedbox(context) {
+  Size size;
+  double height, width;
+  size = MediaQuery.of(context).size;
+  height = size.height;
+  width = size.width;
+  return SizedBox(
+    height: height * 0.02,
+  );
 }
 
 class Modal {
   final String userId;
   final String des;
   final String image;
+  final int likecount;
+  final int commentcount;
+  final int sharecount;
+  final int giftcount;
+  final int viewcount;
 
   const Modal({
     required this.userId,
     required this.des,
     required this.image,
+    required this.likecount,
+    required this.commentcount,
+    required this.sharecount,
+    required this.giftcount,
+    required this.viewcount,
   });
 }
 
 final userlist = [
   Modal(
-      userId: 'Rashid',
-      des: 'thahhja ahjshjas jasjhhjs',
-      image:
-          'https://img.freepik.com/premium-photo/portrait-indian-lady-teacher-saree-stands-against-green-white-blackboard_466689-7101.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473'),
+    userId: '@Rashid',
+    des: 'Sponsered by https://myttube.com/',
+    image:
+        'https://img.freepik.com/premium-photo/portrait-indian-lady-teacher-saree-stands-against-green-white-blackboard_466689-7101.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    likecount: 3,
+    commentcount: 5,
+    sharecount: 10,
+    giftcount: 15,
+    viewcount: 500,
+  ),
   Modal(
-      userId: 'Rashid',
-      des: 'thahhja ahjshjas jasjhhjs',
-      image:
-          'https://img.freepik.com/premium-photo/portrait-indian-lady-teacher-saree-stands-against-green-white-blackboard_466689-7101.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473'),
+    userId: '@Akash',
+    des: 'thahhja ahjshjas jasjhhjs',
+    image:
+        'https://img.freepik.com/free-photo/view-3d-glasses-movies-tickets_23-2149558745.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    likecount: 3,
+    commentcount: 5,
+    sharecount: 10,
+    giftcount: 15,
+    viewcount: 500,
+  ),
   Modal(
-      userId: 'Rashid',
-      des: 'thahhja ahjshjas jasjhhjs',
-      image:
-          'https://img.freepik.com/premium-photo/portrait-indian-lady-teacher-saree-stands-against-green-white-blackboard_466689-7101.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473'),
+    userId: '@Pravin',
+    des: 'thahhja ahjshjas jasjhhjs',
+    image:
+        'https://img.freepik.com/premium-vector/realistic-movie-clapper-slapstick_260559-141.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    likecount: 3,
+    commentcount: 5,
+    sharecount: 10,
+    giftcount: 15,
+    viewcount: 500,
+  ),
   Modal(
-      userId: 'Rashid',
-      des: 'thahhja ahjshjas jasjhhjs',
-      image:
-          'https://img.freepik.com/premium-photo/portrait-indian-lady-teacher-saree-stands-against-green-white-blackboard_466689-7101.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473'),
+    userId: '@Farhan',
+    des: 'thahhja ahjshjas jasjhhjs',
+    image:
+        'https://img.freepik.com/free-photo/portrait-middle-age-man-videographer-studio_613910-11063.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    likecount: 3,
+    commentcount: 5,
+    sharecount: 10,
+    giftcount: 15,
+    viewcount: 500,
+  ),
 ];
