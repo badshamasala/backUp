@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/formfill.dart';
-
-enum Language {
-  english,
-  hindi,
-  marathi,
-  urud,
-  telugu,
-  bengali,
-  gujrati,
-  odia,
-  kannada,
-  tamil
-}
+import 'package:flutter_application_1/ACCOUNT_TYPE/form_brand.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/form_public.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 
 class AccountType extends StatefulWidget {
   const AccountType({super.key});
@@ -22,7 +12,11 @@ class AccountType extends StatefulWidget {
 }
 
 class _AccountTypeState extends State<AccountType> {
-  Language _site = Language.english;
+  var value1 = 'Private';
+  var value2 = 'Business';
+  var value3 = 'Public';
+  var groupvalues;
+
   @override
   Widget build(BuildContext context) {
     Size size;
@@ -46,7 +40,7 @@ class _AccountTypeState extends State<AccountType> {
                   Positioned(
                     top: 20,
                     left: 0,
-                    height: 50,
+                    height: 40,
                     width: 288,
                     child: Container(
                       decoration: BoxDecoration(
@@ -174,11 +168,11 @@ class _AccountTypeState extends State<AccountType> {
                 trailing: Transform.scale(
                   scale: 1.3,
                   child: Radio(
-                    value: Language.english,
-                    groupValue: _site,
-                    onChanged: (Language? value) {
+                    value: value1,
+                    groupValue: groupvalues,
+                    onChanged: (val) {
                       setState(() {
-                        _site = value!;
+                        groupvalues = value1;
                       });
                     },
                   ),
@@ -209,11 +203,11 @@ class _AccountTypeState extends State<AccountType> {
                 trailing: Transform.scale(
                   scale: 1.3,
                   child: Radio(
-                    value: Language.hindi,
-                    groupValue: _site,
-                    onChanged: (Language? value) {
+                    value: value2,
+                    groupValue: groupvalues,
+                    onChanged: (value) {
                       setState(() {
-                        _site = value!;
+                        groupvalues = value2;
                       });
                     },
                   ),
@@ -244,11 +238,11 @@ class _AccountTypeState extends State<AccountType> {
                 trailing: Transform.scale(
                   scale: 1.3,
                   child: Radio(
-                    value: Language.marathi,
-                    groupValue: _site,
-                    onChanged: (Language? value) {
+                    value: value3,
+                    groupValue: groupvalues,
+                    onChanged: (val) {
                       setState(() {
-                        _site = value!;
+                        groupvalues = value3;
                       });
                     },
                   ),
@@ -268,10 +262,27 @@ class _AccountTypeState extends State<AccountType> {
               // height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Formfill()),
-                  );
+                  setState(() {
+                    if (groupvalues == value1) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Formfill()),
+                      );
+                    } else if (groupvalues == value2) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FormfillBrand()),
+                      );
+                    } else if (groupvalues == value3) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FormfillPublic()),
+                      );
+                    }
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                     elevation: 0,

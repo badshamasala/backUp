@@ -96,7 +96,6 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
             ),
-            
           ],
         )),
       ),
@@ -352,7 +351,44 @@ class _ProfileState extends State<Profile> {
                   child: IconButton(
                       padding: EdgeInsets.zero,
                       constraints: BoxConstraints(),
-                      onPressed: () {},
+                      onPressed: () {
+                        showModalBottomSheet(
+                            isScrollControlled: true,
+                            shape: const RoundedRectangleBorder(
+                              // <-- SEE HERE
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(20.0),
+                              ),
+                            ),
+                            context: context,
+                            builder: (BuildContext context) {
+                              return StatefulBuilder(builder:
+                                  (BuildContext context, StateSetter setState) {
+                                return Column(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                    
+                  border: Border.all(width: 0.5, color: Color(0xffE2E2E2)),
+                  borderRadius: BorderRadius.circular(10)),
+                                      
+                                      height: 10,
+                                      width: 150,
+                                    ),
+                                    ListTile(
+                                      onTap: (){
+
+                                      },
+                                      title: Text('About profile'),
+                                      leading: Icon(Icons.error),
+                                      trailing: Icon(Icons.navigate_next),
+                                    ),
+                                    
+                                  ],
+                                );
+                              });
+                            });
+                      },
                       icon: Icon(Icons.more_horiz)),
                 ),
               )
