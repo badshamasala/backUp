@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/homepage/comment.dart';
 import 'package:flutter_application_1/homepage/home1.dart';
 import 'package:flutter_application_1/homepage/profile.dart';
+import 'package:flutter_application_1/homepage/profile_self.dart';
 import 'package:flutter_application_1/homepage/search.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     const Home1(),
     const Search(),
     const Comment(),
-    const Profile()
+    const ProfileSelf()
   ];
 
   @override
@@ -29,7 +30,6 @@ class _HomePageState extends State<HomePage> {
     height = size.height;
     width = size.width;
     return Scaffold(
-      
       body: screens[currentIndex],
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.only(

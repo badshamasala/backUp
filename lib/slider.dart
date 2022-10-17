@@ -109,6 +109,7 @@ class _Slider1State extends State<Slider1> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
+                    
                       onPressed: () {
                         showModalBottomSheet(
                           isScrollControlled: true,

@@ -19,7 +19,7 @@ class _ApiState extends State<Api> {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  /* getuserdata(); */
+                  getuserdata();
                   /*    apimethod1(); */
                   /*  fetchAlbum(); */
                 },
@@ -50,13 +50,13 @@ class Modal {
     required this.title,
   });
 
-/*   factory Modal.fromJson(Map<String, dynamic> json) {
+  factory Modal.fromJson(dynamic json) {
     return Modal(
       userId: json['userId'],
       id: json['id'],
       title: json['title'],
     );
-  } */
+  }
 }
 
 /* ekmethod() {
@@ -80,7 +80,7 @@ class Modal {
   }
 } */
 
-apimethod() async {
+/* apimethod() async {
   /*  var headers = {'Content-Type': 'application/json'}; */
   var request = http.Request(
       'GET', Uri.parse('https://jsonplaceholder.typicode.com/posts'));
@@ -96,9 +96,9 @@ apimethod() async {
   } else {
     print(response.reasonPhrase);
   }
-}
+} */
 
-apimethod1() async {
+/* apimethod1() async {
   /*  var headers = {'Content-Type': 'application/json'}; */
   final response = await http
       .get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
@@ -114,23 +114,23 @@ apimethod1() async {
   } else {
     print(response.reasonPhrase);
   }
-}
-
-/* getuserdata() async {
+} */
+  List<Modal> users = [];
+Future getuserdata() async {
   var response = await http
       .get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
 
-  Map<String,dynamic> jsondata = jsonDecode(response.body);
+var jsondata = jsonDecode(response.body);
 
-  List<Modal> users = [];
 
-  for (var u in jsondata) {
-    Modal user = Modal(
+  for(Map u in jsondata) {
+   /*  Modal user = Modal(
       userId: u['userId'],
       id: u['id'],
       title: u['title'],
-    );
-    users.add(user);
+    ); */
+    users.add(Modal.fromJson(u));
   }
   print(users.length);
-} */
+  return users;
+}

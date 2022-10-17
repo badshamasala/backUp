@@ -9,6 +9,8 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  bool value1 = false;
+  bool value2 = false;
   var coverheight = 120.0;
   var profile = 100.0;
 
@@ -365,25 +367,209 @@ class _ProfileState extends State<Profile> {
                               return StatefulBuilder(builder:
                                   (BuildContext context, StateSetter setState) {
                                 return Column(
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
+                                    SizedBox(
+                                      height: height * 0.01,
+                                    ),
                                     Container(
                                       decoration: BoxDecoration(
-                                    
-                  border: Border.all(width: 0.5, color: Color(0xffE2E2E2)),
-                  borderRadius: BorderRadius.circular(10)),
-                                      
-                                      height: 10,
-                                      width: 150,
+                                          color: Color.fromARGB(
+                                              255, 168, 161, 161),
+                                          border: Border.all(
+                                              width: 0.5,
+                                              color: Color.fromARGB(
+                                                  255, 168, 161, 161)),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      height: 5,
+                                      width: 100,
                                     ),
+                                    SizedBox(
+                                      height: height * 0.01,
+                                    ),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(left: 18.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            '@Nanncyjain23',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xff0087FF)),
+                                          ),
+                                          FaIcon(FontAwesomeIcons.certificate,
+                                              size: 15,
+                                              color: Color(0xff0087FF))
+                                        ],
+                                      ),
+                                    ),
+                                    Divider(),
                                     ListTile(
-                                      onTap: (){
-
-                                      },
-                                      title: Text('About profile'),
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Text(
+                                        'About profile',
+                                        style: TextStyle(fontFamily: 'Poppins'),
+                                      ),
                                       leading: Icon(Icons.error),
                                       trailing: Icon(Icons.navigate_next),
                                     ),
-                                    
+                                    ListTile(
+                                      contentPadding:
+                                          EdgeInsets.fromLTRB(10, 0, 8, 0),
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 5.0),
+                                        child: Text('my favourties profile',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: value1
+                                                    ? Color(0xff0087FF)
+                                                    : Colors.black)),
+                                      ),
+                                      leading: Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 6.0),
+                                        child: Icon(Icons.heart_broken,
+                                            color: value1
+                                                ? Color(0xff0087FF)
+                                                : Colors.black),
+                                      ),
+                                      trailing: Checkbox(
+                                          materialTapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          shape: const CircleBorder(),
+                                          value: value1,
+                                          onChanged: (value1) {
+                                            setState(() {
+                                              this.value1 = value1!;
+                                            });
+                                          }),
+                                    ),
+                                    ListTile(
+                                      contentPadding:
+                                          EdgeInsets.fromLTRB(10, 0, 8, 0),
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 5.0),
+                                        child: Text('my close friends',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: value2
+                                                    ? Color(0xff0087FF)
+                                                    : Colors.black)),
+                                      ),
+                                      leading: Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 6.0),
+                                        child: Icon(Icons.gif,
+                                            color: value2
+                                                ? Color(0xff0087FF)
+                                                : Colors.black),
+                                      ),
+                                      trailing: Checkbox(
+                                          materialTapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          shape: const CircleBorder(),
+                                          value: value2,
+                                          onChanged: (value2) {
+                                            setState(() {
+                                              this.value2 = value2!;
+                                            });
+                                          }),
+                                    ),
+                                    ListTile(
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Text('share this profile',
+                                          style:
+                                              TextStyle(fontFamily: 'Poppins')),
+                                      leading: Icon(Icons.share),
+                                      trailing: Icon(Icons.navigate_next),
+                                    ),
+                                    ListTile(
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Text('earn point this profile',
+                                          style:
+                                              TextStyle(fontFamily: 'Poppins')),
+                                      leading: Icon(Icons.gif_box),
+                                      trailing: Icon(Icons.navigate_next),
+                                    ),
+                                    ListTile(
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Text('group join this profile',
+                                          style:
+                                              TextStyle(fontFamily: 'Poppins')),
+                                      leading: Icon(Icons.group),
+                                      trailing: Icon(Icons.navigate_next),
+                                    ),
+                                    ListTile(
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Text('copy URL this profile',
+                                          style:
+                                              TextStyle(fontFamily: 'Poppins')),
+                                      leading: Icon(Icons.notes),
+                                      trailing: Icon(Icons.navigate_next),
+                                    ),
+                                    ListTile(
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Text('QR Code this profile',
+                                          style:
+                                              TextStyle(fontFamily: 'Poppins')),
+                                      leading: Icon(Icons.qr_code),
+                                      trailing: Icon(Icons.navigate_next),
+                                    ),
+                                    ListTile(
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Text('Report this profile',
+                                          style:
+                                              TextStyle(fontFamily: 'Poppins')),
+                                      leading: Icon(Icons.report),
+                                      trailing: Icon(Icons.navigate_next),
+                                    ),
+                                    ListTile(
+                                      visualDensity:
+                                          const VisualDensity(vertical: -3),
+                                      dense: true,
+                                      onTap: () {},
+                                      title: Text('Block this profile',
+                                          style:
+                                              TextStyle(fontFamily: 'Poppins')),
+                                      leading: Icon(Icons.error),
+                                      trailing: Icon(Icons.navigate_next),
+                                    ),
                                   ],
                                 );
                               });

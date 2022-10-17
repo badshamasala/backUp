@@ -16,6 +16,7 @@ class UploadImage extends StatefulWidget {
 }
 
 class _UploadImageState extends State<UploadImage> {
+  var size, height, width;
   DateTime dateTime = DateTime.now();
   bool male = true;
   bool female = true;
@@ -34,7 +35,7 @@ class _UploadImageState extends State<UploadImage> {
 
   bool btnchng = true;
 
-  var size, height, width;
+  
   File? image;
   Future pickImage(ImageSource source) async {
     try {

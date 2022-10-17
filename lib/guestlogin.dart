@@ -70,8 +70,7 @@ class _GuestLoginState extends State<GuestLogin> {
                                   const Text('choose Language'),
                                   const Divider(),
                                   ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
+                                    visualDensity:  VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text(
                                       'English',
@@ -265,7 +264,8 @@ class _GuestLoginState extends State<GuestLogin> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const LoginPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
