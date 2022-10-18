@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/api.dart';
+import 'package:flutter_application_1/homepage/api2.dart';
+import 'package:flutter_application_1/homepage/api3.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/provider.dart';
 import 'package:provider/provider.dart';
+
+import 'homepage/apibadsha.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomePage(),
+        home:BadshakiApi (),
       ),
     );
   }

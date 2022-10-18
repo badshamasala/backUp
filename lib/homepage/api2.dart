@@ -1,23 +1,25 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/model.dart';
+import 'package:flutter_application_1/model/test_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 
-class Api extends StatefulWidget {
-  const Api({super.key});
+class Api2 extends StatefulWidget {
+  const Api2({super.key});
 
   @override
-  State<Api> createState() => _ApiState();
+  State<Api2> createState() => _Api2State();
 }
 
-class _ApiState extends State<Api> {
+class _Api2State extends State<Api2> {
   var futureAlbum;
 
   @override
   void initState() {
     super.initState();
-    futureAlbum = getuserdata();
   }
   // ··
 
@@ -25,7 +27,35 @@ class _ApiState extends State<Api> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
-        body: FutureBuilder<List<Modal>>(
+        body: SingleChildScrollView(
+          child: FutureBuilder<TestModel?>(
+              future: testGetUserData(),
+              builder: (context, AsyncSnapshot<TestModel?> snapshot) {
+                if (snapshot.hasData) {
+                  if (snapshot.data != null) {
+                    TestModel? testModel = snapshot.data;
+                    return ListView.builder(
+                       /*  physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true, */
+                        itemCount: testModel!.genres.length,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              Text(
+                                  testModel.genres[index].id.toString()),
+                              Text(
+                                  testModel.id.toString()),
+                            ],
+                          );
+                        });
+                  }
+                }
+
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }),
+        ) /* FutureBuilder<List<Modal>>(
             future: futureAlbum,
             builder: (context, snapshot) {
               if (snapshot.data == null) {
@@ -45,30 +75,12 @@ class _ApiState extends State<Api> {
                   );
                 },
               );
-            }));
+            }) */
+        );
   }
-
-  Widget buildSkeleton(BuildContext context) => Row(
-        children: <Widget>[
-          SkeletonContainer.circular(
-            width: 70,
-            height: 70,
-          ),
-          const SizedBox(width: 16),
-          SkeletonContainer.rounded(
-            width: MediaQuery.of(context).size.width * 0.4,
-            height: 25,
-          ),
-          const SizedBox(height: 8),
-          SkeletonContainer.rounded(
-            width: 50,
-            height: 13,
-          ),
-        ],
-      );
 }
 
-class Modal {
+/* class Modal {
   final int userId;
   final int id;
   final String title;
@@ -85,6 +97,32 @@ class Modal {
       id: json['id'],
       title: json['title'],
     );
+  }
+} */
+
+/* Future<Modal1> getuserdata1() async {
+  var response = await http.get(Uri.parse(
+      'https://api.themoviedb.org/3/movie/550?api_key=83beb8d5f3e742eba3e7222adb04366d'));
+  Map<String, dynamic> jsondata = jsonDecode(response.body);
+  Modal1 users1 = Modal1.fromJson(jsondata);
+  print(jsondata);
+// where is modal1
+  return users1;
+} */
+
+Future<TestModel?> testGetUserData() async {
+  /* final _logger = Logger(); */
+  var response = await http.get(Uri.parse(
+      'https://api.themoviedb.org/3/movie/550?api_key=83beb8d5f3e742eba3e7222adb04366d'));
+
+  if (response.statusCode == 200) {
+    final testModel = testModelFromJson(response.body);
+    /* _logger.d(response.body);
+    _logger.d(testModel); */
+    return testModel;
+  } else {
+    //handle error
+    return null;
   }
 }
 
@@ -133,21 +171,21 @@ class SkeletonContainer extends StatelessWidget {
       );
 }
 
-Future<List<Modal>> getuserdata() async {
-  var response =
-      await http.get(Uri.parse('https://jsonplaceholder.typicode.com/albums'));
-  var jsondata = jsonDecode(response.body);
-  List<Modal> users = [];
-  /*  print(jsondata); */
-
-  for (var u in jsondata) {
-    Modal user = Modal(
-      userId: u['userId'],
-      id: u['id'],
-      title: u['title'],
+Widget buildSkeleton(BuildContext context) => Row(
+      children: <Widget>[
+        SkeletonContainer.circular(
+          width: 70,
+          height: 70,
+        ),
+        const SizedBox(width: 16),
+        SkeletonContainer.rounded(
+          width: MediaQuery.of(context).size.width * 0.4,
+          height: 25,
+        ),
+        const SizedBox(height: 8),
+        SkeletonContainer.rounded(
+          width: 50,
+          height: 13,
+        ),
+      ],
     );
-    users.add(user);
-  }
-  /*  print(users.length); */
-  return users;
-}
