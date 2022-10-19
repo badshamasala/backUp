@@ -1,9 +1,9 @@
 import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/colors.dart';
+import 'package:flutter_application_1/homepage/video_player.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -15,6 +15,20 @@ class ProfileSelf extends StatefulWidget {
 }
 
 class _ProfileSelfState extends State<ProfileSelf> {
+  var photos = [
+    'https://img.freepik.com/free-photo/green-world-with-tree-background_1048-1484.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/glittery-gold-butterfly-vintage-animal-illustration_53876-165454.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/vintage-victorian-style-engraving-set-original-from-british-library-digitally-enhanced-by-rawpixel_53876-165338.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/lovely-easter-bunny-garden-design-element-set_53876-153469.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/yellow-easter-bird-design-element-cute-watercolor-illustration_53876-145496.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/easter-bird-design-element-cute-watercolor-illustration_53876-104101.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/green-world-with-tree-background_1048-1484.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/glittery-gold-butterfly-vintage-animal-illustration_53876-165454.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/flower-robot-environment-cute-concept_53876-31814.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/lovely-easter-bunny-garden-design-element-set_53876-153469.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/yellow-easter-bird-design-element-cute-watercolor-illustration_53876-145496.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'https://img.freepik.com/free-photo/fun-dog-3d-illustration_183364-81022.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+  ];
   bool username = false;
   bool fullname = false;
   bool full1 = false;
@@ -49,6 +63,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
 
   @override
   Widget build(BuildContext context) {
+    /*  TabController tabController =TabController(length: 4, vsync:this); */
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -64,6 +79,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
             buildtop(),
             buildcontent(),
             TabBar(
+              /* controller: tabController, */
               indicatorSize: TabBarIndicatorSize.tab,
               indicatorPadding: EdgeInsets.zero,
               labelColor: Color(0xff0087FF),
@@ -131,6 +147,212 @@ class _ProfileSelfState extends State<ProfileSelf> {
                 ),
               ],
             ),
+            SizedBox(
+              /* padding: const EdgeInsets.only(left: 20), */
+              height: 300,
+              /* width: double.maxFinite, */
+              child: TabBarView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 2),
+                    child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
+                                crossAxisCount: 3),
+                        scrollDirection: Axis.vertical,
+                        itemCount: photos.length,
+                        itemBuilder: (_, i) {
+                          return Container(
+                            /*       width: 200, */
+                            height: 300,
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(5),
+                              image: DecorationImage(
+                                  image: NetworkImage(photos[i]),
+                                  fit: BoxFit.cover),
+                            ),
+                          );
+                        }),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 2),
+                    child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                mainAxisExtent: 200,
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
+                                crossAxisCount: 3),
+                        scrollDirection: Axis.vertical,
+                        itemCount: photos.length,
+                        itemBuilder: (_, i) {
+                          return Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                /*      width: 200,
+                              height: 300, */
+
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                        photos[i],
+                                      ),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                              RawMaterialButton(
+                                padding: EdgeInsets.zero,
+                                constraints:
+                                    BoxConstraints(minHeight: 45, minWidth: 45),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const VideoApp()),
+                                  );
+                                },
+                                elevation: 0,
+                                fillColor: Colors.transparent,
+                                child: FaIcon(
+                                  FontAwesomeIcons.circlePlay,
+                                  color: Color(0xff333333),
+                                  size: 17,
+                                ),
+                                /*  padding: EdgeInsets.all(15.0), */
+                                shape: CircleBorder(
+                                    /* side: BorderSide(
+                                                      width: 1,
+                                                      color: Color(0xff0087FF)) */
+                                    ),
+                              ),
+                            ],
+                          );
+                        }),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 2),
+                    child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
+                                crossAxisCount: 3),
+                        scrollDirection: Axis.vertical,
+                        itemCount: photos.length,
+                        itemBuilder: (_, i) {
+                          return Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                /*      width: 200,
+                              height: 300, */
+
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                        photos[i],
+                                      ),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                              RawMaterialButton(
+                                padding: EdgeInsets.zero,
+                                constraints:
+                                    BoxConstraints(minHeight: 45, minWidth: 45),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const VideoApp()),
+                                  );
+                                },
+                                elevation: 0,
+                                fillColor: Colors.transparent,
+                                child: FaIcon(
+                                  FontAwesomeIcons.circlePlay,
+                                  color: Color(0xff333333),
+                                  size: 17,
+                                ),
+                                /*  padding: EdgeInsets.all(15.0), */
+                                shape: CircleBorder(
+                                    /* side: BorderSide(
+                                                      width: 1,
+                                                      color: Color(0xff0087FF)) */
+                                    ),
+                              ),
+                            ],
+                          );
+                        }),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 2),
+                    child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
+                                crossAxisCount: 3),
+                        scrollDirection: Axis.vertical,
+                        itemCount: photos.length,
+                        itemBuilder: (_, i) {
+                          return Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                /*      width: 200,
+                              height: 300, */
+
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                        photos[i],
+                                      ),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                              RawMaterialButton(
+                                padding: EdgeInsets.zero,
+                                constraints:
+                                    BoxConstraints(minHeight: 45, minWidth: 45),
+                                onPressed: () {
+                                  /*   pickImage(ImageSource.camera);
+                                  Navigator.of(context).pop();
+                                  setState(() {
+                                    btnchng = false;
+                                  }); */
+                                },
+                                elevation: 0,
+                                fillColor: Colors.transparent,
+                                child: FaIcon(
+                                  FontAwesomeIcons.circlePlay,
+                                  color: Color(0xff333333),
+                                  size: 17,
+                                ),
+                                /*  padding: EdgeInsets.all(15.0), */
+                                shape: CircleBorder(
+                                    /* side: BorderSide(
+                                                      width: 1,
+                                                      color: Color(0xff0087FF)) */
+                                    ),
+                              ),
+                            ],
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            )
           ],
         )),
       ),
@@ -240,13 +462,28 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           'Edit profile',
-                                          style:
-                                              TextStyle(fontFamily: 'Poppins'),
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.bold),
                                         ),
+                                        IconButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            icon: FaIcon(
+                                              FontAwesomeIcons.x,
+                                              size: 15,
+                                            ))
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
                                         Column(
                                           children: [
                                             SizedBox(
@@ -484,14 +721,6 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                             ),
                                           ],
                                         ),
-                                        IconButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.x,
-                                              size: 15,
-                                            ))
                                       ],
                                     ),
                                     SizedBox(
@@ -878,7 +1107,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                 child: Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: const Text(
-                    "Following",
+                    "Go to Dashboard",
                     style: TextStyle(
                         color: Color(0xff333333),
                         fontSize: 10,
@@ -901,6 +1130,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
+
     return Stack(
       clipBehavior: Clip.none,
       alignment: Alignment.bottomLeft,
@@ -921,11 +1151,55 @@ class _ProfileSelfState extends State<ProfileSelf> {
             /*  mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
             children: [
               sizedbox(context),
-              CircleAvatar(
+              Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Container(
+                      child: image != null
+                          ? CircleAvatar(
+                              radius: 50,
+                              backgroundColor: Colors.blue,
+                              child: CircleAvatar(
+                                radius: 47,
+                                backgroundColor: Colors.white,
+                                child: CircleAvatar(
+                                  radius: 45,
+                                  backgroundColor: Colors.grey.shade800,
+                                  backgroundImage: FileImage(image!),
+                                ),
+                              ),
+                            )
+                          // Image. file
+                          : CircleAvatar(
+                              radius: 50,
+                              backgroundColor: Colors.blue,
+                              child: CircleAvatar(
+                                radius: 47,
+                                backgroundColor: Colors.white,
+                                child: CircleAvatar(
+                                  radius: 45,
+                                  backgroundColor: Colors.grey.shade800,
+                                  backgroundImage:
+                                      AssetImage('assets/image.png'),
+                                ),
+                              ),
+                            )),
+                  IconButton(
+                      onPressed: () {
+                        buildbutton();
+                      },
+                      icon: FaIcon(
+                        FontAwesomeIcons.penToSquare,
+                        size: 15,
+                        color: Colors.green,
+                      ))
+                ],
+              ),
+              /* CircleAvatar(
                 radius: profile / 2,
                 backgroundImage: NetworkImage(
                     'https://fonts.freepiklabs.com/storage/1384/conversions/Cover-thumb2x.jpg'),
-              ),
+              ), */
               sizedbox(context),
               OutlinedButton(
                 onPressed: () {},
@@ -1320,5 +1594,141 @@ class _ProfileSelfState extends State<ProfileSelf> {
       hintStyle: TextStyle(fontSize: 10),
       contentPadding: const EdgeInsets.all(15),
     );
+  }
+
+  buildbutton() {
+    Size size;
+    double height, width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
+    return showModalBottomSheet(
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          // <-- SEE HERE
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(20.0),
+          ),
+        ),
+        context: context,
+        builder: (BuildContext context) {
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                height: height * 0.01,
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Container(
+                  color: const Color(0xffE2E2E2),
+                  height: 7,
+                  width: 70,
+                ),
+              ),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 80.0),
+                    child: const Text(
+                      'Your Profile Photo',
+                      style: TextStyle(
+                          color: Color(0xff333333),
+                          fontSize: 15,
+                          fontFamily: 'Poppins'),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Divider(),
+              SizedBox(
+                height: height * 0.03,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      RawMaterialButton(
+                        padding: EdgeInsets.zero,
+                        constraints:
+                            BoxConstraints(minHeight: 45, minWidth: 45),
+                        onPressed: () {
+                          pickImage(ImageSource.camera);
+                          Navigator.of(context).pop();
+                          setState(() {
+                            btnchng = false;
+                          });
+                        },
+                        elevation: 0,
+                        fillColor: Color(0xffDADADA),
+                        child: FaIcon(
+                          FontAwesomeIcons.camera,
+                          color: Color(0xff0087FF),
+                          size: 17,
+                        ),
+                        /*  padding: EdgeInsets.all(15.0), */
+                        shape: CircleBorder(
+                            /* side: BorderSide(
+                                                          width: 1,
+                                                          color: Color(0xff0087FF)) */
+                            ),
+                      ),
+                      Text(
+                        'camera',
+                        style: TextStyle(
+                            fontFamily: 'Poppins', color: Color(0xff333333)),
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      RawMaterialButton(
+                        padding: EdgeInsets.zero,
+                        constraints:
+                            BoxConstraints(minHeight: 45, minWidth: 45),
+                        onPressed: () {
+                          pickImage(ImageSource.gallery);
+                          Navigator.of(context).pop();
+                          setState(() {
+                            btnchng = false;
+                          });
+                        },
+                        elevation: 0,
+                        fillColor: Color(0xffDADADA),
+                        child: Icon(
+                          Icons.photo,
+                          color: Color(0xff0087FF),
+                          size: 17,
+                        ),
+                        /*  padding: EdgeInsets.all(15.0), */
+                        shape: CircleBorder(
+                            /* side: BorderSide(
+                                                          width: 1,
+                                                          color: Color(0xff0087FF)) */
+                            ),
+                      ),
+                      Text(
+                        'gallery',
+                        style: TextStyle(
+                            fontFamily: 'Poppins', color: Color(0xff333333)),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.1,
+              ),
+            ],
+          );
+        });
   }
 }

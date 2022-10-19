@@ -12,6 +12,7 @@ class Home1 extends StatefulWidget {
 class _Home1State extends State<Home1> {
   @override
   Widget build(BuildContext context) {
+    
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;

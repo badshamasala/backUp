@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/api.dart';
 import 'package:flutter_application_1/homepage/api2.dart';
 import 'package:flutter_application_1/homepage/api3.dart';
+import 'package:flutter_application_1/homepage/api_dusra_method.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_application_1/homepage/news_api.dart';
+import 'package:flutter_application_1/homepage/video_player.dart';
 import 'package:flutter_application_1/provider.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:BadshakiApi (),
+        home: Api123(),
       ),
     );
   }

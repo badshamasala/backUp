@@ -36,58 +36,68 @@ class _HomePageState extends State<HomePage> {
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
         ),
-        child: BottomNavigationBar(
-            backgroundColor: const Color.fromARGB(255, 241, 229, 228),
-            type: BottomNavigationBarType.fixed,
-            currentIndex: currentIndex,
-            onTap: (index) => setState(() => currentIndex = index),
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            selectedItemColor: const Color(0xff0B1C3D),
-            items: [
-              const BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.only(right: 16.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.house,
+        child: Container(
+          height: 53,
+          child: BottomNavigationBar(
+              backgroundColor: Color.fromARGB(255, 249, 246, 246),
+              type: BottomNavigationBarType.fixed,
+              currentIndex: currentIndex,
+              onTap: (index) => setState(() => currentIndex = index),
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              selectedItemColor: const Color(0xff0B1C3D),
+              items: [
+                const BottomNavigationBarItem(
+                    icon: Padding(
+                      padding: EdgeInsets.only(right: 16.0),
+                      child: FaIcon(
+                        FontAwesomeIcons.house,
+                        size: 20,
+                      ),
                     ),
-                  ),
-                  label: 'home'),
-              const BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.only(right: 30),
-                    child: FaIcon(
-                      FontAwesomeIcons.magnifyingGlass,
+                    label: 'home'),
+                const BottomNavigationBarItem(
+                    icon: Padding(
+                      padding: EdgeInsets.only(right: 30),
+                      child: FaIcon(
+                        FontAwesomeIcons.magnifyingGlass,
+                        size: 20,
+                      ),
                     ),
-                  ),
-                  label: 'home'),
-              const BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.only(left: 30.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.comment,
+                    label: ''),
+                const BottomNavigationBarItem(
+                    icon: Padding(
+                      padding: EdgeInsets.only(left: 30.0),
+                      child: FaIcon(
+                        FontAwesomeIcons.comment,
+                        size: 20,
+                      ),
                     ),
-                  ),
-                  label: 'home'),
-              const BottomNavigationBarItem(
-                  icon: FaIcon(
-                    FontAwesomeIcons.user,
-                  ),
-                  label: 'home'),
-            ]),
+                    label: 'home'),
+                const BottomNavigationBarItem(
+                    icon: FaIcon(
+                      FontAwesomeIcons.user,
+                      size: 20,
+                    ),
+                    label: ''),
+              ]),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        elevation: 0,
-        child: const Image(
-          image: AssetImage('assets/logo.png'),
-          height: 35,
-          width: 35,
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(top: 25),
+        child: FloatingActionButton(
+          elevation: 0,
+          child: const Image(
+            image: AssetImage('assets/logo.png'),
+            height: 35,
+            width: 35,
+          ),
+          backgroundColor: Colors.white,
+          onPressed: () {
+            /* Overlay.of(context)?.insert(entry); */
+          },
         ),
-        backgroundColor: Colors.white,
-        onPressed: () {
-          /* Overlay.of(context)?.insert(entry); */
-        },
       ),
     );
   }

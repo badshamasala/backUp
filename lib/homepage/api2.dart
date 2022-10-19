@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model.dart';
 import 'package:flutter_application_1/model/test_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:logger/logger.dart';
+
 import 'package:skeleton_text/skeleton_text.dart';
 
 class Api2 extends StatefulWidget {
