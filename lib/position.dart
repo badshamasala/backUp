@@ -55,7 +55,7 @@ class _StackAndPositionedDemoState extends State<StackAndPositionedDemo> {
                               color: const Color(0xffC4C4C4),
                               fontFamily: 'Poppins',
                               fontSize: width * 0.06),
-                        ),
+                            ),
                         SizedBox(
                           width: width * 0.15,
                         ),

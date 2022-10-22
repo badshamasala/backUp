@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/PRACTISE/dropdown1.dart';
+import 'package:flutter_application_1/PRACTISE/login.dart';
+import 'package:flutter_application_1/PRACTISE/share.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_application_1/PRACTISE/postapi.dart';
 import 'package:flutter_application_1/provider.dart';
 import 'package:flutter_application_1/startPage.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => ValidationProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => ValidationProvider())],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
@@ -47,7 +52,7 @@ class MyApp extends StatelessWidget {
         return supportedLocales.first;
       },
 
-        home: HomePage(),
+        home: Dropdown1(),
       ),
     );
   }
