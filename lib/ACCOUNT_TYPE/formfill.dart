@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 
 class Formfill extends StatefulWidget {
-  const Formfill({super.key});
+  final value;
+  const Formfill({required this.value});
 
   @override
   State<Formfill> createState() => _FormfillState();

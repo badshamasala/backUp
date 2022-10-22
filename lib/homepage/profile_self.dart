@@ -48,12 +48,26 @@ class _ProfileSelfState extends State<ProfileSelf> {
   bool btnchng = true;
 
   File? image;
-  Future pickImage(ImageSource source) async {
+  File? image1;
+  Future pickforprofile(ImageSource source) async {
     try {
       final image = await ImagePicker().pickImage(source: source);
       if (image == null) return;
       final imageTemporary = File(image.path);
       setState(() => this.image = imageTemporary);
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print('Failed to pick image: $e');
+      }
+    }
+  }
+
+  Future pickforbanner(ImageSource source) async {
+    try {
+      final image1 = await ImagePicker().pickImage(source: source);
+      if (image1 == null) return;
+      final imageTemporary = File(image1.path);
+      setState(() => this.image1 = imageTemporary);
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print('Failed to pick image: $e');
@@ -471,6 +485,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                               fontWeight: FontWeight.bold),
                                         ),
                                         IconButton(
+                                            padding: EdgeInsets.zero,
+                                            constraints: BoxConstraints(),
                                             onPressed: () {
                                               Navigator.of(context).pop();
                                             },
@@ -485,29 +501,33 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Column(
+                                          mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            SizedBox(
-                                              height: height * 0.01,
-                                            ),
                                             Container(
                                               child: image != null
-                                                  ? ClipOval(
-                                                      child: Image.file(
-                                                        image!,
-                                                        width: 70,
-                                                        height: 70,
-                                                        fit: BoxFit.cover,
+                                                  ? CircleAvatar(
+                                                      radius: 40,
+                                                      backgroundColor:
+                                                          Colors.blue,
+                                                      child: CircleAvatar(
+                                                        radius: 37,
+                                                        backgroundColor:
+                                                            Colors.white,
+                                                        child: CircleAvatar(
+                                                          radius: 35,
+                                                          backgroundColor:
+                                                              Colors.grey
+                                                                  .shade800,
+                                                          backgroundImage:
+                                                              FileImage(image!),
+                                                        ),
                                                       ),
                                                     )
                                                   // Image. file
-                                                  : const CircleAvatar(
-                                                      backgroundColor:
-                                                          Colors.red,
-                                                      radius: 40,
-                                                      backgroundImage:
-                                                          AssetImage(
-                                                        'assets/image.png',
-                                                      ),
+                                                  : Icon(
+                                                      Icons.account_circle,
+                                                      size: 80,
+                                                      color: Colors.grey,
                                                     ),
                                             ),
                                             SizedBox(
@@ -613,7 +633,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                                 BoxConstraints(minHeight: 45, minWidth: 45),
                                                                             onPressed:
                                                                                 () {
-                                                                              pickImage(ImageSource.camera);
+                                                                              pickforprofile(ImageSource.camera);
                                                                               Navigator.of(context).pop();
                                                                               setState(() {
                                                                                 btnchng = false;
@@ -652,7 +672,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                                 BoxConstraints(minHeight: 45, minWidth: 45),
                                                                             onPressed:
                                                                                 () {
-                                                                              pickImage(ImageSource.gallery);
+                                                                              pickforprofile(ImageSource.gallery);
                                                                               Navigator.of(context).pop();
                                                                               setState(() {
                                                                                 btnchng = false;
@@ -862,6 +882,277 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                     icon: Icon(Icons.edit))
                                           ],
                                         )),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    image1 != null
+                                        ? Container(
+                                            decoration: BoxDecoration(
+                                              color: Colors.transparent,
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              border: Border.all(
+                                                  color: Colors.black,
+                                                  width: 0.1),
+                                            ),
+                                            height: 70,
+                                            width: double.infinity,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              child: Image.file(
+                                                image1!,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ))
+                                        // Image. file
+                                        : Container(
+                                            decoration: BoxDecoration(
+                                              color: Colors.transparent,
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              border: Border.all(
+                                                  color: Colors.black,
+                                                  width: 0.1),
+                                            ),
+                                            height: 70,
+                                            width: double.infinity,
+                                            child: Icon(
+                                              Icons.photo,
+                                              size: 50,
+                                              color: Colors.grey,
+                                            )),
+                                    SizedBox(
+                                      height: 19,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          TextButton(
+                                              style: TextButton.styleFrom(
+                                                  padding: EdgeInsets.zero,
+                                                  tapTargetSize:
+                                                      MaterialTapTargetSize
+                                                          .shrinkWrap),
+                                              onPressed: () {
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        const RoundedRectangleBorder(
+                                                      // <-- SEE HERE
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            20.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        children: [
+                                                          SizedBox(
+                                                            height:
+                                                                height * 0.01,
+                                                          ),
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8),
+                                                            child: Container(
+                                                              color: const Color(
+                                                                  0xffE2E2E2),
+                                                              height: 7,
+                                                              width: 70,
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            height:
+                                                                height * 0.02,
+                                                          ),
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                            .only(
+                                                                        left:
+                                                                            80.0),
+                                                                child:
+                                                                    const Text(
+                                                                  'Your Banner',
+                                                                  style: TextStyle(
+                                                                      color: Color(
+                                                                          0xff333333),
+                                                                      fontSize:
+                                                                          15,
+                                                                      fontFamily:
+                                                                          'Poppins'),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          SizedBox(
+                                                            height:
+                                                                height * 0.01,
+                                                          ),
+                                                          Divider(),
+                                                          SizedBox(
+                                                            height:
+                                                                height * 0.03,
+                                                          ),
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceEvenly,
+                                                            children: [
+                                                              Column(
+                                                                children: [
+                                                                  RawMaterialButton(
+                                                                    padding:
+                                                                        EdgeInsets
+                                                                            .zero,
+                                                                    constraints: BoxConstraints(
+                                                                        minHeight:
+                                                                            45,
+                                                                        minWidth:
+                                                                            45),
+                                                                    onPressed:
+                                                                        () {
+                                                                      pickforbanner(
+                                                                          ImageSource
+                                                                              .camera);
+                                                                      Navigator.of(
+                                                                              context)
+                                                                          .pop();
+                                                                      setState(
+                                                                          () {
+                                                                        btnchng =
+                                                                            false;
+                                                                      });
+                                                                    },
+                                                                    elevation:
+                                                                        0,
+                                                                    fillColor:
+                                                                        Color(
+                                                                            0xffDADADA),
+                                                                    child:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .camera,
+                                                                      color: Color(
+                                                                          0xff0087FF),
+                                                                      size: 17,
+                                                                    ),
+                                                                    /*  padding: EdgeInsets.all(15.0), */
+                                                                    shape: CircleBorder(
+                                                                        /* side: BorderSide(
+                                                  width: 1,
+                                                  color: Color(0xff0087FF)) */
+                                                                        ),
+                                                                  ),
+                                                                  Text(
+                                                                    'camera',
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Color(
+                                                                            0xff333333)),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                              Column(
+                                                                children: [
+                                                                  RawMaterialButton(
+                                                                    padding:
+                                                                        EdgeInsets
+                                                                            .zero,
+                                                                    constraints: BoxConstraints(
+                                                                        minHeight:
+                                                                            45,
+                                                                        minWidth:
+                                                                            45),
+                                                                    onPressed:
+                                                                        () {
+                                                                      pickforbanner(
+                                                                          ImageSource
+                                                                              .gallery);
+                                                                      Navigator.of(
+                                                                              context)
+                                                                          .pop();
+                                                                      setState(
+                                                                          () {
+                                                                        btnchng =
+                                                                            false;
+                                                                      });
+                                                                    },
+                                                                    elevation:
+                                                                        0,
+                                                                    fillColor:
+                                                                        Color(
+                                                                            0xffDADADA),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .photo,
+                                                                      color: Color(
+                                                                          0xff0087FF),
+                                                                      size: 17,
+                                                                    ),
+                                                                    /*  padding: EdgeInsets.all(15.0), */
+                                                                    shape: CircleBorder(
+                                                                        /* side: BorderSide(
+                                                  width: 1,
+                                                  color: Color(0xff0087FF)) */
+                                                                        ),
+                                                                  ),
+                                                                  Text(
+                                                                    'gallery',
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Color(
+                                                                            0xff333333)),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          SizedBox(
+                                                            height:
+                                                                height * 0.1,
+                                                          ),
+                                                        ],
+                                                      );
+                                                    });
+                                              },
+                                              child: btnchng
+                                                  ? Text(
+                                                      'upload banner',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize:
+                                                              width * 0.04,
+                                                          color: const Color(
+                                                              0xff0087FF)),
+                                                    )
+                                                  : Text(
+                                                      'change banner',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize:
+                                                              width * 0.04,
+                                                          color: const Color(
+                                                              0xff0087FF)),
+                                                    ))
+                                        ],
+                                      ),
+                                    ),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -1051,7 +1342,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       ],
                                     ),
                                     SizedBox(
-                                      height: height * 0.1,
+                                      height: height * 0.05,
                                     ),
                                   ]),
                             );
@@ -1137,12 +1428,29 @@ class _ProfileSelfState extends State<ProfileSelf> {
       children: [
         Container(
           margin: EdgeInsets.only(bottom: bottom),
-          child: Image.network(
+          child: image1 != null
+              ? Container(
+                  width: double.infinity,
+                  height: coverheight,
+                  child: Image.file(
+                    image1!,
+                    fit: BoxFit.cover,
+                  ),
+                )
+              : Container(
+                  width: double.infinity,
+                  height: coverheight,
+                  child: Icon(
+                    Icons.photo,
+                    color: primaryColorOfApp,
+                    size: 40,
+                  )) /* Image.network(
             'https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473',
             width: double.infinity,
             height: coverheight,
             fit: BoxFit.cover,
-          ),
+          ) */
+          ,
         ),
         Positioned(
           top: top,
@@ -1176,12 +1484,16 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               child: CircleAvatar(
                                 radius: 47,
                                 backgroundColor: Colors.white,
-                                child: CircleAvatar(
+                                child: Icon(
+                                  Icons.account_circle,
+                                  size: 95,
+                                  color: primaryColorOfApp,
+                                ), /* CircleAvatar(
                                   radius: 45,
                                   backgroundColor: Colors.grey.shade800,
                                   backgroundImage:
                                       AssetImage('assets/image.png'),
-                                ),
+                                ), */
                               ),
                             )),
                   IconButton(
@@ -1191,7 +1503,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       icon: FaIcon(
                         FontAwesomeIcons.penToSquare,
                         size: 15,
-                        color: Colors.green,
+                        color: Colors.black,
                       ))
                 ],
               ),
@@ -1661,7 +1973,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         constraints:
                             BoxConstraints(minHeight: 45, minWidth: 45),
                         onPressed: () {
-                          pickImage(ImageSource.camera);
+                          pickforprofile(ImageSource.camera);
                           Navigator.of(context).pop();
                           setState(() {
                             btnchng = false;
@@ -1695,7 +2007,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         constraints:
                             BoxConstraints(minHeight: 45, minWidth: 45),
                         onPressed: () {
-                          pickImage(ImageSource.gallery);
+                          pickforprofile(ImageSource.gallery);
                           Navigator.of(context).pop();
                           setState(() {
                             btnchng = false;

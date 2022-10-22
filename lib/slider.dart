@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/guestlogin.dart';
+import 'package:flutter_application_1/localization/app_localization.dart';
 import 'package:flutter_application_1/phonenumber.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -109,7 +110,6 @@ class _Slider1State extends State<Slider1> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
-                    
                       onPressed: () {
                         showModalBottomSheet(
                           isScrollControlled: true,
@@ -143,7 +143,8 @@ class _Slider1State extends State<Slider1> {
                                   const Text('choose language'),
                                   const Divider(),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text(
                                       'English',
@@ -160,7 +161,8 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text(
                                       'Hindi',
@@ -177,7 +179,8 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Bengali',
                                         style:
@@ -193,7 +196,8 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Gujarati',
                                         style:
@@ -209,7 +213,8 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Marathi',
                                         style:
@@ -225,7 +230,8 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Urdu',
                                         style:
@@ -241,7 +247,8 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Odia (oria)',
                                         style:
@@ -257,7 +264,8 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Kannada',
                                         style:
@@ -273,7 +281,8 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Tamil',
                                         style:
@@ -289,7 +298,8 @@ class _Slider1State extends State<Slider1> {
                                     ),
                                   ),
                                   ListTile(
-                                    visualDensity: const VisualDensity(vertical: -3),
+                                    visualDensity:
+                                        const VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text('Telugu',
                                         style:
@@ -326,9 +336,11 @@ class _Slider1State extends State<Slider1> {
                 // height: 50,
                 child: ElevatedButton(
                   onPressed: () {
+               
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const GuestLogin()),
+                      MaterialPageRoute(
+                          builder: (context) => const GuestLogin()),
                     );
                   },
                   style: ElevatedButton.styleFrom(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/localization/app_localization.dart';
 import 'package:flutter_application_1/loginpage.dart';
 import 'package:flutter_application_1/phonenumber.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,7 +12,21 @@ class GuestLogin extends StatefulWidget {
 }
 
 class _GuestLoginState extends State<GuestLogin> {
-  Language _site = Language.english;
+  /*  Language _site = Language.english; */
+  dynamic groupvalue;
+
+  var hindi = 'Hindi';
+  var english = 'English';
+
+  var bengali = 'Bengali';
+  var gujarati = 'Gujarati';
+  var marathi = 'Marathi';
+  var urdu = 'Urdu';
+  var odia = 'Odia';
+  var kannada = 'Kannada';
+  var tamil = 'Tamil';
+  var telugu = 'Telugu';
+
   @override
   Widget build(BuildContext context) {
     Size size;
@@ -70,18 +85,18 @@ class _GuestLoginState extends State<GuestLogin> {
                                   const Text('choose Language'),
                                   const Divider(),
                                   ListTile(
-                                    visualDensity:  VisualDensity(vertical: -3),
+                                    visualDensity: VisualDensity(vertical: -3),
                                     dense: true,
                                     leading: const Text(
                                       'English',
                                       style: TextStyle(fontFamily: 'Poppins'),
                                     ),
                                     trailing: Radio(
-                                      value: Language.english,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: english,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = english;
                                         });
                                       },
                                     ),
@@ -95,11 +110,11 @@ class _GuestLoginState extends State<GuestLogin> {
                                       style: TextStyle(fontFamily: 'Poppins'),
                                     ),
                                     trailing: Radio(
-                                      value: Language.hindi,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: hindi,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = hindi;
                                         });
                                       },
                                     ),
@@ -112,11 +127,11 @@ class _GuestLoginState extends State<GuestLogin> {
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: Language.bengali,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: bengali,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = bengali;
                                         });
                                       },
                                     ),
@@ -129,11 +144,11 @@ class _GuestLoginState extends State<GuestLogin> {
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: Language.gujrati,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: gujarati,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = gujarati;
                                         });
                                       },
                                     ),
@@ -146,11 +161,11 @@ class _GuestLoginState extends State<GuestLogin> {
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: Language.marathi,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: marathi,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = marathi;
                                         });
                                       },
                                     ),
@@ -163,11 +178,11 @@ class _GuestLoginState extends State<GuestLogin> {
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: Language.urud,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: urdu,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = urdu;
                                         });
                                       },
                                     ),
@@ -180,11 +195,11 @@ class _GuestLoginState extends State<GuestLogin> {
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: Language.odia,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: odia,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = odia;
                                         });
                                       },
                                     ),
@@ -197,11 +212,11 @@ class _GuestLoginState extends State<GuestLogin> {
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: Language.kannada,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: kannada,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = kannada;
                                         });
                                       },
                                     ),
@@ -214,11 +229,11 @@ class _GuestLoginState extends State<GuestLogin> {
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: Language.tamil,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: tamil,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = tamil;
                                         });
                                       },
                                     ),
@@ -231,11 +246,11 @@ class _GuestLoginState extends State<GuestLogin> {
                                         style:
                                             TextStyle(fontFamily: 'Poppins')),
                                     trailing: Radio(
-                                      value: Language.telugu,
-                                      groupValue: _site,
-                                      onChanged: (Language? value) {
+                                      value: telugu,
+                                      groupValue: groupvalue,
+                                      onChanged: (value) {
                                         setState(() {
-                                          _site = value!;
+                                          groupvalue = telugu;
                                         });
                                       },
                                     ),
@@ -249,7 +264,9 @@ class _GuestLoginState extends State<GuestLogin> {
                       child: const Text(
                         'Choose Language',
                         style: TextStyle(
-                            fontFamily: 'Poppins', color: Colors.black),
+                            fontFamily: 'Poppins',
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
                       )),
                   const FaIcon(
                     FontAwesomeIcons.globe,
@@ -276,8 +293,8 @@ class _GuestLoginState extends State<GuestLogin> {
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
-                  child: const Text(
-                    "Login",
+                  child: Text(
+                    'Login',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
@@ -350,7 +367,7 @@ class _GuestLoginState extends State<GuestLogin> {
   }
 }
 
-enum Language {
+/* enum Language {
   english,
   hindi,
   marathi,
@@ -361,4 +378,5 @@ enum Language {
   odia,
   kannada,
   tamil
-}
+} */
+

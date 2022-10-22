@@ -154,7 +154,8 @@ class _AccountTypeState extends State<AccountType> {
             ),
             Container(
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.5, color: Colors.black),
+                  border: Border.all(
+                    width: 0.5, color: Colors.black),
                   borderRadius: BorderRadius.circular(10)),
               child: ListTile(
                 visualDensity: const VisualDensity(vertical: 3),
@@ -264,10 +265,11 @@ class _AccountTypeState extends State<AccountType> {
                 onPressed: () {
                   setState(() {
                     if (groupvalues == value1) {
+                       /* var value1 = 'Private'; */
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Formfill()),
+                            builder: (context) => const Formfill(value: 'Private',)),
                       );
                     } else if (groupvalues == value2) {
                       Navigator.push(
