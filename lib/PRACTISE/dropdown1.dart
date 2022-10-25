@@ -8,8 +8,15 @@ class Dropdown1 extends StatefulWidget {
 }
 
 class _Dropdown1State extends State<Dropdown1> {
-  var patients;
- List  _allAct = [];
+  dynamic patients;
+  List _allAct = [
+    'Item1',
+    'Item2',
+    'Item3',
+    'Item4',
+    'Item5',
+    'Item6',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +35,9 @@ class _Dropdown1State extends State<Dropdown1> {
               //mapping stateList here for items
               items: _allAct.map((e) {
                 return DropdownMenuItem(
-                  value: e.toString(),
+                  value: e,
                   child: Text(
-                    e.toString(),
+                    e,
                     // style: TextStyle(color: Colors.white),
                   ),
                 );
@@ -39,10 +46,9 @@ class _Dropdown1State extends State<Dropdown1> {
               iconSize: 30,
               underline: SizedBox(),
               iconEnabledColor: Color.fromARGB(255, 0, 0, 0),
-              onChanged: (newValue) {
+              onChanged: (value) {
                 setState(() {
-            
-                  patients = newValue.toString();
+                  patients = value;
                 });
               }),
         ],

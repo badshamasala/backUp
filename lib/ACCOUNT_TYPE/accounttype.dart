@@ -293,7 +293,8 @@ class _AccountTypeState extends State<AccountType> {
                     //     horizontal: 40.0, vertical: 20.0),
                     backgroundColor: const Color(0xff0087FF),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0))),
+                        borderRadius: BorderRadius.circular(10.0))
+                        ),
                 child: Text(
                   "Confirm & Continue",
                   style: TextStyle(

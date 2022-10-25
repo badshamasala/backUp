@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/loginpage.dart';
-import 'package:flutter_application_1/slider.dart';
+import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:flutter_application_1/ONBOARDING/slider.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);

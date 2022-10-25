@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/localization/app_localization.dart';
-import 'package:flutter_application_1/loginpage.dart';
-import 'package:flutter_application_1/phonenumber.dart';
+import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class GuestLogin extends StatefulWidget {

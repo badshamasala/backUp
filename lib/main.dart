@@ -4,8 +4,8 @@ import 'package:flutter_application_1/PRACTISE/login.dart';
 import 'package:flutter_application_1/PRACTISE/share.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/PRACTISE/postapi.dart';
-import 'package:flutter_application_1/provider.dart';
-import 'package:flutter_application_1/startPage.dart';
+import 'package:flutter_application_1/PRACTISE/provider.dart';
+import 'package:flutter_application_1/ONBOARDING/startPage.dart';
 import 'package:provider/provider.dart';
 
 

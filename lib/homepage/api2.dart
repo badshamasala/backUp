@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/model.dart';
+import 'package:flutter_application_1/PRACTISE/model.dart';
 import 'package:flutter_application_1/model/test_model.dart';
 import 'package:http/http.dart' as http;
 
