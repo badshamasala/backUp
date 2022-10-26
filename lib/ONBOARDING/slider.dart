@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ONBOARDING/guestlogin.dart';
+import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_application_1/localization/app_localization.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -26,22 +28,14 @@ class Slider1 extends StatefulWidget {
   State<Slider1> createState() => _Slider1State();
 }
 
-var logo = "assets/group.png";
-var mobile = "assets/group1.png";
-var phone = "assets/group11.png";
-
 class _Slider1State extends State<Slider1> {
   int activeIndex = 0;
   var size, height, width;
   language _site = language.english;
   List urlImages = [
-    {
-      "assets": logo,
-    },
-    {
-      'assets': mobile,
-    },
-    {'assets': phone}
+    'assets/loginimg.svg',
+    'assets/aaaa.svg',
+    'assets/loginimg.svg'
   ];
   @override
   Widget build(BuildContext context) {
@@ -77,12 +71,11 @@ class _Slider1State extends State<Slider1> {
                   itemBuilder: (context, index, realIndex) {
                     // final urlImage = urlImages[index];
                     // return buildImage(urlImage, index);
-                    return Container(
-                        child: Image.asset(urlImages[index]['assets']));
+                    return Container(child: SvgPicture.asset(urlImages[index]));
                   },
                   options: CarouselOptions(
                     viewportFraction: 1,
-                    height: 300,
+                    height: 250,
                     onPageChanged: (index, reason) {
                       setState(() {
                         activeIndex = index;
@@ -140,7 +133,7 @@ class _Slider1State extends State<Slider1> {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  const Text('choose language'),
+                                  const Text('Select your language'),
                                   const Divider(),
                                   ListTile(
                                     visualDensity:
@@ -321,7 +314,7 @@ class _Slider1State extends State<Slider1> {
                         );
                       },
                       child: const Text(
-                        'Choose language',
+                        'Select your langugae',
                         style: TextStyle(
                             fontFamily: 'Poppins', color: Colors.black),
                       )),
@@ -336,11 +329,10 @@ class _Slider1State extends State<Slider1> {
                 // height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-               
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const GuestLogin()),
+                          builder: (context) => const LoginPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -384,6 +376,33 @@ class _Slider1State extends State<Slider1> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PhoneNumber()),
+                    );
+                  },
+                  style: OutlinedButton.styleFrom(
+                      side: const BorderSide(
+                        color: Color(0xff0087FF),
+                      ),
+                      /*  padding: EdgeInsets.symmetric(
+                                      horizontal: 40.0, vertical: 20.0), */
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0))),
+                  child: const Text(
+                    "Guest Login",
+                    style: TextStyle(color: Color(0xff0087FF), fontSize: 18),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -398,5 +417,5 @@ class _Slider1State extends State<Slider1> {
           dotHeight: 7,
           dotWidth: 7),
       activeIndex: activeIndex,
-      count: urlImages.length);
+      count: 3 /* urlImages.length */);
 }

@@ -105,7 +105,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       const SizedBox(
                                         height: 10,
                                       ),
-                                      const Text('choose language'),
+                                      const Text('Select your language'),
                                       const Divider(),
                                       ListTile(
                                         visualDensity:
@@ -298,7 +298,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                             );
                           },
                           child: const Text(
-                            'Choose language',
+                            'Select your language',
                             style: TextStyle(
                                 fontFamily: 'Poppins', color: Colors.black),
                           )),

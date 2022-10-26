@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
+import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
@@ -57,8 +60,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: height * 0.03,
               ),
-              const Center(
-                  child: Image(image: AssetImage('assets/signup.png'))),
+              Center(child: SvgPicture.asset('assets/new.svg')),
               SizedBox(
                 height: height * 0.03,
               ),
@@ -76,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(10),
                       borderSide:
                           const BorderSide(color: Color(0xff0087FF), width: 1)),
-                  suffixIcon: const Icon(Icons.check),
+                  /*  suffixIcon: const Icon(Icons.check), */
                   // hintText: 'Enter Your Username',
                   contentPadding: const EdgeInsets.all(15),
                   /*  border: OutlineInputBorder(
@@ -129,8 +131,20 @@ class _LoginPageState extends State<LoginPage> {
                   // do something
                 },
               ),
-              SizedBox(
+              /* SizedBox(
                 height: height * 0.03,
+              ), */
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Forgot Password ?',
+                        style: TextStyle(
+                            color: primaryColorOfApp, fontFamily: 'Poppins'),
+                      ))
+                ],
               ),
               SizedBox(
                 height: 45,
@@ -142,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => PhoneNumber()),
+                                    builder: (context) => HomePage()),
                               );
                               /* if( username.text.isNotEmpty && password.text.isNotEmpty){
                       final isbuttonactive = username.text.isNotEmpty;
@@ -207,11 +221,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 45,
                 width: double.infinity,
-                child: ElevatedButton.icon(
-                  icon: const FaIcon(
-                    FontAwesomeIcons.google,
-                    color: Color.fromARGB(255, 235, 26, 85),
-                  ),
+                child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
@@ -224,9 +234,10 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
-                  label: Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      Image.asset('assets/google.png'),
                       const Text(
                         "Continue with Google",
                         style: TextStyle(
@@ -237,7 +248,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(
-                height: height * 0.06,
+                height: height * 0.04,
               ),
               Row(
                 children: [

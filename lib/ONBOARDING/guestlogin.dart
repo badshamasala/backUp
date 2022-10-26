@@ -82,7 +82,7 @@ class _GuestLoginState extends State<GuestLogin> {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  const Text('choose Language'),
+                                  const Text('Select your language'),
                                   const Divider(),
                                   ListTile(
                                     visualDensity: VisualDensity(vertical: -3),
@@ -262,7 +262,7 @@ class _GuestLoginState extends State<GuestLogin> {
                         );
                       },
                       child: const Text(
-                        'Choose Language',
+                        'Select your language',
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             color: Colors.black,
