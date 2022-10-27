@@ -12,9 +12,9 @@ class AccountType extends StatefulWidget {
 }
 
 class _AccountTypeState extends State<AccountType> {
-  var value1 = 'Private';
-  var value2 = 'Business';
-  var value3 = 'Public';
+  var value1 = false;
+  var value2 = false;
+  var value3 = false;
   var groupvalues;
 
   @override
@@ -154,8 +154,7 @@ class _AccountTypeState extends State<AccountType> {
             ),
             Container(
               decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 0.5, color: Colors.black),
+                  border: Border.all(width: 0.5, color: Colors.black),
                   borderRadius: BorderRadius.circular(10)),
               child: ListTile(
                 visualDensity: const VisualDensity(vertical: 3),
@@ -173,6 +172,9 @@ class _AccountTypeState extends State<AccountType> {
                     groupValue: groupvalues,
                     onChanged: (val) {
                       setState(() {
+                        value1 = true;
+                        value2 = false;
+                        value3 = false;
                         groupvalues = value1;
                       });
                     },
@@ -208,6 +210,9 @@ class _AccountTypeState extends State<AccountType> {
                     groupValue: groupvalues,
                     onChanged: (value) {
                       setState(() {
+                        value2 = true;
+                        value1 = false;
+                        value3 = false;
                         groupvalues = value2;
                       });
                     },
@@ -243,6 +248,9 @@ class _AccountTypeState extends State<AccountType> {
                     groupValue: groupvalues,
                     onChanged: (val) {
                       setState(() {
+                        value3 = true ;
+                        value2 = false;
+                        value1 = false;
                         groupvalues = value3;
                       });
                     },
@@ -264,26 +272,39 @@ class _AccountTypeState extends State<AccountType> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    if (groupvalues == value1) {
-                       /* var value1 = 'Private'; */
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Formfill(
+                                value1: value1,
+                                value2: value2,
+                                value3: value3,
+                              )),
+                    );
+                    /* if (groupvalues == value1) {
+                      /* var value1 = 'Private'; */
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Formfill(value: 'Private',)),
+                            builder: (context) => Formfill(
+                                  value1: value1,
+                                  value2: value2,
+                                  value3: value3,
+                                )),
                       );
-                    } else if (groupvalues == value2) {
+                    } */ /* else if (groupvalues == value2) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const FormfillBrand()),
                       );
-                    } else if (groupvalues == value3) {
+                    } */ /*  else if (groupvalues == value3) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const FormfillPublic()),
                       );
-                    }
+                    } */
                   });
                 },
                 style: ElevatedButton.styleFrom(
@@ -293,8 +314,7 @@ class _AccountTypeState extends State<AccountType> {
                     //     horizontal: 40.0, vertical: 20.0),
                     backgroundColor: const Color(0xff0087FF),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0))
-                        ),
+                        borderRadius: BorderRadius.circular(10.0))),
                 child: Text(
                   "Confirm & Continue",
                   style: TextStyle(

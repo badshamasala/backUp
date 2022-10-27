@@ -1,4 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
+import 'package:flutter_application_1/GOOGLE%20LOGIN/googlenewpage.dart';
+import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_application_1/PRACTISE/dropdown1.dart';
 import 'package:flutter_application_1/PRACTISE/login.dart';
 import 'package:flutter_application_1/PRACTISE/radiocheck.dart';
@@ -9,7 +14,9 @@ import 'package:flutter_application_1/PRACTISE/provider.dart';
 import 'package:flutter_application_1/ONBOARDING/startPage.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -23,6 +30,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ValidationProvider()),
         ChangeNotifierProvider(create: (_) => RadioProvider()),
+        ChangeNotifierProvider(create: (_) => Googleprovider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -30,15 +38,15 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        supportedLocales: [
+       /*  supportedLocales: [
           Locale('en', 'US'),
           Locale('ar', 'EG'),
           Locale('hi', 'IN'),
           Locale('es', 'EC'),
-        ],
+        ], */
 
 // Returns a locale which will be used by the app
-        localeResolutionCallback: (locale, supportedLocales) {
+        /* localeResolutionCallback: (locale, supportedLocales) {
           // Check if the current device locale is supported
           for (var supportedLocale in supportedLocales) {
             if (supportedLocale.languageCode == locale!.languageCode &&
@@ -49,9 +57,9 @@ class MyApp extends StatelessWidget {
           // If the locale of the device is not supported, use the first one
           // from the list (English, in this case).
           return supportedLocales.first;
-        },
+        }, */
 
-        home: IntroScreen(),
+        home: AccountType(),
       ),
     );
   }

@@ -63,7 +63,8 @@ class _GuestLoginState extends State<GuestLogin> {
                           ),
                           context: context,
                           builder: (BuildContext context) {
-                            return StatefulBuilder(builder:
+                            return StatefulBuilder(
+                              builder:
                                 (BuildContext context, StateSetter setState) {
                               return Column(
                                 mainAxisSize: MainAxisSize.min,

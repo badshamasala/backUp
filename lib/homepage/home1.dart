@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/bi.dart';
 
 class Home1 extends StatefulWidget {
   const Home1({super.key});
@@ -12,7 +14,6 @@ class Home1 extends StatefulWidget {
 class _Home1State extends State<Home1> {
   @override
   Widget build(BuildContext context) {
-    
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -32,7 +33,7 @@ class _Home1State extends State<Home1> {
                   height: height * 0.06,
                   width: width * 0.12,
                   fit: BoxFit.fitHeight),
-              Text(
+              /* Text(
                 'myttube',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -47,7 +48,7 @@ class _Home1State extends State<Home1> {
                     ),
                   ],
                 ),
-              ),
+              ), */
             ],
           ),
           actions: [

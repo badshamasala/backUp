@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 
 class Formfill extends StatefulWidget {
-  final value;
-  const Formfill({required this.value});
+  final value1;
+  final value2;
+  final value3;
+  Formfill({required this.value1, required this.value2, required this.value3});
 
   @override
   State<Formfill> createState() => _FormfillState();
@@ -31,7 +33,23 @@ class _FormfillState extends State<Formfill> {
                 children: [
                   buildstacknumber(),
                   sizedbox1(),
-                  SizedBox(
+                  widget.value1
+                      ? SizedBox(
+                          height: 40,
+                          child: TextFormField(
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please Enter Name';
+                              }
+                              return null;
+                            },
+                            /* onSaved: ( value){
+                          name = value!;
+                        }, */
+                            decoration:
+                                buildInputdecoration('Enter Your Full Name'),
+                          ),
+                        ) : widget.value2 ? SizedBox(
                     height: 40,
                     child: TextFormField(
                       validator: (value) {
@@ -43,9 +61,25 @@ class _FormfillState extends State<Formfill> {
                       /* onSaved: ( value){
                           name = value!;
                         }, */
-                      decoration: buildInputdecoration('Enter Your Full Name'),
+                      decoration: buildInputdecoration('Enter Your Brand Name'),
+                    ),
+                  ) : SizedBox(
+                    height: 40,
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please Enter Name';
+                        }
+                        return null;
+                      },
+                      /* onSaved: ( value){
+                          name = value!;
+                        }, */
+                      decoration:
+                          buildInputdecoration('Enter Your Name or Comunity'),
                     ),
                   ),
+                      
                   sizedbox(),
                   SizedBox(
                     height: 40,
@@ -297,7 +331,42 @@ class _FormfillState extends State<Formfill> {
             ],
           ),
         ),
-        Padding(
+        widget.value1? Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: width * 0.05),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  Text(
+                    'fill the details',
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 20,
+                        color: Color(0xff515253)),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: width * 0.05),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'enjoy the entertainment world\nget the bonus points',
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: width * 0.045,
+                        color: const Color(0xff515253)),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ) : widget.value2 ? Column(
+          children: [
+Padding(
           padding: EdgeInsets.only(left: width * 0.05),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -318,7 +387,7 @@ class _FormfillState extends State<Formfill> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                'enjoy the entertainment world\nget the bonus points',
+                'grow your business in the world',
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: width * 0.045,
@@ -326,6 +395,41 @@ class _FormfillState extends State<Formfill> {
               ),
             ],
           ),
+        ),
+          ],
+        ) : Column(
+          children: [
+Padding(
+          padding: EdgeInsets.only(left: width * 0.05),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: const [
+              Text(
+                'fill the details',
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 20,
+                    color: Color(0xff515253)),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: width * 0.05),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                'grow your fame in the world',
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: width * 0.045,
+                    color: const Color(0xff515253)),
+              ),
+            ],
+          ),
+        ),
+          ],
         ),
       ],
     );

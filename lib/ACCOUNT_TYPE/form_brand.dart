@@ -267,7 +267,9 @@ class _FormfillBrandState extends State<FormfillBrand> {
             ],
           ),
         ),
-        Padding(
+        Column(
+          children: [
+Padding(
           padding: EdgeInsets.only(left: width * 0.05),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -297,6 +299,9 @@ class _FormfillBrandState extends State<FormfillBrand> {
             ],
           ),
         ),
+          ],
+        ),
+        
       ],
     );
   }
