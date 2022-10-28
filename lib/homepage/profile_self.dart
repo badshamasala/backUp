@@ -1444,13 +1444,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     Icons.photo,
                     color: primaryColorOfApp,
                     size: 40,
-                  )) /* Image.network(
-            'https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473',
-            width: double.infinity,
-            height: coverheight,
-            fit: BoxFit.cover,
-          ) */
-          ,
+                  )),
         ),
         Positioned(
           top: top,

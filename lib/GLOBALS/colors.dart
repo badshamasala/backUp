@@ -8,5 +8,6 @@ import 'dart:ui';
 final Color primaryColorOfApp = Color(0xff0087FF);
 final Color secondaryColorOfApp = Color(0xff0857DE);
 final Color customTextColor = Color(0xff333333);
+final Color iconColor = Color(0xff0B1C3D);
 
 final String MOBILE_NUMBER_KEY = "MOBILE_NUMBER";

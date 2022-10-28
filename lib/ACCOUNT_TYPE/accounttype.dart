@@ -9,7 +9,7 @@ class AccountType extends StatefulWidget {
 
   @override
   State<AccountType> createState() => _AccountTypeState();
-}
+  }
 
 class _AccountTypeState extends State<AccountType> {
   var value1 = false;

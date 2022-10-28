@@ -3,6 +3,7 @@ import 'package:flutter_application_1/homepage/comment.dart';
 import 'package:flutter_application_1/homepage/home1.dart';
 import 'package:flutter_application_1/homepage/profile.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
+import 'package:flutter_application_1/homepage/scrollToHideWidget.dart';
 import 'package:flutter_application_1/homepage/search.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -14,6 +15,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late ScrollController controller;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller = ScrollController();
+  }
   int currentIndex = 0;
   final screens = [
     const Home1(),
@@ -31,13 +39,8 @@ class _HomePageState extends State<HomePage> {
     width = size.width;
     return Scaffold(
       body: screens[currentIndex],
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(30.0),
-          topRight: Radius.circular(30.0),
-        ),
-        child: Container(
-          height: 53,
+      bottomNavigationBar: ScrollToHideWidget(
+          controller: controller,
           child: BottomNavigationBar(
               backgroundColor: Color.fromARGB(255, 249, 246, 246),
               type: BottomNavigationBarType.fixed,
@@ -82,7 +85,6 @@ class _HomePageState extends State<HomePage> {
                     label: ''),
               ]),
         ),
-      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
         padding: EdgeInsets.only(top: 25),

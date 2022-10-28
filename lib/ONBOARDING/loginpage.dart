@@ -1,13 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:http/http.dart' as http;
@@ -34,71 +31,20 @@ class _LoginPageState extends State<LoginPage> {
     var jsondata = jsonDecode(response.body);
     print(response.body);
 
-    if (response.statusCode == 200) {
-      for (var u in jsondata) {
-       var data1 = jsondata["status"];
-      }
-      abc = await response.body.toString();
-      if (jsondata["status"] == "True") {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
-      } else {
-        showTopSnackBar(
-          context,
-          CustomSnackBar.error(
-            message: "Invalid Login Id",
-          ),
-        );
-      }
-    } else {
-      // If the server did not return a 201 CREATED response,
-      // then throw an exception.
+    var status = jsondata[0]["status"];
+    print(status);
 
-    }
-  }
-
-  var abc = "";
-  main() async {
-    var headers = {'Content-Type': 'application/json'};
-    var request = http.Request(
-        'POST',
-        Uri.parse(
-            'http://103.69.242.42:8080/TestAPI/Auth.svc/authenticateUser'));
-    request.body = json.encode({
-      "api_key": "myttube123456",
-      "user_id": username.text,
-      "password": password.text
-    });
-    //print("Login Done");
-    request.headers.addAll(headers);
-    print(request.body);
-    http.StreamedResponse response = await request.send();
-
-    if (response.statusCode == 200) {
-      /* abc = await response.stream.bytesToString(); */
-      /*  if (abc == "True") {
-        showTopSnackBar(
-          context,
-          CustomSnackBar.success(
-            message: "Login Success!",
-          ),
-        ); */
+    if (status == "True") {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => HomePage()));
     } else {
-      //print("sorry");
-      showTopSnackBar(
-        context,
-        CustomSnackBar.error(
-          message: "Invalid Login Id",
-        ),
-      );
+      Fluttertoast.showToast(
+          msg: "Invalid Credentials",
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
     }
-  } /* else {
-      print(response.reasonPhrase);
-      //throw Exception('Failed to load post');
-      //Navigator.pushNamed(context, "/MyFeedback");
-    } */
+  }
 
   bool email = false;
   bool mobile = false;
