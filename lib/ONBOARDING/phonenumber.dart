@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -43,9 +44,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Center(
-                      child:
-                          Image(image: AssetImage('assets/mobilelogin.png'))),
+                  Center(child: SvgPicture.asset('assets/mobileotp.svg')),
                   SizedBox(
                     height: height * 0.02,
                   ),
@@ -73,7 +72,6 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextButton(
-                        
                           onPressed: () {
                             showModalBottomSheet(
                               isScrollControlled: true,
@@ -297,15 +295,25 @@ class _PhoneNumberState extends State<PhoneNumber> {
                               },
                             );
                           },
-                          child: const Text(
-                            'Select your language',
-                            style: TextStyle(
-                                fontFamily: 'Poppins', color: Colors.black),
+                          child: Row(
+                            children: [
+                              const FaIcon(
+                                FontAwesomeIcons.globe,
+                                size: 15,
+                                color: Colors.grey,
+                              ),
+                              SizedBox(
+                                width: 1,
+                              ),
+                              Text(
+                                'Select your language',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.black,
+                                    fontSize: 12),
+                              ),
+                            ],
                           )),
-                      const FaIcon(
-                        FontAwesomeIcons.globe,
-                        size: 15,
-                      )
                     ],
                   ),
                   IntlPhoneField(

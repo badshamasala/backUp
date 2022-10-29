@@ -7,8 +7,8 @@ import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 
 
-class HomePage1 extends StatelessWidget {
-  const HomePage1({super.key});
+class GooglePage1 extends StatelessWidget {
+  const GooglePage1({super.key});
 
   @override
   Widget build(BuildContext context) {

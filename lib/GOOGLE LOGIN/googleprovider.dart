@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Googleprovider extends ChangeNotifier {
@@ -12,7 +13,9 @@ class Googleprovider extends ChangeNotifier {
     try {
       final googleuser = await googlesignin.signIn();
 
-      if (googleuser == null) return;
+      if (googleuser == null) {
+        return;
+      }
       _user = googleuser;
       final googleauth = await googleuser.authentication;
 
@@ -21,6 +24,7 @@ class Googleprovider extends ChangeNotifier {
 
       await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
+      Fluttertoast.showToast(msg: 'Something we');
       print(e.toString());
     }
 

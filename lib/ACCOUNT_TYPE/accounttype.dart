@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/form_brand.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/form_public.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AccountType extends StatefulWidget {
   const AccountType({super.key});
 
   @override
   State<AccountType> createState() => _AccountTypeState();
-  }
+}
 
 class _AccountTypeState extends State<AccountType> {
   var value1 = false;
@@ -154,7 +153,9 @@ class _AccountTypeState extends State<AccountType> {
             ),
             Container(
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.5, color: Colors.black),
+                  border: Border.all(
+                      width: 0.5,
+                      color: value1 ? primaryColorOfApp : Colors.black),
                   borderRadius: BorderRadius.circular(10)),
               child: ListTile(
                 visualDensity: const VisualDensity(vertical: 3),
@@ -192,7 +193,9 @@ class _AccountTypeState extends State<AccountType> {
             ),
             Container(
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.5, color: Colors.black),
+                  border: Border.all(
+                      width: 0.5,
+                      color: value2 ? primaryColorOfApp : Colors.black),
                   borderRadius: BorderRadius.circular(10)),
               child: ListTile(
                 visualDensity: const VisualDensity(vertical: 3),
@@ -230,7 +233,9 @@ class _AccountTypeState extends State<AccountType> {
             ),
             Container(
               decoration: BoxDecoration(
-                  border: Border.all(width: 0.5, color: Colors.black),
+                  border: Border.all(
+                      width: 0.5,
+                      color: value3 ? primaryColorOfApp : Colors.black),
                   borderRadius: BorderRadius.circular(10)),
               child: ListTile(
                 visualDensity: const VisualDensity(vertical: 3),
@@ -248,7 +253,7 @@ class _AccountTypeState extends State<AccountType> {
                     groupValue: groupvalues,
                     onChanged: (val) {
                       setState(() {
-                        value3 = true ;
+                        value3 = true;
                         value2 = false;
                         value1 = false;
                         groupvalues = value3;
@@ -270,9 +275,27 @@ class _AccountTypeState extends State<AccountType> {
               width: double.infinity,
               // height: 50,
               child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    Navigator.push(
+                onPressed: groupvalues == null
+                    ? null
+                    : () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Formfill(
+                                    value1: value1,
+                                    value2: value2,
+                                    value3: value3,
+                                  )),
+                        );
+                        /*  /* setState(() { */
+                  if (value1 == false || value2== false || value3 ==false) {
+                    Fluttertoast.showToast(
+                        msg: "Invalid Credentials",
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  } else {
+                  /* value1 == false ? null :  value2  == false ? null : */ Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => Formfill(
@@ -281,7 +304,8 @@ class _AccountTypeState extends State<AccountType> {
                                 value3: value3,
                               )),
                     );
-                    /* if (groupvalues == value1) {
+                  } */
+                        /* if (groupvalues == value1) {
                       /* var value1 = 'Private'; */
                       Navigator.push(
                         context,
@@ -305,8 +329,8 @@ class _AccountTypeState extends State<AccountType> {
                             builder: (context) => const FormfillPublic()),
                       );
                     } */
-                  });
-                },
+                        /*     }); */
+                      },
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
                     minimumSize: const Size(0.0, 40),

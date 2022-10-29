@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:http/http.dart' as http;
@@ -396,7 +398,6 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               SizedBox(
-                height: 45,
                 width: double.infinity,
                 // height: 50,
                 child: ElevatedButton(
@@ -406,12 +407,12 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      minimumSize: const Size(0.0, 40),
+                      /* minimumSize: const Size(0.0, 40), */
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0))),
+                          borderRadius: BorderRadius.circular(5.0))),
                   child: const Text(
                     "Login",
                     style: TextStyle(
@@ -456,11 +457,11 @@ class _LoginPageState extends State<LoginPage> {
                 height: height * 0.01,
               ),
               SizedBox(
-                height: 45,
+                /*     height: 45, */
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    /*  final provider =
+                  /*   final provider =
                         Provider.of<Googleprovider>(context, listen: false);
                     provider.googlelogin(); */
                   },
@@ -469,16 +470,22 @@ class _LoginPageState extends State<LoginPage> {
                       side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
-                      minimumSize: const Size(0, 40),
+                      /*   minimumSize: const Size(0, 40), */
                       /*  padding: EdgeInsets.symmetric(
                               horizontal: 40.0, vertical: 20.0), */
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0))),
+                          borderRadius: BorderRadius.circular(5.0))),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Image.asset('assets/google.png'),
+                      Image.asset(
+                        'assets/google.png',
+                        height: 25,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
                       const Text(
                         "Continue with Google",
                         style: TextStyle(

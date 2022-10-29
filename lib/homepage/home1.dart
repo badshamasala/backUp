@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,6 +15,9 @@ import 'package:iconify_flutter/icons/ooui.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
+import 'package:provider/provider.dart';
+
+import '../GOOGLE LOGIN/googleprovider.dart';
 
 class Home1 extends StatefulWidget {
   const Home1({super.key});
@@ -53,7 +56,6 @@ class _Home1State extends State<Home1> {
     }
   }
 
-  
   @override
   Widget build(BuildContext context) {
     Size size;
@@ -68,7 +70,7 @@ class _Home1State extends State<Home1> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            /* mainAxisAlignment: MainAxisAlignment.start, */
             children: [
               Image(
                   image: const AssetImage(
@@ -107,7 +109,11 @@ class _Home1State extends State<Home1> {
                 child: IconButton(
                     padding: EdgeInsets.all(0),
                     constraints: BoxConstraints(),
-                    onPressed: () {},
+                    onPressed: () {
+                      final provider =
+                          Provider.of<Googleprovider>(context, listen: false);
+                      provider.logout();
+                    },
                     icon: Iconify(
                       Bi.qr_code_scan,
                       size: 20,
@@ -154,202 +160,429 @@ class _Home1State extends State<Home1> {
                       color: iconColor,
                     ))),
             SizedBox(
-              width: width * 0.01,
+              width: width * 0.05,
             ),
           ],
         ),
-        
         body: SingleChildScrollView(
-          controller: controller,
+          /*     controller: controller, */
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                height: 100,
+                /*  color: Colors.red, */
+                height: 75,
                 child: ListView(
-                  children: [
-                    SizedBox(
-                      width: width * 0.01,
-                    ),
-                    Center(
-                      child: Column(
-                        children: [
-                          Stack(children: [
-                            Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 2, color: primaryColorOfApp),
-                                shape: BoxShape.circle,
-                              ),
-                              child: SvgPicture.asset(
-                                'assets/new.svg',
-                                width: 60,
-                              ),
-                            ),
-                            Positioned(
-                              top: 55,
-                              left: 45,
-                              child: Container(
-                                  height: 20,
-                                  margin: EdgeInsets.all(0),
-                                  padding: EdgeInsets.all(0),
-                                  decoration: BoxDecoration(
-                                      border: Border.all(width: 2),
-                                      shape: BoxShape.circle,
-                                      color: primaryColorOfApp),
-                                  child: IconButton(
-                                      padding: EdgeInsets.all(0),
-                                      constraints: BoxConstraints(),
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.add,
-                                        size: 15,
-                                      ))),
-                            )
-                          ]),
-                          Text(
-                            'Add Story',
-                            style: TextStyle(
-                                color: primaryColorOfApp,
-                                fontFamily: 'Poppins',
-                                fontSize: 10),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: width * 0.03,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 2.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 2, color: primaryColorOfApp),
-                              shape: BoxShape.circle,
-                            ),
-                            child: SvgPicture.asset(
-                              'assets/un.svg',
-                              width: 61,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          Text(
-                            'Rashid',
-                            style: TextStyle(
-                                color: customTextColor,
-                                fontFamily: 'Poppins',
-                                fontSize: 10),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: width * 0.03,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 2.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 2, color: primaryColorOfApp),
-                              shape: BoxShape.circle,
-                            ),
-                            child: SvgPicture.asset(
-                              'assets/un.svg',
-                              width: 61,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          Text(
-                            'Farhan',
-                            style: TextStyle(
-                                color: customTextColor,
-                                fontFamily: 'Poppins',
-                                fontSize: 10),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: width * 0.03,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 2.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 2, color: primaryColorOfApp),
-                              shape: BoxShape.circle,
-                            ),
-                            child: SvgPicture.asset(
-                              'assets/un.svg',
-                              width: 61,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          Text(
-                            'Akhtar',
-                            style: TextStyle(
-                                color: customTextColor,
-                                fontFamily: 'Poppins',
-                                fontSize: 10),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: width * 0.01,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 2.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 2, color: primaryColorOfApp),
-                              shape: BoxShape.circle,
-                            ),
-                            child: SvgPicture.asset(
-                              'assets/un.svg',
-                              width: 61,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          Text(
-                            'Farhan',
-                            style: TextStyle(
-                                color: customTextColor,
-                                fontFamily: 'Poppins',
-                                fontSize: 10),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
+                  children: [
+                    SizedBox(
+                      width: width * 0.04,
+                    ),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Center(
+                              child: Column(
+                                children: [
+                                  Stack(children: [
+                                    Container(
+                                      padding: EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            width: 2, color: primaryColorOfApp),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: SvgPicture.asset(
+                                        'assets/new.svg',
+                                        width: 40,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 35,
+                                      left: 30,
+                                      child: Container(
+                                          height: 20,
+                                          margin: EdgeInsets.all(0),
+                                          padding: EdgeInsets.all(0),
+                                          decoration: BoxDecoration(
+                                              border: Border.all(width: 2),
+                                              shape: BoxShape.circle,
+                                              color: primaryColorOfApp),
+                                          child: IconButton(
+                                              padding: EdgeInsets.all(0),
+                                              constraints: BoxConstraints(),
+                                              onPressed: () {},
+                                              icon: Icon(
+                                                Icons.add,
+                                                size: 15,
+                                              ))),
+                                    )
+                                  ]),
+                                  Text(
+                                    'Add Story',
+                                    style: TextStyle(
+                                        color: primaryColorOfApp,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 10),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: width * 0.02,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 2.0),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2, color: primaryColorOfApp),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      'assets/un.svg',
+                                      width: 41,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 2,
+                                  ),
+                                  Text(
+                                    'Rashid',
+                                    style: TextStyle(
+                                        color: customTextColor,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 10),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: width * 0.02,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 2.0),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2, color: primaryColorOfApp),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      'assets/un.svg',
+                                      width: 41,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 2,
+                                  ),
+                                  Text(
+                                    'Farhan',
+                                    style: TextStyle(
+                                        color: customTextColor,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 10),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: width * 0.02,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 2.0),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2, color: primaryColorOfApp),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      'assets/un.svg',
+                                      width: 41,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 2,
+                                  ),
+                                  Text(
+                                    'Akhtar',
+                                    style: TextStyle(
+                                        color: customTextColor,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 10),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: width * 0.02,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 2.0),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2, color: primaryColorOfApp),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      'assets/un.svg',
+                                      width: 41,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 2,
+                                  ),
+                                  Text(
+                                    'Farhan',
+                                    style: TextStyle(
+                                        color: customTextColor,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 10),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: width * 0.02,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 2.0),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2, color: primaryColorOfApp),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      'assets/un.svg',
+                                      width: 41,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 2,
+                                  ),
+                                  Text(
+                                    'Farhan',
+                                    style: TextStyle(
+                                        color: customTextColor,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 10),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: width * 0.02,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 2.0),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2, color: primaryColorOfApp),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      'assets/un.svg',
+                                      width: 41,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 2,
+                                  ),
+                                  Text(
+                                    'Farhan',
+                                    style: TextStyle(
+                                        color: customTextColor,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 10),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Card(
+                child: Column(
+                  children: [
+                    Row(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: CircleAvatar(
+                          radius: 20,
+                          backgroundImage: NetworkImage(
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QprGHP-E72bJzurFg83woK-h_i4Fu0WPfQ&usqp=CAU'),
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            width: 166,
+                            child: Row(
+                              children: [
+                                Text('Sponsered by @SPIDER-MAN',
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins', fontSize: 10)),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              elevation: 0,
+                              minimumSize: const Size(65.0, 30.0),
+                              // padding: EdgeInsets.symmetric(
+                              //     horizontal: 40.0, vertical: 20.0),
+                              backgroundColor: const Color(0xff0087FF),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0))),
+                          onPressed: () {},
+                          child: Text(
+                            'Follow',
+                            style:
+                                TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                          )),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: BoxConstraints(),
+                          onPressed: () {},
+                          icon: Icon(Icons.more_vert)),
+                    ]),
+                    Image.network(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QprGHP-E72bJzurFg83woK-h_i4Fu0WPfQ&usqp=CAU'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: height * 0.01,
+                            ),
+                            SvgPicture.asset(
+                              'assets/likeicon.svg',
+                              color: primaryColorOfApp,
+                            ),
+                            SizedBox(
+                              height: height * 0.01,
+                            ),
+                            Text(
+                              'Like 67k',
+                              style:
+                                  TextStyle(fontFamily: 'Poppins', fontSize: 8),
+                            ),
+                            SizedBox(
+                              height: height * 0.01,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: height * 0.01,
+                            ),
+                            SvgPicture.asset(
+                              'assets/shareicon.svg',
+                              color: iconColor,
+                            ),
+                            SizedBox(
+                              height: height * 0.01,
+                            ),
+                            Text(
+                              'Share 10k',
+                              style:
+                                  TextStyle(fontFamily: 'Poppins', fontSize: 8),
+                            ),
+                            SizedBox(
+                              height: height * 0.01,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          "100M+ Views",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        SizedBox(
+                          width: 110,
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                                /*     minimumSize: Size(50, 30), */
+                                elevation: 0,
+                                /* padding: EdgeInsets.zero, */
+                                /*   tapTargetSize: MaterialTapTargetSize.shrinkWrap, */
+                                side: const BorderSide(
+                                  color: Color(0xff0087FF),
+                                ),
+                                /*       padding:
+                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5.0))),
+                            child: Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Text(
+                                "Book Now",
+                                style: TextStyle(
+                                    color: primaryColorOfApp,
+                                    fontSize: 10,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
               Flexible(
@@ -580,6 +813,106 @@ class _Home1State extends State<Home1> {
                                   ],
                                 ),
                               ],
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                  text: '#Timepass',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 8),
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: ' @followmyteam',
+                                      style: TextStyle(
+                                          color: primaryColorOfApp,
+                                          fontSize: 8),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          ' #Study#content#content#sample#more',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 8),
+                                    )
+                                  ]),
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: width * 0.01,
+                                ),
+                                Icon(
+                                  Icons.check_circle_outline_outlined,
+                                  color: Colors.red,
+                                ),
+                                SizedBox(
+                                  width: width * 0.01,
+                                ),
+                                Text(
+                                  'boat',
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  width: width * 0.02,
+                                ),
+                                Text(
+                                  'Sponsered',
+                                  style: TextStyle(
+                                    color: Color(0xff737373),
+                                    fontFamily: 'Poppins',
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: width * 0.45,
+                                ),
+                                Icon(Icons.more_vert)
+                              ],
+                            ),
+                            Stack(
+                              alignment: Alignment.bottomCenter,
+                              children: [
+                                Container(
+                                  width: 310,
+                                  child: Image.network(
+                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwTt3L2d15j1RMm4L7lpch4bZoOXUKSF9lw&usqp=CAU',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      /* Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const GooglePage1()),
+                    ); */
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        elevation: 0,
+                                        /*     minimumSize: const Size(0.0, 40), */
+                                        // padding: EdgeInsets.symmetric(
+                                        //     horizontal: 40.0, vertical: 20.0),
+                                        backgroundColor: Colors.black,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0))),
+                                    child: Row(
+                                      children: [
+                                        const Text(
+                                          "Shop Now",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 15,
+                                              fontFamily: 'Poppins'),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
                             )
                           ],
                         ),
@@ -588,8 +921,7 @@ class _Home1State extends State<Home1> {
               ),
             ],
           ),
-        )
-        );
+        ));
   }
 }
 

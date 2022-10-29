@@ -34,126 +34,117 @@ class _FormfillState extends State<Formfill> {
                   buildstacknumber(),
                   sizedbox1(),
                   widget.value1
-                      ? SizedBox(
-                          height: 40,
-                          child: TextFormField(
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Please Enter Name';
-                              }
-                              return null;
-                            },
-                            /* onSaved: ( value){
-                          name = value!;
-                        }, */
-                            decoration:
-                                buildInputdecoration('Enter Your Full Name'),
-                          ),
-                        ) : widget.value2 ? SizedBox(
-                    height: 40,
-                    child: TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please Enter Name';
-                        }
-                        return null;
-                      },
-                      /* onSaved: ( value){
-                          name = value!;
-                        }, */
-                      decoration: buildInputdecoration('Enter Your Brand Name'),
-                    ),
-                  ) : SizedBox(
-                    height: 40,
-                    child: TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please Enter Name';
-                        }
-                        return null;
-                      },
-                      /* onSaved: ( value){
-                          name = value!;
-                        }, */
-                      decoration:
-                          buildInputdecoration('Enter Your Name or Comunity'),
-                    ),
-                  ),
-                      
-                  sizedbox(),
-                  SizedBox(
-                    height: 40,
-                    child: TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please Enter Username'; /* showTopSnackBar(
-                            context,
-                            CustomSnackBar.info(
-                              message: "Please Enter username",
-                            ),
-                          ); */
-                        }
-                        return null;
-                      },
-                      decoration: buildInputdecoration('Username'),
-                    ),
-                  ),
-                  sizedbox(),
-                  SizedBox(
-                    height: 40,
-                    child: TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please Enter Password';
-                        }
-                        return null;
-                      },
-                      obscureText: obscure,
-                      decoration: InputDecoration(
-                        labelText: 'Password',
-                        labelStyle: const TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Poppins',
-                            fontSize: 12),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: const BorderSide(
-                                color: Color(0xff333333), width: 1)),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: const BorderSide(
-                                color: Color(0xff0087FF), width: 1)),
-                        suffixIcon: GestureDetector(
-                          child: Icon(obscure
-                              ? Icons.visibility_off
-                              : Icons.visibility),
-                          onTap: () {
-                            setState(() {
-                              obscure = !obscure;
-                            });
+                      ? TextFormField(
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter Name';
+                            }
+                            return null;
                           },
-                        ),
-                        // hintText: 'Enter Password',
-                        contentPadding: const EdgeInsets.all(15),
+                          /* onSaved: ( value){
+                      name = value!;
+                        }, */
+                          decoration:
+                              buildInputdecoration('Enter Your Full Name'),
+                        )
+                      : widget.value2
+                          ? TextFormField(
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please Enter Name';
+                                }
+                                return null;
+                              },
+                              /* onSaved: ( value){
+                          name = value!;
+                        }, */
+                              decoration:
+                                  buildInputdecoration('Enter Your Brand Name'),
+                            )
+                          : TextFormField(
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please Enter Name';
+                                }
+                                return null;
+                              },
+                              /* onSaved: ( value){
+                          name = value!;
+                        }, */
+                              decoration: buildInputdecoration(
+                                  'Enter Your Name or Comunity'),
+                            ),
+                  sizedbox(),
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please Enter Username'; /* showTopSnackBar(
+                          context,
+                          CustomSnackBar.info(
+                            message: "Please Enter username",
+                          ),
+                        ); */
+                      }
+                      return null;
+                    },
+                    decoration: buildInputdecoration('Username'),
+                  ),
+                  sizedbox(),
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please Enter Password';
+                      }
+                      return null;
+                    },
+                    obscureText: obscure,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: const TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'Poppins',
+                          fontSize: 12),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xff0087FF),
+                          ),
+                          borderRadius: BorderRadius.circular(5)),
+                      errorStyle: TextStyle(fontSize: 8, height: 0.2),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(
+                              color: Color(0xff0087FF), width: 1)),
+                      /* enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              color: Color(0xff333333), width: 1)),
+                      */
+                      suffixIcon: GestureDetector(
+                        child: Icon(
+                            obscure ? Icons.visibility_off : Icons.visibility),
+                        onTap: () {
+                          setState(() {
+                            obscure = !obscure;
+                          });
+                        },
                       ),
+                      // hintText: 'Enter Password',
+                      contentPadding: const EdgeInsets.all(15),
                     ),
                   ),
                   sizedbox(),
-                  SizedBox(
-                    height: 40,
-                    child: TextFormField(
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Please Enter Email";
-                          } else if (!RegExp(
-                                  "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                              .hasMatch(value)) {
-                            return 'Please Enter a valid Email';
-                          }
-                          return null;
-                        },
-                        decoration: buildInputdecoration('Enter Your Email')),
-                  ),
+                  TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Please Enter Email";
+                        } else if (!RegExp(
+                                "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                            .hasMatch(value)) {
+                          return 'Please Enter a valid Email';
+                        }
+                        return null;
+                      },
+                      decoration: buildInputdecoration('Enter Your Email')),
                   sizedbox1(),
                   Row(
                     children: [
@@ -331,106 +322,110 @@ class _FormfillState extends State<Formfill> {
             ],
           ),
         ),
-        widget.value1? Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: width * 0.05),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  Text(
-                    'fill the details',
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 20,
-                        color: Color(0xff515253)),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: width * 0.05),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+        widget.value1
+            ? Column(
                 children: [
-                  Text(
-                    'enjoy the entertainment world\nget the bonus points',
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: width * 0.045,
-                        color: const Color(0xff515253)),
+                  Padding(
+                    padding: EdgeInsets.only(left: width * 0.05),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'fill the details',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 20,
+                              color: Color(0xff515253)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: width * 0.05),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'enjoy the entertainment world\nget the bonus points',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: width * 0.045,
+                              color: const Color(0xff515253)),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
-              ),
-            ),
-          ],
-        ) : widget.value2 ? Column(
-          children: [
-Padding(
-          padding: EdgeInsets.only(left: width * 0.05),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Text(
-                'fill the details',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 20,
-                    color: Color(0xff515253)),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: width * 0.05),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                'grow your business in the world',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: width * 0.045,
-                    color: const Color(0xff515253)),
-              ),
-            ],
-          ),
-        ),
-          ],
-        ) : Column(
-          children: [
-Padding(
-          padding: EdgeInsets.only(left: width * 0.05),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Text(
-                'fill the details',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 20,
-                    color: Color(0xff515253)),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: width * 0.05),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                'grow your fame in the world',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: width * 0.045,
-                    color: const Color(0xff515253)),
-              ),
-            ],
-          ),
-        ),
-          ],
-        ),
+              )
+            : widget.value2
+                ? Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: width * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            Text(
+                              'fill the details',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20,
+                                  color: Color(0xff515253)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: width * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'grow your business in the world',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: width * 0.045,
+                                  color: const Color(0xff515253)),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                : Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: width * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            Text(
+                              'fill the details',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20,
+                                  color: Color(0xff515253)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: width * 0.05),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'grow your fame in the world',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: width * 0.045,
+                                  color: const Color(0xff515253)),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
       ],
     );
   }
@@ -455,25 +450,29 @@ Padding(
     String labeltext,
   ) {
     return InputDecoration(
-      /*   errorText: validationService.fullName.error, */
-      labelText: labeltext,
-      labelStyle: const TextStyle(
-          color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
-      enabledBorder: OutlineInputBorder(
+
+        /*   errorText: validationService.fullName.error, */
+        labelText: labeltext,
+        errorStyle: TextStyle(fontSize: 8, height: 0.2),
+        labelStyle: const TextStyle(
+            color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
+        /* border: OutlineInputBorder(
+       
+        borderRadius: BorderRadius.circular(5),
+      ), */
+        /*      enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
-      focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
-      /* suffixIcon: suffix, */
-      // hintText: 'Enter Your Username',
-      contentPadding: const EdgeInsets.all(15),
-      /*  border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xff0087FF),
-                                ),
-                                borderRadius: BorderRadius.circular(16)
-                                ) */
-    );
+          borderSide: const BorderSide(color: Color(0xff333333), width: 1)), */
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
+        /*   suffixIcon: suffix, */
+        // hintText: 'Enter Your Username',
+        contentPadding: const EdgeInsets.all(15),
+        border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Color(0xff0087FF),
+            ),
+            borderRadius: BorderRadius.circular(5)));
   }
 }

@@ -1,12 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/ONBOARDING/guestlogin.dart';
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/localization/app_localization.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../GOOGLE LOGIN/googlenewpage.dart';
 
 enum language {
   english,
@@ -75,28 +79,42 @@ class _Slider1State extends State<Slider1> {
                   },
                   options: CarouselOptions(
                     viewportFraction: 1,
-                    height: 250,
+                    height: 200,
                     onPageChanged: (index, reason) {
                       setState(() {
                         activeIndex = index;
                       });
                     },
                   )),
+              SizedBox(
+                height: height * 0.02,
+              ),
               Text(
-                "Find Friends & Get Inspiration\nthe world",
+                "Find Friends & Get Inspiration the world",
+                style: TextStyle(
+                    color: const Color(0xff0087FF),
+                    fontSize: width * 0.04,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400),
+              ),
+              buildIndicator(),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              Text(
+                "welcome to",
                 style: TextStyle(
                     color: const Color(0xff0087FF),
                     fontSize: width * 0.05,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400),
               ),
-              buildIndicator(),
               Text(
-                "welcome to the myttube",
+                "myttube",
                 style: TextStyle(
                     color: const Color(0xff0087FF),
                     fontSize: width * 0.05,
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Satisfy',
                     fontWeight: FontWeight.w400),
               ),
               Row(
@@ -313,15 +331,25 @@ class _Slider1State extends State<Slider1> {
                           },
                         );
                       },
-                      child: const Text(
-                        'Select your langugae',
-                        style: TextStyle(
-                            fontFamily: 'Poppins', color: Colors.black),
+                      child: Row(
+                        children: [
+                          FaIcon(
+                            FontAwesomeIcons.globe,
+                            size: 15,
+                            color: Color(0xff666666),
+                          ),
+                          SizedBox(
+                            width: 1,
+                          ),
+                          const Text(
+                            'Select your langugae',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff515253),
+                                fontSize: 12),
+                          ),
+                        ],
                       )),
-                  const FaIcon(
-                    FontAwesomeIcons.globe,
-                    size: 15,
-                  )
                 ],
               ),
               SizedBox(
@@ -332,22 +360,86 @@ class _Slider1State extends State<Slider1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const LoginPage()),
+                          builder: (context) => const GooglePage1()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      minimumSize: const Size(0.0, 40),
+                      /*     minimumSize: const Size(0.0, 40), */
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0))),
+                          borderRadius: BorderRadius.circular(5.0))),
                   child: const Text(
                     "Login",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontFamily: 'Poppins'),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
+                  style: OutlinedButton.styleFrom(
+                      side: const BorderSide(
+                        color: Color(0xff0087FF),
+                      ),
+                      /*  padding: EdgeInsets.symmetric(
+                                      horizontal: 40.0, vertical: 20.0), */
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0))),
+                  child: const Text(
+                    "Guest Login",
+                    style: TextStyle(
+                        color: Color(0xff0087FF),
+                        fontSize: 18,
+                        fontFamily: 'Poppins'),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: width * 0.023,
+                  ),
+                  Container(
+                    color: const Color(0xff515253),
+                    height: height * 0.001,
+                    width: width * 0.37,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    'OR',
+                    style: TextStyle(
+                        color: Color(0xff515253), fontFamily: 'Poppins'),
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Container(
+                    color: const Color(0xff515253),
+                    height: height * 0.001,
+                    width: width * 0.37,
+                  ),
+                ],
               ),
               SizedBox(
                 height: height * 0.02,
@@ -369,37 +461,13 @@ class _Slider1State extends State<Slider1> {
                                   horizontal: 40.0, vertical: 20.0), */
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0))),
+                          borderRadius: BorderRadius.circular(5.0))),
                   child: const Text(
                     "Sign Up",
-                    style: TextStyle(color: Color(0xff0087FF), fontSize: 18),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PhoneNumber()),
-                    );
-                  },
-                  style: OutlinedButton.styleFrom(
-                      side: const BorderSide(
+                    style: TextStyle(
                         color: Color(0xff0087FF),
-                      ),
-                      /*  padding: EdgeInsets.symmetric(
-                                      horizontal: 40.0, vertical: 20.0), */
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0))),
-                  child: const Text(
-                    "Guest Login",
-                    style: TextStyle(color: Color(0xff0087FF), fontSize: 18),
+                        fontSize: 18,
+                        fontFamily: 'Poppins'),
                   ),
                 ),
               ),

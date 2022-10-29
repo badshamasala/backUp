@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ONBOARDING/splashscreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:iconify_flutter/icons/ant_design.dart';
 
 class UploadImage extends StatefulWidget {
   const UploadImage({super.key});
@@ -35,7 +38,6 @@ class _UploadImageState extends State<UploadImage> {
 
   bool btnchng = true;
 
-  
   File? image;
   Future pickImage(ImageSource source) async {
     try {
@@ -164,8 +166,8 @@ class _UploadImageState extends State<UploadImage> {
                                               },
                                               elevation: 0,
                                               fillColor: Color(0xffDADADA),
-                                              child: FaIcon(
-                                                FontAwesomeIcons.camera,
+                                              child: Iconify(
+                                                AntDesign.camera_filled,
                                                 color: Color(0xff0087FF),
                                                 size: 17,
                                               ),
@@ -199,8 +201,8 @@ class _UploadImageState extends State<UploadImage> {
                                               },
                                               elevation: 0,
                                               fillColor: Color(0xffDADADA),
-                                              child: Icon(
-                                                Icons.photo,
+                                              child: Iconify(
+                                                Heroicons.photo_20_solid,
                                                 color: Color(0xff0087FF),
                                                 size: 17,
                                               ),
@@ -389,11 +391,13 @@ class _UploadImageState extends State<UploadImage> {
                                   ? const Color(0xff515253)
                                   : const Color(0xff56027D))),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(2.0),
                             child: Icon(
                               Icons.transgender,
+                              size: 17,
                               color: other
                                   ? const Color(0xff515253)
                                   : const Color(0xff56027D),
@@ -440,7 +444,7 @@ class _UploadImageState extends State<UploadImage> {
                         'Select Your Age Group',
                         style: TextStyle(
                           fontFamily: 'Poppins',
-                          decoration: TextDecoration.underline,
+                          /*  decoration: TextDecoration.underline, */
                         ),
                       ),
                     ),
@@ -928,9 +932,10 @@ class _UploadImageState extends State<UploadImage> {
                 // height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                     Navigator.push(
+                    Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SplashScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const SplashScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
