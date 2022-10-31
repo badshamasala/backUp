@@ -4,7 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/video_player.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/ant_design.dart';
+import 'package:iconify_flutter/icons/arcticons.dart';
+import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/bytesize.dart';
+import 'package:iconify_flutter/icons/carbon.dart';
+import 'package:iconify_flutter/icons/ci.dart';
+import 'package:iconify_flutter/icons/clarity.dart';
+import 'package:iconify_flutter/icons/emojione_monotone.dart';
+import 'package:iconify_flutter/icons/et.dart';
+import 'package:iconify_flutter/icons/eva.dart';
+import 'package:iconify_flutter/icons/ion.dart';
+import 'package:iconify_flutter/icons/mingcute.dart';
+import 'package:iconify_flutter/icons/teenyicons.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfileSelf extends StatefulWidget {
@@ -15,7 +30,19 @@ class ProfileSelf extends StatefulWidget {
 }
 
 class _ProfileSelfState extends State<ProfileSelf> {
-  
+  bool valueofswitch = true;
+
+  bool emailid = false;
+  bool emailid1 = false;
+  var groupemail;
+
+  List items = [
+    'item1',
+    'item2',
+    'item3',
+  ];
+  String? value;
+
   var photos = [
     'https://img.freepik.com/free-photo/green-world-with-tree-background_1048-1484.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
     'https://img.freepik.com/free-photo/glittery-gold-butterfly-vintage-animal-illustration_53876-165454.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
@@ -43,10 +70,28 @@ class _ProfileSelfState extends State<ProfileSelf> {
   bool rewards = false;
   bool value1 = false;
   bool value2 = false;
+
+  bool male = true;
+  bool female = true;
+  bool other = true;
+  bool age1 = true;
+  bool age2 = true;
+  bool age3 = true;
+  bool age4 = true;
+  bool age5 = true;
+
+  /* bool value = false;
+  bool value1 = false;
+  bool value2 = false; */
+  bool select = true;
+  bool birth = true;
+
+  bool btnchng = true;
+
   var coverheight = 120.0;
   var profile = 100.0;
 
-  bool btnchng = true;
+/*   bool btnchng = true; */
 
   File? image;
   File? image1;
@@ -161,6 +206,278 @@ class _ProfileSelfState extends State<ProfileSelf> {
                   ),
                 ),
               ],
+            ),
+            Container(
+              /*  color: Colors.red, */
+              height: 75,
+              child: ListView(
+                physics: ClampingScrollPhysics(),
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  SizedBox(
+                    width: width * 0.04,
+                  ),
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Center(
+                            child: Column(
+                              children: [
+                                Stack(children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 3.0),
+                                    child: Container(
+                                        padding: EdgeInsets.all(5),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 1,
+                                              color: Color(0xff333333)),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(9.0),
+                                          child: Iconify(Bytesize.plus),
+                                        )
+                                        /*  child: SvgPicture.asset(
+                                        'assets/new.svg',
+                                        width: 40,
+                                      ), */
+                                        ),
+                                  ),
+                                  /* Positioned(
+                                    top: 35,
+                                    left: 30,
+                                    child: Container(
+                                        height: 20,
+                                        margin: EdgeInsets.all(0),
+                                        padding: EdgeInsets.all(0),
+                                        decoration: BoxDecoration(
+                                            border: Border.all(width: 2),
+                                            shape: BoxShape.circle,
+                                            color: primaryColorOfApp),
+                                        child: IconButton(
+                                            padding: EdgeInsets.all(0),
+                                            constraints: BoxConstraints(),
+                                            onPressed: () {},
+                                            icon: Icon(
+                                              Icons.add,
+                                              size: 15,
+                                            ))),
+                                  ) */
+                                ]),
+                                SizedBox(
+                                  height: 3,
+                                ),
+                                Text(
+                                  'Add',
+                                  style: TextStyle(
+                                      color: customTextColor,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 10),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: width * 0.02,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2.0),
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 2, color: primaryColorOfApp),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: SvgPicture.asset(
+                                    'assets/un.svg',
+                                    width: 41,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                Text(
+                                  'Rashid',
+                                  style: TextStyle(
+                                      color: customTextColor,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 10),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: width * 0.02,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2.0),
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 2, color: primaryColorOfApp),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: SvgPicture.asset(
+                                    'assets/un.svg',
+                                    width: 41,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                Text(
+                                  'Farhan',
+                                  style: TextStyle(
+                                      color: customTextColor,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 10),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: width * 0.02,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2.0),
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 2, color: primaryColorOfApp),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: SvgPicture.asset(
+                                    'assets/un.svg',
+                                    width: 41,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                Text(
+                                  'Akhtar',
+                                  style: TextStyle(
+                                      color: customTextColor,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 10),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: width * 0.02,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2.0),
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 2, color: primaryColorOfApp),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: SvgPicture.asset(
+                                    'assets/un.svg',
+                                    width: 41,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                Text(
+                                  'Farhan',
+                                  style: TextStyle(
+                                      color: customTextColor,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 10),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: width * 0.02,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2.0),
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 2, color: primaryColorOfApp),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: SvgPicture.asset(
+                                    'assets/un.svg',
+                                    width: 41,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                Text(
+                                  'Farhan',
+                                  style: TextStyle(
+                                      color: customTextColor,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 10),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: width * 0.02,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2.0),
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 2, color: primaryColorOfApp),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: SvgPicture.asset(
+                                    'assets/un.svg',
+                                    width: 41,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                Text(
+                                  'Farhan',
+                                  style: TextStyle(
+                                      color: customTextColor,
+                                      fontFamily: 'Poppins',
+                                      fontSize: 10),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               /* padding: const EdgeInsets.only(left: 20), */
@@ -396,7 +713,463 @@ class _ProfileSelfState extends State<ProfileSelf> {
               /*  mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
               children: [
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                          // <-- SEE HERE
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(20.0),
+                          ),
+                        ),
+                        context: context,
+                        builder: (BuildContext context) {
+                          return StatefulBuilder(builder:
+                              (BuildContext context, StateSetter setState) {
+                            return Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0),
+                                child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            decoration: BoxDecoration(
+                                                color: Color(0xffE2E2E2),
+                                                borderRadius:
+                                                    BorderRadius.circular(8)),
+                                            height: 5,
+                                            width: 100,
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        children: [
+                                          IconButton(
+                                              padding: EdgeInsets.all(0),
+                                              constraints: BoxConstraints(),
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              icon: Icon(
+                                                Icons.arrow_back,
+                                                color: primaryColorOfApp,
+                                              )),
+                                          SizedBox(
+                                            width: width * 0.01,
+                                          ),
+                                          Text(
+                                            'Settings',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: customTextColor),
+                                          ),
+                                        ],
+                                      ),
+                                      Divider(),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/setprofile.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Profile',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/setnotification.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Notifications',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/setfolo.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'followers & following monetize ',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/setpermision.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Permission set',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/setlang.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'language',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/setchat2.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Chat-box (message)',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Icon(Icons.campaign_outlined),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Ads',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Iconify(
+                                                Bi.patch_check,
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                '@Verification',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                              Iconify(
+                                                Bi.patch_check,
+                                                size: 10,
+                                                color: primaryColorOfApp,
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/setprivacy.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Privacy',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                'assets/setsecurity.svg',
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Security',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                'assets/setabout.svg',
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'About',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                'assets/sethelp.svg',
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Help',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                'assets/setswitch.svg',
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'SWITCH PROFILE',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    color: primaryColorOfApp),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          TextButton(
+                                            style: TextButton.styleFrom(
+                                              padding: EdgeInsets.zero,
+                                              tapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                            ),
+                                            onPressed: () {},
+                                            child: Text(
+                                              'Logout',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 10),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                    ]));
+                          });
+                        });
+                  },
                   style: OutlinedButton.styleFrom(
                       minimumSize: Size(90, 35),
                       /*    minimumSize: Size(32, 30), */
@@ -426,7 +1199,407 @@ class _ProfileSelfState extends State<ProfileSelf> {
                   width: width * 0.03,
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                          // <-- SEE HERE
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(20.0),
+                          ),
+                        ),
+                        context: context,
+                        builder: (BuildContext context) {
+                          return StatefulBuilder(builder:
+                              (BuildContext context, StateSetter setState) {
+                            return Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0),
+                                child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            decoration: BoxDecoration(
+                                                color: Color(0xffE2E2E2),
+                                                borderRadius:
+                                                    BorderRadius.circular(8)),
+                                            height: 5,
+                                            width: 100,
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            '@profile.user-id',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: customTextColor),
+                                          ),
+                                          Iconify(
+                                            Bi.patch_check,
+                                            color: primaryColorOfApp,
+                                          )
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            'Profie Name ',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: customTextColor),
+                                          )
+                                        ],
+                                      ),
+                                      Divider(),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/settingicon.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Settings',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/profileactivityicon.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Profile Activity',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/digitalicon.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Digital Collections',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/historyicon.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'History',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Iconify(Ion.archive),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Archive',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Iconify(Bi.bookmark_star),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Saved',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/hearticon.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Favorites Profile',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                  'assets/friendicon.svg'),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Friends',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Iconify(
+                                                Bi.qr_code_scan,
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'QR Code',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                    border: Border.all(),
+                                                    shape: BoxShape.circle),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(2.0),
+                                                  child: SvgPicture.asset(
+                                                    'assets/discovericon.svg',
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Discover',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              SvgPicture.asset(
+                                                'assets/settingshare.svg',
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Share ',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Iconify(
+                                            Eva.arrow_right_fill,
+                                            size: 15,
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'version  3.6.9. (596) ',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 7),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                    ]));
+                          });
+                        });
+                  },
                   style: OutlinedButton.styleFrom(
                       minimumSize: Size(90, 35),
                       /*  minimumSize: Size(32, 30), */
@@ -527,7 +1700,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                   // Image. file
                                                   : Icon(
                                                       Icons.account_circle,
-                                                      size: 80,
+                                                      size: 70,
                                                       color: Colors.grey,
                                                     ),
                                             ),
@@ -749,67 +1922,72 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                         child: TextFormField(
                                             enabled: username,
                                             decoration: buildInputdecoration(
+                                              null,
                                               username ? '@username' : '',
                                               Icon(Icons.check_circle),
                                               '@Nancy Jain',
                                             ))),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        cancel
-                                            ? TextButton(
-                                                style: TextButton.styleFrom(
-                                                    /* minimumSize: Size(100, 5), */
-                                                    elevation: 0,
-                                                    visualDensity:
-                                                        VisualDensity(
-                                                            vertical: -4),
-                                                    padding: EdgeInsets.zero,
-                                                    tapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap),
-                                                onPressed: () {
-                                                  setState(() {
-                                                    username = false;
-                                                    cancel = false;
-                                                  });
-                                                },
-                                                child: Text('cancel?',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            primaryColorOfApp,
-                                                        fontSize: 10)),
-                                              )
-                                            : TextButton(
-                                                style: TextButton.styleFrom(
-                                                    /* minimumSize: Size(100, 5), */
-                                                    elevation: 0,
-                                                    visualDensity:
-                                                        VisualDensity(
-                                                            vertical: -4),
-                                                    padding: EdgeInsets.zero,
-                                                    tapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap),
-                                                onPressed: () {
-                                                  setState(() {
-                                                    username = true;
-                                                    cancel = true;
-                                                  });
-                                                },
-                                                child: Text('Change?',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            primaryColorOfApp,
-                                                        fontSize: 10)),
-                                              ),
-                                      ],
+                                    Container(
+                                      height: 12,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          cancel
+                                              ? TextButton(
+                                                  style: TextButton.styleFrom(
+                                                      /* minimumSize: Size(100, 5), */
+                                                      elevation: 0,
+                                                      visualDensity:
+                                                          VisualDensity(
+                                                              vertical: -4),
+                                                      padding: EdgeInsets.zero,
+                                                      tapTargetSize:
+                                                          MaterialTapTargetSize
+                                                              .shrinkWrap),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      username = false;
+                                                      cancel = false;
+                                                    });
+                                                  },
+                                                  child: Text('cancel?',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              primaryColorOfApp,
+                                                          fontSize: 10)),
+                                                )
+                                              : TextButton(
+                                                  style: TextButton.styleFrom(
+                                                      /* minimumSize: Size(100, 5), */
+                                                      elevation: 0,
+                                                      visualDensity:
+                                                          VisualDensity(
+                                                              vertical: -4),
+                                                      padding: EdgeInsets.zero,
+                                                      tapTargetSize:
+                                                          MaterialTapTargetSize
+                                                              .shrinkWrap),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      username = true;
+                                                      cancel = true;
+                                                    });
+                                                  },
+                                                  child: Text('Change?',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              primaryColorOfApp,
+                                                          fontSize: 10)),
+                                                ),
+                                        ],
+                                      ),
                                     ),
-                                    SizedBox(
+                                    /*  SizedBox(
                                       height: height * 0.01,
-                                    ),
+                                    ), */
                                     SizedBox(
                                         height: 40,
                                         child: Row(
@@ -820,6 +1998,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                   enabled: fullname,
                                                   decoration:
                                                       buildInputdecoration(
+                                                    null,
                                                     fullname
                                                         ? 'Enter full name'
                                                         : '',
@@ -846,9 +2025,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                     icon: Icon(Icons.edit))
                                           ],
                                         )),
-                                    SizedBox(
+                                    /*   SizedBox(
                                       height: height * 0.01,
-                                    ),
+                                    ), */
                                     SizedBox(
                                         height: 40,
                                         child: Row(
@@ -859,6 +2038,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                   enabled: bio,
                                                   decoration:
                                                       buildInputdecoration(
+                                                    null,
                                                     bio ? 'Enter your bio' : '',
                                                     null,
                                                     'bio',
@@ -1158,52 +2338,138 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text('Make this as Private Account',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                color: customTextColor,
-                                                fontSize: 10)),
-                                        Checkbox(
-                                            side:
-                                                BorderSide(color: Colors.black),
-                                            activeColor: primaryColorOfApp,
-                                            checkColor: Colors.white,
-                                            shape: CircleBorder(),
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            value: private,
-                                            onChanged: (private) {
-                                              setState(() {
-                                                this.private = private!;
-                                              });
-                                            }),
+                                        Container(
+                                          width: 140,
+                                          height: 30,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            border: Border.all(
+                                                color: Colors.black, width: 1),
+                                          ),
+                                          child: DropdownButtonHideUnderline(
+                                            child: DropdownButton(
+                                                hint: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 8.0),
+                                                  child: Text(
+                                                    'select city',
+                                                    style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12,
+                                                        color:
+                                                            Color(0xffC4C4C4)),
+                                                  ),
+                                                ),
+                                                /*  isExpanded: true, */
+                                                value: value,
+                                                items: items
+                                                    .map((item) =>
+                                                        DropdownMenuItem(
+                                                            value: item,
+                                                            child: Text(item)))
+                                                    .toList(),
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    this.value =
+                                                        value as String?;
+                                                  });
+                                                }),
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 140,
+                                          height: 30,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            border: Border.all(
+                                                color: Colors.black, width: 1),
+                                          ),
+                                          child: DropdownButtonHideUnderline(
+                                            child: DropdownButton(
+                                                hint: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 8.0),
+                                                  child: Text(
+                                                    'select state',
+                                                    style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12,
+                                                        color:
+                                                            Color(0xffC4C4C4)),
+                                                  ),
+                                                ),
+                                                /*  isExpanded: true, */
+                                                value: value,
+                                                items: items
+                                                    .map((item) =>
+                                                        DropdownMenuItem(
+                                                            value: item,
+                                                            child: Text(item)))
+                                                    .toList(),
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    this.value =
+                                                        value as String?;
+                                                  });
+                                                }),
+                                          ),
+                                        ),
                                       ],
+                                    ),
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: OutlinedButton(
+                                        onPressed: () {
+                                          /*   Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    ); */
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            side: const BorderSide(
+                                              color: Color(0xff0087FF),
+                                            ),
+                                            /*  padding: EdgeInsets.symmetric(
+                                      horizontal: 40.0, vertical: 20.0), */
+                                            backgroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        5.0))),
+                                        child: Text(
+                                          "Change Interest",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              color: customTextColor,
+                                              /*  fontSize: 18, */
+                                              fontFamily: 'Poppins'),
+                                        ),
+                                      ),
                                     ),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text('Show My information to followers',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                color: customTextColor,
-                                                fontSize: 10)),
-                                        Checkbox(
-                                            side:
-                                                BorderSide(color: Colors.black),
+                                        Text(
+                                          "Auto Play (scrolling)",
+                                          style: TextStyle(
+                                              color: const Color(0xff515253),
+                                              fontFamily: 'Poppins',
+                                              fontSize: width * 0.03),
+                                        ),
+                                        Switch.adaptive(
                                             activeColor: primaryColorOfApp,
-                                            checkColor: Colors.white,
-                                            shape: CircleBorder(),
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            value: public,
-                                            onChanged: (public) {
+                                            value: valueofswitch,
+                                            onChanged: (valueofswitch) {
                                               setState(() {
-                                                this.public = public!;
+                                                this.valueofswitch =
+                                                    valueofswitch;
                                               });
-                                            }),
+                                            })
                                       ],
                                     ),
                                     Row(
@@ -1211,26 +2477,21 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                            'Show my rewards point to everyone',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                color: customTextColor,
-                                                fontSize: 10)),
-                                        Checkbox(
-                                            side:
-                                                BorderSide(color: Colors.black),
+                                          "Location always",
+                                          style: TextStyle(
+                                              color: const Color(0xff515253),
+                                              fontFamily: 'Poppins',
+                                              fontSize: width * 0.03),
+                                        ),
+                                        Switch.adaptive(
                                             activeColor: primaryColorOfApp,
-                                            checkColor: Colors.white,
-                                            shape: CircleBorder(),
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            value: rewards,
-                                            onChanged: (rewards) {
+                                            value: valueofswitch,
+                                            onChanged: (valueofswitch) {
                                               setState(() {
-                                                this.rewards = rewards!;
+                                                this.valueofswitch =
+                                                    valueofswitch;
                                               });
-                                            }),
+                                            })
                                       ],
                                     ),
                                     Row(
@@ -1382,7 +2643,669 @@ class _ProfileSelfState extends State<ProfileSelf> {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      shape: const RoundedRectangleBorder(
+                        // <-- SEE HERE
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20.0),
+                        ),
+                      ),
+                      context: context,
+                      builder: (BuildContext context) {
+                        return StatefulBuilder(builder:
+                            (BuildContext context, StateSetter setState) {
+                          return Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    height: height * 0.01,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: Color(0xffE2E2E2),
+                                            borderRadius:
+                                                BorderRadius.circular(8)),
+                                        height: 5,
+                                        width: 100,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      IconButton(
+                                          padding: EdgeInsets.zero,
+                                          constraints: BoxConstraints(),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          icon: Icon(
+                                            Icons.arrow_back,
+                                            size: 25,
+                                            color: primaryColorOfApp,
+                                          )),
+                                      SizedBox(
+                                        width: width * 0.03,
+                                      ),
+                                      Text(
+                                        'Profile',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                      height: 40,
+                                      child: TextFormField(
+                                          enabled: username,
+                                          decoration: buildInputdecoration(
+                                            null,
+                                            username ? '@username' : '',
+                                            Icon(Icons.check_circle),
+                                            '@Nancy Jain',
+                                          ))),
+                                  Container(
+                                    height: 12,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        cancel
+                                            ? TextButton(
+                                                style: TextButton.styleFrom(
+                                                    /* minimumSize: Size(100, 5), */
+                                                    elevation: 0,
+                                                    visualDensity:
+                                                        VisualDensity(
+                                                            vertical: -4),
+                                                    padding: EdgeInsets.zero,
+                                                    tapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    username = false;
+                                                    cancel = false;
+                                                  });
+                                                },
+                                                child: Text('cancel?',
+                                                    style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            primaryColorOfApp,
+                                                        fontSize: 10)),
+                                              )
+                                            : TextButton(
+                                                style: TextButton.styleFrom(
+                                                    /* minimumSize: Size(100, 5), */
+                                                    elevation: 0,
+                                                    visualDensity:
+                                                        VisualDensity(
+                                                            vertical: -4),
+                                                    padding: EdgeInsets.zero,
+                                                    tapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    username = true;
+                                                    cancel = true;
+                                                  });
+                                                },
+                                                child: Text('Change?',
+                                                    style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            primaryColorOfApp,
+                                                        fontSize: 10)),
+                                              ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                      height: 40,
+                                      child: Row(
+                                        children: [
+                                          SizedBox(
+                                            width: 240,
+                                            child: TextFormField(
+                                                enabled: fullname,
+                                                decoration:
+                                                    buildInputdecoration(
+                                                  null,
+                                                  fullname
+                                                      ? 'Enter full name'
+                                                      : '',
+                                                  null,
+                                                  'First name Last name Middle Name',
+                                                )),
+                                          ),
+                                          full1
+                                              ? IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      fullname = false;
+                                                      full1 = false;
+                                                    });
+                                                  },
+                                                  icon: Icon(Icons.cancel))
+                                              : IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      fullname = true;
+                                                      full1 = true;
+                                                    });
+                                                  },
+                                                  icon: Icon(Icons.edit))
+                                        ],
+                                      )),
+                                  /*   SizedBox(
+                                      height: height * 0.01,
+                                    ), */
+                                  SizedBox(
+                                      height: 40,
+                                      child: Row(
+                                        children: [
+                                          SizedBox(
+                                            width: 240,
+                                            child: TextFormField(
+                                                enabled: bio,
+                                                decoration:
+                                                    buildInputdecoration(
+                                                  null,
+                                                  bio ? 'Enter your bio' : '',
+                                                  null,
+                                                  'bio',
+                                                )),
+                                          ),
+                                          bio1
+                                              ? IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      bio = false;
+                                                      bio1 = false;
+                                                    });
+                                                  },
+                                                  icon: Icon(Icons.cancel))
+                                              : IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      bio = true;
+                                                      bio1 = true;
+                                                    });
+                                                  },
+                                                  icon: Icon(Icons.edit))
+                                        ],
+                                      )),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    /*  mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            male = false;
+                                            female = true;
+                                            other = true;
+                                          });
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.zero,
+                                          margin: EdgeInsets.zero,
+                                          width: 85,
+                                          height: 30,
+                                          decoration: BoxDecoration(
+                                              color: male
+                                                  ? Colors.transparent
+                                                  : const Color.fromARGB(
+                                                      255, 200, 226, 249),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              border: Border.all(
+                                                  width: 0.7,
+                                                  color: male
+                                                      ? const Color(0xff515253)
+                                                      : const Color(
+                                                          0xff0087FF))),
+                                          child: Row(
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(2.0),
+                                                child: Icon(
+                                                  Icons.male,
+                                                  color: male
+                                                      ? const Color(0xff515253)
+                                                      : const Color(0xff0087FF),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(2.0),
+                                                child: Text(
+                                                  'male',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: width * 0.05,
+                                                      color: male
+                                                          ? const Color(
+                                                              0xff515253)
+                                                          : const Color(
+                                                              0xff0087FF)),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: width * 0.05,
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            female = false;
+                                            male = true;
+                                            other = true;
+                                          });
+                                        },
+                                        child: Container(
+                                          width: 85,
+                                          height: 30,
+                                          decoration: BoxDecoration(
+                                              color: female
+                                                  ? Colors.transparent
+                                                  : const Color.fromARGB(
+                                                      255, 247, 212, 214),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              border: Border.all(
+                                                  width: 0.7,
+                                                  color: female
+                                                      ? const Color(0xff515253)
+                                                      : const Color(
+                                                          0xffF96A70))),
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.female,
+                                                color: female
+                                                    ? const Color(0xff515253)
+                                                    : const Color(0xffF96A70),
+                                              ),
+                                              Text(
+                                                'female',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: width * 0.05,
+                                                    color: female
+                                                        ? const Color(
+                                                            0xff515253)
+                                                        : const Color(
+                                                            0xffF96A70)),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: width * 0.05,
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            other = false;
+                                            male = true;
+                                            female = true;
+                                          });
+                                        },
+                                        child: Container(
+                                          width: 85,
+                                          height: 30,
+                                          decoration: BoxDecoration(
+                                              color: other
+                                                  ? Colors.transparent
+                                                  : const Color.fromARGB(
+                                                      255, 232, 203, 246),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              border: Border.all(
+                                                  width: 0.7,
+                                                  color: other
+                                                      ? const Color(0xff515253)
+                                                      : const Color(
+                                                          0xff56027D))),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(2.0),
+                                                child: Icon(
+                                                  Icons.transgender,
+                                                  size: 17,
+                                                  color: other
+                                                      ? const Color(0xff515253)
+                                                      : const Color(0xff56027D),
+                                                ),
+                                              ),
+                                              Text(
+                                                'other',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: width * 0.05,
+                                                    color: other
+                                                        ? const Color(
+                                                            0xff515253)
+                                                        : const Color(
+                                                            0xff56027D)),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: height * 0.01,
+                                  ),
+                                  SizedBox(
+                                      height: 40,
+                                      child: Row(
+                                        children: [
+                                          SizedBox(
+                                            width: 240,
+                                            child: TextFormField(
+                                                enabled: bio,
+                                                decoration:
+                                                    buildInputdecoration(
+                                                  null,
+                                                  bio ? 'Enter your bio' : '',
+                                                  null,
+                                                  'bio',
+                                                )),
+                                          ),
+                                          bio1
+                                              ? IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      bio = false;
+                                                      bio1 = false;
+                                                    });
+                                                  },
+                                                  icon: Icon(Icons.cancel))
+                                              : IconButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      bio = true;
+                                                      bio1 = true;
+                                                    });
+                                                  },
+                                                  icon: Icon(Icons.edit))
+                                        ],
+                                      )),
+                                  SizedBox(
+                                    height: height * 0.01,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            width: 0.5, color: customTextColor),
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 10),
+                                              child: Text(
+                                                "Dont show to anyone",
+                                                style: TextStyle(
+                                                    color:
+                                                        const Color(0xff515253),
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: width * 0.03),
+                                              ),
+                                            ),
+                                            Switch.adaptive(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                activeColor: primaryColorOfApp,
+                                                value: valueofswitch,
+                                                onChanged: (valueofswitch) {
+                                                  setState(() {
+                                                    this.valueofswitch =
+                                                        valueofswitch;
+                                                  });
+                                                })
+                                          ],
+                                        ),
+                                        Divider(
+                                          color: Colors.black,
+                                          height: 2,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 10.0),
+                                              child: Text(
+                                                "Show my email id followers ",
+                                                style: TextStyle(
+                                                    color:
+                                                        const Color(0xff515253),
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: width * 0.03),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupemail,
+                                                value: emailid,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    emailid = true;
+                                                    emailid1 = false;
+                                                    groupemail = emailid;
+                                                  });
+                                                })
+                                          ],
+                                        ),
+                                        Divider(
+                                          color: Colors.black,
+                                          height: 2,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 10.0),
+                                              child: Text(
+                                                "Show my email id  everyone",
+                                                style: TextStyle(
+                                                    color:
+                                                        const Color(0xff515253),
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: width * 0.03),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupemail,
+                                                value: emailid1,
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    emailid = false;
+                                                    emailid1 = true;
+                                                    groupemail = emailid1;
+                                                  });
+                                                })
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: height * 0.02,
+                                  ),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: OutlinedButton(
+                                      onPressed: () {
+                                        /*   Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    ); */
+                                      },
+                                      style: OutlinedButton.styleFrom(
+                                          side: const BorderSide(
+                                              color: Color(0xff0087FF),
+                                              width: 0.5),
+                                          /*  padding: EdgeInsets.symmetric(
+                                      horizontal: 40.0, vertical: 20.0), */
+                                          backgroundColor: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0))),
+                                      child: Text(
+                                        "Add Your Address",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            color: primaryColorOfApp,
+                                            /*  fontSize: 18, */
+                                            fontFamily: 'Poppins'),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: OutlinedButton(
+                                      onPressed: () {
+                                        /*   Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    ); */
+                                      },
+                                      style: OutlinedButton.styleFrom(
+                                          side: const BorderSide(
+                                              color: Color(0xff0087FF),
+                                              width: 0.5),
+                                          /*  padding: EdgeInsets.symmetric(
+                                      horizontal: 40.0, vertical: 20.0), */
+                                          backgroundColor: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0))),
+                                      child: Text(
+                                        "Change Interest",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            color: primaryColorOfApp,
+                                            /*  fontSize: 18, */
+                                            fontFamily: 'Poppins'),
+                                      ),
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      OutlinedButton(
+                                        onPressed: () {},
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(140, 35),
+                                            /*    minimumSize: Size(32, 30), */
+                                            elevation: 0,
+                                            /* padding: EdgeInsets.zero, */
+                                            tapTargetSize: MaterialTapTargetSize
+                                                .shrinkWrap,
+                                            side: const BorderSide(
+                                              color: Color(0xff0087FF),
+                                            ),
+                                            /*  padding:
+                          EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                                            backgroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        5.0))),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(1.0),
+                                          child: const Text(
+                                            "Cancel",
+                                            style: TextStyle(
+                                                color: Color(0xff333333),
+                                                fontSize: 10,
+                                                fontFamily: 'Poppins'),
+                                          ),
+                                        ),
+                                      ),
+                                      /*  SizedBox(
+                                          width: width * 0.03,
+                                        ), */
+                                      ElevatedButton(
+                                        onPressed: () {},
+                                        style: ElevatedButton.styleFrom(
+                                            minimumSize: Size(135, 35),
+                                            /*  minimumSize: Size(32, 30), */
+                                            elevation: 0,
+                                            /* padding: EdgeInsets.zero, */
+                                            tapTargetSize: MaterialTapTargetSize
+                                                .shrinkWrap,
+                                            /*   side: const BorderSide(
+                                                color: Color(0xff0087FF),
+                                              ), */
+                                            /*   padding:
+                          EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                                            backgroundColor: primaryColorOfApp,
+                                            foregroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        5.0))),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(1.0),
+                                          child: const Text(
+                                            "Save Changes",
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                fontFamily: 'Poppins'),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: height * 0.05,
+                                  ),
+                                ]),
+                          );
+                        });
+                      });
+                },
                 style: OutlinedButton.styleFrom(
                     /*   minimumSize: Size(32, 30), */
                     elevation: 5,
@@ -1509,7 +3432,285 @@ class _ProfileSelfState extends State<ProfileSelf> {
               ), */
               sizedbox(context),
               OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      shape: const RoundedRectangleBorder(
+                        // <-- SEE HERE
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20.0),
+                        ),
+                      ),
+                      context: context,
+                      builder: (BuildContext context) {
+                        return StatefulBuilder(builder:
+                            (BuildContext context, StateSetter setState) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    height: height * 0.01,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color:
+                                            Color.fromARGB(255, 168, 161, 161),
+                                        border: Border.all(
+                                            width: 0.5,
+                                            color: Color.fromARGB(
+                                                255, 168, 161, 161)),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    height: 5,
+                                    width: 100,
+                                  ),
+                                  SizedBox(
+                                    height: height * 0.02,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      IconButton(
+                                          padding: EdgeInsets.zero,
+                                          constraints: BoxConstraints(),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          icon: Icon(
+                                            Icons.arrow_back,
+                                            size: 25,
+                                            color: primaryColorOfApp,
+                                          )),
+                                      SizedBox(
+                                        width: width * 0.03,
+                                      ),
+                                      Text(
+                                        'add your address/location',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                  Divider(),
+                                  SizedBox(
+                                    height: height * 0.04,
+                                  ),
+                                  SizedBox(
+                                      height: 40,
+                                      child: TextFormField(
+                                          decoration: buildInputdecoration(
+                                        Icon(Icons.search),
+                                        'Search Location',
+                                        null,
+                                        'Search Location',
+                                      ))),
+                                  SizedBox(
+                                    height: height * 0.04,
+                                  ),
+                                  SizedBox(
+                                      height: 40,
+                                      child: TextFormField(
+                                          decoration: buildInputdecoration(
+                                        null,
+                                        'Enter Street Village',
+                                        null,
+                                        'Enter Street Village',
+                                      ))),
+                                  SizedBox(
+                                    height: height * 0.04,
+                                  ),
+                                  SizedBox(
+                                      height: 40,
+                                      child: TextFormField(
+                                          decoration: buildInputdecoration(
+                                        null,
+                                        'Enter Road LandMark',
+                                        null,
+                                        'Enter Road LandMark',
+                                      ))),
+                                  SizedBox(
+                                    height: height * 0.04,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width: 140,
+                                        height: 30,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          border: Border.all(
+                                              color: Colors.black, width: 0.5),
+                                        ),
+                                        child: DropdownButtonHideUnderline(
+                                          child: DropdownButton(
+                                              hint: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 8.0),
+                                                child: Text(
+                                                  'select city',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12,
+                                                      color: Color(0xffC4C4C4)),
+                                                ),
+                                              ),
+                                              /*  isExpanded: true, */
+                                              value: value,
+                                              items: items
+                                                  .map((item) =>
+                                                      DropdownMenuItem(
+                                                          value: item,
+                                                          child: Text(item)))
+                                                  .toList(),
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  this.value = value as String?;
+                                                });
+                                              }),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 140,
+                                        height: 30,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          border: Border.all(
+                                              color: Colors.black, width: 0.5),
+                                        ),
+                                        child: DropdownButtonHideUnderline(
+                                          child: DropdownButton(
+                                              hint: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 8.0),
+                                                child: Text(
+                                                  'select state',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12,
+                                                      color: Color(0xffC4C4C4)),
+                                                ),
+                                              ),
+                                              /*  isExpanded: true, */
+                                              value: value,
+                                              items: items
+                                                  .map((item) =>
+                                                      DropdownMenuItem(
+                                                          value: item,
+                                                          child: Text(item)))
+                                                  .toList(),
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  this.value = value as String?;
+                                                });
+                                              }),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: height * 0.04,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width: 140,
+                                        height: 30,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          border: Border.all(
+                                              color: Colors.black, width: 0.5),
+                                        ),
+                                        child: DropdownButtonHideUnderline(
+                                          child: DropdownButton(
+                                              hint: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 8.0),
+                                                child: Text(
+                                                  'select city',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12,
+                                                      color: Color(0xffC4C4C4)),
+                                                ),
+                                              ),
+                                              /*  isExpanded: true, */
+                                              value: value,
+                                              items: items
+                                                  .map((item) =>
+                                                      DropdownMenuItem(
+                                                          value: item,
+                                                          child: Text(item)))
+                                                  .toList(),
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  this.value = value as String?;
+                                                });
+                                              }),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                          width: 140,
+                                          height: 30,
+                                          child: TextFormField(
+                                              decoration: buildInputdecoration(
+                                            null,
+                                            'Pin Code',
+                                            null,
+                                            'Pin Code',
+                                          ))),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: height * 0.04,
+                                  ),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    // height: 50,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        /*   Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const GooglePage1()),
+                    ); */
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                          elevation: 0,
+                                          /*     minimumSize: const Size(0.0, 40), */
+                                          // padding: EdgeInsets.symmetric(
+                                          //     horizontal: 40.0, vertical: 20.0),
+                                          backgroundColor:
+                                              const Color(0xff0087FF),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0))),
+                                      child: const Text(
+                                        "Save",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontFamily: 'Poppins'),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: height * 0.04,
+                                  ),
+                                ]),
+                          );
+                        });
+                      });
+                },
                 style: OutlinedButton.styleFrom(
                     minimumSize: Size(32, 30),
                     elevation: 5,
@@ -1539,7 +3740,446 @@ class _ProfileSelfState extends State<ProfileSelf> {
                 width: width * 0.01,
               ),
               OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      shape: const RoundedRectangleBorder(
+                        // <-- SEE HERE
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20.0),
+                        ),
+                      ),
+                      context: context,
+                      builder: (BuildContext context) {
+                        return StatefulBuilder(builder:
+                            (BuildContext context, StateSetter setState) {
+                          return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16.0),
+                              child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SizedBox(
+                                      height: height * 0.01,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          decoration: BoxDecoration(
+                                              color: Color(0xffE2E2E2),
+                                              borderRadius:
+                                                  BorderRadius.circular(8)),
+                                          height: 5,
+                                          width: 100,
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.01,
+                                    ),
+                                    Row(
+                                      children: [
+                                        IconButton(
+                                            padding: EdgeInsets.all(0),
+                                            constraints: BoxConstraints(),
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            icon: Icon(
+                                              Icons.arrow_back,
+                                              color: primaryColorOfApp,
+                                            )),
+                                        SizedBox(
+                                          width: width * 0.01,
+                                        ),
+                                        Text(
+                                          'Privacy',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: customTextColor),
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/setprofile.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Private Profile',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/profileactivityicon.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Activity Status',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/digitalicon.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Show Reward Points',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/privacygroup.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Groups ',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/commenticon.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Comments',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/privacypost.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Post-Photo & Video',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/historyicon.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Story',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/liveicon.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Live',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                            Iconify(
+                                              Bi.patch_check,
+                                              size: 10,
+                                              color: primaryColorOfApp,
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                                'assets/setchat2.svg'),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Chat-Box',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/@.svg',
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Mension ',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/tagicon.svg',
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Tag',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Iconify(
+                                              EmojioneMonotone.wrapped_gift,
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Send me GIFT',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/blockicon.svg',
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Block Profile List',
+                                              style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Iconify(
+                                          Eva.arrow_right_fill,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: height * 0.03,
+                                    ),
+                                  ]));
+                        });
+                      });
+                },
                 style: OutlinedButton.styleFrom(
                     minimumSize: Size(32, 30),
                     elevation: 5,
@@ -1839,8 +4479,11 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               fontFamily: 'Poppins',
                               color: Color(0xff0087FF)),
                         ),
-                        FaIcon(FontAwesomeIcons.certificate,
-                            size: 15, color: Color(0xff0087FF))
+                        Iconify(
+                          Bi.patch_check,
+                          size: 15,
+                          color: primaryColorOfApp,
+                        ),
                       ],
                     ),
                   ),
@@ -1861,7 +4504,467 @@ class _ProfileSelfState extends State<ProfileSelf> {
               IconButton(
                   padding: EdgeInsets.zero,
                   constraints: BoxConstraints(),
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                          // <-- SEE HERE
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(20.0),
+                          ),
+                        ),
+                        context: context,
+                        builder: (BuildContext context) {
+                          return StatefulBuilder(builder:
+                              (BuildContext context, StateSetter setState) {
+                            return Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0),
+                                child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            decoration: BoxDecoration(
+                                                color: Color(0xffE2E2E2),
+                                                borderRadius:
+                                                    BorderRadius.circular(8)),
+                                            height: 5,
+                                            width: 100,
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        children: [
+                                          IconButton(
+                                              padding: EdgeInsets.all(0),
+                                              constraints: BoxConstraints(),
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              icon: Icon(
+                                                Icons.arrow_back,
+                                                color: primaryColorOfApp,
+                                              )),
+                                          SizedBox(
+                                            width: width * 0.01,
+                                          ),
+                                          Text(
+                                            'Activity Status',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: customTextColor),
+                                          ),
+                                        ],
+                                      ),
+                                      Divider(),
+                                      Stack(children: [
+                                        Positioned(
+                                          left: 0,
+                                          top: 20,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                shape: BoxShape.rectangle,
+                                                border: Border.all(
+                                                  width: 0.5,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10)),
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0),
+                                                      child: Text(
+                                                        "Following",
+                                                        style: TextStyle(
+                                                            color: const Color(
+                                                                0xff515253),
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize:
+                                                                width * 0.03),
+                                                      ),
+                                                    ),
+                                                    Radio(
+                                                        materialTapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        groupValue: groupemail,
+                                                        value: emailid,
+                                                        onChanged: (val) {
+                                                          setState(() {
+                                                            emailid = true;
+                                                            emailid1 = false;
+                                                            groupemail =
+                                                                emailid;
+                                                          });
+                                                        })
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0),
+                                                      child: Text(
+                                                        "Following",
+                                                        style: TextStyle(
+                                                            color: const Color(
+                                                                0xff515253),
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize:
+                                                                width * 0.03),
+                                                      ),
+                                                    ),
+                                                    Radio(
+                                                        materialTapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        groupValue: groupemail,
+                                                        value: emailid,
+                                                        onChanged: (val) {
+                                                          setState(() {
+                                                            emailid = true;
+                                                            emailid1 = false;
+                                                            groupemail =
+                                                                emailid;
+                                                          });
+                                                        })
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0),
+                                                      child: Text(
+                                                        "Following",
+                                                        style: TextStyle(
+                                                            color: const Color(
+                                                                0xff515253),
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize:
+                                                                width * 0.03),
+                                                      ),
+                                                    ),
+                                                    Radio(
+                                                        materialTapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        groupValue: groupemail,
+                                                        value: emailid,
+                                                        onChanged: (val) {
+                                                          setState(() {
+                                                            emailid = true;
+                                                            emailid1 = false;
+                                                            groupemail =
+                                                                emailid;
+                                                          });
+                                                        })
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0),
+                                                      child: Text(
+                                                        "Following",
+                                                        style: TextStyle(
+                                                            color: const Color(
+                                                                0xff515253),
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize:
+                                                                width * 0.03),
+                                                      ),
+                                                    ),
+                                                    Radio(
+                                                        materialTapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        groupValue: groupemail,
+                                                        value: emailid,
+                                                        onChanged: (val) {
+                                                          setState(() {
+                                                            emailid = true;
+                                                            emailid1 = false;
+                                                            groupemail =
+                                                                emailid;
+                                                          });
+                                                        })
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          top: 13,
+                                          left: 30,
+                                          width: 130,
+                                          child: Container(
+                                            /*   width: 200,
+              height: 150, */
+                                            color: Colors.white,
+                                            child: const Text(
+                                              'Profile Active Seen & Online ',
+                                              style: TextStyle(
+                                                  color: Color(0xff515253),
+                                                  fontSize: 10,
+                                                  fontFamily: 'Poppins'),
+                                            ),
+                                          ),
+                                        ),
+                                      ]),
+
+                                      /* SizedBox(
+                                        height: 169,
+                                        child: Stack(
+                                          children: [
+                                            Positioned(
+                                              top: 20,
+                                              left: 0,
+                                              height: 169,
+                                              width: 288,
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    shape: BoxShape.rectangle,
+                                                    border: Border.all(
+                                                        width: 0.5,
+                                                        color: const Color(
+                                                            0xff515253)),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                                /*  width: 150,
+              height: 150, */
+                                                /*  color: Colors.green[300], */
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  left: 10.0),
+                                                          child: Text(
+                                                            "Everyone",
+                                                            style: TextStyle(
+                                                                color: const Color(
+                                                                    0xff515253),
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize:
+                                                                    width *
+                                                                        0.03),
+                                                          ),
+                                                        ),
+                                                        Radio(
+                                                            materialTapTargetSize:
+                                                                MaterialTapTargetSize
+                                                                    .shrinkWrap,
+                                                            groupValue:
+                                                                groupemail,
+                                                            value: emailid,
+                                                            onChanged: (val) {
+                                                              setState(() {
+                                                                emailid = true;
+                                                                emailid1 =
+                                                                    false;
+                                                                groupemail =
+                                                                    emailid;
+                                                              });
+                                                            })
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  left: 10.0),
+                                                          child: Text(
+                                                            "Followers",
+                                                            style: TextStyle(
+                                                                color: const Color(
+                                                                    0xff515253),
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize:
+                                                                    width *
+                                                                        0.03),
+                                                          ),
+                                                        ),
+                                                        Radio(
+                                                            materialTapTargetSize:
+                                                                MaterialTapTargetSize
+                                                                    .shrinkWrap,
+                                                            groupValue:
+                                                                groupemail,
+                                                            value: emailid,
+                                                            onChanged: (val) {
+                                                              setState(() {
+                                                                emailid = true;
+                                                                emailid1 =
+                                                                    false;
+                                                                groupemail =
+                                                                    emailid;
+                                                              });
+                                                            })
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  left: 10.0),
+                                                          child: Text(
+                                                            "Following",
+                                                            style: TextStyle(
+                                                                color: const Color(
+                                                                    0xff515253),
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize:
+                                                                    width *
+                                                                        0.03),
+                                                          ),
+                                                        ),
+                                                        Radio(
+                                                            materialTapTargetSize:
+                                                                MaterialTapTargetSize
+                                                                    .shrinkWrap,
+                                                            groupValue:
+                                                                groupemail,
+                                                            value: emailid,
+                                                            onChanged: (val) {
+                                                              setState(() {
+                                                                emailid = true;
+                                                                emailid1 =
+                                                                    false;
+                                                                groupemail =
+                                                                    emailid;
+                                                              });
+                                                            })
+                                                      ],
+                                                    ),
+                                                    /* Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  left: 10.0),
+                                                          child: Text(
+                                                            "OFF",
+                                                            style: TextStyle(
+                                                                color: const Color(
+                                                                    0xff515253),
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize:
+                                                                    width *
+                                                                        0.03),
+                                                          ),
+                                                        ),
+                                                        Radio(
+                                                            materialTapTargetSize:
+                                                                MaterialTapTargetSize
+                                                                    .shrinkWrap,
+                                                            groupValue:
+                                                                groupemail,
+                                                            value: emailid,
+                                                            onChanged: (val) {
+                                                              setState(() {
+                                                                emailid = true;
+                                                                emailid1 =
+                                                                    false;
+                                                                groupemail =
+                                                                    emailid;
+                                                              });
+                                                            })
+                                                      ],
+                                                    ), */
+                                                    Divider()
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            Positioned(
+                                              top: 13,
+                                              left: 30,
+                                              width: 130,
+                                              height: 10,
+                                              child: Container(
+                                                /*   width: 200,
+              height: 150, */
+                                                color: Colors.white,
+                                                child: const Text(
+                                                  'Profile Active Seen & Online ',
+                                                  style: TextStyle(
+                                                      color: Color(0xff515253),
+                                                      fontSize: 10,
+                                                      fontFamily: 'Poppins'),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ), */
+                                      SizedBox(
+                                        height: height * 0.1,
+                                      )
+                                    ]));
+                          });
+                        });
+                  },
                   icon: Icon(
                     Icons.notifications,
                     color: Color(0xff0087FF),
@@ -1884,18 +4987,19 @@ class _ProfileSelfState extends State<ProfileSelf> {
     );
   }
 
-  buildInputdecoration(labeltext, suffix, hinttext) {
+  buildInputdecoration(prefix, labeltext, suffix, hinttext) {
     return InputDecoration(
       /*   errorText: validationService.fullName.error, */
       labelText: labeltext,
       labelStyle: const TextStyle(
           color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
       enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: Color(0xff333333), width: 0.5)),
       focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5)),
+      prefix: prefix,
       suffixIcon: suffix,
       hintText: hinttext,
       hintStyle: TextStyle(fontSize: 10),

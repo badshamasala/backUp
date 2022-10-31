@@ -297,39 +297,7 @@ class _UploadBrandState extends State<UploadBrand> {
                       buildInputdecoration('Enter Your website any other link'),
                 ),
                 sizedbox(),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.black, width: 1),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton(
-                          hint: Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              'select your business categories',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12,
-                                  color: Color(0xffC4C4C4)),
-                            ),
-                          ),
-                          isExpanded: true,
-                          value: value,
-                          items: items
-                              .map((item) => DropdownMenuItem(
-                                  value: item, child: Text(item)))
-                              .toList(),
-                          onChanged: (value) {
-                            setState(() {
-                              this.value = value as String?;
-                            });
-                          }),
-                    ),
-                  ),
-                ),
+                
                 sizedbox(),
                  Container(
                   decoration: BoxDecoration(
