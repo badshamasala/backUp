@@ -12,7 +12,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../GOOGLE LOGIN/googlenewpage.dart';
 
-enum language {
+/* enum language {
   english,
   hindi,
   marathi,
@@ -23,7 +23,7 @@ enum language {
   odia,
   kannada,
   tamil
-}
+} */
 
 class Slider1 extends StatefulWidget {
   const Slider1({super.key});

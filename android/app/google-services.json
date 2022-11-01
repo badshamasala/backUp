@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:170143602131:android:5bb8a4fd061d5339e00b26",
         "android_client_info": {
-          "package_name": "com.example.flutter_application_1"
+          "package_name": "com.myttube_app"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "170143602131-tujdkmncjit3fm010qjptkl1o4m7gih3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.flutter_application_1",
+            "package_name": "com.myttube_app",
             "certificate_hash": "9cc42705d3b25635a75ebbe794027a01ffdbeebd"
           }
         },
