@@ -4,14 +4,9 @@ import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googlenewpage.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
-import 'package:flutter_application_1/PRACTISE/dropdown1.dart';
-import 'package:flutter_application_1/PRACTISE/login.dart';
-import 'package:flutter_application_1/PRACTISE/radiocheck.dart';
-import 'package:flutter_application_1/PRACTISE/share.dart';
-import 'package:flutter_application_1/homepage/circle%20avatar.dart';
+
 import 'package:flutter_application_1/homepage/homepage.dart';
-import 'package:flutter_application_1/PRACTISE/postapi.dart';
-import 'package:flutter_application_1/PRACTISE/provider.dart';
+
 import 'package:flutter_application_1/ONBOARDING/startPage.dart';
 import 'package:provider/provider.dart';
 
@@ -29,8 +24,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ValidationProvider()),
-        ChangeNotifierProvider(create: (_) => RadioProvider()),
         ChangeNotifierProvider(create: (_) => Googleprovider()),
       ],
       child: MaterialApp(
@@ -38,6 +31,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+       
         ),
         /*  supportedLocales: [
           Locale('en', 'US'),
@@ -59,8 +53,8 @@ class MyApp extends StatelessWidget {
           // from the list (English, in this case).
           return supportedLocales.first;
         }, */
-        home: LoginPage(),
-       /*  home: AccountType(), */
+        home: HomePage(),
+        //home: GooglePage1(),
       ),
     );
   }

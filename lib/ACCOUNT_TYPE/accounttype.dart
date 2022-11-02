@@ -14,7 +14,7 @@ class _AccountTypeState extends State<AccountType> {
   var value1 = false;
   var value2 = false;
   var value3 = false;
-  var groupvalues;
+  dynamic groupvalues;
 
   @override
   Widget build(BuildContext context) {

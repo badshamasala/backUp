@@ -3,7 +3,7 @@ import 'package:flutter_application_1/homepage/comment.dart';
 import 'package:flutter_application_1/homepage/home1.dart';
 import 'package:flutter_application_1/homepage/profile.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
-import 'package:flutter_application_1/homepage/scrollToHideWidget.dart';
+
 import 'package:flutter_application_1/homepage/search.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     const Home1(),
     const Search(),
     const Comment(),
-    const ProfileSelf()
+     ProfileSelf()
   ];
 
   @override
@@ -39,9 +39,7 @@ class _HomePageState extends State<HomePage> {
     width = size.width;
     return Scaffold(
       body: screens[currentIndex],
-      bottomNavigationBar: ScrollToHideWidget(
-          controller: controller,
-          child: BottomNavigationBar(
+      bottomNavigationBar:  BottomNavigationBar(
               backgroundColor: Color.fromARGB(255, 249, 246, 246),
               type: BottomNavigationBarType.fixed,
               currentIndex: currentIndex,
@@ -84,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     label: ''),
               ]),
-        ),
+        
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
         padding: EdgeInsets.only(top: 25),

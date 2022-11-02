@@ -461,9 +461,9 @@ class _LoginPageState extends State<LoginPage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                  /*   final provider =
+                    final provider =
                         Provider.of<Googleprovider>(context, listen: false);
-                    provider.googlelogin(); */
+                    provider.googlelogin();
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
@@ -511,7 +511,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               SizedBox(
-                height: 45,
+                /* height: 45, */
                 width: double.infinity,
                 child: OutlinedButton(
                   onPressed: () {

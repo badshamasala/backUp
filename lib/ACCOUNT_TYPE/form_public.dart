@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/upload_public.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+
 
 class FormfillPublic extends StatefulWidget {
   const FormfillPublic({super.key});
@@ -115,7 +115,7 @@ class _FormfillPublicState extends State<FormfillPublic> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => UploadPublic()),
+                                builder: (context) => const UploadPublic()),
                           );
                         } else {
                           print('aa');
@@ -309,7 +309,7 @@ Padding(
 
   sizedbox() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.02,
     );
@@ -317,7 +317,7 @@ Padding(
 
   sizedbox1() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.04,
     );

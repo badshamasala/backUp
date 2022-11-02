@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/upload_brand.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+
 
 class FormfillBrand extends StatefulWidget {
   const FormfillBrand({super.key});
@@ -114,7 +114,7 @@ class _FormfillBrandState extends State<FormfillBrand> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => UploadBrand()),
+                                builder: (context) => const UploadBrand()),
                           );
                         } else {
                           print('aa');
@@ -308,7 +308,7 @@ Padding(
 
   sizedbox() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.02,
     );
@@ -316,7 +316,7 @@ Padding(
 
   sizedbox1() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.04,
     );

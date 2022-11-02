@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 
 class Formfill extends StatefulWidget {
-  final value1;
-  final value2;
-  final value3;
-  Formfill({required this.value1, required this.value2, required this.value3});
+  dynamic value1;
+  dynamic value2;
+  dynamic value3;
+  Formfill({
+    Key? key,
+    required this.value1,
+    required this.value2,
+    required this.value3,
+  }) : super(key: key);
 
   @override
   State<Formfill> createState() => _FormfillState();
@@ -105,11 +111,11 @@ class _FormfillState extends State<Formfill> {
                           fontFamily: 'Poppins',
                           fontSize: 12),
                       border: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xff0087FF),
                           ),
                           borderRadius: BorderRadius.circular(5)),
-                      errorStyle: TextStyle(fontSize: 8, height: 0.2),
+                      errorStyle: const TextStyle(fontSize: 8, height: 0.2),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                           borderSide: const BorderSide(
@@ -170,7 +176,7 @@ class _FormfillState extends State<Formfill> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => UploadImage()),
+                                builder: (context) => const UploadImage()),
                           );
                         } else {
                           print('aa');
@@ -432,7 +438,7 @@ class _FormfillState extends State<Formfill> {
 
   sizedbox() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.02,
     );
@@ -440,20 +446,18 @@ class _FormfillState extends State<Formfill> {
 
   sizedbox1() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.04,
     );
   }
 
-  InputDecoration buildInputdecoration(
-    String labeltext,
-  ) {
+   buildInputdecoration( String labeltext) {
     return InputDecoration(
 
         /*   errorText: validationService.fullName.error, */
         labelText: labeltext,
-        errorStyle: TextStyle(fontSize: 8, height: 0.2),
+        errorStyle: const TextStyle(fontSize: 8, height: 0.2),
         labelStyle: const TextStyle(
             color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
         /* border: OutlineInputBorder(
@@ -470,7 +474,7 @@ class _FormfillState extends State<Formfill> {
         // hintText: 'Enter Your Username',
         contentPadding: const EdgeInsets.all(15),
         border: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Color(0xff0087FF),
             ),
             borderRadius: BorderRadius.circular(5)));

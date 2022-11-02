@@ -1,14 +1,9 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
-import 'package:flutter_application_1/ONBOARDING/splashscreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -34,7 +29,7 @@ class _UploadBrandState extends State<UploadBrand> {
 
   bool btnchng = true;
 
-  var size, height, width;
+ 
   File? image;
   Future pickImage(ImageSource source) async {
     try {
@@ -51,9 +46,9 @@ class _UploadBrandState extends State<UploadBrand> {
 
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+     Size size = MediaQuery.of(context).size;
+    double width = size.width;
+    double height = size.height;
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -125,11 +120,11 @@ class _UploadBrandState extends State<UploadBrand> {
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
+                                        children: const [
+                                        Padding(
+                                            padding: EdgeInsets.only(
                                                 left: 80.0),
-                                            child: const Text(
+                                            child: Text(
                                               'Your Profile Photo',
                                               style: TextStyle(
                                                   color: Color(0xff333333),
@@ -142,7 +137,7 @@ class _UploadBrandState extends State<UploadBrand> {
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
-                                      Divider(),
+                                      const Divider(),
                                       SizedBox(
                                         height: height * 0.03,
                                       ),
@@ -154,7 +149,7 @@ class _UploadBrandState extends State<UploadBrand> {
                                             children: [
                                               RawMaterialButton(
                                                 padding: EdgeInsets.zero,
-                                                constraints: BoxConstraints(
+                                                constraints: const BoxConstraints(
                                                     minHeight: 45,
                                                     minWidth: 45),
                                                 onPressed: () {
@@ -165,20 +160,20 @@ class _UploadBrandState extends State<UploadBrand> {
                                                   });
                                                 },
                                                 elevation: 0,
-                                                fillColor: Color(0xffDADADA),
-                                                child: FaIcon(
+                                                fillColor: const Color(0xffDADADA),
+                                                child: const FaIcon(
                                                   FontAwesomeIcons.camera,
                                                   color: Color(0xff0087FF),
                                                   size: 17,
                                                 ),
                                                 /*  padding: EdgeInsets.all(15.0), */
-                                                shape: CircleBorder(
+                                                shape: const CircleBorder(
                                                     /* side: BorderSide(
                                                       width: 1,
                                                       color: Color(0xff0087FF)) */
                                                     ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 'camera',
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
@@ -190,7 +185,7 @@ class _UploadBrandState extends State<UploadBrand> {
                                             children: [
                                               RawMaterialButton(
                                                 padding: EdgeInsets.zero,
-                                                constraints: BoxConstraints(
+                                                constraints: const BoxConstraints(
                                                     minHeight: 45,
                                                     minWidth: 45),
                                                 onPressed: () {
@@ -202,20 +197,20 @@ class _UploadBrandState extends State<UploadBrand> {
                                                   });
                                                 },
                                                 elevation: 0,
-                                                fillColor: Color(0xffDADADA),
-                                                child: Icon(
+                                                fillColor: const Color(0xffDADADA),
+                                                child:  Icon(
                                                   Icons.photo,
                                                   color: Color(0xff0087FF),
                                                   size: 17,
                                                 ),
                                                 /*  padding: EdgeInsets.all(15.0), */
-                                                shape: CircleBorder(
+                                                shape: const CircleBorder(
                                                     /* side: BorderSide(
                                                       width: 1,
                                                       color: Color(0xff0087FF)) */
                                                     ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 'gallery',
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
@@ -308,8 +303,8 @@ class _UploadBrandState extends State<UploadBrand> {
                     padding: const EdgeInsets.only(left: 8.0, right: 8),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
-                          hint: Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
+                          hint: const Padding(
+                            padding: EdgeInsets.only(left: 8.0),
                             child: Text(
                               'select your business button',
                               style: TextStyle(
@@ -364,7 +359,7 @@ class _UploadBrandState extends State<UploadBrand> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => UploadImage()),
+                              builder: (context) => const UploadImage()),
                         );
                       } else {
                         print('aa');

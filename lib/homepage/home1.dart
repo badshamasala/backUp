@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/homepage/scrollToHideWidget.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -246,7 +246,7 @@ class _Home1State extends State<Home1> {
                                       shape: BoxShape.circle,
                                     ),
                                     child: SvgPicture.asset(
-                                      'assets/un.svg',
+                                      'assets/tagicon.svg',
                                       width: 41,
                                     ),
                                   ),
@@ -278,7 +278,7 @@ class _Home1State extends State<Home1> {
                                       shape: BoxShape.circle,
                                     ),
                                     child: SvgPicture.asset(
-                                      'assets/un.svg',
+                                      'assets/tagicon.svg',
                                       width: 41,
                                     ),
                                   ),
@@ -310,7 +310,7 @@ class _Home1State extends State<Home1> {
                                       shape: BoxShape.circle,
                                     ),
                                     child: SvgPicture.asset(
-                                      'assets/un.svg',
+                                      'assets/tagicon.svg',
                                       width: 41,
                                     ),
                                   ),
@@ -342,7 +342,7 @@ class _Home1State extends State<Home1> {
                                       shape: BoxShape.circle,
                                     ),
                                     child: SvgPicture.asset(
-                                      'assets/un.svg',
+                                      'assets/tagicon.svg',
                                       width: 41,
                                     ),
                                   ),
@@ -374,7 +374,7 @@ class _Home1State extends State<Home1> {
                                       shape: BoxShape.circle,
                                     ),
                                     child: SvgPicture.asset(
-                                      'assets/un.svg',
+                                      'assets/tagicon.svg',
                                       width: 41,
                                     ),
                                   ),
@@ -406,7 +406,7 @@ class _Home1State extends State<Home1> {
                                       shape: BoxShape.circle,
                                     ),
                                     child: SvgPicture.asset(
-                                      'assets/un.svg',
+                                      'assets/tagicon.svg',
                                       width: 41,
                                     ),
                                   ),
