@@ -15,6 +15,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/arcticons.dart';
 import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/bx.dart';
 import 'package:iconify_flutter/icons/bytesize.dart';
 import 'package:iconify_flutter/icons/carbon.dart';
 import 'package:iconify_flutter/icons/ci.dart';
@@ -3855,14 +3856,13 @@ class ProfileSelf extends StatefulWidget {
                                                                   'Searh Username')),
                                                   ListView.builder(
                                                       shrinkWrap: true,
-                                                      itemCount: 3,
+                                                      itemCount: 4,
                                                       itemBuilder:
                                                           ((context, index) {
                                                         return ListTile(
                                                           minVerticalPadding:
                                                               10,
-                                                          horizontalTitleGap:
-                                                              0.0,
+                                                          horizontalTitleGap: 4,
                                                           visualDensity:
                                                               const VisualDensity(
                                                                   vertical: -3),
@@ -3886,7 +3886,7 @@ class ProfileSelf extends StatefulWidget {
                                                           trailing: OutlinedButton(
                                                               style: OutlinedButton.styleFrom(
                                                                   elevation: 0,
-                                                                  /*     minimumSize: const Size(0.0, 40), */
+                                                                  minimumSize: const Size(80, 30),
                                                                   // padding: EdgeInsets.symmetric(
                                                                   //     horizontal: 40.0, vertical: 20.0),
                                                                   backgroundColor: primaryColorOfApp,
@@ -4040,8 +4040,7 @@ class ProfileSelf extends StatefulWidget {
                                                         return ListTile(
                                                           minVerticalPadding:
                                                               10,
-                                                          horizontalTitleGap:
-                                                              0.0,
+                                                          horizontalTitleGap: 4,
                                                           visualDensity:
                                                               const VisualDensity(
                                                                   vertical: -3),
@@ -4065,7 +4064,7 @@ class ProfileSelf extends StatefulWidget {
                                                           trailing: OutlinedButton(
                                                               style: OutlinedButton.styleFrom(
                                                                   elevation: 0,
-                                                                  /*     minimumSize: const Size(0.0, 40), */
+                                                                  minimumSize: const Size(80, 30),
                                                                   // padding: EdgeInsets.symmetric(
                                                                   //     horizontal: 40.0, vertical: 20.0),
                                                                   backgroundColor: primaryColorOfApp,
@@ -4219,8 +4218,7 @@ class ProfileSelf extends StatefulWidget {
                                                         return ListTile(
                                                           minVerticalPadding:
                                                               10,
-                                                          horizontalTitleGap:
-                                                              0.0,
+                                                          horizontalTitleGap: 4,
                                                           visualDensity:
                                                               const VisualDensity(
                                                                   vertical: -3),
@@ -4244,7 +4242,7 @@ class ProfileSelf extends StatefulWidget {
                                                           trailing: OutlinedButton(
                                                               style: OutlinedButton.styleFrom(
                                                                   elevation: 0,
-                                                                  /*     minimumSize: const Size(0.0, 40), */
+                                                                  minimumSize: const Size(80, 30),
                                                                   // padding: EdgeInsets.symmetric(
                                                                   //     horizontal: 40.0, vertical: 20.0),
                                                                   backgroundColor: primaryColorOfApp,
@@ -4646,16 +4644,61 @@ class ProfileSelf extends StatefulWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                    height: 40,
-                    child: TextFormField(
-                        enabled: username,
-                        decoration: WidgetProfilePage().buildInputdecoration(
-                          null,
-                          username ? '@username' : '',
-                          Icon(Icons.check_circle),
-                          '@Nancy Jain',
-                        ))),
+                Container(
+                  /* color: Colors.red, */
+                  height: 48,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 7,
+                        left: 0,
+                        height: 40,
+                        width: 288,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                  width: 0.5, color: const Color(0xff515253)),
+                              borderRadius: BorderRadius.circular(10)),
+                          /*  width: 150,
+              height: 150, */
+                          /*  color: Colors.green[300], */
+                          child: SizedBox(
+                              height: 40,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 18.0, bottom: 3),
+                                child: TextFormField(
+                                    enabled: username,
+                                    decoration: InputDecoration(
+                                      labelText: username ? '' : '',
+                                      suffixIcon: Icon(Icons.check_circle),
+                                      border: InputBorder.none,
+                                    )),
+                              )),
+                        ),
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 30,
+                        width: 70,
+                        height: 10,
+                        child: Container(
+                          /*   width: 200,
+              height: 150, */
+                          color: Colors.white,
+                          child: const Text(
+                            'Your Username',
+                            style: TextStyle(
+                                color: Color(0xff515253),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Container(
                   height: 12,
                   child: Row(
@@ -4705,79 +4748,190 @@ class ProfileSelf extends StatefulWidget {
                     ],
                   ),
                 ),
-                SizedBox(
-                    height: 40,
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: 240,
-                          child: TextFormField(
-                              enabled: fullname,
-                              decoration:
-                                  WidgetProfilePage().buildInputdecoration(
-                                null,
-                                fullname ? 'Enter full name' : '',
-                                null,
-                                'First name Last name Middle Name',
+                Container(
+                  /* color: Colors.red, */
+                  height: 48,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 7,
+                        left: 0,
+                        height: 40,
+                        width: 288,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                  width: 0.5, color: const Color(0xff515253)),
+                              borderRadius: BorderRadius.circular(10)),
+                          /*  width: 150,
+              height: 150, */
+                          /*  color: Colors.green[300], */
+                          child: SizedBox(
+                              height: 40,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 18.0, bottom: 3),
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 210,
+                                      child: TextFormField(
+                                          enabled: fullname,
+                                          decoration: InputDecoration(
+                                            labelText: '',
+                                            border: InputBorder.none,
+                                          )),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(left: 22.0),
+                                      child: Container(
+                                        child: full1
+                                            ? IconButton(
+                                                padding: EdgeInsets.all(0),
+                                                constraints: BoxConstraints(),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    fullname = false;
+                                                    full1 = false;
+                                                  });
+                                                },
+                                                icon: Iconify(
+                                                  Bx.edit,
+                                                  color: Color(0xff737373),
+                                                ))
+                                            : IconButton(
+                                                padding: EdgeInsets.all(0),
+                                                constraints: BoxConstraints(),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    fullname = true;
+                                                    full1 = true;
+                                                  });
+                                                },
+                                                icon: Iconify(
+                                                  Bx.edit,
+                                                  color: Color(0xff737373),
+                                                )),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               )),
                         ),
-                        full1
-                            ? IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    fullname = false;
-                                    full1 = false;
-                                  });
-                                },
-                                icon: Icon(Icons.cancel))
-                            : IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    fullname = true;
-                                    full1 = true;
-                                  });
-                                },
-                                icon: Icon(Icons.edit))
-                      ],
-                    )),
-                /*   SizedBox(
-                                      height: height * 0.01,
-                                    ), */
-                SizedBox(
-                    height: 40,
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: 240,
-                          child: TextFormField(
-                              enabled: bio,
-                              decoration:
-                                  WidgetProfilePage().buildInputdecoration(
-                                null,
-                                bio ? 'Enter your bio' : '',
-                                null,
-                                'bio',
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 30,
+                        width: 70,
+                        height: 10,
+                        child: Container(
+                          color: Colors.white,
+                          child: const Text(
+                            'Your Full Name',
+                            style: TextStyle(
+                                color: Color(0xff515253),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  /* color: Colors.red, */
+                  height: 48,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 7,
+                        left: 0,
+                        height: 40,
+                        width: 288,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                  width: 0.5, color: const Color(0xff515253)),
+                              borderRadius: BorderRadius.circular(10)),
+                          /*  width: 150,
+              height: 150, */
+                          /*  color: Colors.green[300], */
+                          child: SizedBox(
+                              height: 40,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 18.0, bottom: 3),
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 210,
+                                      child: TextFormField(
+                                          enabled: bio,
+                                          decoration: InputDecoration(
+                                            labelText: '',
+                                            border: InputBorder.none,
+                                          )),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(left: 22.0),
+                                      child: Container(
+                                        child: bio1
+                                            ? IconButton(
+                                                padding: EdgeInsets.all(0),
+                                                constraints: BoxConstraints(),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    bio = false;
+                                                    bio1 = false;
+                                                  });
+                                                },
+                                                icon: Iconify(
+                                                  Bx.edit,
+                                                  color: Color(0xff737373),
+                                                ))
+                                            : IconButton(
+                                                padding: EdgeInsets.all(0),
+                                                constraints: BoxConstraints(),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    bio = true;
+                                                    bio1 = true;
+                                                  });
+                                                },
+                                                icon: Iconify(
+                                                  Bx.edit,
+                                                  color: Color(0xff737373),
+                                                )),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               )),
                         ),
-                        bio1
-                            ? IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    bio = false;
-                                    bio1 = false;
-                                  });
-                                },
-                                icon: Icon(Icons.cancel))
-                            : IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    bio = true;
-                                    bio1 = true;
-                                  });
-                                },
-                                icon: Icon(Icons.edit))
-                      ],
-                    )),
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 30,
+                        width: 20,
+                        height: 10,
+                        child: Container(
+                          color: Colors.white,
+                          child: const Text(
+                            'Bio',
+                            style: TextStyle(
+                                color: Color(0xff515253),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -4934,41 +5088,98 @@ class ProfileSelf extends StatefulWidget {
                 SizedBox(
                   height: height * 0.01,
                 ),
-                SizedBox(
-                    height: 40,
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: 240,
-                          child: TextFormField(
-                              enabled: bio,
-                              decoration:
-                                  WidgetProfilePage().buildInputdecoration(
-                                null,
-                                bio ? 'Enter your bio' : '',
-                                null,
-                                'bio',
+                Container(
+                  /* color: Colors.red, */
+                  height: 48,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 7,
+                        left: 0,
+                        height: 40,
+                        width: 288,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                  width: 0.5, color: const Color(0xff515253)),
+                              borderRadius: BorderRadius.circular(10)),
+                          /*  width: 150,
+              height: 150, */
+                          /*  color: Colors.green[300], */
+                          child: SizedBox(
+                              height: 40,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 18.0, bottom: 3),
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 210,
+                                      child: TextFormField(
+                                          enabled: bio,
+                                          decoration: InputDecoration(
+                                            labelText: '',
+                                            border: InputBorder.none,
+                                          )),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(left: 22.0),
+                                      child: Container(
+                                        child: bio1
+                                            ? IconButton(
+                                                padding: EdgeInsets.all(0),
+                                                constraints: BoxConstraints(),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    bio = false;
+                                                    bio1 = false;
+                                                  });
+                                                },
+                                                icon: Iconify(
+                                                  Bx.edit,
+                                                  color: Color(0xff737373),
+                                                ))
+                                            : IconButton(
+                                                padding: EdgeInsets.all(0),
+                                                constraints: BoxConstraints(),
+                                                onPressed: () {
+                                                  setState(() {
+                                                    bio = true;
+                                                    bio1 = true;
+                                                  });
+                                                },
+                                                icon: Iconify(
+                                                  Bx.edit,
+                                                  color: Color(0xff737373),
+                                                )),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               )),
                         ),
-                        bio1
-                            ? IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    bio = false;
-                                    bio1 = false;
-                                  });
-                                },
-                                icon: Icon(Icons.cancel))
-                            : IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    bio = true;
-                                    bio1 = true;
-                                  });
-                                },
-                                icon: Icon(Icons.edit))
-                      ],
-                    )),
+                      ),
+                      Positioned(
+                        top: 0,
+                        left: 30,
+                        width: 60,
+                        height: 10,
+                        child: Container(
+                          color: Colors.white,
+                          child: const Text(
+                            'Date of Birth',
+                            style: TextStyle(
+                                color: Color(0xff515253),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 SizedBox(
                   height: height * 0.01,
                 ),
@@ -7109,7 +7320,7 @@ class ProfileSelf extends StatefulWidget {
                                                                     minVerticalPadding:
                                                                         10,
                                                                     horizontalTitleGap:
-                                                                        0.0,
+                                                                        4,
                                                                     visualDensity:
                                                                         const VisualDensity(
                                                                             vertical:
@@ -7137,7 +7348,7 @@ class ProfileSelf extends StatefulWidget {
                                                                     trailing: OutlinedButton(
                                                                         style: OutlinedButton.styleFrom(
                                                                             elevation: 0,
-                                                                            /*     minimumSize: const Size(0.0, 40), */
+                                                                            minimumSize: const Size(80, 30),
                                                                             // padding: EdgeInsets.symmetric(
                                                                             //     horizontal: 40.0, vertical: 20.0),
                                                                             backgroundColor: primaryColorOfApp,
@@ -7183,7 +7394,7 @@ class ProfileSelf extends StatefulWidget {
                                                                           );
                                                                         },
                                                                         child: Text(
-                                                                          'Block',
+                                                                          'UnBlock',
                                                                           style: TextStyle(
                                                                               fontFamily: 'Poppins',
                                                                               color: Colors.white,

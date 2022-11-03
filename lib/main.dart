@@ -4,6 +4,7 @@ import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googlenewpage.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:flutter_application_1/SHARE/shareprofile.dart';
 
 import 'package:flutter_application_1/homepage/homepage.dart';
 
