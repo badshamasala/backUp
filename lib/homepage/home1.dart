@@ -27,6 +27,28 @@ class Home1 extends StatefulWidget {
 }
 
 class _Home1State extends State<Home1> {
+  var images = [
+    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://plus.unsplash.com/premium_photo-1664551734578-fe47fea8cab8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1667487147031-476e357b2fc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://plus.unsplash.com/premium_photo-1664551734578-fe47fea8cab8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1667487147031-476e357b2fc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+  ];
+  var names = [
+    "Rashid",
+    "farhan",
+    "hamza",
+    "aquib",
+    "shiraj",
+    "pravin",
+    "sufiya",
+    "sadaf",
+    "tahera",
+  ];
   late ScrollController controller;
   @override
   void initState() {
@@ -169,265 +191,101 @@ class _Home1State extends State<Home1> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                /*  color: Colors.red, */
-                height: 75,
-                child: ListView(
-                  physics: ClampingScrollPhysics(),
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    SizedBox(
-                      width: width * 0.04,
-                    ),
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Center(
-                              child: Column(
-                                children: [
-                                  Stack(children: [
-                                    Container(
-                                      padding: EdgeInsets.all(5),
+              SizedBox(
+                height: 70,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: ListView.separated(
+                      physics: ClampingScrollPhysics(),
+                      shrinkWrap: true,
+                      separatorBuilder: (context, index) {
+                        return SizedBox(
+                          width: 10,
+                        );
+                      },
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 9,
+                      itemBuilder: (context, index) {
+                        if (index == 0) {
+                          return Column(
+                            children: [
+                              Stack(children: [
+                                Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2, color: primaryColorOfApp),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Icon(
+                                      Icons.person,
+                                      color: Color(0xffc4c4c4),
+                                      size: 40,
+                                    )),
+                                Positioned(
+                                  top: 30,
+                                  left: 30,
+                                  child: Container(
+                                      height: 20,
+                                      margin: EdgeInsets.all(0),
+                                      padding: EdgeInsets.all(0),
                                       decoration: BoxDecoration(
-                                        border: Border.all(
-                                            width: 2, color: primaryColorOfApp),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: SvgPicture.asset(
-                                        'assets/new.svg',
-                                        width: 40,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: 35,
-                                      left: 30,
-                                      child: Container(
-                                          height: 20,
-                                          margin: EdgeInsets.all(0),
+                                          border: Border.all(width: 2),
+                                          shape: BoxShape.circle,
+                                          color: primaryColorOfApp),
+                                      child: IconButton(
                                           padding: EdgeInsets.all(0),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(width: 2),
-                                              shape: BoxShape.circle,
-                                              color: primaryColorOfApp),
-                                          child: IconButton(
-                                              padding: EdgeInsets.all(0),
-                                              constraints: BoxConstraints(),
-                                              onPressed: () {},
-                                              icon: Icon(
-                                                Icons.add,
-                                                size: 15,
-                                              ))),
-                                    )
-                                  ]),
-                                  Text(
-                                    'Add Story',
-                                    style: TextStyle(
-                                        color: primaryColorOfApp,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 10),
-                                  )
-                                ],
+                                          constraints: BoxConstraints(),
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.add,
+                                            size: 15,
+                                          ))),
+                                )
+                              ]),
+                              SizedBox(
+                                height: 2,
                               ),
-                            ),
-                            SizedBox(
-                              width: width * 0.02,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2.0),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          width: 2, color: primaryColorOfApp),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: SvgPicture.asset(
-                                      'assets/tagicon.svg',
-                                      width: 41,
-                                    ),
+                              Text(
+                                'Add Story',
+                                style: TextStyle(
+                                    color: primaryColorOfApp,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 10),
+                              )
+                            ],
+                          );
+                        } else {
+                          return Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 2, color: primaryColorOfApp),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: CircleAvatar(
+                                  radius: 20,
+                                  backgroundImage: NetworkImage(
+                                    images[index],
                                   ),
-                                  SizedBox(
-                                    height: 2,
-                                  ),
-                                  Text(
-                                    'Rashid',
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 10),
-                                  )
-                                ],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: width * 0.02,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2.0),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          width: 2, color: primaryColorOfApp),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: SvgPicture.asset(
-                                      'assets/tagicon.svg',
-                                      width: 41,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 2,
-                                  ),
-                                  Text(
-                                    'Farhan',
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 10),
-                                  )
-                                ],
+                              SizedBox(
+                                height: 2,
                               ),
-                            ),
-                            SizedBox(
-                              width: width * 0.02,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2.0),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          width: 2, color: primaryColorOfApp),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: SvgPicture.asset(
-                                      'assets/tagicon.svg',
-                                      width: 41,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 2,
-                                  ),
-                                  Text(
-                                    'Akhtar',
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 10),
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: width * 0.02,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2.0),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          width: 2, color: primaryColorOfApp),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: SvgPicture.asset(
-                                      'assets/tagicon.svg',
-                                      width: 41,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 2,
-                                  ),
-                                  Text(
-                                    'Farhan',
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 10),
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: width * 0.02,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2.0),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          width: 2, color: primaryColorOfApp),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: SvgPicture.asset(
-                                      'assets/tagicon.svg',
-                                      width: 41,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 2,
-                                  ),
-                                  Text(
-                                    'Farhan',
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 10),
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: width * 0.02,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2.0),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          width: 2, color: primaryColorOfApp),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: SvgPicture.asset(
-                                      'assets/tagicon.svg',
-                                      width: 41,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 2,
-                                  ),
-                                  Text(
-                                    'Farhan',
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 10),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                              Text(
+                                names[index],
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 10),
+                              )
+                            ],
+                          );
+                        }
+                      }),
                 ),
               ),
               Card(

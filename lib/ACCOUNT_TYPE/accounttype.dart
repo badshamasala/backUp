@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 
-
 class AccountType extends StatefulWidget {
-  const AccountType({super.key});
+  final value;
+  const AccountType({ required this.value});
 
   @override
   State<AccountType> createState() => _AccountTypeState();
@@ -63,7 +63,7 @@ class _AccountTypeState extends State<AccountType> {
                             width: width * 0.02,
                           ),
                           Text(
-                            '+91 8689880061',
+                            widget.value == ''? '+918689880061':widget.value,
                             style: TextStyle(
                                 color: const Color(0xffC4C4C4),
                                 fontFamily: 'Poppins',
@@ -333,12 +333,12 @@ class _AccountTypeState extends State<AccountType> {
                       },
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
-                    minimumSize: const Size(0.0, 40),
+                    /*     minimumSize: const Size(0.0, 40), */
                     // padding: EdgeInsets.symmetric(
                     //     horizontal: 40.0, vertical: 20.0),
                     backgroundColor: const Color(0xff0087FF),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0))),
+                        borderRadius: BorderRadius.circular(5.0))),
                 child: Text(
                   "Confirm & Continue",
                   style: TextStyle(

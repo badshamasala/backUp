@@ -16,6 +16,10 @@ class UploadImage extends StatefulWidget {
 
   @override
   State<UploadImage> createState() => _UploadImageState();
+
+  radius() {
+    return BorderRadius.circular(5);
+  }
 }
 
 class _UploadImageState extends State<UploadImage> {
@@ -78,11 +82,17 @@ class _UploadImageState extends State<UploadImage> {
                         ),
                       )
                     // Image. file
-                    : const CircleAvatar(
-                        backgroundColor: Colors.red,
-                        radius: 40,
-                        backgroundImage: AssetImage(
-                          'assets/image.png',
+                    : CircleAvatar(
+                        radius: 45,
+                        backgroundColor: Colors.blue,
+                        child: CircleAvatar(
+                          radius: 43,
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.account_circle,
+                            size: 80,
+                            color: Color(0xffe2e2e2),
+                          ),
                         ),
                       ),
               ),
@@ -106,126 +116,164 @@ class _UploadImageState extends State<UploadImage> {
                               ),
                               context: context,
                               builder: (BuildContext context) {
-                                return Column(
-                                  mainAxisSize: MainAxisSize.min,
+                                return Stack(
+                                  clipBehavior: Clip.none,
                                   children: [
-                                    SizedBox(
-                                      height: height * 0.01,
-                                    ),
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
-                                      child: Container(
-                                        color: const Color(0xffE2E2E2),
-                                        height: 7,
-                                        width: 70,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: height * 0.02,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                    Column(
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 80.0),
-                                          child: const Text(
-                                            'Your Profile Photo',
-                                            style: TextStyle(
-                                                color: Color(0xff333333),
-                                                fontSize: 15,
-                                                fontFamily: 'Poppins'),
+                                        SizedBox(
+                                          height: height * 0.01,
+                                        ),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          child: Container(
+                                            color: const Color(0xffE2E2E2),
+                                            height: 7,
+                                            width: 70,
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: height * 0.01,
-                                    ),
-                                    Divider(),
-                                    SizedBox(
-                                      height: height * 0.03,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Column(
+                                        SizedBox(
+                                          height: height * 0.02,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
                                           children: [
-                                            RawMaterialButton(
-                                              padding: EdgeInsets.zero,
-                                              constraints: BoxConstraints(
-                                                  minHeight: 45, minWidth: 45),
-                                              onPressed: () {
-                                                pickImage(ImageSource.camera);
-                                                Navigator.of(context).pop();
-                                                setState(() {
-                                                  btnchng = false;
-                                                });
-                                              },
-                                              elevation: 0,
-                                              fillColor: Color(0xffDADADA),
-                                              child: Iconify(
-                                                AntDesign.camera_filled,
-                                                color: Color(0xff0087FF),
-                                                size: 17,
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 80.0),
+                                              child: const Text(
+                                                'Your Profile Photo',
+                                                style: TextStyle(
+                                                    color: Color(0xff333333),
+                                                    fontSize: 15,
+                                                    fontFamily: 'Poppins'),
                                               ),
-                                              /*  padding: EdgeInsets.all(15.0), */
-                                              shape: CircleBorder(
-                                                  /* side: BorderSide(
-                                                    width: 1,
-                                                    color: Color(0xff0087FF)) */
-                                                  ),
                                             ),
-                                            Text(
-                                              'camera',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xff333333)),
-                                            )
                                           ],
                                         ),
-                                        Column(
+                                        SizedBox(
+                                          height: height * 0.01,
+                                        ),
+                                        Divider(),
+                                        SizedBox(
+                                          height: height * 0.03,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            RawMaterialButton(
-                                              padding: EdgeInsets.zero,
-                                              constraints: BoxConstraints(
-                                                  minHeight: 45, minWidth: 45),
-                                              onPressed: () {
-                                                pickImage(ImageSource.gallery);
-                                                Navigator.of(context).pop();
-                                                setState(() {
-                                                  btnchng = false;
-                                                });
-                                              },
-                                              elevation: 0,
-                                              fillColor: Color(0xffDADADA),
-                                              child: Iconify(
-                                                Heroicons.photo_20_solid,
-                                                color: Color(0xff0087FF),
-                                                size: 17,
-                                              ),
-                                              /*  padding: EdgeInsets.all(15.0), */
-                                              shape: CircleBorder(
-                                                  /* side: BorderSide(
-                                                    width: 1,
-                                                    color: Color(0xff0087FF)) */
+                                            Column(
+                                              children: [
+                                                RawMaterialButton(
+                                                  padding: EdgeInsets.zero,
+                                                  constraints: BoxConstraints(
+                                                      minHeight: 45,
+                                                      minWidth: 45),
+                                                  onPressed: () {
+                                                    pickImage(
+                                                        ImageSource.camera);
+                                                    Navigator.of(context).pop();
+                                                    setState(() {
+                                                      btnchng = false;
+                                                    });
+                                                  },
+                                                  elevation: 0,
+                                                  fillColor: Color(0xffDADADA),
+                                                  child: Iconify(
+                                                    AntDesign.camera_filled,
+                                                    color: Color(0xff0087FF),
+                                                    size: 17,
                                                   ),
+                                                  /*  padding: EdgeInsets.all(15.0), */
+                                                  shape: CircleBorder(
+                                                      /* side: BorderSide(
+                                                        width: 1,
+                                                        color: Color(0xff0087FF)) */
+                                                      ),
+                                                ),
+                                                Text(
+                                                  'camera',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      color: Color(0xff333333)),
+                                                )
+                                              ],
                                             ),
-                                            Text(
-                                              'gallery',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xff333333)),
-                                            )
+                                            Column(
+                                              children: [
+                                                RawMaterialButton(
+                                                  padding: EdgeInsets.zero,
+                                                  constraints: BoxConstraints(
+                                                      minHeight: 45,
+                                                      minWidth: 45),
+                                                  onPressed: () {
+                                                    pickImage(
+                                                        ImageSource.gallery);
+                                                    Navigator.of(context).pop();
+                                                    setState(() {
+                                                      btnchng = false;
+                                                    });
+                                                  },
+                                                  elevation: 0,
+                                                  fillColor: Color(0xffDADADA),
+                                                  child: Iconify(
+                                                    Heroicons.photo_20_solid,
+                                                    color: Color(0xff0087FF),
+                                                    size: 17,
+                                                  ),
+                                                  /*  padding: EdgeInsets.all(15.0), */
+                                                  shape: CircleBorder(
+                                                      /* side: BorderSide(
+                                                        width: 1,
+                                                        color: Color(0xff0087FF)) */
+                                                      ),
+                                                ),
+                                                Text(
+                                                  'gallery',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      color: Color(0xff333333)),
+                                                )
+                                              ],
+                                            ),
                                           ],
+                                        ),
+                                        SizedBox(
+                                          height: height * 0.1,
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
-                                      height: height * 0.1,
-                                    ),
+                                    Positioned.fill(
+                                        top: -36,
+                                        child: Align(
+                                          alignment: Alignment.topCenter,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Container(
+                                              /*   width: 45,
+                                  height: 45, */
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.white,
+                                                    width: 2),
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(4.0),
+                                                child: Icon(
+                                                  Icons.close,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ))
                                   ],
                                 );
                               });
@@ -288,7 +336,7 @@ class _UploadImageState extends State<UploadImage> {
                           color: male
                               ? Colors.transparent
                               : const Color.fromARGB(255, 200, 226, 249),
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: UploadImage().radius(),
                           border: Border.all(
                               width: 0.7,
                               color: male
@@ -339,7 +387,7 @@ class _UploadImageState extends State<UploadImage> {
                           color: female
                               ? Colors.transparent
                               : const Color.fromARGB(255, 247, 212, 214),
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: UploadImage().radius(),
                           border: Border.all(
                               width: 0.7,
                               color: female
@@ -384,7 +432,7 @@ class _UploadImageState extends State<UploadImage> {
                           color: other
                               ? Colors.transparent
                               : const Color.fromARGB(255, 232, 203, 246),
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: UploadImage().radius(),
                           border: Border.all(
                               width: 0.7,
                               color: other
@@ -479,167 +527,202 @@ class _UploadImageState extends State<UploadImage> {
                             builder: (BuildContext context) {
                               return StatefulBuilder(builder:
                                   (BuildContext context, StateSetter setState) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 15),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      const Text(
-                                        'Select Your Birthday',
-                                        style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 20,
-                                            color: Color(0xff000000)),
-                                      ),
-                                      const Divider(
-                                        color: Colors.black,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: const [
-                                          Text(
-                                            'Month',
+                                return Stack(
+                                  clipBehavior: Clip.none,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                          const Text(
+                                            'Select Your Birthday',
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 20,
                                                 color: Color(0xff000000)),
                                           ),
-                                          Text(
-                                            'Day',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 20,
-                                                color: Color(0xff000000)),
+                                          const Divider(
+                                            color: Colors.black,
                                           ),
-                                          Text(
-                                            'Year',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 20,
-                                                color: Color(0xff000000)),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: const [
+                                              Text(
+                                                'Month',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 20,
+                                                    color: Color(0xff000000)),
+                                              ),
+                                              Text(
+                                                'Day',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 20,
+                                                    color: Color(0xff000000)),
+                                              ),
+                                              Text(
+                                                'Year',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 20,
+                                                    color: Color(0xff000000)),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
-                                      buildDatePicker(),
-                                      SizedBox(
-                                        height: height * 0.05,
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 16.0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            SizedBox(
-                                              height: 10,
-                                              width: 20,
-                                              child: Checkbox(
+                                          buildDatePicker(),
+                                          SizedBox(
+                                            height: height * 0.05,
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 16.0),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                SizedBox(
+                                                  height: 10,
+                                                  width: 20,
+                                                  child: Checkbox(
+                                                      materialTapTargetSize:
+                                                          MaterialTapTargetSize
+                                                              .shrinkWrap,
+                                                      value: value,
+                                                      onChanged: (value) {
+                                                        setState(() {
+                                                          this.value = value!;
+                                                        });
+                                                      }),
+                                                ),
+                                                /* SizedBox(
+                                            width: 15,
+                                          ), */
+                                                const Text(
+                                                  'this won\'t be shared any ror anywhere',
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      fontFamily: 'Poppins',
+                                                      color: Color(0xff515253)),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Text(
+                                                'Show your birthday info everyone',
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xff515253)),
+                                              ),
+                                              Switch.adaptive(
                                                   materialTapTargetSize:
                                                       MaterialTapTargetSize
                                                           .shrinkWrap,
-                                                  value: value,
-                                                  onChanged: (value) {
+                                                  value: value1,
+                                                  onChanged: (value1) {
                                                     setState(() {
-                                                      this.value = value!;
+                                                      this.value1 = value1;
                                                     });
-                                                  }),
+                                                  })
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Text(
+                                                'Show your birthday info everyone',
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xff515253)),
+                                              ),
+                                              Switch.adaptive(
+                                                  materialTapTargetSize:
+                                                      MaterialTapTargetSize
+                                                          .shrinkWrap,
+                                                  value: value2,
+                                                  onChanged: (value2) {
+                                                    setState(() {
+                                                      this.value2 = value2;
+                                                    });
+                                                  })
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            width: double.infinity,
+                                            // height: 50,
+                                            child: ElevatedButton(
+                                              onPressed: () {},
+                                              style: ElevatedButton.styleFrom(
+                                                  elevation: 0,
+                                             /*      minimumSize:
+                                                      const Size(0.0, 40), */
+                                                  // padding: EdgeInsets.symmetric(
+                                                  //     horizontal: 40.0, vertical: 20.0),
+                                                  backgroundColor:
+                                                      const Color(0xff0087FF),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5.0))),
+                                              child: Text(
+                                                "Confirm & Continue",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontFamily: 'Poppins',
+                                                    /* fontWeight:
+                                                        FontWeight.w600 */),
+                                              ),
                                             ),
-                                            /* SizedBox(
-                                        width: 15,
-                                      ), */
-                                            const Text(
-                                              'this won\'t be shared any ror anywhere',
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xff515253)),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          const Text(
-                                            'Show your birthday info everyone',
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                fontFamily: 'Poppins',
-                                                color: Color(0xff515253)),
                                           ),
-                                          Switch.adaptive(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              value: value1,
-                                              onChanged: (value1) {
-                                                setState(() {
-                                                  this.value1 = value1;
-                                                });
-                                              })
+                                          SizedBox(
+                                            height: height * 0.05,
+                                          ),
                                         ],
                                       ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          const Text(
-                                            'Show your birthday info everyone',
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                fontFamily: 'Poppins',
-                                                color: Color(0xff515253)),
+                                    ),
+                                    Positioned.fill(
+                                        top: -36,
+                                        child: Align(
+                                          alignment: Alignment.topCenter,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Container(
+                                              /*   width: 45,
+                                  height: 45, */
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.white,
+                                                    width: 2),
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(4.0),
+                                                child: Icon(
+                                                  Icons.close,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
                                           ),
-                                          Switch.adaptive(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              value: value2,
-                                              onChanged: (value2) {
-                                                setState(() {
-                                                  this.value2 = value2;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: double.infinity,
-                                        // height: 50,
-                                        child: ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                              elevation: 0,
-                                              minimumSize: const Size(0.0, 40),
-                                              // padding: EdgeInsets.symmetric(
-                                              //     horizontal: 40.0, vertical: 20.0),
-                                              backgroundColor:
-                                                  const Color(0xff0087FF),
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0))),
-                                          child: Text(
-                                            "Confirm & Continue",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: width * 0.045,
-                                                fontFamily: 'Poppins',
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: height * 0.05,
-                                      ),
-                                    ],
-                                  ),
+                                        ))
+                                  ],
                                 );
                               });
                             });
@@ -678,7 +761,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age1
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age1
@@ -731,7 +814,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age2
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age2
@@ -784,7 +867,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age3
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age3
@@ -837,7 +920,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age4
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age4
@@ -890,7 +973,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age5
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age5
@@ -942,19 +1025,19 @@ class _UploadImageState extends State<UploadImage> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       padding: EdgeInsets.zero,
                       elevation: 0,
-                      minimumSize: const Size(0.0, 40),
+                      /*  minimumSize: const Size(0.0, 40), */
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0))),
+                          borderRadius: UploadImage().radius())),
                   child: Text(
                     "Confirm & Continue",
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: width * 0.045,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600),
+                      color: Colors.white,
+                      fontSize: width * 0.045,
+                      fontFamily: 'Poppins', /* fontWeight: FontWeight.w600 */
+                    ),
                   ),
                 ),
               ),

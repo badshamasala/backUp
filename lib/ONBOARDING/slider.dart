@@ -10,6 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../ACCOUNT_TYPE/uploadimage.dart';
 import '../GOOGLE LOGIN/googlenewpage.dart';
 
 /* enum language {
@@ -38,7 +39,7 @@ class _Slider1State extends State<Slider1> {
   language _site = language.english;
   List urlImages = [
     'assets/loginimg.svg',
-    'assets/aaaa.svg',
+    'assets/loginimg.svg',
     'assets/loginimg.svg'
   ];
   @override
@@ -52,23 +53,8 @@ class _Slider1State extends State<Slider1> {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Skip',
-                        style: TextStyle(
-                          color: Color(
-                            0xff0087FF,
-                          ),
-                          decoration: TextDecoration.underline,
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                        ),
-                      )),
-                ],
+              SizedBox(
+                height: height * 0.03,
               ),
               CarouselSlider.builder(
                   itemCount: urlImages.length,
@@ -79,7 +65,7 @@ class _Slider1State extends State<Slider1> {
                   },
                   options: CarouselOptions(
                     viewportFraction: 1,
-                    height: 200,
+                    height: 220,
                     onPageChanged: (index, reason) {
                       setState(() {
                         activeIndex = index;
@@ -134,197 +120,232 @@ class _Slider1State extends State<Slider1> {
                           builder: (BuildContext context) {
                             return StatefulBuilder(builder:
                                 (BuildContext context, StateSetter setState) {
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
+                              return Stack(
                                 children: [
-                                  const SizedBox(
-                                    height: 10,
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: Container(
+                                          color: Color(0xffE2E2E2),
+                                          height: 5,
+                                          width: 100,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      const Text('Select your language'),
+                                      const Divider(),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text(
+                                          'English',
+                                          style:
+                                              TextStyle(fontFamily: 'Poppins'),
+                                        ),
+                                        trailing: Radio(
+                                          value: language.english,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text(
+                                          'Hindi',
+                                          style:
+                                              TextStyle(fontFamily: 'Poppins'),
+                                        ),
+                                        trailing: Radio(
+                                          value: language.hindi,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text('Bengali',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins')),
+                                        trailing: Radio(
+                                          value: language.bengali,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text('Gujarati',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins')),
+                                        trailing: Radio(
+                                          value: language.gujrati,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text('Marathi',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins')),
+                                        trailing: Radio(
+                                          value: language.marathi,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text('Urdu',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins')),
+                                        trailing: Radio(
+                                          value: language.urud,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text('Odia (oria)',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins')),
+                                        trailing: Radio(
+                                          value: language.odia,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text('Kannada',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins')),
+                                        trailing: Radio(
+                                          value: language.kannada,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text('Tamil',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins')),
+                                        trailing: Radio(
+                                          value: language.tamil,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      ListTile(
+                                        visualDensity:
+                                            const VisualDensity(vertical: -3),
+                                        dense: true,
+                                        leading: const Text('Telugu',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins')),
+                                        trailing: Radio(
+                                          value: language.telugu,
+                                          groupValue: _site,
+                                          onChanged: (language? value) {
+                                            setState(() {
+                                              _site = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Container(
-                                      color: Colors.black,
-                                      height: 5,
-                                      width: 100,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  const Text('Select your language'),
-                                  const Divider(),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text(
-                                      'English',
-                                      style: TextStyle(fontFamily: 'Poppins'),
-                                    ),
-                                    trailing: Radio(
-                                      value: language.english,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text(
-                                      'Hindi',
-                                      style: TextStyle(fontFamily: 'Poppins'),
-                                    ),
-                                    trailing: Radio(
-                                      value: language.hindi,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text('Bengali',
-                                        style:
-                                            TextStyle(fontFamily: 'Poppins')),
-                                    trailing: Radio(
-                                      value: language.bengali,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text('Gujarati',
-                                        style:
-                                            TextStyle(fontFamily: 'Poppins')),
-                                    trailing: Radio(
-                                      value: language.gujrati,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text('Marathi',
-                                        style:
-                                            TextStyle(fontFamily: 'Poppins')),
-                                    trailing: Radio(
-                                      value: language.marathi,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text('Urdu',
-                                        style:
-                                            TextStyle(fontFamily: 'Poppins')),
-                                    trailing: Radio(
-                                      value: language.urud,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text('Odia (oria)',
-                                        style:
-                                            TextStyle(fontFamily: 'Poppins')),
-                                    trailing: Radio(
-                                      value: language.odia,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text('Kannada',
-                                        style:
-                                            TextStyle(fontFamily: 'Poppins')),
-                                    trailing: Radio(
-                                      value: language.kannada,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text('Tamil',
-                                        style:
-                                            TextStyle(fontFamily: 'Poppins')),
-                                    trailing: Radio(
-                                      value: language.tamil,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                  ListTile(
-                                    visualDensity:
-                                        const VisualDensity(vertical: -3),
-                                    dense: true,
-                                    leading: const Text('Telugu',
-                                        style:
-                                            TextStyle(fontFamily: 'Poppins')),
-                                    trailing: Radio(
-                                      value: language.telugu,
-                                      groupValue: _site,
-                                      onChanged: (language? value) {
-                                        setState(() {
-                                          _site = value!;
-                                        });
-                                      },
-                                    ),
-                                  ),
+                                   Positioned.fill(
+                                              top: -36,
+                                              child: Align(
+                                                alignment: Alignment.topCenter,
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Container(
+                                                    /*   width: 45,
+                                  height: 45, */
+                                                    decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color: Colors.white,
+                                                          width: 2),
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              4.0),
+                                                      child: Icon(
+                                                        Icons.close,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ))
                                 ],
                               );
                             });
@@ -339,7 +360,7 @@ class _Slider1State extends State<Slider1> {
                             color: Color(0xff666666),
                           ),
                           SizedBox(
-                            width: 1,
+                            width: 3,
                           ),
                           const Text(
                             'Select your langugae',
@@ -370,12 +391,12 @@ class _Slider1State extends State<Slider1> {
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
+                          borderRadius: UploadImage().radius())),
                   child: const Text(
                     "Login",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: 15,
                         fontFamily: 'Poppins'),
                   ),
                 ),
@@ -400,12 +421,12 @@ class _Slider1State extends State<Slider1> {
                                       horizontal: 40.0, vertical: 20.0), */
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
+                          borderRadius: UploadImage().radius())),
                   child: const Text(
                     "Guest Login",
                     style: TextStyle(
                         color: Color(0xff0087FF),
-                        fontSize: 18,
+                        fontSize: 15,
                         fontFamily: 'Poppins'),
                   ),
                 ),
@@ -444,6 +465,18 @@ class _Slider1State extends State<Slider1> {
               SizedBox(
                 height: height * 0.02,
               ),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: width * 0.04),
+                    child: const Text(
+                      "don\'t have an account?",
+                      style: TextStyle(
+                          color: Color(0xff515253), fontFamily: 'Poppins'),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
@@ -461,12 +494,12 @@ class _Slider1State extends State<Slider1> {
                                   horizontal: 40.0, vertical: 20.0), */
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
+                          borderRadius: UploadImage().radius())),
                   child: const Text(
                     "Sign Up",
                     style: TextStyle(
                         color: Color(0xff0087FF),
-                        fontSize: 18,
+                        fontSize: 15,
                         fontFamily: 'Poppins'),
                   ),
                 ),

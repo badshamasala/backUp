@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/upload_brand.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/upload_public.dart';
 
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 
 class Formfill extends StatefulWidget {
   dynamic value1;
@@ -30,7 +33,7 @@ class _FormfillState extends State<Formfill> {
       child: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
         body: SingleChildScrollView(
-          reverse: true,
+          /*     reverse: true, */
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.05),
             child: Form(
@@ -114,10 +117,10 @@ class _FormfillState extends State<Formfill> {
                           borderSide: const BorderSide(
                             color: Color(0xff0087FF),
                           ),
-                          borderRadius: BorderRadius.circular(5)),
+                          borderRadius: UploadImage().radius()),
                       errorStyle: const TextStyle(fontSize: 8, height: 0.2),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: UploadImage().radius(),
                           borderSide: const BorderSide(
                               color: Color(0xff0087FF), width: 1)),
                       /* enabledBorder: OutlineInputBorder(
@@ -173,30 +176,44 @@ class _FormfillState extends State<Formfill> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const UploadImage()),
-                          );
+                          if (widget.value1) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const UploadImage()),
+                            );
+                          } else if (widget.value2) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const UploadBrand()));
+                          } else if (widget.value3) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const UploadPublic()));
+                          }
                         } else {
                           print('aa');
                         }
                       },
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
-                          minimumSize: const Size(0.0, 40),
+                          /*        minimumSize: const Size(0.0, 40), */
                           // padding: EdgeInsets.symmetric(
                           //     horizontal: 40.0, vertical: 20.0),
                           backgroundColor: const Color(0xff0087FF),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0))),
+                              borderRadius: UploadImage().radius())),
                       child: Text(
                         "Confirm & Continue",
                         style: TextStyle(
-                            color: Colors.white,
-                            fontSize: width * 0.045,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600),
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontFamily:
+                              'Poppins', /* fontWeight: FontWeight.w600 */
+                        ),
                       ),
                     ),
                   ),
@@ -314,7 +331,12 @@ class _FormfillState extends State<Formfill> {
                       fontFamily: 'Poppins',
                       fontSize: width * 0.03)),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PhoneNumber()),
+                    );
+                  },
                   child: const Text(
                     'change ?',
                     style: TextStyle(
@@ -452,31 +474,20 @@ class _FormfillState extends State<Formfill> {
     );
   }
 
-   buildInputdecoration( String labeltext) {
+  buildInputdecoration(String labeltext) {
     return InputDecoration(
-
-        /*   errorText: validationService.fullName.error, */
         labelText: labeltext,
         errorStyle: const TextStyle(fontSize: 8, height: 0.2),
         labelStyle: const TextStyle(
             color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
-        /* border: OutlineInputBorder(
-       
-        borderRadius: BorderRadius.circular(5),
-      ), */
-        /*      enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xff333333), width: 1)), */
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: UploadImage().radius(),
             borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
-        /*   suffixIcon: suffix, */
-        // hintText: 'Enter Your Username',
         contentPadding: const EdgeInsets.all(15),
         border: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Color(0xff0087FF),
             ),
-            borderRadius: BorderRadius.circular(5)));
+            borderRadius: UploadImage().radius()));
   }
 }

@@ -13,9 +13,8 @@ class Googleprovider extends ChangeNotifier {
     try {
       final googleuser = await googlesignin.signIn();
 
-      if (googleuser == null) {
-        return;
-      }
+      if (googleuser == null) return;
+      
       _user = googleuser;
       final googleauth = await googleuser.authentication;
 
@@ -24,7 +23,7 @@ class Googleprovider extends ChangeNotifier {
 
       await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
-      Fluttertoast.showToast(msg: 'Something we');
+      Fluttertoast.showToast(msg: 'Something went wrong');
       print(e.toString());
     }
 

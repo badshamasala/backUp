@@ -1,5 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,6 +29,7 @@ class PhoneNumber extends StatefulWidget {
 
 class _PhoneNumberState extends State<PhoneNumber> {
   GlobalKey<FormState> _formKey = GlobalKey();
+  var phonecont = TextEditingController();
 
   language _site = language.english;
   var size, height, width;
@@ -48,11 +53,11 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   SizedBox(
                     height: height * 0.02,
                   ),
-                  const Center(
+                  Center(
                     child: Text(
                       'Sign Up',
                       style: TextStyle(
-                          color: Color(0xff0087FF),
+                          color: primaryColorOfApp,
                           fontSize: 25,
                           fontFamily: 'Poppins'),
                     ),
@@ -60,13 +65,14 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Center(
+                  Center(
                       child: Text(
                     'Enter Your Phone Number to Proceed Sign Up',
-                    style: TextStyle(fontFamily: 'Poppins'),
+                    style: TextStyle(
+                        fontFamily: 'Poppins', color: customTextColor),
                   )),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: height * 0.01,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -86,209 +92,243 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                 return StatefulBuilder(builder:
                                     (BuildContext context,
                                         StateSetter setState) {
-                                  return Column(
-                                    mainAxisSize: MainAxisSize.min,
+                                  return Stack(
+                                    clipBehavior: Clip.none,
                                     children: [
-                                      const SizedBox(
-                                        height: 10,
+                                      Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            child: Container(
+                                              color: Colors.black,
+                                              height: 5,
+                                              width: 100,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                          const Text('Select your language'),
+                                          const Divider(),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text(
+                                              'English',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins'),
+                                            ),
+                                            trailing: Radio(
+                                              value: language.english,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text(
+                                              'Hindi',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins'),
+                                            ),
+                                            trailing: Radio(
+                                              value: language.hindi,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text('Bengali',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins')),
+                                            trailing: Radio(
+                                              value: language.bengali,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text('Gujarati',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins')),
+                                            trailing: Radio(
+                                              value: language.gujrati,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text('Marathi',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins')),
+                                            trailing: Radio(
+                                              value: language.marathi,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text('Urdu',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins')),
+                                            trailing: Radio(
+                                              value: language.urud,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text('Odia (oria)',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins')),
+                                            trailing: Radio(
+                                              value: language.odia,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text('Kannada',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins')),
+                                            trailing: Radio(
+                                              value: language.kannada,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text('Tamil',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins')),
+                                            trailing: Radio(
+                                              value: language.tamil,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                          ListTile(
+                                            visualDensity: const VisualDensity(
+                                                vertical: -3),
+                                            dense: true,
+                                            leading: const Text('Telugu',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins')),
+                                            trailing: Radio(
+                                              value: language.telugu,
+                                              groupValue: _site,
+                                              onChanged: (language? value) {
+                                                setState(() {
+                                                  _site = value!;
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
-                                        child: Container(
-                                          color: Colors.black,
-                                          height: 5,
-                                          width: 100,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      const Text('Select your language'),
-                                      const Divider(),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text(
-                                          'English',
-                                          style:
-                                              TextStyle(fontFamily: 'Poppins'),
-                                        ),
-                                        trailing: Radio(
-                                          value: language.english,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text(
-                                          'Hindi',
-                                          style:
-                                              TextStyle(fontFamily: 'Poppins'),
-                                        ),
-                                        trailing: Radio(
-                                          value: language.hindi,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text('Bengali',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins')),
-                                        trailing: Radio(
-                                          value: language.bengali,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text('Gujarati',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins')),
-                                        trailing: Radio(
-                                          value: language.gujrati,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text('Marathi',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins')),
-                                        trailing: Radio(
-                                          value: language.marathi,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text('Urdu',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins')),
-                                        trailing: Radio(
-                                          value: language.urud,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text('Odia (oria)',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins')),
-                                        trailing: Radio(
-                                          value: language.odia,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text('Kannada',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins')),
-                                        trailing: Radio(
-                                          value: language.kannada,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text('Tamil',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins')),
-                                        trailing: Radio(
-                                          value: language.tamil,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
-                                      ListTile(
-                                        visualDensity:
-                                            const VisualDensity(vertical: -3),
-                                        dense: true,
-                                        leading: const Text('Telugu',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins')),
-                                        trailing: Radio(
-                                          value: language.telugu,
-                                          groupValue: _site,
-                                          onChanged: (language? value) {
-                                            setState(() {
-                                              _site = value!;
-                                            });
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ),
+                                      Positioned.fill(
+                                          top: -36,
+                                          child: Align(
+                                            alignment: Alignment.topCenter,
+                                            child: InkWell(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Container(
+                                                /*   width: 45,
+                                  height: 45, */
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Colors.white,
+                                                      width: 2),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(4.0),
+                                                  child: Icon(
+                                                    Icons.close,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ))
                                     ],
                                   );
                                 });
@@ -303,7 +343,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                 color: Colors.grey,
                               ),
                               SizedBox(
-                                width: 1,
+                                width: 3,
                               ),
                               Text(
                                 'Select your language',
@@ -316,7 +356,46 @@ class _PhoneNumberState extends State<PhoneNumber> {
                           )),
                     ],
                   ),
-                  IntlPhoneField(
+                  TextField(
+                    controller: phonecont,
+                    textAlign: TextAlign.start,
+                    maxLength: 10,
+                    keyboardType: TextInputType.number,
+                    cursorColor: primaryColorOfApp,
+                    decoration: InputDecoration(
+                      labelText: 'Enter your 10 digit Mobile number*',
+                      labelStyle: const TextStyle(
+                          color: Color.fromARGB(255, 214, 213, 213),
+                          fontFamily: 'Poppins',
+                          fontSize: 12),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              color: Color(0xff333333), width: 0.5)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                              color: Color(0xff0087FF), width: 0.5)),
+                      prefixText: '+91',
+                      prefixStyle:
+                          TextStyle(fontFamily: 'Poppins', fontSize: 15),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 20.0,
+                      ),
+                      // hintText: 'Enter Your Username',
+                      /*        contentPadding: const EdgeInsets.all(15), */
+                      /*  border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xff0087FF),
+                            ),
+                            borderRadius: BorderRadius.circular(16)
+                            ) */
+                    ),
+                    onChanged: (value) {
+                      // do something
+                    },
+                  ),
+                  /*  IntlPhoneField(
                     decoration: const InputDecoration(
                       labelText: 'Phone Number',
                       border: OutlineInputBorder(
@@ -331,9 +410,9 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     onCountryChanged: (country) {
                       print('Country changed to: ' + country.name);
                     },
-                  ),
-                  const SizedBox(
-                    height: 10,
+                  ), */
+                  SizedBox(
+                    height: height * 0.02,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -351,129 +430,176 @@ class _PhoneNumberState extends State<PhoneNumber> {
                             // isScrollControlled: true,
                             context: context,
                             builder: (BuildContext context) {
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Row(
+                              return Stack(
+                                clipBehavior: Clip.none,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
+                                    child: Column(
+                                        mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          IconButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              icon:
-                                                  const Icon(Icons.arrow_back)),
-                                          const SizedBox(
-                                            width: 65,
+                                          Row(
+                                            children: [
+                                              IconButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  icon: const Icon(
+                                                      Icons.arrow_back)),
+                                              const SizedBox(
+                                                width: 65,
+                                              ),
+                                              const Text(
+                                                'Enter OTP',
+                                                style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 20,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                           const Text(
-                                            'Enter OTP',
-                                            style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      const Text(
-                                        'Otp has been sent to +91 8689880061',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: height * 0.05,
-                                      ),
-                                      OtpTextField(
-                                        numberOfFields: 6,
-                                        borderColor: const Color(0xFF0087FF),
-                                        //set to true to show as box or false to show as dash
-                                        showFieldAsBox: true,
-                                        //runs when a code is typed in
-                                        onCodeChanged: (String code) {
-                                          //handle validation or checks here
-                                        },
-                                        //runs when every textfield is filled
-                                        onSubmit: (String verificationCode) {
-                                          showDialog(
-                                              context: context,
-                                              builder: (context) {
-                                                return AlertDialog(
-                                                  title: const Text(
-                                                      "Verification Code"),
-                                                  content: Text(
-                                                      'Code entered is $verificationCode'),
-                                                );
-                                              });
-                                        }, // end onSubmit
-                                      ),
-                                      /* _buildOtp(), */
-                                      SizedBox(
-                                        height: height * 0.01,
-                                      ),
-                                      TextButton(
-                                          onPressed: () {},
-                                          child: const Text(
-                                            'Resen Otp in 30sec',
+                                            'Otp has been sent to +91 8689880061',
                                             style: TextStyle(
                                               fontFamily: 'Poppins',
                                               fontSize: 15,
                                             ),
-                                          )),
-                                      SizedBox(
-                                        height: 45,
-                                        width: double.infinity,
-                                        // height: 50,
-                                        child: ElevatedButton(
-                                          onPressed: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const AccountType()),
-                                            );
-                                          },
-                                          style: ElevatedButton.styleFrom(
-                                              minimumSize: const Size(0.0, 40),
-                                              // padding: EdgeInsets.symmetric(
-                                              //     horizontal: 40.0, vertical: 20.0),
-                                              backgroundColor:
-                                                  const Color(0xff0087FF),
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0))),
-                                          child: const Text(
-                                            "Verify & Continue",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                                fontFamily: 'Poppins'),
                                           ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: height * 0.35,
-                                      ),
-                                    ]),
+                                          SizedBox(
+                                            height: height * 0.05,
+                                          ),
+                                          OtpTextField(
+                                            filled: true,
+                                            margin: EdgeInsets.only(right: 4.0),
+                                            fieldWidth: 45,
+                                            fillColor: Color(0xffDFEEFC),
+                                            borderWidth: 1,
+                                            focusedBorderColor:
+                                                primaryColorOfApp,
+                                            numberOfFields: 6,
+                                            borderColor: primaryColorOfApp,
+                                            //set to true to show as box or false to show as dash
+                                            showFieldAsBox: true,
+                                            //runs when a code is typed in
+                                            onCodeChanged: (String code) {
+                                              //handle validation or checks here
+                                            },
+                                            //runs when every textfield is filled
+                                            onSubmit:
+                                                (String verificationCode) {
+                                              showDialog(
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return AlertDialog(
+                                                      title: const Text(
+                                                          "Verification Code"),
+                                                      content: Text(
+                                                          'Code entered is $verificationCode'),
+                                                    );
+                                                  });
+                                            }, // end onSubmit
+                                          ),
+                                          /* _buildOtp(), */
+                                          SizedBox(
+                                            height: height * 0.01,
+                                          ),
+                                          TextButton(
+                                              onPressed: () {},
+                                              child: Text(
+                                                'Resen Otp in 30sec',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 15,
+                                                    color: primaryColorOfApp),
+                                              )),
+                                          SizedBox(
+                                            /*     height: 45, */
+                                            width: double.infinity,
+                                            // height: 50,
+                                            child: ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          AccountType(
+                                                            value:
+                                                                phonecont.text,
+                                                          )),
+                                                );
+                                              },
+                                              style: ElevatedButton.styleFrom(
+                                                  elevation: 0,
+                                                  /*      minimumSize: const Size(0.0, 40), */
+                                                  // padding: EdgeInsets.symmetric(
+                                                  //     horizontal: 40.0, vertical: 20.0),
+                                                  backgroundColor:
+                                                      const Color(0xff0087FF),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5.0))),
+                                              child: const Text(
+                                                "Verify & Continue",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15,
+                                                    fontFamily: 'Poppins'),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: height * 0.2,
+                                          ),
+                                        ]),
+                                  ),
+                                   Positioned.fill(
+                                              top: -36,
+                                              child: Align(
+                                                alignment: Alignment.topCenter,
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Container(
+                                                    /*   width: 45,
+                                  height: 45, */
+                                                    decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color: Colors.white,
+                                                          width: 2),
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              4.0),
+                                                      child: Icon(
+                                                        Icons.close,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ))
+                                ],
                               );
                             });
                       },
                       style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(0.0, 40),
+                          elevation: 0,
+                          /*        minimumSize: const Size(0.0, 40), */
                           // padding: EdgeInsets.symmetric(
                           //     horizontal: 40.0, vertical: 20.0),
                           backgroundColor: const Color(0xff0087FF),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0))),
+                              borderRadius: UploadImage().radius())),
                       child: const Text(
                         "Continue",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 15,
                             fontFamily: 'Poppins'),
                       ),
                     ),
@@ -486,55 +612,4 @@ class _PhoneNumberState extends State<PhoneNumber> {
       ),
     );
   }
-
-  /* Widget _textFieldOTP({required bool first, last}) {
-    return SizedBox(
-      height: 65,
-      child: AspectRatio(
-        aspectRatio: 0.7,
-        child: TextField(
-          autofocus: true,
-          onChanged: (value) {
-            if (value.length == 1 && last == false) {
-              FocusScope.of(context).nextFocus();
-            }
-            if (value.isEmpty && first == false) {
-              FocusScope.of(context).previousFocus();
-            }
-          },
-          showCursor: false,
-          readOnly: false,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-          keyboardType: TextInputType.number,
-          maxLength: 1,
-          decoration: InputDecoration(
-            counter: const Offstage(),
-            enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(width: 1, color: Colors.black12),
-                borderRadius: BorderRadius.circular(12)),
-            focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(width: 1, color: Colors.green),
-                borderRadius: BorderRadius.circular(12)),
-          ),
-        ),
-      ),
-    );
-  } */
-
-  /* Widget _buildOtp() {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _textFieldOTP(first: true, last: false),
-          _textFieldOTP(first: false, last: false),
-          _textFieldOTP(first: false, last: false),
-          _textFieldOTP(first: false, last: false),
-          _textFieldOTP(first: false, last: false),
-          _textFieldOTP(first: false, last: true),
-        ],
-      ),
-    );
-  } */
 }

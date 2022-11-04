@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -106,13 +109,15 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(
                   labelText: 'Enter Your Username',
                   labelStyle: const TextStyle(
-                      color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
+                      color: Color(0xffC4C4C4),
+                      fontFamily: 'Poppins',
+                      fontSize: 12),
                   enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide:
-                          const BorderSide(color: Color(0xff333333), width: 1)),
+                      borderRadius: UploadImage().radius(),
+                      borderSide: const BorderSide(
+                          color: Color(0xff333333), width: 0.5)),
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: UploadImage().radius(),
                       borderSide:
                           const BorderSide(color: Color(0xff0087FF), width: 1)),
                   /*  suffixIcon: const Icon(Icons.check), */
@@ -138,13 +143,15 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(
                   labelText: 'Enter Password',
                   labelStyle: const TextStyle(
-                      color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
+                      color: Color(0xffC4C4C4),
+                      fontFamily: 'Poppins',
+                      fontSize: 12),
                   enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide:
-                          const BorderSide(color: Color(0xff333333), width: 1)),
+                      borderRadius: UploadImage().radius(),
+                      borderSide: const BorderSide(
+                          color: Color(0xff333333), width: 0.5)),
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: UploadImage().radius(),
                       borderSide:
                           const BorderSide(color: Color(0xff0087FF), width: 1)),
                   suffixIcon: GestureDetector(
@@ -188,202 +195,529 @@ class _LoginPageState extends State<LoginPage> {
                           builder: (context) {
                             return StatefulBuilder(builder:
                                 (BuildContext context, StateSetter setState) {
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
+                              return Stack(
+                                clipBehavior: Clip.none,
                                 children: [
-                                  Row(
-                                    children: [
-                                      IconButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 18.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            IconButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                icon: Icon(
+                                                  Icons.arrow_back,
+                                                  color: primaryColorOfApp,
+                                                )),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Forgot Password',
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins'),
+                                            )
+                                          ],
+                                        ),
+                                        Divider(),
+                                        SizedBox(
+                                          height: height * 0.03,
+                                        ),
+                                        SizedBox(
+                                          height: 40,
+                                          child: TextFormField(
+                                            decoration: buildInputdecoration(
+                                                'Enter given username Name'),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: height * 0.04,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 8.0),
+                                              child: Text(
+                                                'Select one (via verification) for secure your profile',
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 10),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: height * 0.01,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            OutlinedButton(
+                                              style: OutlinedButton.styleFrom(
+                                                  minimumSize: Size(120, 35),
+                                                  /*    minimumSize: Size(32, 30), */
+                                                  elevation: 0,
+                                                  /* padding: EdgeInsets.zero, */
+                                                  tapTargetSize:
+                                                      MaterialTapTargetSize
+                                                          .shrinkWrap,
+                                                  side: BorderSide(
+                                                      color: email
+                                                          ? Color(0xff0087FF)
+                                                          : Color(0xff333333),
+                                                      width: 0.5),
+                                                  /*  padding:
+                                                          EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                                                  backgroundColor: Colors.white,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          UploadImage()
+                                                              .radius())),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(1.0),
+                                                child: Text(
+                                                  "Email",
+                                                  style: TextStyle(
+                                                      color: email
+                                                          ? Color(0xff0087FF)
+                                                          : Color(0xff333333),
+                                                      fontSize: 10,
+                                                      fontFamily: 'Poppins'),
+                                                ),
+                                              ),
+                                              onPressed: () {
+                                                setState(() {
+                                                  email = true;
+                                                  mobile = false;
+                                                });
+                                              },
+                                            ),
+                                            SizedBox(
+                                              width: width * 0.08,
+                                            ),
+                                            OutlinedButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  mobile = true;
+                                                  email = false;
+                                                });
+                                              },
+                                              style: OutlinedButton.styleFrom(
+                                                  minimumSize: Size(120, 35),
+                                                  /*  minimumSize: Size(32, 30), */
+                                                  elevation: 0,
+                                                  /* padding: EdgeInsets.zero, */
+                                                  tapTargetSize:
+                                                      MaterialTapTargetSize
+                                                          .shrinkWrap,
+                                                  side: BorderSide(
+                                                      color: mobile
+                                                          ? Color(0xff0087FF)
+                                                          : Color(0xff333333),
+                                                      width: 0.5),
+                                                  /*   padding:
+                                                          EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                                                  backgroundColor: Colors.white,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          UploadImage()
+                                                              .radius())),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(1.0),
+                                                child: Text(
+                                                  "Mobile",
+                                                  style: TextStyle(
+                                                      color: mobile
+                                                          ? Color(0xff0087FF)
+                                                          : Color(0xff333333),
+                                                      fontSize: 10,
+                                                      fontFamily: 'Poppins'),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: height * 0.03,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 8.0),
+                                              child: Text(
+                                                'To help keep your profile safe, myttube wants to\n make sure that it’s really you trying to password reset',
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 10),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: height * 0.04,
+                                        ),
+                                        SizedBox(
+                                          width: double.infinity,
+                                          height: 40,
+                                          child: ElevatedButton(
+                                            onPressed:
+                                                email == true || mobile == true
+                                                    ? () {
+                                                        showModalBottomSheet<
+                                                                dynamic>(
+                                                            isScrollControlled:
+                                                                true,
+                                                            shape:
+                                                                const RoundedRectangleBorder(
+                                                              // <-- SEE HERE
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .vertical(
+                                                                top: Radius
+                                                                    .circular(
+                                                                        20.0),
+                                                              ),
+                                                            ),
+                                                            // isScrollControlled: true,
+                                                            context: context,
+                                                            builder:
+                                                                (BuildContext
+                                                                    context) {
+                                                              return Stack(
+                                                                clipBehavior:
+                                                                    Clip.none,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            8.0),
+                                                                    child: Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.min,
+                                                                        children: [
+                                                                          Row(
+                                                                            children: [
+                                                                              IconButton(
+                                                                                  onPressed: () {
+                                                                                    Navigator.pop(context);
+                                                                                  },
+                                                                                  icon: const Icon(Icons.arrow_back)),
+                                                                              const SizedBox(
+                                                                                width: 65,
+                                                                              ),
+                                                                              const Text(
+                                                                                'Enter OTP',
+                                                                                style: TextStyle(
+                                                                                  fontFamily: 'Poppins',
+                                                                                  fontSize: 20,
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                          const Text(
+                                                                            'Otp has been sent to +91 8689880061',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 15,
+                                                                            ),
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                height * 0.05,
+                                                                          ),
+                                                                          OtpTextField(
+                                                                            numberOfFields:
+                                                                                6,
+                                                                            borderColor:
+                                                                                const Color(0xFF0087FF),
+                                                                            //set to true to show as box or false to show as dash
+                                                                            showFieldAsBox:
+                                                                                true,
+                                                                            //runs when a code is typed in
+                                                                            onCodeChanged:
+                                                                                (String code) {
+                                                                              //handle validation or checks here
+                                                                            },
+                                                                            //runs when every textfield is filled
+                                                                            onSubmit:
+                                                                                (String verificationCode) {
+                                                                              showDialog(
+                                                                                  context: context,
+                                                                                  builder: (context) {
+                                                                                    return AlertDialog(
+                                                                                      title: const Text("Verification Code"),
+                                                                                      content: Text('Code entered is $verificationCode'),
+                                                                                    );
+                                                                                  });
+                                                                            }, // end onSubmit
+                                                                          ),
+                                                                          /* _buildOtp(), */
+                                                                          SizedBox(
+                                                                            height:
+                                                                                height * 0.01,
+                                                                          ),
+                                                                          TextButton(
+                                                                              onPressed: () {},
+                                                                              child: Text(
+                                                                                'Resen Otp in 30sec',
+                                                                                style: TextStyle(fontFamily: 'Poppins', fontSize: 15, color: primaryColorOfApp),
+                                                                              )),
+                                                                          SizedBox(
+                                                                            width:
+                                                                                double.infinity,
+                                                                            // height: 50,
+                                                                            child:
+                                                                                ElevatedButton(
+                                                                              onPressed: () {
+                                                                                showModalBottomSheet<dynamic>(
+                                                                                    isScrollControlled: true,
+                                                                                    shape: const RoundedRectangleBorder(
+                                                                                      // <-- SEE HERE
+                                                                                      borderRadius: BorderRadius.vertical(
+                                                                                        top: Radius.circular(20.0),
+                                                                                      ),
+                                                                                    ),
+                                                                                    // isScrollControlled: true,
+                                                                                    context: context,
+                                                                                    builder: (BuildContext context) {
+                                                                                      return Stack(
+                                                                                        clipBehavior: Clip.none,
+                                                                                        children: [
+                                                                                          Padding(
+                                                                                              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                                                                                              child: Column(mainAxisSize: MainAxisSize.min, children: [
+                                                                                                SizedBox(
+                                                                                                  height: height * 0.03,
+                                                                                                ),
+                                                                                                Row(
+                                                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                  children: [
+                                                                                                    Text(
+                                                                                                      'Verified',
+                                                                                                      style: TextStyle(fontFamily: 'Poppins', fontSize: 15, color: primaryColorOfApp),
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                                SizedBox(
+                                                                                                  height: height * 0.03,
+                                                                                                ),
+                                                                                                Row(
+                                                                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                  children: [
+                                                                                                    const Text(
+                                                                                                      'Your OTP has been verified ',
+                                                                                                      style: TextStyle(
+                                                                                                        fontFamily: 'Poppins',
+                                                                                                        fontSize: 12,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ],
+                                                                                                ),
+                                                                                                SizedBox(
+                                                                                                  height: height * 0.02,
+                                                                                                ),
+                                                                                                SizedBox(
+                                                                                                  height: 40,
+                                                                                                  child: TextFormField(
+                                                                                                    decoration: buildInputdecoration('Enter New Password'),
+                                                                                                  ),
+                                                                                                ),
+                                                                                                SizedBox(
+                                                                                                  height: height * 0.015,
+                                                                                                ),
+                                                                                                SizedBox(
+                                                                                                  height: 40,
+                                                                                                  child: TextFormField(
+                                                                                                    decoration: buildInputdecoration('Confirm Password'),
+                                                                                                  ),
+                                                                                                ),
+                                                                                                SizedBox(
+                                                                                                  height: height * 0.02,
+                                                                                                ),
+                                                                                                SizedBox(
+                                                                                                  width: double.infinity,
+                                                                                                  // height: 50,
+                                                                                                  child: ElevatedButton(
+                                                                                                    onPressed: () {},
+                                                                                                    style: ElevatedButton.styleFrom(
+                                                                                                        elevation: 0,
+                                                                                                        /* minimumSize: const Size(0.0, 40), */
+                                                                                                        // padding: EdgeInsets.symmetric(
+                                                                                                        //     horizontal: 40.0, vertical: 20.0),
+                                                                                                        backgroundColor: const Color(0xff0087FF),
+                                                                                                        shape: RoundedRectangleBorder(borderRadius: UploadImage().radius())),
+                                                                                                    child: const Text(
+                                                                                                      "Confirm",
+                                                                                                      style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Poppins'),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                                SizedBox(
+                                                                                                  height: height * 0.1,
+                                                                                                ),
+                                                                                              ])),
+                                                                                               Positioned.fill(
+                                              top: -36,
+                                              child: Align(
+                                                alignment: Alignment.topCenter,
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Container(
+                                                    /*   width: 45,
+                                  height: 45, */
+                                                    decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color: Colors.white,
+                                                          width: 2),
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              4.0),
+                                                      child: Icon(
+                                                        Icons.close,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ))
+                                                                                        ],
+                                                                                      );
+                                                                                    });
+                                                                              },
+                                                                              style: ElevatedButton.styleFrom(
+                                                                                  /*       minimumSize: const Size(0.0, 40), */
+                                                                                  // padding: EdgeInsets.symmetric(
+                                                                                  //     horizontal: 40.0, vertical: 20.0),
+                                                                                  backgroundColor: const Color(0xff0087FF),
+                                                                                  shape: RoundedRectangleBorder(borderRadius: UploadImage().radius())),
+                                                                              child: const Text(
+                                                                                "Verify",
+                                                                                style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Poppins'),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                height * 0.2,
+                                                                          ),
+                                                                        ]),
+                                                                  ),
+                                                                  Positioned.fill(
+                                                                      top: -36,
+                                                                      child: Align(
+                                                                        alignment:
+                                                                            Alignment.topCenter,
+                                                                        child:
+                                                                            InkWell(
+                                                                          onTap:
+                                                                              () {
+                                                                            Navigator.pop(context);
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            /*   width: 45,
+                                  height: 45, */
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              border: Border.all(color: Colors.white, width: 2),
+                                                                              shape: BoxShape.circle,
+                                                                            ),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: const EdgeInsets.all(4.0),
+                                                                              child: Icon(
+                                                                                Icons.close,
+                                                                                color: Colors.white,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ))
+                                                                ],
+                                                              );
+                                                            });
+                                                      }
+                                                    : null,
+                                            style: ElevatedButton.styleFrom(
+                                                elevation: 0,
+                                                minimumSize:
+                                                    const Size(0.0, 40),
+                                                // padding: EdgeInsets.symmetric(
+                                                //     horizontal: 40.0, vertical: 20.0),
+                                                backgroundColor:
+                                                    const Color(0xff0087FF),
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0))),
+                                            child: Text(
+                                              "Confirm & Continue",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: width * 0.045,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: height * 0.1,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Positioned.fill(
+                                      top: -36,
+                                      child: Align(
+                                        alignment: Alignment.topCenter,
+                                        child: InkWell(
+                                          onTap: () {
+                                            Navigator.pop(context);
                                           },
-                                          icon: Icon(
-                                            Icons.arrow_back,
-                                            color: primaryColorOfApp,
-                                          )),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        'Forgot Password',
-                                        style: TextStyle(
-                                            color: customTextColor,
-                                            fontFamily: 'Poppins'),
-                                      )
-                                    ],
-                                  ),
-                                  Divider(),
-                                  SizedBox(
-                                    height: height * 0.03,
-                                  ),
-                                  SizedBox(
-                                    height: 40,
-                                    child: TextFormField(
-                                      decoration: buildInputdecoration(
-                                          'Enter given username Name'),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: height * 0.04,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 8.0),
-                                        child: Text(
-                                          'Select one (via verification) for secure your profile',
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 10),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: height * 0.01,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      OutlinedButton(
-                                        style: OutlinedButton.styleFrom(
-                                            minimumSize: Size(130, 35),
-                                            /*    minimumSize: Size(32, 30), */
-                                            elevation: 0,
-                                            /* padding: EdgeInsets.zero, */
-                                            tapTargetSize: MaterialTapTargetSize
-                                                .shrinkWrap,
-                                            side: BorderSide(
-                                              color: email
-                                                  ? Color(0xff0087FF)
-                                                  : Color(0xff333333),
+                                          child: Container(
+                                            /*   width: 45,
+                                  height: 45, */
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2),
+                                              shape: BoxShape.circle,
                                             ),
-                                            /*  padding:
-                                                    EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                                            backgroundColor: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        5.0))),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(1.0),
-                                          child: Text(
-                                            "Email",
-                                            style: TextStyle(
-                                                color: email
-                                                    ? Color(0xff0087FF)
-                                                    : Color(0xff333333),
-                                                fontSize: 10,
-                                                fontFamily: 'Poppins'),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(4.0),
+                                              child: Icon(
+                                                Icons.close,
+                                                color: Colors.white,
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                        onPressed: () {
-                                          setState(() {
-                                            email = true;
-                                            mobile = false;
-                                          });
-                                        },
-                                      ),
-                                      SizedBox(
-                                        width: width * 0.08,
-                                      ),
-                                      OutlinedButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            mobile = true;
-                                            email = false;
-                                          });
-                                        },
-                                        style: OutlinedButton.styleFrom(
-                                            minimumSize: Size(130, 35),
-                                            /*  minimumSize: Size(32, 30), */
-                                            elevation: 0,
-                                            /* padding: EdgeInsets.zero, */
-                                            tapTargetSize: MaterialTapTargetSize
-                                                .shrinkWrap,
-                                            side: BorderSide(
-                                              color: mobile
-                                                  ? Color(0xff0087FF)
-                                                  : Color(0xff333333),
-                                            ),
-                                            /*   padding:
-                                                    EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                                            backgroundColor: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        5.0))),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(1.0),
-                                          child: Text(
-                                            "Mobile",
-                                            style: TextStyle(
-                                                color: mobile
-                                                    ? Color(0xff0087FF)
-                                                    : Color(0xff333333),
-                                                fontSize: 10,
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: height * 0.03,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 8.0),
-                                        child: Text(
-                                          'To help keep your profile safe, myttube wants to\n make sure that it’s really you trying to password reset',
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 10),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: height * 0.04,
-                                  ),
-                                  SizedBox(
-                                    width: double.infinity,
-                                    height: 40,
-                                    child: ElevatedButton(
-                                      onPressed: email == true || mobile == true
-                                          ? () {}
-                                          : null,
-                                      style: ElevatedButton.styleFrom(
-                                          elevation: 0,
-                                          minimumSize: const Size(0.0, 40),
-                                          // padding: EdgeInsets.symmetric(
-                                          //     horizontal: 40.0, vertical: 20.0),
-                                          backgroundColor:
-                                              const Color(0xff0087FF),
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0))),
-                                      child: Text(
-                                        "Confirm & Continue",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: width * 0.045,
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: height * 0.1,
-                                  ),
+                                      ))
                                 ],
                               );
                             });
@@ -401,9 +735,9 @@ class _LoginPageState extends State<LoginPage> {
                 width: double.infinity,
                 // height: 50,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     print('rashid');
-                    loginmethod(username.text, password.text);
+                    await loginmethod(username.text, password.text);
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
@@ -412,7 +746,7 @@ class _LoginPageState extends State<LoginPage> {
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
+                          borderRadius: UploadImage().radius())),
                   child: const Text(
                     "Login",
                     style: TextStyle(
@@ -468,14 +802,13 @@ class _LoginPageState extends State<LoginPage> {
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
                       side: const BorderSide(
-                        color: Color(0xff0087FF),
-                      ),
+                          color: Color(0xff0087FF), width: 0.7),
                       /*   minimumSize: const Size(0, 40), */
                       /*  padding: EdgeInsets.symmetric(
                               horizontal: 40.0, vertical: 20.0), */
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
+                          borderRadius: UploadImage().radius())),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -522,18 +855,17 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   style: OutlinedButton.styleFrom(
                       side: const BorderSide(
-                        color: Color(0xff0087FF),
-                      ),
+                          color: Color(0xff0087FF), width: 0.7),
                       /*  padding: EdgeInsets.symmetric(
                               horizontal: 40.0, vertical: 20.0), */
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0))),
+                          borderRadius: UploadImage().radius())),
                   child: const Text(
                     "Sign Up",
                     style: TextStyle(
                         color: Color(0xff0087FF),
-                        fontSize: 18,
+                        fontSize: 15,
                         fontFamily: 'Poppins'),
                   ),
                 ),
@@ -575,29 +907,20 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  InputDecoration buildInputdecoration(
-    String labeltext,
-  ) {
+buildInputdecoration(String labeltext) {
     return InputDecoration(
       /*   errorText: validationService.fullName.error, */
       labelText: labeltext,
       labelStyle: const TextStyle(
-          color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
+          color: Color(0xffE2E2E2), fontFamily: 'Poppins', fontSize: 12),
       enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
+          borderRadius: UploadImage().radius(),
+          borderSide: const BorderSide(color: Color(0xff333333), width: 0.5)),
       focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
-      /* suffixIcon: suffix, */
-      // hintText: 'Enter Your Username',
+          borderRadius: UploadImage().radius(),
+          borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5)),
       contentPadding: const EdgeInsets.all(15),
-      /*  border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xff0087FF),
-                                ),
-                                borderRadius: BorderRadius.circular(16)
-                                ) */
+     
     );
   }
 }
