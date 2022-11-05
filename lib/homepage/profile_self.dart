@@ -141,7 +141,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -153,7 +154,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers & Following",
                                           style: TextStyle(
@@ -182,7 +184,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -211,7 +214,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -268,7 +272,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -280,7 +285,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers & Following",
                                           style: TextStyle(
@@ -309,7 +315,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -338,7 +345,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -386,38 +394,32 @@ class ProfileSelf extends StatefulWidget {
                       SizedBox(
                         height: height * 0.03,
                       )
-                    ]
-                    )
-                    ),
-                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                    ])),
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -444,7 +446,7 @@ class ProfileSelf extends StatefulWidget {
           return StatefulBuilder(
               builder: (BuildContext context, StateSetter setState) {
             return Stack(
-           clipBehavior: Clip.none,
+              clipBehavior: Clip.none,
               children: [
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -487,7 +489,8 @@ class ProfileSelf extends StatefulWidget {
                               Text(
                                 'Activity Status',
                                 style: TextStyle(
-                                    fontFamily: 'Poppins', color: customTextColor),
+                                    fontFamily: 'Poppins',
+                                    color: customTextColor),
                               ),
                             ],
                           ),
@@ -518,19 +521,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Everyone",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: everyone,
                                               onChanged: (val) {
@@ -548,19 +553,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Followers",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: followers,
                                               onChanged: (val) {
@@ -578,19 +585,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Following",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: following,
                                               onChanged: (val) {
@@ -608,19 +617,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "OFF",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: off,
                                               onChanged: (val) {
@@ -655,35 +666,31 @@ class ProfileSelf extends StatefulWidget {
                             ]),
                           ),
                         ])),
-                         Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -753,7 +760,8 @@ class ProfileSelf extends StatefulWidget {
                               Text(
                                 'Show Reward Points',
                                 style: TextStyle(
-                                    fontFamily: 'Poppins', color: customTextColor),
+                                    fontFamily: 'Poppins',
+                                    color: customTextColor),
                               ),
                             ],
                           ),
@@ -784,19 +792,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Everyone",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: everyone,
                                               onChanged: (val) {
@@ -814,19 +824,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Followers",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: followers,
                                               onChanged: (val) {
@@ -844,19 +856,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Following",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: following,
                                               onChanged: (val) {
@@ -874,19 +888,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "OFF",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: off,
                                               onChanged: (val) {
@@ -921,35 +937,31 @@ class ProfileSelf extends StatefulWidget {
                             ]),
                           ),
                         ])),
-                         Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -1019,7 +1031,8 @@ class ProfileSelf extends StatefulWidget {
                               Text(
                                 '@Mension',
                                 style: TextStyle(
-                                    fontFamily: 'Poppins', color: customTextColor),
+                                    fontFamily: 'Poppins',
+                                    color: customTextColor),
                               ),
                             ],
                           ),
@@ -1050,19 +1063,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Everyone",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: everyone,
                                               onChanged: (val) {
@@ -1080,19 +1095,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Followers",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: followers,
                                               onChanged: (val) {
@@ -1110,19 +1127,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Following",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: following,
                                               onChanged: (val) {
@@ -1140,19 +1159,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "OFF",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: off,
                                               onChanged: (val) {
@@ -1187,35 +1208,31 @@ class ProfileSelf extends StatefulWidget {
                             ]),
                           ),
                         ])),
-                         Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -1285,7 +1302,8 @@ class ProfileSelf extends StatefulWidget {
                               Text(
                                 'Tag',
                                 style: TextStyle(
-                                    fontFamily: 'Poppins', color: customTextColor),
+                                    fontFamily: 'Poppins',
+                                    color: customTextColor),
                               ),
                             ],
                           ),
@@ -1316,19 +1334,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Everyone",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: everyone,
                                               onChanged: (val) {
@@ -1346,19 +1366,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Followers",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: followers,
                                               onChanged: (val) {
@@ -1376,19 +1398,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Following",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: following,
                                               onChanged: (val) {
@@ -1406,19 +1430,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "OFF",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: off,
                                               onChanged: (val) {
@@ -1453,35 +1479,31 @@ class ProfileSelf extends StatefulWidget {
                             ]),
                           ),
                         ])),
-                         Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -1551,7 +1573,8 @@ class ProfileSelf extends StatefulWidget {
                               Text(
                                 'Send me GIFT',
                                 style: TextStyle(
-                                    fontFamily: 'Poppins', color: customTextColor),
+                                    fontFamily: 'Poppins',
+                                    color: customTextColor),
                               ),
                             ],
                           ),
@@ -1582,19 +1605,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Everyone",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: everyone,
                                               onChanged: (val) {
@@ -1612,19 +1637,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Followers",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: followers,
                                               onChanged: (val) {
@@ -1642,19 +1669,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Following",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: following,
                                               onChanged: (val) {
@@ -1672,19 +1701,21 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "OFF",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
                                           Radio(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               groupValue: groupseenonline,
                                               value: off,
                                               onChanged: (val) {
@@ -1813,35 +1844,31 @@ class ProfileSelf extends StatefulWidget {
                             ),
                           ),
                         ])),
-                         Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -1926,7 +1953,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -1938,7 +1966,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -1967,7 +1996,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -1996,7 +2026,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -2025,7 +2056,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -2086,7 +2118,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -2098,7 +2131,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -2127,7 +2161,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -2156,7 +2191,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -2185,7 +2221,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -2245,7 +2282,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -2257,7 +2295,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -2286,7 +2325,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -2335,35 +2375,31 @@ class ProfileSelf extends StatefulWidget {
                         height: height * 0.04,
                       ),
                     ])),
-                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -2449,7 +2485,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -2461,7 +2498,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -2490,7 +2528,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -2519,7 +2558,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -2548,7 +2588,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -2609,7 +2650,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -2621,7 +2663,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -2650,7 +2693,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -2679,7 +2723,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -2708,7 +2753,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -2768,7 +2814,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -2782,12 +2829,13 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "People",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
@@ -2827,35 +2875,31 @@ class ProfileSelf extends StatefulWidget {
                         height: height * 0.04,
                       ),
                     ])),
-                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -2941,7 +2985,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -2953,7 +2998,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -2982,7 +3028,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -3011,7 +3058,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -3040,7 +3088,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -3101,7 +3150,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -3113,7 +3163,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -3142,7 +3193,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -3171,7 +3223,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -3200,7 +3253,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -3249,35 +3303,31 @@ class ProfileSelf extends StatefulWidget {
                         height: height * 0.01,
                       ),
                     ])),
-                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -3364,7 +3414,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -3376,7 +3427,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -3405,7 +3457,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -3434,7 +3487,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -3463,7 +3517,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -3520,7 +3575,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -3532,7 +3588,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -3561,7 +3618,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -3590,7 +3648,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -3619,7 +3678,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -3676,7 +3736,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -3688,7 +3749,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -3717,7 +3779,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -3746,7 +3809,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -3775,7 +3839,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -3824,35 +3889,31 @@ class ProfileSelf extends StatefulWidget {
                         height: height * 0.01,
                       ),
                     ])),
-                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -3938,7 +3999,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -3950,7 +4012,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Everyone",
                                           style: TextStyle(
@@ -3979,7 +4042,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
@@ -4008,7 +4072,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "Following",
                                           style: TextStyle(
@@ -4037,7 +4102,8 @@ class ProfileSelf extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
@@ -4097,7 +4163,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -4123,33 +4190,40 @@ class ProfileSelf extends StatefulWidget {
                                                 clipBehavior: Clip.none,
                                                 children: [
                                                   Padding(
-                                                    padding: const EdgeInsets.symmetric(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
                                                         horizontal: 15.0),
                                                     child: Column(
                                                         /* mainAxisSize: MainAxisSize.min, */
                                                         children: [
                                                           SizedBox(
-                                                            height: height * 0.03,
+                                                            height:
+                                                                height * 0.03,
                                                           ),
                                                           Row(
                                                             children: [
                                                               IconButton(
                                                                   padding:
-                                                                      EdgeInsets.all(0),
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              0),
                                                                   constraints:
                                                                       BoxConstraints(),
-                                                                  onPressed: () {
+                                                                  onPressed:
+                                                                      () {
                                                                     Navigator.of(
                                                                             context)
                                                                         .pop();
                                                                   },
                                                                   icon: Icon(
-                                                                    Icons.arrow_back,
+                                                                    Icons
+                                                                        .arrow_back,
                                                                     color:
                                                                         primaryColorOfApp,
                                                                   )),
                                                               SizedBox(
-                                                                width: width * 0.01,
+                                                                width: width *
+                                                                    0.01,
                                                               ),
                                                               Text(
                                                                 'People',
@@ -4158,7 +4232,8 @@ class ProfileSelf extends StatefulWidget {
                                                                         'Poppins',
                                                                     color:
                                                                         customTextColor,
-                                                                    fontSize: 15),
+                                                                    fontSize:
+                                                                        15),
                                                               ),
                                                             ],
                                                           ),
@@ -4178,21 +4253,19 @@ class ProfileSelf extends StatefulWidget {
                                                                               .black,
                                                                           fontFamily:
                                                                               'Poppins',
-                                                                          fontSize: 10),
+                                                                          fontSize:
+                                                                              10),
                                                                       enabledBorder: OutlineInputBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(
-                                                                                  5),
+                                                                          borderRadius: BorderRadius.circular(
+                                                                              5),
                                                                           borderSide: const BorderSide(
                                                                               color: Color(
                                                                                   0xff333333),
                                                                               width:
                                                                                   1)),
                                                                       focusedBorder: OutlineInputBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius
-                                                                                  .circular(
-                                                                                      5),
+                                                                          borderRadius: BorderRadius.circular(
+                                                                              5),
                                                                           borderSide: const BorderSide(
                                                                               color: Color(
                                                                                   0xff0087FF),
@@ -4205,16 +4278,20 @@ class ProfileSelf extends StatefulWidget {
                                                               shrinkWrap: true,
                                                               itemCount: 4,
                                                               itemBuilder:
-                                                                  ((context, index) {
+                                                                  ((context,
+                                                                      index) {
                                                                 return ListTile(
                                                                   minVerticalPadding:
                                                                       10,
-                                                                  horizontalTitleGap: 4,
+                                                                  horizontalTitleGap:
+                                                                      4,
                                                                   visualDensity:
                                                                       const VisualDensity(
-                                                                          vertical: -3),
+                                                                          vertical:
+                                                                              -3),
                                                                   dense: true,
-                                                                  leading: CircleAvatar(
+                                                                  leading:
+                                                                      CircleAvatar(
                                                                     radius: 20,
                                                                     backgroundImage:
                                                                         NetworkImage(
@@ -4225,7 +4302,8 @@ class ProfileSelf extends StatefulWidget {
                                                                     style: ProfileSelf()
                                                                         .buildtextstyle(),
                                                                   ),
-                                                                  subtitle: Text(
+                                                                  subtitle:
+                                                                      Text(
                                                                     '@m.rajan02',
                                                                     style: ProfileSelf()
                                                                         .buildtextstyle(),
@@ -4244,44 +4322,49 @@ class ProfileSelf extends StatefulWidget {
                                                                         style: TextStyle(
                                                                             fontFamily:
                                                                                 'Poppins',
-                                                                            color: Colors
-                                                                                .white,
-                                                                            fontSize:
-                                                                                10),
+                                                                            color:
+                                                                                Colors.white,
+                                                                            fontSize: 10),
                                                                       )),
                                                                 );
                                                               }))
                                                         ]),
                                                   ),
-                                                   Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                  Positioned.fill(
+                                                      top: -36,
+                                                      child: Align(
+                                                        alignment:
+                                                            Alignment.topCenter,
+                                                        child: InkWell(
+                                                          onTap: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          child: Container(
+                                                            /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              border: Border.all(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  width: 2),
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(4.0),
+                                                              child: Icon(
+                                                                Icons.close,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ))
                                                 ],
                                               );
                                             });
@@ -4294,12 +4377,13 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "People",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
@@ -4335,33 +4419,40 @@ class ProfileSelf extends StatefulWidget {
                                                 clipBehavior: Clip.none,
                                                 children: [
                                                   Padding(
-                                                    padding: const EdgeInsets.symmetric(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
                                                         horizontal: 15.0),
                                                     child: Column(
                                                         /* mainAxisSize: MainAxisSize.min, */
                                                         children: [
                                                           SizedBox(
-                                                            height: height * 0.03,
+                                                            height:
+                                                                height * 0.03,
                                                           ),
                                                           Row(
                                                             children: [
                                                               IconButton(
                                                                   padding:
-                                                                      EdgeInsets.all(0),
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              0),
                                                                   constraints:
                                                                       BoxConstraints(),
-                                                                  onPressed: () {
+                                                                  onPressed:
+                                                                      () {
                                                                     Navigator.of(
                                                                             context)
                                                                         .pop();
                                                                   },
                                                                   icon: Icon(
-                                                                    Icons.arrow_back,
+                                                                    Icons
+                                                                        .arrow_back,
                                                                     color:
                                                                         primaryColorOfApp,
                                                                   )),
                                                               SizedBox(
-                                                                width: width * 0.01,
+                                                                width: width *
+                                                                    0.01,
                                                               ),
                                                               Text(
                                                                 'Followers',
@@ -4370,7 +4461,8 @@ class ProfileSelf extends StatefulWidget {
                                                                         'Poppins',
                                                                     color:
                                                                         customTextColor,
-                                                                    fontSize: 15),
+                                                                    fontSize:
+                                                                        15),
                                                               ),
                                                             ],
                                                           ),
@@ -4390,21 +4482,19 @@ class ProfileSelf extends StatefulWidget {
                                                                               .black,
                                                                           fontFamily:
                                                                               'Poppins',
-                                                                          fontSize: 10),
+                                                                          fontSize:
+                                                                              10),
                                                                       enabledBorder: OutlineInputBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(
-                                                                                  5),
+                                                                          borderRadius: BorderRadius.circular(
+                                                                              5),
                                                                           borderSide: const BorderSide(
                                                                               color: Color(
                                                                                   0xff333333),
                                                                               width:
                                                                                   1)),
                                                                       focusedBorder: OutlineInputBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius
-                                                                                  .circular(
-                                                                                      5),
+                                                                          borderRadius: BorderRadius.circular(
+                                                                              5),
                                                                           borderSide: const BorderSide(
                                                                               color: Color(
                                                                                   0xff0087FF),
@@ -4417,16 +4507,20 @@ class ProfileSelf extends StatefulWidget {
                                                               shrinkWrap: true,
                                                               itemCount: 3,
                                                               itemBuilder:
-                                                                  ((context, index) {
+                                                                  ((context,
+                                                                      index) {
                                                                 return ListTile(
                                                                   minVerticalPadding:
                                                                       10,
-                                                                  horizontalTitleGap: 4,
+                                                                  horizontalTitleGap:
+                                                                      4,
                                                                   visualDensity:
                                                                       const VisualDensity(
-                                                                          vertical: -3),
+                                                                          vertical:
+                                                                              -3),
                                                                   dense: true,
-                                                                  leading: CircleAvatar(
+                                                                  leading:
+                                                                      CircleAvatar(
                                                                     radius: 20,
                                                                     backgroundImage:
                                                                         NetworkImage(
@@ -4437,7 +4531,8 @@ class ProfileSelf extends StatefulWidget {
                                                                     style: ProfileSelf()
                                                                         .buildtextstyle(),
                                                                   ),
-                                                                  subtitle: Text(
+                                                                  subtitle:
+                                                                      Text(
                                                                     '@m.rajan02',
                                                                     style: ProfileSelf()
                                                                         .buildtextstyle(),
@@ -4456,44 +4551,49 @@ class ProfileSelf extends StatefulWidget {
                                                                         style: TextStyle(
                                                                             fontFamily:
                                                                                 'Poppins',
-                                                                            color: Colors
-                                                                                .white,
-                                                                            fontSize:
-                                                                                10),
+                                                                            color:
+                                                                                Colors.white,
+                                                                            fontSize: 10),
                                                                       )),
                                                                 );
                                                               }))
                                                         ]),
                                                   ),
-                                                   Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                  Positioned.fill(
+                                                      top: -36,
+                                                      child: Align(
+                                                        alignment:
+                                                            Alignment.topCenter,
+                                                        child: InkWell(
+                                                          onTap: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          child: Container(
+                                                            /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              border: Border.all(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  width: 2),
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(4.0),
+                                                              child: Icon(
+                                                                Icons.close,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ))
                                                 ],
                                               );
                                             });
@@ -4506,12 +4606,13 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Followers",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
@@ -4547,33 +4648,40 @@ class ProfileSelf extends StatefulWidget {
                                                 clipBehavior: Clip.none,
                                                 children: [
                                                   Padding(
-                                                    padding: const EdgeInsets.symmetric(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
                                                         horizontal: 15.0),
                                                     child: Column(
                                                         /* mainAxisSize: MainAxisSize.min, */
                                                         children: [
                                                           SizedBox(
-                                                            height: height * 0.03,
+                                                            height:
+                                                                height * 0.03,
                                                           ),
                                                           Row(
                                                             children: [
                                                               IconButton(
                                                                   padding:
-                                                                      EdgeInsets.all(0),
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              0),
                                                                   constraints:
                                                                       BoxConstraints(),
-                                                                  onPressed: () {
+                                                                  onPressed:
+                                                                      () {
                                                                     Navigator.of(
                                                                             context)
                                                                         .pop();
                                                                   },
                                                                   icon: Icon(
-                                                                    Icons.arrow_back,
+                                                                    Icons
+                                                                        .arrow_back,
                                                                     color:
                                                                         primaryColorOfApp,
                                                                   )),
                                                               SizedBox(
-                                                                width: width * 0.01,
+                                                                width: width *
+                                                                    0.01,
                                                               ),
                                                               Text(
                                                                 'Following',
@@ -4582,7 +4690,8 @@ class ProfileSelf extends StatefulWidget {
                                                                         'Poppins',
                                                                     color:
                                                                         customTextColor,
-                                                                    fontSize: 15),
+                                                                    fontSize:
+                                                                        15),
                                                               ),
                                                             ],
                                                           ),
@@ -4602,21 +4711,19 @@ class ProfileSelf extends StatefulWidget {
                                                                               .black,
                                                                           fontFamily:
                                                                               'Poppins',
-                                                                          fontSize: 10),
+                                                                          fontSize:
+                                                                              10),
                                                                       enabledBorder: OutlineInputBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(
-                                                                                  5),
+                                                                          borderRadius: BorderRadius.circular(
+                                                                              5),
                                                                           borderSide: const BorderSide(
                                                                               color: Color(
                                                                                   0xff333333),
                                                                               width:
                                                                                   1)),
                                                                       focusedBorder: OutlineInputBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius
-                                                                                  .circular(
-                                                                                      5),
+                                                                          borderRadius: BorderRadius.circular(
+                                                                              5),
                                                                           borderSide: const BorderSide(
                                                                               color: Color(
                                                                                   0xff0087FF),
@@ -4629,16 +4736,20 @@ class ProfileSelf extends StatefulWidget {
                                                               shrinkWrap: true,
                                                               itemCount: 3,
                                                               itemBuilder:
-                                                                  ((context, index) {
+                                                                  ((context,
+                                                                      index) {
                                                                 return ListTile(
                                                                   minVerticalPadding:
                                                                       10,
-                                                                  horizontalTitleGap: 4,
+                                                                  horizontalTitleGap:
+                                                                      4,
                                                                   visualDensity:
                                                                       const VisualDensity(
-                                                                          vertical: -3),
+                                                                          vertical:
+                                                                              -3),
                                                                   dense: true,
-                                                                  leading: CircleAvatar(
+                                                                  leading:
+                                                                      CircleAvatar(
                                                                     radius: 20,
                                                                     backgroundImage:
                                                                         NetworkImage(
@@ -4649,7 +4760,8 @@ class ProfileSelf extends StatefulWidget {
                                                                     style: ProfileSelf()
                                                                         .buildtextstyle(),
                                                                   ),
-                                                                  subtitle: Text(
+                                                                  subtitle:
+                                                                      Text(
                                                                     '@m.rajan02',
                                                                     style: ProfileSelf()
                                                                         .buildtextstyle(),
@@ -4668,44 +4780,49 @@ class ProfileSelf extends StatefulWidget {
                                                                         style: TextStyle(
                                                                             fontFamily:
                                                                                 'Poppins',
-                                                                            color: Colors
-                                                                                .white,
-                                                                            fontSize:
-                                                                                10),
+                                                                            color:
+                                                                                Colors.white,
+                                                                            fontSize: 10),
                                                                       )),
                                                                 );
                                                               }))
                                                         ]),
                                                   ),
-                                                   Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                  Positioned.fill(
+                                                      top: -36,
+                                                      child: Align(
+                                                        alignment:
+                                                            Alignment.topCenter,
+                                                        child: InkWell(
+                                                          onTap: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          child: Container(
+                                                            /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              border: Border.all(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  width: 2),
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(4.0),
+                                                              child: Icon(
+                                                                Icons.close,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ))
                                                 ],
                                               );
                                             });
@@ -4718,12 +4835,13 @@ class ProfileSelf extends StatefulWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 20.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
                                             child: Text(
                                               "Following",
                                               style: TextStyle(
-                                                  color: const Color(0xff515253),
+                                                  color:
+                                                      const Color(0xff515253),
                                                   fontFamily: 'Poppins',
                                                   fontSize: width * 0.03),
                                             ),
@@ -4765,35 +4883,31 @@ class ProfileSelf extends StatefulWidget {
                         height: height * 0.04,
                       ),
                     ])),
-                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -4819,7 +4933,7 @@ class ProfileSelf extends StatefulWidget {
           return StatefulBuilder(
               builder: (BuildContext context, StateSetter setState) {
             return Stack(
-              clipBehavior:Clip.none,
+              clipBehavior: Clip.none,
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -4860,7 +4974,8 @@ class ProfileSelf extends StatefulWidget {
                         Text(
                           'add your address/location',
                           style: TextStyle(
-                              fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -4871,7 +4986,8 @@ class ProfileSelf extends StatefulWidget {
                     SizedBox(
                         height: 40,
                         child: TextFormField(
-                            decoration: WidgetProfilePage().buildInputdecoration(
+                            decoration:
+                                WidgetProfilePage().buildInputdecoration(
                           Icon(Icons.search),
                           'Search Location',
                           null,
@@ -4883,7 +4999,8 @@ class ProfileSelf extends StatefulWidget {
                     SizedBox(
                         height: 40,
                         child: TextFormField(
-                            decoration: WidgetProfilePage().buildInputdecoration(
+                            decoration:
+                                WidgetProfilePage().buildInputdecoration(
                           null,
                           'Enter Street Village',
                           null,
@@ -4895,7 +5012,8 @@ class ProfileSelf extends StatefulWidget {
                     SizedBox(
                         height: 40,
                         child: TextFormField(
-                            decoration: WidgetProfilePage().buildInputdecoration(
+                            decoration:
+                                WidgetProfilePage().buildInputdecoration(
                           null,
                           'Enter Road LandMark',
                           null,
@@ -5060,35 +5178,31 @@ class ProfileSelf extends StatefulWidget {
                     ),
                   ]),
                 ),
-                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -5154,7 +5268,8 @@ class ProfileSelf extends StatefulWidget {
                         Text(
                           'Profile',
                           style: TextStyle(
-                              fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -5172,7 +5287,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -5223,7 +5339,8 @@ class ProfileSelf extends StatefulWidget {
                                   style: TextButton.styleFrom(
                                       /* minimumSize: Size(100, 5), */
                                       elevation: 0,
-                                      visualDensity: VisualDensity(vertical: -4),
+                                      visualDensity:
+                                          VisualDensity(vertical: -4),
                                       padding: EdgeInsets.zero,
                                       tapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap),
@@ -5243,7 +5360,8 @@ class ProfileSelf extends StatefulWidget {
                                   style: TextButton.styleFrom(
                                       /* minimumSize: Size(100, 5), */
                                       elevation: 0,
-                                      visualDensity: VisualDensity(vertical: -4),
+                                      visualDensity:
+                                          VisualDensity(vertical: -4),
                                       padding: EdgeInsets.zero,
                                       tapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap),
@@ -5276,7 +5394,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -5304,7 +5423,8 @@ class ProfileSelf extends StatefulWidget {
                                             child: full1
                                                 ? IconButton(
                                                     padding: EdgeInsets.all(0),
-                                                    constraints: BoxConstraints(),
+                                                    constraints:
+                                                        BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         fullname = false;
@@ -5317,7 +5437,8 @@ class ProfileSelf extends StatefulWidget {
                                                     ))
                                                 : IconButton(
                                                     padding: EdgeInsets.all(0),
-                                                    constraints: BoxConstraints(),
+                                                    constraints:
+                                                        BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         fullname = true;
@@ -5368,7 +5489,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -5396,7 +5518,8 @@ class ProfileSelf extends StatefulWidget {
                                             child: bio1
                                                 ? IconButton(
                                                     padding: EdgeInsets.all(0),
-                                                    constraints: BoxConstraints(),
+                                                    constraints:
+                                                        BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         bio = false;
@@ -5409,7 +5532,8 @@ class ProfileSelf extends StatefulWidget {
                                                     ))
                                                 : IconButton(
                                                     padding: EdgeInsets.all(0),
-                                                    constraints: BoxConstraints(),
+                                                    constraints:
+                                                        BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         bio = true;
@@ -5616,7 +5740,8 @@ class ProfileSelf extends StatefulWidget {
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                      width: 0.5, color: const Color(0xff515253)),
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
                                   borderRadius: BorderRadius.circular(10)),
                               /*  width: 150,
                   height: 150, */
@@ -5644,7 +5769,8 @@ class ProfileSelf extends StatefulWidget {
                                             child: bio1
                                                 ? IconButton(
                                                     padding: EdgeInsets.all(0),
-                                                    constraints: BoxConstraints(),
+                                                    constraints:
+                                                        BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         bio = false;
@@ -5657,7 +5783,8 @@ class ProfileSelf extends StatefulWidget {
                                                     ))
                                                 : IconButton(
                                                     padding: EdgeInsets.all(0),
-                                                    constraints: BoxConstraints(),
+                                                    constraints:
+                                                        BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         bio = true;
@@ -5699,7 +5826,8 @@ class ProfileSelf extends StatefulWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          border: Border.all(width: 0.5, color: customTextColor),
+                          border:
+                              Border.all(width: 0.5, color: customTextColor),
                           borderRadius: BorderRadius.circular(5)),
                       child: Column(
                         children: [
@@ -5905,7 +6033,8 @@ class ProfileSelf extends StatefulWidget {
                             padding: const EdgeInsets.all(1.0),
                             child: const Text(
                               "Save Changes",
-                              style: TextStyle(fontSize: 10, fontFamily: 'Poppins'),
+                              style: TextStyle(
+                                  fontSize: 10, fontFamily: 'Poppins'),
                             ),
                           ),
                         ),
@@ -5916,35 +6045,31 @@ class ProfileSelf extends StatefulWidget {
                     ),
                   ]),
                 ),
-                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -6132,7 +6257,8 @@ class ProfileSelf extends StatefulWidget {
                                 return DefaultTabController(
                                   length: 2,
                                   child: StatefulBuilder(builder:
-                                      (BuildContext context, StateSetter setState) {
+                                      (BuildContext context,
+                                          StateSetter setState) {
                                     return Stack(
                                       clipBehavior: Clip.none,
                                       children: [
@@ -6147,14 +6273,17 @@ class ProfileSelf extends StatefulWidget {
                                                   ),
                                                   Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.center,
+                                                        MainAxisAlignment
+                                                            .center,
                                                     children: [
                                                       Container(
                                                         decoration: BoxDecoration(
-                                                            color: Color(0xffE2E2E2),
+                                                            color: Color(
+                                                                0xffE2E2E2),
                                                             borderRadius:
-                                                                BorderRadius.circular(
-                                                                    8)),
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8)),
                                                         height: 5,
                                                         width: 100,
                                                       ),
@@ -6163,14 +6292,19 @@ class ProfileSelf extends StatefulWidget {
                                                   Row(
                                                     children: [
                                                       IconButton(
-                                                          padding: EdgeInsets.all(0),
-                                                          constraints: BoxConstraints(),
+                                                          padding:
+                                                              EdgeInsets.all(0),
+                                                          constraints:
+                                                              BoxConstraints(),
                                                           onPressed: () {
-                                                            Navigator.of(context).pop();
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
                                                           },
                                                           icon: Icon(
                                                             Icons.arrow_back,
-                                                            color: primaryColorOfApp,
+                                                            color:
+                                                                primaryColorOfApp,
                                                           )),
                                                       SizedBox(
                                                         width: width * 0.01,
@@ -6178,8 +6312,10 @@ class ProfileSelf extends StatefulWidget {
                                                       Text(
                                                         'Permission set',
                                                         style: TextStyle(
-                                                            fontFamily: 'Poppins',
-                                                            color: customTextColor,
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color:
+                                                                customTextColor,
                                                             fontSize: 15),
                                                       ),
                                                     ],
@@ -6191,8 +6327,10 @@ class ProfileSelf extends StatefulWidget {
                                                     /* controller: tabController, */
                                                     indicatorSize:
                                                         TabBarIndicatorSize.tab,
-                                                    indicatorPadding: EdgeInsets.zero,
-                                                    labelColor: Color(0xff0087FF),
+                                                    indicatorPadding:
+                                                        EdgeInsets.zero,
+                                                    labelColor:
+                                                        Color(0xff0087FF),
                                                     unselectedLabelColor:
                                                         Color(0xff333333),
                                                     tabs: [
@@ -6203,7 +6341,8 @@ class ProfileSelf extends StatefulWidget {
                                                             Text(
                                                               'Actived',
                                                               style: TextStyle(
-                                                                  fontFamily: 'Poppins',
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   fontSize: 12),
                                                             )
                                                           ],
@@ -6216,7 +6355,8 @@ class ProfileSelf extends StatefulWidget {
                                                             Text(
                                                               'New Add',
                                                               style: TextStyle(
-                                                                  fontFamily: 'Poppins',
+                                                                  fontFamily:
+                                                                      'Poppins',
                                                                   fontSize: 12),
                                                             )
                                                           ],
@@ -6226,812 +6366,712 @@ class ProfileSelf extends StatefulWidget {
                                                   ),
                                                   SizedBox(
                                                     height: 260,
-                                                    child: TabBarView(children: [
-                                                      Padding(
-                                                        padding: const EdgeInsets.only(
-                                                            top: 8.0),
-                                                        child: Column(
-                                                          children: [
-                                                            Container(
-                                                              decoration: BoxDecoration(
-                                                                  color:
-                                                                      Color(0xffe2e2e2),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(5)),
-                                                              child: Column(
-                                                                children: [
-                                                                  ListTile(
-                                                                    minVerticalPadding:
-                                                                        10,
-                                                                    horizontalTitleGap:
-                                                                        0.0,
-                                                                    visualDensity:
-                                                                        const VisualDensity(
-                                                                            vertical:
-                                                                                -3),
-                                                                    dense: true,
-                                                                    leading:
-                                                                        CircleAvatar(
-                                                                      radius: 20,
-                                                                      backgroundImage:
-                                                                          NetworkImage(
-                                                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
-                                                                    ),
-                                                                    title: Text(
-                                                                      'Rajan Mistry-1 ',
-                                                                      style: ProfileSelf()
-                                                                          .buildtextstyle(),
-                                                                    ),
-                                                                    subtitle: Text(
-                                                                      '@m.rajan02',
-                                                                      style: ProfileSelf()
-                                                                          .buildtextstyle(),
-                                                                    ),
-                                                                  ),
-                                                                  /*    SizedBox(
-                                                                  height: height * 0.01,
-                                                                ), */
-                                                                  Text(
-                                                                    'this profile use admin access, post, all access your profile, like you',
-                                                                    style: TextStyle(
-                                                                        fontSize: 8,
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color:
-                                                                            customTextColor),
-                                                                  ),
-                                                                  /*    SizedBox(
-                                                                  height: height * 0.01,
-                                                                ), */
-                                                                  Row(
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
+                                                    child: TabBarView(
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    top: 8.0),
+                                                            child: Column(
+                                                              children: [
+                                                                Container(
+                                                                  decoration: BoxDecoration(
+                                                                      color: Color(
+                                                                          0xffe2e2e2),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5)),
+                                                                  child: Column(
                                                                     children: [
-                                                                      Padding(
-                                                                        padding:
-                                                                            const EdgeInsets
-                                                                                    .only(
-                                                                                left:
-                                                                                    16.0),
-                                                                        child: Text(
-                                                                          'Admin ',
-                                                                          style: TextStyle(
-                                                                              color:
-                                                                                  primaryColorOfApp,
-                                                                              fontFamily:
-                                                                                  'Poppins',
-                                                                              fontSize:
-                                                                                  10,
-                                                                              fontWeight:
-                                                                                  FontWeight
-                                                                                      .bold),
+                                                                      ListTile(
+                                                                        minVerticalPadding:
+                                                                            10,
+                                                                        horizontalTitleGap:
+                                                                            0.0,
+                                                                        visualDensity:
+                                                                            const VisualDensity(vertical: -3),
+                                                                        dense:
+                                                                            true,
+                                                                        leading:
+                                                                            CircleAvatar(
+                                                                          radius:
+                                                                              20,
+                                                                          backgroundImage:
+                                                                              NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
+                                                                        ),
+                                                                        title:
+                                                                            Text(
+                                                                          'Rajan Mistry-1 ',
+                                                                          style:
+                                                                              ProfileSelf().buildtextstyle(),
+                                                                        ),
+                                                                        subtitle:
+                                                                            Text(
+                                                                          '@m.rajan02',
+                                                                          style:
+                                                                              ProfileSelf().buildtextstyle(),
                                                                         ),
                                                                       ),
-                                                                      TextButton(
-                                                                          style: TextButton
-                                                                              .styleFrom(
-                                                                            padding:
-                                                                                EdgeInsets
-                                                                                    .zero,
-                                                                            tapTargetSize:
-                                                                                MaterialTapTargetSize
-                                                                                    .shrinkWrap,
-                                                                          ),
-                                                                          onPressed:
-                                                                              () {
-                                                                            showModalBottomSheet(
-                                                                                isScrollControlled:
-                                                                                    true,
-                                                                                shape:
-                                                                                    const RoundedRectangleBorder(
-                                                                                  // <-- SEE HERE
-                                                                                  borderRadius:
-                                                                                      BorderRadius.vertical(
-                                                                                    top:
-                                                                                        Radius.circular(20.0),
-                                                                                  ),
-                                                                                ),
-                                                                                context:
-                                                                                    context,
-                                                                                builder:
-                                                                                    ((context) {
-                                                                                  return StatefulBuilder(builder:
-                                                                                      (BuildContext context, StateSetter setState) {
-                                                                                    return Stack(
-                                                                                      clipBehavior: Clip.none,
-                                                                                      children: [
-                                                                                        Padding(
-                                                                                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                                                                                            child: Column(mainAxisSize: MainAxisSize.min, children: [
-                                                                                              SizedBox(
-                                                                                                height: height * 0.04,
-                                                                                              ),
-                                                                                              Container(
-                                                                                                decoration: BoxDecoration(color: Color(0xffe2e2e2), borderRadius: BorderRadius.circular(5)),
-                                                                                                child: Column(
-                                                                                                  children: [
-                                                                                                    ListTile(
-                                                                                                      minVerticalPadding: 10,
-                                                                                                      horizontalTitleGap: 0.0,
-                                                                                                      visualDensity: const VisualDensity(vertical: -3),
-                                                                                                      dense: true,
-                                                                                                      leading: CircleAvatar(
-                                                                                                        radius: 20,
-                                                                                                        backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
-                                                                                                      ),
-                                                                                                      title: Text(
-                                                                                                        'Rajan Mistry-1 ',
-                                                                                                        style: ProfileSelf().buildtextstyle(),
-                                                                                                      ),
-                                                                                                      subtitle: Text(
-                                                                                                        '@m.rajan02',
-                                                                                                        style: ProfileSelf().buildtextstyle(),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    /*    SizedBox(
+                                                                      /*    SizedBox(
                                                                   height: height * 0.01,
                                                                 ), */
-                                                                                                    Row(
-                                                                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                                      Text(
+                                                                        'this profile use admin access, post, all access your profile, like you',
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                8,
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                customTextColor),
+                                                                      ),
+                                                                      /*    SizedBox(
+                                                                  height: height * 0.01,
+                                                                ), */
+                                                                      Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.only(left: 16.0),
+                                                                            child:
+                                                                                Text(
+                                                                              'Admin ',
+                                                                              style: TextStyle(color: primaryColorOfApp, fontFamily: 'Poppins', fontSize: 10, fontWeight: FontWeight.bold),
+                                                                            ),
+                                                                          ),
+                                                                          TextButton(
+                                                                              style: TextButton.styleFrom(
+                                                                                padding: EdgeInsets.zero,
+                                                                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                              ),
+                                                                              onPressed: () {
+                                                                                showModalBottomSheet(
+                                                                                    isScrollControlled: true,
+                                                                                    shape: const RoundedRectangleBorder(
+                                                                                      // <-- SEE HERE
+                                                                                      borderRadius: BorderRadius.vertical(
+                                                                                        top: Radius.circular(20.0),
+                                                                                      ),
+                                                                                    ),
+                                                                                    context: context,
+                                                                                    builder: ((context) {
+                                                                                      return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+                                                                                        return Stack(
+                                                                                          clipBehavior: Clip.none,
+                                                                                          children: [
+                                                                                            Padding(
+                                                                                                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                                                                                child: Column(mainAxisSize: MainAxisSize.min, children: [
+                                                                                                  SizedBox(
+                                                                                                    height: height * 0.04,
+                                                                                                  ),
+                                                                                                  Container(
+                                                                                                    decoration: BoxDecoration(color: Color(0xffe2e2e2), borderRadius: BorderRadius.circular(5)),
+                                                                                                    child: Column(
                                                                                                       children: [
-                                                                                                        Padding(
-                                                                                                          padding: const EdgeInsets.only(left: 25.0),
-                                                                                                          child: Text(
-                                                                                                            'are you sure remove this profile ? ',
-                                                                                                            style: TextStyle(fontSize: 8, fontFamily: 'Poppins', color: customTextColor),
+                                                                                                        ListTile(
+                                                                                                          minVerticalPadding: 10,
+                                                                                                          horizontalTitleGap: 0.0,
+                                                                                                          visualDensity: const VisualDensity(vertical: -3),
+                                                                                                          dense: true,
+                                                                                                          leading: CircleAvatar(
+                                                                                                            radius: 20,
+                                                                                                            backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
+                                                                                                          ),
+                                                                                                          title: Text(
+                                                                                                            'Rajan Mistry-1 ',
+                                                                                                            style: ProfileSelf().buildtextstyle(),
+                                                                                                          ),
+                                                                                                          subtitle: Text(
+                                                                                                            '@m.rajan02',
+                                                                                                            style: ProfileSelf().buildtextstyle(),
                                                                                                           ),
                                                                                                         ),
-                                                                                                      ],
-                                                                                                    ),
-                                                                                                    /*    SizedBox(
+                                                                                                        /*    SizedBox(
                                                                   height: height * 0.01,
                                                                 ), */
-                                                                                                    Row(
-                                                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                      children: [
-                                                                                                        Padding(
-                                                                                                            padding: const EdgeInsets.only(left: 16.0),
-                                                                                                            child: TextButton(
+                                                                                                        Row(
+                                                                                                          mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                          children: [
+                                                                                                            Padding(
+                                                                                                              padding: const EdgeInsets.only(left: 25.0),
+                                                                                                              child: Text(
+                                                                                                                'are you sure remove this profile ? ',
+                                                                                                                style: TextStyle(fontSize: 8, fontFamily: 'Poppins', color: customTextColor),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ],
+                                                                                                        ),
+                                                                                                        /*    SizedBox(
+                                                                  height: height * 0.01,
+                                                                ), */
+                                                                                                        Row(
+                                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                          children: [
+                                                                                                            Padding(
+                                                                                                                padding: const EdgeInsets.only(left: 16.0),
+                                                                                                                child: TextButton(
+                                                                                                                    style: TextButton.styleFrom(
+                                                                                                                      padding: EdgeInsets.zero,
+                                                                                                                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                                                                    ),
+                                                                                                                    onPressed: () {},
+                                                                                                                    child: Text('Cancel', style: TextStyle(color: customTextColor, fontSize: 10)))),
+                                                                                                            TextButton(
                                                                                                                 style: TextButton.styleFrom(
                                                                                                                   padding: EdgeInsets.zero,
                                                                                                                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                                                                                                 ),
                                                                                                                 onPressed: () {},
-                                                                                                                child: Text('Cancel', style: TextStyle(color: customTextColor, fontSize: 10)))),
-                                                                                                        TextButton(
-                                                                                                            style: TextButton.styleFrom(
-                                                                                                              padding: EdgeInsets.zero,
-                                                                                                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                                                                                            ),
-                                                                                                            onPressed: () {},
-                                                                                                            child: Text('Remove', style: TextStyle(color: Colors.red, fontSize: 10)))
+                                                                                                                child: Text('Remove', style: TextStyle(color: Colors.red, fontSize: 10)))
+                                                                                                          ],
+                                                                                                        )
                                                                                                       ],
-                                                                                                    )
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  SizedBox(
+                                                                                                    height: height * 0.05,
+                                                                                                  ),
+                                                                                                ])),
+                                                                                            Positioned.fill(
+                                                                                                top: -36,
+                                                                                                child: Align(
+                                                                                                  alignment: Alignment.topCenter,
+                                                                                                  child: InkWell(
+                                                                                                    onTap: () {
+                                                                                                      Navigator.pop(context);
+                                                                                                    },
+                                                                                                    child: Container(
+                                                                                                      /*   width: 45,
+                                  height: 45, */
+                                                                                                      decoration: BoxDecoration(
+                                                                                                        border: Border.all(color: Colors.white, width: 2),
+                                                                                                        shape: BoxShape.circle,
+                                                                                                      ),
+                                                                                                      child: Padding(
+                                                                                                        padding: const EdgeInsets.all(4.0),
+                                                                                                        child: Icon(
+                                                                                                          Icons.close,
+                                                                                                          color: Colors.white,
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ))
+                                                                                          ],
+                                                                                        );
+                                                                                      });
+                                                                                    }));
+                                                                              },
+                                                                              child: Text('Remove', style: TextStyle(color: Colors.red, fontSize: 10)))
+                                                                        ],
+                                                                      )
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                  height:
+                                                                      height *
+                                                                          0.01,
+                                                                ),
+                                                                Container(
+                                                                  decoration: BoxDecoration(
+                                                                      color: Color(
+                                                                          0xffe2e2e2),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5)),
+                                                                  child: Column(
+                                                                    children: [
+                                                                      ListTile(
+                                                                        minVerticalPadding:
+                                                                            10,
+                                                                        horizontalTitleGap:
+                                                                            0.0,
+                                                                        visualDensity:
+                                                                            const VisualDensity(vertical: -3),
+                                                                        dense:
+                                                                            true,
+                                                                        leading:
+                                                                            CircleAvatar(
+                                                                          radius:
+                                                                              20,
+                                                                          backgroundImage:
+                                                                              NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
+                                                                        ),
+                                                                        title:
+                                                                            Text(
+                                                                          'Rajan Mistry-1 ',
+                                                                          style:
+                                                                              ProfileSelf().buildtextstyle(),
+                                                                        ),
+                                                                        subtitle:
+                                                                            Text(
+                                                                          '@m.rajan02',
+                                                                          style:
+                                                                              ProfileSelf().buildtextstyle(),
+                                                                        ),
+                                                                      ),
+                                                                      /*    SizedBox(
+                                                                  height: height * 0.01,
+                                                                ), */
+                                                                      Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.start,
+                                                                        children: [
+                                                                          Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.only(left: 25.0),
+                                                                            child:
+                                                                                Text(
+                                                                              'this profile, post, video & reply message #Content',
+                                                                              style: TextStyle(fontSize: 8, fontFamily: 'Poppins', color: Color(0xffF44336)),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      /*    SizedBox(
+                                                                  height: height * 0.01,
+                                                                ), */
+                                                                      Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.only(left: 16.0),
+                                                                            child:
+                                                                                Text(
+                                                                              'Manager',
+                                                                              style: TextStyle(color: primaryColorOfApp, fontFamily: 'Poppins', fontSize: 10, fontWeight: FontWeight.bold),
+                                                                            ),
+                                                                          ),
+                                                                          TextButton(
+                                                                              style: TextButton.styleFrom(
+                                                                                padding: EdgeInsets.zero,
+                                                                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                              ),
+                                                                              onPressed: () {},
+                                                                              child: Text('Remove', style: TextStyle(color: Colors.red, fontSize: 10)))
+                                                                        ],
+                                                                      )
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                              padding: EdgeInsets
+                                                                  .only(
+                                                                      top: 20),
+                                                              /*   padding: const EdgeInsets.only(
+                                                            top: 18.0), */
+                                                              child:
+                                                                  TextFormField(
+                                                                      onTap:
+                                                                          () {
+                                                                        Navigator.of(context)
+                                                                            .pop();
+                                                                        showModalBottomSheet(
+                                                                            /*  isScrollControlled: true, */
+                                                                            shape:
+                                                                                const RoundedRectangleBorder(
+                                                                              // <-- SEE HERE
+                                                                              borderRadius: BorderRadius.vertical(
+                                                                                top: Radius.circular(20.0),
+                                                                              ),
+                                                                            ),
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (BuildContext context) {
+                                                                              return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+                                                                                return Stack(
+                                                                                  clipBehavior: Clip.none,
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                                                                        child: Column(
+                                                                                            /* mainAxisSize:
+                                                                                      MainAxisSize
+                                                                                          .min, */
+                                                                                            children: [
+                                                                                              SizedBox(
+                                                                                                height: height * 0.01,
+                                                                                              ),
+                                                                                              Padding(
+                                                                                                padding: const EdgeInsets.only(top: 18.0),
+                                                                                                child: Row(
+                                                                                                  children: [
+                                                                                                    IconButton(
+                                                                                                        padding: EdgeInsets.zero,
+                                                                                                        constraints: BoxConstraints(),
+                                                                                                        onPressed: () {
+                                                                                                          Navigator.of(context).pop();
+                                                                                                        },
+                                                                                                        icon: Icon(
+                                                                                                          Icons.arrow_back,
+                                                                                                          color: primaryColorOfApp,
+                                                                                                        )),
+                                                                                                    SizedBox(
+                                                                                                      width: 250,
+                                                                                                      child: TextFormField(
+                                                                                                          decoration: InputDecoration(
+                                                                                                              isDense: true, // Added this
+                                                                                                              contentPadding: EdgeInsets.all(8),
+                                                                                                              labelText: 'Search profile Name',
+                                                                                                              labelStyle: const TextStyle(color: Colors.black, fontFamily: 'Poppins', fontSize: 10),
+                                                                                                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
+                                                                                                              focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
+                                                                                                              /*    prefixIcon: Icon(Icons.search), */
+                                                                                                              hintText: 'Searh Username')),
+                                                                                                    ),
                                                                                                   ],
                                                                                                 ),
                                                                                               ),
-                                                                                              SizedBox(
-                                                                                                height: height * 0.05,
+                                                                                              ListTile(
+                                                                                                minVerticalPadding: 10,
+                                                                                                horizontalTitleGap: 0.0,
+                                                                                                visualDensity: const VisualDensity(vertical: -3),
+                                                                                                dense: true,
+                                                                                                leading: CircleAvatar(
+                                                                                                  radius: 20,
+                                                                                                  backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
+                                                                                                ),
+                                                                                                title: Text(
+                                                                                                  'Rajan Mistry-1 ',
+                                                                                                  style: ProfileSelf().buildtextstyle(),
+                                                                                                ),
+                                                                                                subtitle: Text(
+                                                                                                  '@m.rajan02',
+                                                                                                  style: ProfileSelf().buildtextstyle(),
+                                                                                                ),
                                                                                               ),
-                                                                                            ])),
-                                                                                             Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                                                              SizedBox(
+                                                                                                width: double.infinity,
+                                                                                                // height: 50,
+                                                                                                child: ElevatedButton(
+                                                                                                  onPressed: () {
+                                                                                                    showModalBottomSheet(
+                                                                                                        /* isScrollControlled: true, */
+                                                                                                        shape: const RoundedRectangleBorder(
+                                                                                                          // <-- SEE HERE
+                                                                                                          borderRadius: BorderRadius.vertical(
+                                                                                                            top: Radius.circular(20.0),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                        context: context,
+                                                                                                        builder: (BuildContext context) {
+                                                                                                          return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+                                                                                                            return Stack(
+                                                                                                              clipBehavior: Clip.none,
+                                                                                                              children: [
+                                                                                                                Padding(
+                                                                                                                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                                                                                                    child: Column(/* mainAxisSize: MainAxisSize.min, */ children: [
+                                                                                                                      SizedBox(
+                                                                                                                        height: height * 0.01,
+                                                                                                                      ),
+                                                                                                                      ListTile(
+                                                                                                                        minVerticalPadding: 10,
+                                                                                                                        horizontalTitleGap: 0.0,
+                                                                                                                        visualDensity: const VisualDensity(vertical: -3),
+                                                                                                                        dense: true,
+                                                                                                                        leading: CircleAvatar(
+                                                                                                                          radius: 20,
+                                                                                                                          backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
+                                                                                                                        ),
+                                                                                                                        title: Text(
+                                                                                                                          'Rajan Mistry-1 ',
+                                                                                                                          style: ProfileSelf().buildtextstyle(),
+                                                                                                                        ),
+                                                                                                                        subtitle: Text(
+                                                                                                                          '@m.rajan02',
+                                                                                                                          style: ProfileSelf().buildtextstyle(),
+                                                                                                                        ),
+                                                                                                                        trailing: OutlinedButton(
+                                                                                                                            style: OutlinedButton.styleFrom(
+                                                                                                                                elevation: 0,
+                                                                                                                                /*     minimumSize: const Size(0.0, 40), */
+                                                                                                                                // padding: EdgeInsets.symmetric(
+                                                                                                                                //     horizontal: 40.0, vertical: 20.0),
+                                                                                                                                backgroundColor: const Color(0xffFFFFFF),
+                                                                                                                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                                                                            onPressed: () {},
+                                                                                                                            child: Text(
+                                                                                                                              'Accepted',
+                                                                                                                              style: TextStyle(fontFamily: 'Poppins', color: customTextColor, fontSize: 10),
+                                                                                                                            )),
+                                                                                                                      ),
+                                                                                                                      Row(
+                                                                                                                        children: [
+                                                                                                                          Text('@Profile.Username007 accepted your request',
+                                                                                                                              style: TextStyle(
+                                                                                                                                fontFamily: 'Poppins',
+                                                                                                                                color: customTextColor,
+                                                                                                                                fontSize: 10,
+                                                                                                                              )),
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                      Divider(),
+                                                                                                                      Row(
+                                                                                                                        children: [
+                                                                                                                          Text('you can permission to ',
+                                                                                                                              style: TextStyle(
+                                                                                                                                fontFamily: 'Poppins',
+                                                                                                                                color: customTextColor,
+                                                                                                                                fontSize: 10,
+                                                                                                                              )),
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                      SizedBox(
+                                                                                                                        height: height * 0.01,
+                                                                                                                      ),
+                                                                                                                      Row(
+                                                                                                                        children: [
+                                                                                                                          Text('Select One Option ',
+                                                                                                                              style: TextStyle(
+                                                                                                                                fontFamily: 'Poppins',
+                                                                                                                                color: customTextColor,
+                                                                                                                                fontSize: 10,
+                                                                                                                              )),
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                      SizedBox(
+                                                                                                                        height: height * 0.01,
+                                                                                                                      ),
+                                                                                                                      Row(
+                                                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                                        children: [
+                                                                                                                          Column(
+                                                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                            mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                            children: [
+                                                                                                                              Row(
+                                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                                children: [
+                                                                                                                                  Text(
+                                                                                                                                    'Admin',
+                                                                                                                                    style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+                                                                                                                                  ),
+                                                                                                                                ],
+                                                                                                                              ),
+                                                                                                                              Row(
+                                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                                children: [
+                                                                                                                                  Text(
+                                                                                                                                    'access all: Post, share, like, comments, repost & live',
+                                                                                                                                    style: TextStyle(fontFamily: 'Poppins', fontSize: 8),
+                                                                                                                                  ),
+                                                                                                                                ],
+                                                                                                                              ),
+                                                                                                                            ],
+                                                                                                                          ),
+                                                                                                                          Radio(
+                                                                                                                              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                                                                              groupValue: groupemail,
+                                                                                                                              value: emailid,
+                                                                                                                              onChanged: (val) {
+                                                                                                                                setState(() {
+                                                                                                                                  groupemail = emailid;
+                                                                                                                                });
+                                                                                                                              })
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                      SizedBox(
+                                                                                                                        height: height * 0.03,
+                                                                                                                      ),
+                                                                                                                      Row(
+                                                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                                        children: [
+                                                                                                                          Column(
+                                                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                            mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                            children: [
+                                                                                                                              Row(
+                                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                                children: [
+                                                                                                                                  Text(
+                                                                                                                                    'Manager ',
+                                                                                                                                    style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+                                                                                                                                  ),
+                                                                                                                                ],
+                                                                                                                              ),
+                                                                                                                              Row(
+                                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                                children: [
+                                                                                                                                  Text(
+                                                                                                                                    'Post Photo & Videos',
+                                                                                                                                    style: ProfileSelf().buildtextstyle(),
+                                                                                                                                  ),
+                                                                                                                                ],
+                                                                                                                              ),
+                                                                                                                            ],
+                                                                                                                          ),
+                                                                                                                          Radio(
+                                                                                                                              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                                                                              groupValue: groupemail,
+                                                                                                                              value: emailid,
+                                                                                                                              onChanged: (val) {
+                                                                                                                                setState(() {
+                                                                                                                                  groupemail = emailid;
+                                                                                                                                });
+                                                                                                                              })
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                      Row(
+                                                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                                        children: [
+                                                                                                                          Text(
+                                                                                                                            'You can set limitation',
+                                                                                                                            style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontSize: 10),
+                                                                                                                          ),
+                                                                                                                          TextButton(
+                                                                                                                              style: TextButton.styleFrom(
+                                                                                                                                padding: EdgeInsets.zero,
+                                                                                                                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                                                                              ),
+                                                                                                                              onPressed: () {
+                                                                                                                                WidgetProfilePage().buildgotoset(context);
+                                                                                                                              },
+                                                                                                                              child: Row(
+                                                                                                                                children: [
+                                                                                                                                  Text('GO TO SET', style: TextStyle(color: primaryColorOfApp, fontSize: 10)),
+                                                                                                                                  Iconify(
+                                                                                                                                    Eva.arrow_right_fill,
+                                                                                                                                    size: 15,
+                                                                                                                                  )
+                                                                                                                                ],
+                                                                                                                              ))
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                      SizedBox(
+                                                                                                                        height: height * 0.04,
+                                                                                                                      ),
+                                                                                                                      SizedBox(
+                                                                                                                          width: double.infinity,
+                                                                                                                          child: ElevatedButton(
+                                                                                                                              style: ElevatedButton.styleFrom(
+                                                                                                                                  elevation: 0,
+                                                                                                                                  /*     minimumSize: const Size(0.0, 40), */
+                                                                                                                                  // padding: EdgeInsets.symmetric(
+                                                                                                                                  //     horizontal: 40.0, vertical: 20.0),
+                                                                                                                                  backgroundColor: const Color(0xff0087FF),
+                                                                                                                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                                                                              onPressed: () {},
+                                                                                                                              child: Text('Confirm', style: TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'Poppins'))))
+                                                                                                                    ])),
+                                                                                                                Positioned.fill(
+                                                                                                                    top: -36,
+                                                                                                                    child: Align(
+                                                                                                                      alignment: Alignment.topCenter,
+                                                                                                                      child: InkWell(
+                                                                                                                        onTap: () {
+                                                                                                                          Navigator.pop(context);
+                                                                                                                        },
+                                                                                                                        child: Container(
+                                                                                                                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
-                                                                                      ],
-                                                                                    );
-                                                                                  });
-                                                                                }));
-                                                                          },
-                                                                          child: Text(
-                                                                              'Remove',
-                                                                              style: TextStyle(
-                                                                                  color: Colors
-                                                                                      .red,
-                                                                                  fontSize:
-                                                                                      10)))
-                                                                    ],
-                                                                  )
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                              height: height * 0.01,
-                                                            ),
-                                                            Container(
-                                                              decoration: BoxDecoration(
-                                                                  color:
-                                                                      Color(0xffe2e2e2),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(5)),
-                                                              child: Column(
-                                                                children: [
-                                                                  ListTile(
-                                                                    minVerticalPadding:
-                                                                        10,
-                                                                    horizontalTitleGap:
-                                                                        0.0,
-                                                                    visualDensity:
-                                                                        const VisualDensity(
-                                                                            vertical:
-                                                                                -3),
-                                                                    dense: true,
-                                                                    leading:
-                                                                        CircleAvatar(
-                                                                      radius: 20,
-                                                                      backgroundImage:
-                                                                          NetworkImage(
-                                                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
-                                                                    ),
-                                                                    title: Text(
-                                                                      'Rajan Mistry-1 ',
-                                                                      style: ProfileSelf()
-                                                                          .buildtextstyle(),
-                                                                    ),
-                                                                    subtitle: Text(
-                                                                      '@m.rajan02',
-                                                                      style: ProfileSelf()
-                                                                          .buildtextstyle(),
-                                                                    ),
-                                                                  ),
-                                                                  /*    SizedBox(
-                                                                  height: height * 0.01,
-                                                                ), */
-                                                                  Row(
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding:
-                                                                            const EdgeInsets
-                                                                                    .only(
-                                                                                left:
-                                                                                    25.0),
-                                                                        child: Text(
-                                                                          'this profile, post, video & reply message #Content',
-                                                                          style: TextStyle(
-                                                                              fontSize:
-                                                                                  8,
-                                                                              fontFamily:
-                                                                                  'Poppins',
-                                                                              color: Color(
-                                                                                  0xffF44336)),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  /*    SizedBox(
-                                                                  height: height * 0.01,
-                                                                ), */
-                                                                  Row(
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding:
-                                                                            const EdgeInsets
-                                                                                    .only(
-                                                                                left:
-                                                                                    16.0),
-                                                                        child: Text(
-                                                                          'Manager',
-                                                                          style: TextStyle(
-                                                                              color:
-                                                                                  primaryColorOfApp,
-                                                                              fontFamily:
-                                                                                  'Poppins',
-                                                                              fontSize:
-                                                                                  10,
-                                                                              fontWeight:
-                                                                                  FontWeight
-                                                                                      .bold),
-                                                                        ),
-                                                                      ),
-                                                                      TextButton(
-                                                                          style: TextButton
-                                                                              .styleFrom(
-                                                                            padding:
-                                                                                EdgeInsets
-                                                                                    .zero,
-                                                                            tapTargetSize:
-                                                                                MaterialTapTargetSize
-                                                                                    .shrinkWrap,
-                                                                          ),
-                                                                          onPressed:
-                                                                              () {},
-                                                                          child: Text(
-                                                                              'Remove',
-                                                                              style: TextStyle(
-                                                                                  color: Colors
-                                                                                      .red,
-                                                                                  fontSize:
-                                                                                      10)))
-                                                                    ],
-                                                                  )
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                          padding:
-                                                              EdgeInsets.only(top: 20),
-                                                          /*   padding: const EdgeInsets.only(
-                                                            top: 18.0), */
-                                                          child: TextFormField(
-                                                              onTap: () {
-                                                                Navigator.of(context)
-                                                                    .pop();
-                                                                showModalBottomSheet(
-                                                                    /*  isScrollControlled: true, */
-                                                                    shape:
-                                                                        const RoundedRectangleBorder(
-                                                                      // <-- SEE HERE
-                                                                      borderRadius:
-                                                                          BorderRadius
-                                                                              .vertical(
-                                                                        top: Radius
-                                                                            .circular(
-                                                                                20.0),
-                                                                      ),
-                                                                    ),
-                                                                    context: context,
-                                                                    builder:
-                                                                        (BuildContext
-                                                                            context) {
-                                                                      return StatefulBuilder(builder:
-                                                                          (BuildContext
-                                                                                  context,
-                                                                              StateSetter
-                                                                                  setState) {
-                                                                        return Stack(
-                                                                          clipBehavior: Clip.none,
-                                                                          children: [
-                                                                            Padding(
-                                                                                padding: const EdgeInsets
-                                                                                        .symmetric(
-                                                                                    horizontal:
-                                                                                        16.0),
-                                                                                child: Column(
-                                                                                    /* mainAxisSize:
-                                                                                      MainAxisSize
-                                                                                          .min, */
-                                                                                    children: [
-                                                                                      SizedBox(
-                                                                                        height:
-                                                                                            height * 0.01,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding:
-                                                                                            const EdgeInsets.only(top: 18.0),
-                                                                                        child:
-                                                                                            Row(
-                                                                                          children: [
-                                                                                            IconButton(
-                                                                                                padding: EdgeInsets.zero,
-                                                                                                constraints: BoxConstraints(),
-                                                                                                onPressed: () {
-                                                                                                  Navigator.of(context).pop();
-                                                                                                },
-                                                                                                icon: Icon(
-                                                                                                  Icons.arrow_back,
-                                                                                                  color: primaryColorOfApp,
-                                                                                                )),
-                                                                                            SizedBox(
-                                                                                              width: 250,
-                                                                                              child: TextFormField(
-                                                                                                  decoration: InputDecoration(
-                                                                                                      isDense: true, // Added this
-                                                                                                      contentPadding: EdgeInsets.all(8),
-                                                                                                      labelText: 'Search profile Name',
-                                                                                                      labelStyle: const TextStyle(color: Colors.black, fontFamily: 'Poppins', fontSize: 10),
-                                                                                                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
-                                                                                                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
-                                                                                                      /*    prefixIcon: Icon(Icons.search), */
-                                                                                                      hintText: 'Searh Username')),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ),
-                                                                                      ListTile(
-                                                                                        minVerticalPadding:
-                                                                                            10,
-                                                                                        horizontalTitleGap:
-                                                                                            0.0,
-                                                                                        visualDensity:
-                                                                                            const VisualDensity(vertical: -3),
-                                                                                        dense:
-                                                                                            true,
-                                                                                        leading:
-                                                                                            CircleAvatar(
-                                                                                          radius: 20,
-                                                                                          backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
-                                                                                        ),
-                                                                                        title:
-                                                                                            Text(
-                                                                                          'Rajan Mistry-1 ',
-                                                                                          style: ProfileSelf().buildtextstyle(),
-                                                                                        ),
-                                                                                        subtitle:
-                                                                                            Text(
-                                                                                          '@m.rajan02',
-                                                                                          style: ProfileSelf().buildtextstyle(),
-                                                                                        ),
-                                                                                      ),
-                                                                                      SizedBox(
-                                                                                        width:
-                                                                                            double.infinity,
-                                                                                        // height: 50,
-                                                                                        child:
-                                                                                            ElevatedButton(
-                                                                                          onPressed: () {
-                                                                                            showModalBottomSheet(
-                                                                                                /* isScrollControlled: true, */
-                                                                                                shape: const RoundedRectangleBorder(
-                                                                                                  // <-- SEE HERE
-                                                                                                  borderRadius: BorderRadius.vertical(
-                                                                                                    top: Radius.circular(20.0),
+                                                                                                                          decoration: BoxDecoration(
+                                                                                                                            border: Border.all(color: Colors.white, width: 2),
+                                                                                                                            shape: BoxShape.circle,
+                                                                                                                          ),
+                                                                                                                          child: Padding(
+                                                                                                                            padding: const EdgeInsets.all(4.0),
+                                                                                                                            child: Icon(
+                                                                                                                              Icons.close,
+                                                                                                                              color: Colors.white,
+                                                                                                                            ),
+                                                                                                                          ),
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                    ))
+                                                                                                              ],
+                                                                                                            );
+                                                                                                          });
+                                                                                                        });
+                                                                                                  },
+                                                                                                  style: ElevatedButton.styleFrom(
+                                                                                                      elevation: 0,
+                                                                                                      /*     minimumSize: const Size(0.0, 40), */
+                                                                                                      // padding: EdgeInsets.symmetric(
+                                                                                                      //     horizontal: 40.0, vertical: 20.0),
+                                                                                                      backgroundColor: const Color(0xff0087FF),
+                                                                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                                                  child: const Text(
+                                                                                                    "Send Request",
+                                                                                                    style: TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'Poppins'),
                                                                                                   ),
                                                                                                 ),
-                                                                                                context: context,
-                                                                                                builder: (BuildContext context) {
-                                                                                                  return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
-                                                                                                    return Stack(
-                                                                                                      clipBehavior: Clip.none,
-                                                                                                      children: [
-                                                                                                        Padding(
-                                                                                                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                                                                                                            child: Column(/* mainAxisSize: MainAxisSize.min, */ children: [
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.01,
-                                                                                                              ),
-                                                                                                              ListTile(
-                                                                                                                minVerticalPadding: 10,
-                                                                                                                horizontalTitleGap: 0.0,
-                                                                                                                visualDensity: const VisualDensity(vertical: -3),
-                                                                                                                dense: true,
-                                                                                                                leading: CircleAvatar(
-                                                                                                                  radius: 20,
-                                                                                                                  backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
-                                                                                                                ),
-                                                                                                                title: Text(
-                                                                                                                  'Rajan Mistry-1 ',
-                                                                                                                  style: ProfileSelf().buildtextstyle(),
-                                                                                                                ),
-                                                                                                                subtitle: Text(
-                                                                                                                  '@m.rajan02',
-                                                                                                                  style: ProfileSelf().buildtextstyle(),
-                                                                                                                ),
-                                                                                                                trailing: OutlinedButton(
-                                                                                                                    style: OutlinedButton.styleFrom(
-                                                                                                                        elevation: 0,
-                                                                                                                        /*     minimumSize: const Size(0.0, 40), */
-                                                                                                                        // padding: EdgeInsets.symmetric(
-                                                                                                                        //     horizontal: 40.0, vertical: 20.0),
-                                                                                                                        backgroundColor: const Color(0xffFFFFFF),
-                                                                                                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                                                                    onPressed: () {},
-                                                                                                                    child: Text(
-                                                                                                                      'Accepted',
-                                                                                                                      style: TextStyle(fontFamily: 'Poppins', color: customTextColor, fontSize: 10),
-                                                                                                                    )),
-                                                                                                              ),
-                                                                                                              Row(
-                                                                                                                children: [
-                                                                                                                  Text('@Profile.Username007 accepted your request',
-                                                                                                                      style: TextStyle(
-                                                                                                                        fontFamily: 'Poppins',
-                                                                                                                        color: customTextColor,
-                                                                                                                        fontSize: 10,
-                                                                                                                      )),
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                              Divider(),
-                                                                                                              Row(
-                                                                                                                children: [
-                                                                                                                  Text('you can permission to ',
-                                                                                                                      style: TextStyle(
-                                                                                                                        fontFamily: 'Poppins',
-                                                                                                                        color: customTextColor,
-                                                                                                                        fontSize: 10,
-                                                                                                                      )),
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.01,
-                                                                                                              ),
-                                                                                                              Row(
-                                                                                                                children: [
-                                                                                                                  Text('Select One Option ',
-                                                                                                                      style: TextStyle(
-                                                                                                                        fontFamily: 'Poppins',
-                                                                                                                        color: customTextColor,
-                                                                                                                        fontSize: 10,
-                                                                                                                      )),
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.01,
-                                                                                                              ),
-                                                                                                              Row(
-                                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                children: [
-                                                                                                                  Column(
-                                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                    children: [
-                                                                                                                      Row(
-                                                                                                                        mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                        children: [
-                                                                                                                          Text(
-                                                                                                                            'Admin',
-                                                                                                                            style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
-                                                                                                                          ),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                      Row(
-                                                                                                                        mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                        children: [
-                                                                                                                          Text(
-                                                                                                                            'access all: Post, share, like, comments, repost & live',
-                                                                                                                            style: TextStyle(fontFamily: 'Poppins', fontSize: 8),
-                                                                                                                          ),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                    ],
-                                                                                                                  ),
-                                                                                                                  Radio(
-                                                                                                                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                                                                                                      groupValue: groupemail,
-                                                                                                                      value: emailid,
-                                                                                                                      onChanged: (val) {
-                                                                                                                        setState(() {
-                                                                                                                          groupemail = emailid;
-                                                                                                                        });
-                                                                                                                      })
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.03,
-                                                                                                              ),
-                                                                                                              Row(
-                                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                children: [
-                                                                                                                  Column(
-                                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                    children: [
-                                                                                                                      Row(
-                                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                        mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                        children: [
-                                                                                                                          Text(
-                                                                                                                            'Manager ',
-                                                                                                                            style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
-                                                                                                                          ),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                      Row(
-                                                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                        mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                        children: [
-                                                                                                                          Text(
-                                                                                                                            'Post Photo & Videos',
-                                                                                                                            style: ProfileSelf().buildtextstyle(),
-                                                                                                                          ),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                    ],
-                                                                                                                  ),
-                                                                                                                  Radio(
-                                                                                                                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                                                                                                      groupValue: groupemail,
-                                                                                                                      value: emailid,
-                                                                                                                      onChanged: (val) {
-                                                                                                                        setState(() {
-                                                                                                                          groupemail = emailid;
-                                                                                                                        });
-                                                                                                                      })
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                              Row(
-                                                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                children: [
-                                                                                                                  Text(
-                                                                                                                    'You can set limitation',
-                                                                                                                    style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontSize: 10),
-                                                                                                                  ),
-                                                                                                                  TextButton(
-                                                                                                                      style: TextButton.styleFrom(
-                                                                                                                        padding: EdgeInsets.zero,
-                                                                                                                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                                                                                                      ),
-                                                                                                                      onPressed: () {
-                                                                                                                        WidgetProfilePage().buildgotoset(context);
-                                                                                                                      },
-                                                                                                                      child: Row(
-                                                                                                                        children: [
-                                                                                                                          Text('GO TO SET', style: TextStyle(color: primaryColorOfApp, fontSize: 10)),
-                                                                                                                          Iconify(
-                                                                                                                            Eva.arrow_right_fill,
-                                                                                                                            size: 15,
-                                                                                                                          )
-                                                                                                                        ],
-                                                                                                                      ))
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.04,
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                  width: double.infinity,
-                                                                                                                  child: ElevatedButton(
-                                                                                                                      style: ElevatedButton.styleFrom(
-                                                                                                                          elevation: 0,
-                                                                                                                          /*     minimumSize: const Size(0.0, 40), */
-                                                                                                                          // padding: EdgeInsets.symmetric(
-                                                                                                                          //     horizontal: 40.0, vertical: 20.0),
-                                                                                                                          backgroundColor: const Color(0xff0087FF),
-                                                                                                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                                                                      onPressed: () {},
-                                                                                                                      child: Text('Confirm', style: TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'Poppins'))))
-                                                                                                            ])),
-                                                                                                             Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                                                              ),
+                                                                                            ])),
+                                                                                    Positioned.fill(
+                                                                                        top: -36,
+                                                                                        child: Align(
+                                                                                          alignment: Alignment.topCenter,
+                                                                                          child: InkWell(
+                                                                                            onTap: () {
+                                                                                              Navigator.pop(context);
+                                                                                            },
+                                                                                            child: Container(
+                                                                                              /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
-                                                                                                      ],
-                                                                                                    );
-                                                                                                  });
-                                                                                                });
-                                                                                          },
-                                                                                          style: ElevatedButton.styleFrom(
-                                                                                              elevation: 0,
-                                                                                              /*     minimumSize: const Size(0.0, 40), */
-                                                                                              // padding: EdgeInsets.symmetric(
-                                                                                              //     horizontal: 40.0, vertical: 20.0),
-                                                                                              backgroundColor: const Color(0xff0087FF),
-                                                                                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                                          child: const Text(
-                                                                                            "Send Request",
-                                                                                            style: TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'Poppins'),
+                                                                                              decoration: BoxDecoration(
+                                                                                                border: Border.all(color: Colors.white, width: 2),
+                                                                                                shape: BoxShape.circle,
+                                                                                              ),
+                                                                                              child: Padding(
+                                                                                                padding: const EdgeInsets.all(4.0),
+                                                                                                child: Icon(
+                                                                                                  Icons.close,
+                                                                                                  color: Colors.white,
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
                                                                                           ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ])),
-                                                                                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
-                                  height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
-                                                                          ],
-                                                                        );
-                                                                      });
-                                                                    });
-                                                              },
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                isDense:
-                                                                    true, // Added this
-                                                                contentPadding:
-                                                                    EdgeInsets.all(8),
-                                                                labelText:
-                                                                    'Search profile Name',
-                                                                labelStyle:
-                                                                    const TextStyle(
-                                                                        color: Colors
-                                                                            .black,
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        fontSize: 10),
-                                                                enabledBorder: OutlineInputBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(
+                                                                                        ))
+                                                                                  ],
+                                                                                );
+                                                                              });
+                                                                            });
+                                                                      },
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        isDense:
+                                                                            true, // Added this
+                                                                        contentPadding:
+                                                                            EdgeInsets.all(8),
+                                                                        labelText:
+                                                                            'Search profile Name',
+                                                                        labelStyle: const TextStyle(
+                                                                            color: Colors
+                                                                                .black,
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            fontSize:
                                                                                 10),
-                                                                    borderSide:
-                                                                        const BorderSide(
-                                                                            color: Color(
-                                                                                0xff333333),
-                                                                            width: 1)),
-                                                                focusedBorder: OutlineInputBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(
-                                                                                5),
-                                                                    borderSide:
-                                                                        const BorderSide(
-                                                                            color: Color(
-                                                                                0xff0087FF),
-                                                                            width: 1)),
-                                                                prefixIcon:
-                                                                    Icon(Icons.search),
-                                                                hintText:
-                                                                    'Searh Username',
-                                                                /*  contentPadding:
+                                                                        enabledBorder: OutlineInputBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(10),
+                                                                            borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
+                                                                        focusedBorder: OutlineInputBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(5),
+                                                                            borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
+                                                                        prefixIcon:
+                                                                            Icon(Icons.search),
+                                                                        hintText:
+                                                                            'Searh Username',
+                                                                        /*  contentPadding:
                                                               const EdgeInsets.all(
                                                                   15), */
-                                                                /*  border:
+                                                                        /*  border:
                                                                       OutlineInputBorder(
                                                                           borderSide:
                                                                               const BorderSide(
@@ -7041,39 +7081,39 @@ class ProfileSelf extends StatefulWidget {
                                                                           borderRadius:
                                                                               BorderRadius.circular(
                                                                                   5) */
-                                                              ))),
-                                                    ]),
+                                                                      ))),
+                                                        ]),
                                                   )
                                                 ])),
-                                                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                        Positioned.fill(
+                                            top: -36,
+                                            child: Align(
+                                              alignment: Alignment.topCenter,
+                                              child: InkWell(
+                                                onTap: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Container(
+                                                  /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
+                                                  decoration: BoxDecoration(
+                                                    border: Border.all(
                                                         color: Colors.white,
-                                                      ),
+                                                        width: 2),
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            4.0),
+                                                    child: Icon(
+                                                      Icons.close,
+                                                      color: Colors.white,
                                                     ),
                                                   ),
                                                 ),
-                                              ))
+                                              ),
+                                            ))
                                       ],
                                     );
                                   }),
@@ -7134,7 +7174,8 @@ class ProfileSelf extends StatefulWidget {
                                           height: 10,
                                         ),
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(8),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
                                           child: Container(
                                             color: Colors.black,
                                             height: 5,
@@ -7147,11 +7188,13 @@ class ProfileSelf extends StatefulWidget {
                                         const Text('Select your language'),
                                         const Divider(),
                                         ListTile(
-                                          visualDensity: VisualDensity(vertical: -3),
+                                          visualDensity:
+                                              VisualDensity(vertical: -3),
                                           dense: true,
                                           leading: const Text(
                                             'English',
-                                            style: TextStyle(fontFamily: 'Poppins'),
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins'),
                                           ),
                                           trailing: Radio(
                                             value: english,
@@ -7169,7 +7212,8 @@ class ProfileSelf extends StatefulWidget {
                                           dense: true,
                                           leading: const Text(
                                             'Hindi',
-                                            style: TextStyle(fontFamily: 'Poppins'),
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins'),
                                           ),
                                           trailing: Radio(
                                             value: hindi,
@@ -7186,7 +7230,8 @@ class ProfileSelf extends StatefulWidget {
                                               const VisualDensity(vertical: -3),
                                           dense: true,
                                           leading: const Text('Bengali',
-                                              style: TextStyle(fontFamily: 'Poppins')),
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins')),
                                           trailing: Radio(
                                             value: bengali,
                                             groupValue: groupvalue,
@@ -7202,7 +7247,8 @@ class ProfileSelf extends StatefulWidget {
                                               const VisualDensity(vertical: -3),
                                           dense: true,
                                           leading: const Text('Gujarati',
-                                              style: TextStyle(fontFamily: 'Poppins')),
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins')),
                                           trailing: Radio(
                                             value: gujarati,
                                             groupValue: groupvalue,
@@ -7218,7 +7264,8 @@ class ProfileSelf extends StatefulWidget {
                                               const VisualDensity(vertical: -3),
                                           dense: true,
                                           leading: const Text('Marathi',
-                                              style: TextStyle(fontFamily: 'Poppins')),
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins')),
                                           trailing: Radio(
                                             value: marathi,
                                             groupValue: groupvalue,
@@ -7234,7 +7281,8 @@ class ProfileSelf extends StatefulWidget {
                                               const VisualDensity(vertical: -3),
                                           dense: true,
                                           leading: const Text('Urdu',
-                                              style: TextStyle(fontFamily: 'Poppins')),
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins')),
                                           trailing: Radio(
                                             value: urdu,
                                             groupValue: groupvalue,
@@ -7250,7 +7298,8 @@ class ProfileSelf extends StatefulWidget {
                                               const VisualDensity(vertical: -3),
                                           dense: true,
                                           leading: const Text('Odia (oria)',
-                                              style: TextStyle(fontFamily: 'Poppins')),
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins')),
                                           trailing: Radio(
                                             value: odia,
                                             groupValue: groupvalue,
@@ -7266,7 +7315,8 @@ class ProfileSelf extends StatefulWidget {
                                               const VisualDensity(vertical: -3),
                                           dense: true,
                                           leading: const Text('Kannada',
-                                              style: TextStyle(fontFamily: 'Poppins')),
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins')),
                                           trailing: Radio(
                                             value: kannada,
                                             groupValue: groupvalue,
@@ -7282,7 +7332,8 @@ class ProfileSelf extends StatefulWidget {
                                               const VisualDensity(vertical: -3),
                                           dense: true,
                                           leading: const Text('Tamil',
-                                              style: TextStyle(fontFamily: 'Poppins')),
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins')),
                                           trailing: Radio(
                                             value: tamil,
                                             groupValue: groupvalue,
@@ -7298,7 +7349,8 @@ class ProfileSelf extends StatefulWidget {
                                               const VisualDensity(vertical: -3),
                                           dense: true,
                                           leading: const Text('Telugu',
-                                              style: TextStyle(fontFamily: 'Poppins')),
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins')),
                                           trailing: Radio(
                                             value: telugu,
                                             groupValue: groupvalue,
@@ -7311,35 +7363,34 @@ class ProfileSelf extends StatefulWidget {
                                         ),
                                       ],
                                     ),
-                                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                    Positioned.fill(
+                                        top: -36,
+                                        child: Align(
+                                          alignment: Alignment.topCenter,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Container(
+                                              /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.white,
+                                                    width: 2),
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(4.0),
+                                                child: Icon(
+                                                  Icons.close,
+                                                  color: Colors.white,
                                                 ),
-                                              ))
+                                              ),
+                                            ),
+                                          ),
+                                        ))
                                   ],
                                 );
                               });
@@ -7476,7 +7527,8 @@ class ProfileSelf extends StatefulWidget {
                               context: context,
                               builder: (BuildContext context) {
                                 return StatefulBuilder(builder:
-                                    (BuildContext context, StateSetter setState) {
+                                    (BuildContext context,
+                                        StateSetter setState) {
                                   return Stack(
                                     clipBehavior: Clip.none,
                                     children: [
@@ -7495,9 +7547,11 @@ class ProfileSelf extends StatefulWidget {
                                                   children: [
                                                     Container(
                                                       decoration: BoxDecoration(
-                                                          color: Color(0xffE2E2E2),
+                                                          color:
+                                                              Color(0xffE2E2E2),
                                                           borderRadius:
-                                                              BorderRadius.circular(8)),
+                                                              BorderRadius
+                                                                  .circular(8)),
                                                       height: 5,
                                                       width: 100,
                                                     ),
@@ -7509,14 +7563,18 @@ class ProfileSelf extends StatefulWidget {
                                                 Row(
                                                   children: [
                                                     IconButton(
-                                                        padding: EdgeInsets.all(0),
-                                                        constraints: BoxConstraints(),
+                                                        padding:
+                                                            EdgeInsets.all(0),
+                                                        constraints:
+                                                            BoxConstraints(),
                                                         onPressed: () {
-                                                          Navigator.of(context).pop();
+                                                          Navigator.of(context)
+                                                              .pop();
                                                         },
                                                         icon: Icon(
                                                           Icons.arrow_back,
-                                                          color: primaryColorOfApp,
+                                                          color:
+                                                              primaryColorOfApp,
                                                         )),
                                                     SizedBox(
                                                       width: width * 0.01,
@@ -7525,14 +7583,16 @@ class ProfileSelf extends StatefulWidget {
                                                       'Privacy',
                                                       style: TextStyle(
                                                           fontFamily: 'Poppins',
-                                                          color: customTextColor),
+                                                          color:
+                                                              customTextColor),
                                                     ),
                                                   ],
                                                 ),
                                                 Divider(),
                                                 Row(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.spaceBetween,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Row(
                                                       children: [
@@ -7544,16 +7604,19 @@ class ProfileSelf extends StatefulWidget {
                                                           width: 10,
                                                         ),
                                                         Text('Private Profile',
-                                                            style: buildtextstyle()),
+                                                            style:
+                                                                buildtextstyle()),
                                                       ],
                                                     ),
                                                     Switch.adaptive(
                                                         materialTapTargetSize:
                                                             MaterialTapTargetSize
                                                                 .shrinkWrap,
-                                                        activeColor: primaryColorOfApp,
+                                                        activeColor:
+                                                            primaryColorOfApp,
                                                         value: valueofswitch,
-                                                        onChanged: (valueofswitch) {
+                                                        onChanged:
+                                                            (valueofswitch) {
                                                           setState(() {
                                                             this.valueofswitch =
                                                                 valueofswitch;
@@ -7566,11 +7629,13 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    buildActivityStatus(context);
+                                                    buildActivityStatus(
+                                                        context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7583,7 +7648,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Activity Status',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7599,11 +7665,13 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    buildShowRewardpoint(context);
+                                                    buildShowRewardpoint(
+                                                        context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7616,7 +7684,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Show Reward Points',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7636,7 +7705,8 @@ class ProfileSelf extends StatefulWidget {
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7649,7 +7719,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Groups ',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7669,7 +7740,8 @@ class ProfileSelf extends StatefulWidget {
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7682,7 +7754,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Comments',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7698,11 +7771,13 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    buildPostPhotoVideo(context);
+                                                    buildPostPhotoVideo(
+                                                        context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7715,7 +7790,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Post-Photo & Video',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7735,7 +7811,8 @@ class ProfileSelf extends StatefulWidget {
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7748,7 +7825,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Story',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7768,7 +7846,8 @@ class ProfileSelf extends StatefulWidget {
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7781,12 +7860,14 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Live',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                           Iconify(
                                                             Bi.patch_check,
                                                             size: 10,
-                                                            color: primaryColorOfApp,
+                                                            color:
+                                                                primaryColorOfApp,
                                                           ),
                                                         ],
                                                       ),
@@ -7802,11 +7883,13 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    buildChatBoxPrivacy(context);
+                                                    buildChatBoxPrivacy(
+                                                        context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7819,7 +7902,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Chat-Box',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7839,7 +7923,8 @@ class ProfileSelf extends StatefulWidget {
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7852,7 +7937,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Mension ',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7872,7 +7958,8 @@ class ProfileSelf extends StatefulWidget {
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7885,7 +7972,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Tag',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7905,7 +7993,8 @@ class ProfileSelf extends StatefulWidget {
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -7918,7 +8007,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Send me GIFT',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -7938,25 +8028,30 @@ class ProfileSelf extends StatefulWidget {
                                                             const RoundedRectangleBorder(
                                                           // <-- SEE HERE
                                                           borderRadius:
-                                                              BorderRadius.vertical(
-                                                            top: Radius.circular(20.0),
+                                                              BorderRadius
+                                                                  .vertical(
+                                                            top:
+                                                                Radius.circular(
+                                                                    20.0),
                                                           ),
                                                         ),
                                                         context: context,
-                                                        builder:
-                                                            (BuildContext context) {
+                                                        builder: (BuildContext
+                                                            context) {
                                                           return StatefulBuilder(
-                                                              builder:
-                                                                  (BuildContext context,
-                                                                      StateSetter
-                                                                          setState) {
+                                                              builder: (BuildContext
+                                                                      context,
+                                                                  StateSetter
+                                                                      setState) {
                                                             return Stack(
-                                                              clipBehavior: Clip.none,
+                                                              clipBehavior:
+                                                                  Clip.none,
                                                               children: [
                                                                 Padding(
                                                                   padding: const EdgeInsets
                                                                           .symmetric(
-                                                                      horizontal: 15.0),
+                                                                      horizontal:
+                                                                          15.0),
                                                                   child: Column(
                                                                       /* mainAxisSize: MainAxisSize.min, */
                                                                       children: [
@@ -7967,107 +8062,55 @@ class ProfileSelf extends StatefulWidget {
                                                                         Row(
                                                                           children: [
                                                                             IconButton(
-                                                                                padding:
-                                                                                    EdgeInsets
-                                                                                        .all(
-                                                                                            0),
-                                                                                constraints:
-                                                                                    BoxConstraints(),
-                                                                                onPressed:
-                                                                                    () {
-                                                                                  Navigator.of(
-                                                                                          context)
-                                                                                      .pop();
+                                                                                padding: EdgeInsets.all(0),
+                                                                                constraints: BoxConstraints(),
+                                                                                onPressed: () {
+                                                                                  Navigator.of(context).pop();
                                                                                 },
                                                                                 icon: Icon(
-                                                                                  Icons
-                                                                                      .arrow_back,
-                                                                                  color:
-                                                                                      primaryColorOfApp,
+                                                                                  Icons.arrow_back,
+                                                                                  color: primaryColorOfApp,
                                                                                 )),
                                                                             SizedBox(
-                                                                              width: width *
-                                                                                  0.01,
+                                                                              width: width * 0.01,
                                                                             ),
                                                                             Text(
                                                                               'Block Profile List',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  color:
-                                                                                      customTextColor,
-                                                                                  fontSize:
-                                                                                      15),
+                                                                              style: TextStyle(fontFamily: 'Poppins', color: customTextColor, fontSize: 15),
                                                                             ),
                                                                           ],
                                                                         ),
                                                                         Divider(),
                                                                         TextFormField(
-                                                                            decoration:
-                                                                                InputDecoration(
-                                                                                    isDense:
-                                                                                        true, // Added this
-                                                                                    contentPadding:
-                                                                                        EdgeInsets.all(
-                                                                                            8),
-                                                                                    labelText:
-                                                                                        'Search profile Name',
-                                                                                    labelStyle: const TextStyle(
-                                                                                        color: Colors
-                                                                                            .black,
-                                                                                        fontFamily:
-                                                                                            'Poppins',
-                                                                                        fontSize:
-                                                                                            10),
-                                                                                    enabledBorder: OutlineInputBorder(
-                                                                                        borderRadius: BorderRadius.circular(
-                                                                                            5),
-                                                                                        borderSide: const BorderSide(
-                                                                                            color: Color(
-                                                                                                0xff333333),
-                                                                                            width:
-                                                                                                1)),
-                                                                                    focusedBorder: OutlineInputBorder(
-                                                                                        borderRadius:
-                                                                                            BorderRadius.circular(5),
-                                                                                        borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
-                                                                                    /*    prefixIcon: Icon(Icons.search), */
-                                                                                    hintText: 'Searh Username')),
+                                                                            decoration: InputDecoration(
+                                                                                isDense: true, // Added this
+                                                                                contentPadding: EdgeInsets.all(8),
+                                                                                labelText: 'Search profile Name',
+                                                                                labelStyle: const TextStyle(color: Colors.black, fontFamily: 'Poppins', fontSize: 10),
+                                                                                enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
+                                                                                focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
+                                                                                /*    prefixIcon: Icon(Icons.search), */
+                                                                                hintText: 'Searh Username')),
                                                                         ListView.builder(
-                                                                            shrinkWrap:
-                                                                                true,
+                                                                            shrinkWrap: true,
                                                                             itemCount: 3,
-                                                                            itemBuilder:
-                                                                                ((context,
-                                                                                    index) {
+                                                                            itemBuilder: ((context, index) {
                                                                               return ListTile(
-                                                                                minVerticalPadding:
-                                                                                    10,
-                                                                                horizontalTitleGap:
-                                                                                    4,
-                                                                                visualDensity:
-                                                                                    const VisualDensity(
-                                                                                        vertical:
-                                                                                            -3),
+                                                                                minVerticalPadding: 10,
+                                                                                horizontalTitleGap: 4,
+                                                                                visualDensity: const VisualDensity(vertical: -3),
                                                                                 dense: true,
-                                                                                leading:
-                                                                                    CircleAvatar(
-                                                                                  radius:
-                                                                                      20,
-                                                                                  backgroundImage:
-                                                                                      NetworkImage(
-                                                                                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
+                                                                                leading: CircleAvatar(
+                                                                                  radius: 20,
+                                                                                  backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
                                                                                 ),
                                                                                 title: Text(
                                                                                   'Rajan Mistry-1 ',
-                                                                                  style: ProfileSelf()
-                                                                                      .buildtextstyle(),
+                                                                                  style: ProfileSelf().buildtextstyle(),
                                                                                 ),
-                                                                                subtitle:
-                                                                                    Text(
+                                                                                subtitle: Text(
                                                                                   '@m.rajan02',
-                                                                                  style: ProfileSelf()
-                                                                                      .buildtextstyle(),
+                                                                                  style: ProfileSelf().buildtextstyle(),
                                                                                 ),
                                                                                 trailing: OutlinedButton(
                                                                                     style: OutlinedButton.styleFrom(
@@ -8080,17 +8123,14 @@ class ProfileSelf extends StatefulWidget {
                                                                                     onPressed: () {
                                                                                       showModalBottomSheet(
                                                                                         /* isScrollControlled: true, */
-                                                                                        shape:
-                                                                                            const RoundedRectangleBorder(
+                                                                                        shape: const RoundedRectangleBorder(
                                                                                           // <-- SEE HERE
                                                                                           borderRadius: BorderRadius.vertical(
                                                                                             top: Radius.circular(20.0),
                                                                                           ),
                                                                                         ),
-                                                                                        context:
-                                                                                            context,
-                                                                                        builder:
-                                                                                            (BuildContext context) {
+                                                                                        context: context,
+                                                                                        builder: (BuildContext context) {
                                                                                           return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
                                                                                             return Stack(
                                                                                               clipBehavior: Clip.none,
@@ -8116,35 +8156,31 @@ class ProfileSelf extends StatefulWidget {
                                                                                                             ],
                                                                                                           )
                                                                                                         ])),
-                                                                                                         Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                                                                Positioned.fill(
+                                                                                                    top: -36,
+                                                                                                    child: Align(
+                                                                                                      alignment: Alignment.topCenter,
+                                                                                                      child: InkWell(
+                                                                                                        onTap: () {
+                                                                                                          Navigator.pop(context);
+                                                                                                        },
+                                                                                                        child: Container(
+                                                                                                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                                                          decoration: BoxDecoration(
+                                                                                                            border: Border.all(color: Colors.white, width: 2),
+                                                                                                            shape: BoxShape.circle,
+                                                                                                          ),
+                                                                                                          child: Padding(
+                                                                                                            padding: const EdgeInsets.all(4.0),
+                                                                                                            child: Icon(
+                                                                                                              Icons.close,
+                                                                                                              color: Colors.white,
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                    ))
                                                                                               ],
                                                                                             );
                                                                                           });
@@ -8153,44 +8189,50 @@ class ProfileSelf extends StatefulWidget {
                                                                                     },
                                                                                     child: Text(
                                                                                       'UnBlock',
-                                                                                      style: TextStyle(
-                                                                                          fontFamily: 'Poppins',
-                                                                                          color: Colors.white,
-                                                                                          fontSize: 10),
+                                                                                      style: TextStyle(fontFamily: 'Poppins', color: Colors.white, fontSize: 10),
                                                                                     )),
                                                                               );
                                                                             }))
                                                                       ]),
                                                                 ),
-                                                                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                                Positioned.fill(
+                                                                    top: -36,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          Alignment
+                                                                              .topCenter,
+                                                                      child:
+                                                                          InkWell(
+                                                                        onTap:
+                                                                            () {
+                                                                          Navigator.pop(
+                                                                              context);
+                                                                        },
+                                                                        child:
+                                                                            Container(
+                                                                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            border:
+                                                                                Border.all(color: Colors.white, width: 2),
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                          ),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.all(4.0),
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.close,
+                                                                              color: Colors.white,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ))
                                                               ],
                                                             );
                                                           });
@@ -8198,7 +8240,8 @@ class ProfileSelf extends StatefulWidget {
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.spaceBetween,
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Row(
                                                         children: [
@@ -8211,7 +8254,8 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                           Text(
                                                             'Block Profile List',
-                                                            style: buildtextstyle(),
+                                                            style:
+                                                                buildtextstyle(),
                                                           ),
                                                         ],
                                                       ),
@@ -8226,35 +8270,34 @@ class ProfileSelf extends StatefulWidget {
                                                   height: height * 0.05,
                                                 ),
                                               ])),
-                                               Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                      Positioned.fill(
+                                          top: -36,
+                                          child: Align(
+                                            alignment: Alignment.topCenter,
+                                            child: InkWell(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Container(
+                                                /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Colors.white,
+                                                      width: 2),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(4.0),
+                                                  child: Icon(
+                                                    Icons.close,
+                                                    color: Colors.white,
                                                   ),
                                                 ),
-                                              ))
+                                              ),
+                                            ),
+                                          ))
                                     ],
                                   );
                                 });
@@ -8409,7 +8452,8 @@ class ProfileSelf extends StatefulWidget {
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
                             onPressed: () {
-                              final provider = Provider.of<Googleprovider>(context,
+                              final provider = Provider.of<Googleprovider>(
+                                  context,
                                   listen: false);
                               provider.logout();
                               Navigator.push(
@@ -8431,35 +8475,31 @@ class ProfileSelf extends StatefulWidget {
                         height: height * 0.03,
                       ),
                     ])),
-                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -8628,8 +8668,8 @@ class ProfileSelf extends StatefulWidget {
                               ),
                               Text(
                                 'Digital Collections',
-                                style:
-                                    TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
@@ -8658,8 +8698,8 @@ class ProfileSelf extends StatefulWidget {
                               ),
                               Text(
                                 'History',
-                                style:
-                                    TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
@@ -8684,8 +8724,8 @@ class ProfileSelf extends StatefulWidget {
                               ),
                               Text(
                                 'Archive',
-                                style:
-                                    TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
@@ -8710,8 +8750,8 @@ class ProfileSelf extends StatefulWidget {
                               ),
                               Text(
                                 'Saved',
-                                style:
-                                    TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
@@ -8740,8 +8780,8 @@ class ProfileSelf extends StatefulWidget {
                               ),
                               Text(
                                 'Favorites Profile',
-                                style:
-                                    TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
@@ -8770,8 +8810,8 @@ class ProfileSelf extends StatefulWidget {
                               ),
                               Text(
                                 'Friends',
-                                style:
-                                    TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
@@ -8796,8 +8836,8 @@ class ProfileSelf extends StatefulWidget {
                               ),
                               Text(
                                 'QR Code',
-                                style:
-                                    TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
@@ -8826,8 +8866,8 @@ class ProfileSelf extends StatefulWidget {
                               ),
                               Text(
                                 'Discover',
-                                style:
-                                    TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
@@ -8856,8 +8896,8 @@ class ProfileSelf extends StatefulWidget {
                               ),
                               Text(
                                 'Share ',
-                                style:
-                                    TextStyle(fontFamily: 'Poppins', fontSize: 12),
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
@@ -8876,7 +8916,8 @@ class ProfileSelf extends StatefulWidget {
                         children: [
                           Text(
                             'version  3.6.9. (596) ',
-                            style: TextStyle(fontFamily: 'Poppins', fontSize: 7),
+                            style:
+                                TextStyle(fontFamily: 'Poppins', fontSize: 7),
                           ),
                         ],
                       ),
@@ -8884,35 +8925,31 @@ class ProfileSelf extends StatefulWidget {
                         height: height * 0.03,
                       ),
                     ])),
-                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -8963,6 +9000,28 @@ class ProfileSelf extends StatefulWidget {
 }
 
 class _ProfileSelfState extends State<ProfileSelf> {
+  var images = [
+    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://plus.unsplash.com/premium_photo-1664551734578-fe47fea8cab8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1667487147031-476e357b2fc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://plus.unsplash.com/premium_photo-1664551734578-fe47fea8cab8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1667487147031-476e357b2fc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+  ];
+  var names = [
+    "Rashid",
+    "farhan",
+    "hamza",
+    "aquib",
+    "shiraj",
+    "pravin",
+    "sufiya",
+    "sadaf",
+    "tahera",
+  ];
   bool valueofswitch = true;
 
   bool emailid = false;
@@ -9079,7 +9138,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
             WidgetProfilePage().buildtop(context),
             WidgetProfilePage().buildcontent(context),
             TabBar(
-              /* controller: tabController, */
+          
+         
               indicatorSize: TabBarIndicatorSize.tab,
               indicatorPadding: EdgeInsets.zero,
               labelColor: Color(0xff0087FF),
@@ -9148,249 +9208,81 @@ class _ProfileSelfState extends State<ProfileSelf> {
               ],
             ),
             SizedBox(
-              height: 73,
-              child: ListView(
-                physics: ClampingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                children: [
-                  SizedBox(
-                    width: width * 0.04,
-                  ),
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Center(
-                            child: Column(
-                              children: [
-                                Stack(children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 3.0),
-                                    child: Container(
-                                        padding: EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                              width: 1,
-                                              color: Color(0xff333333)),
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(9.0),
-                                          child: Iconify(Bytesize.plus),
-                                        )),
-                                  ),
-                                ]),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Text(
-                                  'Add',
-                                  style: TextStyle(
-                                      color: customTextColor,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 10),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: width * 0.02,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2.0),
-                            child: Column(
-                              children: [
-                                Container(
+              height: 70,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: ListView.separated(
+                    physics: ClampingScrollPhysics(),
+                    shrinkWrap: true,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        width: 10,
+                      );
+                    },
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 9,
+                    itemBuilder: (context, index) {
+                      if (index == 0) {
+                        return Padding(
+                          padding: EdgeInsets.only(top: 1.0),
+                          child: Column(
+                            children: [
+                              Container(
                                   padding: EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        width: 2, color: primaryColorOfApp),
+                                        width: 1, color: customTextColor),
                                     shape: BoxShape.circle,
                                   ),
-                                  child: SvgPicture.asset(
-                                    'assets/tagicon.svg',
-                                    width: 41,
-                                  ),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Color(0xffc4c4c4),
+                                    size: 40,
+                                  )),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                'Add',
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 10),
+                              )
+                            ],
+                          ),
+                        );
+                      } else {
+                        return Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 2, color: primaryColorOfApp),
+                                shape: BoxShape.circle,
+                              ),
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundImage: NetworkImage(
+                                  images[index],
                                 ),
-                                SizedBox(
-                                  height: 2,
-                                ),
-                                Text(
-                                  'Rashid',
-                                  style: TextStyle(
-                                      color: customTextColor,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 10),
-                                )
-                              ],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: width * 0.02,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2.0),
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        width: 2, color: primaryColorOfApp),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: SvgPicture.asset(
-                                    'assets/tagicon.svg',
-                                    width: 41,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 2,
-                                ),
-                                Text(
-                                  'Farhan',
-                                  style: TextStyle(
-                                      color: customTextColor,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 10),
-                                )
-                              ],
+                            SizedBox(
+                              height: 2,
                             ),
-                          ),
-                          SizedBox(
-                            width: width * 0.02,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2.0),
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        width: 2, color: primaryColorOfApp),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: SvgPicture.asset(
-                                    'assets/tagicon.svg',
-                                    width: 41,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 2,
-                                ),
-                                Text(
-                                  'Akhtar',
-                                  style: TextStyle(
-                                      color: customTextColor,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 10),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: width * 0.02,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2.0),
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        width: 2, color: primaryColorOfApp),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: SvgPicture.asset(
-                                    'assets/tagicon.svg',
-                                    width: 41,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 2,
-                                ),
-                                Text(
-                                  'Farhan',
-                                  style: TextStyle(
-                                      color: customTextColor,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 10),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: width * 0.02,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2.0),
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        width: 2, color: primaryColorOfApp),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: SvgPicture.asset(
-                                    'assets/tagicon.svg',
-                                    width: 41,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 2,
-                                ),
-                                Text(
-                                  'Farhan',
-                                  style: TextStyle(
-                                      color: customTextColor,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 10),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: width * 0.02,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2.0),
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        width: 2, color: primaryColorOfApp),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: SvgPicture.asset(
-                                    'assets/tagicon.svg',
-                                    width: 41,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 2,
-                                ),
-                                Text(
-                                  'Farhan',
-                                  style: TextStyle(
-                                      color: customTextColor,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 10),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+                            Text(
+                              names[index],
+                              style: TextStyle(
+                                  color: customTextColor,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10),
+                            )
+                          ],
+                        );
+                      }
+                    }),
               ),
             ),
             SizedBox(

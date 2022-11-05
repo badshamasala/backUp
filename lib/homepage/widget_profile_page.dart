@@ -8,6 +8,7 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/home1.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
+import 'package:flutter_application_1/interaction.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -618,7 +619,7 @@ class WidgetProfilePage extends StatefulWidget {
                                   : Icon(
                                       Icons.account_circle,
                                       size: 70,
-                                      color: Colors.grey,
+                                      color: Color(0xffc4c4c4),
                                     ),
                             ),
                             SizedBox(
@@ -647,15 +648,16 @@ class WidgetProfilePage extends StatefulWidget {
                                                 clipBehavior: Clip.none,
                                                 children: [
                                                   Column(
-                                                    mainAxisSize: MainAxisSize.min,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
                                                     children: [
                                                       SizedBox(
                                                         height: height * 0.01,
                                                       ),
                                                       ClipRRect(
                                                         borderRadius:
-                                                            BorderRadius.circular(
-                                                                8),
+                                                            BorderRadius
+                                                                .circular(8),
                                                         child: Container(
                                                           color: const Color(
                                                               0xffE2E2E2),
@@ -668,7 +670,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                       ),
                                                       Row(
                                                         mainAxisAlignment:
-                                                            MainAxisAlignment.start,
+                                                            MainAxisAlignment
+                                                                .start,
                                                         children: [
                                                           Padding(
                                                             padding:
@@ -703,7 +706,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                             children: [
                                                               RawMaterialButton(
                                                                 padding:
-                                                                    EdgeInsets.zero,
+                                                                    EdgeInsets
+                                                                        .zero,
                                                                 constraints:
                                                                     BoxConstraints(
                                                                         minHeight:
@@ -719,7 +723,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                                           context)
                                                                       .pop();
                                                                   setState(() {
-                                                                    btnchng = false;
+                                                                    btnchng =
+                                                                        false;
                                                                   });
                                                                 },
                                                                 elevation: 0,
@@ -753,7 +758,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                             children: [
                                                               RawMaterialButton(
                                                                 padding:
-                                                                    EdgeInsets.zero,
+                                                                    EdgeInsets
+                                                                        .zero,
                                                                 constraints:
                                                                     BoxConstraints(
                                                                         minHeight:
@@ -769,7 +775,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                                           context)
                                                                       .pop();
                                                                   setState(() {
-                                                                    btnchng = false;
+                                                                    btnchng =
+                                                                        false;
                                                                   });
                                                                 },
                                                                 elevation: 0,
@@ -805,35 +812,41 @@ class WidgetProfilePage extends StatefulWidget {
                                                       ),
                                                     ],
                                                   ),
-                                                   Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                  Positioned.fill(
+                                                      top: -36,
+                                                      child: Align(
+                                                        alignment:
+                                                            Alignment.topCenter,
+                                                        child: InkWell(
+                                                          onTap: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          child: Container(
+                                                            /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              border: Border.all(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  width: 2),
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(4.0),
+                                                              child: Icon(
+                                                                Icons.close,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ))
                                                 ],
                                               );
                                             });
@@ -1185,14 +1198,14 @@ class WidgetProfilePage extends StatefulWidget {
                               color: Colors.transparent,
                               borderRadius: BorderRadius.circular(5),
                               border:
-                                  Border.all(color: Colors.black, width: 0.1),
+                                  Border.all(color: Colors.black, width: 0.5),
                             ),
                             height: 70,
                             width: double.infinity,
                             child: Icon(
                               Icons.photo,
                               size: 50,
-                              color: Colors.grey,
+                              color: Color(0xffc4c4c4),
                             )),
                     SizedBox(
                       height: 19,
@@ -1228,7 +1241,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                 borderRadius:
                                                     BorderRadius.circular(8),
                                                 child: Container(
-                                                  color: const Color(0xffE2E2E2),
+                                                  color:
+                                                      const Color(0xffE2E2E2),
                                                   height: 7,
                                                   width: 70,
                                                 ),
@@ -1241,14 +1255,17 @@ class WidgetProfilePage extends StatefulWidget {
                                                     MainAxisAlignment.start,
                                                 children: [
                                                   Padding(
-                                                    padding: const EdgeInsets.only(
-                                                        left: 80.0),
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 80.0),
                                                     child: const Text(
                                                       'Your Banner',
                                                       style: TextStyle(
-                                                          color: Color(0xff333333),
+                                                          color:
+                                                              Color(0xff333333),
                                                           fontSize: 15,
-                                                          fontFamily: 'Poppins'),
+                                                          fontFamily:
+                                                              'Poppins'),
                                                     ),
                                                   ),
                                                 ],
@@ -1262,15 +1279,18 @@ class WidgetProfilePage extends StatefulWidget {
                                               ),
                                               Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment.spaceEvenly,
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
                                                 children: [
                                                   Column(
                                                     children: [
                                                       RawMaterialButton(
-                                                        padding: EdgeInsets.zero,
-                                                        constraints: BoxConstraints(
-                                                            minHeight: 45,
-                                                            minWidth: 45),
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        constraints:
+                                                            BoxConstraints(
+                                                                minHeight: 45,
+                                                                minWidth: 45),
                                                         onPressed: () {
                                                           _WidgetProfilePageState()
                                                               .pickforbanner(
@@ -1286,8 +1306,10 @@ class WidgetProfilePage extends StatefulWidget {
                                                         fillColor:
                                                             Color(0xffDADADA),
                                                         child: FaIcon(
-                                                          FontAwesomeIcons.camera,
-                                                          color: Color(0xff0087FF),
+                                                          FontAwesomeIcons
+                                                              .camera,
+                                                          color:
+                                                              Color(0xff0087FF),
                                                           size: 17,
                                                         ),
                                                         /*  padding: EdgeInsets.all(15.0), */
@@ -1300,19 +1322,22 @@ class WidgetProfilePage extends StatefulWidget {
                                                       Text(
                                                         'camera',
                                                         style: TextStyle(
-                                                            fontFamily: 'Poppins',
-                                                            color:
-                                                                Color(0xff333333)),
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xff333333)),
                                                       )
                                                     ],
                                                   ),
                                                   Column(
                                                     children: [
                                                       RawMaterialButton(
-                                                        padding: EdgeInsets.zero,
-                                                        constraints: BoxConstraints(
-                                                            minHeight: 45,
-                                                            minWidth: 45),
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        constraints:
+                                                            BoxConstraints(
+                                                                minHeight: 45,
+                                                                minWidth: 45),
                                                         onPressed: () {
                                                           _WidgetProfilePageState()
                                                               .pickforbanner(
@@ -1329,7 +1354,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                             Color(0xffDADADA),
                                                         child: Icon(
                                                           Icons.photo,
-                                                          color: Color(0xff0087FF),
+                                                          color:
+                                                              Color(0xff0087FF),
                                                           size: 17,
                                                         ),
                                                         /*  padding: EdgeInsets.all(15.0), */
@@ -1342,9 +1368,10 @@ class WidgetProfilePage extends StatefulWidget {
                                                       Text(
                                                         'gallery',
                                                         style: TextStyle(
-                                                            fontFamily: 'Poppins',
-                                                            color:
-                                                                Color(0xff333333)),
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xff333333)),
                                                       )
                                                     ],
                                                   ),
@@ -1355,7 +1382,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               ),
                                             ],
                                           ),
-                                           Positioned.fill(
+                                          Positioned.fill(
                                               top: -36,
                                               child: Align(
                                                 alignment: Alignment.topCenter,
@@ -1414,7 +1441,7 @@ class WidgetProfilePage extends StatefulWidget {
                           height: 30,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.black, width: 1),
+                            border: Border.all(color: Colors.black, width: 0.5),
                           ),
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton(
@@ -1446,7 +1473,7 @@ class WidgetProfilePage extends StatefulWidget {
                           height: 30,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.black, width: 1),
+                            border: Border.all(color: Colors.black, width: 0.5),
                           ),
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton(
@@ -1642,35 +1669,31 @@ class WidgetProfilePage extends StatefulWidget {
                     ),
                   ]),
                 ),
-                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
@@ -1699,7 +1722,13 @@ class WidgetProfilePage extends StatefulWidget {
               /*  mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
               children: [
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Interaction1()),
+                    );
+                  },
                   style: OutlinedButton.styleFrom(
                       minimumSize: Size(90, 35),
                       /*    minimumSize: Size(32, 30), */
@@ -1855,7 +1884,7 @@ class WidgetProfilePage extends StatefulWidget {
                   height: coverheight,
                   child: Icon(
                     Icons.photo,
-                    color: primaryColorOfApp,
+                    color: Color(0xffc4c4c4),
                     size: 40,
                   )),
         ),
@@ -1876,7 +1905,7 @@ class WidgetProfilePage extends StatefulWidget {
                       child: image != null
                           ? CircleAvatar(
                               radius: 50,
-                              backgroundColor: Colors.blue,
+                              backgroundColor: primaryColorOfApp,
                               child: CircleAvatar(
                                 radius: 47,
                                 backgroundColor: Colors.white,
@@ -1890,14 +1919,14 @@ class WidgetProfilePage extends StatefulWidget {
                           // Image. file
                           : CircleAvatar(
                               radius: 50,
-                              backgroundColor: Colors.blue,
+                              backgroundColor: Color(0xffc4c4c4),
                               child: CircleAvatar(
                                 radius: 47,
                                 backgroundColor: Colors.white,
                                 child: Icon(
                                   Icons.account_circle,
                                   size: 95,
-                                  color: primaryColorOfApp,
+                                  color: Color(0xffc4c4c4),
                                 ), /* CircleAvatar(
                                   radius: 45,
                                   backgroundColor: Colors.grey.shade800,
@@ -1989,10 +2018,12 @@ class WidgetProfilePage extends StatefulWidget {
                                           Divider(),
                                           TabBar(
                                             /* controller: tabController, */
-                                            indicatorSize: TabBarIndicatorSize.tab,
+                                            indicatorSize:
+                                                TabBarIndicatorSize.tab,
                                             indicatorPadding: EdgeInsets.zero,
                                             labelColor: Color(0xff0087FF),
-                                            unselectedLabelColor: Color(0xff333333),
+                                            unselectedLabelColor:
+                                                Color(0xff333333),
                                             tabs: [
                                               Tab(
                                                 height: 20,
@@ -2042,9 +2073,11 @@ class WidgetProfilePage extends StatefulWidget {
                                               children: [
                                                 ListView.builder(
                                                     shrinkWrap: true,
-                                                    scrollDirection: Axis.vertical,
+                                                    scrollDirection:
+                                                        Axis.vertical,
                                                     itemCount: 5,
-                                                    itemBuilder: (context, index) {
+                                                    itemBuilder:
+                                                        (context, index) {
                                                       return Column(
                                                         children: [
                                                           Row(
@@ -2061,8 +2094,9 @@ class WidgetProfilePage extends StatefulWidget {
                                                                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
                                                                   ),
                                                                   SizedBox(
-                                                                    width: width *
-                                                                        0.01,
+                                                                    width:
+                                                                        width *
+                                                                            0.01,
                                                                   ),
                                                                   Column(
                                                                     children: [
@@ -2081,15 +2115,15 @@ class WidgetProfilePage extends StatefulWidget {
                                                                 ],
                                                               ),
                                                               ElevatedButton(
-                                                                onPressed: () {},
+                                                                onPressed:
+                                                                    () {},
                                                                 style: ElevatedButton
                                                                     .styleFrom(
                                                                         elevation:
                                                                             0,
-                                                                        minimumSize:
-                                                                            const Size(
-                                                                                80,
-                                                                                30),
+                                                                        minimumSize: const Size(
+                                                                            80,
+                                                                            30),
                                                                         // padding: EdgeInsets.symmetric(
                                                                         //     horizontal: 40.0, vertical: 20.0),
                                                                         backgroundColor:
@@ -2098,14 +2132,13 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         shape: RoundedRectangleBorder(
                                                                             borderRadius:
                                                                                 BorderRadius.circular(5.0))),
-                                                                child: const Text(
+                                                                child:
+                                                                    const Text(
                                                                   "follow",
                                                                   style: TextStyle(
-                                                                      color: Colors
-                                                                          .white,
+                                                                      color: Colors.white,
                                                                       /*       fontSize: 18, */
-                                                                      fontFamily:
-                                                                          'Poppins'),
+                                                                      fontFamily: 'Poppins'),
                                                                 ),
                                                               ),
                                                             ],
@@ -2115,9 +2148,11 @@ class WidgetProfilePage extends StatefulWidget {
                                                     }),
                                                 ListView.builder(
                                                     shrinkWrap: true,
-                                                    scrollDirection: Axis.vertical,
+                                                    scrollDirection:
+                                                        Axis.vertical,
                                                     itemCount: 5,
-                                                    itemBuilder: (context, index) {
+                                                    itemBuilder:
+                                                        (context, index) {
                                                       return Column(
                                                         children: [
                                                           Row(
@@ -2134,8 +2169,9 @@ class WidgetProfilePage extends StatefulWidget {
                                                                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
                                                                   ),
                                                                   SizedBox(
-                                                                    width: width *
-                                                                        0.01,
+                                                                    width:
+                                                                        width *
+                                                                            0.01,
                                                                   ),
                                                                   Column(
                                                                     children: [
@@ -2154,15 +2190,15 @@ class WidgetProfilePage extends StatefulWidget {
                                                                 ],
                                                               ),
                                                               ElevatedButton(
-                                                                onPressed: () {},
+                                                                onPressed:
+                                                                    () {},
                                                                 style: ElevatedButton
                                                                     .styleFrom(
                                                                         elevation:
                                                                             0,
-                                                                        minimumSize:
-                                                                            const Size(
-                                                                                80,
-                                                                                30),
+                                                                        minimumSize: const Size(
+                                                                            80,
+                                                                            30),
                                                                         // padding: EdgeInsets.symmetric(
                                                                         //     horizontal: 40.0, vertical: 20.0),
                                                                         backgroundColor:
@@ -2171,14 +2207,13 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         shape: RoundedRectangleBorder(
                                                                             borderRadius:
                                                                                 BorderRadius.circular(5.0))),
-                                                                child: const Text(
+                                                                child:
+                                                                    const Text(
                                                                   "follow",
                                                                   style: TextStyle(
-                                                                      color: Colors
-                                                                          .white,
+                                                                      color: Colors.white,
                                                                       /*       fontSize: 18, */
-                                                                      fontFamily:
-                                                                          'Poppins'),
+                                                                      fontFamily: 'Poppins'),
                                                                 ),
                                                               ),
                                                             ],
@@ -2188,9 +2223,11 @@ class WidgetProfilePage extends StatefulWidget {
                                                     }),
                                                 ListView.builder(
                                                     shrinkWrap: true,
-                                                    scrollDirection: Axis.vertical,
+                                                    scrollDirection:
+                                                        Axis.vertical,
                                                     itemCount: 5,
-                                                    itemBuilder: (context, index) {
+                                                    itemBuilder:
+                                                        (context, index) {
                                                       return Column(
                                                         children: [
                                                           Row(
@@ -2207,8 +2244,9 @@ class WidgetProfilePage extends StatefulWidget {
                                                                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
                                                                   ),
                                                                   SizedBox(
-                                                                    width: width *
-                                                                        0.01,
+                                                                    width:
+                                                                        width *
+                                                                            0.01,
                                                                   ),
                                                                   Column(
                                                                     children: [
@@ -2227,15 +2265,15 @@ class WidgetProfilePage extends StatefulWidget {
                                                                 ],
                                                               ),
                                                               ElevatedButton(
-                                                                onPressed: () {},
+                                                                onPressed:
+                                                                    () {},
                                                                 style: ElevatedButton
                                                                     .styleFrom(
                                                                         elevation:
                                                                             0,
-                                                                        minimumSize:
-                                                                            const Size(
-                                                                                80,
-                                                                                30),
+                                                                        minimumSize: const Size(
+                                                                            80,
+                                                                            30),
                                                                         // padding: EdgeInsets.symmetric(
                                                                         //     horizontal: 40.0, vertical: 20.0),
                                                                         backgroundColor:
@@ -2244,14 +2282,13 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         shape: RoundedRectangleBorder(
                                                                             borderRadius:
                                                                                 BorderRadius.circular(5.0))),
-                                                                child: const Text(
+                                                                child:
+                                                                    const Text(
                                                                   "follow",
                                                                   style: TextStyle(
-                                                                      color: Colors
-                                                                          .white,
+                                                                      color: Colors.white,
                                                                       /*       fontSize: 18, */
-                                                                      fontFamily:
-                                                                          'Poppins'),
+                                                                      fontFamily: 'Poppins'),
                                                                 ),
                                                               ),
                                                             ],
@@ -2263,35 +2300,32 @@ class WidgetProfilePage extends StatefulWidget {
                                             ),
                                           )
                                         ])),
-                                         Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                Positioned.fill(
+                                    top: -36,
+                                    child: Align(
+                                      alignment: Alignment.topCenter,
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Container(
+                                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color: Colors.white, width: 2),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(4.0),
+                                            child: Icon(
+                                              Icons.close,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ))
                               ],
                             );
                           }),
@@ -2436,7 +2470,8 @@ class WidgetProfilePage extends StatefulWidget {
                                             showModalBottomSheet(
                                                 backgroundColor: Colors.white,
                                                 isScrollControlled: true,
-                                                shape: const RoundedRectangleBorder(
+                                                shape:
+                                                    const RoundedRectangleBorder(
                                                   // <-- SEE HERE
                                                   borderRadius:
                                                       BorderRadius.vertical(
@@ -2444,24 +2479,31 @@ class WidgetProfilePage extends StatefulWidget {
                                                   ),
                                                 ),
                                                 context: context,
-                                                builder: (BuildContext context) {
-                                                  return StatefulBuilder(builder:
-                                                      (BuildContext context,
-                                                          StateSetter setState) {
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return StatefulBuilder(
+                                                      builder:
+                                                          (BuildContext context,
+                                                              StateSetter
+                                                                  setState) {
                                                     return Stack(
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         Padding(
-                                                            padding: const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 15.0),
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        15.0),
                                                             child: Column(
                                                                 mainAxisSize:
-                                                                    MainAxisSize.min,
+                                                                    MainAxisSize
+                                                                        .min,
                                                                 children: [
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   ListTile(
                                                                     minVerticalPadding:
@@ -2475,7 +2517,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     dense: true,
                                                                     leading:
                                                                         CircleAvatar(
-                                                                      radius: 20,
+                                                                      radius:
+                                                                          20,
                                                                       backgroundImage:
                                                                           NetworkImage(
                                                                               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
@@ -2485,20 +2528,20 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         Text(
                                                                           '@Nanncyjain23 ',
                                                                           style: TextStyle(
-                                                                              color:
-                                                                                  primaryColorOfApp,
-                                                                              fontFamily:
-                                                                                  'Poppins'),
+                                                                              color: primaryColorOfApp,
+                                                                              fontFamily: 'Poppins'),
                                                                         ),
                                                                         Iconify(
                                                                           Bi.patch_check,
-                                                                          size: 15,
+                                                                          size:
+                                                                              15,
                                                                           color:
                                                                               primaryColorOfApp,
                                                                         ),
                                                                       ],
                                                                     ),
-                                                                    subtitle: Text(
+                                                                    subtitle:
+                                                                        Text(
                                                                       '@m.rajan02',
                                                                       style: ProfileSelf()
                                                                           .buildtextstyle(),
@@ -2507,208 +2550,143 @@ class WidgetProfilePage extends StatefulWidget {
                                                                   Divider(),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Padding(
-                                                                    padding:
-                                                                        const EdgeInsets
-                                                                                .symmetric(
-                                                                            horizontal:
-                                                                                18.0),
-                                                                    child: Column(
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            18.0),
+                                                                    child:
+                                                                        Column(
                                                                       children: [
                                                                         Row(
                                                                           children: [
                                                                             Text(
                                                                               'Information about this profile',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  fontWeight: FontWeight
-                                                                                      .bold,
-                                                                                  fontSize:
-                                                                                      14),
+                                                                              style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold, fontSize: 14),
                                                                             )
                                                                           ],
                                                                         ),
                                                                         SizedBox(
                                                                           height:
-                                                                              height *
-                                                                                  0.04,
+                                                                              height * 0.04,
                                                                         ),
                                                                         Row(
                                                                           children: [
                                                                             Text(
                                                                               'this is viewer’s private profile ',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  fontSize:
-                                                                                      12),
+                                                                              style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
                                                                             )
                                                                           ],
                                                                         ),
                                                                         SizedBox(
                                                                           height:
-                                                                              height *
-                                                                                  0.01,
+                                                                              height * 0.01,
                                                                         ),
                                                                         Row(
                                                                           children: [
                                                                             Text(
                                                                               'this profile created in 24-july-2018 ',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  fontSize:
-                                                                                      12),
+                                                                              style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
                                                                             )
                                                                           ],
                                                                         ),
                                                                         SizedBox(
                                                                           height:
-                                                                              height *
-                                                                                  0.01,
+                                                                              height * 0.01,
                                                                         ),
                                                                         Row(
                                                                           children: [
                                                                             Text(
                                                                               'this profile created in india ',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  fontSize:
-                                                                                      12),
+                                                                              style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
                                                                             )
                                                                           ],
                                                                         ),
                                                                         SizedBox(
                                                                           height:
-                                                                              height *
-                                                                                  0.01,
+                                                                              height * 0.01,
                                                                         ),
                                                                         Row(
                                                                           children: [
                                                                             Text(
                                                                               'this profile is verified  ',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  fontSize:
-                                                                                      12),
+                                                                              style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
                                                                             ),
                                                                             Iconify(
                                                                               Bi.patch_check,
                                                                               size: 15,
-                                                                              color:
-                                                                                  primaryColorOfApp,
+                                                                              color: primaryColorOfApp,
                                                                             ),
                                                                           ],
                                                                         ),
                                                                         SizedBox(
                                                                           height:
-                                                                              height *
-                                                                                  0.01,
+                                                                              height * 0.01,
                                                                         ),
                                                                         Row(
                                                                           children: [
                                                                             Text(
                                                                               'this profile current rating is',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  fontSize:
-                                                                                      12),
+                                                                              style: TextStyle(fontFamily: 'Poppins', fontSize: 12),
                                                                             ),
                                                                             Icon(
-                                                                              Icons
-                                                                                  .star,
-                                                                              color: Colors
-                                                                                  .green,
+                                                                              Icons.star,
+                                                                              color: Colors.green,
                                                                               size: 17,
                                                                             ),
                                                                             Text(
                                                                               '4.8',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  fontSize:
-                                                                                      12,
-                                                                                  fontWeight:
-                                                                                      FontWeight.bold),
+                                                                              style: TextStyle(fontFamily: 'Poppins', fontSize: 12, fontWeight: FontWeight.bold),
                                                                             ),
                                                                           ],
                                                                         ),
                                                                         SizedBox(
                                                                           height:
-                                                                              height *
-                                                                                  0.04,
+                                                                              height * 0.04,
                                                                         ),
                                                                         Row(
                                                                           children: [
                                                                             Text(
                                                                               'how much would you like to ratings this profile?',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  fontSize:
-                                                                                      11,
-                                                                                  fontWeight:
-                                                                                      FontWeight.bold),
+                                                                              style: TextStyle(fontFamily: 'Poppins', fontSize: 11, fontWeight: FontWeight.bold),
                                                                             )
                                                                           ],
                                                                         ),
                                                                         SizedBox(
                                                                           height:
-                                                                              height *
-                                                                                  0.01,
+                                                                              height * 0.01,
                                                                         ),
                                                                         Row(
                                                                           mainAxisAlignment:
-                                                                              MainAxisAlignment
-                                                                                  .start,
+                                                                              MainAxisAlignment.start,
                                                                           children: [
-                                                                            RatingBar
-                                                                                .builder(
-                                                                              itemSize:
-                                                                                  20,
-                                                                              initialRating:
-                                                                                  3,
-                                                                              minRating:
-                                                                                  1,
-                                                                              direction:
-                                                                                  Axis.horizontal,
-                                                                              allowHalfRating:
-                                                                                  false,
-                                                                              itemCount:
-                                                                                  5,
-                                                                              itemPadding:
-                                                                                  EdgeInsets.symmetric(
-                                                                                      horizontal: 4.0),
-                                                                              itemBuilder:
-                                                                                  (context, _) =>
-                                                                                      Icon(
-                                                                                Icons
-                                                                                    .star,
-                                                                                color: Colors
-                                                                                    .green,
+                                                                            RatingBar.builder(
+                                                                              itemSize: 20,
+                                                                              initialRating: 3,
+                                                                              minRating: 1,
+                                                                              direction: Axis.horizontal,
+                                                                              allowHalfRating: false,
+                                                                              itemCount: 5,
+                                                                              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                                                                              itemBuilder: (context, _) => Icon(
+                                                                                Icons.star,
+                                                                                color: Colors.green,
                                                                               ),
-                                                                              onRatingUpdate:
-                                                                                  (rating) {
-                                                                                print(
-                                                                                    rating);
+                                                                              onRatingUpdate: (rating) {
+                                                                                print(rating);
                                                                               },
                                                                             ),
                                                                           ],
                                                                         ),
                                                                         Row(
                                                                           mainAxisAlignment:
-                                                                              MainAxisAlignment
-                                                                                  .start,
+                                                                              MainAxisAlignment.start,
                                                                           children: [
                                                                             ElevatedButton(
-                                                                              onPressed:
-                                                                                  () {},
+                                                                              onPressed: () {},
                                                                               style: ElevatedButton.styleFrom(
                                                                                   elevation: 0,
                                                                                   minimumSize: const Size(120, 35),
@@ -2716,60 +2694,61 @@ class WidgetProfilePage extends StatefulWidget {
                                                                                   //     horizontal: 40.0, vertical: 20.0),
                                                                                   backgroundColor: const Color(0xff0087FF),
                                                                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                              child:
-                                                                                  Text(
+                                                                              child: Text(
                                                                                 "Submit",
-                                                                                style: TextStyle(
-                                                                                    color: Colors
-                                                                                        .white,
-                                                                                    fontSize: width *
-                                                                                        0.045,
-                                                                                    fontFamily:
-                                                                                        'Poppins',
-                                                                                    fontWeight:
-                                                                                        FontWeight.w600),
+                                                                                style: TextStyle(color: Colors.white, fontSize: width * 0.045, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
                                                                               ),
                                                                             ),
                                                                           ],
                                                                         ),
                                                                         SizedBox(
                                                                           height:
-                                                                              height *
-                                                                                  0.2,
+                                                                              height * 0.2,
                                                                         ),
                                                                       ],
                                                                     ),
                                                                   ),
                                                                 ])),
-                                                                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                        Positioned.fill(
+                                                            top: -36,
+                                                            child: Align(
+                                                              alignment:
+                                                                  Alignment
+                                                                      .topCenter,
+                                                              child: InkWell(
+                                                                onTap: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    border: Border.all(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        width:
+                                                                            2),
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets.all(
+                                                                            4.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .close,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ))
                                                       ],
                                                     );
                                                   });
@@ -2777,7 +2756,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           },
                                           title: Text(
                                             'About profile',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/setabout.svg',
@@ -2812,7 +2792,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                   : Colors.black),
                                           trailing: Checkbox(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               shape: const CircleBorder(),
                                               value: value1,
                                               onChanged: (value1) {
@@ -2841,7 +2822,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           ),
                                           trailing: Checkbox(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               shape: const CircleBorder(),
                                               value: value2,
                                               onChanged: (value2) {
@@ -2858,7 +2840,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           onTap: () {
                                             showModalBottomSheet(
                                                 isScrollControlled: true,
-                                                shape: const RoundedRectangleBorder(
+                                                shape:
+                                                    const RoundedRectangleBorder(
                                                   // <-- SEE HERE
                                                   borderRadius:
                                                       BorderRadius.vertical(
@@ -2866,23 +2849,31 @@ class WidgetProfilePage extends StatefulWidget {
                                                   ),
                                                 ),
                                                 context: context,
-                                                builder: (BuildContext context) {
-                                                  return StatefulBuilder(builder:
-                                                      (BuildContext context,
-                                                          StateSetter setState) {
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return StatefulBuilder(
+                                                      builder:
+                                                          (BuildContext context,
+                                                              StateSetter
+                                                                  setState) {
                                                     return Stack(
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         Padding(
-                                                          padding: const EdgeInsets
-                                                                  .symmetric(
-                                                              horizontal: 16.0),
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  horizontal:
+                                                                      16.0),
                                                           child: Column(
                                                               mainAxisSize:
-                                                                  MainAxisSize.min,
+                                                                  MainAxisSize
+                                                                      .min,
                                                               children: [
                                                                 SizedBox(
-                                                                  height: height * 0.01,
+                                                                  height:
+                                                                      height *
+                                                                          0.01,
                                                                 ),
                                                                 Container(
                                                                   decoration:
@@ -2891,25 +2882,26 @@ class WidgetProfilePage extends StatefulWidget {
                                                                               0xffE2E2E2),
                                                                           border: Border
                                                                               .all(
-                                                                            width: 0.5,
-                                                                            color: Color(
-                                                                                0xffE2E2E2),
+                                                                            width:
+                                                                                0.5,
+                                                                            color:
+                                                                                Color(0xffE2E2E2),
                                                                           ),
                                                                           borderRadius:
-                                                                              BorderRadius
-                                                                                  .circular(
-                                                                                      10)),
+                                                                              BorderRadius.circular(10)),
                                                                   height: 5,
                                                                   width: 100,
                                                                 ),
                                                                 SizedBox(
-                                                                  height: height * 0.01,
+                                                                  height:
+                                                                      height *
+                                                                          0.01,
                                                                 ),
                                                                 Padding(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                              .only(
-                                                                          left: 18.0),
+                                                                  padding: const EdgeInsets
+                                                                          .only(
+                                                                      left:
+                                                                          18.0),
                                                                   child: Row(
                                                                     mainAxisAlignment:
                                                                         MainAxisAlignment
@@ -2922,8 +2914,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                                                 12,
                                                                             fontFamily:
                                                                                 'Poppins',
-                                                                            color: Color(
-                                                                                0xff0087FF)),
+                                                                            color:
+                                                                                Color(0xff0087FF)),
                                                                       ),
                                                                     ],
                                                                   ),
@@ -2939,18 +2931,20 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         Text(
                                                                           'send to chat-box ',
                                                                           style: TextStyle(
-                                                                              fontFamily:
-                                                                                  'Poppins',
-                                                                              fontSize:
-                                                                                  8),
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 8),
                                                                         ),
                                                                         SizedBox(
-                                                                          height: 5,
+                                                                          height:
+                                                                              5,
                                                                         ),
-                                                                        Image.asset(
+                                                                        Image
+                                                                            .asset(
                                                                           'assets/logo.png',
-                                                                          height: 22,
-                                                                          width: 22,
+                                                                          height:
+                                                                              22,
+                                                                          width:
+                                                                              22,
                                                                         ),
                                                                       ],
                                                                     ),
@@ -2959,53 +2953,55 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         Text(
                                                                           'send to group ',
                                                                           style: TextStyle(
-                                                                              fontFamily:
-                                                                                  'Poppins',
-                                                                              fontSize:
-                                                                                  8),
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 8),
                                                                         ),
                                                                         SizedBox(
-                                                                          height: 5,
+                                                                          height:
+                                                                              5,
                                                                         ),
                                                                         SvgPicture
                                                                             .asset(
                                                                           'assets/privacygroup.svg',
-                                                                          height: 22,
-                                                                          width: 22,
+                                                                          height:
+                                                                              22,
+                                                                          width:
+                                                                              22,
                                                                         ),
                                                                       ],
                                                                     ),
                                                                     InkWell(
-                                                                      onTap: () {
-                                                                        final box = context
-                                                                                .findRenderObject()
-                                                                            as RenderBox?;
+                                                                      onTap:
+                                                                          () {
+                                                                        final box =
+                                                                            context.findRenderObject()
+                                                                                as RenderBox?;
                                                                         Share.share(
                                                                             'aasd',
                                                                             subject:
                                                                                 'axaa',
                                                                             sharePositionOrigin:
-                                                                                box!.localToGlobal(Offset.zero) &
-                                                                                    box.size);
+                                                                                box!.localToGlobal(Offset.zero) & box.size);
                                                                       },
-                                                                      child: Column(
+                                                                      child:
+                                                                          Column(
                                                                         children: [
                                                                           Text(
                                                                             'share to',
-                                                                            style: TextStyle(
-                                                                                fontFamily:
-                                                                                    'Poppins',
-                                                                                fontSize:
-                                                                                    8),
+                                                                            style:
+                                                                                TextStyle(fontFamily: 'Poppins', fontSize: 8),
                                                                           ),
                                                                           SizedBox(
-                                                                            height: 5,
+                                                                            height:
+                                                                                5,
                                                                           ),
                                                                           SvgPicture
                                                                               .asset(
                                                                             'assets/settingshare.svg',
-                                                                            height: 20,
-                                                                            width: 20,
+                                                                            height:
+                                                                                20,
+                                                                            width:
+                                                                                20,
                                                                           ),
                                                                         ],
                                                                       ),
@@ -3013,129 +3009,127 @@ class WidgetProfilePage extends StatefulWidget {
                                                                   ],
                                                                 ),
                                                                 SizedBox(
-                                                                  height: height * 0.01,
+                                                                  height:
+                                                                      height *
+                                                                          0.01,
                                                                 ),
                                                                 SizedBox(
                                                                     height: 40,
-                                                                    child:
-                                                                        TextFormField(
-                                                                            decoration:
-                                                                                InputDecoration(
+                                                                    child: TextFormField(
+                                                                        decoration: InputDecoration(
                                                                       enabledBorder: OutlineInputBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius
-                                                                                  .circular(
-                                                                                      5),
+                                                                          borderRadius: BorderRadius.circular(
+                                                                              5),
                                                                           borderSide: const BorderSide(
-                                                                              color: Color(
-                                                                                  0xff333333),
-                                                                              width:
-                                                                                  0.5)),
+                                                                              color: Color(0xff333333),
+                                                                              width: 0.5)),
                                                                       focusedBorder: OutlineInputBorder(
-                                                                          borderRadius:
-                                                                              BorderRadius
-                                                                                  .circular(
-                                                                                      5),
+                                                                          borderRadius: BorderRadius.circular(
+                                                                              5),
                                                                           borderSide: const BorderSide(
-                                                                              color: Color(
-                                                                                  0xff0087FF),
-                                                                              width:
-                                                                                  0.5)),
+                                                                              color: Color(0xff0087FF),
+                                                                              width: 0.5)),
                                                                       labelText:
                                                                           'Search',
                                                                     ))),
-                                                                ListView.builder(
-                                                                    shrinkWrap: true,
-                                                                    itemCount: 3,
-                                                                    itemBuilder:
-                                                                        ((context,
-                                                                            index) {
-                                                                      return ListTile(
-                                                                        minVerticalPadding:
-                                                                            10,
-                                                                        horizontalTitleGap:
-                                                                            4,
-                                                                        visualDensity:
-                                                                            const VisualDensity(
-                                                                                vertical:
-                                                                                    -3),
-                                                                        dense: true,
-                                                                        leading:
-                                                                            CircleAvatar(
-                                                                          radius: 20,
-                                                                          backgroundImage:
-                                                                              NetworkImage(
-                                                                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
-                                                                        ),
-                                                                        title: Text(
-                                                                          'Rajan Mistry-1 ',
-                                                                          style: ProfileSelf()
-                                                                              .buildtextstyle(),
-                                                                        ),
-                                                                        subtitle: Text(
-                                                                          '@m.rajan02',
-                                                                          style: ProfileSelf()
-                                                                              .buildtextstyle(),
-                                                                        ),
-                                                                        trailing: OutlinedButton(
-                                                                            style: OutlinedButton.styleFrom(
-                                                                                elevation: 0,
-                                                                                minimumSize: Size(80, 30),
-                                                                                // padding: EdgeInsets.symmetric(
-                                                                                //     horizontal: 40.0, vertical: 20.0),
-                                                                                side: const BorderSide(
-                                                                                  color:
-                                                                                      Color(0xff0087FF),
-                                                                                ),
-                                                                                backgroundColor: Colors.white,
-                                                                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                            onPressed: () {},
-                                                                            child: Text(
-                                                                              'Send',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  color:
-                                                                                      primaryColorOfApp,
-                                                                                  fontSize:
-                                                                                      10),
-                                                                            )),
-                                                                      );
-                                                                    })),
+                                                                ListView
+                                                                    .builder(
+                                                                        shrinkWrap:
+                                                                            true,
+                                                                        itemCount:
+                                                                            3,
+                                                                        itemBuilder:
+                                                                            ((context,
+                                                                                index) {
+                                                                          return ListTile(
+                                                                            minVerticalPadding:
+                                                                                10,
+                                                                            horizontalTitleGap:
+                                                                                4,
+                                                                            visualDensity:
+                                                                                const VisualDensity(vertical: -3),
+                                                                            dense:
+                                                                                true,
+                                                                            leading:
+                                                                                CircleAvatar(
+                                                                              radius: 20,
+                                                                              backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
+                                                                            ),
+                                                                            title:
+                                                                                Text(
+                                                                              'Rajan Mistry-1 ',
+                                                                              style: ProfileSelf().buildtextstyle(),
+                                                                            ),
+                                                                            subtitle:
+                                                                                Text(
+                                                                              '@m.rajan02',
+                                                                              style: ProfileSelf().buildtextstyle(),
+                                                                            ),
+                                                                            trailing: OutlinedButton(
+                                                                                style: OutlinedButton.styleFrom(
+                                                                                    elevation: 0,
+                                                                                    minimumSize: Size(80, 30),
+                                                                                    // padding: EdgeInsets.symmetric(
+                                                                                    //     horizontal: 40.0, vertical: 20.0),
+                                                                                    side: const BorderSide(
+                                                                                      color: Color(0xff0087FF),
+                                                                                    ),
+                                                                                    backgroundColor: Colors.white,
+                                                                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                                onPressed: () {},
+                                                                                child: Text(
+                                                                                  'Send',
+                                                                                  style: TextStyle(fontFamily: 'Poppins', color: primaryColorOfApp, fontSize: 10),
+                                                                                )),
+                                                                          );
+                                                                        })),
                                                                 SizedBox(
-                                                                  height: height * 0.2,
+                                                                  height:
+                                                                      height *
+                                                                          0.2,
                                                                 )
                                                               ]),
                                                         ),
-                                                         Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                        Positioned.fill(
+                                                            top: -36,
+                                                            child: Align(
+                                                              alignment:
+                                                                  Alignment
+                                                                      .topCenter,
+                                                              child: InkWell(
+                                                                onTap: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    border: Border.all(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        width:
+                                                                            2),
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets.all(
+                                                                            4.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .close,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ))
                                                       ],
                                                     );
                                                   });
@@ -3143,7 +3137,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           },
                                           title: Text(
                                             'share this profile',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/shareicon.svg',
@@ -3165,7 +3160,8 @@ class WidgetProfilePage extends StatefulWidget {
                                             showModalBottomSheet(
                                                 backgroundColor: Colors.white,
                                                 /*  isScrollControlled: true, */
-                                                shape: const RoundedRectangleBorder(
+                                                shape:
+                                                    const RoundedRectangleBorder(
                                                   // <-- SEE HERE
                                                   borderRadius:
                                                       BorderRadius.vertical(
@@ -3173,41 +3169,50 @@ class WidgetProfilePage extends StatefulWidget {
                                                   ),
                                                 ),
                                                 context: context,
-                                                builder: (BuildContext context) {
-                                                  return StatefulBuilder(builder:
-                                                      (BuildContext context,
-                                                          StateSetter setState) {
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return StatefulBuilder(
+                                                      builder:
+                                                          (BuildContext context,
+                                                              StateSetter
+                                                                  setState) {
                                                     return Stack(
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         Padding(
-                                                          padding: const EdgeInsets
-                                                                  .symmetric(
-                                                              horizontal: 18.0),
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  horizontal:
+                                                                      18.0),
                                                           child: Column(
                                                               /*    mainAxisSize:
                                                                   MainAxisSize.min, */
                                                               children: [
                                                                 SizedBox(
-                                                                  height: height * 0.01,
+                                                                  height:
+                                                                      height *
+                                                                          0.01,
                                                                 ),
                                                                 Container(
                                                                   decoration: BoxDecoration(
                                                                       color: Color(
                                                                           0xffE2E2E2),
                                                                       border: Border.all(
-                                                                          width: 0.5,
+                                                                          width:
+                                                                              0.5,
                                                                           color: Color(
                                                                               0xffE2E2E2)),
                                                                       borderRadius:
-                                                                          BorderRadius
-                                                                              .circular(
-                                                                                  10)),
+                                                                          BorderRadius.circular(
+                                                                              10)),
                                                                   height: 5,
                                                                   width: 100,
                                                                 ),
                                                                 SizedBox(
-                                                                  height: height * 0.01,
+                                                                  height:
+                                                                      height *
+                                                                          0.01,
                                                                 ),
                                                                 Row(
                                                                   mainAxisAlignment:
@@ -3217,11 +3222,12 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     Text(
                                                                       'Notifications',
                                                                       style: TextStyle(
-                                                                          fontSize: 15,
+                                                                          fontSize:
+                                                                              15,
                                                                           fontFamily:
                                                                               'Poppins',
-                                                                          color: Color(
-                                                                              0xff0087FF)),
+                                                                          color:
+                                                                              Color(0xff0087FF)),
                                                                     ),
                                                                     Iconify(
                                                                       Bi.patch_check,
@@ -3239,34 +3245,27 @@ class WidgetProfilePage extends StatefulWidget {
                                                                       Positioned(
                                                                         top: 7,
                                                                         left: 0,
-                                                                        height: 40,
-                                                                        width: 280,
+                                                                        height:
+                                                                            40,
+                                                                        width:
+                                                                            280,
                                                                         child:
                                                                             Container(
                                                                           decoration: BoxDecoration(
-                                                                              color: Colors
-                                                                                  .white,
-                                                                              border: Border.all(
-                                                                                  width:
-                                                                                      0.5,
-                                                                                  color: const Color(
-                                                                                      0xff515253)),
-                                                                              borderRadius:
-                                                                                  BorderRadius.circular(
-                                                                                      10)),
+                                                                              color: Colors.white,
+                                                                              border: Border.all(width: 0.5, color: const Color(0xff515253)),
+                                                                              borderRadius: BorderRadius.circular(10)),
                                                                           /*  width: 150,
               height: 150, */
                                                                           /*  color: Colors.green[300], */
-                                                                          child: Row(
+                                                                          child:
+                                                                              Row(
                                                                             mainAxisAlignment:
-                                                                                MainAxisAlignment
-                                                                                    .spaceBetween,
+                                                                                MainAxisAlignment.spaceBetween,
                                                                             children: [
                                                                               Padding(
-                                                                                padding:
-                                                                                    const EdgeInsets.only(left: 8.0),
-                                                                                child:
-                                                                                    Row(
+                                                                                padding: const EdgeInsets.only(left: 8.0),
+                                                                                child: Row(
                                                                                   children: [
                                                                                     Text(
                                                                                       '26548 rank ',
@@ -3284,10 +3283,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding:
-                                                                                    const EdgeInsets.only(right: 8.0),
-                                                                                child: Image.asset(
-                                                                                    'assets/earnpoints.png'),
+                                                                                padding: const EdgeInsets.only(right: 8.0),
+                                                                                child: Image.asset('assets/earnpoints.png'),
                                                                               )
                                                                             ],
                                                                           ),
@@ -3295,25 +3292,25 @@ class WidgetProfilePage extends StatefulWidget {
                                                                       ),
                                                                       Positioned(
                                                                         top: 0,
-                                                                        left: 30,
-                                                                        width: 70,
-                                                                        height: 10,
+                                                                        left:
+                                                                            30,
+                                                                        width:
+                                                                            70,
+                                                                        height:
+                                                                            10,
                                                                         child:
                                                                             Container(
                                                                           /*   width: 200,
               height: 150, */
-                                                                          color: Colors
-                                                                              .white,
+                                                                          color:
+                                                                              Colors.white,
                                                                           child:
                                                                               const Text(
                                                                             'Earn Points This Profile ',
                                                                             style: TextStyle(
-                                                                                color: Color(
-                                                                                    0xff515253),
-                                                                                fontSize:
-                                                                                    10,
-                                                                                fontFamily:
-                                                                                    'Poppins'),
+                                                                                color: Color(0xff515253),
+                                                                                fontSize: 10,
+                                                                                fontFamily: 'Poppins'),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3331,15 +3328,16 @@ class WidgetProfilePage extends StatefulWidget {
                                                                               'Poppins'),
                                                                     ),
                                                                     SizedBox(
-                                                                      width:
-                                                                          width * 0.03,
+                                                                      width: width *
+                                                                          0.03,
                                                                     ),
                                                                     Text(
                                                                       '13 Dec 2020',
                                                                       style: TextStyle(
                                                                           fontFamily:
                                                                               'Poppins',
-                                                                          fontSize: 8),
+                                                                          fontSize:
+                                                                              8),
                                                                     )
                                                                   ],
                                                                 ),
@@ -3352,33 +3350,26 @@ class WidgetProfilePage extends StatefulWidget {
                                                                       Positioned(
                                                                         top: 7,
                                                                         left: 0,
-                                                                        height: 140,
-                                                                        width: 280,
+                                                                        height:
+                                                                            140,
+                                                                        width:
+                                                                            280,
                                                                         child:
                                                                             Container(
                                                                           decoration: BoxDecoration(
-                                                                              color: Colors
-                                                                                  .white,
-                                                                              border: Border.all(
-                                                                                  width:
-                                                                                      0.5,
-                                                                                  color: const Color(
-                                                                                      0xff515253)),
-                                                                              borderRadius:
-                                                                                  BorderRadius.circular(
-                                                                                      10)),
+                                                                              color: Colors.white,
+                                                                              border: Border.all(width: 0.5, color: const Color(0xff515253)),
+                                                                              borderRadius: BorderRadius.circular(10)),
                                                                           /*  width: 150,
               height: 150, */
                                                                           /*  color: Colors.green[300], */
-                                                                          child: Column(
+                                                                          child:
+                                                                              Column(
                                                                             children: [
                                                                               Padding(
-                                                                                padding:
-                                                                                    const EdgeInsets.all(8.0),
-                                                                                child:
-                                                                                    Row(
-                                                                                  mainAxisAlignment:
-                                                                                      MainAxisAlignment.spaceBetween,
+                                                                                padding: const EdgeInsets.all(8.0),
+                                                                                child: Row(
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                   children: [
                                                                                     Text(
                                                                                       'No. 1 rank',
@@ -3397,12 +3388,9 @@ class WidgetProfilePage extends StatefulWidget {
                                                                               ),
                                                                               Divider(),
                                                                               Padding(
-                                                                                padding:
-                                                                                    const EdgeInsets.all(8.0),
-                                                                                child:
-                                                                                    Row(
-                                                                                  mainAxisAlignment:
-                                                                                      MainAxisAlignment.spaceBetween,
+                                                                                padding: const EdgeInsets.all(8.0),
+                                                                                child: Row(
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                   children: [
                                                                                     Text(
                                                                                       'No. 1 rank',
@@ -3421,12 +3409,9 @@ class WidgetProfilePage extends StatefulWidget {
                                                                               ),
                                                                               Divider(),
                                                                               Padding(
-                                                                                padding:
-                                                                                    const EdgeInsets.all(8.0),
-                                                                                child:
-                                                                                    Row(
-                                                                                  mainAxisAlignment:
-                                                                                      MainAxisAlignment.spaceBetween,
+                                                                                padding: const EdgeInsets.all(8.0),
+                                                                                child: Row(
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                   children: [
                                                                                     Text(
                                                                                       'No. 1 rank',
@@ -3449,73 +3434,73 @@ class WidgetProfilePage extends StatefulWidget {
                                                                       ),
                                                                       Positioned(
                                                                         top: 0,
-                                                                        left: 210,
-                                                                        width: 55,
-                                                                        height: 12,
+                                                                        left:
+                                                                            210,
+                                                                        width:
+                                                                            55,
+                                                                        height:
+                                                                            12,
                                                                         child:
                                                                             Container(
                                                                           /*   width: 200,
               height: 150, */
-                                                                          color: Colors
-                                                                              .white,
+                                                                          color:
+                                                                              Colors.white,
                                                                           child:
                                                                               const Text(
                                                                             '@profile-ID',
                                                                             style: TextStyle(
-                                                                                color: Color(
-                                                                                    0xff515253),
-                                                                                fontSize:
-                                                                                    10,
-                                                                                fontFamily:
-                                                                                    'Poppins'),
+                                                                                color: Color(0xff515253),
+                                                                                fontSize: 10,
+                                                                                fontFamily: 'Poppins'),
                                                                           ),
                                                                         ),
                                                                       ),
                                                                       Positioned(
                                                                         top: 0,
-                                                                        left: 115,
-                                                                        width: 30,
-                                                                        height: 10,
+                                                                        left:
+                                                                            115,
+                                                                        width:
+                                                                            30,
+                                                                        height:
+                                                                            10,
                                                                         child:
                                                                             Container(
                                                                           /*   width: 200,
               height: 150, */
-                                                                          color: Colors
-                                                                              .white,
+                                                                          color:
+                                                                              Colors.white,
                                                                           child:
                                                                               const Text(
                                                                             'Points ',
                                                                             style: TextStyle(
-                                                                                color: Color(
-                                                                                    0xff515253),
-                                                                                fontSize:
-                                                                                    10,
-                                                                                fontFamily:
-                                                                                    'Poppins'),
+                                                                                color: Color(0xff515253),
+                                                                                fontSize: 10,
+                                                                                fontFamily: 'Poppins'),
                                                                           ),
                                                                         ),
                                                                       ),
                                                                       Positioned(
                                                                         top: 0,
-                                                                        left: 20,
-                                                                        width: 25,
-                                                                        height: 10,
+                                                                        left:
+                                                                            20,
+                                                                        width:
+                                                                            25,
+                                                                        height:
+                                                                            10,
                                                                         child:
                                                                             Container(
                                                                           /*   width: 200,
               height: 150, */
-                                                                          color: Colors
-                                                                              .white,
+                                                                          color:
+                                                                              Colors.white,
                                                                           child:
                                                                               const Text(
                                                                             'Rank',
                                                                             style: TextStyle(
-                                                                                color: Color(
-                                                                                    0xff515253),
-                                                                                fontSize:
-                                                                                    10,
-                                                                                fontFamily:
-                                                                                    'Poppins'),
+                                                                                color: Color(0xff515253),
+                                                                                fontSize: 10,
+                                                                                fontFamily: 'Poppins'),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -3524,35 +3509,46 @@ class WidgetProfilePage extends StatefulWidget {
                                                                 ),
                                                               ]),
                                                         ),
-                                                         Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                        Positioned.fill(
+                                                            top: -36,
+                                                            child: Align(
+                                                              alignment:
+                                                                  Alignment
+                                                                      .topCenter,
+                                                              child: InkWell(
+                                                                onTap: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    border: Border.all(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        width:
+                                                                            2),
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets.all(
+                                                                            4.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .close,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ))
                                                       ],
                                                     );
                                                   });
@@ -3560,7 +3556,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           },
                                           title: Text(
                                             'earn points this profile',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: Iconify(
                                             EmojioneMonotone.wrapped_gift,
@@ -3582,7 +3579,8 @@ class WidgetProfilePage extends StatefulWidget {
                                             showModalBottomSheet(
                                                 backgroundColor: Colors.white,
                                                 /*  isScrollControlled: true, */
-                                                shape: const RoundedRectangleBorder(
+                                                shape:
+                                                    const RoundedRectangleBorder(
                                                   // <-- SEE HERE
                                                   borderRadius:
                                                       BorderRadius.vertical(
@@ -3590,43 +3588,49 @@ class WidgetProfilePage extends StatefulWidget {
                                                   ),
                                                 ),
                                                 context: context,
-                                                builder: (BuildContext context) {
-                                                  return StatefulBuilder(builder:
-                                                      (BuildContext context,
-                                                          StateSetter setState) {
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return StatefulBuilder(
+                                                      builder:
+                                                          (BuildContext context,
+                                                              StateSetter
+                                                                  setState) {
                                                     return Stack(
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         Padding(
-                                                            padding: const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 18.0),
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        18.0),
                                                             child: Column(
                                                                 /*    mainAxisSize:
                                                                   MainAxisSize.min, */
                                                                 children: [
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Container(
                                                                     decoration: BoxDecoration(
                                                                         color: Color(
                                                                             0xffE2E2E2),
                                                                         border: Border.all(
-                                                                            width: 0.5,
+                                                                            width:
+                                                                                0.5,
                                                                             color: Color(
                                                                                 0xffE2E2E2)),
                                                                         borderRadius:
-                                                                            BorderRadius
-                                                                                .circular(
-                                                                                    10)),
+                                                                            BorderRadius.circular(10)),
                                                                     height: 5,
                                                                     width: 100,
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Row(
                                                                     mainAxisAlignment:
@@ -3640,12 +3644,13 @@ class WidgetProfilePage extends StatefulWidget {
                                                                                 15,
                                                                             fontFamily:
                                                                                 'Poppins',
-                                                                            color: Color(
-                                                                                0xff0087FF)),
+                                                                            color:
+                                                                                Color(0xff0087FF)),
                                                                       ),
                                                                       Iconify(
                                                                         Bi.patch_check,
-                                                                        size: 15,
+                                                                        size:
+                                                                            15,
                                                                         color:
                                                                             primaryColorOfApp,
                                                                       ),
@@ -3663,8 +3668,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                             fontFamily:
                                                                                 'Poppins',
                                                                             fontWeight:
-                                                                                FontWeight
-                                                                                    .bold),
+                                                                                FontWeight.bold),
                                                                       ),
                                                                     ],
                                                                   ),
@@ -3685,24 +3689,20 @@ class WidgetProfilePage extends StatefulWidget {
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.03,
+                                                                        height *
+                                                                            0.03,
                                                                   ),
                                                                   ListView.builder(
                                                                       shrinkWrap: true,
                                                                       itemCount: 3,
-                                                                      itemBuilder:
-                                                                          ((context,
-                                                                              index) {
+                                                                      itemBuilder: ((context, index) {
                                                                         return Column(
                                                                           children: [
                                                                             Row(
-                                                                              mainAxisAlignment:
-                                                                                  MainAxisAlignment
-                                                                                      .spaceBetween,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                               children: [
                                                                                 Column(
-                                                                                  crossAxisAlignment:
-                                                                                      CrossAxisAlignment.start,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Row(
                                                                                       children: [
@@ -3712,16 +3712,13 @@ class WidgetProfilePage extends StatefulWidget {
                                                                                         ),
                                                                                       ],
                                                                                     ),
-                                                                                    Text('you can join this group ',
-                                                                                        style: ProfileSelf().buildtextstyle()),
+                                                                                    Text('you can join this group ', style: ProfileSelf().buildtextstyle()),
                                                                                   ],
                                                                                 ),
                                                                                 Column(
-                                                                                  crossAxisAlignment:
-                                                                                      CrossAxisAlignment.start,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
-                                                                                    Text('Shopping Center',
-                                                                                        style: ProfileSelf().buildtextstyle()),
+                                                                                    Text('Shopping Center', style: ProfileSelf().buildtextstyle()),
                                                                                     Text(
                                                                                       '@see-groups',
                                                                                       style: TextStyle(color: primaryColorOfApp, fontFamily: 'Poppins'),
@@ -3731,43 +3728,52 @@ class WidgetProfilePage extends StatefulWidget {
                                                                               ],
                                                                             ),
                                                                             SizedBox(
-                                                                              height:
-                                                                                  height *
-                                                                                      0.01,
+                                                                              height: height * 0.01,
                                                                             )
                                                                           ],
                                                                         );
                                                                       })),
                                                                 ])),
-                                                                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                        Positioned.fill(
+                                                            top: -36,
+                                                            child: Align(
+                                                              alignment:
+                                                                  Alignment
+                                                                      .topCenter,
+                                                              child: InkWell(
+                                                                onTap: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    border: Border.all(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        width:
+                                                                            2),
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets.all(
+                                                                            4.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .close,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ))
                                                       ],
                                                     );
                                                   });
@@ -3775,7 +3781,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           },
                                           title: Text(
                                             'group join? this profile',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/privacygroup.svg',
@@ -3825,7 +3832,8 @@ class WidgetProfilePage extends StatefulWidget {
                                             showModalBottomSheet(
                                                 backgroundColor: Colors.white,
                                                 isScrollControlled: true,
-                                                shape: const RoundedRectangleBorder(
+                                                shape:
+                                                    const RoundedRectangleBorder(
                                                   // <-- SEE HERE
                                                   borderRadius:
                                                       BorderRadius.vertical(
@@ -3833,50 +3841,56 @@ class WidgetProfilePage extends StatefulWidget {
                                                   ),
                                                 ),
                                                 context: context,
-                                                builder: (BuildContext context) {
-                                                  return StatefulBuilder(builder:
-                                                      (BuildContext context,
-                                                          StateSetter setState) {
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return StatefulBuilder(
+                                                      builder:
+                                                          (BuildContext context,
+                                                              StateSetter
+                                                                  setState) {
                                                     return Stack(
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         Padding(
-                                                            padding: const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 18.0),
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        18.0),
                                                             child: Column(
                                                                 mainAxisSize:
-                                                                    MainAxisSize.min,
+                                                                    MainAxisSize
+                                                                        .min,
                                                                 children: [
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Container(
                                                                     decoration: BoxDecoration(
                                                                         color: Color(
                                                                             0xffE2E2E2),
                                                                         border: Border.all(
-                                                                            width: 0.5,
+                                                                            width:
+                                                                                0.5,
                                                                             color: Color(
                                                                                 0xffE2E2E2)),
                                                                         borderRadius:
-                                                                            BorderRadius
-                                                                                .circular(
-                                                                                    10)),
+                                                                            BorderRadius.circular(10)),
                                                                     height: 5,
                                                                     width: 100,
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Padding(
-                                                                    padding:
-                                                                        const EdgeInsets
-                                                                                .symmetric(
-                                                                            horizontal:
-                                                                                18.0),
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            18.0),
                                                                     child: Row(
                                                                       mainAxisAlignment:
                                                                           MainAxisAlignment
@@ -3885,36 +3899,23 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         Row(
                                                                           children: [
                                                                             Image(
-                                                                                image:
-                                                                                    const AssetImage(
+                                                                                image: const AssetImage(
                                                                                   'assets/logo.png',
                                                                                 ),
-                                                                                height: height *
-                                                                                    0.055,
-                                                                                width: width *
-                                                                                    0.12,
-                                                                                fit: BoxFit
-                                                                                    .fitHeight),
+                                                                                height: height * 0.055,
+                                                                                width: width * 0.12,
+                                                                                fit: BoxFit.fitHeight),
                                                                             Text(
                                                                               'myttube',
-                                                                              textAlign:
-                                                                                  TextAlign
-                                                                                      .center,
-                                                                              style:
-                                                                                  TextStyle(
-                                                                                color: const Color(
-                                                                                    0xff0087FF),
-                                                                                fontFamily:
-                                                                                    'Satisfy',
-                                                                                fontSize:
-                                                                                    width *
-                                                                                        0.08,
+                                                                              textAlign: TextAlign.center,
+                                                                              style: TextStyle(
+                                                                                color: const Color(0xff0087FF),
+                                                                                fontFamily: 'Satisfy',
+                                                                                fontSize: width * 0.08,
                                                                                 shadows: [
                                                                                   const Shadow(
-                                                                                    blurRadius:
-                                                                                        5.0,
-                                                                                    color:
-                                                                                        Color(0xff000000),
+                                                                                    blurRadius: 5.0,
+                                                                                    color: Color(0xff000000),
                                                                                     /* offset: Offset(
                                                                                     1.0,
                                                                                     1.0), */
@@ -3936,13 +3937,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                             onPressed: () {},
                                                                             child: Text(
                                                                               'follow',
-                                                                              style: TextStyle(
-                                                                                  fontFamily:
-                                                                                      'Poppins',
-                                                                                  color:
-                                                                                      primaryColorOfApp,
-                                                                                  fontSize:
-                                                                                      10),
+                                                                              style: TextStyle(fontFamily: 'Poppins', color: primaryColorOfApp, fontSize: 10),
                                                                             )),
                                                                       ],
                                                                     ),
@@ -3953,49 +3948,33 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         border: Border.all(
                                                                             color:
                                                                                 primaryColorOfApp,
-                                                                            width: 0.5),
+                                                                            width:
+                                                                                0.5),
                                                                         borderRadius:
-                                                                            BorderRadius
-                                                                                .circular(
-                                                                                    8),
+                                                                            BorderRadius.circular(
+                                                                                8),
                                                                         shape: BoxShape
                                                                             .rectangle),
-                                                                    child: Padding(
-                                                                      padding:
-                                                                          const EdgeInsets
-                                                                                  .all(
-                                                                              30.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: const EdgeInsets
+                                                                              .all(
+                                                                          30.0),
                                                                       child: Container(
-                                                                          decoration: BoxDecoration(
-                                                                              border: Border.all(
-                                                                                  color:
-                                                                                      primaryColorOfApp,
-                                                                                  width:
-                                                                                      0.5),
-                                                                              borderRadius:
-                                                                                  BorderRadius.circular(
-                                                                                      8),
-                                                                              shape: BoxShape
-                                                                                  .rectangle),
-                                                                          child:
-                                                                              Padding(
+                                                                          decoration: BoxDecoration(border: Border.all(color: primaryColorOfApp, width: 0.5), borderRadius: BorderRadius.circular(8), shape: BoxShape.rectangle),
+                                                                          child: Padding(
                                                                             padding:
-                                                                                const EdgeInsets.all(
-                                                                                    8.0),
+                                                                                const EdgeInsets.all(8.0),
                                                                             child:
                                                                                 Column(
                                                                               children: [
                                                                                 Iconify(
                                                                                   Bi.qr_code,
-                                                                                  size:
-                                                                                      140,
+                                                                                  size: 140,
                                                                                 ),
                                                                                 Text(
                                                                                   '@Nanncyjain23',
-                                                                                  style: TextStyle(
-                                                                                      fontFamily: 'Poppins',
-                                                                                      color: primaryColorOfApp,
-                                                                                      fontSize: 20),
+                                                                                  style: TextStyle(fontFamily: 'Poppins', color: primaryColorOfApp, fontSize: 20),
                                                                                 )
                                                                               ],
                                                                             ),
@@ -4004,46 +3983,42 @@ class WidgetProfilePage extends StatefulWidget {
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Padding(
-                                                                    padding:
-                                                                        const EdgeInsets
-                                                                                .only(
-                                                                            left: 28.0),
+                                                                    padding: const EdgeInsets
+                                                                            .only(
+                                                                        left:
+                                                                            28.0),
                                                                     child: Row(
                                                                       children: [
                                                                         Text(
                                                                           'LOGIN:',
                                                                           style: TextStyle(
-                                                                              fontFamily:
-                                                                                  'Poppins',
-                                                                              fontSize:
-                                                                                  15),
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 15),
                                                                         ),
                                                                         Text(
                                                                           'https://myttube.com',
                                                                           style: TextStyle(
-                                                                              fontFamily:
-                                                                                  'Poppins',
-                                                                              color:
-                                                                                  primaryColorOfApp,
-                                                                              fontSize:
-                                                                                  15),
+                                                                              fontFamily: 'Poppins',
+                                                                              color: primaryColorOfApp,
+                                                                              fontSize: 15),
                                                                         ),
                                                                       ],
                                                                     ),
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Padding(
-                                                                    padding:
-                                                                        const EdgeInsets
-                                                                                .symmetric(
-                                                                            horizontal:
-                                                                                28.0),
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            28.0),
                                                                     child: Row(
                                                                       mainAxisAlignment:
                                                                           MainAxisAlignment
@@ -4052,28 +4027,21 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         Column(
                                                                           children: [
                                                                             Icon(
-                                                                              Icons
-                                                                                  .download,
-                                                                              color:
-                                                                                  primaryColorOfApp,
+                                                                              Icons.download,
+                                                                              color: primaryColorOfApp,
                                                                             ),
-                                                                            Text(
-                                                                                'download QR code')
+                                                                            Text('download QR code')
                                                                           ],
                                                                         ),
                                                                         Column(
                                                                           children: [
-                                                                            SvgPicture
-                                                                                .asset(
+                                                                            SvgPicture.asset(
                                                                               'assets/shareicon.svg',
-                                                                              height:
-                                                                                  18,
+                                                                              height: 18,
                                                                               width: 18,
-                                                                              color:
-                                                                                  primaryColorOfApp,
+                                                                              color: primaryColorOfApp,
                                                                             ),
-                                                                            Text(
-                                                                                'share QR code')
+                                                                            Text('share QR code')
                                                                           ],
                                                                         ),
                                                                       ],
@@ -4081,38 +4049,50 @@ class WidgetProfilePage extends StatefulWidget {
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.2,
+                                                                        height *
+                                                                            0.2,
                                                                   )
                                                                 ])),
-                                                                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                        Positioned.fill(
+                                                            top: -36,
+                                                            child: Align(
+                                                              alignment:
+                                                                  Alignment
+                                                                      .topCenter,
+                                                              child: InkWell(
+                                                                onTap: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    border: Border.all(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        width:
+                                                                            2),
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets.all(
+                                                                            4.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .close,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ))
                                                       ],
                                                     );
                                                   });
@@ -4120,7 +4100,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           },
                                           title: Text(
                                             'QR Code this profile',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: Iconify(
                                             Bi.qr_code_scan,
@@ -4141,7 +4122,8 @@ class WidgetProfilePage extends StatefulWidget {
                                             showModalBottomSheet(
                                                 backgroundColor: Colors.white,
                                                 isScrollControlled: true,
-                                                shape: const RoundedRectangleBorder(
+                                                shape:
+                                                    const RoundedRectangleBorder(
                                                   // <-- SEE HERE
                                                   borderRadius:
                                                       BorderRadius.vertical(
@@ -4149,43 +4131,50 @@ class WidgetProfilePage extends StatefulWidget {
                                                   ),
                                                 ),
                                                 context: context,
-                                                builder: (BuildContext context) {
-                                                  return StatefulBuilder(builder:
-                                                      (BuildContext context,
-                                                          StateSetter setState) {
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return StatefulBuilder(
+                                                      builder:
+                                                          (BuildContext context,
+                                                              StateSetter
+                                                                  setState) {
                                                     return Stack(
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         Padding(
-                                                            padding: const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 18.0),
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        18.0),
                                                             child: Column(
                                                                 mainAxisSize:
-                                                                    MainAxisSize.min,
+                                                                    MainAxisSize
+                                                                        .min,
                                                                 children: [
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Container(
                                                                     decoration: BoxDecoration(
                                                                         color: Color(
                                                                             0xffE2E2E2),
                                                                         border: Border.all(
-                                                                            width: 0.5,
+                                                                            width:
+                                                                                0.5,
                                                                             color: Color(
                                                                                 0xffE2E2E2)),
                                                                         borderRadius:
-                                                                            BorderRadius
-                                                                                .circular(
-                                                                                    10)),
+                                                                            BorderRadius.circular(10)),
                                                                     height: 5,
                                                                     width: 100,
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Row(
                                                                     mainAxisAlignment:
@@ -4199,12 +4188,13 @@ class WidgetProfilePage extends StatefulWidget {
                                                                                 15,
                                                                             fontFamily:
                                                                                 'Poppins',
-                                                                            color: Color(
-                                                                                0xff0087FF)),
+                                                                            color:
+                                                                                Color(0xff0087FF)),
                                                                       ),
                                                                       Iconify(
                                                                         Bi.patch_check,
-                                                                        size: 15,
+                                                                        size:
+                                                                            15,
                                                                         color:
                                                                             primaryColorOfApp,
                                                                       ),
@@ -4221,21 +4211,18 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         style: buildTextDesign(
                                                                             null,
                                                                             null,
-                                                                            FontWeight
-                                                                                .bold),
+                                                                            FontWeight.bold),
                                                                       ),
                                                                       Padding(
                                                                         padding:
-                                                                            const EdgeInsets
-                                                                                    .only(
-                                                                                right:
-                                                                                    11.0),
-                                                                        child:
-                                                                            SvgPicture
-                                                                                .asset(
+                                                                            const EdgeInsets.only(right: 11.0),
+                                                                        child: SvgPicture
+                                                                            .asset(
                                                                           'assets/blockicon.svg',
-                                                                          height: 18,
-                                                                          width: 18,
+                                                                          height:
+                                                                              18,
+                                                                          width:
+                                                                              18,
                                                                         ),
                                                                       ),
                                                                     ],
@@ -4247,11 +4234,10 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'what do you want to do?',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                11.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            11.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                     ],
                                                                   ),
@@ -4262,26 +4248,22 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'harassment message',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                10.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            10.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                       Radio(
-                                                                          materialTapTargetSize:
-                                                                              MaterialTapTargetSize
-                                                                                  .shrinkWrap,
+                                                                          materialTapTargetSize: MaterialTapTargetSize
+                                                                              .shrinkWrap,
                                                                           groupValue:
                                                                               groupseenonline,
                                                                           value:
                                                                               everyone,
                                                                           onChanged:
                                                                               (val) {
-                                                                            setState(
-                                                                                () {
-                                                                              groupseenonline =
-                                                                                  everyone;
+                                                                            setState(() {
+                                                                              groupseenonline = everyone;
                                                                             });
                                                                           })
                                                                     ],
@@ -4293,26 +4275,22 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'Report Post, Message, Comments',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                10.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            10.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                       Radio(
-                                                                          materialTapTargetSize:
-                                                                              MaterialTapTargetSize
-                                                                                  .shrinkWrap,
+                                                                          materialTapTargetSize: MaterialTapTargetSize
+                                                                              .shrinkWrap,
                                                                           groupValue:
                                                                               groupseenonline,
                                                                           value:
                                                                               everyone,
                                                                           onChanged:
                                                                               (val) {
-                                                                            setState(
-                                                                                () {
-                                                                              groupseenonline =
-                                                                                  everyone;
+                                                                            setState(() {
+                                                                              groupseenonline = everyone;
                                                                             });
                                                                           })
                                                                     ],
@@ -4324,26 +4302,22 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'Copyrights',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                10.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            10.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                       Radio(
-                                                                          materialTapTargetSize:
-                                                                              MaterialTapTargetSize
-                                                                                  .shrinkWrap,
+                                                                          materialTapTargetSize: MaterialTapTargetSize
+                                                                              .shrinkWrap,
                                                                           groupValue:
                                                                               groupseenonline,
                                                                           value:
                                                                               everyone,
                                                                           onChanged:
                                                                               (val) {
-                                                                            setState(
-                                                                                () {
-                                                                              groupseenonline =
-                                                                                  everyone;
+                                                                            setState(() {
+                                                                              groupseenonline = everyone;
                                                                             });
                                                                           })
                                                                     ],
@@ -4355,56 +4329,49 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'intellectual property defamation',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                10.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            10.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                       Radio(
-                                                                          materialTapTargetSize:
-                                                                              MaterialTapTargetSize
-                                                                                  .shrinkWrap,
+                                                                          materialTapTargetSize: MaterialTapTargetSize
+                                                                              .shrinkWrap,
                                                                           groupValue:
                                                                               groupseenonline,
                                                                           value:
                                                                               everyone,
                                                                           onChanged:
                                                                               (val) {
-                                                                            setState(
-                                                                                () {
-                                                                              groupseenonline =
-                                                                                  everyone;
+                                                                            setState(() {
+                                                                              groupseenonline = everyone;
                                                                             });
                                                                           })
                                                                     ],
                                                                   ),
                                                                   SizedBox(
-                                                                    width:
-                                                                        double.infinity,
+                                                                    width: double
+                                                                        .infinity,
                                                                     child:
                                                                         OutlinedButton(
-                                                                      onPressed: () {
+                                                                      onPressed:
+                                                                          () {
                                                                         /*   Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => HomePage()),
                     ); */
                                                                       },
-                                                                      style: OutlinedButton
-                                                                          .styleFrom(
-                                                                              side:
-                                                                                  const BorderSide(
-                                                                                color: Color(
-                                                                                    0xff0087FF),
-                                                                              ),
-                                                                              /*  padding: EdgeInsets.symmetric(
+                                                                      style: OutlinedButton.styleFrom(
+                                                                          side: const BorderSide(
+                                                                            color:
+                                                                                Color(0xff0087FF),
+                                                                          ),
+                                                                          /*  padding: EdgeInsets.symmetric(
                                           horizontal: 40.0, vertical: 20.0), */
-                                                                              backgroundColor:
-                                                                                  primaryColorOfApp,
-                                                                              shape: RoundedRectangleBorder(
-                                                                                  borderRadius:
-                                                                                      BorderRadius.circular(5.0))),
-                                                                      child: Text(
+                                                                          backgroundColor: primaryColorOfApp,
+                                                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                      child:
+                                                                          Text(
                                                                         "report",
                                                                         style: TextStyle(
                                                                             fontWeight: FontWeight.w500,
@@ -4416,38 +4383,50 @@ class WidgetProfilePage extends StatefulWidget {
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.1,
+                                                                        height *
+                                                                            0.1,
                                                                   )
                                                                 ])),
-                                                                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                        Positioned.fill(
+                                                            top: -36,
+                                                            child: Align(
+                                                              alignment:
+                                                                  Alignment
+                                                                      .topCenter,
+                                                              child: InkWell(
+                                                                onTap: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    border: Border.all(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        width:
+                                                                            2),
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets.all(
+                                                                            4.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .close,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ))
                                                       ],
                                                     );
                                                   });
@@ -4455,7 +4434,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           },
                                           title: Text(
                                             'Report this profile',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/reporticon.svg',
@@ -4477,7 +4457,8 @@ class WidgetProfilePage extends StatefulWidget {
                                             showModalBottomSheet(
                                                 backgroundColor: Colors.white,
                                                 isScrollControlled: true,
-                                                shape: const RoundedRectangleBorder(
+                                                shape:
+                                                    const RoundedRectangleBorder(
                                                   // <-- SEE HERE
                                                   borderRadius:
                                                       BorderRadius.vertical(
@@ -4485,43 +4466,50 @@ class WidgetProfilePage extends StatefulWidget {
                                                   ),
                                                 ),
                                                 context: context,
-                                                builder: (BuildContext context) {
-                                                  return StatefulBuilder(builder:
-                                                      (BuildContext context,
-                                                          StateSetter setState) {
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return StatefulBuilder(
+                                                      builder:
+                                                          (BuildContext context,
+                                                              StateSetter
+                                                                  setState) {
                                                     return Stack(
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         Padding(
-                                                            padding: const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 18.0),
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        18.0),
                                                             child: Column(
                                                                 mainAxisSize:
-                                                                    MainAxisSize.min,
+                                                                    MainAxisSize
+                                                                        .min,
                                                                 children: [
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Container(
                                                                     decoration: BoxDecoration(
                                                                         color: Color(
                                                                             0xffE2E2E2),
                                                                         border: Border.all(
-                                                                            width: 0.5,
+                                                                            width:
+                                                                                0.5,
                                                                             color: Color(
                                                                                 0xffE2E2E2)),
                                                                         borderRadius:
-                                                                            BorderRadius
-                                                                                .circular(
-                                                                                    10)),
+                                                                            BorderRadius.circular(10)),
                                                                     height: 5,
                                                                     width: 100,
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.01,
+                                                                        height *
+                                                                            0.01,
                                                                   ),
                                                                   Row(
                                                                     mainAxisAlignment:
@@ -4535,12 +4523,13 @@ class WidgetProfilePage extends StatefulWidget {
                                                                                 15,
                                                                             fontFamily:
                                                                                 'Poppins',
-                                                                            color: Color(
-                                                                                0xff0087FF)),
+                                                                            color:
+                                                                                Color(0xff0087FF)),
                                                                       ),
                                                                       Iconify(
                                                                         Bi.patch_check,
-                                                                        size: 15,
+                                                                        size:
+                                                                            15,
                                                                         color:
                                                                             primaryColorOfApp,
                                                                       ),
@@ -4557,21 +4546,18 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         style: buildTextDesign(
                                                                             null,
                                                                             null,
-                                                                            FontWeight
-                                                                                .bold),
+                                                                            FontWeight.bold),
                                                                       ),
                                                                       Padding(
                                                                         padding:
-                                                                            const EdgeInsets
-                                                                                    .only(
-                                                                                right:
-                                                                                    11.0),
-                                                                        child:
-                                                                            SvgPicture
-                                                                                .asset(
+                                                                            const EdgeInsets.only(right: 11.0),
+                                                                        child: SvgPicture
+                                                                            .asset(
                                                                           'assets/blockicon.svg',
-                                                                          height: 18,
-                                                                          width: 18,
+                                                                          height:
+                                                                              18,
+                                                                          width:
+                                                                              18,
                                                                         ),
                                                                       ),
                                                                     ],
@@ -4583,11 +4569,10 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'why you blocking this profile?',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                11.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            11.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                     ],
                                                                   ),
@@ -4598,26 +4583,22 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'harassment message',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                10.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            10.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                       Radio(
-                                                                          materialTapTargetSize:
-                                                                              MaterialTapTargetSize
-                                                                                  .shrinkWrap,
+                                                                          materialTapTargetSize: MaterialTapTargetSize
+                                                                              .shrinkWrap,
                                                                           groupValue:
                                                                               groupseenonline,
                                                                           value:
                                                                               everyone,
                                                                           onChanged:
                                                                               (val) {
-                                                                            setState(
-                                                                                () {
-                                                                              groupseenonline =
-                                                                                  everyone;
+                                                                            setState(() {
+                                                                              groupseenonline = everyone;
                                                                             });
                                                                           })
                                                                     ],
@@ -4629,26 +4610,22 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'hateful speech',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                10.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            10.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                       Radio(
-                                                                          materialTapTargetSize:
-                                                                              MaterialTapTargetSize
-                                                                                  .shrinkWrap,
+                                                                          materialTapTargetSize: MaterialTapTargetSize
+                                                                              .shrinkWrap,
                                                                           groupValue:
                                                                               groupseenonline,
                                                                           value:
                                                                               everyone,
                                                                           onChanged:
                                                                               (val) {
-                                                                            setState(
-                                                                                () {
-                                                                              groupseenonline =
-                                                                                  everyone;
+                                                                            setState(() {
+                                                                              groupseenonline = everyone;
                                                                             });
                                                                           })
                                                                     ],
@@ -4660,26 +4637,22 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'adult content',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                10.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            10.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                       Radio(
-                                                                          materialTapTargetSize:
-                                                                              MaterialTapTargetSize
-                                                                                  .shrinkWrap,
+                                                                          materialTapTargetSize: MaterialTapTargetSize
+                                                                              .shrinkWrap,
                                                                           groupValue:
                                                                               groupseenonline,
                                                                           value:
                                                                               everyone,
                                                                           onChanged:
                                                                               (val) {
-                                                                            setState(
-                                                                                () {
-                                                                              groupseenonline =
-                                                                                  everyone;
+                                                                            setState(() {
+                                                                              groupseenonline = everyone;
                                                                             });
                                                                           })
                                                                     ],
@@ -4691,26 +4664,22 @@ class WidgetProfilePage extends StatefulWidget {
                                                                     children: [
                                                                       Text(
                                                                         'fake account',
-                                                                        style:
-                                                                            buildTextDesign(
-                                                                                10.0,
-                                                                                null,
-                                                                                null),
+                                                                        style: buildTextDesign(
+                                                                            10.0,
+                                                                            null,
+                                                                            null),
                                                                       ),
                                                                       Radio(
-                                                                          materialTapTargetSize:
-                                                                              MaterialTapTargetSize
-                                                                                  .shrinkWrap,
+                                                                          materialTapTargetSize: MaterialTapTargetSize
+                                                                              .shrinkWrap,
                                                                           groupValue:
                                                                               groupseenonline,
                                                                           value:
                                                                               everyone,
                                                                           onChanged:
                                                                               (val) {
-                                                                            setState(
-                                                                                () {
-                                                                              groupseenonline =
-                                                                                  everyone;
+                                                                            setState(() {
+                                                                              groupseenonline = everyone;
                                                                             });
                                                                           })
                                                                     ],
@@ -4721,30 +4690,24 @@ class WidgetProfilePage extends StatefulWidget {
                                                                             .spaceEvenly,
                                                                     children: [
                                                                       OutlinedButton(
-                                                                        onPressed: () {
+                                                                        onPressed:
+                                                                            () {
                                                                           /*   Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => HomePage()),
                     ); */
                                                                         },
-                                                                        style: OutlinedButton
-                                                                            .styleFrom(
-                                                                                minimumSize: Size(
-                                                                                    120,
-                                                                                    37),
-                                                                                side:
-                                                                                    const BorderSide(
-                                                                                  color:
-                                                                                      Color(0xff0087FF),
-                                                                                ),
-                                                                                /*  padding: EdgeInsets.symmetric(
+                                                                        style: OutlinedButton.styleFrom(
+                                                                            minimumSize: Size(120, 37),
+                                                                            side: const BorderSide(
+                                                                              color: Color(0xff0087FF),
+                                                                            ),
+                                                                            /*  padding: EdgeInsets.symmetric(
                                           horizontal: 40.0, vertical: 20.0), */
-                                                                                backgroundColor:
-                                                                                    primaryColorOfApp,
-                                                                                shape: RoundedRectangleBorder(
-                                                                                    borderRadius:
-                                                                                        BorderRadius.circular(5.0))),
-                                                                        child: Text(
+                                                                            backgroundColor: primaryColorOfApp,
+                                                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                        child:
+                                                                            Text(
                                                                           "Block",
                                                                           style: TextStyle(
                                                                               fontWeight: FontWeight.w500,
@@ -4754,28 +4717,23 @@ class WidgetProfilePage extends StatefulWidget {
                                                                         ),
                                                                       ),
                                                                       OutlinedButton(
-                                                                        onPressed: () {
+                                                                        onPressed:
+                                                                            () {
                                                                           /*   Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => HomePage()),
                     ); */
                                                                         },
-                                                                        style: OutlinedButton
-                                                                            .styleFrom(
-                                                                                side:
-                                                                                    const BorderSide(
-                                                                                  color:
-                                                                                      Color(0xff0087FF),
-                                                                                ),
-                                                                                /*  padding: EdgeInsets.symmetric(
+                                                                        style: OutlinedButton.styleFrom(
+                                                                            side: const BorderSide(
+                                                                              color: Color(0xff0087FF),
+                                                                            ),
+                                                                            /*  padding: EdgeInsets.symmetric(
                                           horizontal: 40.0, vertical: 20.0), */
-                                                                                backgroundColor:
-                                                                                    Colors
-                                                                                        .white,
-                                                                                shape: RoundedRectangleBorder(
-                                                                                    borderRadius:
-                                                                                        BorderRadius.circular(5.0))),
-                                                                        child: Text(
+                                                                            backgroundColor: Colors.white,
+                                                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                        child:
+                                                                            Text(
                                                                           "Block & report",
                                                                           style: TextStyle(
                                                                               fontWeight: FontWeight.w500,
@@ -4788,38 +4746,50 @@ class WidgetProfilePage extends StatefulWidget {
                                                                   ),
                                                                   SizedBox(
                                                                     height:
-                                                                        height * 0.1,
+                                                                        height *
+                                                                            0.1,
                                                                   )
                                                                 ])),
-                                                                 Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                        Positioned.fill(
+                                                            top: -36,
+                                                            child: Align(
+                                                              alignment:
+                                                                  Alignment
+                                                                      .topCenter,
+                                                              child: InkWell(
+                                                                onTap: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    border: Border.all(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        width:
+                                                                            2),
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        const EdgeInsets.all(
+                                                                            4.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .close,
+                                                                      color: Colors
+                                                                          .white,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ))
                                                       ],
                                                     );
                                                   });
@@ -4827,7 +4797,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           },
                                           title: Text(
                                             'Block this profile',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/blockicon.svg',
@@ -4845,35 +4816,34 @@ class WidgetProfilePage extends StatefulWidget {
                                         )
                                       ],
                                     ),
-                                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                    Positioned.fill(
+                                        top: -36,
+                                        child: Align(
+                                          alignment: Alignment.topCenter,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Container(
+                                              /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.white,
+                                                    width: 2),
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(4.0),
+                                                child: Icon(
+                                                  Icons.close,
+                                                  color: Colors.white,
                                                 ),
-                                              ))
+                                              ),
+                                            ),
+                                          ),
+                                        ))
                                   ],
                                 );
                               });
@@ -4982,7 +4952,8 @@ class WidgetProfilePage extends StatefulWidget {
                                         height: height * 0.01,
                                       ),
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Notifications',
@@ -5002,7 +4973,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           onTap: () {},
                                           title: Text(
                                             'All notifications',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/setprofile.svg',
@@ -5011,7 +4983,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           ),
                                           trailing: Switch.adaptive(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               value: value1,
                                               onChanged: (value1) {
                                                 setState(() {
@@ -5029,7 +5002,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           onTap: () {},
                                           title: Text(
                                             'Post',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/posticon.svg',
@@ -5038,7 +5012,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           ),
                                           trailing: Switch.adaptive(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               value: value1,
                                               onChanged: (value1) {
                                                 setState(() {
@@ -5056,7 +5031,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           onTap: () {},
                                           title: Text(
                                             'Story',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/historyicon.svg',
@@ -5065,7 +5041,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           ),
                                           trailing: Switch.adaptive(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               value: value1,
                                               onChanged: (value1) {
                                                 setState(() {
@@ -5083,7 +5060,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           onTap: () {},
                                           title: Text(
                                             'video',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/videoicon.svg',
@@ -5092,7 +5070,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           ),
                                           trailing: Switch.adaptive(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               value: value1,
                                               onChanged: (value1) {
                                                 setState(() {
@@ -5110,7 +5089,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           onTap: () {},
                                           title: Text(
                                             'Live',
-                                            style: ProfileSelf().buildtextstyle(),
+                                            style:
+                                                ProfileSelf().buildtextstyle(),
                                           ),
                                           leading: SvgPicture.asset(
                                             'assets/privacygroup.svg',
@@ -5119,7 +5099,8 @@ class WidgetProfilePage extends StatefulWidget {
                                           ),
                                           trailing: Switch.adaptive(
                                               materialTapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               value: value1,
                                               onChanged: (value1) {
                                                 setState(() {
@@ -5130,35 +5111,32 @@ class WidgetProfilePage extends StatefulWidget {
                                         height: height * 0.03,
                                       ),
                                     ]),
-                                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                Positioned.fill(
+                                    top: -36,
+                                    child: Align(
+                                      alignment: Alignment.topCenter,
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Container(
+                                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color: Colors.white, width: 2),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(4.0),
+                                            child: Icon(
+                                              Icons.close,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ))
                               ],
                             );
                           });
@@ -5272,7 +5250,8 @@ class _WidgetProfilePageState extends State<WidgetProfilePage> {
                           Text(
                             'camera',
                             style: TextStyle(
-                                fontFamily: 'Poppins', color: Color(0xff333333)),
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333)),
                           )
                         ],
                       ),
@@ -5307,7 +5286,8 @@ class _WidgetProfilePageState extends State<WidgetProfilePage> {
                           Text(
                             'gallery',
                             style: TextStyle(
-                                fontFamily: 'Poppins', color: Color(0xff333333)),
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333)),
                           )
                         ],
                       ),
@@ -5318,35 +5298,31 @@ class _WidgetProfilePageState extends State<WidgetProfilePage> {
                   ),
                 ],
               ),
-               Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+              Positioned.fill(
+                  top: -36,
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Icon(
+                            Icons.close,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ))
             ],
           );
         });

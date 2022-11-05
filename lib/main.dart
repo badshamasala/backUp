@@ -9,6 +9,7 @@ import 'package:flutter_application_1/SHARE/shareprofile.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 
 import 'package:flutter_application_1/ONBOARDING/startPage.dart';
+import 'package:flutter_application_1/interaction.dart';
 import 'package:flutter_application_1/listcheck.dart';
 import 'package:provider/provider.dart';
 

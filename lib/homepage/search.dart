@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -82,21 +80,22 @@ class _SearchState extends State<Search> {
                   },
                 )),
             buildIndicator(),
-            /* SizedBox(
-              height: 350,
-              child: StaggeredGridView.countBuilder(
-                crossAxisCount: 3,
-                  crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                  itemCount: 50,
-                 
-                  itemBuilder: (context, index) {
-                    return Container(
-                      height: 20,
-                      color: Colors.red,
-                    );
-                  }),
-            ) */
+            Expanded(
+                child: StaggeredGridView.countBuilder(
+              scrollDirection: Axis.vertical,
+              physics: ClampingScrollPhysics(),
+              crossAxisCount: 3,
+              itemCount: urlImages.length,
+              itemBuilder: (context, index) => Image.network(
+                urlImages[index],
+                fit: BoxFit.cover,
+              ),
+              staggeredTileBuilder: (int index) => index % 3 == 0
+                  ? StaggeredTile.count(1, 2)
+                  : StaggeredTile.count(1, 1),
+              mainAxisSpacing: 0,
+              crossAxisSpacing: 4.0,
+            ))
           ],
         ));
   }
@@ -106,8 +105,8 @@ class _SearchState extends State<Search> {
           spacing: 1,
           activeDotColor: Color(0xff0087FF),
           dotColor: Color(0xff333333),
-          dotHeight: 7,
-          dotWidth: 7),
+          dotHeight: 3,
+          dotWidth: 3),
       activeIndex: activeIndex,
       count: 10);
   buildInputdecoration(String labeltext) {
