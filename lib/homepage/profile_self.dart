@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googlenewpage.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_application_1/homepage/video_player.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
@@ -7152,250 +7153,130 @@ class ProfileSelf extends StatefulWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          showModalBottomSheet(
-                            isScrollControlled: true,
-                            shape: const RoundedRectangleBorder(
-                              // <-- SEE HERE
-                              borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(20.0),
-                              ),
+                           showModalBottomSheet(
+                          isScrollControlled: true,
+                          shape: const RoundedRectangleBorder(
+                            // <-- SEE HERE
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(20.0),
                             ),
-                            context: context,
-                            builder: (BuildContext context) {
-                              return StatefulBuilder(builder:
-                                  (BuildContext context, StateSetter setState) {
-                                return Stack(
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          child: Container(
-                                            color: Colors.black,
+                          ),
+                          context: context,
+                          builder: (BuildContext context) {
+                            return StatefulBuilder(builder:
+                                (BuildContext context, StateSetter setState) {
+                              return Stack(
+                                clipBehavior: Clip.none,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            decoration: BoxDecoration(
+                                                color: Color(0xffE2E2E2),
+                                                borderRadius:
+                                                    BorderRadius.circular(8)),
                                             height: 5,
                                             width: 100,
                                           ),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        const Text('Select your language'),
-                                        const Divider(),
-                                        ListTile(
-                                          visualDensity:
-                                              VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text(
-                                            'English',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                          trailing: Radio(
-                                            value: english,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = english;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ListTile(
-                                          visualDensity:
-                                              const VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text(
-                                            'Hindi',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                          trailing: Radio(
-                                            value: hindi,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = hindi;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ListTile(
-                                          visualDensity:
-                                              const VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text('Bengali',
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text('Choose Language',
                                               style: TextStyle(
-                                                  fontFamily: 'Poppins')),
-                                          trailing: Radio(
-                                            value: bengali,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = bengali;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ListTile(
-                                          visualDensity:
-                                              const VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text('Gujarati',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins')),
-                                          trailing: Radio(
-                                            value: gujarati,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = gujarati;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ListTile(
-                                          visualDensity:
-                                              const VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text('Marathi',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins')),
-                                          trailing: Radio(
-                                            value: marathi,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = marathi;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ListTile(
-                                          visualDensity:
-                                              const VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text('Urdu',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins')),
-                                          trailing: Radio(
-                                            value: urdu,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = urdu;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ListTile(
-                                          visualDensity:
-                                              const VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text('Odia (oria)',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins')),
-                                          trailing: Radio(
-                                            value: odia,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = odia;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ListTile(
-                                          visualDensity:
-                                              const VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text('Kannada',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins')),
-                                          trailing: Radio(
-                                            value: kannada,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = kannada;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ListTile(
-                                          visualDensity:
-                                              const VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text('Tamil',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins')),
-                                          trailing: Radio(
-                                            value: tamil,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = tamil;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ListTile(
-                                          visualDensity:
-                                              const VisualDensity(vertical: -3),
-                                          dense: true,
-                                          leading: const Text('Telugu',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins')),
-                                          trailing: Radio(
-                                            value: telugu,
-                                            groupValue: groupvalue,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                groupvalue = telugu;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Positioned.fill(
-                                        top: -36,
-                                        child: Align(
-                                          alignment: Alignment.topCenter,
-                                          child: InkWell(
-                                            onTap: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: Container(
-                                              /*   width: 45,
-                                  height: 45, */
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white,
-                                                    width: 2),
-                                                shape: BoxShape.circle,
+                                                  fontFamily: 'Poppins',
+                                                  color: primaryColorOfApp,
+                                                  fontSize: 15))
+                                        ],
+                                      ),
+                                      Divider(),
+                                      ListView.separated(
+                                          shrinkWrap: true,
+                                          itemBuilder: (context, index) {
+                                            return ListTile(
+                                              minVerticalPadding: 10,
+                                              horizontalTitleGap: 0.0,
+                                              visualDensity:
+                                                  const VisualDensity(
+                                                      vertical: -3),
+                                              dense: true,
+                                              leading: Text(
+                                                Slider1().locale[index]['language']
+                                                    .toString(),
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins'),
                                               ),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(4.0),
-                                                child: Icon(
-                                                  Icons.close,
+                                              trailing: Radio(
+                                                  value: Slider1().locale[index]['locale']
+                                                      .toString(),
+                                                  groupValue: Slider1().groupValue,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      Slider1().groupValue = Slider1().locale[index]
+                                                              ['locale']
+                                                          .toString();
+                                                      Slider1().updatmethod(Slider1().locale[index]
+                                                              ['locale']
+                                                          .toString());
+                                                      Navigator.pop(context);
+                                                    });
+                                                  }),
+                                            );
+                                          },
+                                          separatorBuilder: (context, index) {
+                                            return Divider(
+                                              height: 2,
+                                            );
+                                          },
+                                          itemCount: Slider1().locale.length),
+                                    ],
+                                  ),
+                                  Positioned.fill(
+                                      top: -36,
+                                      child: Align(
+                                        alignment: Alignment.topCenter,
+                                        child: InkWell(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Container(
+                                            /*   width: 45,
+                                  height: 45, */
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
                                                   color: Colors.white,
-                                                ),
+                                                  width: 2),
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(4.0),
+                                              child: Icon(
+                                                Icons.close,
+                                                color: Colors.white,
                                               ),
                                             ),
                                           ),
-                                        ))
-                                  ],
-                                );
-                              });
-                            },
-                          );
+                                        ),
+                                      ))
+                                ],
+                              );
+                            });
+                          },
+                        );
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

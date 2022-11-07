@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
 
 class IntroScreen extends StatefulWidget {
@@ -59,7 +58,7 @@ class _IntroScreenState extends State<IntroScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          ' CREATE',
+                          'CREATE',
                           style: TextStyle(
                               fontSize: width * 0.1, fontFamily: 'Satisfy'),
                         ),
@@ -101,7 +100,7 @@ class _IntroScreenState extends State<IntroScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Slider1()),
+                                builder: (context) =>  Slider1()),
                           );
                         },
                         child: Text(

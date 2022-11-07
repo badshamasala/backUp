@@ -8,6 +8,7 @@ import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -24,7 +25,7 @@ class LoginPage extends StatefulWidget {
 var abc = "";
 
 class _LoginPageState extends State<LoginPage> {
-  Future loginmethod(String value1, String value2) async {
+  /* Future loginmethod(String value1, String value2) async {
     final response = await http.post(
       Uri.parse('http://103.69.242.42:8080/TestAPI/Auth.svc/authenticateUser'),
       headers: <String, String>{
@@ -49,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
           textColor: Colors.white,
           fontSize: 16.0);
     }
-  }
+  } */
 
   bool email = false;
   bool mobile = false;
@@ -91,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
     return SafeArea(
       child: Scaffold(
           body: SingleChildScrollView(
-        reverse: true,
+        /* reverse: true, */
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
@@ -107,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
               TextField(
                 controller: username,
                 decoration: InputDecoration(
-                  labelText: 'Enter Your Username',
+                  labelText: 'username'.tr,
                   labelStyle: const TextStyle(
                       color: Color(0xffC4C4C4),
                       fontFamily: 'Poppins',
@@ -141,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: password,
                 obscureText: obscure,
                 decoration: InputDecoration(
-                  labelText: 'Enter Password',
+                  labelText: 'password'.tr,
                   labelStyle: const TextStyle(
                       color: Color(0xffC4C4C4),
                       fontFamily: 'Poppins',
@@ -204,26 +205,31 @@ class _LoginPageState extends State<LoginPage> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Row(
-                                          children: [
-                                            IconButton(
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                                icon: Icon(
-                                                  Icons.arrow_back,
-                                                  color: primaryColorOfApp,
-                                                )),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Text(
-                                              'Forgot Password',
-                                              style: TextStyle(
-                                                  color: customTextColor,
-                                                  fontFamily: 'Poppins'),
-                                            )
-                                          ],
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 5.0),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              IconButton(
+                                                  padding: EdgeInsets.zero,
+                                                  constraints: BoxConstraints(),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  icon: Icon(
+                                                    Icons.arrow_back,
+                                                    color: primaryColorOfApp,
+                                                  )),
+                                              Text(
+                                                'forgot'.tr,
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins'),
+                                              )
+                                            ],
+                                          ),
                                         ),
                                         Divider(),
                                         SizedBox(
@@ -233,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
                                           height: 40,
                                           child: TextFormField(
                                             decoration: buildInputdecoration(
-                                                'Enter given username Name'),
+                                                'username'.tr),
                                           ),
                                         ),
                                         SizedBox(
@@ -247,11 +253,11 @@ class _LoginPageState extends State<LoginPage> {
                                               padding: const EdgeInsets.only(
                                                   left: 8.0),
                                               child: Text(
-                                                'Select one (via verification) for secure your profile',
+                                                'select'.tr,
                                                 style: TextStyle(
                                                     color: customTextColor,
                                                     fontFamily: 'Poppins',
-                                                    fontSize: 10),
+                                                    fontSize: 8),
                                               ),
                                             ),
                                           ],
@@ -288,7 +294,7 @@ class _LoginPageState extends State<LoginPage> {
                                                 padding:
                                                     const EdgeInsets.all(1.0),
                                                 child: Text(
-                                                  "Email",
+                                                  "email".tr,
                                                   style: TextStyle(
                                                       color: email
                                                           ? Color(0xff0087FF)
@@ -338,7 +344,7 @@ class _LoginPageState extends State<LoginPage> {
                                                 padding:
                                                     const EdgeInsets.all(1.0),
                                                 child: Text(
-                                                  "Mobile",
+                                                  "mobile".tr,
                                                   style: TextStyle(
                                                       color: mobile
                                                           ? Color(0xff0087FF)
@@ -361,7 +367,7 @@ class _LoginPageState extends State<LoginPage> {
                                               padding: const EdgeInsets.only(
                                                   left: 8.0),
                                               child: Text(
-                                                'To help keep your profile safe, myttube wants to\n make sure that it’s really you trying to password reset',
+                                                'keep'.tr,
                                                 style: TextStyle(
                                                     color: customTextColor,
                                                     fontFamily: 'Poppins',
@@ -375,7 +381,6 @@ class _LoginPageState extends State<LoginPage> {
                                         ),
                                         SizedBox(
                                           width: double.infinity,
-                                          height: 40,
                                           child: ElevatedButton(
                                             onPressed:
                                                 email == true || mobile == true
@@ -575,35 +580,31 @@ class _LoginPageState extends State<LoginPage> {
                                                                                                   height: height * 0.1,
                                                                                                 ),
                                                                                               ])),
-                                                                                               Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                                                                          Positioned.fill(
+                                                                                              top: -36,
+                                                                                              child: Align(
+                                                                                                alignment: Alignment.topCenter,
+                                                                                                child: InkWell(
+                                                                                                  onTap: () {
+                                                                                                    Navigator.pop(context);
+                                                                                                  },
+                                                                                                  child: Container(
+                                                                                                    /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                                                                                    decoration: BoxDecoration(
+                                                                                                      border: Border.all(color: Colors.white, width: 2),
+                                                                                                      shape: BoxShape.circle,
+                                                                                                    ),
+                                                                                                    child: Padding(
+                                                                                                      padding: const EdgeInsets.all(4.0),
+                                                                                                      child: Icon(
+                                                                                                        Icons.close,
+                                                                                                        color: Colors.white,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ))
                                                                                         ],
                                                                                       );
                                                                                     });
@@ -664,10 +665,6 @@ class _LoginPageState extends State<LoginPage> {
                                                     : null,
                                             style: ElevatedButton.styleFrom(
                                                 elevation: 0,
-                                                minimumSize:
-                                                    const Size(0.0, 40),
-                                                // padding: EdgeInsets.symmetric(
-                                                //     horizontal: 40.0, vertical: 20.0),
                                                 backgroundColor:
                                                     const Color(0xff0087FF),
                                                 shape: RoundedRectangleBorder(
@@ -675,7 +672,7 @@ class _LoginPageState extends State<LoginPage> {
                                                         BorderRadius.circular(
                                                             5.0))),
                                             child: Text(
-                                              "Confirm & Continue",
+                                              "confirm".tr,
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: width * 0.045,
@@ -725,7 +722,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                       child: Text(
-                        'Forgot Password ?',
+                        'forgot'.tr,
                         style: TextStyle(
                             color: primaryColorOfApp, fontFamily: 'Poppins'),
                       ))
@@ -737,7 +734,9 @@ class _LoginPageState extends State<LoginPage> {
                 child: ElevatedButton(
                   onPressed: () async {
                     print('rashid');
-                    await loginmethod(username.text, password.text);
+                              final provider =
+                        Provider.of<Googleprovider>(context, listen: false);
+                    await provider.loginmethod(username.text, password.text,context);
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
@@ -747,8 +746,8 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
                           borderRadius: UploadImage().radius())),
-                  child: const Text(
-                    "Login",
+                  child: Text(
+                    "login".tr,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -760,30 +759,22 @@ class _LoginPageState extends State<LoginPage> {
                 height: height * 0.01,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SizedBox(
-                    width: width * 0.023,
-                  ),
                   Container(
                     color: const Color(0xff515253),
                     height: height * 0.001,
-                    width: width * 0.37,
+                    width: width * 0.30,
                   ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  const Text(
-                    'OR',
+                  Text(
+                    'or'.tr,
                     style: TextStyle(
                         color: Color(0xff515253), fontFamily: 'Poppins'),
                   ),
-                  const SizedBox(
-                    width: 8,
-                  ),
                   Container(
                     color: const Color(0xff515253),
                     height: height * 0.001,
-                    width: width * 0.37,
+                    width: width * 0.30,
                   ),
                 ],
               ),
@@ -819,8 +810,8 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(
                         width: 10,
                       ),
-                      const Text(
-                        "Continue with Google",
+                      Text(
+                        "continue".tr,
                         style: TextStyle(
                             color: Colors.black, fontFamily: 'Poppins'),
                       ),
@@ -835,8 +826,8 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: width * 0.04),
-                    child: const Text(
-                      "don\'t have an account?",
+                    child: Text(
+                      "dont".tr,
                       style: TextStyle(
                           color: Color(0xff515253), fontFamily: 'Poppins'),
                     ),
@@ -861,8 +852,8 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: UploadImage().radius())),
-                  child: const Text(
-                    "Sign Up",
+                  child: Text(
+                    "signup".tr,
                     style: TextStyle(
                         color: Color(0xff0087FF),
                         fontSize: 15,
@@ -907,7 +898,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-buildInputdecoration(String labeltext) {
+  buildInputdecoration(String labeltext) {
     return InputDecoration(
       /*   errorText: validationService.fullName.error, */
       labelText: labeltext,
@@ -920,7 +911,6 @@ buildInputdecoration(String labeltext) {
           borderRadius: UploadImage().radius(),
           borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5)),
       contentPadding: const EdgeInsets.all(15),
-     
     );
   }
 }

@@ -1766,7 +1766,8 @@ class _Home1State extends State<Home1> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600)),
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 10)),
                                 ),
                                 Positioned(
                                   top: 85,
@@ -1822,7 +1823,7 @@ class _Home1State extends State<Home1> {
                 child: Column(
                   children: [
                     Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        /* mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 2.0),
@@ -1842,22 +1843,39 @@ class _Home1State extends State<Home1> {
                           ),
                           Row(
                             children: [
-                              Text('FlipKart',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: primaryColorOfApp,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold)),
-                              Iconify(
-                                Eva.arrow_right_fill,
-                                size: 15,
-                                color: Color(0xff333333),
-                              )
+                              Padding(
+                                padding: const EdgeInsets.only(left: 3.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text('flipKart',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: primaryColorOfApp,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold)),
+                                        Iconify(
+                                          Bi.patch_check,
+                                          size: 15,
+                                          color: primaryColorOfApp,
+                                        ),
+                                      ],
+                                    ),
+                                    Text('Sponsored',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold)),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
-                          /*  SizedBox(
-                                width: width * 0.01,
-                              ), */
+                          SizedBox(
+                            width: width * 0.3,
+                          ),
                           OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                   side: BorderSide(color: primaryColorOfApp),
@@ -1866,7 +1884,7 @@ class _Home1State extends State<Home1> {
                                       MaterialTapTargetSize.shrinkWrap,
                                   elevation: 0,
                                   foregroundColor: Colors.white,
-                                  minimumSize: const Size(60.0, 30.0),
+                                  minimumSize: const Size(70.0, 30.0),
                                   // padding: EdgeInsets.symmetric(
                                   //     horizontal: 40.0, vertical: 20.0),
                                   backgroundColor: primaryColorOfApp,
@@ -1879,9 +1897,9 @@ class _Home1State extends State<Home1> {
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 12),
                               )),
-                          /*    SizedBox(
-                                width: 5,
-                              ), */
+                          SizedBox(
+                            width: 5,
+                          ),
                           IconButton(
                               padding: EdgeInsets.zero,
                               constraints: BoxConstraints(),
@@ -1889,11 +1907,11 @@ class _Home1State extends State<Home1> {
                               icon: Icon(Icons.more_vert)),
                         ]),
                     SizedBox(
-                      height: 220,
+                      height: 150,
                       child: ListView.separated(
                           separatorBuilder: (context, index) {
                             return VerticalDivider(
-                              color: Colors.white,
+                              /*     color: Colors.white, */
                               width: 5,
                             );
                           },
@@ -1907,54 +1925,60 @@ class _Home1State extends State<Home1> {
                                   height: 100,
                                   width: 100,
                                 ),
-                                Row(
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Boats',
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 2.0),
+                                  child: Row(
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Boats',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 10)),
+                                          Text('Order only on ',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 10)),
+                                          Text('Flipkart App',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 10)),
+                                        ],
+                                      ),
+                                      OutlinedButton(
+                                          style: OutlinedButton.styleFrom(
+                                              side: BorderSide(
+                                                  color: primaryColorOfApp),
+                                              padding: EdgeInsets.zero,
+                                              tapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              elevation: 0,
+                                              minimumSize:
+                                                  const Size(80.0, 30.0),
+                                              foregroundColor: Colors.white,
+                                              // padding: EdgeInsets.symmetric(
+                                              //     horizontal: 40.0, vertical: 20.0),
+                                              backgroundColor:
+                                                  primaryColorOfApp,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          5.0))),
+                                          onPressed: () {},
+                                          child: Text(
+                                            'Shop Now',
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 10)),
-                                        Text('Order only on ',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 10)),
-                                        Text('Flipkart App',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 10)),
-                                      ],
-                                    ),
-                                    OutlinedButton(
-                                        style: OutlinedButton.styleFrom(
-                                            side: BorderSide(
-                                                color: primaryColorOfApp),
-                                            padding: EdgeInsets.zero,
-                                            tapTargetSize: MaterialTapTargetSize
-                                                .shrinkWrap,
-                                            elevation: 0,
-                                            minimumSize: const Size(80.0, 30.0),
-                                            foregroundColor: Colors.white,
-                                            // padding: EdgeInsets.symmetric(
-                                            //     horizontal: 40.0, vertical: 20.0),
-                                            backgroundColor: primaryColorOfApp,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        5.0))),
-                                        onPressed: () {},
-                                        child: Text(
-                                          'Shop Now',
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12),
-                                        )),
-                                  ],
+                                                fontSize: 12),
+                                          )),
+                                    ],
+                                  ),
                                 ),
                               ],
                             );

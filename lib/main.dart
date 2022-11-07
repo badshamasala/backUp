@@ -1,17 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googlenewpage.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
-import 'package:flutter_application_1/SHARE/shareprofile.dart';
-
-import 'package:flutter_application_1/homepage/homepage.dart';
-
 import 'package:flutter_application_1/ONBOARDING/startPage.dart';
-import 'package:flutter_application_1/interaction.dart';
-import 'package:flutter_application_1/listcheck.dart';
+import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_application_1/l10n/l10n.dart';
+import 'package:flutter_application_1/lancheck.dart';
+import 'package:flutter_application_1/localestring.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,34 +27,23 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => Googleprovider()),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
+        translations: LocalString(),
+        locale: Locale('en','US'),
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Dem',
+        title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-       
         ),
-        /*  supportedLocales: [
-          Locale('en', 'US'),
-          Locale('ar', 'EG'),
-          Locale('hi', 'IN'),
-          Locale('es', 'EC'),
+      /*   supportedLocales: L10n.all,
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate
         ], */
 
-// Returns a locale which will be used by the app
-        /* localeResolutionCallback: (locale, supportedLocales) {
-          // Check if the current device locale is supported
-          for (var supportedLocale in supportedLocales) {
-            if (supportedLocale.languageCode == locale!.languageCode &&
-                supportedLocale.countryCode == locale.countryCode) {
-              return supportedLocale;
-            }
-          }
-          // If the locale of the device is not supported, use the first one
-          // from the list (English, in this case).
-          return supportedLocales.first;
-        }, */
-        home: HomePage(),
+        home: IntroScreen(),
         //home: GooglePage1(),
       ),
     );

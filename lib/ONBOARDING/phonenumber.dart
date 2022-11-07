@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -98,207 +99,90 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                       Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          const SizedBox(
-                                            height: 10,
+                                          SizedBox(
+                                            height: height * 0.01,
                                           ),
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                            child: Container(
-                                              color: Colors.black,
-                                              height: 5,
-                                              width: 100,
-                                            ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xffE2E2E2),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8)),
+                                                height: 5,
+                                                width: 100,
+                                              ),
+                                            ],
                                           ),
-                                          const SizedBox(
-                                            height: 10,
+                                          SizedBox(
+                                            height: height * 0.01,
                                           ),
-                                          const Text('Select your language'),
-                                          const Divider(),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text(
-                                              'English',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins'),
-                                            ),
-                                            trailing: Radio(
-                                              value: language.english,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text('Choose Language',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      color: primaryColorOfApp,
+                                                      fontSize: 15))
+                                            ],
+                                          ),
+                                          Divider(),
+                                          ListView.separated(
+                                              shrinkWrap: true,
+                                              itemBuilder: (context, index) {
+                                                return ListTile(
+                                                  minVerticalPadding: 10,
+                                                  horizontalTitleGap: 0.0,
+                                                  visualDensity:
+                                                      const VisualDensity(
+                                                          vertical: -3),
+                                                  dense: true,
+                                                  leading: Text(
+                                                    Slider1()
+                                                        .locale[index]
+                                                            ['language']
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontFamily: 'Poppins'),
+                                                  ),
+                                                  trailing: Radio(
+                                                      value: Slider1()
+                                                          .locale[index]
+                                                              ['locale']
+                                                          .toString(),
+                                                      groupValue:
+                                                          Slider1().groupValue,
+                                                      onChanged: (value) {
+                                                        setState(() {
+                                                          Slider1().groupValue =
+                                                              Slider1()
+                                                                  .locale[index]
+                                                                      ['locale']
+                                                                  .toString();
+                                                          Slider1().updatmethod(
+                                                              Slider1()
+                                                                  .locale[index]
+                                                                      ['locale']
+                                                                  .toString());
+                                                          Navigator.pop(
+                                                              context);
+                                                        });
+                                                      }),
+                                                );
                                               },
-                                            ),
-                                          ),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text(
-                                              'Hindi',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins'),
-                                            ),
-                                            trailing: Radio(
-                                              value: language.hindi,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
+                                              separatorBuilder:
+                                                  (context, index) {
+                                                return Divider(
+                                                  height: 2,
+                                                );
                                               },
-                                            ),
-                                          ),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text('Bengali',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins')),
-                                            trailing: Radio(
-                                              value: language.bengali,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text('Gujarati',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins')),
-                                            trailing: Radio(
-                                              value: language.gujrati,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text('Marathi',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins')),
-                                            trailing: Radio(
-                                              value: language.marathi,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text('Urdu',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins')),
-                                            trailing: Radio(
-                                              value: language.urud,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text('Odia (oria)',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins')),
-                                            trailing: Radio(
-                                              value: language.odia,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text('Kannada',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins')),
-                                            trailing: Radio(
-                                              value: language.kannada,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text('Tamil',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins')),
-                                            trailing: Radio(
-                                              value: language.tamil,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
-                                          ListTile(
-                                            visualDensity: const VisualDensity(
-                                                vertical: -3),
-                                            dense: true,
-                                            leading: const Text('Telugu',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins')),
-                                            trailing: Radio(
-                                              value: language.telugu,
-                                              groupValue: _site,
-                                              onChanged: (language? value) {
-                                                setState(() {
-                                                  _site = value!;
-                                                });
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ),
+                                              itemCount:
+                                                  Slider1().locale.length),
                                         ],
                                       ),
                                       Positioned.fill(
@@ -554,35 +438,34 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                           ),
                                         ]),
                                   ),
-                                   Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                                  Positioned.fill(
+                                      top: -36,
+                                      child: Align(
+                                        alignment: Alignment.topCenter,
+                                        child: InkWell(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Container(
+                                            /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2),
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(4.0),
+                                              child: Icon(
+                                                Icons.close,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ))
                                 ],
                               );
                             });
