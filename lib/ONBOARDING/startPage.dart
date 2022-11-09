@@ -79,7 +79,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         Text(
                           ' your own story and\n share it with\n the world',
                           style: TextStyle(
-                              fontSize: width * 0.1, fontFamily: 'Imprima'),
+                              fontSize: width * 0.09, fontFamily: 'Imprima'),
                         ),
                       ],
                     )),
@@ -99,8 +99,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) =>  Slider1()),
+                            MaterialPageRoute(builder: (context) => Slider1()),
                           );
                         },
                         child: Text(
