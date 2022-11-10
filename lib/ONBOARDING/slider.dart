@@ -44,7 +44,7 @@ var groupValue;
 class _Slider1State extends State<Slider1> {
   int activeIndex = 0;
   var size, height, width;
-  language _site = language.english;
+
   List urlImages = [
     'assets/loginimg.svg',
     'assets/loginimg.svg',

@@ -63,14 +63,14 @@ class _AccountTypeState extends State<AccountType> {
                             width: width * 0.02,
                           ),
                           Text(
-                            widget.value == ''? '+918689880061':widget.value,
+                            widget.value == ''? '+918689880061': widget.value,
                             style: TextStyle(
                                 color: const Color(0xffC4C4C4),
                                 fontFamily: 'Poppins',
                                 fontSize: width * 0.06),
                           ),
                           SizedBox(
-                            width: width * 0.18,
+                            width:widget.value != "" ? width * 0.28: width * 0.18,
                           ),
                           const Icon(
                             Icons.check_circle_outline,

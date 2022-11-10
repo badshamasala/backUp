@@ -5,7 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/home1.dart';
+import 'package:flutter_application_1/homepage/malefemale.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/interaction.dart';
@@ -1506,6 +1508,11 @@ class WidgetProfilePage extends StatefulWidget {
                       width: double.infinity,
                       child: OutlinedButton(
                         onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ChangeInterest()),
+                          );
                           /*   Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => HomePage()),
@@ -1758,7 +1765,12 @@ class WidgetProfilePage extends StatefulWidget {
                   width: width * 0.03,
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChangeInterest()),
+                    );
+                  },
                   style: OutlinedButton.styleFrom(
                       minimumSize: Size(90, 35),
                       /*  minimumSize: Size(32, 30), */

@@ -42,47 +42,18 @@ class _FormfillState extends State<Formfill> {
                 children: [
                   buildstacknumber(),
                   sizedbox1(),
-                  widget.value1
-                      ? TextFormField(
+              TextFormField(
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please Enter Name';
                             }
                             return null;
                           },
-                          /* onSaved: ( value){
-                      name = value!;
-                        }, */
+                   
                           decoration:
-                              buildInputdecoration('Enter Your Full Name'),
-                        )
-                      : widget.value2
-                          ? TextFormField(
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'Please Enter Name';
-                                }
-                                return null;
-                              },
-                              /* onSaved: ( value){
-                          name = value!;
-                        }, */
-                              decoration:
-                                  buildInputdecoration('Enter Your Brand Name'),
-                            )
-                          : TextFormField(
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'Please Enter Name';
-                                }
-                                return null;
-                              },
-                              /* onSaved: ( value){
-                          name = value!;
-                        }, */
-                              decoration: buildInputdecoration(
-                                  'Enter Your Name or Comunity'),
-                            ),
+                              buildInputdecoration(widget.value1 ?'Enter Your Full Name':widget.value2 ? 'Enter Your Brand Name': 'Enter Your Name or Comunity'),
+                        ),
+                   
                   sizedbox(),
                   TextFormField(
                     validator: (value) {

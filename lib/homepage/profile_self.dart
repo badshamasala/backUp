@@ -7,6 +7,7 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googlenewpage.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
+import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/video_player.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
@@ -5957,6 +5958,11 @@ class ProfileSelf extends StatefulWidget {
                       width: double.infinity,
                       child: OutlinedButton(
                         onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ChangeInterest()),
+                          );
                           /*   Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => HomePage()),
@@ -7153,130 +7159,137 @@ class ProfileSelf extends StatefulWidget {
                       ),
                       InkWell(
                         onTap: () {
-                           showModalBottomSheet(
-                          isScrollControlled: true,
-                          shape: const RoundedRectangleBorder(
-                            // <-- SEE HERE
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(20.0),
+                          showModalBottomSheet(
+                            isScrollControlled: true,
+                            shape: const RoundedRectangleBorder(
+                              // <-- SEE HERE
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(20.0),
+                              ),
                             ),
-                          ),
-                          context: context,
-                          builder: (BuildContext context) {
-                            return StatefulBuilder(builder:
-                                (BuildContext context, StateSetter setState) {
-                              return Stack(
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      SizedBox(
-                                        height: height * 0.01,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Container(
-                                            decoration: BoxDecoration(
-                                                color: Color(0xffE2E2E2),
-                                                borderRadius:
-                                                    BorderRadius.circular(8)),
-                                            height: 5,
-                                            width: 100,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: height * 0.01,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text('Choose Language',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  color: primaryColorOfApp,
-                                                  fontSize: 15))
-                                        ],
-                                      ),
-                                      Divider(),
-                                      ListView.separated(
-                                          shrinkWrap: true,
-                                          itemBuilder: (context, index) {
-                                            return ListTile(
-                                              minVerticalPadding: 10,
-                                              horizontalTitleGap: 0.0,
-                                              visualDensity:
-                                                  const VisualDensity(
-                                                      vertical: -3),
-                                              dense: true,
-                                              leading: Text(
-                                                Slider1().locale[index]['language']
-                                                    .toString(),
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins'),
-                                              ),
-                                              trailing: Radio(
-                                                  value: Slider1().locale[index]['locale']
-                                                      .toString(),
-                                                  groupValue: Slider1().groupValue,
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      Slider1().groupValue = Slider1().locale[index]
-                                                              ['locale']
-                                                          .toString();
-                                                      Slider1().updatmethod(Slider1().locale[index]
-                                                              ['locale']
-                                                          .toString());
-                                                      Navigator.pop(context);
-                                                    });
-                                                  }),
-                                            );
-                                          },
-                                          separatorBuilder: (context, index) {
-                                            return Divider(
-                                              height: 2,
-                                            );
-                                          },
-                                          itemCount: Slider1().locale.length),
-                                    ],
-                                  ),
-                                  Positioned.fill(
-                                      top: -36,
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            /*   width: 45,
-                                  height: 45, */
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(4.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
+                            context: context,
+                            builder: (BuildContext context) {
+                              return StatefulBuilder(builder:
+                                  (BuildContext context, StateSetter setState) {
+                                return Stack(
+                                  clipBehavior: Clip.none,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        SizedBox(
+                                          height: height * 0.01,
                                         ),
-                                      ))
-                                ],
-                              );
-                            });
-                          },
-                        );
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                  color: Color(0xffE2E2E2),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8)),
+                                              height: 5,
+                                              width: 100,
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: height * 0.01,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text('Choose Language',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    color: primaryColorOfApp,
+                                                    fontSize: 15))
+                                          ],
+                                        ),
+                                        Divider(),
+                                        ListView.separated(
+                                            shrinkWrap: true,
+                                            itemBuilder: (context, index) {
+                                              return ListTile(
+                                                minVerticalPadding: 10,
+                                                horizontalTitleGap: 0.0,
+                                                visualDensity:
+                                                    const VisualDensity(
+                                                        vertical: -3),
+                                                dense: true,
+                                                leading: Text(
+                                                  Slider1()
+                                                      .locale[index]['language']
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins'),
+                                                ),
+                                                trailing: Radio(
+                                                    value: Slider1()
+                                                        .locale[index]['locale']
+                                                        .toString(),
+                                                    groupValue:
+                                                        Slider1().groupValue,
+                                                    onChanged: (value) {
+                                                      setState(() {
+                                                        Slider1().groupValue =
+                                                            Slider1()
+                                                                .locale[index]
+                                                                    ['locale']
+                                                                .toString();
+                                                        Slider1().updatmethod(
+                                                            Slider1()
+                                                                .locale[index]
+                                                                    ['locale']
+                                                                .toString());
+                                                        Navigator.pop(context);
+                                                      });
+                                                    }),
+                                              );
+                                            },
+                                            separatorBuilder: (context, index) {
+                                              return Divider(
+                                                height: 2,
+                                              );
+                                            },
+                                            itemCount: Slider1().locale.length),
+                                      ],
+                                    ),
+                                    Positioned.fill(
+                                        top: -36,
+                                        child: Align(
+                                          alignment: Alignment.topCenter,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Container(
+                                              /*   width: 45,
+                                  height: 45, */
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.white,
+                                                    width: 2),
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(4.0),
+                                                child: Icon(
+                                                  Icons.close,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ))
+                                  ],
+                                );
+                              });
+                            },
+                          );
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -9019,8 +9032,6 @@ class _ProfileSelfState extends State<ProfileSelf> {
             WidgetProfilePage().buildtop(context),
             WidgetProfilePage().buildcontent(context),
             TabBar(
-          
-         
               indicatorSize: TabBarIndicatorSize.tab,
               indicatorPadding: EdgeInsets.zero,
               labelColor: Color(0xff0087FF),

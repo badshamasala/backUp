@@ -1,10 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
-import 'package:flutter_application_1/CHAT_APP/loginpage.dart';
-import 'package:flutter_application_1/CHAT_APP/registerpage.dart';
 import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/ONBOARDING/checkphoneauth.dart';
+import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
+import 'package:flutter_application_1/ONBOARDING/startPage.dart';
+import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_application_1/localestring.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 Future main() async {
@@ -33,7 +36,7 @@ class _MyAppState extends State<MyApp> {
 
   getUserLoggedInStatus() async {
     await SharedPref.getUserLoggedInStatus().then((value) {
-      print(_isLoggedIn);
+    /*   print(_isLoggedIn); */
       if (value != null) {
         setState(() {
           _isLoggedIn = value;
@@ -49,9 +52,9 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider(create: (_) => Googleprovider()),
       ],
-      child: MaterialApp(
-          /*      translations: LocalString(),
-        locale: Locale('en','US'), */
+      child: GetMaterialApp(
+          translations: LocalString(),
+          locale: Locale('en', 'US'),
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
@@ -65,9 +68,10 @@ class _MyAppState extends State<MyApp> {
           GlobalWidgetsLocalizations.delegate
       ], */
 
-          home: _isLoggedIn
+          home:Checkphoneauth()
+             /*  IntroScreen() */ /* _isLoggedIn
               ? Chathomepage()
-              : LoginPage12() /* FutureBuilder(
+              : LoginPage12() */ /* FutureBuilder(
           future: _initialization,
           builder: (context, snapshot) {
             if (snapshot.hasError) {
