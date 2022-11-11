@@ -160,18 +160,23 @@ class _LoginPage12State extends State<LoginPage12> {
     if (_formKey.currentState!.validate()) {
       print(email);
       print(password);
-      setState(() {
+    /*   setState(() {
         isloading = true;
-      });
+      }); */
 
-      await authService.loginUser(email, password).then((value) async {
+     /*  await authService.loginUser(email, password).then((value) async {
         if (value == true) {
           QuerySnapshot snapshot =
               await DatabaseService(uid: FirebaseAuth.instance.currentUser!.uid)
-                  .gettingUserData(email);
+                  .gettingUserData(email); */
           await SharedPref.saveUserEmail(email);
+          await SharedPref.saveUserPassword(password);
           await SharedPref.saveUserLoggedInStatus(true);
           Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Chathomepage()),
+          );
+          /* Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => Chathomepage()),
           );
@@ -183,7 +188,7 @@ class _LoginPage12State extends State<LoginPage12> {
             isloading = false;
           });
         }
-      });
+      }); */
     }
   }
 }

@@ -9,11 +9,13 @@ class Formfill extends StatefulWidget {
   dynamic value1;
   dynamic value2;
   dynamic value3;
+  dynamic value;
   Formfill({
     Key? key,
     required this.value1,
     required this.value2,
     required this.value3,
+    required this.value,
   }) : super(key: key);
 
   @override
@@ -42,18 +44,19 @@ class _FormfillState extends State<Formfill> {
                 children: [
                   buildstacknumber(),
                   sizedbox1(),
-              TextFormField(
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Please Enter Name';
-                            }
-                            return null;
-                          },
-                   
-                          decoration:
-                              buildInputdecoration(widget.value1 ?'Enter Your Full Name':widget.value2 ? 'Enter Your Brand Name': 'Enter Your Name or Comunity'),
-                        ),
-                   
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please Enter Name';
+                      }
+                      return null;
+                    },
+                    decoration: buildInputdecoration(widget.value1
+                        ? 'Enter Your Full Name'
+                        : widget.value2
+                            ? 'Enter Your Brand Name'
+                            : 'Enter Your Name or Comunity'),
+                  ),
                   sizedbox(),
                   TextFormField(
                     validator: (value) {
@@ -236,7 +239,7 @@ class _FormfillState extends State<Formfill> {
                         width: width * 0.02,
                       ),
                       Text(
-                        '+91 8689880061',
+                        '+91 ${widget.value}',
                         style: TextStyle(
                             color: const Color(0xffC4C4C4),
                             fontFamily: 'Poppins',
@@ -257,7 +260,7 @@ class _FormfillState extends State<Formfill> {
                 top: 13,
                 left: 30,
                 width: 170,
-                height: 10,
+                height: 13,
                 child: Container(
                   /*   width: 200,
                       height: 150, */

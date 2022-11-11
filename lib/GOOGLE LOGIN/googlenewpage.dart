@@ -1,11 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
-
 
 class GooglePage1 extends StatelessWidget {
   const GooglePage1({super.key});

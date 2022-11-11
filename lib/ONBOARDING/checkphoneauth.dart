@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/GETX/smsautofill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
 class Checkphoneauth extends StatefulWidget {
   const Checkphoneauth({Key? key}) : super(key: key);
@@ -15,7 +18,7 @@ class Checkphoneauth extends StatefulWidget {
 
 class _CheckphoneauthState extends State<Checkphoneauth> {
   GlobalKey<FormState> _formKey = GlobalKey();
-
+  final HomeController controller = Get.put(HomeController());
   bool check10number = true;
   bool check6digit = true;
   var phonecont = TextEditingController();
@@ -159,46 +162,52 @@ class _CheckphoneauthState extends State<Checkphoneauth> {
               ),
             ),
           ),
-          OtpTextField(
-            filled: true,
-            margin: EdgeInsets.only(right: 4.0),
-            fieldWidth: 45,
-            fillColor: Color(0xffDFEEFC),
-            borderWidth: 1,
-            focusedBorderColor: primaryColorOfApp,
-            numberOfFields: 6,
-            borderColor: primaryColorOfApp,
-            //set to true to show as box or false to show as dash
-            showFieldAsBox: true,
-            //runs when a code is typed in
-            onCodeChanged: (String value) {
-              //handle validation or checks here
-            },
-            //runs when every textfield is filled
-            onSubmit: (String verificationCode) {
-              if (verificationCode.length == 6) {
-                setState(() {
-                  check6digit = false;
-                });
-              }
-              if (verificationCode.length < 6) {
-                setState(() {
-                  check6digit = true;
-                });
-              }
-
-              /* showDialog(
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return AlertDialog(
-                                                                title: const Text(
-                                                                    "Verification Code"),
-                                                                content: Text(
-                                                                    'Code entered is $verificationCode'),
-                                                              );
-                                                            }); */
-            }, // end onSubmit
-          ),
+         Obx((() =>
+                                                            PinFieldAutoFill(
+                                                              textInputAction:
+                                                                  TextInputAction
+                                                                      .done,
+                                                              controller: controller
+                                                                  .otpEditingController,
+                                                              decoration:
+                                                                  UnderlineDecoration(
+                                                                textStyle: const TextStyle(
+                                                                    fontSize:
+                                                                        16,
+                                                                    color: Colors
+                                                                        .blue),
+                                                                colorBuilder:
+                                                                    const FixedColorBuilder(
+                                                                  Colors
+                                                                      .transparent,
+                                                                ),
+                                                                bgColorBuilder:
+                                                                    FixedColorBuilder(
+                                                                  Colors.grey
+                                                                      .withOpacity(
+                                                                          0.2),
+                                                                ),
+                                                              ),
+                                                              currentCode:
+                                                                  controller
+                                                                      .messageOtpCode
+                                                                      .value,
+                                                              onCodeSubmitted:
+                                                                  (code) {},
+                                                              onCodeChanged:
+                                                                  (code) {
+                                                                controller
+                                                                    .messageOtpCode
+                                                                    .value = code!;
+                                                                controller
+                                                                    .countdownController
+                                                                    .pause();
+                                                                if (code.length ==
+                                                                    6) {
+                                                                  // To perform some operation
+                                                                }
+                                                              },
+                                                            ))),
            SizedBox(
                                                         /*     height: 45, */
                                                         width: double.infinity,

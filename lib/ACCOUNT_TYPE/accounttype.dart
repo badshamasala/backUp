@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 
 class AccountType extends StatefulWidget {
   final value;
-  const AccountType({ required this.value});
+  const AccountType({required this.value});
 
   @override
   State<AccountType> createState() => _AccountTypeState();
@@ -63,14 +64,17 @@ class _AccountTypeState extends State<AccountType> {
                             width: width * 0.02,
                           ),
                           Text(
-                            widget.value == ''? '+918689880061': widget.value,
+                            '+91 ${widget.value}',
                             style: TextStyle(
                                 color: const Color(0xffC4C4C4),
                                 fontFamily: 'Poppins',
                                 fontSize: width * 0.06),
                           ),
                           SizedBox(
-                            width:widget.value != "" ? width * 0.28: width * 0.18,
+                            width: /* widget.value != ""
+                                ? width * 0.28
+                                : */
+                                width * 0.18,
                           ),
                           const Icon(
                             Icons.check_circle_outline,
@@ -84,7 +88,7 @@ class _AccountTypeState extends State<AccountType> {
                     top: 13,
                     left: 30,
                     width: 170,
-                    height: 10,
+                    height: 13,
                     child: Container(
                       /*   width: 200,
               height: 150, */
@@ -285,6 +289,7 @@ class _AccountTypeState extends State<AccountType> {
                                     value1: value1,
                                     value2: value2,
                                     value3: value3,
+                                    value: widget.value,
                                   )),
                         );
                         /*  /* setState(() { */
@@ -452,7 +457,12 @@ class _AccountTypeState extends State<AccountType> {
                           fontFamily: 'Poppins',
                           fontSize: width * 0.04)),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      },
                       child: const Text(
                         'login',
                         style: TextStyle(

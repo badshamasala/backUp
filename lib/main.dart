@@ -1,11 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
+import 'package:flutter_application_1/CHAT_APP/loginpage.dart';
 import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-import 'package:flutter_application_1/ONBOARDING/checkphoneauth.dart';
-import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
-import 'package:flutter_application_1/ONBOARDING/startPage.dart';
-import 'package:flutter_application_1/homepage/homepage.dart';
+
+import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+
 import 'package:flutter_application_1/localestring.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -68,7 +69,9 @@ class _MyAppState extends State<MyApp> {
           GlobalWidgetsLocalizations.delegate
       ], */
 
-          home:Checkphoneauth()
+          home:_isLoggedIn
+              ? Chathomepage()
+              : LoginPage12() /* LoginPage12() */
              /*  IntroScreen() */ /* _isLoggedIn
               ? Chathomepage()
               : LoginPage12() */ /* FutureBuilder(

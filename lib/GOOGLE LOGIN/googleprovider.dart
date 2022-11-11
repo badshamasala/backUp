@@ -18,7 +18,9 @@ class Googleprovider extends ChangeNotifier {
     try {
       final googleuser = await googlesignin.signIn();
 
-      if (googleuser == null) return;
+      if (googleuser == null) {
+        return;
+      }
 
       _user = googleuser;
       final googleauth = await googleuser.authentication;
@@ -36,33 +38,45 @@ class Googleprovider extends ChangeNotifier {
   }
 
   Future loginmethod(String value1, String value2, context) async {
-    final response = await http.post(
-      Uri.parse('http://103.69.242.42:8080/TestAPI/Auth.svc/authenticateUser'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(
-          {"api_key": "myttube123456", "user_id": value1, "password": value2}),
-    );
-    var jsondata = jsonDecode(response.body);
-    print(response.body);
+    try {
+      final response = await http.post(
+        Uri.parse(
+            'http://103.69.242.42:8080/TestAPI/Auth.svc/authenticateUser'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          "api_key": "myttube123456",
+          "user_id": value1,
+          "password": value2
+        }),
+      );
+      var jsondata = jsonDecode(response.body);
+      print(response.body);
 
-    var status = jsondata[0]["status"];
-    print(status);
+      var status = jsondata[0]["status"];
+      print(status);
 
-    if (status == "True") {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
-    } else {
+      if (status == "True") {
+        return status;
+      } else {
+        Fluttertoast.showToast(
+            msg: 'Check Your username and Password',
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      }
+    } catch (e) {
       Fluttertoast.showToast(
-          msg: "Invalid Credentials",
-          backgroundColor: Colors.red,
+          msg: e.toString(),
+          backgroundColor: Colors.black,
           textColor: Colors.white,
           fontSize: 16.0);
     }
   }
 
   Future otpmethod(dynamic mobileno) async {
+    try{
     final response = await http.post(
       Uri.parse('http://103.69.242.42:8080/TestAPI/message.svc/sendOTP'),
       headers: <String, String>{
@@ -82,18 +96,18 @@ class Googleprovider extends ChangeNotifier {
     print(token);
     dynamic saveotp;
 
-   
-
-
-    Future<String?> getUserOtp() async {
-      SharedPreferences sf = await SharedPreferences.getInstance();
-      return sf.getString(saveotp);
-    }
-
     if (status == true) {
+      return token;
     } else {
       Fluttertoast.showToast(
-          msg: "Invalid Credentials",
+          msg: "Wrong OTP",
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+    } catch(e){
+          Fluttertoast.showToast(
+          msg: e.toString(),
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
@@ -103,13 +117,5 @@ class Googleprovider extends ChangeNotifier {
   Future logout() async {
     await googlesignin.disconnect();
     FirebaseAuth.instance.signOut();
-  }
-}
-
-class SharedPref {
-  dynamic saveotp;
-  Future saveUserOtp(String token) async {
-    SharedPreferences sf = await SharedPreferences.getInstance();
-    return await sf.setString(saveotp, token);
   }
 }
