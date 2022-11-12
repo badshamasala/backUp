@@ -3,7 +3,13 @@ import 'package:flutter_application_1/ACCOUNT_TYPE/upload_brand.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/upload_public.dart';
 
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
+import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
+import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 
 class Formfill extends StatefulWidget {
   dynamic value1;
@@ -25,16 +31,29 @@ class Formfill extends StatefulWidget {
 class _FormfillState extends State<Formfill> {
   final _formKey = GlobalKey<FormState>();
   bool obscure = true;
+  String username = "";
+  String fullname = "";
+  String password = "";
+  String email = "";
+  bool status = true;
+  bool borderstatus = true;
+  bool iconchupa = false;
+  bool  isloading = false;
+
+  TextEditingController usernamecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double width = size.width;
 
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
-        body: SingleChildScrollView(
+        body: isloading ?Center(
+          child: CircularProgressIndicator(),
+        ) : SingleChildScrollView(
           /*     reverse: true, */
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.05),
@@ -51,6 +70,9 @@ class _FormfillState extends State<Formfill> {
                       }
                       return null;
                     },
+                    onChanged: (value) {
+                      fullname = value;
+                    },
                     decoration: buildInputdecoration(widget.value1
                         ? 'Enter Your Full Name'
                         : widget.value2
@@ -59,6 +81,49 @@ class _FormfillState extends State<Formfill> {
                   ),
                   sizedbox(),
                   TextFormField(
+                    /*      controller: usernamecontroller, */
+                    onChanged: (value) {
+                      if (value.isNotEmpty) {
+                        setState(() {
+                          iconchupa = true;
+                        });
+                      } else {
+                        setState(() {
+                          iconchupa = false;
+                        });
+                      }
+                      print('masala');
+                      username = value;
+                      final provider =
+                          Provider.of<Googleprovider>(context, listen: false);
+                      provider.checkUserExist(username).then(
+                        (value) {
+                          if (value == "True") {
+                            /*    Fluttertoast.showToast(
+                                msg: "User Already Exist",
+                                backgroundColor: Colors.red,
+                                textColor: Colors.white,
+                                fontSize: 16.0); */
+                            setState(() {
+                              status = false;
+                            });
+                            return;
+                          } else {
+                            /*   Fluttertoast.showToast(
+                                msg: "UserName is Available",
+                                backgroundColor: Colors.green,
+                                textColor: Colors.white,
+                                fontSize: 16.0); */
+                            setState(() {
+                              status = true;
+                            });
+                            return;
+                          }
+                        },
+                      );
+                      print('-------++++++++++--------');
+                      print('Username : ${username}');
+                    },
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please Enter Username'; /* showTopSnackBar(
@@ -70,7 +135,51 @@ class _FormfillState extends State<Formfill> {
                       }
                       return null;
                     },
-                    decoration: buildInputdecoration('Username'),
+                    decoration: InputDecoration(
+                        errorText: iconchupa
+                            ? status
+                                ? 'This Username is available '
+                                : 'Choose other username, this username is not available'
+                            : null,
+                        focusedErrorBorder: OutlineInputBorder(
+                            //<-- SEE HERE
+                            borderSide: BorderSide(
+                                color: status ? Colors.green : Colors.red)),
+                        errorBorder: OutlineInputBorder(
+                            //<-- SEE HERE
+                            borderSide: BorderSide(
+                                color: status ? Colors.green : Colors.red)),
+                        suffixIcon: iconchupa
+                            ? status
+                                ? Icon(
+                                    Icons.check_circle_outline_outlined,
+                                    color: Colors.green,
+                                  )
+                                : Icon(
+                                    Icons.check_circle_outline_outlined,
+                                    color: Colors.red,
+                                  )
+                            : null,
+                        labelText: 'Username',
+                        errorStyle: TextStyle(
+                            fontSize: 8,
+                            height: 0.2,
+                            color: status ? Colors.green : Colors.red),
+                        labelStyle: const TextStyle(
+                            color: Color(0xffc4c4c4),
+                            fontFamily: 'Poppins',
+                            fontSize: 12),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: UploadImage().radius(),
+                            borderSide: BorderSide(
+                              color: primaryColorOfApp,
+                            )),
+                        contentPadding: const EdgeInsets.all(15),
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: primaryColorOfApp,
+                            ),
+                            borderRadius: UploadImage().radius())),
                   ),
                   sizedbox(),
                   TextFormField(
@@ -81,10 +190,13 @@ class _FormfillState extends State<Formfill> {
                       return null;
                     },
                     obscureText: obscure,
+                    onChanged: (value) {
+                      password = value;
+                    },
                     decoration: InputDecoration(
                       labelText: 'Password',
                       labelStyle: const TextStyle(
-                          color: Colors.black,
+                          color: Color(0xffc4c4c4),
                           fontFamily: 'Poppins',
                           fontSize: 12),
                       border: OutlineInputBorder(
@@ -127,6 +239,9 @@ class _FormfillState extends State<Formfill> {
                         }
                         return null;
                       },
+                      onChanged: (value) {
+                        email = value;
+                      },
                       decoration: buildInputdecoration('Enter Your Email')),
                   sizedbox1(),
                   Row(
@@ -149,28 +264,7 @@ class _FormfillState extends State<Formfill> {
                     // height: 50,
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          if (widget.value1) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const UploadImage()),
-                            );
-                          } else if (widget.value2) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const UploadBrand()));
-                          } else if (widget.value3) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const UploadPublic()));
-                          }
-                        } else {
-                          print('aa');
-                        }
+                        registrationmethod();
                       },
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
@@ -453,15 +547,95 @@ class _FormfillState extends State<Formfill> {
         labelText: labeltext,
         errorStyle: const TextStyle(fontSize: 8, height: 0.2),
         labelStyle: const TextStyle(
-            color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
+            color: Color(0xffc4c4c4), fontFamily: 'Poppins', fontSize: 12),
         focusedBorder: OutlineInputBorder(
             borderRadius: UploadImage().radius(),
             borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
         contentPadding: const EdgeInsets.all(15),
+        /*  focusedErrorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Color(0xff0087FF),
+            ),
+            borderRadius: UploadImage().radius()), */
         border: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Color(0xff0087FF),
             ),
             borderRadius: UploadImage().radius()));
+  }
+
+
+  registrationmethod(){
+     if (_formKey.currentState!.validate()) {
+      setState(() {
+        isloading = true;
+      });
+
+                          final provider = Provider.of<Googleprovider>(context,
+                              listen: false);
+                          provider
+                              .registerUser(
+                            widget.value,
+                            username,
+                            password,
+                            fullname,
+                            email
+                          )
+                              .then(
+                            (value) async {
+                              if (value == "True") {
+                                await SharedPref.savemytubeMobileno(widget.value);
+          await SharedPref.savemytubeUsername(username);
+          await SharedPref.savemytubePassword(password);
+          await SharedPref.savemytubeFullname(fullname);
+          await SharedPref.savemytubeEmail(email);
+                                   Fluttertoast.showToast(
+                                msg: "User has been created",
+                                backgroundColor: Colors.green,
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+                                setState(() {
+            isloading = false;
+          });
+           Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Chathomepage()),
+          );
+                                return;
+                              } else {
+                                  Fluttertoast.showToast(
+                                msg: "Something Went Wrong ",
+                                backgroundColor: Colors.red,
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+    setState(() {
+            isloading = false;
+          });
+                                return;
+                              }
+                            },
+                          );
+
+                          /*     if (widget.value1) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const UploadImage()),
+                            );
+                          } else if (widget.value2) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const UploadBrand()));
+                          } else if (widget.value3) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const UploadPublic()));
+                          } */
+                        } else {
+                          print('aa');
+                        }
   }
 }

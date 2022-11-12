@@ -22,7 +22,7 @@ class PhoneNumber extends StatefulWidget {
   @override
   _PhoneNumberState createState() => _PhoneNumberState();
 
-  bool timerkhatam = true;
+
 }
 
 class _PhoneNumberState extends State<PhoneNumber> {
@@ -246,7 +246,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     ],
                   ),
                   TextFormField(
-                    autofillHints: [AutofillHints.telephoneNumberDevice],
+                    /* autofillHints: [AutofillHints.telephoneNumberDevice], */
                     autofocus: true,
                     /*  focusNode: focusNode, */
                     /* validator: (value) {
@@ -257,7 +257,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                       }
                     }, */
 
-                    /*    controller: phonecont, */
+                       controller: phonecont,
                     textAlign: TextAlign.start,
                     maxLength: 10,
                     keyboardType: TextInputType.number,
@@ -360,17 +360,17 @@ class _PhoneNumberState extends State<PhoneNumber> {
                       onPressed: check10number
                           ? null
                           : () async {
-                              setState(() {
+                            /*   setState(() {
                                 otplodaing = true;
-                              });
-                              final provider = Provider.of<Googleprovider>(
+                              }); */
+                             /*  final provider = Provider.of<Googleprovider>(
                                   context,
-                                  listen: false);
-                              token = await provider
+                                  listen: false); */
+                              /* token = await provider
                                   .otpmethod(phonekanumber)
                                   .whenComplete(() {
                                 otplodaing = false;
-                                getkar.startTimer();
+                                getkar.startTimer(); */
                                 showModalBottomSheet(
                                     /*     isDismissible: false, */
                                     isScrollControlled: true,
@@ -544,9 +544,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                                               final provider = Provider.of<Googleprovider>(context, listen: false);
                                                                               token = await provider.otpmethod(phonekanumber);
                                                                               print('badshamasala');
-
-                                                                              /*    getkar.timerkhatam1 = true;
-                                                                              getkar.startTimer(); */
+                                                                              getkar.nayamethod();
                                                                             },
                                                                       child: GetBuilder<
                                                                           GetUpdateSeconds>(
@@ -572,11 +570,11 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                           // height: 50,
                                                           child: ElevatedButton(
                                                             onPressed:
-                                                                check6digit
+                                                                /* check6digit
                                                                     ? null
-                                                                    : () {
-                                                                        if (token ==
-                                                                            checktoken) {
+                                                                    : */ () {
+                                                                       /*  if (token ==
+                                                                            checktoken) { */
                                                                           Navigator
                                                                               .push(
                                                                             context,
@@ -585,13 +583,13 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                                                       value: phonecont.text,
                                                                                     )),
                                                                           );
-                                                                        } else {
+                                                                      /*   } else {
                                                                           Fluttertoast.showToast(
                                                                               msg: "Wrong OTP",
                                                                               backgroundColor: Colors.black,
                                                                               textColor: Colors.white,
                                                                               fontSize: 16.0);
-                                                                        }
+                                                                        } */
                                                                       },
                                                             style: ElevatedButton
                                                                 .styleFrom(
@@ -664,7 +662,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                         });
                                       });
                                     });
-                              });
+                          /*     }); */
                             },
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
@@ -675,7 +673,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                           shape: RoundedRectangleBorder(
                               borderRadius: UploadImage().radius())),
                       child: Text(
-                        otplodaing ? 'Loading...' : "Continue",
+                       /*  otplodaing ? 'Loading...' : */ "Continue",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,

@@ -6,16 +6,114 @@ class SharedPref {
   static String userEmailkey = 'EMAILKEY';
   static String userPasswordkey = 'PASSWORDKEY';
 
-  static Future<bool> saveUserFullName(String userfullname) async {
+
+
+
+
+
+  static String mytubeMobileno = 'MOBILENO';
+  static String mytubeUsername = 'USERNAME';
+  static String mytubePassword = 'PASSWORD';
+  static String mytubeFullname = 'FULLNAME';
+  static String mytubeEmail    = 'EMAIL';
+
+  
+  
+  
+  static  savemytubeMobileno(String mobileno) async {
     SharedPreferences sf = await SharedPreferences.getInstance();
-    return await sf.setString(userFullNamekey, userfullname);
+    return await sf.setString(mytubeMobileno, mobileno);
+  }
+  static Future<String?> getmytubeMobileno() async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return sf.getString(mytubeMobileno);
   }
 
 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
 
 
 
 
+  
+  static  savemytubeUsername(String username) async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return await sf.setString(mytubeUsername, username);
+  }
+  static Future<String?> getmytubeUsername() async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return sf.getString(mytubeUsername);
+  }
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+
+
+
+   static  savemytubePassword(String password) async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return await sf.setString(mytubePassword, password);
+  }
+  static Future<String?> getmytubePassword() async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return sf.getString(mytubePassword);
+  }
+
+
+  //------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+  
+  
+  
+  static  savemytubeFullname(String fullname) async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return await sf.setString(mytubeFullname, fullname);
+  }
+  static Future<String?> getmytubeFullname() async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return sf.getString(mytubeFullname);
+  }
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+  static  savemytubeEmail(String email) async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return await sf.setString(mytubeEmail, email);
+  }
+  static Future<String?> getmytubeEmail() async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return sf.getString(mytubeEmail);
+  }
+
+
+ 
+
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ static Future<bool> saveUserFullName(String userfullname) async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return await sf.setString(userFullNamekey, userfullname);
+  }
 
   static /* Future<String?> */ saveUserEmail(String useremail) async {
     SharedPreferences sf = await SharedPreferences.getInstance();

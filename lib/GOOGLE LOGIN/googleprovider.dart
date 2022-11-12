@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -29,9 +30,11 @@ class Googleprovider extends ChangeNotifier {
           accessToken: googleauth.accessToken, idToken: googleauth.idToken);
 
       await FirebaseAuth.instance.signInWithCredential(credential);
-    } catch (e) {
+    } on PlatformException catch (e) {
       Fluttertoast.showToast(msg: 'Something went wrong');
-      print(e.toString());
+
+      print('Error --- ${e.toString()}');
+      return false;
     }
 
     notifyListeners();
@@ -76,39 +79,107 @@ class Googleprovider extends ChangeNotifier {
   }
 
   Future otpmethod(dynamic mobileno) async {
-    try{
-    final response = await http.post(
-      Uri.parse('http://103.69.242.42:8080/TestAPI/message.svc/sendOTP'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode({
-        "api_key": "myttube123456",
-        "mobile_no": mobileno,
-      }),
-    );
-    var jsondata = jsonDecode(response.body);
-    print(response.body);
+    try {
+      final response = await http.post(
+        Uri.parse('http://103.69.242.42:8080/TestAPI/message.svc/sendOTP'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          "api_key": "myttube123456",
+          "mobile_no": mobileno,
+        }),
+      );
+      var jsondata = jsonDecode(response.body);
+      print(response.body);
 
-    var status = jsondata[0]["status"];
-    print(status);
-    var token = jsondata[0]["token"];
-    print(token);
-    dynamic saveotp;
+      var status = jsondata[0]["status"];
+      print(status);
+      var token = jsondata[0]["token"];
+      print(token);
+      dynamic saveotp;
 
-    if (status == true) {
-      return token;
-    } else {
+      if (status == true) {
+        return token;
+      } else {
+        Fluttertoast.showToast(
+            msg: "Wrong OTP",
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      }
+    } catch (e) {
       Fluttertoast.showToast(
-          msg: "Wrong OTP",
+          msg: e.toString(),
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  }
+
+  Future checkUserExist(dynamic username) async {
+    try {
+      final response = await http.post(
+        Uri.parse('http://103.69.242.42:8080/TestAPI/Auth.svc/VerifyUser'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          "api_key": "myttube123456",
+          "user_id": username,
+        }),
+      );
+      var jsondata = jsonDecode(response.body);
+      print('Response-- ${response.body}');
+
+      var status = jsondata[0]["status"];
+      print('Status - $status');
+
+      if (status == "True") {
+        return status;
+      }
+    } catch (e) {
+      Fluttertoast.showToast(
+          msg: e.toString(),
           backgroundColor: Colors.black,
           textColor: Colors.white,
           fontSize: 16.0);
     }
-    } catch(e){
-          Fluttertoast.showToast(
+  }
+
+  Future registerUser(mobileno, username, password, fullname, email) async {
+    try {
+      final response = await http.post(
+        Uri.parse(
+            'http://103.69.242.42:8080/TestAPI/Auth.svc/insertIntoSignup'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          "api_key": "myttube123456",
+          "mobile_no": mobileno,
+          "acc_type": "Viewer",
+          "user_id": username,
+          "password": password,
+          "full_name": fullname,
+          "email": email
+        }),
+      );
+      var jsondata = jsonDecode(response.body);
+      print('Response-- ${response.body}');
+
+      var status = jsondata[0]["status"];
+      print('Status - $status');
+
+      if (status == "True") {
+        return status;
+      } else {
+        print('error');
+      }
+    } catch (e) {
+      Fluttertoast.showToast(
           msg: e.toString(),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.black,
           textColor: Colors.white,
           fontSize: 16.0);
     }

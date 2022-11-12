@@ -12,26 +12,65 @@ class Chathomepage extends StatefulWidget {
 class _ChathomepageState extends State<Chathomepage> {
   var _useremail = "";
   var _userpassword = "";
+  var _userfullname = "";
+  var _usermobile = "";
+  var _userUsername = "";
   @override
   void initState() {
     super.initState();
+    getmytubeMobile();
+    getmytubeUsername();
+    getmytubePassword();
+    getmytubeFullname();
     getUserEmail();
-    getUserPassword();
   }
 
-  getUserEmail() async {
-    await SharedPref.getUserEmail().then((value) {
+  getmytubeMobile() async {
+    await SharedPref.getmytubeMobileno().then((value) {
       /*   print(_isLoggedIn); */
       if (value != null) {
         setState(() {
-          _useremail = value;
+          _usermobile = value;
         });
       }
     });
   }
 
-  getUserPassword() async {
-    await SharedPref.getUserPassword().then((value) {
+  getmytubeUsername() async {
+    await SharedPref.getmytubeUsername().then((value) {
+      /*   print(_isLoggedIn); */
+      if (value != null) {
+        setState(() {
+          _userUsername = value;
+        });
+      }
+    });
+  }
+
+  getmytubePassword() async {
+    await SharedPref.getmytubePassword().then((value) {
+      /*   print(_isLoggedIn); */
+      if (value != null) {
+        setState(() {
+          _userpassword = value;
+        });
+      }
+    });
+  }
+
+  getmytubeFullname() async {
+    await SharedPref.getmytubeFullname().then((value) {
+      /*   print(_isLoggedIn); */
+      if (value != null) {
+        setState(() {
+          _userfullname = value;
+        });
+      }
+    });
+  }
+
+  getUserEmail() async {
+    await SharedPref.getmytubeEmail().then((value) {
       /*   print(_isLoggedIn); */
       if (value != null) {
         setState(() {
@@ -52,8 +91,11 @@ class _ChathomepageState extends State<Chathomepage> {
       body: Column(
         children: [
           Text('axaxaxaxa'),
-          Text(_useremail),
+          Text(_usermobile),
+          Text(_userUsername),
           Text(_userpassword),
+          Text(_userfullname),
+          Text(_useremail),
           ElevatedButton(
               onPressed: () {
                 authService.logout(context);

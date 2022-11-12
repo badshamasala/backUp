@@ -1,11 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
 import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
 import 'package:flutter_application_1/CHAT_APP/loginpage.dart';
 import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
+import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:flutter_application_1/SHARE/googlemaps1.dart';
 
 import 'package:flutter_application_1/localestring.dart';
 import 'package:get/get.dart';
@@ -52,6 +55,7 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Googleprovider()),
+    /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
       ],
       child: GetMaterialApp(
           translations: LocalString(),
@@ -69,9 +73,7 @@ class _MyAppState extends State<MyApp> {
           GlobalWidgetsLocalizations.delegate
       ], */
 
-          home:_isLoggedIn
-              ? Chathomepage()
-              : LoginPage12() /* LoginPage12() */
+          home: LoginPage() /* LoginPage12() */
              /*  IntroScreen() */ /* _isLoggedIn
               ? Chathomepage()
               : LoginPage12() */ /* FutureBuilder(
