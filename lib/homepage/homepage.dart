@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/homepage/comment.dart';
+import 'package:flutter_application_1/homepage/chatmytube.dart';
 import 'package:flutter_application_1/homepage/home1.dart';
 import 'package:flutter_application_1/homepage/profile.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   final screens = [
     const Home1(),
     const Search(),
-    const Comment(),
+    const Chatmytube(),
      ProfileSelf()
   ];
 

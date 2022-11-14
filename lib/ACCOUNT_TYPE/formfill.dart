@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/upload_brand.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/upload_public.dart';
@@ -38,7 +40,7 @@ class _FormfillState extends State<Formfill> {
   bool status = true;
   bool borderstatus = true;
   bool iconchupa = false;
-  bool  isloading = false;
+  bool isloading = false;
 
   TextEditingController usernamecontroller = TextEditingController();
 
@@ -47,249 +49,258 @@ class _FormfillState extends State<Formfill> {
     Size size = MediaQuery.of(context).size;
     double width = size.width;
 
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
-        body: isloading ?Center(
-          child: CircularProgressIndicator(),
-        ) : SingleChildScrollView(
-          /*     reverse: true, */
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * 0.05),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  buildstacknumber(),
-                  sizedbox1(),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please Enter Name';
-                      }
-                      return null;
-                    },
-                    onChanged: (value) {
-                      fullname = value;
-                    },
-                    decoration: buildInputdecoration(widget.value1
-                        ? 'Enter Your Full Name'
-                        : widget.value2
-                            ? 'Enter Your Brand Name'
-                            : 'Enter Your Name or Comunity'),
-                  ),
-                  sizedbox(),
-                  TextFormField(
-                    /*      controller: usernamecontroller, */
-                    onChanged: (value) {
-                      if (value.isNotEmpty) {
-                        setState(() {
-                          iconchupa = true;
-                        });
-                      } else {
-                        setState(() {
-                          iconchupa = false;
-                        });
-                      }
-                      print('masala');
-                      username = value;
-                      final provider =
-                          Provider.of<Googleprovider>(context, listen: false);
-                      provider.checkUserExist(username).then(
-                        (value) {
-                          if (value == "True") {
-                            /*    Fluttertoast.showToast(
+        body: isloading
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : SingleChildScrollView(
+                /*     reverse: true, */
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        buildstacknumber(),
+                        sizedbox1(),
+                        TextFormField(
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter Name';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            fullname = value;
+                          },
+                          decoration: buildInputdecoration(widget.value1
+                              ? 'Enter Your Full Name'
+                              : widget.value2
+                                  ? 'Enter Your Brand Name'
+                                  : 'Enter Your Name or Comunity'),
+                        ),
+                        sizedbox(),
+                        TextFormField(
+                          /*      controller: usernamecontroller, */
+                          onChanged: (value) {
+                            if (value.isNotEmpty) {
+                              setState(() {
+                                iconchupa = true;
+                              });
+                            } else {
+                              setState(() {
+                                iconchupa = false;
+                              });
+                            }
+                            print('masala');
+                            username = value;
+                            final provider = Provider.of<Googleprovider>(
+                                context,
+                                listen: false);
+                            provider.checkUserExist(username).then(
+                              (value) {
+                                if (value == "True") {
+                                  /*    Fluttertoast.showToast(
                                 msg: "User Already Exist",
                                 backgroundColor: Colors.red,
                                 textColor: Colors.white,
                                 fontSize: 16.0); */
-                            setState(() {
-                              status = false;
-                            });
-                            return;
-                          } else {
-                            /*   Fluttertoast.showToast(
+                                  setState(() {
+                                    status = false;
+                                  });
+                                  return;
+                                } else {
+                                  /*   Fluttertoast.showToast(
                                 msg: "UserName is Available",
                                 backgroundColor: Colors.green,
                                 textColor: Colors.white,
                                 fontSize: 16.0); */
-                            setState(() {
-                              status = true;
-                            });
-                            return;
-                          }
-                        },
-                      );
-                      print('-------++++++++++--------');
-                      print('Username : ${username}');
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please Enter Username'; /* showTopSnackBar(
+                                  setState(() {
+                                    status = true;
+                                  });
+                                  return;
+                                }
+                              },
+                            );
+                            print('-------++++++++++--------');
+                            print('Username : ${username}');
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter Username'; /* showTopSnackBar(
                           context,
                           CustomSnackBar.info(
                             message: "Please Enter username",
                           ),
                         ); */
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                        errorText: iconchupa
-                            ? status
-                                ? 'This Username is available '
-                                : 'Choose other username, this username is not available'
-                            : null,
-                        focusedErrorBorder: OutlineInputBorder(
-                            //<-- SEE HERE
-                            borderSide: BorderSide(
-                                color: status ? Colors.green : Colors.red)),
-                        errorBorder: OutlineInputBorder(
-                            //<-- SEE HERE
-                            borderSide: BorderSide(
-                                color: status ? Colors.green : Colors.red)),
-                        suffixIcon: iconchupa
-                            ? status
-                                ? Icon(
-                                    Icons.check_circle_outline_outlined,
-                                    color: Colors.green,
-                                  )
-                                : Icon(
-                                    Icons.check_circle_outline_outlined,
-                                    color: Colors.red,
-                                  )
-                            : null,
-                        labelText: 'Username',
-                        errorStyle: TextStyle(
-                            fontSize: 8,
-                            height: 0.2,
-                            color: status ? Colors.green : Colors.red),
-                        labelStyle: const TextStyle(
-                            color: Color(0xffc4c4c4),
-                            fontFamily: 'Poppins',
-                            fontSize: 12),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: UploadImage().radius(),
-                            borderSide: BorderSide(
-                              color: primaryColorOfApp,
-                            )),
-                        contentPadding: const EdgeInsets.all(15),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: primaryColorOfApp,
-                            ),
-                            borderRadius: UploadImage().radius())),
-                  ),
-                  sizedbox(),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please Enter Password';
-                      }
-                      return null;
-                    },
-                    obscureText: obscure,
-                    onChanged: (value) {
-                      password = value;
-                    },
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      labelStyle: const TextStyle(
-                          color: Color(0xffc4c4c4),
-                          fontFamily: 'Poppins',
-                          fontSize: 12),
-                      border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color(0xff0087FF),
-                          ),
-                          borderRadius: UploadImage().radius()),
-                      errorStyle: const TextStyle(fontSize: 8, height: 0.2),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: UploadImage().radius(),
-                          borderSide: const BorderSide(
-                              color: Color(0xff0087FF), width: 1)),
-                      /* enabledBorder: OutlineInputBorder(
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                              errorText: iconchupa
+                                  ? status
+                                      ? 'This Username is available '
+                                      : 'Choose other username, this username is not available'
+                                  : null,
+                              focusedErrorBorder: OutlineInputBorder(
+                                  //<-- SEE HERE
+                                  borderSide: BorderSide(
+                                      color:
+                                          status ? Colors.green : Colors.red)),
+                              errorBorder: OutlineInputBorder(
+                                  //<-- SEE HERE
+                                  borderSide: BorderSide(
+                                      color:
+                                          status ? Colors.green : Colors.red)),
+                              suffixIcon: iconchupa
+                                  ? status
+                                      ? Icon(
+                                          Icons.check_circle_outline_outlined,
+                                          color: Colors.green,
+                                        )
+                                      : Icon(
+                                          Icons.check_circle_outline_outlined,
+                                          color: Colors.red,
+                                        )
+                                  : null,
+                              labelText: 'Username',
+                              errorStyle: TextStyle(
+                                  fontSize: 8,
+                                  height: 0.2,
+                                  color: status ? Colors.green : Colors.red),
+                              labelStyle: const TextStyle(
+                                  color: Color(0xffc4c4c4),
+                                  fontFamily: 'Poppins',
+                                  fontSize: 12),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: UploadImage().radius(),
+                                  borderSide: BorderSide(
+                                    color: primaryColorOfApp,
+                                  )),
+                              contentPadding: const EdgeInsets.all(15),
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: primaryColorOfApp,
+                                  ),
+                                  borderRadius: UploadImage().radius())),
+                        ),
+                        sizedbox(),
+                        TextFormField(
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter Password';
+                            } else if (value.length < 6) {
+                              return 'Password Should be Atleat Six characters';
+                            }
+                            return null;
+                          },
+                          obscureText: obscure,
+                          onChanged: (value) {
+                            password = value;
+                          },
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            labelStyle: const TextStyle(
+                                color: Color(0xffc4c4c4),
+                                fontFamily: 'Poppins',
+                                fontSize: 12),
+                            border: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Color(0xff0087FF),
+                                ),
+                                borderRadius: UploadImage().radius()),
+                            errorStyle:
+                                const TextStyle(fontSize: 8, height: 0.2),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: UploadImage().radius(),
+                                borderSide: const BorderSide(
+                                    color: Color(0xff0087FF), width: 1)),
+                            /* enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: const BorderSide(
                               color: Color(0xff333333), width: 1)),
                       */
-                      suffixIcon: GestureDetector(
-                        child: Icon(
-                            obscure ? Icons.visibility_off : Icons.visibility),
-                        onTap: () {
-                          setState(() {
-                            obscure = !obscure;
-                          });
-                        },
-                      ),
-                      // hintText: 'Enter Password',
-                      contentPadding: const EdgeInsets.all(15),
+                            suffixIcon: GestureDetector(
+                              child: Icon(obscure
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                              onTap: () {
+                                setState(() {
+                                  obscure = !obscure;
+                                });
+                              },
+                            ),
+                            // hintText: 'Enter Password',
+                            contentPadding: const EdgeInsets.all(15),
+                          ),
+                        ),
+                        sizedbox(),
+                        TextFormField(
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Please Enter Email";
+                              } else if (!RegExp(
+                                      "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                  .hasMatch(value)) {
+                                return 'Please Enter a valid Email';
+                              }
+                              return null;
+                            },
+                            onChanged: (value) {
+                              email = value;
+                            },
+                            decoration:
+                                buildInputdecoration('Enter Your Email')),
+                        sizedbox1(),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: width * 0.04),
+                              child: Text(
+                                "Show your email contact info everyone",
+                                style: TextStyle(
+                                    color: const Color(0xff515253),
+                                    fontFamily: 'Poppins',
+                                    fontSize: width * 0.03),
+                              ),
+                            ),
+                          ],
+                        ),
+                        sizedbox1(),
+                        SizedBox(
+                          width: double.infinity,
+                          // height: 50,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              registrationmethod();
+                            },
+                            style: ElevatedButton.styleFrom(
+                                elevation: 0,
+                                /*        minimumSize: const Size(0.0, 40), */
+                                // padding: EdgeInsets.symmetric(
+                                //     horizontal: 40.0, vertical: 20.0),
+                                backgroundColor: const Color(0xff0087FF),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: UploadImage().radius())),
+                            child: Text(
+                              "Confirm & Continue",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontFamily:
+                                    'Poppins', /* fontWeight: FontWeight.w600 */
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  sizedbox(),
-                  TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Please Enter Email";
-                        } else if (!RegExp(
-                                "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                            .hasMatch(value)) {
-                          return 'Please Enter a valid Email';
-                        }
-                        return null;
-                      },
-                      onChanged: (value) {
-                        email = value;
-                      },
-                      decoration: buildInputdecoration('Enter Your Email')),
-                  sizedbox1(),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: width * 0.04),
-                        child: Text(
-                          "Show your email contact info everyone",
-                          style: TextStyle(
-                              color: const Color(0xff515253),
-                              fontFamily: 'Poppins',
-                              fontSize: width * 0.03),
-                        ),
-                      ),
-                    ],
-                  ),
-                  sizedbox1(),
-                  SizedBox(
-                    width: double.infinity,
-                    // height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        registrationmethod();
-                      },
-                      style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          /*        minimumSize: const Size(0.0, 40), */
-                          // padding: EdgeInsets.symmetric(
-                          //     horizontal: 40.0, vertical: 20.0),
-                          backgroundColor: const Color(0xff0087FF),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: UploadImage().radius())),
-                      child: Text(
-                        "Confirm & Continue",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontFamily:
-                              'Poppins', /* fontWeight: FontWeight.w600 */
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-          ),
-        ),
       ),
     );
   }
@@ -564,59 +575,51 @@ class _FormfillState extends State<Formfill> {
             borderRadius: UploadImage().radius()));
   }
 
-
-  registrationmethod(){
-     if (_formKey.currentState!.validate()) {
+  registrationmethod() {
+    if (_formKey.currentState!.validate()) {
       setState(() {
         isloading = true;
       });
 
-                          final provider = Provider.of<Googleprovider>(context,
-                              listen: false);
-                          provider
-                              .registerUser(
-                            widget.value,
-                            username,
-                            password,
-                            fullname,
-                            email
-                          )
-                              .then(
-                            (value) async {
-                              if (value == "True") {
-                                await SharedPref.savemytubeMobileno(widget.value);
-          await SharedPref.savemytubeUsername(username);
-          await SharedPref.savemytubePassword(password);
-          await SharedPref.savemytubeFullname(fullname);
-          await SharedPref.savemytubeEmail(email);
-                                   Fluttertoast.showToast(
-                                msg: "User has been created",
-                                backgroundColor: Colors.green,
-                                textColor: Colors.white,
-                                fontSize: 16.0);
-                                setState(() {
-            isloading = false;
-          });
-           Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Chathomepage()),
-          );
-                                return;
-                              } else {
-                                  Fluttertoast.showToast(
-                                msg: "Something Went Wrong ",
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 16.0);
-    setState(() {
-            isloading = false;
-          });
-                                return;
-                              }
-                            },
-                          );
+      final provider = Provider.of<Googleprovider>(context, listen: false);
+      provider
+          .registerUser(widget.value, username, password, fullname, email)
+          .then(
+        (value) async {
+          if (value == "True") {
+            await SharedPref.savemytubeMobileno(widget.value);
+            await SharedPref.savemytubeUsername(username);
+            await SharedPref.savemytubePassword(password);
+            await SharedPref.savemytubeFullname(fullname);
+            await SharedPref.savemytubeEmail(email);
+            Fluttertoast.showToast(
+                msg: "User has been created",
+                backgroundColor: Colors.green,
+                textColor: Colors.white,
+                fontSize: 16.0);
+            setState(() {
+              isloading = false;
+            });
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Chathomepage()),
+            );
+            return;
+          } else {
+            Fluttertoast.showToast(
+                msg: "Something Went Wrong ",
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 16.0);
+            setState(() {
+              isloading = false;
+            });
+            return;
+          }
+        },
+      );
 
-                          /*     if (widget.value1) {
+      /*     if (widget.value1) {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -634,8 +637,8 @@ class _FormfillState extends State<Formfill> {
                                     builder: (context) =>
                                         const UploadPublic()));
                           } */
-                        } else {
-                          print('aa');
-                        }
+    } else {
+      print('aa');
+    }
   }
 }

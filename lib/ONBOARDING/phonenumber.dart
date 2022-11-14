@@ -37,7 +37,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
   var checktoken = "";
 
   final GetUpdateSeconds getkar = Get.put(GetUpdateSeconds());
-  final HomeController controller = Get.put(HomeController());
+ 
   @override
   Widget build(BuildContext context) {
     var size, height, width;

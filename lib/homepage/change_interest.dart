@@ -32,7 +32,7 @@ class _ChangeInterestState extends State<ChangeInterest> {
     'Tourism',
     'International',
   ];
-  
+
   List templist = [];
   @override
   Widget build(BuildContext context) {
@@ -52,6 +52,19 @@ class _ChangeInterestState extends State<ChangeInterest> {
           'Change Interest',
           style: TextStyle(
               color: customTextColor, fontFamily: 'Poppins', fontSize: 15),
+        ),
+        leading: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                color: primaryColorOfApp,
+              )),
         ),
       ),
       body: Padding(

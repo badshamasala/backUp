@@ -9,6 +9,10 @@ import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_application_1/SHARE/googlemaps1.dart';
+import 'package:flutter_application_1/homepage/ads.dart';
+import 'package:flutter_application_1/homepage/change_interest.dart';
+import 'package:flutter_application_1/homepage/checkimage1.dart';
+import 'package:flutter_application_1/homepage/homepage.dart';
 
 import 'package:flutter_application_1/localestring.dart';
 import 'package:get/get.dart';
@@ -73,7 +77,7 @@ class _MyAppState extends State<MyApp> {
           GlobalWidgetsLocalizations.delegate
       ], */
 
-          home: LoginPage() /* LoginPage12() */
+          home: HomePage() /* LoginPage12() */
              /*  IntroScreen() */ /* _isLoggedIn
               ? Chathomepage()
               : LoginPage12() */ /* FutureBuilder(
