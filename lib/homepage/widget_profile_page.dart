@@ -29,8 +29,6 @@ class WidgetProfilePage extends StatefulWidget {
   @override
   State<WidgetProfilePage> createState() => _WidgetProfilePageState();
 
-  
-
   bool valueofswitch = true;
 
   bool emailid = false;
@@ -922,7 +920,8 @@ class WidgetProfilePage extends StatefulWidget {
       contentPadding: const EdgeInsets.all(15),
     );
   }
-    buildActivityStatus(context) {
+
+  buildActivityStatus(context) {
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -1193,8 +1192,7 @@ class WidgetProfilePage extends StatefulWidget {
         });
   }
 
-
-   buildShowRewardpoint(context) {
+  buildShowRewardpoint(context) {
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -2392,6 +2390,7 @@ class WidgetProfilePage extends StatefulWidget {
           return StatefulBuilder(
               builder: (BuildContext context, StateSetter setState) {
             return Stack(
+              clipBehavior: Clip.none,
               children: [
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -2438,11 +2437,11 @@ class WidgetProfilePage extends StatefulWidget {
                       ),
                       Divider(),
                       SizedBox(
-                        /* color: Colors.red, */
-                        height: 200,
+                        /*         color: Colors.red, */
+                        height: 180,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 165,
                             width: 288,
@@ -2580,7 +2579,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 90,
                             height: 10,
@@ -2599,15 +2598,15 @@ class WidgetProfilePage extends StatefulWidget {
                           ),
                         ]),
                       ),
-                      SizedBox(
+                      /*   SizedBox(
                         height: height * 0.01,
-                      ),
+                      ), */
                       SizedBox(
-                        /* color: Colors.red, */
-                        height: 200,
+                        /*  color: Colors.green, */
+                        height: 180,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 165,
                             width: 288,
@@ -2745,7 +2744,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 120,
                             height: 10,
@@ -2764,14 +2763,15 @@ class WidgetProfilePage extends StatefulWidget {
                           ),
                         ]),
                       ),
-                      SizedBox(
+                      /*    SizedBox(
                         height: height * 0.01,
-                      ),
+                      ), */
                       SizedBox(
-                        height: 120,
+                        /*        color: Colors.green, */
+                        height: 100,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 84,
                             width: 288,
@@ -2849,7 +2849,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 135,
                             height: 12,
@@ -5410,19 +5410,9 @@ class WidgetProfilePage extends StatefulWidget {
           });
         });
   }
-
- 
-
-  
-
- 
-
-  
 }
 
 class _WidgetProfilePageState extends State<WidgetProfilePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Container();

@@ -1,27 +1,35 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googlenewpage.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
+import 'package:flutter_application_1/homepage/self_profile.dart';
 import 'package:flutter_application_1/homepage/video_player.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
+
 import 'package:flutter_application_1/interaction.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/akar_icons.dart';
+import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/bx.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/eva.dart';
+import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/ion.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:iconify_flutter/icons/ooui.dart';
+import 'package:iconify_flutter/icons/ri.dart';
+import 'package:iconify_flutter/icons/tabler.dart';
+
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -50,13 +58,7 @@ class ProfileSelf extends StatefulWidget {
   var followers = 'Followers';
   var following = 'Following';
   var off = 'Off';
-
-  
-
-
-
- 
-
+  var sourceLocation = LatLng(19.0715252, 72.8692906);
   buildaddresspage(context) {
     Size size;
     double height, width;
@@ -64,6 +66,7 @@ class ProfileSelf extends StatefulWidget {
     height = size.height;
     width = size.width;
     return showModalBottomSheet(
+        backgroundColor: Colors.white,
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
           // <-- SEE HERE
@@ -86,10 +89,9 @@ class ProfileSelf extends StatefulWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 168, 161, 161),
-                          border: Border.all(
-                              width: 0.5,
-                              color: Color.fromARGB(255, 168, 161, 161)),
+                          color: Color(0xffe2e2e2),
+                          border:
+                              Border.all(width: 0.5, color: Color(0xffe2e2e2)),
                           borderRadius: BorderRadius.circular(10)),
                       height: 5,
                       width: 100,
@@ -124,46 +126,151 @@ class ProfileSelf extends StatefulWidget {
                     ),
                     Divider(),
                     SizedBox(
-                      height: height * 0.04,
+                      height: height * 0.02,
                     ),
                     SizedBox(
                         height: 40,
                         child: TextFormField(
-                            decoration:
-                                WidgetProfilePage().buildInputdecoration(
-                          Icon(Icons.search),
-                          'Search Location',
-                          null,
-                          'Search Location',
+                            decoration: InputDecoration(
+                          /*   errorText: validationService.fullName.error, */
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Color(0xffdadada),
+                          ),
+                          labelText: 'Search Location',
+                          labelStyle: const TextStyle(
+                              color: Color(0xffc4c4c4),
+                              fontFamily: 'Poppins',
+                              fontSize: 12),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: const BorderSide(
+                                  color: Color(0xff333333), width: 0.5)),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: const BorderSide(
+                                  color: Color(0xff0087FF), width: 0.5)),
+                          hintStyle: TextStyle(fontSize: 10),
+                          contentPadding: const EdgeInsets.all(15),
                         ))),
                     SizedBox(
-                      height: height * 0.04,
+                      height: height * 0.02,
                     ),
                     SizedBox(
-                        height: 40,
-                        child: TextFormField(
-                            decoration:
-                                WidgetProfilePage().buildInputdecoration(
-                          null,
-                          'Enter Street Village',
-                          null,
-                          'Enter Street Village',
-                        ))),
-                    SizedBox(
-                      height: height * 0.04,
+                      /* color: Colors.red, */
+                      height: 48,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 7,
+                            left: 0,
+                            height: 40,
+                            width: 288,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
+                                  borderRadius: BorderRadius.circular(5)),
+                              /*  width: 150,
+                  height: 150, */
+                              /*  color: Colors.green[300], */
+                              child: SizedBox(
+                                  height: 40,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 18.0, bottom: 3),
+                                    child: TextFormField(
+                                        decoration: InputDecoration(
+                                      labelText: '',
+                                      /*                     suffixIcon: Icon(Icons.check_circle), */
+                                      border: InputBorder.none,
+                                    )),
+                                  )),
+                            ),
+                          ),
+                          Positioned(
+                            top: 0,
+                            left: 10,
+                            width: 90,
+                            height: 10,
+                            child: Container(
+                              /*   width: 200,
+                  height: 150, */
+                              color: Colors.white,
+                              child: const Text(
+                                'Enter Street/Village',
+                                style: TextStyle(
+                                    color: Color(0xff515253),
+                                    fontSize: 10,
+                                    fontFamily: 'Poppins'),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
-                        height: 40,
-                        child: TextFormField(
-                            decoration:
-                                WidgetProfilePage().buildInputdecoration(
-                          null,
-                          'Enter Road LandMark',
-                          null,
-                          'Enter Road LandMark',
-                        ))),
+                      height: height * 0.02,
+                    ),
                     SizedBox(
-                      height: height * 0.04,
+                      /* color: Colors.red, */
+                      height: 48,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 7,
+                            left: 0,
+                            height: 40,
+                            width: 288,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(
+                                      width: 0.5,
+                                      color: const Color(0xff515253)),
+                                  borderRadius: BorderRadius.circular(5)),
+                              /*  width: 150,
+                  height: 150, */
+                              /*  color: Colors.green[300], */
+                              child: SizedBox(
+                                  height: 40,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 18.0, bottom: 3),
+                                    child: TextFormField(
+                                        decoration: InputDecoration(
+                                      labelText: '',
+                                      /*                     suffixIcon: Icon(Icons.check_circle), */
+                                      border: InputBorder.none,
+                                    )),
+                                  )),
+                            ),
+                          ),
+                          Positioned(
+                            top: 0,
+                            left: 10,
+                            width: 100,
+                            height: 10,
+                            child: Container(
+                              /*   width: 200,
+                  height: 150, */
+                              color: Colors.white,
+                              child: const Text(
+                                'Enter Road/Landmark',
+                                style: TextStyle(
+                                    color: Color(0xff515253),
+                                    fontSize: 10,
+                                    fontFamily: 'Poppins'),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: height * 0.02,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -235,7 +342,7 @@ class ProfileSelf extends StatefulWidget {
                       ],
                     ),
                     SizedBox(
-                      height: height * 0.04,
+                      height: height * 0.02,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -286,7 +393,25 @@ class ProfileSelf extends StatefulWidget {
                       ],
                     ),
                     SizedBox(
-                      height: height * 0.04,
+                      height: height * 0.03,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                              width: 0.5, color: const Color(0xff515253)),
+                          borderRadius: BorderRadius.circular(10)),
+                      height: 100,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: GoogleMap(
+                          initialCameraPosition: CameraPosition(
+                              target: sourceLocation, zoom: 14.5),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: height * 0.01,
                     ),
                     SizedBox(
                       width: double.infinity,
@@ -318,878 +443,6 @@ class ProfileSelf extends StatefulWidget {
                     ),
                     SizedBox(
                       height: height * 0.04,
-                    ),
-                  ]),
-                ),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
-              ],
-            );
-          });
-        });
-  }
-
-  buildprofilepage(context) {
-    Size size;
-    double height, width;
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
-    return showModalBottomSheet(
-        isScrollControlled: true,
-        shape: const RoundedRectangleBorder(
-          // <-- SEE HERE
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20.0),
-          ),
-        ),
-        context: context,
-        builder: (BuildContext context) {
-          return StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
-            return Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xffE2E2E2),
-                              borderRadius: BorderRadius.circular(8)),
-                          height: 5,
-                          width: 100,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        IconButton(
-                            padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: Icon(
-                              Icons.arrow_back,
-                              size: 25,
-                              color: primaryColorOfApp,
-                            )),
-                        SizedBox(
-                          width: width * 0.03,
-                        ),
-                        Text(
-                          'Profile',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      /* color: Colors.red, */
-                      height: 48,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 40,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: SizedBox(
-                                  height: 40,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 18.0, bottom: 3),
-                                    child: TextFormField(
-                                        enabled: username,
-                                        decoration: InputDecoration(
-                                          labelText: username ? '' : '',
-                                          suffixIcon: Icon(Icons.check_circle),
-                                          border: InputBorder.none,
-                                        )),
-                                  )),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: 30,
-                            width: 70,
-                            height: 10,
-                            child: Container(
-                              /*   width: 200,
-                  height: 150, */
-                              color: Colors.white,
-                              child: const Text(
-                                'Your Username',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 12,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          cancel
-                              ? TextButton(
-                                  style: TextButton.styleFrom(
-                                      /* minimumSize: Size(100, 5), */
-                                      elevation: 0,
-                                      visualDensity:
-                                          VisualDensity(vertical: -4),
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap),
-                                  onPressed: () {
-                                    setState(() {
-                                      username = false;
-                                      cancel = false;
-                                    });
-                                  },
-                                  child: Text('cancel?',
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          color: primaryColorOfApp,
-                                          fontSize: 10)),
-                                )
-                              : TextButton(
-                                  style: TextButton.styleFrom(
-                                      /* minimumSize: Size(100, 5), */
-                                      elevation: 0,
-                                      visualDensity:
-                                          VisualDensity(vertical: -4),
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap),
-                                  onPressed: () {
-                                    setState(() {
-                                      username = true;
-                                      cancel = true;
-                                    });
-                                  },
-                                  child: Text('Change?',
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          color: primaryColorOfApp,
-                                          fontSize: 10)),
-                                ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      /* color: Colors.red, */
-                      height: 48,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 40,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: SizedBox(
-                                  height: 40,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 18.0, bottom: 3),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(
-                                          width: 210,
-                                          child: TextFormField(
-                                              enabled: fullname,
-                                              decoration: InputDecoration(
-                                                labelText: '',
-                                                border: InputBorder.none,
-                                              )),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 22.0),
-                                          child: Container(
-                                            child: full1
-                                                ? IconButton(
-                                                    padding: EdgeInsets.all(0),
-                                                    constraints:
-                                                        BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        fullname = false;
-                                                        full1 = false;
-                                                      });
-                                                    },
-                                                    icon: Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    ))
-                                                : IconButton(
-                                                    padding: EdgeInsets.all(0),
-                                                    constraints:
-                                                        BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        fullname = true;
-                                                        full1 = true;
-                                                      });
-                                                    },
-                                                    icon: Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    )),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: 30,
-                            width: 70,
-                            height: 10,
-                            child: Container(
-                              color: Colors.white,
-                              child: const Text(
-                                'Your Full Name',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      /* color: Colors.red, */
-                      height: 48,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 40,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: SizedBox(
-                                  height: 40,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 18.0, bottom: 3),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(
-                                          width: 210,
-                                          child: TextFormField(
-                                              enabled: bio,
-                                              decoration: InputDecoration(
-                                                labelText: '',
-                                                border: InputBorder.none,
-                                              )),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 22.0),
-                                          child: Container(
-                                            child: bio1
-                                                ? IconButton(
-                                                    padding: EdgeInsets.all(0),
-                                                    constraints:
-                                                        BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        bio = false;
-                                                        bio1 = false;
-                                                      });
-                                                    },
-                                                    icon: Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    ))
-                                                : IconButton(
-                                                    padding: EdgeInsets.all(0),
-                                                    constraints:
-                                                        BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        bio = true;
-                                                        bio1 = true;
-                                                      });
-                                                    },
-                                                    icon: Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    )),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: 30,
-                            width: 20,
-                            height: 10,
-                            child: Container(
-                              color: Colors.white,
-                              child: const Text(
-                                'Bio',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      /*  mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              male = false;
-                              female = true;
-                              other = true;
-                            });
-                          },
-                          child: Container(
-                            padding: EdgeInsets.zero,
-                            margin: EdgeInsets.zero,
-                            width: 85,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                color: male
-                                    ? Colors.transparent
-                                    : const Color.fromARGB(255, 200, 226, 249),
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                    width: 0.7,
-                                    color: male
-                                        ? const Color(0xff515253)
-                                        : const Color(0xff0087FF))),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: Icon(
-                                    Icons.male,
-                                    color: male
-                                        ? const Color(0xff515253)
-                                        : const Color(0xff0087FF),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: Text(
-                                    'male',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: width * 0.05,
-                                        color: male
-                                            ? const Color(0xff515253)
-                                            : const Color(0xff0087FF)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: width * 0.05,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              female = false;
-                              male = true;
-                              other = true;
-                            });
-                          },
-                          child: Container(
-                            width: 85,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                color: female
-                                    ? Colors.transparent
-                                    : const Color.fromARGB(255, 247, 212, 214),
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                    width: 0.7,
-                                    color: female
-                                        ? const Color(0xff515253)
-                                        : const Color(0xffF96A70))),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.female,
-                                  color: female
-                                      ? const Color(0xff515253)
-                                      : const Color(0xffF96A70),
-                                ),
-                                Text(
-                                  'female',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: width * 0.05,
-                                      color: female
-                                          ? const Color(0xff515253)
-                                          : const Color(0xffF96A70)),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: width * 0.05,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              other = false;
-                              male = true;
-                              female = true;
-                            });
-                          },
-                          child: Container(
-                            width: 85,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                color: other
-                                    ? Colors.transparent
-                                    : const Color.fromARGB(255, 232, 203, 246),
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                    width: 0.7,
-                                    color: other
-                                        ? const Color(0xff515253)
-                                        : const Color(0xff56027D))),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: Icon(
-                                    Icons.transgender,
-                                    size: 17,
-                                    color: other
-                                        ? const Color(0xff515253)
-                                        : const Color(0xff56027D),
-                                  ),
-                                ),
-                                Text(
-                                  'other',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: width * 0.05,
-                                      color: other
-                                          ? const Color(0xff515253)
-                                          : const Color(0xff56027D)),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Container(
-                      /* color: Colors.red, */
-                      height: 48,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 40,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: SizedBox(
-                                  height: 40,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 18.0, bottom: 3),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(
-                                          width: 210,
-                                          child: TextFormField(
-                                              enabled: bio,
-                                              decoration: InputDecoration(
-                                                labelText: '',
-                                                border: InputBorder.none,
-                                              )),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 22.0),
-                                          child: Container(
-                                            child: bio1
-                                                ? IconButton(
-                                                    padding: EdgeInsets.all(0),
-                                                    constraints:
-                                                        BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        bio = false;
-                                                        bio1 = false;
-                                                      });
-                                                    },
-                                                    icon: Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    ))
-                                                : IconButton(
-                                                    padding: EdgeInsets.all(0),
-                                                    constraints:
-                                                        BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        bio = true;
-                                                        bio1 = true;
-                                                      });
-                                                    },
-                                                    icon: Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    )),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: 30,
-                            width: 60,
-                            height: 10,
-                            child: Container(
-                              color: Colors.white,
-                              child: const Text(
-                                'Date of Birth',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          border:
-                              Border.all(width: 0.5, color: customTextColor),
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Text(
-                                  "Dont show to anyone",
-                                  style: TextStyle(
-                                      color: const Color(0xff515253),
-                                      fontFamily: 'Poppins',
-                                      fontSize: width * 0.03),
-                                ),
-                              ),
-                              Switch.adaptive(
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  activeColor: primaryColorOfApp,
-                                  value: valueofswitch,
-                                  onChanged: (valueofswitch) {
-                                    setState(() {
-                                      this.valueofswitch = valueofswitch;
-                                    });
-                                  })
-                            ],
-                          ),
-                          Divider(
-                            color: Colors.black,
-                            height: 2,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10.0),
-                                child: Text(
-                                  "Show my email id followers ",
-                                  style: TextStyle(
-                                      color: const Color(0xff515253),
-                                      fontFamily: 'Poppins',
-                                      fontSize: width * 0.03),
-                                ),
-                              ),
-                              Radio(
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  groupValue: groupemail,
-                                  value: emailid,
-                                  onChanged: (val) {
-                                    setState(() {
-                                      emailid = true;
-                                      emailid1 = false;
-                                      groupemail = emailid;
-                                    });
-                                  })
-                            ],
-                          ),
-                          Divider(
-                            color: Colors.black,
-                            height: 2,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10.0),
-                                child: Text(
-                                  "Show my email id  everyone",
-                                  style: TextStyle(
-                                      color: const Color(0xff515253),
-                                      fontFamily: 'Poppins',
-                                      fontSize: width * 0.03),
-                                ),
-                              ),
-                              Radio(
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  groupValue: groupemail,
-                                  value: emailid1,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      emailid = false;
-                                      emailid1 = true;
-                                      groupemail = emailid1;
-                                    });
-                                  })
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          buildaddresspage(context);
-                          /*   Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
-                        ); */
-                        },
-                        style: OutlinedButton.styleFrom(
-                            side: const BorderSide(
-                                color: Color(0xff0087FF), width: 0.5),
-                            /*  padding: EdgeInsets.symmetric(
-                                          horizontal: 40.0, vertical: 20.0), */
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0))),
-                        child: Text(
-                          "Add Your Address",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: primaryColorOfApp,
-                              /*  fontSize: 18, */
-                              fontFamily: 'Poppins'),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ChangeInterest()),
-                          );
-                          /*   Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
-                        ); */
-                        },
-                        style: OutlinedButton.styleFrom(
-                            side: const BorderSide(
-                                color: Color(0xff0087FF), width: 0.5),
-                            /*  padding: EdgeInsets.symmetric(
-                                          horizontal: 40.0, vertical: 20.0), */
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0))),
-                        child: Text(
-                          "Change Interest",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: primaryColorOfApp,
-                              /*  fontSize: 18, */
-                              fontFamily: 'Poppins'),
-                        ),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        OutlinedButton(
-                          onPressed: () {},
-                          style: OutlinedButton.styleFrom(
-                              minimumSize: Size(140, 35),
-                              /*    minimumSize: Size(32, 30), */
-                              elevation: 0,
-                              /* padding: EdgeInsets.zero, */
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              side: const BorderSide(
-                                color: Color(0xff0087FF),
-                              ),
-                              /*  padding:
-                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: const Text(
-                              "Cancel",
-                              style: TextStyle(
-                                  color: Color(0xff333333),
-                                  fontSize: 10,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                        /*  SizedBox(
-                                              width: width * 0.03,
-                                            ), */
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              minimumSize: Size(135, 35),
-                              /*  minimumSize: Size(32, 30), */
-                              elevation: 0,
-                              /* padding: EdgeInsets.zero, */
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              /*   side: const BorderSide(
-                                                    color: Color(0xff0087FF),
-                                                  ), */
-                              /*   padding:
-                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                              backgroundColor: primaryColorOfApp,
-                              foregroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: const Text(
-                              "Save Changes",
-                              style: TextStyle(
-                                  fontSize: 10, fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.05,
                     ),
                   ]),
                 ),
@@ -1286,6 +539,7 @@ class ProfileSelf extends StatefulWidget {
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 color: customTextColor,
+                                fontWeight: FontWeight.bold,
                                 fontSize: 15),
                           ),
                         ],
@@ -1293,8 +547,11 @@ class ProfileSelf extends StatefulWidget {
                       Divider(),
                       InkWell(
                         onTap: () {
-                          /*  popmethod(); */
-                          buildprofilepage(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SelfProfile()),
+                          );
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1375,7 +632,7 @@ class ProfileSelf extends StatefulWidget {
                                 width: 10,
                               ),
                               Text(
-                                'followers & following monetize ',
+                                'Monetize',
                                 style: ProfileSelf().buildtextstyle(),
                               ),
                             ],
@@ -1437,6 +694,9 @@ class ProfileSelf extends StatefulWidget {
                                                       ),
                                                     ],
                                                   ),
+                                                  SizedBox(
+                                                    height: height * 0.01,
+                                                  ),
                                                   Row(
                                                     children: [
                                                       IconButton(
@@ -1468,52 +728,50 @@ class ProfileSelf extends StatefulWidget {
                                                       ),
                                                     ],
                                                   ),
+                                                  Divider(),
                                                   SizedBox(
                                                     height: height * 0.01,
                                                   ),
                                                   TabBar(
-                                                    /* controller: tabController, */
+                                                    indicatorWeight: 1,
                                                     indicatorSize:
-                                                        TabBarIndicatorSize.tab,
+                                                        TabBarIndicatorSize
+                                                            .label,
                                                     indicatorPadding:
                                                         EdgeInsets.zero,
                                                     labelColor:
-                                                        Color(0xff0087FF),
+                                                        primaryColorOfApp,
                                                     unselectedLabelColor:
-                                                        Color(0xff333333),
+                                                        const Color(0xff333333),
                                                     tabs: [
                                                       Tab(
                                                         height: 20,
-                                                        child: Row(
-                                                          children: [
-                                                            Text(
-                                                              'Actived',
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 12),
-                                                            )
-                                                          ],
+                                                        child: Text(
+                                                          'Actived',
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 12),
                                                         ),
                                                       ),
                                                       Tab(
                                                         height: 20,
-                                                        child: Row(
-                                                          children: [
-                                                            Text(
-                                                              'New Add',
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 12),
-                                                            )
-                                                          ],
+                                                        child: Text(
+                                                          'New Add',
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 12),
                                                         ),
                                                       ),
                                                     ],
                                                   ),
                                                   SizedBox(
-                                                    height: 260,
+                                                    height: height * 0.01,
+                                                  ),
+                                                  Divider(),
+                                                  SizedBox(
+                                                    height: 300,
                                                     child: TabBarView(
                                                         children: [
                                                           Padding(
@@ -1564,6 +822,7 @@ class ProfileSelf extends StatefulWidget {
                                                                       /*    SizedBox(
                                                                   height: height * 0.01,
                                                                 ), */
+                                                                      Divider(),
                                                                       Text(
                                                                         'this profile use admin access, post, all access your profile, like you',
                                                                         style: TextStyle(
@@ -1587,7 +846,7 @@ class ProfileSelf extends StatefulWidget {
                                                                             child:
                                                                                 Text(
                                                                               'Admin ',
-                                                                              style: TextStyle(color: primaryColorOfApp, fontFamily: 'Poppins', fontSize: 10, fontWeight: FontWeight.bold),
+                                                                              style: TextStyle(color: primaryColorOfApp, fontFamily: 'Poppins', fontSize: 12, fontWeight: FontWeight.bold),
                                                                             ),
                                                                           ),
                                                                           TextButton(
@@ -1641,6 +900,7 @@ class ProfileSelf extends StatefulWidget {
                                                                                                         /*    SizedBox(
                                                                   height: height * 0.01,
                                                                 ), */
+                                                                                                        Divider(),
                                                                                                         Row(
                                                                                                           mainAxisAlignment: MainAxisAlignment.start,
                                                                                                           children: [
@@ -1657,7 +917,7 @@ class ProfileSelf extends StatefulWidget {
                                                                   height: height * 0.01,
                                                                 ), */
                                                                                                         Row(
-                                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                                           children: [
                                                                                                             Padding(
                                                                                                                 padding: const EdgeInsets.only(left: 16.0),
@@ -1667,14 +927,23 @@ class ProfileSelf extends StatefulWidget {
                                                                                                                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                                                                                                     ),
                                                                                                                     onPressed: () {},
-                                                                                                                    child: Text('Cancel', style: TextStyle(color: customTextColor, fontSize: 10)))),
+                                                                                                                    child: Text('Cancel', style: TextStyle(color: customTextColor, fontSize: 12)))),
                                                                                                             TextButton(
                                                                                                                 style: TextButton.styleFrom(
                                                                                                                   padding: EdgeInsets.zero,
                                                                                                                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                                                                                                 ),
                                                                                                                 onPressed: () {},
-                                                                                                                child: Text('Remove', style: TextStyle(color: Colors.red, fontSize: 10)))
+                                                                                                                child: Row(
+                                                                                                                  children: [
+                                                                                                                    Icon(
+                                                                                                                      Icons.delete,
+                                                                                                                      color: Color(0xffED1B24),
+                                                                                                                      size: 10,
+                                                                                                                    ),
+                                                                                                                    Text('Remove', style: TextStyle(color: Color(0xffED1B24), fontSize: 12)),
+                                                                                                                  ],
+                                                                                                                ))
                                                                                                           ],
                                                                                                         )
                                                                                                       ],
@@ -1714,7 +983,7 @@ class ProfileSelf extends StatefulWidget {
                                                                                       });
                                                                                     }));
                                                                               },
-                                                                              child: Text('Remove', style: TextStyle(color: Colors.red, fontSize: 10)))
+                                                                              child: Text('Remove', style: TextStyle(color: Colors.red, fontSize: 12)))
                                                                         ],
                                                                       )
                                                                     ],
@@ -1766,6 +1035,7 @@ class ProfileSelf extends StatefulWidget {
                                                                       /*    SizedBox(
                                                                   height: height * 0.01,
                                                                 ), */
+                                                                      Divider(),
                                                                       Row(
                                                                         mainAxisAlignment:
                                                                             MainAxisAlignment.start,
@@ -1794,7 +1064,7 @@ class ProfileSelf extends StatefulWidget {
                                                                             child:
                                                                                 Text(
                                                                               'Manager',
-                                                                              style: TextStyle(color: primaryColorOfApp, fontFamily: 'Poppins', fontSize: 10, fontWeight: FontWeight.bold),
+                                                                              style: TextStyle(color: primaryColorOfApp, fontFamily: 'Poppins', fontSize: 12, fontWeight: FontWeight.bold),
                                                                             ),
                                                                           ),
                                                                           TextButton(
@@ -1803,433 +1073,463 @@ class ProfileSelf extends StatefulWidget {
                                                                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                                                               ),
                                                                               onPressed: () {},
-                                                                              child: Text('Remove', style: TextStyle(color: Colors.red, fontSize: 10)))
+                                                                              child: Text('Remove', style: TextStyle(color: Colors.red, fontSize: 12)))
                                                                         ],
                                                                       )
                                                                     ],
                                                                   ),
                                                                 ),
+                                                                SizedBox(
+                                                                  height:
+                                                                      height *
+                                                                          0.03,
+                                                                )
                                                               ],
                                                             ),
                                                           ),
-                                                          Padding(
-                                                              padding: EdgeInsets
-                                                                  .only(
-                                                                      top: 20),
-                                                              /*   padding: const EdgeInsets.only(
-                                                            top: 18.0), */
-                                                              child:
-                                                                  TextFormField(
-                                                                      onTap:
-                                                                          () {
-                                                                        Navigator.of(context)
-                                                                            .pop();
-                                                                        showModalBottomSheet(
-                                                                            /*  isScrollControlled: true, */
-                                                                            shape:
-                                                                                const RoundedRectangleBorder(
-                                                                              // <-- SEE HERE
-                                                                              borderRadius: BorderRadius.vertical(
-                                                                                top: Radius.circular(20.0),
-                                                                              ),
-                                                                            ),
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (BuildContext context) {
-                                                                              return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
-                                                                                return Stack(
-                                                                                  clipBehavior: Clip.none,
-                                                                                  children: [
-                                                                                    Padding(
-                                                                                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                                                                                        child: Column(
-                                                                                            /* mainAxisSize:
-                                                                                      MainAxisSize
-                                                                                          .min, */
-                                                                                            children: [
-                                                                                              SizedBox(
-                                                                                                height: height * 0.01,
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: const EdgeInsets.only(top: 18.0),
-                                                                                                child: Row(
-                                                                                                  children: [
-                                                                                                    IconButton(
-                                                                                                        padding: EdgeInsets.zero,
-                                                                                                        constraints: BoxConstraints(),
-                                                                                                        onPressed: () {
-                                                                                                          Navigator.of(context).pop();
-                                                                                                        },
-                                                                                                        icon: Icon(
-                                                                                                          Icons.arrow_back,
-                                                                                                          color: primaryColorOfApp,
-                                                                                                        )),
-                                                                                                    SizedBox(
-                                                                                                      width: 250,
-                                                                                                      child: TextFormField(
-                                                                                                          decoration: InputDecoration(
-                                                                                                              isDense: true, // Added this
-                                                                                                              contentPadding: EdgeInsets.all(8),
-                                                                                                              labelText: 'Search profile Name',
-                                                                                                              labelStyle: const TextStyle(color: Colors.black, fontFamily: 'Poppins', fontSize: 10),
-                                                                                                              enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
-                                                                                                              focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
-                                                                                                              /*    prefixIcon: Icon(Icons.search), */
-                                                                                                              hintText: 'Searh Username')),
-                                                                                                    ),
-                                                                                                  ],
-                                                                                                ),
-                                                                                              ),
-                                                                                              ListTile(
-                                                                                                minVerticalPadding: 10,
-                                                                                                horizontalTitleGap: 0.0,
-                                                                                                visualDensity: const VisualDensity(vertical: -3),
-                                                                                                dense: true,
-                                                                                                leading: CircleAvatar(
-                                                                                                  radius: 20,
-                                                                                                  backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
-                                                                                                ),
-                                                                                                title: Text(
-                                                                                                  'Rajan Mistry-1 ',
-                                                                                                  style: ProfileSelf().buildtextstyle(),
-                                                                                                ),
-                                                                                                subtitle: Text(
-                                                                                                  '@m.rajan02',
-                                                                                                  style: ProfileSelf().buildtextstyle(),
-                                                                                                ),
-                                                                                              ),
-                                                                                              SizedBox(
-                                                                                                width: double.infinity,
-                                                                                                // height: 50,
-                                                                                                child: ElevatedButton(
-                                                                                                  onPressed: () {
-                                                                                                    showModalBottomSheet(
-                                                                                                        /* isScrollControlled: true, */
-                                                                                                        shape: const RoundedRectangleBorder(
-                                                                                                          // <-- SEE HERE
-                                                                                                          borderRadius: BorderRadius.vertical(
-                                                                                                            top: Radius.circular(20.0),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        context: context,
-                                                                                                        builder: (BuildContext context) {
-                                                                                                          return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
-                                                                                                            return Stack(
-                                                                                                              clipBehavior: Clip.none,
-                                                                                                              children: [
-                                                                                                                Padding(
-                                                                                                                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                                                                                                                    child: Column(/* mainAxisSize: MainAxisSize.min, */ children: [
-                                                                                                                      SizedBox(
-                                                                                                                        height: height * 0.01,
-                                                                                                                      ),
-                                                                                                                      ListTile(
-                                                                                                                        minVerticalPadding: 10,
-                                                                                                                        horizontalTitleGap: 0.0,
-                                                                                                                        visualDensity: const VisualDensity(vertical: -3),
-                                                                                                                        dense: true,
-                                                                                                                        leading: CircleAvatar(
-                                                                                                                          radius: 20,
-                                                                                                                          backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
-                                                                                                                        ),
-                                                                                                                        title: Text(
-                                                                                                                          'Rajan Mistry-1 ',
-                                                                                                                          style: ProfileSelf().buildtextstyle(),
-                                                                                                                        ),
-                                                                                                                        subtitle: Text(
-                                                                                                                          '@m.rajan02',
-                                                                                                                          style: ProfileSelf().buildtextstyle(),
-                                                                                                                        ),
-                                                                                                                        trailing: OutlinedButton(
-                                                                                                                            style: OutlinedButton.styleFrom(
-                                                                                                                                elevation: 0,
-                                                                                                                                /*     minimumSize: const Size(0.0, 40), */
-                                                                                                                                // padding: EdgeInsets.symmetric(
-                                                                                                                                //     horizontal: 40.0, vertical: 20.0),
-                                                                                                                                backgroundColor: const Color(0xffFFFFFF),
-                                                                                                                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                                                                            onPressed: () {},
-                                                                                                                            child: Text(
-                                                                                                                              'Accepted',
-                                                                                                                              style: TextStyle(fontFamily: 'Poppins', color: customTextColor, fontSize: 10),
-                                                                                                                            )),
-                                                                                                                      ),
-                                                                                                                      Row(
-                                                                                                                        children: [
-                                                                                                                          Text('@Profile.Username007 accepted your request',
-                                                                                                                              style: TextStyle(
-                                                                                                                                fontFamily: 'Poppins',
-                                                                                                                                color: customTextColor,
-                                                                                                                                fontSize: 10,
-                                                                                                                              )),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                      Divider(),
-                                                                                                                      Row(
-                                                                                                                        children: [
-                                                                                                                          Text('you can permission to ',
-                                                                                                                              style: TextStyle(
-                                                                                                                                fontFamily: 'Poppins',
-                                                                                                                                color: customTextColor,
-                                                                                                                                fontSize: 10,
-                                                                                                                              )),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                      SizedBox(
-                                                                                                                        height: height * 0.01,
-                                                                                                                      ),
-                                                                                                                      Row(
-                                                                                                                        children: [
-                                                                                                                          Text('Select One Option ',
-                                                                                                                              style: TextStyle(
-                                                                                                                                fontFamily: 'Poppins',
-                                                                                                                                color: customTextColor,
-                                                                                                                                fontSize: 10,
-                                                                                                                              )),
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                      SizedBox(
-                                                                                                                        height: height * 0.01,
-                                                                                                                      ),
-                                                                                                                      Row(
-                                                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                        children: [
-                                                                                                                          Column(
-                                                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                            children: [
-                                                                                                                              Row(
-                                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                                children: [
-                                                                                                                                  Text(
-                                                                                                                                    'Admin',
-                                                                                                                                    style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
-                                                                                                                                  ),
-                                                                                                                                ],
-                                                                                                                              ),
-                                                                                                                              Row(
-                                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                                children: [
-                                                                                                                                  Text(
-                                                                                                                                    'access all: Post, share, like, comments, repost & live',
-                                                                                                                                    style: TextStyle(fontFamily: 'Poppins', fontSize: 8),
-                                                                                                                                  ),
-                                                                                                                                ],
-                                                                                                                              ),
-                                                                                                                            ],
-                                                                                                                          ),
-                                                                                                                          Radio(
-                                                                                                                              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                                                                                                              groupValue: groupemail,
-                                                                                                                              value: emailid,
-                                                                                                                              onChanged: (val) {
-                                                                                                                                setState(() {
-                                                                                                                                  groupemail = emailid;
-                                                                                                                                });
-                                                                                                                              })
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                      SizedBox(
-                                                                                                                        height: height * 0.03,
-                                                                                                                      ),
-                                                                                                                      Row(
-                                                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                        children: [
-                                                                                                                          Column(
-                                                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                            children: [
-                                                                                                                              Row(
-                                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                                children: [
-                                                                                                                                  Text(
-                                                                                                                                    'Manager ',
-                                                                                                                                    style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
-                                                                                                                                  ),
-                                                                                                                                ],
-                                                                                                                              ),
-                                                                                                                              Row(
-                                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                                children: [
-                                                                                                                                  Text(
-                                                                                                                                    'Post Photo & Videos',
-                                                                                                                                    style: ProfileSelf().buildtextstyle(),
-                                                                                                                                  ),
-                                                                                                                                ],
-                                                                                                                              ),
-                                                                                                                            ],
-                                                                                                                          ),
-                                                                                                                          Radio(
-                                                                                                                              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                                                                                                              groupValue: groupemail,
-                                                                                                                              value: emailid,
-                                                                                                                              onChanged: (val) {
-                                                                                                                                setState(() {
-                                                                                                                                  groupemail = emailid;
-                                                                                                                                });
-                                                                                                                              })
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                      Row(
-                                                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                                                        children: [
-                                                                                                                          Text(
-                                                                                                                            'You can set limitation',
-                                                                                                                            style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontSize: 10),
-                                                                                                                          ),
-                                                                                                                          TextButton(
-                                                                                                                              style: TextButton.styleFrom(
-                                                                                                                                padding: EdgeInsets.zero,
-                                                                                                                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                                                                                                              ),
-                                                                                                                              onPressed: () {
-                                                                                                                                WidgetProfilePage().buildgotoset(context);
-                                                                                                                              },
-                                                                                                                              child: Row(
-                                                                                                                                children: [
-                                                                                                                                  Text('GO TO SET', style: TextStyle(color: primaryColorOfApp, fontSize: 10)),
-                                                                                                                                  Iconify(
-                                                                                                                                    Eva.arrow_right_fill,
-                                                                                                                                    size: 15,
-                                                                                                                                  )
-                                                                                                                                ],
-                                                                                                                              ))
-                                                                                                                        ],
-                                                                                                                      ),
-                                                                                                                      SizedBox(
-                                                                                                                        height: height * 0.04,
-                                                                                                                      ),
-                                                                                                                      SizedBox(
-                                                                                                                          width: double.infinity,
-                                                                                                                          child: ElevatedButton(
-                                                                                                                              style: ElevatedButton.styleFrom(
-                                                                                                                                  elevation: 0,
-                                                                                                                                  /*     minimumSize: const Size(0.0, 40), */
-                                                                                                                                  // padding: EdgeInsets.symmetric(
-                                                                                                                                  //     horizontal: 40.0, vertical: 20.0),
-                                                                                                                                  backgroundColor: const Color(0xff0087FF),
-                                                                                                                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                                                                              onPressed: () {},
-                                                                                                                              child: Text('Confirm', style: TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'Poppins'))))
-                                                                                                                    ])),
-                                                                                                                Positioned.fill(
-                                                                                                                    top: -36,
-                                                                                                                    child: Align(
-                                                                                                                      alignment: Alignment.topCenter,
-                                                                                                                      child: InkWell(
-                                                                                                                        onTap: () {
-                                                                                                                          Navigator.pop(context);
-                                                                                                                        },
-                                                                                                                        child: Container(
-                                                                                                                          /*   width: 45,
-                                  height: 45, */
-                                                                                                                          decoration: BoxDecoration(
-                                                                                                                            border: Border.all(color: Colors.white, width: 2),
-                                                                                                                            shape: BoxShape.circle,
-                                                                                                                          ),
-                                                                                                                          child: Padding(
-                                                                                                                            padding: const EdgeInsets.all(4.0),
-                                                                                                                            child: Icon(
-                                                                                                                              Icons.close,
-                                                                                                                              color: Colors.white,
-                                                                                                                            ),
-                                                                                                                          ),
-                                                                                                                        ),
-                                                                                                                      ),
-                                                                                                                    ))
-                                                                                                              ],
-                                                                                                            );
-                                                                                                          });
-                                                                                                        });
-                                                                                                  },
-                                                                                                  style: ElevatedButton.styleFrom(
-                                                                                                      elevation: 0,
-                                                                                                      /*     minimumSize: const Size(0.0, 40), */
-                                                                                                      // padding: EdgeInsets.symmetric(
-                                                                                                      //     horizontal: 40.0, vertical: 20.0),
-                                                                                                      backgroundColor: const Color(0xff0087FF),
-                                                                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                                                  child: const Text(
-                                                                                                    "Send Request",
-                                                                                                    style: TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'Poppins'),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ])),
-                                                                                    Positioned.fill(
-                                                                                        top: -36,
-                                                                                        child: Align(
-                                                                                          alignment: Alignment.topCenter,
-                                                                                          child: InkWell(
-                                                                                            onTap: () {
-                                                                                              Navigator.pop(context);
+                                                          Column(
+                                                            children: [
+                                                              SizedBox(
+                                                                height: height *
+                                                                    0.01,
+                                                              ),
+                                                              SizedBox(
+                                                                height: 35,
+                                                                child:
+                                                                    TextField(
+                                                                  onTap: () {
+                                                                    Navigator.of(
+                                                                            context)
+                                                                        .pop();
+                                                                    showModalBottomSheet(
+                                                                        /*  isScrollControlled: true, */
+                                                                        shape:
+                                                                            const RoundedRectangleBorder(
+                                                                          // <-- SEE HERE
+                                                                          borderRadius:
+                                                                              BorderRadius.vertical(
+                                                                            top:
+                                                                                Radius.circular(20.0),
+                                                                          ),
+                                                                        ),
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (BuildContext
+                                                                                context) {
+                                                                          return StatefulBuilder(builder:
+                                                                              (BuildContext context, StateSetter setState) {
+                                                                            return Stack(
+                                                                              clipBehavior: Clip.none,
+                                                                              children: [
+                                                                                Column(children: [
+                                                                                  SizedBox(
+                                                                                    height: height * 0.01,
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(left: 18.0),
+                                                                                    child: Row(
+                                                                                      children: [
+                                                                                        IconButton(
+                                                                                            padding: EdgeInsets.zero,
+                                                                                            constraints: BoxConstraints(),
+                                                                                            onPressed: () {
+                                                                                              Navigator.of(context).pop();
                                                                                             },
-                                                                                            child: Container(
-                                                                                              /*   width: 45,
-                                  height: 45, */
-                                                                                              decoration: BoxDecoration(
-                                                                                                border: Border.all(color: Colors.white, width: 2),
-                                                                                                shape: BoxShape.circle,
-                                                                                              ),
-                                                                                              child: Padding(
-                                                                                                padding: const EdgeInsets.all(4.0),
-                                                                                                child: Icon(
-                                                                                                  Icons.close,
-                                                                                                  color: Colors.white,
-                                                                                                ),
+                                                                                            icon: Icon(
+                                                                                              Icons.arrow_back,
+                                                                                              color: primaryColorOfApp,
+                                                                                            )),
+                                                                                        SizedBox(
+                                                                                          width: width * 0.01,
+                                                                                        ),
+                                                                                        SizedBox(
+                                                                                          width: 250,
+                                                                                          child: TextFormField(
+                                                                                              decoration: InputDecoration(
+                                                                                            isDense: true, // Added this
+                                                                                            contentPadding: EdgeInsets.all(8),
+                                                                                            labelText: 'Profile Name.. e.g.  ajay singh',
+                                                                                            labelStyle: const TextStyle(color: Color(0xffc4c4c4), fontFamily: 'Poppins', fontSize: 10),
+                                                                                            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Color(0xff737373), width: 0.5)),
+                                                                                            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Color(0xff737373), width: 0.5)),
+                                                                                            /*    prefixIcon: Icon(Icons.search), */
+                                                                                          )),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                  ListTile(
+                                                                                    minVerticalPadding: 10,
+                                                                                    horizontalTitleGap: 0.0,
+                                                                                    visualDensity: const VisualDensity(vertical: -3),
+                                                                                    dense: true,
+                                                                                    leading: CircleAvatar(
+                                                                                      radius: 20,
+                                                                                      backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
+                                                                                    ),
+                                                                                    title: Text(
+                                                                                      'Rajan Mistry-1 ',
+                                                                                      style: ProfileSelf().buildtextstyle(),
+                                                                                    ),
+                                                                                    subtitle: Text(
+                                                                                      '@m.rajan02',
+                                                                                      style: ProfileSelf().buildtextstyle(),
+                                                                                    ),
+                                                                                  ),
+                                                                                  SizedBox(
+                                                                                    width: double.infinity,
+                                                                                    // height: 50,
+                                                                                    child: ElevatedButton(
+                                                                                      onPressed: () {
+                                                                                        showModalBottomSheet(
+                                                                                            /* isScrollControlled: true, */
+                                                                                            shape: const RoundedRectangleBorder(
+                                                                                              // <-- SEE HERE
+                                                                                              borderRadius: BorderRadius.vertical(
+                                                                                                top: Radius.circular(20.0),
                                                                                               ),
                                                                                             ),
+                                                                                            context: context,
+                                                                                            builder: (BuildContext context) {
+                                                                                              return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+                                                                                                return Stack(
+                                                                                                  clipBehavior: Clip.none,
+                                                                                                  children: [
+                                                                                                    Padding(
+                                                                                                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                                                                                        child: Column(/* mainAxisSize: MainAxisSize.min, */ children: [
+                                                                                                          SizedBox(
+                                                                                                            height: height * 0.01,
+                                                                                                          ),
+                                                                                                          Row(
+                                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                            children: [
+                                                                                                              Row(
+                                                                                                                children: [
+                                                                                                                  CircleAvatar(
+                                                                                                                    radius: 20,
+                                                                                                                    backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
+                                                                                                                  ),
+                                                                                                                  SizedBox(
+                                                                                                                    width: width * 0.01,
+                                                                                                                  ),
+                                                                                                                  Column(
+                                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                    children: [
+                                                                                                                      Text(
+                                                                                                                        '@Profile.Username007',
+                                                                                                                        style: TextStyle(color: primaryColorOfApp, fontFamily: 'Poppins', fontSize: 10),
+                                                                                                                      ),
+                                                                                                                      Text(
+                                                                                                                        'Ajay Singh-B',
+                                                                                                                        style: ProfileSelf().buildtextstyle(),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ),
+                                                                                                              Padding(
+                                                                                                                padding: const EdgeInsets.only(right: 8.0),
+                                                                                                                child: OutlinedButton(
+                                                                                                                    style: OutlinedButton.styleFrom(
+                                                                                                                        elevation: 0,
+                                                                                                                        minimumSize: const Size(60, 30),
+                                                                                                                        // padding: EdgeInsets.symmetric(
+                                                                                                                        //     horizontal: 40.0, vertical: 20.0),
+                                                                                                                        backgroundColor: const Color(0xffFFFFFF),
+                                                                                                                        side: BorderSide(color: customTextColor),
+                                                                                                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                                                                    onPressed: () {},
+                                                                                                                    child: Text(
+                                                                                                                      'Accepted',
+                                                                                                                      style: TextStyle(fontFamily: 'Poppins', color: customTextColor, fontSize: 10),
+                                                                                                                    )),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                          SizedBox(
+                                                                                                            height: height * 0.01,
+                                                                                                          ),
+                                                                                                          Row(
+                                                                                                            children: [
+                                                                                                              Text('@Profile.Username007 accepted your request',
+                                                                                                                  style: TextStyle(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: customTextColor,
+                                                                                                                    fontSize: 10,
+                                                                                                                  )),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                          Divider(),
+                                                                                                          Row(
+                                                                                                            children: [
+                                                                                                              Text('you can permission to ',
+                                                                                                                  style: TextStyle(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: customTextColor,
+                                                                                                                    fontSize: 10,
+                                                                                                                  )),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                          SizedBox(
+                                                                                                            height: height * 0.01,
+                                                                                                          ),
+                                                                                                          Row(
+                                                                                                            children: [
+                                                                                                              Text('Select One Option ',
+                                                                                                                  style: TextStyle(
+                                                                                                                    fontFamily: 'Poppins',
+                                                                                                                    color: customTextColor,
+                                                                                                                    fontSize: 10,
+                                                                                                                  )),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                          SizedBox(
+                                                                                                            height: height * 0.01,
+                                                                                                          ),
+                                                                                                          Row(
+                                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                            children: [
+                                                                                                              Column(
+                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                children: [
+                                                                                                                  Row(
+                                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                    children: [
+                                                                                                                      Text(
+                                                                                                                        'Admin',
+                                                                                                                        style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                  Row(
+                                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                    children: [
+                                                                                                                      Text(
+                                                                                                                        'access all: Post, share, like, comments, repost & live',
+                                                                                                                        style: TextStyle(fontFamily: 'Poppins', fontSize: 8),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ),
+                                                                                                              Radio(
+                                                                                                                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                                                                  groupValue: groupemail,
+                                                                                                                  value: emailid,
+                                                                                                                  onChanged: (val) {
+                                                                                                                    setState(() {
+                                                                                                                      groupemail = emailid;
+                                                                                                                    });
+                                                                                                                  })
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                          SizedBox(
+                                                                                                            height: height * 0.03,
+                                                                                                          ),
+                                                                                                          Row(
+                                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                            children: [
+                                                                                                              Column(
+                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                children: [
+                                                                                                                  Row(
+                                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                    children: [
+                                                                                                                      Text(
+                                                                                                                        'Manager ',
+                                                                                                                        style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                  Row(
+                                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                    children: [
+                                                                                                                      Text(
+                                                                                                                        'Post Photo & Videos',
+                                                                                                                        style: ProfileSelf().buildtextstyle(),
+                                                                                                                      ),
+                                                                                                                    ],
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ),
+                                                                                                              Radio(
+                                                                                                                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                                                                  groupValue: groupemail,
+                                                                                                                  value: emailid,
+                                                                                                                  onChanged: (val) {
+                                                                                                                    setState(() {
+                                                                                                                      groupemail = emailid;
+                                                                                                                    });
+                                                                                                                  })
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                          Row(
+                                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                                            children: [
+                                                                                                              Text(
+                                                                                                                'You can set limitation',
+                                                                                                                style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontSize: 10),
+                                                                                                              ),
+                                                                                                              Padding(
+                                                                                                                padding: const EdgeInsets.only(right: 8.0),
+                                                                                                                child: TextButton(
+                                                                                                                    style: TextButton.styleFrom(
+                                                                                                                      padding: EdgeInsets.zero,
+                                                                                                                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                                                                    ),
+                                                                                                                    onPressed: () {
+                                                                                                                      WidgetProfilePage().buildgotoset(context);
+                                                                                                                    },
+                                                                                                                    child: Row(
+                                                                                                                      children: [
+                                                                                                                        Text('GO TO SET', style: TextStyle(color: primaryColorOfApp, fontSize: 10)),
+                                                                                                                        Iconify(
+                                                                                                                          Eva.arrow_right_fill,
+                                                                                                                          size: 15,
+                                                                                                                        )
+                                                                                                                      ],
+                                                                                                                    )),
+                                                                                                              )
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                          SizedBox(
+                                                                                                            height: height * 0.04,
+                                                                                                          ),
+                                                                                                          SizedBox(
+                                                                                                              width: double.infinity,
+                                                                                                              child: ElevatedButton(
+                                                                                                                  style: ElevatedButton.styleFrom(
+                                                                                                                      elevation: 0,
+                                                                                                                      /*     minimumSize: const Size(0.0, 40), */
+                                                                                                                      // padding: EdgeInsets.symmetric(
+                                                                                                                      //     horizontal: 40.0, vertical: 20.0),
+                                                                                                                      backgroundColor: const Color(0xff0087FF),
+                                                                                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                                                                  onPressed: () {},
+                                                                                                                  child: Text('Confirm', style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Poppins'))))
+                                                                                                        ])),
+                                                                                                    Positioned.fill(
+                                                                                                        top: -36,
+                                                                                                        child: Align(
+                                                                                                          alignment: Alignment.topCenter,
+                                                                                                          child: InkWell(
+                                                                                                            onTap: () {
+                                                                                                              Navigator.pop(context);
+                                                                                                            },
+                                                                                                            child: Container(
+                                                                                                              /*   width: 45,
+                                  height: 45, */
+                                                                                                              decoration: BoxDecoration(
+                                                                                                                border: Border.all(color: Colors.white, width: 2),
+                                                                                                                shape: BoxShape.circle,
+                                                                                                              ),
+                                                                                                              child: Padding(
+                                                                                                                padding: const EdgeInsets.all(4.0),
+                                                                                                                child: Icon(
+                                                                                                                  Icons.close,
+                                                                                                                  color: Colors.white,
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                        ))
+                                                                                                  ],
+                                                                                                );
+                                                                                              });
+                                                                                            });
+                                                                                      },
+                                                                                      style: ElevatedButton.styleFrom(
+                                                                                          elevation: 0,
+                                                                                          /*     minimumSize: const Size(0.0, 40), */
+                                                                                          // padding: EdgeInsets.symmetric(
+                                                                                          //     horizontal: 40.0, vertical: 20.0),
+                                                                                          backgroundColor: const Color(0xff0087FF),
+                                                                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
+                                                                                      child: const Text(
+                                                                                        "Send Request",
+                                                                                        style: TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'Poppins'),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ]),
+                                                                                Positioned.fill(
+                                                                                    top: -36,
+                                                                                    child: Align(
+                                                                                      alignment: Alignment.topCenter,
+                                                                                      child: InkWell(
+                                                                                        onTap: () {
+                                                                                          Navigator.pop(context);
+                                                                                        },
+                                                                                        child: Container(
+                                                                                          /*   width: 45,
+                                  height: 45, */
+                                                                                          decoration: BoxDecoration(
+                                                                                            border: Border.all(color: Colors.white, width: 2),
+                                                                                            shape: BoxShape.circle,
                                                                                           ),
-                                                                                        ))
-                                                                                  ],
-                                                                                );
-                                                                              });
-                                                                            });
-                                                                      },
-                                                                      decoration:
-                                                                          InputDecoration(
-                                                                        isDense:
-                                                                            true, // Added this
-                                                                        contentPadding:
-                                                                            EdgeInsets.all(8),
-                                                                        labelText:
-                                                                            'Search profile Name',
-                                                                        labelStyle: const TextStyle(
-                                                                            color: Colors
-                                                                                .black,
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            fontSize:
-                                                                                10),
-                                                                        enabledBorder: OutlineInputBorder(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(10),
-                                                                            borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
-                                                                        focusedBorder: OutlineInputBorder(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(5),
-                                                                            borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
-                                                                        prefixIcon:
-                                                                            Icon(Icons.search),
-                                                                        hintText:
-                                                                            'Searh Username',
-                                                                        /*  contentPadding:
-                                                              const EdgeInsets.all(
-                                                                  15), */
-                                                                        /*  border:
-                                                                      OutlineInputBorder(
-                                                                          borderSide:
-                                                                              const BorderSide(
+                                                                                          child: Padding(
+                                                                                            padding: const EdgeInsets.all(4.0),
+                                                                                            child: Icon(
+                                                                                              Icons.close,
+                                                                                              color: Colors.white,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ))
+                                                                              ],
+                                                                            );
+                                                                          });
+                                                                        });
+                                                                  },
+                                                                  decoration:
+                                                                      InputDecoration(
+                                                                    prefixIcon:
+                                                                        Padding(
+                                                                      padding: const EdgeInsets
+                                                                              .only(
+                                                                          left:
+                                                                              8.0),
+                                                                      child:
+                                                                          Iconify(
+                                                                        Ri.search_line,
+                                                                        size:
+                                                                            15,
+                                                                        color: Color(
+                                                                            0xffDADADA),
+                                                                      ),
+                                                                    ),
+                                                                    prefixIconConstraints:
+                                                                        BoxConstraints(),
+                                                                    isDense:
+                                                                        true,
+                                                                      
+                                                                    labelText:
+                                                                        'Search Profile Name',
+                                                                    labelStyle: TextStyle(
+                                                                        color: Color(
+                                                                            0xffc4c4c4),
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            12),
+                                                                    border: OutlineInputBorder(
+                                                                        borderSide: BorderSide(
                                                                             color: Color(
-                                                                                0xff0087FF),
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(
-                                                                                  5) */
-                                                                      ))),
+                                                                                0xff737373)),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(5)),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ]),
                                                   )
                                                 ])),
@@ -2664,8 +1964,9 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildActivityStatus(
-                                                        context);
+                                                    WidgetProfilePage()
+                                                        .buildActivityStatus(
+                                                            context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -2700,8 +2001,9 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildShowRewardpoint(
-                                                        context);
+                                                    WidgetProfilePage()
+                                                        .buildShowRewardpoint(
+                                                            context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -2736,7 +2038,8 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildGroups(context);
+                                                    WidgetProfilePage()
+                                                        .buildGroups(context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -2771,7 +2074,8 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildComments(context);
+                                                    WidgetProfilePage()
+                                                        .buildComments(context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -2806,8 +2110,9 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildPostPhotoVideo(
-                                                        context);
+                                                    WidgetProfilePage()
+                                                        .buildPostPhotoVideo(
+                                                            context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -2842,7 +2147,8 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildStory(context);
+                                                    WidgetProfilePage()
+                                                        .buildStory(context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -2877,7 +2183,9 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildLivePrivacy(context);
+                                                    WidgetProfilePage()
+                                                        .buildLivePrivacy(
+                                                            context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -2918,8 +2226,9 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildChatBoxPrivacy(
-                                                        context);
+                                                    WidgetProfilePage()
+                                                        .buildChatBoxPrivacy(
+                                                            context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -2954,7 +2263,8 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildMention(context);
+                                                    WidgetProfilePage()
+                                                        .buildMention(context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -2989,7 +2299,8 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildTag(context);
+                                                    WidgetProfilePage()
+                                                        .buildTag(context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -3024,7 +2335,9 @@ class ProfileSelf extends StatefulWidget {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    WidgetProfilePage().buildSendmeGift(context);
+                                                    WidgetProfilePage()
+                                                        .buildSendmeGift(
+                                                            context);
                                                   },
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -3479,7 +2792,6 @@ class ProfileSelf extends StatefulWidget {
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           TextButton(
                             style: TextButton.styleFrom(
@@ -3487,21 +2799,24 @@ class ProfileSelf extends StatefulWidget {
                               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
                             onPressed: () {
-                              final provider = Provider.of<Googleprovider>(
+                              /*     final provider = Provider.of<Googleprovider>(
                                   context,
                                   listen: false);
-                              provider.logout();
-                              Navigator.push(
+                              provider.logout().whenComplete(() =>  Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => GooglePage1()));
+                                      builder: (context) => GooglePage1()))); */
                             },
-                            child: Text(
-                              'Logout',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold),
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 35.0),
+                              child: Text(
+                                'Logout',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: primaryColorOfApp,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           )
                         ],
@@ -4046,6 +3361,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
     width = size.width;
     return showModalBottomSheet(
         isScrollControlled: true,
+        backgroundColor: Colors.white,
         shape: const RoundedRectangleBorder(
           // <-- SEE HERE
           borderRadius: BorderRadius.vertical(
@@ -4062,6 +3378,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    SizedBox(
+                      height: height * 0.01,
+                    ),
                     Row(
                       children: [
                         IconButton(
@@ -4088,13 +3407,13 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               return Container(
                                 child: getkar.image != null
                                     ? CircleAvatar(
-                                        radius: 40,
+                                        radius: 25,
                                         backgroundColor: Colors.blue,
                                         child: CircleAvatar(
-                                          radius: 37,
+                                          radius: 23,
                                           backgroundColor: Colors.white,
                                           child: CircleAvatar(
-                                            radius: 35,
+                                            radius: 21,
                                             backgroundColor:
                                                 Colors.grey.shade800,
                                             backgroundImage:
@@ -4105,13 +3424,13 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                     // Image. file
                                     : Icon(
                                         Icons.account_circle,
-                                        size: 70,
+                                        size: 50,
                                         color: Color(0xffc4c4c4),
                                       ),
                               );
                             }),
                             SizedBox(
-                              height: 19,
+                              height: 18,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -4166,7 +3485,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                   border: Border.all(
                                       width: 0.5,
                                       color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
+                                  borderRadius: BorderRadius.circular(5)),
                               /*  width: 150,
                   height: 150, */
                               /*  color: Colors.green[300], */
@@ -4187,7 +3506,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           ),
                           Positioned(
                             top: 0,
-                            left: 30,
+                            left: 10,
                             width: 70,
                             height: 10,
                             child: Container(
@@ -4273,7 +3592,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                   border: Border.all(
                                       width: 0.5,
                                       color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
+                                  borderRadius: BorderRadius.circular(5)),
                               /*  width: 150,
                   height: 150, */
                               /*  color: Colors.green[300], */
@@ -4335,7 +3654,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           ),
                           Positioned(
                             top: 0,
-                            left: 30,
+                            left: 10,
                             width: 70,
                             height: 10,
                             child: Container(
@@ -4368,7 +3687,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                   border: Border.all(
                                       width: 0.5,
                                       color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
+                                  borderRadius: BorderRadius.circular(5)),
                               /*  width: 150,
                   height: 150, */
                               /*  color: Colors.green[300], */
@@ -4430,8 +3749,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           ),
                           Positioned(
                             top: 0,
-                            left: 30,
-                            width: 20,
+                            left: 10,
+                            width: 15,
                             height: 10,
                             child: Container(
                               color: Colors.white,
@@ -4510,154 +3829,412 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       return Stack(
                                         clipBehavior: Clip.none,
                                         children: [
-                                          Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              SizedBox(
-                                                height: height * 0.01,
-                                              ),
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Container(
-                                                  color:
-                                                      const Color(0xffE2E2E2),
-                                                  height: 7,
-                                                  width: 70,
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 18.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                SizedBox(
+                                                  height: height * 0.01,
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: height * 0.02,
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            left: 80.0),
-                                                    child: const Text(
-                                                      'Your Banner',
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xff333333),
-                                                          fontSize: 15,
-                                                          fontFamily:
-                                                              'Poppins'),
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Container(
+                                                    color:
+                                                        const Color(0xffE2E2E2),
+                                                    height: 5,
+                                                    width: 80,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: height * 0.02,
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 8.0),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      IconButton(
+                                                          padding:
+                                                              EdgeInsets.all(0),
+                                                          constraints:
+                                                              BoxConstraints(),
+                                                          onPressed: () {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
+                                                          icon: Icon(
+                                                            Icons.arrow_back,
+                                                            color:
+                                                                primaryColorOfApp,
+                                                          )),
+                                                      SizedBox(
+                                                        width: width * 0.04,
+                                                      ),
+                                                      Text(
+                                                        'Cover Photo',
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xff333333),
+                                                            fontSize: 15,
+                                                            fontFamily:
+                                                                'Poppins'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Divider(),
+                                                GetBuilder<GetImage>(
+                                                    builder: (controller) {
+                                                  return Container(
+                                                    child: getkar.image1 != null
+                                                        ? Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5),
+                                                              border: Border.all(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  width: 0.1),
+                                                            ),
+                                                            height: 70,
+                                                            width:
+                                                                double.infinity,
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5),
+                                                              child: Image.file(
+                                                                getkar.image1!,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            ))
+                                                        // Image. file
+                                                        : Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5),
+                                                              border: Border.all(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  width: 0.5),
+                                                            ),
+                                                            height: 70,
+                                                            width:
+                                                                double.infinity,
+                                                            child: Icon(
+                                                              Icons.photo,
+                                                              size: 50,
+                                                              color: Color(
+                                                                  0xffc4c4c4),
+                                                            )),
+                                                  );
+                                                }),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    TextButton(
+                                                        onPressed: () {
+                                                          showModalBottomSheet(
+                                                              isScrollControlled:
+                                                                  true,
+                                                              shape:
+                                                                  const RoundedRectangleBorder(
+                                                                // <-- SEE HERE
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .vertical(
+                                                                  top: Radius
+                                                                      .circular(
+                                                                          20.0),
+                                                                ),
+                                                              ),
+                                                              context: context,
+                                                              builder:
+                                                                  (BuildContext
+                                                                      context) {
+                                                                return StatefulBuilder(
+                                                                    builder:
+                                                                        (context,
+                                                                            setState) {
+                                                                  return Stack(
+                                                                    clipBehavior:
+                                                                        Clip.none,
+                                                                    children: [
+                                                                      Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.min,
+                                                                        children: [
+                                                                          SizedBox(
+                                                                            height:
+                                                                                height * 0.04,
+                                                                          ),
+                                                                          Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: [
+                                                                              Text(
+                                                                                'Are You Sure Remove This Photo?',
+                                                                                style: TextStyle(color: Color(0xff333333), fontSize: 15, fontFamily: 'Poppins'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                height * 0.04,
+                                                                          ),
+                                                                          Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceEvenly,
+                                                                            children: [
+                                                                              TextButton(
+                                                                                onPressed: () {
+                                                                                  Navigator.pop(context);
+                                                                                },
+                                                                                child: Text(
+                                                                                  'Cancel',
+                                                                                  style: TextStyle(color: customTextColor, fontSize: 13, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
+                                                                                ),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () {
+                                                                                  getkar.removeImagebanner();
+                                                                                  Navigator.pop(context);
+                                                                                },
+                                                                                child: Row(
+                                                                                  children: [
+                                                                                    Icon(
+                                                                                      Icons.delete,
+                                                                                      color: Color(0xffED1B24),
+                                                                                      size: 13,
+                                                                                    ),
+                                                                                    Text(
+                                                                                      'Remove',
+                                                                                      style: TextStyle(color: Color(0xffED1B24), fontSize: 13, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              )
+                                                                            ],
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                height * 0.04,
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Positioned.fill(
+                                                                          top: -36,
+                                                                          child: Align(
+                                                                            alignment:
+                                                                                Alignment.topCenter,
+                                                                            child:
+                                                                                InkWell(
+                                                                              onTap: () {
+                                                                                Navigator.pop(context);
+                                                                              },
+                                                                              child: Container(
+                                                                                /*   width: 45,
+                                    height: 45, */
+                                                                                decoration: BoxDecoration(
+                                                                                  border: Border.all(color: Colors.white, width: 2),
+                                                                                  shape: BoxShape.circle,
+                                                                                ),
+                                                                                child: Padding(
+                                                                                  padding: const EdgeInsets.all(4.0),
+                                                                                  child: Icon(
+                                                                                    Icons.close,
+                                                                                    color: Colors.white,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ))
+                                                                    ],
+                                                                  );
+                                                                });
+                                                              });
+                                                        },
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  right: 5.0),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(
+                                                                Icons.delete,
+                                                                color: Color(
+                                                                    0xffED1B24),
+                                                                size: 13,
+                                                              ),
+                                                              Text(
+                                                                'Remove',
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        0xffED1B24),
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ))
+                                                  ],
+                                                ),
+                                                Divider(),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 50.0),
+                                                      child: const Text(
+                                                        'Change Your Cover Photo',
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xff333333),
+                                                            fontSize: 12,
+                                                            fontFamily:
+                                                                'Poppins'),
+                                                      ),
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: height * 0.01,
-                                              ),
-                                              Divider(),
-                                              SizedBox(
-                                                height: height * 0.03,
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                children: [
-                                                  Column(
-                                                    children: [
-                                                      RawMaterialButton(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                        constraints:
-                                                            BoxConstraints(
-                                                                minHeight: 45,
-                                                                minWidth: 45),
-                                                        onPressed: () {
-                                                          getkar.pickforbanner(
-                                                              ImageSource
-                                                                  .camera);
-                                                          Navigator.of(context)
-                                                              .pop();
-                                                          setState(() {
-                                                            btnchng = false;
-                                                          });
-                                                        },
-                                                        elevation: 0,
-                                                        fillColor:
-                                                            Color(0xffDADADA),
-                                                        child: FaIcon(
-                                                          FontAwesomeIcons
-                                                              .camera,
-                                                          color:
-                                                              Color(0xff0087FF),
-                                                          size: 17,
-                                                        ),
-                                                        /*  padding: EdgeInsets.all(15.0), */
-                                                        shape: CircleBorder(
-                                                            /* side: BorderSide(
-                                                          width: 1,
-                                                          color: Color(0xff0087FF)) */
-                                                            ),
-                                                      ),
-                                                      Text(
-                                                        'camera',
-                                                        style: TextStyle(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: height * 0.03,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    Column(
+                                                      children: [
+                                                        RawMaterialButton(
+                                                          padding:
+                                                              EdgeInsets.zero,
+                                                          constraints:
+                                                              BoxConstraints(
+                                                                  minHeight: 45,
+                                                                  minWidth: 45),
+                                                          onPressed: () {
+                                                            getkar.pickforbanner(
+                                                                ImageSource
+                                                                    .camera);
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                            setState(() {
+                                                              btnchng = false;
+                                                            });
+                                                          },
+                                                          elevation: 0,
+                                                          fillColor:
+                                                              Color(0xffDADADA),
+                                                          child: Iconify(
+                                                            AntDesign
+                                                                .camera_filled,
                                                             color: Color(
-                                                                0xff333333)),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  Column(
-                                                    children: [
-                                                      RawMaterialButton(
-                                                        padding:
-                                                            EdgeInsets.zero,
-                                                        constraints:
-                                                            BoxConstraints(
-                                                                minHeight: 45,
-                                                                minWidth: 45),
-                                                        onPressed: () {
-                                                          getkar.pickforbanner(
-                                                              ImageSource
-                                                                  .gallery);
-                                                          Navigator.of(context)
-                                                              .pop();
-                                                          setState(() {
-                                                            btnchng = false;
-                                                          });
-                                                        },
-                                                        elevation: 0,
-                                                        fillColor:
-                                                            Color(0xffDADADA),
-                                                        child: Icon(
-                                                          Icons.photo,
-                                                          color:
-                                                              Color(0xff0087FF),
-                                                          size: 17,
+                                                                0xff0087FF),
+                                                            size: 25,
+                                                          ),
+                                                          /*  padding: EdgeInsets.all(15.0), */
+                                                          shape: CircleBorder(
+                                                              /* side: BorderSide(
+                                                            width: 1,
+                                                            color: Color(0xff0087FF)) */
+                                                              ),
                                                         ),
-                                                        /*  padding: EdgeInsets.all(15.0), */
-                                                        shape: CircleBorder(
-                                                            /* side: BorderSide(
-                                                          width: 1,
-                                                          color: Color(0xff0087FF)) */
-                                                            ),
-                                                      ),
-                                                      Text(
-                                                        'gallery',
-                                                        style: TextStyle(
-                                                            fontFamily:
-                                                                'Poppins',
+                                                        Text(
+                                                          'camera',
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color: Color(
+                                                                  0xff333333)),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    Column(
+                                                      children: [
+                                                        RawMaterialButton(
+                                                          padding:
+                                                              EdgeInsets.zero,
+                                                          constraints:
+                                                              BoxConstraints(
+                                                                  minHeight: 45,
+                                                                  minWidth: 45),
+                                                          onPressed: () {
+                                                            getkar.pickforbanner(
+                                                                ImageSource
+                                                                    .gallery);
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                            setState(() {
+                                                              btnchng = false;
+                                                            });
+                                                          },
+                                                          elevation: 0,
+                                                          fillColor:
+                                                              Color(0xffDADADA),
+                                                          child: Iconify(
+                                                            Heroicons
+                                                                .photo_20_solid,
                                                             color: Color(
-                                                                0xff333333)),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: height * 0.1,
-                                              ),
-                                            ],
+                                                                0xff0087FF),
+                                                            size: 25,
+                                                          ),
+                                                          /*  padding: EdgeInsets.all(15.0), */
+                                                          shape: CircleBorder(
+                                                              /* side: BorderSide(
+                                                            width: 1,
+                                                            color: Color(0xff0087FF)) */
+                                                              ),
+                                                        ),
+                                                        Text(
+                                                          'gallery',
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color: Color(
+                                                                  0xff333333)),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: height * 0.1,
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                           Positioned.fill(
                                               top: -36,
@@ -4709,6 +4286,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                     ))
                         ],
                       ),
+                    ),
+                    SizedBox(
+                      height: height * 0.02,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -4780,6 +4360,32 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       ],
                     ),
                     SizedBox(
+                      height: 20,
+                      /*             color: Colors.red, */
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                /*     foregroundColor: const Color(0xff0087FF), */
+                              ),
+                              onPressed: () {
+                                widget.buildaddresspage(context);
+                              },
+                              child: Text(
+                                'Add/Change Address',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 12,
+                                  color: primaryColorOfApp,
+                                ),
+                              )),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
                         onPressed: () {
@@ -4812,45 +4418,63 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         ),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Auto Play (scrolling)",
-                          style: TextStyle(
-                              color: const Color(0xff515253),
-                              fontFamily: 'Poppins',
-                              fontSize: width * 0.03),
-                        ),
-                        Switch.adaptive(
-                            activeColor: primaryColorOfApp,
-                            value: valueofswitch,
-                            onChanged: (valueofswitch) {
-                              setState(() {
-                                this.valueofswitch = valueofswitch;
-                              });
-                            })
-                      ],
+                    SizedBox(
+                      height: 15,
+                      /*    color: Colors.yellow, */
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Auto Play (scrolling)",
+                            style: TextStyle(
+                                color: const Color(0xff515253),
+                                fontFamily: 'Poppins',
+                                fontSize: width * 0.03),
+                          ),
+                          Switch.adaptive(
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              activeColor: primaryColorOfApp,
+                              value: valueofswitch,
+                              onChanged: (valueofswitch) {
+                                setState(() {
+                                  this.valueofswitch = valueofswitch;
+                                });
+                              })
+                        ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Location always",
-                          style: TextStyle(
-                              color: const Color(0xff515253),
-                              fontFamily: 'Poppins',
-                              fontSize: width * 0.03),
-                        ),
-                        Switch.adaptive(
-                            activeColor: primaryColorOfApp,
-                            value: valueofswitch,
-                            onChanged: (valueofswitch) {
-                              setState(() {
-                                this.valueofswitch = valueofswitch;
-                              });
-                            })
-                      ],
+                    SizedBox(
+                      height: height * 0.02,
+                    ),
+                    SizedBox(
+                      height: 15,
+                      /*              color: Colors.green, */
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Location always",
+                            style: TextStyle(
+                                color: const Color(0xff515253),
+                                fontFamily: 'Poppins',
+                                fontSize: width * 0.03),
+                          ),
+                          Switch.adaptive(
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              activeColor: primaryColorOfApp,
+                              value: valueofswitch,
+                              onChanged: (valueofswitch) {
+                                setState(() {
+                                  this.valueofswitch = valueofswitch;
+                                });
+                              })
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: height * 0.01,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -4860,27 +4484,31 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 TextStyle(fontFamily: 'Poppins', fontSize: 10)),
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextButton(
-                          style: TextButton.styleFrom(
-                              minimumSize: Size(100, 5),
-                              elevation: 0,
-                              visualDensity: VisualDensity(vertical: -4),
-                              padding: EdgeInsets.zero,
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                          onPressed: () {
-                            /*               Navigator.of(context).pop(); */
-                            ProfileSelf().buildpersonalsetting(context);
-                          },
-                          child: Text('Personal Information Settings',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: primaryColorOfApp,
-                                  fontSize: 10)),
-                        ),
-                      ],
+                    Container(
+                      height: 16,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          TextButton(
+                            style: TextButton.styleFrom(
+                                minimumSize: Size(100, 0),
+                                elevation: 0,
+                                /*       visualDensity: VisualDensity(vertical: -4), */
+                                padding: EdgeInsets.zero,
+                                tapTargetSize:
+                                    MaterialTapTargetSize.shrinkWrap),
+                            onPressed: () {
+                              /*               Navigator.of(context).pop(); */
+                              ProfileSelf().buildpersonalsetting(context);
+                            },
+                            child: Text('Personal Information Settings',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: primaryColorOfApp,
+                                    fontSize: 13)),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: height * 0.02,
@@ -4910,7 +4538,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               "Cancel",
                               style: TextStyle(
                                   color: Color(0xff333333),
-                                  fontSize: 10,
+                                  fontSize: 12,
                                   fontFamily: 'Poppins'),
                             ),
                           ),
@@ -4940,18 +4568,19 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             child: const Text(
                               "Save Changes",
                               style: TextStyle(
-                                  fontSize: 10, fontFamily: 'Poppins'),
+                                  fontSize: 12, fontFamily: 'Poppins'),
                             ),
                           ),
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: height * 0.05,
+                      height: height * 0.04,
                     ),
                   ]),
                 ),
                 Positioned.fill(
+                    left: 12,
                     top: -36,
                     child: Align(
                       alignment: Alignment.topCenter,
@@ -5013,23 +4642,266 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       borderRadius: BorderRadius.circular(8),
                       child: Container(
                         color: const Color(0xffE2E2E2),
-                        height: 7,
+                        height: 5,
                         width: 70,
                       ),
                     ),
                     SizedBox(
                       height: height * 0.02,
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 28.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          IconButton(
+                              padding: EdgeInsets.all(0),
+                              constraints: BoxConstraints(),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              icon: Icon(
+                                Icons.arrow_back,
+                                color: primaryColorOfApp,
+                              )),
+                          SizedBox(
+                            width: width * 0.01,
+                          ),
+                          Text(
+                            'Profile Photo',
+                            style: TextStyle(
+                                color: Color(0xff333333),
+                                fontSize: 15,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        GetBuilder<GetImage>(builder: (controller) {
+                          return Container(
+                            child: getkar.image != null
+                                ? CircleAvatar(
+                                    radius: 39,
+                                    backgroundColor: primaryColorOfApp,
+                                    child: CircleAvatar(
+                                        radius: 37,
+                                        backgroundColor: Colors.white,
+                                        child: CircleAvatar(
+                                          radius: 35,
+                                          backgroundColor: Colors.grey.shade800,
+                                          backgroundImage:
+                                              FileImage(getkar.image!),
+                                        )),
+                                  )
+                                // Image. file
+                                : CircleAvatar(
+                                    radius: 35,
+                                    backgroundColor: Color(0xffc4c4c4),
+                                    child: CircleAvatar(
+                                        radius: 32,
+                                        backgroundColor: Colors.white,
+                                        child: Icon(
+                                          Icons.account_circle,
+                                          size: 64,
+                                          color: Color(0xffc4c4c4),
+                                        )),
+                                  ),
+                          );
+                        }),
+                        SizedBox(
+                          height: 16,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              TextButton(
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.zero,
+                                    tapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                  ),
+                                  onPressed: () {
+                                    showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        shape: const RoundedRectangleBorder(
+                                          // <-- SEE HERE
+                                          borderRadius: BorderRadius.vertical(
+                                            top: Radius.circular(20.0),
+                                          ),
+                                        ),
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return StatefulBuilder(
+                                              builder: (context, setState) {
+                                            return Stack(
+                                              clipBehavior: Clip.none,
+                                              children: [
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    SizedBox(
+                                                      height: height * 0.04,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          'Are You Sure Remove This Photo?',
+                                                          style: TextStyle(
+                                                              color: Color(
+                                                                  0xff333333),
+                                                              fontSize: 15,
+                                                              fontFamily:
+                                                                  'Poppins'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      height: height * 0.04,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        TextButton(
+                                                          onPressed: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          child: Text(
+                                                            'Cancel',
+                                                            style: TextStyle(
+                                                                color:
+                                                                    customTextColor,
+                                                                fontSize: 13,
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                          ),
+                                                        ),
+                                                        TextButton(
+                                                          onPressed: () {
+                                                            getkar
+                                                                .removeImage();
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(
+                                                                Icons.delete,
+                                                                color: Color(
+                                                                    0xffED1B24),
+                                                                size: 13,
+                                                              ),
+                                                              Text(
+                                                                'Remove',
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        0xffED1B24),
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      height: height * 0.04,
+                                                    ),
+                                                  ],
+                                                ),
+                                                Positioned.fill(
+                                                    top: -36,
+                                                    child: Align(
+                                                      alignment:
+                                                          Alignment.topCenter,
+                                                      child: InkWell(
+                                                        onTap: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        child: Container(
+                                                          /*   width: 45,
+                                    height: 45, */
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .white,
+                                                                width: 2),
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(4.0),
+                                                            child: Icon(
+                                                              Icons.close,
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ))
+                                              ],
+                                            );
+                                          });
+                                        });
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 5.0),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.delete,
+                                          color: Color(0xffED1B24),
+                                          size: 13,
+                                        ),
+                                        Text(
+                                          'Remove',
+                                          style: TextStyle(
+                                              color: Color(0xffED1B24),
+                                              fontSize: 13,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    Divider(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 80.0),
+                          padding: const EdgeInsets.only(left: 60.0),
                           child: const Text(
-                            'Your Profile Photo',
+                            'Change Your Profile Photo',
                             style: TextStyle(
                                 color: Color(0xff333333),
-                                fontSize: 15,
+                                fontSize: 12,
                                 fontFamily: 'Poppins'),
                           ),
                         ),
@@ -5038,7 +4910,6 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     SizedBox(
                       height: height * 0.01,
                     ),
-                    Divider(),
                     SizedBox(
                       height: height * 0.03,
                     ),
@@ -5060,10 +4931,10 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               },
                               elevation: 0,
                               fillColor: Color(0xffDADADA),
-                              child: FaIcon(
-                                FontAwesomeIcons.camera,
+                              child: Iconify(
+                                AntDesign.camera_filled,
                                 color: Color(0xff0087FF),
-                                size: 17,
+                                size: 25,
                               ),
                               shape: CircleBorder(
                                   /* side: BorderSide(
@@ -5094,10 +4965,10 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               },
                               elevation: 0,
                               fillColor: Color(0xffDADADA),
-                              child: Icon(
-                                Icons.photo,
+                              child: Iconify(
+                                Heroicons.photo_20_solid,
                                 color: Color(0xff0087FF),
-                                size: 17,
+                                size: 25,
                               ),
                               /*  padding: EdgeInsets.all(15.0), */
                               shape: CircleBorder(
@@ -5316,13 +5187,63 @@ class _ProfileSelfState extends State<ProfileSelf> {
                   }),
                 ),
                 Positioned(
+                    top: 4,
+                    child: Container(
+                      width: 310,
+                      /*     color: Colors.red, */
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                              margin: EdgeInsets.all(0),
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+
+                                  /*   borderRadius: BorderRadius.circular(40), */
+                                  border: Border.all(
+                                      width: 1, color: primaryColorOfApp)),
+                              child: IconButton(
+                                  padding: EdgeInsets.all(0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {},
+                                  icon: Iconify(
+                                    Ooui.bell,
+                                    size: 20,
+                                    color: iconColor,
+                                  ))),
+                          SizedBox(
+                            width: width * 0.01,
+                          ),
+                          Container(
+                              margin: EdgeInsets.all(0),
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+
+                                  /*   borderRadius: BorderRadius.circular(40), */
+                                  border: Border.all(
+                                      width: 1, color: primaryColorOfApp)),
+                              child: IconButton(
+                                  padding: EdgeInsets.all(0),
+                                  constraints: BoxConstraints(),
+                                  onPressed: () {},
+                                  icon: SvgPicture.asset(
+                                    'assets/c2c.svg',
+                                    width: 18,
+                                    height: 18,
+                                  ))),
+                        ],
+                      ),
+                    )),
+                Positioned(
                   top: top,
                   child: Row(
                     /*     crossAxisAlignment: CrossAxisAlignment.center, */
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       SizedBox(
-                        width: width * 0.01,
+                        width: width * 0.017,
                       ),
                       Stack(
                         alignment: Alignment.bottomRight,
@@ -5371,7 +5292,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               icon: FaIcon(
                                 FontAwesomeIcons.penToSquare,
                                 size: 15,
-                                color: Colors.black,
+                                color: Colors.white,
                               ))
                         ],
                       ),
@@ -5393,12 +5314,27 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0))),
-                        child: const Text(
-                          "12.5M Followers",
-                          style: TextStyle(
-                              color: Color(0xff333333),
-                              fontSize: 10,
-                              fontFamily: 'Poppins'),
+                        child: Row(
+                          children: [
+                            const Text(
+                              "12.5M",
+                              style: TextStyle(
+                                  color: Color(0xff333333),
+                                  fontSize: 10,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              width: width * 0.001,
+                            ),
+                            const Text(
+                              "Followers",
+                              style: TextStyle(
+                                  color: Color(0xff333333),
+                                  fontSize: 10,
+                                  fontFamily: 'Poppins'),
+                            ),
+                          ],
                         ),
                       ),
                       SizedBox(
@@ -5419,12 +5355,27 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0))),
-                        child: const Text(
-                          "200 Following",
-                          style: TextStyle(
-                              color: Color(0xff333333),
-                              fontSize: 10,
-                              fontFamily: 'Poppins'),
+                        child: Row(
+                          children: [
+                            const Text(
+                              "200",
+                              style: TextStyle(
+                                  color: Color(0xff333333),
+                                  fontSize: 10,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              width: width * 0.001,
+                            ),
+                            const Text(
+                              "Following",
+                              style: TextStyle(
+                                  color: Color(0xff333333),
+                                  fontSize: 10,
+                                  fontFamily: 'Poppins'),
+                            ),
+                          ],
                         ),
                       ),
                       SizedBox(
@@ -5434,30 +5385,33 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         borderRadius: BorderRadius.circular(5),
                         elevation: 5,
                         child: Container(
-                          height: 30,
-                          width: 31,
-                          decoration: BoxDecoration(
-                              boxShadow: [],
-                              color: Colors.white,
-                              border: Border.all(
-                                  width: 1, color: const Color(0xff0087FF)),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Icon(Icons.more_horiz),
-                        ),
+                            height: 30,
+                            width: 31,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                    width: 1, color: primaryColorOfApp),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Iconify(
+                                Tabler.grid_dots,
+                              ),
+                            )),
                       )
                     ],
                   ),
                 ),
                 Positioned(
-                  left: 120,
+                  left: 105,
                   top: 140,
                   child: Row(
                     children: [
                       Column(
                         children: [
                           SizedBox(
-                            width: 100,
-                            /*  color: Colors.red, */
+                            width: 150,
+                            /*    color: Colors.red, */
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -5471,48 +5425,46 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               ],
                             ),
                           ),
-                          SizedBox(
-                            width: 100,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '@Nanncyjain23',
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xff0087FF)),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 100,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '@Nanncyjain23',
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xff0087FF)),
+                                    ),
+                                    Iconify(
+                                      Bi.patch_check,
+                                      size: 15,
+                                      color: primaryColorOfApp,
+                                    ),
+                                  ],
                                 ),
-                                Iconify(
-                                  Bi.patch_check,
-                                  size: 15,
-                                  color: primaryColorOfApp,
-                                ),
-                              ],
-                            ),
+                              ),
+                              SizedBox(
+                                width: width * 0.05,
+                              ),
+                              Iconify(
+                                MaterialSymbols.star_rounded,
+                                color: Color(0xff08A434),
+                                size: 20,
+                              ),
+                              Text(
+                                '4.8',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: customTextColor),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                      SizedBox(
-                        width: width * 0.05,
-                      ),
-                      Icon(
-                        Icons.star,
-                        size: 15,
-                        color: Colors.green,
-                      ),
-                      Text('4.8'),
-                      SizedBox(
-                        width: width * 0.05,
-                      ),
-                      IconButton(
-                          padding: EdgeInsets.zero,
-                          constraints: BoxConstraints(),
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.notifications,
-                            color: Color(0xff0087FF),
-                          ))
                     ],
                   ),
                 )
@@ -5529,6 +5481,31 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           color: Color(0xff03194B),
                           fontSize: 10,
                           fontFamily: 'Poppins'),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'https://youtu.be/AgS_6UbQ8JM',
+                          style: TextStyle(
+                              color: primaryColorOfApp,
+                              fontSize: 10,
+                              fontFamily: 'Poppins'),
+                        ),
+                        SizedBox(
+                          width: width * 0.01,
+                        ),
+                        Text(
+                          'https://google.com ',
+                          style: TextStyle(
+                              color: primaryColorOfApp,
+                              fontSize: 10,
+                              fontFamily: 'Poppins'),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: height * 0.01,
                     ),
                     Row(
                       /*  mainAxisAlignment: MainAxisAlignment.spaceEvenly, */

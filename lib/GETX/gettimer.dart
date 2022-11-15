@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -67,7 +69,6 @@ class GetUpdateSeconds extends GetxController {
 class GetImage extends GetxController {
   File? image;
   File? image1;
- 
 
   pickforprofile(ImageSource source) async {
     try {
@@ -78,6 +79,12 @@ class GetImage extends GetxController {
       final imageTemporary = File(image.path);
 
       this.image = imageTemporary;
+
+      final bytes = File(image.path).readAsBytesSync();
+      String base64Image = /* "data:image/png; base64,"+ */ base64Encode(bytes);
+
+      print("img_pan : $base64Image");
+      SharedPref.savemytubeProfileImage(base64Image);
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print('Failed to pick image: $e');
@@ -86,7 +93,14 @@ class GetImage extends GetxController {
     update();
   }
 
-  
+  removeImage() {
+    image = null;
+    update();
+  }
+  removeImagebanner() {
+    image1 = null;
+    update();
+  }
 
   pickforbanner(ImageSource source) async {
     try {

@@ -129,9 +129,9 @@ class _Home1State extends State<Home1> {
                     padding: EdgeInsets.all(0),
                     constraints: BoxConstraints(),
                     onPressed: () {
-                      final provider =
+                     /*  final provider =
                           Provider.of<Googleprovider>(context, listen: false);
-                      provider.logout();
+                      provider.logout(); */
                     },
                     icon: Iconify(
                       Bi.qr_code_scan,
@@ -173,10 +173,10 @@ class _Home1State extends State<Home1> {
                     padding: EdgeInsets.all(0),
                     constraints: BoxConstraints(),
                     onPressed: () {},
-                    icon: Iconify(
-                      Mdi.comment_plus,
-                      size: 20,
-                      color: iconColor,
+                    icon: SvgPicture.asset(
+                      'assets/c2c.svg',
+                      width: 18,
+                      height: 18,
                     ))),
             SizedBox(
               width: width * 0.05,

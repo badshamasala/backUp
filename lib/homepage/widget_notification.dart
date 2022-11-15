@@ -352,10 +352,14 @@ class WidgetNotification extends StatefulWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 150,
+                        height: height * 0.01,
+                      ),
+                      SizedBox(
+                        /*         color: Colors.red, */
+                        height: 140,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 124,
                             width: 288,
@@ -463,7 +467,7 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 75,
                             height: 12,
@@ -483,10 +487,11 @@ class WidgetNotification extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: 120,
+                        /*    color: Colors.yellow, */
+                        height: 100,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 84,
                             width: 288,
@@ -564,7 +569,7 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 115,
                             height: 12,
@@ -583,11 +588,14 @@ class WidgetNotification extends StatefulWidget {
                           ),
                         ]),
                       ),
+                      /*   SizedBox(
+                        height: height * 0.02,
+                      ), */
                       SizedBox(
-                        height: 120,
+                        height: 100,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 84,
                             width: 288,
@@ -665,7 +673,7 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 140,
                             height: 12,
@@ -684,11 +692,14 @@ class WidgetNotification extends StatefulWidget {
                           ),
                         ]),
                       ),
+                      /*   SizedBox(
+                        height: height * 0.01,
+                      ), */
                       SizedBox(
-                        height: 120,
+                        height: 100,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 84,
                             width: 288,
@@ -766,7 +777,7 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 90,
                             height: 12,
@@ -2657,35 +2668,31 @@ class WidgetNotification extends StatefulWidget {
                         ]),
                       ),
                     ])),
-                     Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
                                   height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
               ],
             );
           });
