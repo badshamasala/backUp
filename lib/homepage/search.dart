@@ -93,7 +93,7 @@ class _SearchState extends State<Search> {
               staggeredTileBuilder: (int index) => index % 3 == 0
                   ? StaggeredTile.count(1, 2)
                   : StaggeredTile.count(1, 1),
-              mainAxisSpacing: 0,
+              mainAxisSpacing: 4,
               crossAxisSpacing: 4.0,
             ))
           ],

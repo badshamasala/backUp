@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/homepage/people_profile.dart';
 import 'package:iconify_flutter/icons/ri.dart';
 import 'package:url_launcher/link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -77,11 +78,11 @@ class _Home1State extends State<Home1> {
 
   @override
   Widget build(BuildContext context) {
-    Size size;
-    double height, width;
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+    
+    
+    Size size = MediaQuery.of(context).size;
+   double height = size.height ,width = size.width;
+
     return Scaffold(
         backgroundColor: Color(0xffc4c4c4),
         appBar: AppBar(
@@ -129,7 +130,7 @@ class _Home1State extends State<Home1> {
                     padding: EdgeInsets.all(0),
                     constraints: BoxConstraints(),
                     onPressed: () {
-                     /*  final provider =
+                      /*  final provider =
                           Provider.of<Googleprovider>(context, listen: false);
                       provider.logout(); */
                     },
@@ -320,11 +321,21 @@ class _Home1State extends State<Home1> {
                                   Text('Sponsered by',
                                       style: TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10)),
-                                  Text('@SPIDER-MAN',
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          color: primaryColorOfApp)),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                PeopleProfile()),
+                                      );
+                                    },
+                                    child: Text('@SPIDER-MAN',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 10,
+                                            color: primaryColorOfApp)),
+                                  ),
                                 ],
                               ),
                             ),

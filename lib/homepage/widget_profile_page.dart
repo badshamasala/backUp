@@ -43,13 +43,7 @@ class WidgetProfilePage extends StatefulWidget {
   ];
   String? value;
 
-  buildTextDesign(fontsize, color, fontWeight) {
-    return TextStyle(
-        fontFamily: 'Poppins',
-        fontSize: fontsize,
-        color: color,
-        fontWeight: fontWeight);
-  }
+
 
   buildStory(BuildContext context) {
     dynamic groupseenonline;
@@ -2971,10 +2965,10 @@ class WidgetProfilePage extends StatefulWidget {
                       Divider(),
                       SizedBox(
                         /* color: Colors.red, */
-                        height: 200,
+                        height: 180,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 165,
                             width: 288,
@@ -3112,7 +3106,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 135,
                             height: 10,
@@ -3136,10 +3130,10 @@ class WidgetProfilePage extends StatefulWidget {
                       ),
                       SizedBox(
                         /* color: Colors.red, */
-                        height: 200,
+                        height: 180,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 165,
                             width: 288,
@@ -3277,7 +3271,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 140,
                             height: 10,
@@ -3300,12 +3294,12 @@ class WidgetProfilePage extends StatefulWidget {
                         height: height * 0.01,
                       ),
                       SizedBox(
-                        height: 120,
+                        height: 90,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
-                            height: 54,
+                            height: 47,
                             width: 288,
                             child: Container(
                               decoration: BoxDecoration(
@@ -3349,7 +3343,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 85,
                             height: 12,
@@ -3899,11 +3893,11 @@ class WidgetProfilePage extends StatefulWidget {
                       Divider(
                         height: 1,
                       ),
-                      Container(
-                        height: 193,
+                      SizedBox(
+                        height: 180,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 165,
                             width: 288,
@@ -4041,7 +4035,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 110,
                             height: 10,
@@ -4060,11 +4054,11 @@ class WidgetProfilePage extends StatefulWidget {
                           ),
                         ]),
                       ),
-                      Container(
-                        height: 193,
+                      SizedBox(
+                        height: 180,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 165,
                             width: 288,
@@ -4202,7 +4196,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 100,
                             height: 10,
@@ -4221,11 +4215,11 @@ class WidgetProfilePage extends StatefulWidget {
                           ),
                         ]),
                       ),
-                      Container(
-                        height: 193,
+                      SizedBox(
+                        height: 180,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
+                            top: 7,
                             left: 0,
                             height: 165,
                             width: 288,
@@ -4363,7 +4357,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 13,
+                            top: 0,
                             left: 20,
                             width: 110,
                             height: 10,
@@ -4628,7 +4622,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                            width: 90,
+                            width: 105,
                             height: 10,
                             child: Container(
                               /*   width: 200,

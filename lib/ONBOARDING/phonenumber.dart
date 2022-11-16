@@ -21,8 +21,6 @@ import 'package:sms_autofill/sms_autofill.dart';
 class PhoneNumber extends StatefulWidget {
   @override
   _PhoneNumberState createState() => _PhoneNumberState();
-
-
 }
 
 class _PhoneNumberState extends State<PhoneNumber> {
@@ -37,13 +35,12 @@ class _PhoneNumberState extends State<PhoneNumber> {
   var checktoken = "";
 
   final GetUpdateSeconds getkar = Get.put(GetUpdateSeconds());
- 
+
   @override
   Widget build(BuildContext context) {
-    var size, height, width;
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+    Size size = MediaQuery.of(context).size;
+    double height = size.height;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -85,144 +82,8 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     children: [
                       TextButton(
                           onPressed: () {
-                            showModalBottomSheet(
-                              isScrollControlled: true,
-                              shape: const RoundedRectangleBorder(
-                                // <-- SEE HERE
-                                borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(20.0),
-                                ),
-                              ),
-                              context: context,
-                              builder: (BuildContext context) {
-                                return StatefulBuilder(builder:
-                                    (BuildContext context,
-                                        StateSetter setState) {
-                                  return Stack(
-                                    clipBehavior: Clip.none,
-                                    children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                    color: Color(0xffE2E2E2),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8)),
-                                                height: 5,
-                                                width: 100,
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text('Choose Language',
-                                                  style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      color: primaryColorOfApp,
-                                                      fontSize: 15))
-                                            ],
-                                          ),
-                                          Divider(),
-                                          ListView.separated(
-                                              shrinkWrap: true,
-                                              itemBuilder: (context, index) {
-                                                return ListTile(
-                                                  minVerticalPadding: 10,
-                                                  horizontalTitleGap: 0.0,
-                                                  visualDensity:
-                                                      const VisualDensity(
-                                                          vertical: -3),
-                                                  dense: true,
-                                                  leading: Text(
-                                                    Slider1()
-                                                        .locale[index]
-                                                            ['language']
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins'),
-                                                  ),
-                                                  trailing: Radio(
-                                                      value: Slider1()
-                                                          .locale[index]
-                                                              ['locale']
-                                                          .toString(),
-                                                      groupValue:
-                                                          Slider1().groupValue,
-                                                      onChanged: (value) {
-                                                        setState(() {
-                                                          Slider1().groupValue =
-                                                              Slider1()
-                                                                  .locale[index]
-                                                                      ['locale']
-                                                                  .toString();
-                                                          Slider1().updatmethod(
-                                                              Slider1()
-                                                                  .locale[index]
-                                                                      ['locale']
-                                                                  .toString());
-                                                          Navigator.pop(
-                                                              context);
-                                                        });
-                                                      }),
-                                                );
-                                              },
-                                              separatorBuilder:
-                                                  (context, index) {
-                                                return Divider(
-                                                  height: 2,
-                                                );
-                                              },
-                                              itemCount:
-                                                  Slider1().locale.length),
-                                        ],
-                                      ),
-                                      Positioned.fill(
-                                          top: -36,
-                                          child: Align(
-                                            alignment: Alignment.topCenter,
-                                            child: InkWell(
-                                              onTap: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Container(
-                                                /*   width: 45,
-                                  height: 45, */
-                                                decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      color: Colors.white,
-                                                      width: 2),
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(4.0),
-                                                  child: Icon(
-                                                    Icons.close,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ))
-                                    ],
-                                  );
-                                });
-                              },
-                            );
+                            selectlanguagemethod(context);
+                           
                           },
                           child: Row(
                             children: [
@@ -257,7 +118,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                       }
                     }, */
 
-                       controller: phonecont,
+                    controller: phonecont,
                     textAlign: TextAlign.start,
                     maxLength: 10,
                     keyboardType: TextInputType.number,
@@ -360,10 +221,10 @@ class _PhoneNumberState extends State<PhoneNumber> {
                       onPressed: check10number
                           ? null
                           : () async {
-                            /*   setState(() {
+                              /*   setState(() {
                                 otplodaing = true;
                               }); */
-                             /*  final provider = Provider.of<Googleprovider>(
+                              /*  final provider = Provider.of<Googleprovider>(
                                   context,
                                   listen: false); */
                               /* token = await provider
@@ -371,74 +232,72 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                   .whenComplete(() {
                                 otplodaing = false;
                                 getkar.startTimer(); */
-                                showModalBottomSheet(
-                                    /*     isDismissible: false, */
-                                    isScrollControlled: true,
-                                    shape: const RoundedRectangleBorder(
-                                      // <-- SEE HERE
-                                      borderRadius: BorderRadius.vertical(
-                                        top: Radius.circular(20.0),
-                                      ),
+                              showModalBottomSheet(
+                                  /*     isDismissible: false, */
+                                  isScrollControlled: true,
+                                  shape: const RoundedRectangleBorder(
+                                    // <-- SEE HERE
+                                    borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(20.0),
                                     ),
-                                    // isScrollControlled: true,
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return GetBuilder<HomeController>(
-                                          builder: (controller) {
-                                        return StatefulBuilder(
-                                            builder: (context, setState) {
-                                          return Padding(
-                                            padding: MediaQuery.of(context)
-                                                .viewInsets,
-                                            child: Stack(
-                                              clipBehavior: Clip.none,
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsets
-                                                          .symmetric(
-                                                      horizontal: 8.0),
-                                                  child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      children: [
-                                                        Row(
-                                                          children: [
-                                                            IconButton(
-                                                                onPressed: () {
-                                                                  Navigator.pop(
-                                                                      context);
-                                                                },
-                                                                icon: const Icon(
-                                                                    Icons
-                                                                        .arrow_back)),
-                                                            const SizedBox(
-                                                              width: 65,
-                                                            ),
-                                                            const Text(
-                                                              'Enter OTP',
-                                                              style: TextStyle(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 20,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Text(
-                                                          'Otp has been sent to +91 $phonekanumber',
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 15,
+                                  ),
+                                  // isScrollControlled: true,
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return GetBuilder<HomeController>(
+                                        builder: (controller) {
+                                      return StatefulBuilder(
+                                          builder: (context, setState) {
+                                        return Padding(
+                                          padding:
+                                              MediaQuery.of(context).viewInsets,
+                                          child: Stack(
+                                            clipBehavior: Clip.none,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 8.0),
+                                                child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          IconButton(
+                                                              onPressed: () {
+                                                                Navigator.pop(
+                                                                    context);
+                                                              },
+                                                              icon: const Icon(Icons
+                                                                  .arrow_back)),
+                                                          const SizedBox(
+                                                            width: 65,
                                                           ),
+                                                          const Text(
+                                                            'Enter OTP',
+                                                            style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 20,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Text(
+                                                        'Otp has been sent to +91 $phonekanumber',
+                                                        style: TextStyle(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 15,
                                                         ),
-                                                        SizedBox(
-                                                          height: height * 0.05,
-                                                        ),
-                                                        /*   GetBuilder< HomeController>(
+                                                      ),
+                                                      SizedBox(
+                                                        height: height * 0.05,
+                                                      ),
+                                                      /*   GetBuilder< HomeController>(
                                                             builder:(controller) {
                                                           return */
-                                                        /*  Obx((() =>
+                                                      /*  Obx((() =>
                                                             PinFieldAutoFill(
                                                               textInputAction:
                                                                   TextInputAction
@@ -484,185 +343,189 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                                 }
                                                               },
                                                             ))), */
-                                                        /* }), */
+                                                      /* }), */
 
-                                                        OtpTextField(
-                                                          filled: true,
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  right: 4.0),
-                                                          fieldWidth: 45,
-                                                          fillColor:
-                                                              Color(0xffDFEEFC),
-                                                          borderWidth: 1,
-                                                          focusedBorderColor:
-                                                              primaryColorOfApp,
-                                                          numberOfFields: 6,
-                                                          borderColor:
-                                                              primaryColorOfApp,
-                                                          showFieldAsBox: true,
-                                                          onSubmit:
-                                                              (verificationCode) {
+                                                      OtpTextField(
+                                                        filled: true,
+                                                        margin: EdgeInsets.only(
+                                                            right: 4.0),
+                                                        fieldWidth: 45,
+                                                        fillColor:
+                                                            Color(0xffDFEEFC),
+                                                        borderWidth: 1,
+                                                        focusedBorderColor:
+                                                            primaryColorOfApp,
+                                                        numberOfFields: 6,
+                                                        borderColor:
+                                                            primaryColorOfApp,
+                                                        showFieldAsBox: true,
+                                                        onSubmit:
+                                                            (verificationCode) {
+                                                          setState(() {
+                                                            checktoken =
+                                                                verificationCode;
+                                                          });
+                                                          if (verificationCode
+                                                                  .length ==
+                                                              6) {
                                                             setState(() {
-                                                              checktoken =
-                                                                  verificationCode;
+                                                              check6digit =
+                                                                  false;
                                                             });
-                                                            if (verificationCode
-                                                                    .length ==
-                                                                6) {
-                                                              setState(() {
-                                                                check6digit =
-                                                                    false;
-                                                              });
-                                                            }
-                                                            if (verificationCode
-                                                                    .length <
-                                                                6) {
-                                                              setState(() {
-                                                                check6digit =
-                                                                    true;
-                                                              });
-                                                            }
-                                                          },
-                                                        ),
-                                                        SizedBox(
-                                                          height: height * 0.01,
-                                                        ),
-                                                        Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            GetBuilder<
-                                                                GetUpdateSeconds>(
-                                                              builder: (controller) =>
-                                                                  TextButton(
-                                                                      onPressed: getkar
-                                                                              .timerkhatam1
-                                                                          ? null
-                                                                          : () async {
-                                                                              final provider = Provider.of<Googleprovider>(context, listen: false);
-                                                                              token = await provider.otpmethod(phonekanumber);
-                                                                              print('badshamasala');
-                                                                              getkar.nayamethod();
-                                                                            },
-                                                                      child: GetBuilder<
-                                                                          GetUpdateSeconds>(
-                                                                        builder:
-                                                                            (controller) =>
-                                                                                Text(
-                                                                          getkar.timerkhatam1
-                                                                              ? 'Resend OTP in ${getkar.seconds} Sec'
-                                                                              : 'Resend OTP',
-                                                                          style: TextStyle(
-                                                                              fontFamily: 'Poppins',
-                                                                              fontSize: 10,
-                                                                              color: primaryColorOfApp),
-                                                                        ),
-                                                                      )),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        SizedBox(
-                                                          /*     height: 45, */
-                                                          width:
-                                                              double.infinity,
-                                                          // height: 50,
-                                                          child: ElevatedButton(
-                                                            onPressed:
-                                                                /* check6digit
+                                                          }
+                                                          if (verificationCode
+                                                                  .length <
+                                                              6) {
+                                                            setState(() {
+                                                              check6digit =
+                                                                  true;
+                                                            });
+                                                          }
+                                                        },
+                                                      ),
+                                                      SizedBox(
+                                                        height: height * 0.01,
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          GetBuilder<
+                                                              GetUpdateSeconds>(
+                                                            builder: (controller) =>
+                                                                TextButton(
+                                                                    onPressed: getkar
+                                                                            .timerkhatam1
+                                                                        ? null
+                                                                        : () async {
+                                                                            final provider =
+                                                                                Provider.of<Googleprovider>(context, listen: false);
+                                                                            token =
+                                                                                await provider.otpmethod(phonekanumber);
+                                                                            print('badshamasala');
+                                                                            getkar.nayamethod();
+                                                                          },
+                                                                    child: GetBuilder<
+                                                                        GetUpdateSeconds>(
+                                                                      builder:
+                                                                          (controller) =>
+                                                                              Text(
+                                                                        getkar.timerkhatam1
+                                                                            ? 'Resend OTP in ${getkar.seconds} Sec'
+                                                                            : 'Resend OTP',
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            fontSize:
+                                                                                10,
+                                                                            color:
+                                                                                primaryColorOfApp),
+                                                                      ),
+                                                                    )),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      SizedBox(
+                                                        /*     height: 45, */
+                                                        width: double.infinity,
+                                                        // height: 50,
+                                                        child: ElevatedButton(
+                                                          onPressed:
+                                                              /* check6digit
                                                                     ? null
-                                                                    : */ () {
-                                                                       /*  if (token ==
+                                                                    : */
+                                                              () {
+                                                            /*  if (token ==
                                                                             checktoken) { */
-                                                                          Navigator
-                                                                              .push(
-                                                                            context,
-                                                                            MaterialPageRoute(
-                                                                                builder: (context) => AccountType(
-                                                                                      value: phonecont.text,
-                                                                                    )),
-                                                                          );
-                                                                      /*   } else {
+                                                            Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          AccountType(
+                                                                            value:
+                                                                                phonecont.text,
+                                                                          )),
+                                                            );
+                                                            /*   } else {
                                                                           Fluttertoast.showToast(
                                                                               msg: "Wrong OTP",
                                                                               backgroundColor: Colors.black,
                                                                               textColor: Colors.white,
                                                                               fontSize: 16.0);
                                                                         } */
-                                                                      },
-                                                            style: ElevatedButton
-                                                                .styleFrom(
-                                                                    elevation:
-                                                                        0,
-                                                                    /*      minimumSize: const Size(0.0, 40), */
-                                                                    // padding: EdgeInsets.symmetric(
-                                                                    //     horizontal: 40.0, vertical: 20.0),
-                                                                    backgroundColor:
-                                                                        const Color(
-                                                                            0xff0087FF),
-                                                                    shape: RoundedRectangleBorder(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(5.0))),
-                                                            child: const Text(
-                                                              "Verify & Continue",
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontSize: 15,
-                                                                  fontFamily:
-                                                                      'Poppins'),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        SizedBox(
-                                                          height: height * 0.2,
-                                                        ),
-                                                      ]),
-                                                ),
-                                                Positioned.fill(
-                                                    top: -36,
-                                                    child: Align(
-                                                      alignment:
-                                                          Alignment.topCenter,
-                                                      child: InkWell(
-                                                        onTap: () {
-                                                          print('badsha');
-                                                          Navigator.pop(
-                                                              context);
-                                                        },
-                                                        child: Container(
-                                                          /*   width: 45,
-                                                                          height: 45, */
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            border: Border.all(
+                                                          },
+                                                          style: ElevatedButton
+                                                              .styleFrom(
+                                                                  elevation: 0,
+                                                                  /*      minimumSize: const Size(0.0, 40), */
+                                                                  // padding: EdgeInsets.symmetric(
+                                                                  //     horizontal: 40.0, vertical: 20.0),
+                                                                  backgroundColor:
+                                                                      const Color(
+                                                                          0xff0087FF),
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0))),
+                                                          child: const Text(
+                                                            "Verify & Continue",
+                                                            style: TextStyle(
                                                                 color: Colors
                                                                     .white,
-                                                                width: 2),
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(4.0),
-                                                            child: Icon(
-                                                              Icons.close,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
+                                                                fontSize: 15,
+                                                                fontFamily:
+                                                                    'Poppins'),
                                                           ),
                                                         ),
                                                       ),
-                                                    )),
-                                              ],
-                                            ),
-                                          );
-                                        });
+                                                      SizedBox(
+                                                        height: height * 0.2,
+                                                      ),
+                                                    ]),
+                                              ),
+                                              Positioned.fill(
+                                                  top: -36,
+                                                  child: Align(
+                                                    alignment:
+                                                        Alignment.topCenter,
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        print('badsha');
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        /*   width: 45,
+                                                                          height: 45, */
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          border: Border.all(
+                                                              color:
+                                                                  Colors.white,
+                                                              width: 2),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(4.0),
+                                                          child: Icon(
+                                                            Icons.close,
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )),
+                                            ],
+                                          ),
+                                        );
                                       });
                                     });
-                          /*     }); */
+                                  });
+                              /*     }); */
                             },
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
@@ -673,7 +536,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                           shape: RoundedRectangleBorder(
                               borderRadius: UploadImage().radius())),
                       child: Text(
-                       /*  otplodaing ? 'Loading...' : */ "Continue",
+                        /*  otplodaing ? 'Loading...' : */ "Continue",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,

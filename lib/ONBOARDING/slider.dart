@@ -14,34 +14,17 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../ACCOUNT_TYPE/uploadimage.dart';
 import '../GOOGLE LOGIN/googlenewpage.dart';
 
-
-
 class Slider1 extends StatefulWidget {
-   Slider1({super.key});
+  Slider1({super.key});
 
   @override
   State<Slider1> createState() => _Slider1State();
-var groupValue;
-
-  var locale = [
-    {'language': 'English', 'locale': Locale('en', 'IN')},
-    {'language': 'Hindi', 'locale': Locale('hi', 'IN')},
-    {'language': 'Bengali', 'locale': Locale('bn', 'IN')},
-    {'language': 'Gujarati', 'locale': Locale('gu', 'IN')},
-    {'language': 'Marathi', 'locale': Locale('mr', 'IN')},
-    {'language': 'Urdu', 'locale': Locale('ur', 'IN')},
-    {'language': 'Odia', 'locale': Locale('or', 'IN')},
-    {'language': 'Kannada', 'locale': Locale('kn', 'IN')},
-    {'language': 'Tamil', 'locale': Locale('ta', 'IN')},
-    {'language': 'Telugu', 'locale': Locale('te', 'IN')},
-  ];
-
-   updatmethod(locale) {
-    Get.updateLocale(Locale(locale));
-  }
 }
 
 class _Slider1State extends State<Slider1> {
+ 
+
+ 
   int activeIndex = 0;
   var size, height, width;
 
@@ -50,13 +33,10 @@ class _Slider1State extends State<Slider1> {
     'assets/loginimg.svg',
     'assets/loginimg.svg'
   ];
-  
-
-  
 
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
     return SafeArea(
@@ -120,130 +100,7 @@ class _Slider1State extends State<Slider1> {
                 children: [
                   TextButton(
                       onPressed: () {
-                        showModalBottomSheet(
-                          isScrollControlled: true,
-                          shape: const RoundedRectangleBorder(
-                            // <-- SEE HERE
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(20.0),
-                            ),
-                          ),
-                          context: context,
-                          builder: (BuildContext context) {
-                            return StatefulBuilder(builder:
-                                (BuildContext context, StateSetter setState) {
-                              return Stack(
-                                clipBehavior: Clip.none,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      SizedBox(
-                                        height: height * 0.01,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Container(
-                                            decoration: BoxDecoration(
-                                                color: Color(0xffE2E2E2),
-                                                borderRadius:
-                                                    BorderRadius.circular(8)),
-                                            height: 5,
-                                            width: 100,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: height * 0.01,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text('Choose Language',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  color: primaryColorOfApp,
-                                                  fontSize: 15))
-                                        ],
-                                      ),
-                                      Divider(),
-                                      ListView.separated(
-                                          shrinkWrap: true,
-                                          itemBuilder: (context, index) {
-                                            return ListTile(
-                                              minVerticalPadding: 10,
-                                              horizontalTitleGap: 0.0,
-                                              visualDensity:
-                                                  const VisualDensity(
-                                                      vertical: -3),
-                                              dense: true,
-                                              leading: Text(
-                                                Slider1().locale[index]['language']
-                                                    .toString(),
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins'),
-                                              ),
-                                              trailing: Radio(
-                                                  value: Slider1().locale[index]['locale']
-                                                      .toString(),
-                                                  groupValue: Slider1().groupValue,
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      Slider1().groupValue = Slider1().locale[index]
-                                                              ['locale']
-                                                          .toString();
-                                                      Slider1().updatmethod(Slider1().locale[index]
-                                                              ['locale']
-                                                          .toString());
-                                                      Navigator.pop(context);
-                                                    });
-                                                  }),
-                                            );
-                                          },
-                                          separatorBuilder: (context, index) {
-                                            return Divider(
-                                              height: 2,
-                                            );
-                                          },
-                                          itemCount: Slider1().locale.length),
-                                    ],
-                                  ),
-                                  Positioned.fill(
-                                      top: -36,
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            /*   width: 45,
-                                  height: 45, */
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(4.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ))
-                                ],
-                              );
-                            });
-                          },
-                        );
+                        selectlanguagemethod(context);
                       },
                       child: Row(
                         children: [
@@ -404,5 +261,140 @@ class _Slider1State extends State<Slider1> {
           dotWidth: 7),
       activeIndex: activeIndex,
       count: 3 /* urlImages.length */);
- 
 }
+
+List locale = [
+  {'language': 'English', 'locale': Locale('en', 'IN')},
+  {'language': 'Hindi', 'locale': Locale('hi', 'IN')},
+  {'language': 'Bengali', 'locale': Locale('bn', 'IN')},
+  {'language': 'Gujarati', 'locale': Locale('gu', 'IN')},
+  {'language': 'Marathi', 'locale': Locale('mr', 'IN')},
+  {'language': 'Urdu', 'locale': Locale('ur', 'IN')},
+  {'language': 'Odia', 'locale': Locale('or', 'IN')},
+  {'language': 'Kannada', 'locale': Locale('kn', 'IN')},
+  {'language': 'Tamil', 'locale': Locale('ta', 'IN')},
+  {'language': 'Telugu', 'locale': Locale('te', 'IN')},
+];
+
+updatmethod(locale) {
+  Get.updateLocale(Locale(locale));
+}
+
+
+ selectlanguagemethod(context) {
+    Size size = MediaQuery.of(context).size;
+    var height = size.height;
+
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        // <-- SEE HERE
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20.0),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+          return Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xffE2E2E2),
+                            borderRadius: BorderRadius.circular(8)),
+                        height: 5,
+                        width: 100,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Choose Language',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: primaryColorOfApp,
+                              fontSize: 15))
+                    ],
+                  ),
+                  Divider(),
+                  ListView.separated(
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          minVerticalPadding: 10,
+                          horizontalTitleGap: 0.0,
+                          visualDensity: const VisualDensity(vertical: -3),
+                          dense: true,
+                          leading: Text(
+                            locale[index]['language'].toString(),
+                            style: TextStyle(fontFamily: 'Poppins'),
+                          ),
+                          trailing: Radio(
+                              value: locale[index]['locale'].toString(),
+                              groupValue: groupValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  groupValue =
+                                      locale[index]['locale'].toString();
+                                  updatmethod(
+                                      locale[index]['locale'].toString());
+                                  Navigator.pop(context);
+                                });
+                              }),
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return Divider(
+                          height: 2,
+                        );
+                      },
+                      itemCount: locale.length),
+                ],
+              ),
+              Positioned.fill(
+                  top: -36,
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        /*   width: 45,
+                                  height: 45, */
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Icon(
+                            Icons.close,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ))
+            ],
+          );
+        });
+      },
+    );
+  }
+  dynamic groupValue;
