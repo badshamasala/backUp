@@ -136,7 +136,7 @@ class SharedPref {
   }
   static Future<String?> getUserEmail() async {
     SharedPreferences sf = await SharedPreferences.getInstance();
-    return await sf.getString(userEmailkey);
+    return sf.getString(userEmailkey);
   }
 
 
@@ -149,7 +149,7 @@ class SharedPref {
   }
   static Future<String?> getUserPassword() async {
     SharedPreferences sf = await SharedPreferences.getInstance();
-    return await sf.getString(userPasswordkey);
+    return sf.getString(userPasswordkey);
   }
 
 

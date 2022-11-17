@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 
-import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
@@ -15,7 +14,7 @@ import '../ACCOUNT_TYPE/uploadimage.dart';
 import '../GOOGLE LOGIN/googlenewpage.dart';
 
 class Slider1 extends StatefulWidget {
-  Slider1({super.key});
+  const Slider1({super.key});
 
   @override
   State<Slider1> createState() => _Slider1State();
@@ -26,7 +25,7 @@ class _Slider1State extends State<Slider1> {
 
  
   int activeIndex = 0;
-  var size, height, width;
+  
 
   List urlImages = [
     'assets/loginimg.svg',
@@ -37,8 +36,8 @@ class _Slider1State extends State<Slider1> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+   double  height = size.height,  width = size.width;
+  
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -53,7 +52,7 @@ class _Slider1State extends State<Slider1> {
                   itemBuilder: (context, index, realIndex) {
                     // final urlImage = urlImages[index];
                     // return buildImage(urlImage, index);
-                    return Container(child: SvgPicture.asset(urlImages[index]));
+                    return SvgPicture.asset(urlImages[index]);
                   },
                   options: CarouselOptions(
                     viewportFraction: 1,
@@ -69,8 +68,8 @@ class _Slider1State extends State<Slider1> {
               ),
               Text(
                 "find".tr,
-                style: TextStyle(
-                    color: const Color(0xff0087FF),
+                style: const TextStyle(
+                    color: Color(0xff0087FF),
                     /*  fontSize: width * 0.04, */
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400),
@@ -103,7 +102,7 @@ class _Slider1State extends State<Slider1> {
                         selectlanguagemethod(context);
                       },
                       child: Row(
-                        children: [
+                        children: const [
                           FaIcon(
                             FontAwesomeIcons.globe,
                             size: 15,
@@ -112,7 +111,7 @@ class _Slider1State extends State<Slider1> {
                           SizedBox(
                             width: 3,
                           ),
-                          const Text(
+                          Text(
                             'Select your language',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -141,10 +140,10 @@ class _Slider1State extends State<Slider1> {
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
-                          borderRadius: UploadImage().radius())),
+                          borderRadius: const UploadImage().radius())),
                   child: Text(
                     "login".tr,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 15,
                         fontFamily: 'Poppins'),
@@ -160,7 +159,7 @@ class _Slider1State extends State<Slider1> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => const HomePage()),
                     );
                   },
                   style: OutlinedButton.styleFrom(
@@ -171,10 +170,10 @@ class _Slider1State extends State<Slider1> {
                                       horizontal: 40.0, vertical: 20.0), */
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: UploadImage().radius())),
+                          borderRadius: const UploadImage().radius())),
                   child: Text(
                     "guest".tr,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Color(0xff0087FF),
                         fontSize: 15,
                         fontFamily: 'Poppins'),
@@ -194,7 +193,7 @@ class _Slider1State extends State<Slider1> {
                   ),
                   Text(
                     'or'.tr,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Color(0xff515253), fontFamily: 'Poppins'),
                   ),
                   Container(
@@ -213,7 +212,7 @@ class _Slider1State extends State<Slider1> {
                     padding: EdgeInsets.only(left: width * 0.04),
                     child: Text(
                       "dont".tr,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Color(0xff515253), fontFamily: 'Poppins'),
                     ),
                   ),
@@ -225,7 +224,7 @@ class _Slider1State extends State<Slider1> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PhoneNumber()),
+                      MaterialPageRoute(builder: (context) => const PhoneNumber()),
                     );
                   },
                   style: OutlinedButton.styleFrom(
@@ -236,10 +235,10 @@ class _Slider1State extends State<Slider1> {
                                   horizontal: 40.0, vertical: 20.0), */
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: UploadImage().radius())),
+                          borderRadius: const UploadImage().radius())),
                   child: Text(
                     "signup".tr,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Color(0xff0087FF),
                         fontSize: 15,
                         fontFamily: 'Poppins'),
@@ -264,16 +263,16 @@ class _Slider1State extends State<Slider1> {
 }
 
 List locale = [
-  {'language': 'English', 'locale': Locale('en', 'IN')},
-  {'language': 'Hindi', 'locale': Locale('hi', 'IN')},
-  {'language': 'Bengali', 'locale': Locale('bn', 'IN')},
-  {'language': 'Gujarati', 'locale': Locale('gu', 'IN')},
-  {'language': 'Marathi', 'locale': Locale('mr', 'IN')},
-  {'language': 'Urdu', 'locale': Locale('ur', 'IN')},
-  {'language': 'Odia', 'locale': Locale('or', 'IN')},
-  {'language': 'Kannada', 'locale': Locale('kn', 'IN')},
-  {'language': 'Tamil', 'locale': Locale('ta', 'IN')},
-  {'language': 'Telugu', 'locale': Locale('te', 'IN')},
+  {'language': 'English', 'locale': const Locale('en', 'IN')},
+  {'language': 'Hindi', 'locale': const Locale('hi', 'IN')},
+  {'language': 'Bengali', 'locale': const Locale('bn', 'IN')},
+  {'language': 'Gujarati', 'locale': const Locale('gu', 'IN')},
+  {'language': 'Marathi', 'locale': const Locale('mr', 'IN')},
+  {'language': 'Urdu', 'locale': const Locale('ur', 'IN')},
+  {'language': 'Odia', 'locale': const Locale('or', 'IN')},
+  {'language': 'Kannada', 'locale': const Locale('kn', 'IN')},
+  {'language': 'Tamil', 'locale': const Locale('ta', 'IN')},
+  {'language': 'Telugu', 'locale': const Locale('te', 'IN')},
 ];
 
 updatmethod(locale) {
@@ -311,7 +310,7 @@ updatmethod(locale) {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                            color: Color(0xffE2E2E2),
+                            color: const Color(0xffE2E2E2),
                             borderRadius: BorderRadius.circular(8)),
                         height: 5,
                         width: 100,
@@ -323,7 +322,7 @@ updatmethod(locale) {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text('Choose Language',
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -331,7 +330,7 @@ updatmethod(locale) {
                               fontSize: 15))
                     ],
                   ),
-                  Divider(),
+                  const Divider(),
                   ListView.separated(
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
@@ -342,7 +341,7 @@ updatmethod(locale) {
                           dense: true,
                           leading: Text(
                             locale[index]['language'].toString(),
-                            style: TextStyle(fontFamily: 'Poppins'),
+                            style: const TextStyle(fontFamily: 'Poppins'),
                           ),
                           trailing: Radio(
                               value: locale[index]['locale'].toString(),
@@ -359,7 +358,7 @@ updatmethod(locale) {
                         );
                       },
                       separatorBuilder: (context, index) {
-                        return Divider(
+                        return const Divider(
                           height: 2,
                         );
                       },
@@ -381,8 +380,8 @@ updatmethod(locale) {
                           border: Border.all(color: Colors.white, width: 2),
                           shape: BoxShape.circle,
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(4.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(4.0),
                           child: Icon(
                             Icons.close,
                             color: Colors.white,

@@ -9,12 +9,12 @@ class IntroScreen extends StatefulWidget {
 }
 
 class _IntroScreenState extends State<IntroScreen> {
-  var size, height, width;
+
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+    Size size = MediaQuery.of(context).size;
+    double height = size.height,width = size.width;
+    
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -99,7 +99,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Slider1()),
+                            MaterialPageRoute(builder: (context) => const Slider1()),
                           );
                         },
                         child: Text(
@@ -124,8 +124,8 @@ class _IntroScreenState extends State<IntroScreen> {
                     color: const Color(0xff18346D),
                     fontFamily: 'Satisfy',
                     fontSize: width * 0.08,
-                    shadows: [
-                      const Shadow(
+                    shadows: const [
+                      Shadow(
                         blurRadius: 8.0,
                         color: Color(0xff0087FF),
                         offset: Offset(1.0, 1.0),

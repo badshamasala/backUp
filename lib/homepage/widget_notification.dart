@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -48,7 +50,7 @@ class WidgetNotification extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -61,19 +63,19 @@ class WidgetNotification extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Connect for you (via email)',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -82,7 +84,7 @@ class WidgetNotification extends StatefulWidget {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         height: 150,
                         child: Stack(children: [
@@ -130,7 +132,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -160,7 +162,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -233,8 +235,8 @@ class WidgetNotification extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -290,7 +292,7 @@ class WidgetNotification extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -303,19 +305,19 @@ class WidgetNotification extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'New Followers and Follow You',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -324,7 +326,7 @@ class WidgetNotification extends StatefulWidget {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Container(
                         decoration: BoxDecoration(
                             border: Border.all(width: 0.5),
@@ -402,7 +404,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -432,7 +434,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -534,7 +536,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -638,7 +640,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -742,7 +744,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -815,8 +817,8 @@ class WidgetNotification extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -832,7 +834,7 @@ class WidgetNotification extends StatefulWidget {
   }
 
   buildtextstyle() {
-    return TextStyle(
+    return const TextStyle(
         color: customTextColor, fontFamily: 'Poppins', fontSize: 11);
   }
 
@@ -869,7 +871,7 @@ class WidgetNotification extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -882,30 +884,30 @@ class WidgetNotification extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Notifications',
                             style: TextStyle(
                                 fontFamily: 'Poppins', color: customTextColor),
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             'All Notifications',
                             style: TextStyle(
                               fontFamily: 'Poppins',
@@ -931,7 +933,7 @@ class WidgetNotification extends StatefulWidget {
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Like, Comments, Share, Photo, Video & Story  ',
                               style: TextStyle(
@@ -953,7 +955,7 @@ class WidgetNotification extends StatefulWidget {
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Live',
                               style: TextStyle(
@@ -975,7 +977,7 @@ class WidgetNotification extends StatefulWidget {
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Chat-Box & Group ',
                               style: TextStyle(
@@ -997,7 +999,7 @@ class WidgetNotification extends StatefulWidget {
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Gift  Send  me ',
                               style: TextStyle(
@@ -1019,7 +1021,7 @@ class WidgetNotification extends StatefulWidget {
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Connect for you (via email)',
                               style: TextStyle(
@@ -1041,7 +1043,7 @@ class WidgetNotification extends StatefulWidget {
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'New Followers and Following ',
                               style: TextStyle(
@@ -1073,8 +1075,8 @@ class WidgetNotification extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -1122,7 +1124,7 @@ class WidgetNotification extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -1135,19 +1137,19 @@ class WidgetNotification extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Chat-Box & Group',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -1156,7 +1158,7 @@ class WidgetNotification extends StatefulWidget {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Container(
                         decoration: BoxDecoration(
                             border: Border.all(width: 0.5),
@@ -1230,7 +1232,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -1260,7 +1262,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -1362,7 +1364,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -1392,7 +1394,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -1494,7 +1496,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -1524,7 +1526,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -1597,8 +1599,8 @@ class WidgetNotification extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -1646,7 +1648,7 @@ class WidgetNotification extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -1659,19 +1661,19 @@ class WidgetNotification extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Gift Send me ',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -1680,7 +1682,7 @@ class WidgetNotification extends StatefulWidget {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         height: 150,
                         child: Stack(children: [
@@ -1728,7 +1730,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -1758,7 +1760,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -1831,8 +1833,8 @@ class WidgetNotification extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -1880,7 +1882,7 @@ class WidgetNotification extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -1893,19 +1895,19 @@ class WidgetNotification extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Like, Comments, Share, Photo, Video & Story  ',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -1914,7 +1916,7 @@ class WidgetNotification extends StatefulWidget {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Container(
                         decoration: BoxDecoration(
                             border: Border.all(width: 0.5),
@@ -1988,7 +1990,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2018,7 +2020,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2120,7 +2122,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2150,7 +2152,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2252,7 +2254,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2282,7 +2284,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2355,8 +2357,8 @@ class WidgetNotification extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -2404,7 +2406,7 @@ class WidgetNotification extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -2417,19 +2419,19 @@ class WidgetNotification extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Live',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -2438,7 +2440,7 @@ class WidgetNotification extends StatefulWidget {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Container(
                         decoration: BoxDecoration(
                             border: Border.all(width: 0.5),
@@ -2512,7 +2514,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2613,7 +2615,7 @@ class WidgetNotification extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2683,8 +2685,8 @@ class WidgetNotification extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,

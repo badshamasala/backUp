@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
@@ -40,7 +42,7 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
             appBar: AppBar(
               titleSpacing: 1,
               automaticallyImplyLeading: true,
-              iconTheme: IconThemeData(color: primaryColorOfApp),
+              iconTheme: const IconThemeData(color: primaryColorOfApp),
               elevation: 0,
               backgroundColor: Colors.white,
               title: Row(
@@ -55,14 +57,14 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                         child: CircleAvatar(
                           radius: 13,
                           backgroundColor: Colors.grey.shade800,
-                          backgroundImage: NetworkImage(
+                          backgroundImage: const NetworkImage(
                               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkuP4A26vUkEZwYJL4zGV8KRxUbBmcX11Mdw&usqp=CAU'),
                         )),
                   ),
                   SizedBox(
                     width: width * 0.01,
                   ),
-                  Text(
+                  const Text(
                     '@Nanncyjain23',
                     style: TextStyle(
                         fontSize: 12,
@@ -72,7 +74,7 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                   SizedBox(
                     width: width * 0.01,
                   ),
-                  Iconify(
+                  const Iconify(
                     Bi.patch_check,
                     size: 15,
                     color: primaryColorOfApp,
@@ -80,7 +82,7 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                   SizedBox(
                     width: width * 0.01,
                   ),
-                  Text(
+                  const Text(
                     'Nanncy Jain',
                     style: TextStyle(
                         fontSize: 15,
@@ -93,20 +95,20 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
             body: Column(children: [
               Container(
                 decoration: BoxDecoration(
-                    color: Color(0xffE2E2E2),
+                    color: const Color(0xffE2E2E2),
                     shape: BoxShape.rectangle,
-                    border: Border.all(width: 0.5, color: Color(0xffE2E2E2)),
+                    border: Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: TabBar(
                     controller: tabController,
                     indicatorWeight: 1,
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorPadding: EdgeInsets.zero,
-                    labelColor: Color(0xff0087FF),
-                    unselectedLabelColor: Color(0xff333333),
-                    tabs: [
+                    labelColor: const Color(0xff0087FF),
+                    unselectedLabelColor: const Color(0xff333333),
+                    tabs: const [
                       Tab(
                         height: 20,
                         child: Text(
@@ -147,24 +149,24 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                             height: 35,
                             child: TextField(
                               decoration: InputDecoration(
-                                prefixIcon: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                prefixIcon: const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Iconify(
                                     Ri.search_line,
                                     size: 15,
                                     color: Color(0xffDADADA),
                                   ),
                                 ),
-                                prefixIconConstraints: BoxConstraints(),
+                                prefixIconConstraints: const BoxConstraints(),
                                 isDense: true,
                                 labelText: 'Search Profile Name',
-                                labelStyle: TextStyle(
+                                labelStyle: const TextStyle(
                                     color: Color(0xffc4c4c4),
                                     fontFamily: 'Poppins',
                                     fontSize: 12),
                                 border: OutlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Color(0xff737373)),
+                                        const BorderSide(color: Color(0xff737373)),
                                     borderRadius: BorderRadius.circular(5)),
                               ),
                             ),
@@ -182,7 +184,7 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                                       children: [
                                         Row(
                                           children: [
-                                            CircleAvatar(
+                                            const CircleAvatar(
                                               radius: 20,
                                               backgroundImage: NetworkImage(
                                                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
@@ -246,24 +248,24 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                             height: 35,
                             child: TextField(
                               decoration: InputDecoration(
-                                prefixIcon: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                prefixIcon: const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Iconify(
                                     Ri.search_line,
                                     size: 15,
                                     color: Color(0xffDADADA),
                                   ),
                                 ),
-                                prefixIconConstraints: BoxConstraints(),
+                                prefixIconConstraints: const BoxConstraints(),
                                 isDense: true,
                                 labelText: 'Search Profile Name',
-                                labelStyle: TextStyle(
+                                labelStyle: const TextStyle(
                                     color: Color(0xffc4c4c4),
                                     fontFamily: 'Poppins',
                                     fontSize: 12),
                                 border: OutlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Color(0xff737373)),
+                                        const BorderSide(color: Color(0xff737373)),
                                     borderRadius: BorderRadius.circular(5)),
                               ),
                             ),
@@ -281,7 +283,7 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                                       children: [
                                         Row(
                                           children: [
-                                            CircleAvatar(
+                                            const CircleAvatar(
                                               radius: 20,
                                               backgroundImage: NetworkImage(
                                                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
@@ -345,24 +347,24 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                             height: 35,
                             child: TextField(
                               decoration: InputDecoration(
-                                prefixIcon: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                prefixIcon: const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Iconify(
                                     Ri.search_line,
                                     size: 15,
                                     color: Color(0xffDADADA),
                                   ),
                                 ),
-                                prefixIconConstraints: BoxConstraints(),
+                                prefixIconConstraints: const BoxConstraints(),
                                 isDense: true,
                                 labelText: 'Search Profile Name',
-                                labelStyle: TextStyle(
+                                labelStyle: const TextStyle(
                                     color: Color(0xffc4c4c4),
                                     fontFamily: 'Poppins',
                                     fontSize: 12),
                                 border: OutlineInputBorder(
                                     borderSide:
-                                        BorderSide(color: Color(0xff737373)),
+                                        const BorderSide(color: Color(0xff737373)),
                                     borderRadius: BorderRadius.circular(5)),
                               ),
                             ),
@@ -380,7 +382,7 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                                       children: [
                                         Row(
                                           children: [
-                                            CircleAvatar(
+                                            const CircleAvatar(
                                               radius: 20,
                                               backgroundImage: NetworkImage(
                                                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),

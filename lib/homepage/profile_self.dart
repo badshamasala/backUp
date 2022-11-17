@@ -1,10 +1,9 @@
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables, avoid_print
+
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GLOBALS/commentfile.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googlenewpage.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_application_1/homepage/ads.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
@@ -21,7 +20,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/akar_icons.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/bx.dart';
@@ -30,13 +28,10 @@ import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/ion.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ooui.dart';
-import 'package:iconify_flutter/icons/ri.dart';
 import 'package:iconify_flutter/icons/tabler.dart';
 
 import 'package:image_picker/image_picker.dart';
-import 'package:provider/provider.dart';
 
 class ProfileSelf extends StatefulWidget {
   ProfileSelf({super.key});
@@ -48,7 +43,7 @@ class ProfileSelf extends StatefulWidget {
   var followers = 'Followers';
   var following = 'Following';
   var off = 'Off';
-  var sourceLocation = LatLng(19.0715252, 72.8692906);
+  var sourceLocation = const LatLng(19.0715252, 72.8692906);
   buildaddresspage(context) {
     Size size;
     double height, width;
@@ -79,9 +74,9 @@ class ProfileSelf extends StatefulWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: Color(0xffe2e2e2),
+                          color: const Color(0xffe2e2e2),
                           border:
-                              Border.all(width: 0.5, color: Color(0xffe2e2e2)),
+                              Border.all(width: 0.5, color: const Color(0xffe2e2e2)),
                           borderRadius: BorderRadius.circular(10)),
                       height: 5,
                       width: 100,
@@ -94,11 +89,11 @@ class ProfileSelf extends StatefulWidget {
                       children: [
                         IconButton(
                             padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
+                            constraints: const BoxConstraints(),
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.arrow_back,
                               size: 25,
                               color: primaryColorOfApp,
@@ -106,7 +101,7 @@ class ProfileSelf extends StatefulWidget {
                         SizedBox(
                           width: width * 0.03,
                         ),
-                        Text(
+                        const Text(
                           'add your address/location',
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -114,7 +109,7 @@ class ProfileSelf extends StatefulWidget {
                         ),
                       ],
                     ),
-                    Divider(),
+                    const Divider(),
                     SizedBox(
                       height: height * 0.02,
                     ),
@@ -123,7 +118,7 @@ class ProfileSelf extends StatefulWidget {
                         child: TextFormField(
                             decoration: InputDecoration(
                           /*   errorText: validationService.fullName.error, */
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.search,
                             color: Color(0xffdadada),
                           ),
@@ -140,7 +135,7 @@ class ProfileSelf extends StatefulWidget {
                               borderRadius: BorderRadius.circular(5),
                               borderSide: const BorderSide(
                                   color: Color(0xff0087FF), width: 0.5)),
-                          hintStyle: TextStyle(fontSize: 10),
+                          hintStyle: const TextStyle(fontSize: 10),
                           contentPadding: const EdgeInsets.all(15),
                         ))),
                     SizedBox(
@@ -172,7 +167,7 @@ class ProfileSelf extends StatefulWidget {
                                     padding: const EdgeInsets.only(
                                         left: 18.0, bottom: 3),
                                     child: TextFormField(
-                                        decoration: InputDecoration(
+                                        decoration: const InputDecoration(
                                       labelText: '',
                                       /*                     suffixIcon: Icon(Icons.check_circle), */
                                       border: InputBorder.none,
@@ -230,7 +225,7 @@ class ProfileSelf extends StatefulWidget {
                                     padding: const EdgeInsets.only(
                                         left: 18.0, bottom: 3),
                                     child: TextFormField(
-                                        decoration: InputDecoration(
+                                        decoration: const InputDecoration(
                                       labelText: '',
                                       /*                     suffixIcon: Icon(Icons.check_circle), */
                                       border: InputBorder.none,
@@ -274,8 +269,8 @@ class ProfileSelf extends StatefulWidget {
                           ),
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                hint: const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Text(
                                     'select city',
                                     style: TextStyle(
@@ -306,8 +301,8 @@ class ProfileSelf extends StatefulWidget {
                           ),
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                hint: const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Text(
                                     'select state',
                                     style: TextStyle(
@@ -346,8 +341,8 @@ class ProfileSelf extends StatefulWidget {
                           ),
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                hint: const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Text(
                                     'select city',
                                     style: TextStyle(
@@ -451,8 +446,8 @@ class ProfileSelf extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -499,7 +494,7 @@ class ProfileSelf extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -512,19 +507,19 @@ class ProfileSelf extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Settings',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -534,13 +529,13 @@ class ProfileSelf extends StatefulWidget {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       InkWell(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SelfProfile()),
+                                builder: (context) => const SelfProfile()),
                           );
                         },
                         child: Row(
@@ -553,7 +548,7 @@ class ProfileSelf extends StatefulWidget {
                                   height: 18,
                                   width: 18,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Text(
@@ -562,7 +557,7 @@ class ProfileSelf extends StatefulWidget {
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -588,7 +583,7 @@ class ProfileSelf extends StatefulWidget {
                                   height: 18,
                                   width: 18,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Text(
@@ -597,7 +592,7 @@ class ProfileSelf extends StatefulWidget {
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -618,7 +613,7 @@ class ProfileSelf extends StatefulWidget {
                                 height: 18,
                                 width: 18,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(
@@ -627,7 +622,7 @@ class ProfileSelf extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -651,7 +646,7 @@ class ProfileSelf extends StatefulWidget {
                                   height: 18,
                                   width: 18,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Text(
@@ -660,7 +655,7 @@ class ProfileSelf extends StatefulWidget {
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -686,7 +681,7 @@ class ProfileSelf extends StatefulWidget {
                                   height: 18,
                                   width: 18,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Text(
@@ -695,7 +690,7 @@ class ProfileSelf extends StatefulWidget {
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -716,7 +711,7 @@ class ProfileSelf extends StatefulWidget {
                                 height: 18,
                                 width: 18,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(
@@ -725,7 +720,7 @@ class ProfileSelf extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -739,7 +734,7 @@ class ProfileSelf extends StatefulWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Ads()),
+                            MaterialPageRoute(builder: (context) => const Ads()),
                           );
                         },
                         child: Row(
@@ -747,11 +742,11 @@ class ProfileSelf extends StatefulWidget {
                           children: [
                             Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.campaign_outlined,
                                   size: 17,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Text(
@@ -760,7 +755,7 @@ class ProfileSelf extends StatefulWidget {
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -776,7 +771,7 @@ class ProfileSelf extends StatefulWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Verification1()),
+                                builder: (context) => const Verification1()),
                           );
                         },
                         child: Row(
@@ -784,22 +779,22 @@ class ProfileSelf extends StatefulWidget {
                           children: [
                             Row(
                               children: [
-                                Iconify(Bi.patch_check, size: 15),
-                                SizedBox(
+                                const Iconify(Bi.patch_check, size: 15),
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Text(
                                   '@Verification',
                                   style: ProfileSelf().buildtextstyle(),
                                 ),
-                                Iconify(
+                                const Iconify(
                                   Bi.patch_check,
                                   size: 10,
                                   color: primaryColorOfApp,
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -844,7 +839,7 @@ class ProfileSelf extends StatefulWidget {
                                                     Container(
                                                       decoration: BoxDecoration(
                                                           color:
-                                                              Color(0xffE2E2E2),
+                                                              const Color(0xffE2E2E2),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(8)),
@@ -860,14 +855,14 @@ class ProfileSelf extends StatefulWidget {
                                                   children: [
                                                     IconButton(
                                                         padding:
-                                                            EdgeInsets.all(0),
+                                                            const EdgeInsets.all(0),
                                                         constraints:
-                                                            BoxConstraints(),
+                                                            const BoxConstraints(),
                                                         onPressed: () {
                                                           Navigator.of(context)
                                                               .pop();
                                                         },
-                                                        icon: Icon(
+                                                        icon: const Icon(
                                                           Icons.arrow_back,
                                                           color:
                                                               primaryColorOfApp,
@@ -875,7 +870,7 @@ class ProfileSelf extends StatefulWidget {
                                                     SizedBox(
                                                       width: width * 0.01,
                                                     ),
-                                                    Text(
+                                                    const Text(
                                                       'Privacy',
                                                       style: TextStyle(
                                                           fontFamily: 'Poppins',
@@ -884,7 +879,7 @@ class ProfileSelf extends StatefulWidget {
                                                     ),
                                                   ],
                                                 ),
-                                                Divider(),
+                                                const Divider(),
                                                 Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
@@ -896,7 +891,7 @@ class ProfileSelf extends StatefulWidget {
                                                             'assets/setprofile.svg',
                                                             height: 18,
                                                             width: 18),
-                                                        SizedBox(
+                                                        const SizedBox(
                                                           width: 10,
                                                         ),
                                                         Text('Private Profile',
@@ -940,7 +935,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/profileactivityicon.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -950,7 +945,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -977,7 +972,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/digitalicon.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -987,7 +982,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1013,7 +1008,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/privacygroup.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1023,7 +1018,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1049,7 +1044,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/commenticon.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1059,7 +1054,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1086,7 +1081,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/privacypost.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1096,7 +1091,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1122,7 +1117,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/historyicon.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1132,7 +1127,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1159,7 +1154,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/liveicon.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1167,7 +1162,7 @@ class ProfileSelf extends StatefulWidget {
                                                             style:
                                                                 buildtextstyle(),
                                                           ),
-                                                          Iconify(
+                                                          const Iconify(
                                                             Bi.patch_check,
                                                             size: 10,
                                                             color:
@@ -1175,7 +1170,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1202,7 +1197,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/setchat2.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1212,7 +1207,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1238,7 +1233,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/@.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1248,7 +1243,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1274,7 +1269,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/tagicon.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1284,7 +1279,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1307,11 +1302,11 @@ class ProfileSelf extends StatefulWidget {
                                                     children: [
                                                       Row(
                                                         children: [
-                                                          Iconify(
+                                                          const Iconify(
                                                               EmojioneMonotone
                                                                   .wrapped_gift,
                                                               size: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1321,7 +1316,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1374,29 +1369,29 @@ class ProfileSelf extends StatefulWidget {
                                                                         Row(
                                                                           children: [
                                                                             IconButton(
-                                                                                padding: EdgeInsets.all(0),
-                                                                                constraints: BoxConstraints(),
+                                                                                padding: const EdgeInsets.all(0),
+                                                                                constraints: const BoxConstraints(),
                                                                                 onPressed: () {
                                                                                   Navigator.of(context).pop();
                                                                                 },
-                                                                                icon: Icon(
+                                                                                icon: const Icon(
                                                                                   Icons.arrow_back,
                                                                                   color: primaryColorOfApp,
                                                                                 )),
                                                                             SizedBox(
                                                                               width: width * 0.01,
                                                                             ),
-                                                                            Text(
+                                                                            const Text(
                                                                               'Block Profile List',
                                                                               style: TextStyle(fontFamily: 'Poppins', color: customTextColor, fontSize: 15),
                                                                             ),
                                                                           ],
                                                                         ),
-                                                                        Divider(),
+                                                                        const Divider(),
                                                                         TextFormField(
                                                                             decoration: InputDecoration(
                                                                                 isDense: true, // Added this
-                                                                                contentPadding: EdgeInsets.all(8),
+                                                                                contentPadding: const EdgeInsets.all(8),
                                                                                 labelText: 'Search profile Name',
                                                                                 labelStyle: const TextStyle(color: Colors.black, fontFamily: 'Poppins', fontSize: 10),
                                                                                 enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Color(0xff333333), width: 1)),
@@ -1412,7 +1407,7 @@ class ProfileSelf extends StatefulWidget {
                                                                                 horizontalTitleGap: 4,
                                                                                 visualDensity: const VisualDensity(vertical: -3),
                                                                                 dense: true,
-                                                                                leading: CircleAvatar(
+                                                                                leading: const CircleAvatar(
                                                                                   radius: 20,
                                                                                   backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
                                                                                 ),
@@ -1426,7 +1421,7 @@ class ProfileSelf extends StatefulWidget {
                                                                                 ),
                                                                                 trailing: OutlinedButton(
                                                                                     style: OutlinedButton.styleFrom(
-                                                                                        side: BorderSide(color: primaryColorOfApp, width: 1),
+                                                                                        side: const BorderSide(color: primaryColorOfApp, width: 1),
                                                                                         elevation: 0,
                                                                                         minimumSize: const Size(80, 30),
                                                                                         // padding: EdgeInsets.symmetric(
@@ -1465,7 +1460,7 @@ class ProfileSelf extends StatefulWidget {
                                                                                                                 width: 18,
                                                                                                                 color: Colors.green,
                                                                                                               ),
-                                                                                                              Text('Unblock this profile?')
+                                                                                                              const Text('Unblock this profile?')
                                                                                                             ],
                                                                                                           )
                                                                                                         ])),
@@ -1484,8 +1479,8 @@ class ProfileSelf extends StatefulWidget {
                                                                                                             border: Border.all(color: Colors.white, width: 2),
                                                                                                             shape: BoxShape.circle,
                                                                                                           ),
-                                                                                                          child: Padding(
-                                                                                                            padding: const EdgeInsets.all(4.0),
+                                                                                                          child: const Padding(
+                                                                                                            padding: EdgeInsets.all(4.0),
                                                                                                             child: Icon(
                                                                                                               Icons.close,
                                                                                                               color: Colors.white,
@@ -1500,7 +1495,7 @@ class ProfileSelf extends StatefulWidget {
                                                                                         },
                                                                                       );
                                                                                     },
-                                                                                    child: Text(
+                                                                                    child: const Text(
                                                                                       'Unblock',
                                                                                       style: TextStyle(fontFamily: 'Poppins', color: primaryColorOfApp, fontSize: 10),
                                                                                     )),
@@ -1534,9 +1529,9 @@ class ProfileSelf extends StatefulWidget {
                                                                                 BoxShape.circle,
                                                                           ),
                                                                           child:
-                                                                              Padding(
+                                                                              const Padding(
                                                                             padding:
-                                                                                const EdgeInsets.all(4.0),
+                                                                                EdgeInsets.all(4.0),
                                                                             child:
                                                                                 Icon(
                                                                               Icons.close,
@@ -1562,7 +1557,7 @@ class ProfileSelf extends StatefulWidget {
                                                               'assets/blockicon.svg',
                                                               height: 18,
                                                               width: 18),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           Text(
@@ -1572,7 +1567,7 @@ class ProfileSelf extends StatefulWidget {
                                                           ),
                                                         ],
                                                       ),
-                                                      Iconify(
+                                                      const Iconify(
                                                         Eva.arrow_right_fill,
                                                         size: 15,
                                                       )
@@ -1600,9 +1595,9 @@ class ProfileSelf extends StatefulWidget {
                                                       width: 2),
                                                   shape: BoxShape.circle,
                                                 ),
-                                                child: Padding(
+                                                child: const Padding(
                                                   padding:
-                                                      const EdgeInsets.all(4.0),
+                                                      EdgeInsets.all(4.0),
                                                   child: Icon(
                                                     Icons.close,
                                                     color: Colors.white,
@@ -1626,7 +1621,7 @@ class ProfileSelf extends StatefulWidget {
                                   height: 18,
                                   width: 18,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Text(
@@ -1635,7 +1630,7 @@ class ProfileSelf extends StatefulWidget {
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -1660,7 +1655,7 @@ class ProfileSelf extends StatefulWidget {
                                   height: 18,
                                   width: 18,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                                 Text(
@@ -1669,7 +1664,7 @@ class ProfileSelf extends StatefulWidget {
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -1690,7 +1685,7 @@ class ProfileSelf extends StatefulWidget {
                                 height: 18,
                                 width: 18,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(
@@ -1699,7 +1694,7 @@ class ProfileSelf extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -1719,7 +1714,7 @@ class ProfileSelf extends StatefulWidget {
                                 height: 18,
                                 width: 18,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(
@@ -1728,7 +1723,7 @@ class ProfileSelf extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -1748,10 +1743,10 @@ class ProfileSelf extends StatefulWidget {
                                 height: 18,
                                 width: 18,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
-                              Text(
+                              const Text(
                                 'SWITCH PROFILE',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -1777,8 +1772,8 @@ class ProfileSelf extends StatefulWidget {
                                   MaterialPageRoute(
                                       builder: (context) => GooglePage1()))); */
                             },
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 35.0),
+                            child: const Padding(
+                              padding: EdgeInsets.only(right: 35.0),
                               child: Text(
                                 'Logout',
                                 style: TextStyle(
@@ -1810,8 +1805,8 @@ class ProfileSelf extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -1827,7 +1822,7 @@ class ProfileSelf extends StatefulWidget {
   }
 
   buildtextstyle() {
-    return TextStyle(
+    return const TextStyle(
         color: customTextColor, fontFamily: 'Poppins', fontSize: 11);
   }
 
@@ -1837,10 +1832,9 @@ class ProfileSelf extends StatefulWidget {
 
   buildpersonalsetting(context) {
     Size size;
-    double height, width;
+    double height;
     size = MediaQuery.of(context).size;
     height = size.height;
-    width = size.width;
     return showModalBottomSheet(
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
@@ -1867,7 +1861,7 @@ class ProfileSelf extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -1878,7 +1872,7 @@ class ProfileSelf extends StatefulWidget {
                         height: height * 0.01,
                       ),
                       Row(
-                        children: [
+                        children: const [
                           Text(
                             '@profile.user-id',
                             style: TextStyle(
@@ -1895,7 +1889,7 @@ class ProfileSelf extends StatefulWidget {
                         ],
                       ),
                       Row(
-                        children: [
+                        children: const [
                           Text(
                             'Profie Name ',
                             style: TextStyle(
@@ -1903,7 +1897,7 @@ class ProfileSelf extends StatefulWidget {
                           )
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       InkWell(
                         onTap: () {
                           /*  Navigator.of(context).pop(); */
@@ -1919,17 +1913,17 @@ class ProfileSelf extends StatefulWidget {
                                   height: 15,
                                   width: 15,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 12,
                                 ),
-                                Text(
+                                const Text(
                                   'Settings',
                                   style: TextStyle(
                                       fontFamily: 'Poppins', fontSize: 12),
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -1952,17 +1946,17 @@ class ProfileSelf extends StatefulWidget {
                                   height: 15,
                                   width: 15,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 12,
                                 ),
-                                Text(
+                                const Text(
                                   'Profile Activity',
                                   style: TextStyle(
                                       fontFamily: 'Poppins', fontSize: 12),
                                 ),
                               ],
                             ),
-                            Iconify(
+                            const Iconify(
                               Eva.arrow_right_fill,
                               size: 15,
                               color: Color(0xff333333),
@@ -1983,17 +1977,17 @@ class ProfileSelf extends StatefulWidget {
                                 height: 15,
                                 width: 15,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
-                              Text(
+                              const Text(
                                 'Digital Collections',
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -2013,17 +2007,17 @@ class ProfileSelf extends StatefulWidget {
                                 height: 15,
                                 width: 15,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 12,
                               ),
-                              Text(
+                              const Text(
                                 'History',
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -2037,7 +2031,7 @@ class ProfileSelf extends StatefulWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               Iconify(Ion.archive, size: 15),
                               SizedBox(
                                 width: 12,
@@ -2049,7 +2043,7 @@ class ProfileSelf extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -2063,7 +2057,7 @@ class ProfileSelf extends StatefulWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               Iconify(Bi.bookmark_star, size: 15),
                               SizedBox(
                                 width: 12,
@@ -2075,7 +2069,7 @@ class ProfileSelf extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -2095,17 +2089,17 @@ class ProfileSelf extends StatefulWidget {
                                 height: 15,
                                 width: 15,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 11,
                               ),
-                              Text(
+                              const Text(
                                 'Favorites Profile',
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -2125,17 +2119,17 @@ class ProfileSelf extends StatefulWidget {
                                 height: 15,
                                 width: 15,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 13,
                               ),
-                              Text(
+                              const Text(
                                 'Friends',
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -2149,7 +2143,7 @@ class ProfileSelf extends StatefulWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               Iconify(Bi.qr_code_scan, size: 15),
                               SizedBox(
                                 width: 12,
@@ -2161,7 +2155,7 @@ class ProfileSelf extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -2181,17 +2175,17 @@ class ProfileSelf extends StatefulWidget {
                                 height: 15,
                                 width: 15,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 12,
                               ),
-                              Text(
+                              const Text(
                                 'Discover',
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -2211,17 +2205,17 @@ class ProfileSelf extends StatefulWidget {
                                 height: 15,
                                 width: 15,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
-                              Text(
+                              const Text(
                                 'Share ',
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 12),
                               ),
                             ],
                           ),
-                          Iconify(
+                          const Iconify(
                             Eva.arrow_right_fill,
                             size: 15,
                             color: Color(0xff333333),
@@ -2233,7 +2227,7 @@ class ProfileSelf extends StatefulWidget {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'version  3.6.9. (596) ',
                             style:
@@ -2260,8 +2254,8 @@ class ProfileSelf extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -2355,16 +2349,16 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       children: [
                         IconButton(
                             padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
+                            constraints: const BoxConstraints(),
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.arrow_back,
                               size: 25,
                               color: primaryColorOfApp,
                             )),
-                        Text(
+                        const Text(
                           'Edit profile',
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -2392,7 +2386,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                         ),
                                       )
                                     // Image. file
-                                    : Icon(
+                                    : const Icon(
                                         Icons.account_circle,
                                         size: 50,
                                         color: Color(0xffc4c4c4),
@@ -2439,7 +2433,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         ),
                       ],
                     ),
-                    Container(
+                    SizedBox(
                       /* color: Colors.red, */
                       height: 48,
                       child: Stack(
@@ -2468,7 +2462,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                         enabled: username,
                                         decoration: InputDecoration(
                                           labelText: username ? '' : '',
-                                          suffixIcon: Icon(Icons.check_circle),
+                                          suffixIcon: const Icon(Icons.check_circle),
                                           border: InputBorder.none,
                                         )),
                                   )),
@@ -2495,7 +2489,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       height: 12,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -2506,7 +2500,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       /* minimumSize: Size(100, 5), */
                                       elevation: 0,
                                       visualDensity:
-                                          VisualDensity(vertical: -4),
+                                          const VisualDensity(vertical: -4),
                                       padding: EdgeInsets.zero,
                                       tapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap),
@@ -2516,7 +2510,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       cancel = false;
                                     });
                                   },
-                                  child: Text('cancel?',
+                                  child: const Text('cancel?',
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: primaryColorOfApp,
@@ -2527,7 +2521,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       /* minimumSize: Size(100, 5), */
                                       elevation: 0,
                                       visualDensity:
-                                          VisualDensity(vertical: -4),
+                                          const VisualDensity(vertical: -4),
                                       padding: EdgeInsets.zero,
                                       tapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap),
@@ -2537,7 +2531,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       cancel = true;
                                     });
                                   },
-                                  child: Text('Change?',
+                                  child: const Text('Change?',
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: primaryColorOfApp,
@@ -2546,7 +2540,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       /* color: Colors.red, */
                       height: 48,
                       child: Stack(
@@ -2577,7 +2571,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           width: 210,
                                           child: TextFormField(
                                               enabled: fullname,
-                                              decoration: InputDecoration(
+                                              decoration: const InputDecoration(
                                                 labelText: '',
                                                 border: InputBorder.none,
                                               )),
@@ -2588,30 +2582,30 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           child: Container(
                                             child: full1
                                                 ? IconButton(
-                                                    padding: EdgeInsets.all(0),
+                                                    padding: const EdgeInsets.all(0),
                                                     constraints:
-                                                        BoxConstraints(),
+                                                        const BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         fullname = false;
                                                         full1 = false;
                                                       });
                                                     },
-                                                    icon: Iconify(
+                                                    icon: const Iconify(
                                                       Bx.edit,
                                                       color: Color(0xff737373),
                                                     ))
                                                 : IconButton(
-                                                    padding: EdgeInsets.all(0),
+                                                    padding: const EdgeInsets.all(0),
                                                     constraints:
-                                                        BoxConstraints(),
+                                                        const BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         fullname = true;
                                                         full1 = true;
                                                       });
                                                     },
-                                                    icon: Iconify(
+                                                    icon: const Iconify(
                                                       Bx.edit,
                                                       color: Color(0xff737373),
                                                     )),
@@ -2641,7 +2635,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       /* color: Colors.red, */
                       height: 48,
                       child: Stack(
@@ -2672,7 +2666,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           width: 210,
                                           child: TextFormField(
                                               enabled: bio,
-                                              decoration: InputDecoration(
+                                              decoration: const InputDecoration(
                                                 labelText: '',
                                                 border: InputBorder.none,
                                               )),
@@ -2683,30 +2677,30 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           child: Container(
                                             child: bio1
                                                 ? IconButton(
-                                                    padding: EdgeInsets.all(0),
+                                                    padding: const EdgeInsets.all(0),
                                                     constraints:
-                                                        BoxConstraints(),
+                                                        const BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         bio = false;
                                                         bio1 = false;
                                                       });
                                                     },
-                                                    icon: Iconify(
+                                                    icon: const Iconify(
                                                       Bx.edit,
                                                       color: Color(0xff737373),
                                                     ))
                                                 : IconButton(
-                                                    padding: EdgeInsets.all(0),
+                                                    padding: const EdgeInsets.all(0),
                                                     constraints:
-                                                        BoxConstraints(),
+                                                        const BoxConstraints(),
                                                     onPressed: () {
                                                       setState(() {
                                                         bio = true;
                                                         bio1 = true;
                                                       });
                                                     },
-                                                    icon: Iconify(
+                                                    icon: const Iconify(
                                                       Bx.edit,
                                                       color: Color(0xff737373),
                                                     )),
@@ -2736,7 +2730,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     GetBuilder<GetImage>(builder: (controller) {
@@ -2768,7 +2762,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 ),
                                 height: 70,
                                 width: double.infinity,
-                                child: Icon(
+                                child: const Icon(
                                   Icons.photo,
                                   size: 50,
                                   color: Color(0xffc4c4c4),
@@ -2831,15 +2825,15 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                     children: [
                                                       IconButton(
                                                           padding:
-                                                              EdgeInsets.all(0),
+                                                              const EdgeInsets.all(0),
                                                           constraints:
-                                                              BoxConstraints(),
+                                                              const BoxConstraints(),
                                                           onPressed: () {
                                                             Navigator.of(
                                                                     context)
                                                                 .pop();
                                                           },
-                                                          icon: Icon(
+                                                          icon: const Icon(
                                                             Icons.arrow_back,
                                                             color:
                                                                 primaryColorOfApp,
@@ -2847,7 +2841,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                       SizedBox(
                                                         width: width * 0.04,
                                                       ),
-                                                      Text(
+                                                      const Text(
                                                         'Cover Photo',
                                                         style: TextStyle(
                                                             color: Color(
@@ -2859,7 +2853,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                     ],
                                                   ),
                                                 ),
-                                                Divider(),
+                                                const Divider(),
                                                 GetBuilder<GetImage>(
                                                     builder: (controller) {
                                                   return Container(
@@ -2910,7 +2904,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                             height: 70,
                                                             width:
                                                                 double.infinity,
-                                                            child: Icon(
+                                                            child: const Icon(
                                                               Icons.photo,
                                                               size: 50,
                                                               color: Color(
@@ -2961,7 +2955,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                           Row(
                                                                             mainAxisAlignment:
                                                                                 MainAxisAlignment.center,
-                                                                            children: [
+                                                                            children: const [
                                                                               Text(
                                                                                 'Are You Sure Remove This Photo?',
                                                                                 style: TextStyle(color: Color(0xff333333), fontSize: 15, fontFamily: 'Poppins'),
@@ -2980,7 +2974,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                                 onPressed: () {
                                                                                   Navigator.pop(context);
                                                                                 },
-                                                                                child: Text(
+                                                                                child: const Text(
                                                                                   'Cancel',
                                                                                   style: TextStyle(color: customTextColor, fontSize: 13, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
                                                                                 ),
@@ -2991,7 +2985,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                                   Navigator.pop(context);
                                                                                 },
                                                                                 child: Row(
-                                                                                  children: [
+                                                                                  children: const [
                                                                                     Icon(
                                                                                       Icons.delete,
                                                                                       color: Color(0xffED1B24),
@@ -3029,8 +3023,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                                   border: Border.all(color: Colors.white, width: 2),
                                                                                   shape: BoxShape.circle,
                                                                                 ),
-                                                                                child: Padding(
-                                                                                  padding: const EdgeInsets.all(4.0),
+                                                                                child: const Padding(
+                                                                                  padding: EdgeInsets.all(4.0),
                                                                                   child: Icon(
                                                                                     Icons.close,
                                                                                     color: Colors.white,
@@ -3050,7 +3044,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                       .only(
                                                                   right: 5.0),
                                                           child: Row(
-                                                            children: [
+                                                            children: const [
                                                               Icon(
                                                                 Icons.delete,
                                                                 color: Color(
@@ -3075,16 +3069,16 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                         ))
                                                   ],
                                                 ),
-                                                Divider(),
+                                                const Divider(),
                                                 Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.start,
-                                                  children: [
+                                                  children: const [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsets.only(
+                                                          EdgeInsets.only(
                                                               left: 50.0),
-                                                      child: const Text(
+                                                      child: Text(
                                                         'Change Your Cover Photo',
                                                         style: TextStyle(
                                                             color: Color(
@@ -3110,7 +3104,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                           padding:
                                                               EdgeInsets.zero,
                                                           constraints:
-                                                              BoxConstraints(
+                                                              const BoxConstraints(
                                                                   minHeight: 45,
                                                                   minWidth: 45),
                                                           onPressed: () {
@@ -3126,22 +3120,22 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                           },
                                                           elevation: 0,
                                                           fillColor:
-                                                              Color(0xffDADADA),
-                                                          child: Iconify(
+                                                              const Color(0xffDADADA),
+                                                          /*  padding: EdgeInsets.all(15.0), */
+                                                          shape: const CircleBorder(
+                                                              /* side: BorderSide(
+                                                            width: 1,
+                                                            color: Color(0xff0087FF)) */
+                                                              ),
+                                                          child: const Iconify(
                                                             AntDesign
                                                                 .camera_filled,
                                                             color: Color(
                                                                 0xff0087FF),
                                                             size: 25,
                                                           ),
-                                                          /*  padding: EdgeInsets.all(15.0), */
-                                                          shape: CircleBorder(
-                                                              /* side: BorderSide(
-                                                            width: 1,
-                                                            color: Color(0xff0087FF)) */
-                                                              ),
                                                         ),
-                                                        Text(
+                                                        const Text(
                                                           'camera',
                                                           style: TextStyle(
                                                               fontFamily:
@@ -3157,7 +3151,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                           padding:
                                                               EdgeInsets.zero,
                                                           constraints:
-                                                              BoxConstraints(
+                                                              const BoxConstraints(
                                                                   minHeight: 45,
                                                                   minWidth: 45),
                                                           onPressed: () {
@@ -3173,22 +3167,22 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                           },
                                                           elevation: 0,
                                                           fillColor:
-                                                              Color(0xffDADADA),
-                                                          child: Iconify(
+                                                              const Color(0xffDADADA),
+                                                          /*  padding: EdgeInsets.all(15.0), */
+                                                          shape: const CircleBorder(
+                                                              /* side: BorderSide(
+                                                            width: 1,
+                                                            color: Color(0xff0087FF)) */
+                                                              ),
+                                                          child: const Iconify(
                                                             Heroicons
                                                                 .photo_20_solid,
                                                             color: Color(
                                                                 0xff0087FF),
                                                             size: 25,
                                                           ),
-                                                          /*  padding: EdgeInsets.all(15.0), */
-                                                          shape: CircleBorder(
-                                                              /* side: BorderSide(
-                                                            width: 1,
-                                                            color: Color(0xff0087FF)) */
-                                                              ),
                                                         ),
-                                                        Text(
+                                                        const Text(
                                                           'gallery',
                                                           style: TextStyle(
                                                               fontFamily:
@@ -3223,9 +3217,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                           width: 2),
                                                       shape: BoxShape.circle,
                                                     ),
-                                                    child: Padding(
+                                                    child: const Padding(
                                                       padding:
-                                                          const EdgeInsets.all(
+                                                          EdgeInsets.all(
                                                               4.0),
                                                       child: Icon(
                                                         Icons.close,
@@ -3272,8 +3266,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           ),
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                hint: const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Text(
                                     'select city',
                                     style: TextStyle(
@@ -3304,8 +3298,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           ),
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton(
-                                hint: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                hint: const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Text(
                                     'select state',
                                     style: TextStyle(
@@ -3344,7 +3338,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               onPressed: () {
                                 widget.buildaddresspage(context);
                               },
-                              child: Text(
+                              child: const Text(
                                 'Add/Change Address',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
@@ -3362,7 +3356,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ChangeInterest()),
+                                builder: (context) => const ChangeInterest()),
                           );
                           /*   Navigator.push(
                           context,
@@ -3378,7 +3372,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0))),
-                        child: Text(
+                        child: const Text(
                           "Change Interest",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
@@ -3448,20 +3442,20 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text('Go to my',
                             style:
                                 TextStyle(fontFamily: 'Poppins', fontSize: 10)),
                       ],
                     ),
-                    Container(
+                    SizedBox(
                       height: 16,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           TextButton(
                             style: TextButton.styleFrom(
-                                minimumSize: Size(100, 0),
+                                minimumSize: const Size(100, 0),
                                 elevation: 0,
                                 /*       visualDensity: VisualDensity(vertical: -4), */
                                 padding: EdgeInsets.zero,
@@ -3471,7 +3465,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               /*               Navigator.of(context).pop(); */
                               ProfileSelf().buildpersonalsetting(context);
                             },
-                            child: Text('Personal Information Settings',
+                            child: const Text('Personal Information Settings',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     color: primaryColorOfApp,
@@ -3489,7 +3483,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         OutlinedButton(
                           onPressed: () {},
                           style: OutlinedButton.styleFrom(
-                              minimumSize: Size(140, 35),
+                              minimumSize: const Size(140, 35),
                               /*    minimumSize: Size(32, 30), */
                               elevation: 0,
                               /* padding: EdgeInsets.zero, */
@@ -3502,9 +3496,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: const Text(
+                          child: const Padding(
+                            padding: EdgeInsets.all(1.0),
+                            child: Text(
                               "Cancel",
                               style: TextStyle(
                                   color: Color(0xff333333),
@@ -3519,7 +3513,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              minimumSize: Size(135, 35),
+                              minimumSize: const Size(135, 35),
                               /*  minimumSize: Size(32, 30), */
                               elevation: 0,
                               /* padding: EdgeInsets.zero, */
@@ -3533,9 +3527,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: const Text(
+                          child: const Padding(
+                            padding: EdgeInsets.all(1.0),
+                            child: Text(
                               "Save Changes",
                               style: TextStyle(
                                   fontSize: 12, fontFamily: 'Poppins'),
@@ -3565,8 +3559,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -3582,7 +3576,6 @@ class _ProfileSelfState extends State<ProfileSelf> {
   }
 
   buildbutton(context) {
-    bool btnchng = true;
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -3625,19 +3618,19 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Profile Photo',
                             style: TextStyle(
                                 color: Color(0xff333333),
@@ -3647,7 +3640,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         ],
                       ),
                     ),
-                    Divider(),
+                    const Divider(),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -3668,7 +3661,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                         )),
                                   )
                                 // Image. file
-                                : CircleAvatar(
+                                : const CircleAvatar(
                                     radius: 35,
                                     backgroundColor: Color(0xffc4c4c4),
                                     child: CircleAvatar(
@@ -3720,7 +3713,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
                                                               .center,
-                                                      children: [
+                                                      children: const [
                                                         Text(
                                                           'Are You Sure Remove This Photo?',
                                                           style: TextStyle(
@@ -3745,7 +3738,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                             Navigator.pop(
                                                                 context);
                                                           },
-                                                          child: Text(
+                                                          child: const Text(
                                                             'Cancel',
                                                             style: TextStyle(
                                                                 color:
@@ -3766,7 +3759,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                 context);
                                                           },
                                                           child: Row(
-                                                            children: [
+                                                            children: const [
                                                               Icon(
                                                                 Icons.delete,
                                                                 color: Color(
@@ -3818,9 +3811,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
-                                                          child: Padding(
+                                                          child: const Padding(
                                                             padding:
-                                                                const EdgeInsets
+                                                                EdgeInsets
                                                                     .all(4.0),
                                                             child: Icon(
                                                               Icons.close,
@@ -3839,7 +3832,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                   child: Padding(
                                     padding: const EdgeInsets.only(right: 5.0),
                                     child: Row(
-                                      children: [
+                                      children: const [
                                         Icon(
                                           Icons.delete,
                                           color: Color(0xffED1B24),
@@ -3861,13 +3854,13 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         )
                       ],
                     ),
-                    Divider(),
+                    const Divider(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Padding(
-                          padding: const EdgeInsets.only(left: 60.0),
-                          child: const Text(
+                          padding: EdgeInsets.only(left: 60.0),
+                          child: Text(
                             'Change Your Profile Photo',
                             style: TextStyle(
                                 color: Color(0xff333333),
@@ -3891,28 +3884,27 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             RawMaterialButton(
                               padding: EdgeInsets.zero,
                               constraints:
-                                  BoxConstraints(minHeight: 45, minWidth: 45),
+                                  const BoxConstraints(minHeight: 45, minWidth: 45),
                               onPressed: () {
                                 getkar.pickforprofile(ImageSource.camera);
                                 Navigator.of(context).pop();
                                 setState(() {
-                                  btnchng = false;
                                 });
                               },
                               elevation: 0,
-                              fillColor: Color(0xffDADADA),
-                              child: Iconify(
-                                AntDesign.camera_filled,
-                                color: Color(0xff0087FF),
-                                size: 25,
-                              ),
-                              shape: CircleBorder(
+                              fillColor: const Color(0xffDADADA),
+                              shape: const CircleBorder(
                                   /* side: BorderSide(
                                                                 width: 1,
                                                                 color: Color(0xff0087FF)) */
                                   ),
+                              child: const Iconify(
+                                AntDesign.camera_filled,
+                                color: Color(0xff0087FF),
+                                size: 25,
+                              ),
                             ),
-                            Text(
+                            const Text(
                               'camera',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
@@ -3925,29 +3917,28 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             RawMaterialButton(
                               padding: EdgeInsets.zero,
                               constraints:
-                                  BoxConstraints(minHeight: 45, minWidth: 45),
+                                  const BoxConstraints(minHeight: 45, minWidth: 45),
                               onPressed: () {
                                 getkar.pickforprofile(ImageSource.gallery);
                                 Navigator.of(context).pop();
                                 setState(() {
-                                  btnchng = false;
                                 });
                               },
                               elevation: 0,
-                              fillColor: Color(0xffDADADA),
-                              child: Iconify(
-                                Heroicons.photo_20_solid,
-                                color: Color(0xff0087FF),
-                                size: 25,
-                              ),
+                              fillColor: const Color(0xffDADADA),
                               /*  padding: EdgeInsets.all(15.0), */
-                              shape: CircleBorder(
+                              shape: const CircleBorder(
                                   /* side: BorderSide(
                                                                 width: 1,
                                                                 color: Color(0xff0087FF)) */
                                   ),
+                              child: const Iconify(
+                                Heroicons.photo_20_solid,
+                                color: Color(0xff0087FF),
+                                size: 25,
+                              ),
                             ),
-                            Text(
+                            const Text(
                               'gallery',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
@@ -3977,8 +3968,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -4117,6 +4108,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
     height = size.height;
     width = size.width;
     return SafeArea(
+
+      top: false,
       child: DefaultTabController(
         length: 4,
         child: Scaffold(
@@ -4131,7 +4124,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                   child: GetBuilder<GetImage>(builder: (controller) {
                     return Container(
                       child: getkar.image1 != null
-                          ? Container(
+                          ? SizedBox(
                               width: double.infinity,
                               height: coverheight,
                               child: Image.file(
@@ -4139,10 +4132,10 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 fit: BoxFit.cover,
                               ),
                             )
-                          : Container(
+                          : SizedBox(
                               width: double.infinity,
                               height: coverheight,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.photo,
                                 color: Color(0xffc4c4c4),
                                 size: 40,
@@ -4152,15 +4145,15 @@ class _ProfileSelfState extends State<ProfileSelf> {
                 ),
                 Positioned(
                     top: 4,
-                    child: Container(
+                    child: SizedBox(
                       width: 310,
                       /*     color: Colors.red, */
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Container(
-                              margin: EdgeInsets.all(0),
-                              padding: EdgeInsets.all(5),
+                              margin: const EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
 
@@ -4168,10 +4161,10 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                   border: Border.all(
                                       width: 1, color: primaryColorOfApp)),
                               child: IconButton(
-                                  padding: EdgeInsets.all(0),
-                                  constraints: BoxConstraints(),
+                                  padding: const EdgeInsets.all(0),
+                                  constraints: const BoxConstraints(),
                                   onPressed: () {},
-                                  icon: Iconify(
+                                  icon: const Iconify(
                                     Ooui.bell,
                                     size: 20,
                                     color: iconColor,
@@ -4180,8 +4173,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             width: width * 0.01,
                           ),
                           Container(
-                              margin: EdgeInsets.all(0),
-                              padding: EdgeInsets.all(5),
+                              margin: const EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
 
@@ -4189,8 +4182,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                   border: Border.all(
                                       width: 1, color: primaryColorOfApp)),
                               child: IconButton(
-                                  padding: EdgeInsets.all(0),
-                                  constraints: BoxConstraints(),
+                                  padding: const EdgeInsets.all(0),
+                                  constraints: const BoxConstraints(),
                                   onPressed: () {},
                                   icon: SvgPicture.asset(
                                     'assets/c2c.svg',
@@ -4230,7 +4223,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           )),
                                     )
                                   // Image. file
-                                  : CircleAvatar(
+                                  : const CircleAvatar(
                                       radius: 50,
                                       backgroundColor: Color(0xffc4c4c4),
                                       child: CircleAvatar(
@@ -4253,7 +4246,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
 
                                 /* buildbutton(context); */
                               },
-                              icon: FaIcon(
+                              icon: const FaIcon(
                                 FontAwesomeIcons.penToSquare,
                                 size: 15,
                                 color: Colors.white,
@@ -4266,14 +4259,14 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       OutlinedButton(
                         onPressed: () {},
                         style: OutlinedButton.styleFrom(
-                            minimumSize: Size(32, 30),
+                            minimumSize: const Size(32, 30),
                             elevation: 5,
                             /*   padding: EdgeInsets.zero, */
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             side: const BorderSide(
                               color: Color(0xff0087FF),
                             ),
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 9, vertical: 0),
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -4307,14 +4300,14 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       OutlinedButton(
                         onPressed: () {},
                         style: OutlinedButton.styleFrom(
-                            minimumSize: Size(32, 30),
+                            minimumSize: const Size(32, 30),
                             elevation: 5,
                             /*   padding: EdgeInsets.zero, */
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             side: const BorderSide(
                               color: Color(0xff0087FF),
                             ),
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 9, vertical: 0),
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -4356,8 +4349,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 border: Border.all(
                                     width: 1, color: primaryColorOfApp),
                                 borderRadius: BorderRadius.circular(5)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(5.0),
+                            child: const Padding(
+                              padding: EdgeInsets.all(5.0),
                               child: Iconify(
                                 Tabler.grid_dots,
                               ),
@@ -4378,7 +4371,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             /*    color: Colors.red, */
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
+                              children: const [
                                 Text(
                                   'Nanncy Jain',
                                   style: TextStyle(
@@ -4395,7 +4388,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 width: 100,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
+                                  children: const [
                                     Text(
                                       '@Nanncyjain23',
                                       style: TextStyle(
@@ -4414,12 +4407,12 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               SizedBox(
                                 width: width * 0.05,
                               ),
-                              Iconify(
+                              const Iconify(
                                 MaterialSymbols.star_rounded,
                                 color: Color(0xff08A434),
                                 size: 20,
                               ),
-                              Text(
+                              const Text(
                                 '4.8',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -4434,172 +4427,71 @@ class _ProfileSelfState extends State<ProfileSelf> {
                 )
               ],
             ),
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Column(
-                  children: [
-                    Text(
-                      'Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..',
-                      style: TextStyle(
-                          color: Color(0xff03194B),
-                          fontSize: 10,
-                          fontFamily: 'Poppins'),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'https://youtu.be/AgS_6UbQ8JM',
-                          style: TextStyle(
-                              color: primaryColorOfApp,
-                              fontSize: 10,
-                              fontFamily: 'Poppins'),
-                        ),
-                        SizedBox(
-                          width: width * 0.01,
-                        ),
-                        Text(
-                          'https://google.com ',
-                          style: TextStyle(
-                              color: primaryColorOfApp,
-                              fontSize: 10,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Row(
-                      /*  mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
-                      children: [
-                        OutlinedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Interaction1()),
-                            );
-                          },
-                          style: OutlinedButton.styleFrom(
-                              minimumSize: Size(90, 35),
-                              /*    minimumSize: Size(32, 30), */
-                              elevation: 5,
-                              /* padding: EdgeInsets.zero, */
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              side: const BorderSide(
-                                color: Color(0xff0087FF),
-                              ),
-                              /*  padding:
-                          EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: const Text(
-                              "Interaction",
-                              style: TextStyle(
-                                  color: Color(0xff333333),
-                                  fontSize: 10,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: width * 0.03,
-                        ),
-                        OutlinedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ChangeInterest()),
-                            );
-                          },
-                          style: OutlinedButton.styleFrom(
-                              minimumSize: Size(90, 35),
-                              /*  minimumSize: Size(32, 30), */
-                              elevation: 5,
-                              /* padding: EdgeInsets.zero, */
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              side: const BorderSide(
-                                color: Color(0xff0087FF),
-                              ),
-                              /*   padding:
-                          EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: const Text(
-                              "Chat-Box",
-                              style: TextStyle(
-                                  color: Color(0xff333333),
-                                  fontSize: 10,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: width * 0.03,
-                        ),
-                        OutlinedButton(
-                          onPressed: () {
-                            buildeditmainpage(context);
-                          },
-                          style: OutlinedButton.styleFrom(
-                              minimumSize: Size(90, 35),
-                              elevation: 5,
-                              /* padding: EdgeInsets.zero, */
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              side: const BorderSide(
-                                color: Color(0xff0087FF),
-                              ),
-                              /* padding:
-                          EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: const Text(
-                              "Edit Profile",
-                              style: TextStyle(
-                                  color: Color(0xff333333),
-                                  fontSize: 10,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: () {},
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                children: [
+                  const Text(
+                    'Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..',
+                    style: TextStyle(
+                        color: Color(0xff03194B),
+                        fontSize: 10,
+                        fontFamily: 'Poppins'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'https://youtu.be/AgS_6UbQ8JM',
+                        style: TextStyle(
+                            color: primaryColorOfApp,
+                            fontSize: 10,
+                            fontFamily: 'Poppins'),
+                      ),
+                      SizedBox(
+                        width: width * 0.01,
+                      ),
+                      const Text(
+                        'https://google.com ',
+                        style: TextStyle(
+                            color: primaryColorOfApp,
+                            fontSize: 10,
+                            fontFamily: 'Poppins'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  Row(
+                    /*  mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
+                    children: [
+                      OutlinedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Interaction1()),
+                          );
+                        },
                         style: OutlinedButton.styleFrom(
-                            /*   minimumSize: Size(32, 30), */
+                            minimumSize: const Size(90, 35),
+                            /*    minimumSize: Size(32, 30), */
                             elevation: 5,
                             /* padding: EdgeInsets.zero, */
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             side: const BorderSide(
                               color: Color(0xff0087FF),
                             ),
-                            /*       padding:
-                            EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                            /*  padding:
+                        EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
                             backgroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0))),
-                        child: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: const Text(
-                            "Go to Dashboard",
+                        child: const Padding(
+                          padding: EdgeInsets.all(1.0),
+                          child: Text(
+                            "Interaction",
                             style: TextStyle(
                                 color: Color(0xff333333),
                                 fontSize: 10,
@@ -4607,9 +4499,108 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        width: width * 0.03,
+                      ),
+                      OutlinedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ChangeInterest()),
+                          );
+                        },
+                        style: OutlinedButton.styleFrom(
+                            minimumSize: const Size(90, 35),
+                            /*  minimumSize: Size(32, 30), */
+                            elevation: 5,
+                            /* padding: EdgeInsets.zero, */
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            side: const BorderSide(
+                              color: Color(0xff0087FF),
+                            ),
+                            /*   padding:
+                        EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0))),
+                        child: const Padding(
+                          padding: EdgeInsets.all(1.0),
+                          child: Text(
+                            "Chat-Box",
+                            style: TextStyle(
+                                color: Color(0xff333333),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: width * 0.03,
+                      ),
+                      OutlinedButton(
+                        onPressed: () {
+                          buildeditmainpage(context);
+                        },
+                        style: OutlinedButton.styleFrom(
+                            minimumSize: const Size(90, 35),
+                            elevation: 5,
+                            /* padding: EdgeInsets.zero, */
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            side: const BorderSide(
+                              color: Color(0xff0087FF),
+                            ),
+                            /* padding:
+                        EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0))),
+                        child: const Padding(
+                          padding: EdgeInsets.all(1.0),
+                          child: Text(
+                            "Edit Profile",
+                            style: TextStyle(
+                                color: Color(0xff333333),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      style: OutlinedButton.styleFrom(
+                          /*   minimumSize: Size(32, 30), */
+                          elevation: 5,
+                          /* padding: EdgeInsets.zero, */
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          side: const BorderSide(
+                            color: Color(0xff0087FF),
+                          ),
+                          /*       padding:
+                          EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0))),
+                      child: const Padding(
+                        padding: EdgeInsets.all(1.0),
+                        child: Text(
+                          "Go to Dashboard",
+                          style: TextStyle(
+                              color: Color(0xff333333),
+                              fontSize: 10,
+                              fontFamily: 'Poppins'),
+                        ),
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             SizedBox(
@@ -4626,22 +4617,22 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           blurRadius: 15.0,
                           offset: Offset(0.0, 0.75)),
                     ], */
-                    color: Color(0xffE2E2E2),
+                    color: const Color(0xffE2E2E2),
                     shape: BoxShape.rectangle,
-                    border: Border.all(width: 0.5, color: Color(0xffE2E2E2)),
+                    border: Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(3.0),
                   child: TabBar(
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorPadding: EdgeInsets.zero,
-                    labelColor: Color(0xff0087FF),
-                    unselectedLabelColor: Color(0xff333333),
+                    labelColor: const Color(0xff0087FF),
+                    unselectedLabelColor: const Color(0xff333333),
                     tabs: [
                       Tab(
                         height: 20,
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.photo,
                               size: 10,
@@ -4657,7 +4648,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       Tab(
                         height: 20,
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.play_arrow,
                               size: 10,
@@ -4673,7 +4664,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       Tab(
                         height: 20,
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.restore,
                               size: 10,
@@ -4689,7 +4680,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       Tab(
                         height: 20,
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.account_circle,
                               size: 10,
@@ -4715,10 +4706,10 @@ class _ProfileSelfState extends State<ProfileSelf> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 5),
                 child: ListView.separated(
-                    physics: ClampingScrollPhysics(),
+                    physics: const ClampingScrollPhysics(),
                     shrinkWrap: true,
                     separatorBuilder: (context, index) {
-                      return SizedBox(
+                      return const SizedBox(
                         width: 10,
                       );
                     },
@@ -4727,25 +4718,25 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     itemBuilder: (context, index) {
                       if (index == 0) {
                         return Padding(
-                          padding: EdgeInsets.only(top: 1.0),
+                          padding: const EdgeInsets.only(top: 1.0),
                           child: Column(
                             children: [
                               Container(
-                                  padding: EdgeInsets.all(5),
+                                  padding: const EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     border: Border.all(
                                         width: 1, color: customTextColor),
                                     shape: BoxShape.circle,
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.add,
                                     color: Color(0xffc4c4c4),
                                     size: 40,
                                   )),
-                              SizedBox(
+                              const SizedBox(
                                 height: 2,
                               ),
-                              Text(
+                              const Text(
                                 'Add',
                                 style: TextStyle(
                                     color: customTextColor,
@@ -4759,7 +4750,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         return Column(
                           children: [
                             Container(
-                              padding: EdgeInsets.all(5),
+                              padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
                                 border: Border.all(
                                     width: 2, color: primaryColorOfApp),
@@ -4772,12 +4763,12 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 2,
                             ),
                             Text(
                               names[index],
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: customTextColor,
                                   fontFamily: 'Poppins',
                                   fontSize: 10),
@@ -4850,7 +4841,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
                                 constraints:
-                                    BoxConstraints(minHeight: 45, minWidth: 45),
+                                    const BoxConstraints(minHeight: 45, minWidth: 45),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
@@ -4860,17 +4851,17 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,
-                                child: FaIcon(
-                                  FontAwesomeIcons.circlePlay,
-                                  color: Color(0xff333333),
-                                  size: 17,
-                                ),
                                 /*  padding: EdgeInsets.all(15.0), */
-                                shape: CircleBorder(
+                                shape: const CircleBorder(
                                     /* side: BorderSide(
                                                       width: 1,
                                                       color: Color(0xff0087FF)) */
                                     ),
+                                child: const FaIcon(
+                                  FontAwesomeIcons.circlePlay,
+                                  color: Color(0xff333333),
+                                  size: 17,
+                                ),
                               ),
                             ],
                           );
@@ -4907,7 +4898,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
                                 constraints:
-                                    BoxConstraints(minHeight: 45, minWidth: 45),
+                                    const BoxConstraints(minHeight: 45, minWidth: 45),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
@@ -4917,17 +4908,17 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,
-                                child: FaIcon(
-                                  FontAwesomeIcons.circlePlay,
-                                  color: Color(0xff333333),
-                                  size: 17,
-                                ),
                                 /*  padding: EdgeInsets.all(15.0), */
-                                shape: CircleBorder(
+                                shape: const CircleBorder(
                                     /* side: BorderSide(
                                                       width: 1,
                                                       color: Color(0xff0087FF)) */
                                     ),
+                                child: const FaIcon(
+                                  FontAwesomeIcons.circlePlay,
+                                  color: Color(0xff333333),
+                                  size: 17,
+                                ),
                               ),
                             ],
                           );
@@ -4964,7 +4955,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
                                 constraints:
-                                    BoxConstraints(minHeight: 45, minWidth: 45),
+                                    const BoxConstraints(minHeight: 45, minWidth: 45),
                                 onPressed: () {
                                   /*   pickImage(ImageSource.camera);
                                   Navigator.of(context).pop();
@@ -4974,17 +4965,17 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,
-                                child: FaIcon(
-                                  FontAwesomeIcons.circlePlay,
-                                  color: Color(0xff333333),
-                                  size: 17,
-                                ),
                                 /*  padding: EdgeInsets.all(15.0), */
-                                shape: CircleBorder(
+                                shape: const CircleBorder(
                                     /* side: BorderSide(
                                                       width: 1,
                                                       color: Color(0xff0087FF)) */
                                     ),
+                                child: const FaIcon(
+                                  FontAwesomeIcons.circlePlay,
+                                  color: Color(0xff333333),
+                                  size: 17,
+                                ),
                               ),
                             ],
                           );
@@ -5001,9 +4992,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
 
   sizedbox(context) {
     Size size;
-    double height, width;
+    double width;
     size = MediaQuery.of(context).size;
-    height = size.height;
     width = size.width;
     return SizedBox(
       width: width * 0.01,

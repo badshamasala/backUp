@@ -1,8 +1,10 @@
+// ignore_for_file: unused_local_variable, unnecessary_null_comparison, avoid_print
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/CHAT_APP/database_service.dart';
 import 'package:flutter_application_1/CHAT_APP/loginpage.dart';
-import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
+import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class AuthService {
@@ -60,7 +62,7 @@ class AuthService {
       await firebaseAuth.signOut();
       Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => LoginPage12()),
+            MaterialPageRoute(builder: (context) => const LoginPage12()),
           );
     } catch (e) {
       return null;

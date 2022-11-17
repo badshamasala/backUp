@@ -21,7 +21,7 @@ class _Verification1State extends State<Verification1> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -29,18 +29,18 @@ class _Verification1State extends State<Verification1> {
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: IconButton(
               padding: EdgeInsets.zero,
-              constraints: BoxConstraints(),
+              constraints: const BoxConstraints(),
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: primaryColorOfApp,
               )),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Verification',
           style: TextStyle(
               fontSize: 15, fontFamily: 'Poppins', color: customTextColor),
@@ -50,7 +50,7 @@ class _Verification1State extends State<Verification1> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            Text(
+            const Text(
               '#Content-Request for verification your private profile',
               style: TextStyle(
                   fontSize: 10, fontFamily: 'Poppins', color: customTextColor),
@@ -58,7 +58,7 @@ class _Verification1State extends State<Verification1> {
             SizedBox(
               height: height * 0.02,
             ),
-            Text(
+            const Text(
               'For Your Private Profile Caiteria # Content',
               style: TextStyle(
                   fontSize: 10, fontFamily: 'Poppins', color: customTextColor),
@@ -92,7 +92,7 @@ class _Verification1State extends State<Verification1> {
                                 SizedBox(
                                   width: 210,
                                   child: TextFormField(
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                     labelText: '',
                                     border: InputBorder.none,
                                   )),
@@ -153,7 +153,7 @@ class _Verification1State extends State<Verification1> {
                                 SizedBox(
                                   width: 210,
                                   child: TextFormField(
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                     labelText: '',
                                     border: InputBorder.none,
                                   )),
@@ -188,14 +188,14 @@ class _Verification1State extends State<Verification1> {
             Container(
               height: 38,
               decoration: BoxDecoration(
-                borderRadius: UploadImage().radius(),
+                borderRadius: const UploadImage().radius(),
                 border: Border.all(color: Colors.black, width: 0.5),
               ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8),
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton(
-                      hint: Padding(
+                      hint: const Padding(
                         padding: EdgeInsets.only(left: 8.0),
                         child: Text(
                           'select your business categories*',
@@ -238,7 +238,7 @@ class _Verification1State extends State<Verification1> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0))),
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Attach Document',
                     style: TextStyle(
                         fontFamily: 'Poppins',
@@ -249,7 +249,7 @@ class _Verification1State extends State<Verification1> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   'e.g. Use Current Loaction',
                   style: TextStyle(
                       fontFamily: 'Poppins',
@@ -296,7 +296,7 @@ class _Verification1State extends State<Verification1> {
                                 SizedBox(
                                   width: 210,
                                   child: TextFormField(
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                     labelText: '',
                                     border: InputBorder.none,
                                   )),
@@ -354,7 +354,7 @@ class _Verification1State extends State<Verification1> {
                                 SizedBox(
                                   width: 210,
                                   child: TextFormField(
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                     labelText: '',
                                     border: InputBorder.none,
                                   )),
@@ -398,8 +398,8 @@ class _Verification1State extends State<Verification1> {
                   ),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton(
-                        hint: Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
+                        hint: const Padding(
+                          padding: EdgeInsets.only(left: 8.0),
                           child: Text(
                             'select city',
                             style: TextStyle(
@@ -430,8 +430,8 @@ class _Verification1State extends State<Verification1> {
                   ),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton(
-                        hint: Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
+                        hint: const Padding(
+                          padding: EdgeInsets.only(left: 8.0),
                           child: Text(
                             'select state',
                             style: TextStyle(
@@ -470,8 +470,8 @@ class _Verification1State extends State<Verification1> {
                   ),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton(
-                        hint: Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
+                        hint: const Padding(
+                          padding: EdgeInsets.only(left: 8.0),
                           child: Text(
                             'select city',
                             style: TextStyle(
@@ -537,7 +537,7 @@ class _Verification1State extends State<Verification1> {
                                 SizedBox(
                                   width: 210,
                                   child: TextFormField(
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                     labelText: '',
                                     border: InputBorder.none,
                                   )),

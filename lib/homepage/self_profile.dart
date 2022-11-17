@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
@@ -62,16 +64,16 @@ class _SelfProfileState extends State<SelfProfile> {
         backgroundColor: Colors.white,
         leading: IconButton(
             padding: EdgeInsets.zero,
-            constraints: BoxConstraints(),
+            constraints: const BoxConstraints(),
             onPressed: () {
               Navigator.of(context).pop();
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back,
               size: 25,
               color: primaryColorOfApp,
             )),
-        title: Text(
+        title: const Text(
           'Profile',
           style: TextStyle(
               fontFamily: 'Poppins',
@@ -113,9 +115,9 @@ class _SelfProfileState extends State<SelfProfile> {
                                     enabled: username,
                                     decoration: InputDecoration(
                                       labelText: username ? '' : '',
-                                      suffixIcon: Padding(
+                                      suffixIcon: const Padding(
                                         padding:
-                                            const EdgeInsets.only(left: 18.0),
+                                            EdgeInsets.only(left: 18.0),
                                         child: Icon(
                                           Icons.check_circle_outline_outlined,
                                           color: Color(0xff038026),
@@ -157,7 +159,7 @@ class _SelfProfileState extends State<SelfProfile> {
                               style: TextButton.styleFrom(
                                   /* minimumSize: Size(100, 5), */
                                   elevation: 0,
-                                  visualDensity: VisualDensity(vertical: -4),
+                                  visualDensity: const VisualDensity(vertical: -4),
                                   padding: EdgeInsets.zero,
                                   tapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap),
@@ -167,8 +169,8 @@ class _SelfProfileState extends State<SelfProfile> {
                                   cancel = false;
                                 });
                               },
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 25.0),
+                              child: const Padding(
+                                padding: EdgeInsets.only(left: 25.0),
                                 child: Text('Cancel?',
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
@@ -181,7 +183,7 @@ class _SelfProfileState extends State<SelfProfile> {
                               style: TextButton.styleFrom(
                                   /* minimumSize: Size(100, 5), */
                                   elevation: 0,
-                                  visualDensity: VisualDensity(vertical: -4),
+                                  visualDensity: const VisualDensity(vertical: -4),
                                   padding: EdgeInsets.zero,
                                   tapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap),
@@ -191,8 +193,8 @@ class _SelfProfileState extends State<SelfProfile> {
                                   cancel = true;
                                 });
                               },
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 25.0),
+                              child: const Padding(
+                                padding: EdgeInsets.only(left: 25.0),
                                 child: Text('Change',
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
@@ -283,12 +285,12 @@ class _SelfProfileState extends State<SelfProfile> {
                         style: TextButton.styleFrom(
                             /* minimumSize: Size(100, 5), */
                             elevation: 0,
-                            visualDensity: VisualDensity(vertical: -4),
+                            visualDensity: const VisualDensity(vertical: -4),
                             padding: EdgeInsets.zero,
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap),
                         onPressed: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 25.0),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 25.0),
                           child: Text('Change',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
@@ -330,7 +332,7 @@ class _SelfProfileState extends State<SelfProfile> {
                                       width: 210,
                                       child: TextFormField(
                                           enabled: bio,
-                                          decoration: InputDecoration(
+                                          decoration: const InputDecoration(
                                             labelText: '',
                                             border: InputBorder.none,
                                           )),
@@ -341,28 +343,28 @@ class _SelfProfileState extends State<SelfProfile> {
                                       child: Container(
                                         child: bio1
                                             ? IconButton(
-                                                padding: EdgeInsets.all(0),
-                                                constraints: BoxConstraints(),
+                                                padding: const EdgeInsets.all(0),
+                                                constraints: const BoxConstraints(),
                                                 onPressed: () {
                                                   setState(() {
                                                     bio = false;
                                                     bio1 = false;
                                                   });
                                                 },
-                                                icon: Iconify(
+                                                icon: const Iconify(
                                                   Bx.edit,
                                                   color: Color(0xffc4c4c4),
                                                 ))
                                             : IconButton(
-                                                padding: EdgeInsets.all(0),
-                                                constraints: BoxConstraints(),
+                                                padding: const EdgeInsets.all(0),
+                                                constraints: const BoxConstraints(),
                                                 onPressed: () {
                                                   setState(() {
                                                     bio = true;
                                                     bio1 = true;
                                                   });
                                                 },
-                                                icon: Iconify(
+                                                icon: const Iconify(
                                                   Bx.edit,
                                                   color: Color(0xffc4c4c4),
                                                 )),
@@ -402,12 +404,12 @@ class _SelfProfileState extends State<SelfProfile> {
                         style: TextButton.styleFrom(
                             /* minimumSize: Size(100, 5), */
                             elevation: 0,
-                            visualDensity: VisualDensity(vertical: -4),
+                            visualDensity: const VisualDensity(vertical: -4),
                             padding: EdgeInsets.zero,
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap),
                         onPressed: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 25.0),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 25.0),
                           child: Text('Change',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
@@ -419,7 +421,7 @@ class _SelfProfileState extends State<SelfProfile> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -575,7 +577,7 @@ class _SelfProfileState extends State<SelfProfile> {
                 SizedBox(
                   height: height * 0.01,
                 ),
-                Container(
+                SizedBox(
                   /* color: Colors.red, */
                   height: 48,
                   child: Stack(
@@ -605,7 +607,7 @@ class _SelfProfileState extends State<SelfProfile> {
                                       width: 210,
                                       child: TextFormField(
                                           enabled: bio,
-                                          decoration: InputDecoration(
+                                          decoration: const InputDecoration(
                                             labelText: '',
                                             border: InputBorder.none,
                                           )),
@@ -616,28 +618,28 @@ class _SelfProfileState extends State<SelfProfile> {
                                       child: Container(
                                         child: bio1
                                             ? IconButton(
-                                                padding: EdgeInsets.all(0),
-                                                constraints: BoxConstraints(),
+                                                padding: const EdgeInsets.all(0),
+                                                constraints: const BoxConstraints(),
                                                 onPressed: () {
                                                   setState(() {
                                                     bio = false;
                                                     bio1 = false;
                                                   });
                                                 },
-                                                icon: Iconify(
+                                                icon: const Iconify(
                                                   Bx.edit,
                                                   color: Color(0xffc4c4c4),
                                                 ))
                                             : IconButton(
-                                                padding: EdgeInsets.all(0),
-                                                constraints: BoxConstraints(),
+                                                padding: const EdgeInsets.all(0),
+                                                constraints: const BoxConstraints(),
                                                 onPressed: () {
                                                   setState(() {
                                                     bio = true;
                                                     bio1 = true;
                                                   });
                                                 },
-                                                icon: Iconify(
+                                                icon: const Iconify(
                                                   Bx.edit,
                                                   color: Color(0xffc4c4c4),
                                                 )),
@@ -701,7 +703,7 @@ class _SelfProfileState extends State<SelfProfile> {
                               })
                         ],
                       ),
-                      Divider(
+                      const Divider(
                         color: Colors.black,
                         height: 2,
                       ),
@@ -732,7 +734,7 @@ class _SelfProfileState extends State<SelfProfile> {
                               })
                         ],
                       ),
-                      Divider(
+                      const Divider(
                         color: Colors.black,
                         height: 2,
                       ),
@@ -787,7 +789,7 @@ class _SelfProfileState extends State<SelfProfile> {
                         backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5.0))),
-                    child: Text(
+                    child: const Text(
                       "Add Your Address",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
@@ -804,7 +806,7 @@ class _SelfProfileState extends State<SelfProfile> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ChangeInterest()),
+                            builder: (context) => const ChangeInterest()),
                       );
                       /*   Navigator.push(
                           context,
@@ -819,7 +821,7 @@ class _SelfProfileState extends State<SelfProfile> {
                         backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5.0))),
-                    child: Text(
+                    child: const Text(
                       "Change Interest",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
@@ -838,7 +840,7 @@ class _SelfProfileState extends State<SelfProfile> {
                     OutlinedButton(
                       onPressed: () {},
                       style: OutlinedButton.styleFrom(
-                          minimumSize: Size(140, 35),
+                          minimumSize: const Size(140, 35),
                           /*    minimumSize: Size(32, 30), */
                           elevation: 0,
                           /* padding: EdgeInsets.zero, */
@@ -851,9 +853,9 @@ class _SelfProfileState extends State<SelfProfile> {
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(1.0),
-                        child: const Text(
+                      child: const Padding(
+                        padding: EdgeInsets.all(1.0),
+                        child: Text(
                           "Cancel",
                           style: TextStyle(
                               color: Color(0xff333333),
@@ -868,7 +870,7 @@ class _SelfProfileState extends State<SelfProfile> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          minimumSize: Size(135, 35),
+                          minimumSize: const Size(135, 35),
                           /*  minimumSize: Size(32, 30), */
                           elevation: 0,
                           /* padding: EdgeInsets.zero, */
@@ -882,9 +884,9 @@ class _SelfProfileState extends State<SelfProfile> {
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(1.0),
-                        child: const Text(
+                      child: const Padding(
+                        padding: EdgeInsets.all(1.0),
+                        child: Text(
                           "Save Changes",
                           style: TextStyle(fontSize: 12, fontFamily: 'Poppins'),
                         ),

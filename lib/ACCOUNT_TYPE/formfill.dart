@@ -1,25 +1,22 @@
-import 'dart:math';
+// ignore_for_file: prefer_typing_uninitialized_variables, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/upload_brand.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/upload_public.dart';
 
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
-import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
+import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
-import 'package:flutter_application_1/homepage/profile_self.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class Formfill extends StatefulWidget {
-  dynamic value1;
-  dynamic value2;
-  dynamic value3;
-  dynamic value;
-  Formfill({
+  final value1;
+  final value2;
+  final value3;
+  final value;
+  const Formfill({
     Key? key,
     required this.value1,
     required this.value2,
@@ -54,7 +51,7 @@ class _FormfillState extends State<Formfill> {
       child: Scaffold(
         backgroundColor: const Color(0xffFFFFFF),
         body: isloading
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(),
               )
             : SingleChildScrollView(
@@ -96,7 +93,6 @@ class _FormfillState extends State<Formfill> {
                                 iconchupa = false;
                               });
                             }
-                            print('masala');
                             username = value;
                             final provider = Provider.of<Googleprovider>(
                                 context,
@@ -126,8 +122,6 @@ class _FormfillState extends State<Formfill> {
                                 }
                               },
                             );
-                            print('-------++++++++++--------');
-                            print('Username : ${username}');
                           },
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -158,11 +152,11 @@ class _FormfillState extends State<Formfill> {
                                           status ? Colors.green : Colors.red)),
                               suffixIcon: iconchupa
                                   ? status
-                                      ? Icon(
+                                      ? const Icon(
                                           Icons.check_circle_outline_outlined,
                                           color: Colors.green,
                                         )
-                                      : Icon(
+                                      : const Icon(
                                           Icons.check_circle_outline_outlined,
                                           color: Colors.red,
                                         )
@@ -177,16 +171,16 @@ class _FormfillState extends State<Formfill> {
                                   fontFamily: 'Poppins',
                                   fontSize: 12),
                               focusedBorder: OutlineInputBorder(
-                                  borderRadius: UploadImage().radius(),
-                                  borderSide: BorderSide(
+                                  borderRadius: const UploadImage().radius(),
+                                  borderSide: const BorderSide(
                                     color: primaryColorOfApp,
                                   )),
                               contentPadding: const EdgeInsets.all(15),
                               border: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: primaryColorOfApp,
                                   ),
-                                  borderRadius: UploadImage().radius())),
+                                  borderRadius: const UploadImage().radius())),
                         ),
                         sizedbox(),
                         TextFormField(
@@ -212,11 +206,11 @@ class _FormfillState extends State<Formfill> {
                                 borderSide: const BorderSide(
                                   color: Color(0xff0087FF),
                                 ),
-                                borderRadius: UploadImage().radius()),
+                                borderRadius: const UploadImage().radius()),
                             errorStyle:
                                 const TextStyle(fontSize: 8, height: 0.2),
                             focusedBorder: OutlineInputBorder(
-                                borderRadius: UploadImage().radius(),
+                                borderRadius: const UploadImage().radius(),
                                 borderSide: const BorderSide(
                                     color: Color(0xff0087FF), width: 1)),
                             /* enabledBorder: OutlineInputBorder(
@@ -239,7 +233,6 @@ class _FormfillState extends State<Formfill> {
                           ),
                         ),
                         sizedbox(),
-                  
                         TextFormField(
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -286,8 +279,9 @@ class _FormfillState extends State<Formfill> {
                                 //     horizontal: 40.0, vertical: 20.0),
                                 backgroundColor: const Color(0xff0087FF),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: UploadImage().radius())),
-                            child: Text(
+                                    borderRadius:
+                                        const UploadImage().radius())),
+                            child: const Text(
                               "Confirm & Continue",
                               style: TextStyle(
                                 color: Colors.white,
@@ -415,7 +409,7 @@ class _FormfillState extends State<Formfill> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PhoneNumber()),
+                      MaterialPageRoute(builder: (context) => const PhoneNumber()),
                     );
                   },
                   child: const Text(
@@ -562,7 +556,7 @@ class _FormfillState extends State<Formfill> {
         labelStyle: const TextStyle(
             color: Color(0xffc4c4c4), fontFamily: 'Poppins', fontSize: 12),
         focusedBorder: OutlineInputBorder(
-            borderRadius: UploadImage().radius(),
+            borderRadius: const UploadImage().radius(),
             borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
         contentPadding: const EdgeInsets.all(15),
         /*  focusedErrorBorder: OutlineInputBorder(
@@ -574,7 +568,7 @@ class _FormfillState extends State<Formfill> {
             borderSide: const BorderSide(
               color: Color(0xff0087FF),
             ),
-            borderRadius: UploadImage().radius()));
+            borderRadius: const UploadImage().radius()));
   }
 
   registrationmethod() {
@@ -602,9 +596,10 @@ class _FormfillState extends State<Formfill> {
             setState(() {
               isloading = false;
             });
+
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Chathomepage()),
+              MaterialPageRoute(builder: (context) => const Chathomepage()),
             );
             return;
           } else {
@@ -639,8 +634,6 @@ class _FormfillState extends State<Formfill> {
                                     builder: (context) =>
                                         const UploadPublic()));
                           } */
-    } else {
-      print('aa');
-    }
+    } else {}
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 
@@ -24,9 +26,9 @@ class _MalefemaleState extends State<Malefemale> {
         title: const Text(''),
       ),
       body: GridView.builder(
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisExtent: 35,
               /*     childAspectRatio: 3.5, */
               crossAxisSpacing: 10,
@@ -60,7 +62,7 @@ class _MalefemaleState extends State<Malefemale> {
                         shape: BoxShape.rectangle),
                     /*  width: 50, */
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         changeinterest[index],
                         style: TextStyle(

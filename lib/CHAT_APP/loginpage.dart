@@ -1,12 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/CHAT_APP/auth_service.dart';
 import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
-import 'package:flutter_application_1/CHAT_APP/database_service.dart';
-import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
-import 'package:flutter_application_1/homepage/homepage.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 
 class LoginPage12 extends StatefulWidget {
   const LoginPage12({super.key});
@@ -27,17 +25,17 @@ class _LoginPage12State extends State<LoginPage12> {
     return Scaffold(
       appBar: AppBar(),
       body: isloading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : Form(
               key: _formKey,
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
@@ -45,7 +43,7 @@ class _LoginPage12State extends State<LoginPage12> {
                         labelText: 'Email',
                         border: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: Colors.black, width: 0.5),
+                                const BorderSide(color: Colors.black, width: 0.5),
                             borderRadius: BorderRadius.circular(5))),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -63,7 +61,7 @@ class _LoginPage12State extends State<LoginPage12> {
                       });
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
@@ -71,12 +69,13 @@ class _LoginPage12State extends State<LoginPage12> {
                         labelText: 'password',
                         border: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: Colors.black, width: 0.5),
+                                const BorderSide(color: Colors.black, width: 0.5),
                             borderRadius: BorderRadius.circular(5))),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please enter password';
                       }
+                      return null;
                     },
                     onChanged: (value) {
                       setState(() {
@@ -101,7 +100,7 @@ class _LoginPage12State extends State<LoginPage12> {
                                             decoration: InputDecoration(
                                                 labelText: 'Email',
                                                 border: OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                         color: Colors.black,
                                                         width: 0.5),
                                                     borderRadius:
@@ -124,7 +123,7 @@ class _LoginPage12State extends State<LoginPage12> {
                                             },
                                           ),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 20,
                                         ),
                                         ElevatedButton(
@@ -133,23 +132,23 @@ class _LoginPage12State extends State<LoginPage12> {
                                                   .sendPasswordResetEmail(
                                                       email: email);
                                             },
-                                            child: Text('Change Password'))
+                                            child: const Text('Change Password'))
                                       ],
                                     );
                                   });
                                 });
                           },
-                          child: Text('Forgot Password'))
+                          child: const Text('Forgot Password'))
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   ElevatedButton(
                       onPressed: () {
                         login();
                       },
-                      child: Text('login'))
+                      child: const Text('login'))
                 ],
               ),
             ),
@@ -158,8 +157,6 @@ class _LoginPage12State extends State<LoginPage12> {
 
   login() async {
     if (_formKey.currentState!.validate()) {
-      print(email);
-      print(password);
     /*   setState(() {
         isloading = true;
       }); */
@@ -174,7 +171,7 @@ class _LoginPage12State extends State<LoginPage12> {
           await SharedPref.saveUserLoggedInStatus(true);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Chathomepage()),
+            MaterialPageRoute(builder: (context) => const Chathomepage()),
           );
           /* Navigator.push(
             context,

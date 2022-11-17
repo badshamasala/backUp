@@ -4,7 +4,6 @@ import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GETX/smsautofill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sms_autofill/sms_autofill.dart';
@@ -17,7 +16,6 @@ class Checkphoneauth extends StatefulWidget {
 }
 
 class _CheckphoneauthState extends State<Checkphoneauth> {
-  GlobalKey<FormState> _formKey = GlobalKey();
   final HomeController controller = Get.put(HomeController());
   bool check10number = true;
   bool check6digit = true;
@@ -33,7 +31,7 @@ class _CheckphoneauthState extends State<Checkphoneauth> {
       body: Column(
         children: [
           TextFormField(
-            autofillHints: [AutofillHints.telephoneNumberDevice],
+            autofillHints: const [AutofillHints.telephoneNumberDevice],
             autofocus: true,
             /*  focusNode: focusNode, */
             /* validator: (value) {
@@ -60,9 +58,9 @@ class _CheckphoneauthState extends State<Checkphoneauth> {
             ],
             decoration: InputDecoration(
               hintText: '8888888888',
-              hintStyle: TextStyle(color: Color(0xffc4c4c4)),
+              hintStyle: const TextStyle(color: Color(0xffc4c4c4)),
               /* isDense: true, */
-              prefixIcon: Container(
+              prefixIcon: SizedBox(
                 width: 60,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
@@ -73,8 +71,8 @@ class _CheckphoneauthState extends State<Checkphoneauth> {
                         height: 20,
                         width: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 8.0),
                         child: Text(
                           "+91",
                           style: TextStyle(
@@ -90,9 +88,9 @@ class _CheckphoneauthState extends State<Checkphoneauth> {
                   ),
                 ),
               ),
-              prefixIconConstraints: BoxConstraints(minWidth: 0, minHeight: 0),
+              prefixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
               labelText: 'Enter your 10 digit Mobile number*',
-              labelStyle: TextStyle(
+              labelStyle: const TextStyle(
                   color: /* focusNode.hasFocus
                               ? */
                       Colors.black /* : Color(0xffc4c4c4) */,
@@ -110,7 +108,7 @@ class _CheckphoneauthState extends State<Checkphoneauth> {
               /*     prefixIconColor: Color(0xffc4c4c4c), */
               /* prefixStyle:
                           TextStyle(fontFamily: 'Poppins', fontSize: 15), */
-              contentPadding: EdgeInsets.symmetric(
+              contentPadding: const EdgeInsets.symmetric(
                 horizontal: 20.0,
               ),
               // hintText: 'Enter Your Username',
@@ -154,7 +152,7 @@ class _CheckphoneauthState extends State<Checkphoneauth> {
                   //     horizontal: 40.0, vertical: 20.0),
                   backgroundColor: const Color(0xff0087FF),
                   shape: RoundedRectangleBorder(
-                      borderRadius: UploadImage().radius())),
+                      borderRadius: const UploadImage().radius())),
               child: const Text(
                 "Continue",
                 style: TextStyle(
@@ -216,8 +214,7 @@ class _CheckphoneauthState extends State<Checkphoneauth> {
                                                           onPressed: check6digit
                                                               ? null
                                                               : () {
-                                                                  final provider =
-                          Provider.of<Googleprovider>(context, listen: false);
+                                                                  
                           
                                                                  /*  Navigator
                                                                       .push(

@@ -1,4 +1,5 @@
-import 'dart:convert';
+
+// ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
@@ -8,13 +9,8 @@ import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
-import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -42,27 +38,25 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  var password = TextEditingController();
-
   var username = TextEditingController();
   bool isbuttonactive = false;
   bool isbuttonactive2 = false;
   bool isloading = false;
   var status = "";
 
-  var size, height, width;
+  var password = TextEditingController();
   bool obscure = true;
   bool value = false;
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+    Size size = MediaQuery.of(context).size;
+    double height = size.height, width = size.width;
+
     return SafeArea(
       child: Scaffold(
           body: isloading
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(
                   color: primaryColorOfApp,
                 ))
@@ -87,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                               if (value!.isEmpty) {
                                 return 'Please enter username';
                               }
+                              return null;
                             },
                             controller: username,
                             decoration: InputDecoration(
@@ -99,8 +94,12 @@ class _LoginPageState extends State<LoginPage> {
                                   fontSize: 12),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: customTextColor, width: 0.5)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: const UploadImage().radius(),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff0087FF), width: 0.5)),
                               /*  enabledBorder: OutlineInputBorder(
                         borderRadius: UploadImage().radius(),
                         borderSide: const BorderSide(
@@ -131,6 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                               if (value!.isEmpty) {
                                 return 'Please enter password';
                               }
+                              return null;
                             },
                             controller: password,
                             obscureText: obscure,
@@ -144,8 +144,12 @@ class _LoginPageState extends State<LoginPage> {
                                   fontSize: 12),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: customTextColor, width: 0.5)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: const UploadImage().radius(),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xff0087FF), width: 0.5)),
                               /*     enabledBorder: OutlineInputBorder(
                         borderRadius: UploadImage().radius(),
                         borderSide: const BorderSide(
@@ -222,13 +226,13 @@ class _LoginPageState extends State<LoginPage> {
                                                                   EdgeInsets
                                                                       .zero,
                                                               constraints:
-                                                                  BoxConstraints(),
+                                                                  const BoxConstraints(),
                                                               onPressed: () {
                                                                 Navigator.of(
                                                                         context)
                                                                     .pop();
                                                               },
-                                                              icon: Icon(
+                                                              icon: const Icon(
                                                                 Icons
                                                                     .arrow_back,
                                                                 color:
@@ -236,7 +240,7 @@ class _LoginPageState extends State<LoginPage> {
                                                               )),
                                                           Text(
                                                             'forgot'.tr,
-                                                            style: TextStyle(
+                                                            style: const TextStyle(
                                                                 color:
                                                                     customTextColor,
                                                                 fontFamily:
@@ -245,7 +249,7 @@ class _LoginPageState extends State<LoginPage> {
                                                         ],
                                                       ),
                                                     ),
-                                                    Divider(),
+                                                    const Divider(),
                                                     SizedBox(
                                                       height: height * 0.03,
                                                     ),
@@ -272,7 +276,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                   left: 8.0),
                                                           child: Text(
                                                             'select'.tr,
-                                                            style: TextStyle(
+                                                            style: const TextStyle(
                                                                 color:
                                                                     customTextColor,
                                                                 fontFamily:
@@ -294,7 +298,7 @@ class _LoginPageState extends State<LoginPage> {
                                                           style: OutlinedButton
                                                               .styleFrom(
                                                                   minimumSize:
-                                                                      Size(120,
+                                                                      const Size(120,
                                                                           35),
                                                                   /*    minimumSize: Size(32, 30), */
                                                                   elevation: 0,
@@ -304,9 +308,9 @@ class _LoginPageState extends State<LoginPage> {
                                                                           .shrinkWrap,
                                                                   side: BorderSide(
                                                                       color: email
-                                                                          ? Color(
+                                                                          ? const Color(
                                                                               0xff0087FF)
-                                                                          : Color(
+                                                                          : const Color(
                                                                               0xff333333),
                                                                       width:
                                                                           0.5),
@@ -317,7 +321,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                           .white,
                                                                   shape: RoundedRectangleBorder(
                                                                       borderRadius:
-                                                                          UploadImage()
+                                                                          const UploadImage()
                                                                               .radius())),
                                                           child: Padding(
                                                             padding:
@@ -327,9 +331,9 @@ class _LoginPageState extends State<LoginPage> {
                                                               "email".tr,
                                                               style: TextStyle(
                                                                   color: email
-                                                                      ? Color(
+                                                                      ? const Color(
                                                                           0xff0087FF)
-                                                                      : Color(
+                                                                      : const Color(
                                                                           0xff333333),
                                                                   fontSize: 10,
                                                                   fontFamily:
@@ -356,7 +360,7 @@ class _LoginPageState extends State<LoginPage> {
                                                           style: OutlinedButton
                                                               .styleFrom(
                                                                   minimumSize:
-                                                                      Size(120,
+                                                                      const Size(120,
                                                                           35),
                                                                   /*  minimumSize: Size(32, 30), */
                                                                   elevation: 0,
@@ -366,9 +370,9 @@ class _LoginPageState extends State<LoginPage> {
                                                                           .shrinkWrap,
                                                                   side: BorderSide(
                                                                       color: mobile
-                                                                          ? Color(
+                                                                          ? const Color(
                                                                               0xff0087FF)
-                                                                          : Color(
+                                                                          : const Color(
                                                                               0xff333333),
                                                                       width:
                                                                           0.5),
@@ -379,7 +383,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                           .white,
                                                                   shape: RoundedRectangleBorder(
                                                                       borderRadius:
-                                                                          UploadImage()
+                                                                          const UploadImage()
                                                                               .radius())),
                                                           child: Padding(
                                                             padding:
@@ -389,9 +393,9 @@ class _LoginPageState extends State<LoginPage> {
                                                               "mobile".tr,
                                                               style: TextStyle(
                                                                   color: mobile
-                                                                      ? Color(
+                                                                      ? const Color(
                                                                           0xff0087FF)
-                                                                      : Color(
+                                                                      : const Color(
                                                                           0xff333333),
                                                                   fontSize: 10,
                                                                   fontFamily:
@@ -416,7 +420,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                   left: 8.0),
                                                           child: Text(
                                                             'keep'.tr,
-                                                            style: TextStyle(
+                                                            style: const TextStyle(
                                                                 color:
                                                                     customTextColor,
                                                                 fontFamily:
@@ -519,7 +523,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                                   ),
                                                                                   TextButton(
                                                                                       onPressed: () {},
-                                                                                      child: Text(
+                                                                                      child: const Text(
                                                                                         'Resen Otp in 30sec',
                                                                                         style: TextStyle(fontFamily: 'Poppins', fontSize: 15, color: primaryColorOfApp),
                                                                                       )),
@@ -550,7 +554,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                                                         ),
                                                                                                         Row(
                                                                                                           mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                          children: [
+                                                                                                          children: const [
                                                                                                             Text(
                                                                                                               'Verified',
                                                                                                               style: TextStyle(fontFamily: 'Poppins', fontSize: 15, color: primaryColorOfApp),
@@ -562,8 +566,8 @@ class _LoginPageState extends State<LoginPage> {
                                                                                                         ),
                                                                                                         Row(
                                                                                                           mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                          children: [
-                                                                                                            const Text(
+                                                                                                          children: const [
+                                                                                                            Text(
                                                                                                               'Your OTP has been verified ',
                                                                                                               style: TextStyle(
                                                                                                                 fontFamily: 'Poppins',
@@ -604,7 +608,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                                                                 // padding: EdgeInsets.symmetric(
                                                                                                                 //     horizontal: 40.0, vertical: 20.0),
                                                                                                                 backgroundColor: const Color(0xff0087FF),
-                                                                                                                shape: RoundedRectangleBorder(borderRadius: UploadImage().radius())),
+                                                                                                                shape: RoundedRectangleBorder(borderRadius: const UploadImage().radius())),
                                                                                                             child: const Text(
                                                                                                               "Confirm",
                                                                                                               style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Poppins'),
@@ -630,8 +634,8 @@ class _LoginPageState extends State<LoginPage> {
                                                                                                               border: Border.all(color: Colors.white, width: 2),
                                                                                                               shape: BoxShape.circle,
                                                                                                             ),
-                                                                                                            child: Padding(
-                                                                                                              padding: const EdgeInsets.all(4.0),
+                                                                                                            child: const Padding(
+                                                                                                              padding: EdgeInsets.all(4.0),
                                                                                                               child: Icon(
                                                                                                                 Icons.close,
                                                                                                                 color: Colors.white,
@@ -649,7 +653,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                                           // padding: EdgeInsets.symmetric(
                                                                                           //     horizontal: 40.0, vertical: 20.0),
                                                                                           backgroundColor: const Color(0xff0087FF),
-                                                                                          shape: RoundedRectangleBorder(borderRadius: UploadImage().radius())),
+                                                                                          shape: RoundedRectangleBorder(borderRadius: const UploadImage().radius())),
                                                                                       child: const Text(
                                                                                         "Verify",
                                                                                         style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Poppins'),
@@ -676,8 +680,8 @@ class _LoginPageState extends State<LoginPage> {
                                                                                           border: Border.all(color: Colors.white, width: 2),
                                                                                           shape: BoxShape.circle,
                                                                                         ),
-                                                                                        child: Padding(
-                                                                                          padding: const EdgeInsets.all(4.0),
+                                                                                        child: const Padding(
+                                                                                          padding: EdgeInsets.all(4.0),
                                                                                           child: Icon(
                                                                                             Icons.close,
                                                                                             color: Colors.white,
@@ -743,9 +747,9 @@ class _LoginPageState extends State<LoginPage> {
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
-                                                        child: Padding(
+                                                        child: const Padding(
                                                           padding:
-                                                              const EdgeInsets
+                                                              EdgeInsets
                                                                   .all(4.0),
                                                           child: Icon(
                                                             Icons.close,
@@ -763,7 +767,7 @@ class _LoginPageState extends State<LoginPage> {
                                   },
                                   child: Text(
                                     'forgot'.tr,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: primaryColorOfApp,
                                         fontFamily: 'Poppins'),
                                   ))
@@ -783,10 +787,10 @@ class _LoginPageState extends State<LoginPage> {
                                   //     horizontal: 40.0, vertical: 20.0),
                                   backgroundColor: const Color(0xff0087FF),
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: UploadImage().radius())),
+                                      borderRadius: const UploadImage().radius())),
                               child: Text(
                                 "login".tr,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
                                     fontFamily: 'Poppins'),
@@ -806,7 +810,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               Text(
                                 'or'.tr,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Color(0xff515253),
                                     fontFamily: 'Poppins'),
                               ),
@@ -839,7 +843,7 @@ class _LoginPageState extends State<LoginPage> {
                                 horizontal: 40.0, vertical: 20.0), */
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: UploadImage().radius())),
+                                      borderRadius: const UploadImage().radius())),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -847,12 +851,12 @@ class _LoginPageState extends State<LoginPage> {
                                     'assets/google.png',
                                     height: 25,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   Text(
                                     "continue".tr,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.black,
                                         fontFamily: 'Poppins'),
                                   ),
@@ -869,7 +873,7 @@ class _LoginPageState extends State<LoginPage> {
                                 padding: EdgeInsets.only(left: width * 0.04),
                                 child: Text(
                                   "dont".tr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Color(0xff515253),
                                       fontFamily: 'Poppins'),
                                 ),
@@ -884,7 +888,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => PhoneNumber()),
+                                      builder: (context) => const PhoneNumber()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(
@@ -894,10 +898,10 @@ class _LoginPageState extends State<LoginPage> {
                                 horizontal: 40.0, vertical: 20.0), */
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: UploadImage().radius())),
+                                      borderRadius: const UploadImage().radius())),
                               child: Text(
                                 "signup".tr,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Color(0xff0087FF),
                                     fontSize: 15,
                                     fontFamily: 'Poppins'),
@@ -976,10 +980,10 @@ class _LoginPageState extends State<LoginPage> {
       labelStyle: const TextStyle(
           color: Color(0xffE2E2E2), fontFamily: 'Poppins', fontSize: 12),
       enabledBorder: OutlineInputBorder(
-          borderRadius: UploadImage().radius(),
+          borderRadius: const UploadImage().radius(),
           borderSide: const BorderSide(color: Color(0xff333333), width: 0.5)),
       focusedBorder: OutlineInputBorder(
-          borderRadius: UploadImage().radius(),
+          borderRadius: const UploadImage().radius(),
           borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5)),
       contentPadding: const EdgeInsets.all(15),
     );

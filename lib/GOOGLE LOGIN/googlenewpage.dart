@@ -15,15 +15,16 @@ class GooglePage1 extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasData) {
-              return HomePage();
+              return const HomePage();
             } else if (snapshot.hasError) {
-              return Center(child: Text('Something wrong'));
-            } else
-              return LoginPage();
+              return const Center(child: Text('Something wrong'));
+            } else {
+              return const LoginPage();
+            }
           }),
     );
   }

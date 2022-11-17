@@ -1,10 +1,12 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
+import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -34,7 +36,7 @@ class GetUpdateSeconds extends GetxController {
   void startTimer() {
     print('---------------------------');
     print('badsmadladknsk');
-    timer = Timer.periodic(Duration(seconds: 1), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (seconds > 0) {
         seconds--;
         timerchalu();

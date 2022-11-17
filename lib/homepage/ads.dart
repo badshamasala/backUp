@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
@@ -43,20 +45,19 @@ class _AdsState extends State<Ads> {
   @override
   Widget build(BuildContext context) {
     Size size;
-    double height, width;
+    double height;
     size = MediaQuery.of(context).size;
     height = size.height;
-    width = size.width;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          iconTheme: IconThemeData(
+          iconTheme: const IconThemeData(
             color: primaryColorOfApp, // <-- SEE HERE
           ),
           backgroundColor: Colors.transparent,
-          title: Text(
+          title: const Text(
             'Ads',
             style: TextStyle(
                 color: customTextColor, fontFamily: 'Poppins', fontSize: 15),
@@ -65,11 +66,11 @@ class _AdsState extends State<Ads> {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: IconButton(
                 padding: EdgeInsets.zero,
-                constraints: BoxConstraints(),
+                constraints: const BoxConstraints(),
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back,
                   color: primaryColorOfApp,
                 )),
@@ -79,11 +80,11 @@ class _AdsState extends State<Ads> {
           children: [
             Container(
               decoration: BoxDecoration(
-                  color: Color(0xffE2E2E2),
+                  color: const Color(0xffE2E2E2),
                   shape: BoxShape.rectangle,
-                  border: Border.all(width: 0.5, color: Color(0xffE2E2E2)),
+                  border: Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                   borderRadius: BorderRadius.circular(10)),
-              child: TabBar(
+              child: const TabBar(
                 indicatorWeight: 0.1,
                 automaticIndicatorColorAdjustment: false,
                 /* isScrollable: true, */
@@ -138,7 +139,7 @@ class _AdsState extends State<Ads> {
                                           ),
                                         ),
                                       ),
-                                      Positioned(
+                                      const Positioned(
                                         top: 30,
                                         child: CircleAvatar(
                                           radius: 5,
@@ -153,18 +154,18 @@ class _AdsState extends State<Ads> {
                                     children: [
                                       Row(
                                         children: [
-                                          Text('nyraa grover',
+                                          const Text('nyraa grover',
                                               style: TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 10,
                                                   fontWeight: FontWeight.bold)),
-                                          Text('@nyra_kameover',
+                                          const Text('@nyra_kameover',
                                               style: TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 10,
                                                   color: primaryColorOfApp)),
                                           Text(userlist[index].status,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 10,
                                                   color: Color(0xff08A434))),
@@ -173,12 +174,12 @@ class _AdsState extends State<Ads> {
                                       Row(
                                         children: [
                                           Text(userlist[index].location,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 10,
                                               )),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
+                                          const Padding(
+                                            padding: EdgeInsets.only(
                                                 left: 5.0),
                                             child: Iconify(
                                               Ri.share_box_line,
@@ -203,7 +204,7 @@ class _AdsState extends State<Ads> {
                                                         const Color(0xff0087FF),
                                                   ),
                                                   onPressed: followLink,
-                                                  child: Text(
+                                                  child: const Text(
                                                     'https://myttube.com',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
@@ -222,7 +223,7 @@ class _AdsState extends State<Ads> {
                                 ), */
                                   OutlinedButton(
                                       style: OutlinedButton.styleFrom(
-                                          side: BorderSide(
+                                          side: const BorderSide(
                                               color: primaryColorOfApp),
                                           padding: EdgeInsets.zero,
                                           tapTargetSize:
@@ -236,7 +237,7 @@ class _AdsState extends State<Ads> {
                                               borderRadius:
                                                   BorderRadius.circular(5.0))),
                                       onPressed: () {},
-                                      child: Text(
+                                      child: const Text(
                                         'following',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -247,9 +248,9 @@ class _AdsState extends State<Ads> {
                                 ), */
                                   IconButton(
                                       padding: EdgeInsets.zero,
-                                      constraints: BoxConstraints(),
+                                      constraints: const BoxConstraints(),
                                       onPressed: () {},
-                                      icon: Icon(Icons.more_vert)),
+                                      icon: const Icon(Icons.more_vert)),
                                 ]),
                             Padding(
                               padding: const EdgeInsets.only(top: 2.0),
@@ -274,7 +275,7 @@ class _AdsState extends State<Ads> {
                                     SizedBox(
                                       height: height * 0.01,
                                     ),
-                                    Text(
+                                    const Text(
                                       'Like',
                                       style: TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
@@ -284,7 +285,7 @@ class _AdsState extends State<Ads> {
                                     ),
                                     Text(
                                       userlist[index].likecount.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
                                     ),
                                   ],
@@ -299,7 +300,7 @@ class _AdsState extends State<Ads> {
                                     SizedBox(
                                       height: height * 0.01,
                                     ),
-                                    Text(
+                                    const Text(
                                       'Comments',
                                       style: TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
@@ -309,7 +310,7 @@ class _AdsState extends State<Ads> {
                                     ),
                                     Text(
                                       userlist[index].commentcount.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
                                     ),
                                   ],
@@ -324,7 +325,7 @@ class _AdsState extends State<Ads> {
                                     SizedBox(
                                       height: height * 0.015,
                                     ),
-                                    Text(
+                                    const Text(
                                       'Share',
                                       style: TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
@@ -334,7 +335,7 @@ class _AdsState extends State<Ads> {
                                     ),
                                     Text(
                                       userlist[index].sharecount.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
                                     ),
                                   ],
@@ -344,16 +345,16 @@ class _AdsState extends State<Ads> {
                                   children: [
                                     IconButton(
                                         padding: EdgeInsets.zero,
-                                        constraints: BoxConstraints(),
+                                        constraints: const BoxConstraints(),
                                         onPressed: () {},
-                                        icon: Iconify(
+                                        icon: const Iconify(
                                           EmojioneMonotone.wrapped_gift,
                                           color: primaryColorOfApp,
                                         )),
                                     SizedBox(
                                       height: height * 0.015,
                                     ),
-                                    Text(
+                                    const Text(
                                       'Gift',
                                       style: TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
@@ -363,7 +364,7 @@ class _AdsState extends State<Ads> {
                                     ),
                                     Text(
                                       userlist[index].giftcount.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
                                     ),
                                   ],
@@ -373,7 +374,7 @@ class _AdsState extends State<Ads> {
                                   padding: const EdgeInsets.only(bottom: 30.0),
                                   child: Text(
                                     userlist[index].viewcount.toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontFamily: 'Poppins',
                                         fontSize: 10,
                                         fontWeight: FontWeight.bold),
@@ -387,13 +388,13 @@ class _AdsState extends State<Ads> {
                                   children: [
                                     IconButton(
                                         padding: EdgeInsets.zero,
-                                        constraints: BoxConstraints(),
+                                        constraints: const BoxConstraints(),
                                         onPressed: () {},
-                                        icon: Iconify(Bi.bookmark_star)),
+                                        icon: const Iconify(Bi.bookmark_star)),
                                     SizedBox(
                                       height: height * 0.01,
                                     ),
-                                    Text(
+                                    const Text(
                                       'Save',
                                       style: TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
@@ -401,7 +402,7 @@ class _AdsState extends State<Ads> {
                                     SizedBox(
                                       height: height * 0.01,
                                     ),
-                                    Text(
+                                    const Text(
                                       '' /* userlist[index].giftcount.toString() */,
                                       style: TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10),
@@ -416,7 +417,7 @@ class _AdsState extends State<Ads> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   RichText(
-                                    text: TextSpan(
+                                    text: const TextSpan(
                                         text: '#Timepass',
                                         style: TextStyle(
                                             color: Colors.black, fontSize: 9),
@@ -445,14 +446,14 @@ class _AdsState extends State<Ads> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Row(
-                                    children: [
+                                    children: const [
                                       Iconify(
                                         Bi.check_circle_fill,
                                         color: Color(0xffFD6B06),
                                       ),
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(left: 2.0),
+                                            EdgeInsets.only(left: 2.0),
                                         child: Text(
                                           'Xiaomi',
                                           style: TextStyle(
@@ -463,7 +464,7 @@ class _AdsState extends State<Ads> {
                                       ),
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(left: 2.0),
+                                            EdgeInsets.only(left: 2.0),
                                         child: Text(
                                           'Sponsered',
                                           style: TextStyle(
@@ -479,15 +480,15 @@ class _AdsState extends State<Ads> {
                                   padding: const EdgeInsets.only(right: 8.0),
                                   child: IconButton(
                                       padding: EdgeInsets.zero,
-                                      constraints: BoxConstraints(),
+                                      constraints: const BoxConstraints(),
                                       onPressed: () {},
-                                      icon: Icon(Icons.more_vert)),
+                                      icon: const Icon(Icons.more_vert)),
                                 )
                               ],
                             ),
                             Row(
                               children: [
-                                Container(
+                                SizedBox(
                                   height: 150,
                                   width: 150,
                                   child: ClipRRect(
@@ -498,13 +499,13 @@ class _AdsState extends State<Ads> {
                                     ),
                                   ),
                                 ),
-                                VerticalDivider(
+                                const VerticalDivider(
                                   width: 5,
                                 ),
                                 Stack(
                                   alignment: Alignment.bottomLeft,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       height: 150,
                                       width: 150,
                                       child: ClipRRect(
@@ -522,18 +523,18 @@ class _AdsState extends State<Ads> {
                                         style: ElevatedButton.styleFrom(
                                             elevation: 0,
                                             minimumSize: const Size(150, 40),
-                                            backgroundColor: Color(0xffFD6B06),
+                                            backgroundColor: const Color(0xffFD6B06),
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(
                                                         5.0))),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 120,
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
-                                            children: [
-                                              const Text(
+                                            children: const [
+                                              Text(
                                                 "Shop Now",
                                                 style: TextStyle(
                                                     color: Colors.white,
@@ -565,7 +566,7 @@ class _AdsState extends State<Ads> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text(
                               'Choose Your Interest (minimum 5 Options)',
                               style: TextStyle(
@@ -579,10 +580,10 @@ class _AdsState extends State<Ads> {
                           height: height * 0.01,
                         ),
                         GridView.builder(
-                            padding: EdgeInsets.all(0),
+                            padding: const EdgeInsets.all(0),
                             shrinkWrap: true,
                             gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
+                                const SliverGridDelegateWithFixedCrossAxisCount(
                                     mainAxisExtent: 33,
                                     /*     childAspectRatio: 3.5, */
                                     crossAxisSpacing: 10,
@@ -615,7 +616,7 @@ class _AdsState extends State<Ads> {
                                         shape: BoxShape.rectangle),
                                     /*  width: 50, */
                                     child: Padding(
-                                      padding: EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         changeinterest[index],
                                         style: TextStyle(
@@ -643,7 +644,7 @@ class _AdsState extends State<Ads> {
                                 //     horizontal: 40.0, vertical: 20.0),
                                 backgroundColor: const Color(0xff0087FF),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: UploadImage().radius())),
+                                    borderRadius: const UploadImage().radius())),
                             child: const Text(
                               "Save Changes",
                               style: TextStyle(

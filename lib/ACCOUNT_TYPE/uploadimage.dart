@@ -5,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ONBOARDING/splashscreen.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:image_picker/image_picker.dart';
@@ -23,7 +22,7 @@ class UploadImage extends StatefulWidget {
 }
 
 class _UploadImageState extends State<UploadImage> {
-  var size, height, width;
+
   DateTime dateTime = DateTime.now();
   bool male = true;
   bool female = true;
@@ -58,9 +57,9 @@ class _UploadImageState extends State<UploadImage> {
 
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+   Size size = MediaQuery.of(context).size;
+   double height = size.height,  width = size.width;
+  
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -82,7 +81,7 @@ class _UploadImageState extends State<UploadImage> {
                         ),
                       )
                     // Image. file
-                    : CircleAvatar(
+                    : const CircleAvatar(
                         radius: 45,
                         backgroundColor: Colors.blue,
                         child: CircleAvatar(
@@ -140,11 +139,11 @@ class _UploadImageState extends State<UploadImage> {
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
-                                          children: [
+                                          children: const [
                                             Padding(
-                                              padding: const EdgeInsets.only(
+                                              padding: EdgeInsets.only(
                                                   left: 80.0),
-                                              child: const Text(
+                                              child: Text(
                                                 'Your Profile Photo',
                                                 style: TextStyle(
                                                     color: Color(0xff333333),
@@ -157,7 +156,7 @@ class _UploadImageState extends State<UploadImage> {
                                         SizedBox(
                                           height: height * 0.01,
                                         ),
-                                        Divider(),
+                                        const Divider(),
                                         SizedBox(
                                           height: height * 0.03,
                                         ),
@@ -169,7 +168,7 @@ class _UploadImageState extends State<UploadImage> {
                                               children: [
                                                 RawMaterialButton(
                                                   padding: EdgeInsets.zero,
-                                                  constraints: BoxConstraints(
+                                                  constraints: const BoxConstraints(
                                                       minHeight: 45,
                                                       minWidth: 45),
                                                   onPressed: () {
@@ -181,20 +180,20 @@ class _UploadImageState extends State<UploadImage> {
                                                     });
                                                   },
                                                   elevation: 0,
-                                                  fillColor: Color(0xffDADADA),
-                                                  child: Iconify(
-                                                    AntDesign.camera_filled,
-                                                    color: Color(0xff0087FF),
-                                                    size: 17,
-                                                  ),
+                                                  fillColor: const Color(0xffDADADA),
                                                   /*  padding: EdgeInsets.all(15.0), */
-                                                  shape: CircleBorder(
+                                                  shape: const CircleBorder(
                                                       /* side: BorderSide(
                                                         width: 1,
                                                         color: Color(0xff0087FF)) */
                                                       ),
+                                                  child: const Iconify(
+                                                    AntDesign.camera_filled,
+                                                    color: Color(0xff0087FF),
+                                                    size: 17,
+                                                  ),
                                                 ),
-                                                Text(
+                                                const Text(
                                                   'camera',
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
@@ -206,7 +205,7 @@ class _UploadImageState extends State<UploadImage> {
                                               children: [
                                                 RawMaterialButton(
                                                   padding: EdgeInsets.zero,
-                                                  constraints: BoxConstraints(
+                                                  constraints: const BoxConstraints(
                                                       minHeight: 45,
                                                       minWidth: 45),
                                                   onPressed: () {
@@ -218,20 +217,20 @@ class _UploadImageState extends State<UploadImage> {
                                                     });
                                                   },
                                                   elevation: 0,
-                                                  fillColor: Color(0xffDADADA),
-                                                  child: Iconify(
-                                                    Heroicons.photo_20_solid,
-                                                    color: Color(0xff0087FF),
-                                                    size: 17,
-                                                  ),
+                                                  fillColor: const Color(0xffDADADA),
                                                   /*  padding: EdgeInsets.all(15.0), */
-                                                  shape: CircleBorder(
+                                                  shape: const CircleBorder(
                                                       /* side: BorderSide(
                                                         width: 1,
                                                         color: Color(0xff0087FF)) */
                                                       ),
+                                                  child: const Iconify(
+                                                    Heroicons.photo_20_solid,
+                                                    color: Color(0xff0087FF),
+                                                    size: 17,
+                                                  ),
                                                 ),
-                                                Text(
+                                                const Text(
                                                   'gallery',
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
@@ -263,9 +262,9 @@ class _UploadImageState extends State<UploadImage> {
                                                     width: 2),
                                                 shape: BoxShape.circle,
                                               ),
-                                              child: Padding(
+                                              child: const Padding(
                                                 padding:
-                                                    const EdgeInsets.all(4.0),
+                                                    EdgeInsets.all(4.0),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Colors.white,
@@ -336,7 +335,7 @@ class _UploadImageState extends State<UploadImage> {
                           color: male
                               ? Colors.transparent
                               : const Color.fromARGB(255, 200, 226, 249),
-                          borderRadius: UploadImage().radius(),
+                          borderRadius: const UploadImage().radius(),
                           border: Border.all(
                               width: 0.7,
                               color: male
@@ -387,7 +386,7 @@ class _UploadImageState extends State<UploadImage> {
                           color: female
                               ? Colors.transparent
                               : const Color.fromARGB(255, 247, 212, 214),
-                          borderRadius: UploadImage().radius(),
+                          borderRadius: const UploadImage().radius(),
                           border: Border.all(
                               width: 0.7,
                               color: female
@@ -432,7 +431,7 @@ class _UploadImageState extends State<UploadImage> {
                           color: other
                               ? Colors.transparent
                               : const Color.fromARGB(255, 232, 203, 246),
-                          borderRadius: UploadImage().radius(),
+                          borderRadius: const UploadImage().radius(),
                           border: Border.all(
                               width: 0.7,
                               color: other
@@ -677,7 +676,7 @@ class _UploadImageState extends State<UploadImage> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               5.0))),
-                                              child: Text(
+                                              child: const Text(
                                                 "Confirm & Continue",
                                                 style: TextStyle(
                                                     color: Colors.white,
@@ -711,9 +710,9 @@ class _UploadImageState extends State<UploadImage> {
                                                     width: 2),
                                                 shape: BoxShape.circle,
                                               ),
-                                              child: Padding(
+                                              child: const Padding(
                                                 padding:
-                                                    const EdgeInsets.all(4.0),
+                                                    EdgeInsets.all(4.0),
                                                 child: Icon(
                                                   Icons.close,
                                                   color: Colors.white,
@@ -761,7 +760,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age1
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: UploadImage().radius(),
+                      borderRadius: const UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age1
@@ -814,7 +813,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age2
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: UploadImage().radius(),
+                      borderRadius: const UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age2
@@ -867,7 +866,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age3
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: UploadImage().radius(),
+                      borderRadius: const UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age3
@@ -920,7 +919,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age4
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: UploadImage().radius(),
+                      borderRadius: const UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age4
@@ -973,7 +972,7 @@ class _UploadImageState extends State<UploadImage> {
                       color: age5
                           ? Colors.transparent
                           : const Color.fromARGB(255, 200, 226, 249),
-                      borderRadius: UploadImage().radius(),
+                      borderRadius: const UploadImage().radius(),
                       border: Border.all(
                           width: 0.7,
                           color: age5
@@ -1030,7 +1029,7 @@ class _UploadImageState extends State<UploadImage> {
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
-                          borderRadius: UploadImage().radius())),
+                          borderRadius: const UploadImage().radius())),
                   child: Text(
                     "Confirm & Continue",
                     style: TextStyle(

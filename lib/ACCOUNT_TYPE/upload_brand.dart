@@ -74,7 +74,7 @@ class _UploadBrandState extends State<UploadBrand> {
                               ),
                             )
                           // Image. file
-                          : CircleAvatar(
+                          : const CircleAvatar(
                               radius: 45,
                               backgroundColor: Colors.blue,
                               child: CircleAvatar(
@@ -182,6 +182,12 @@ class _UploadBrandState extends State<UploadBrand> {
                                                         elevation: 0,
                                                         fillColor: const Color(
                                                             0xffDADADA),
+                                                        /*  padding: EdgeInsets.all(15.0), */
+                                                        shape: const CircleBorder(
+                                                            /* side: BorderSide(
+                                                          width: 1,
+                                                          color: Color(0xff0087FF)) */
+                                                            ),
                                                         child: const FaIcon(
                                                           FontAwesomeIcons
                                                               .camera,
@@ -189,12 +195,6 @@ class _UploadBrandState extends State<UploadBrand> {
                                                               Color(0xff0087FF),
                                                           size: 17,
                                                         ),
-                                                        /*  padding: EdgeInsets.all(15.0), */
-                                                        shape: const CircleBorder(
-                                                            /* side: BorderSide(
-                                                          width: 1,
-                                                          color: Color(0xff0087FF)) */
-                                                            ),
                                                       ),
                                                       const Text(
                                                         'camera',
@@ -227,18 +227,18 @@ class _UploadBrandState extends State<UploadBrand> {
                                                         elevation: 0,
                                                         fillColor: const Color(
                                                             0xffDADADA),
-                                                        child: Icon(
-                                                          Icons.photo,
-                                                          color:
-                                                              Color(0xff0087FF),
-                                                          size: 17,
-                                                        ),
                                                         /*  padding: EdgeInsets.all(15.0), */
                                                         shape: const CircleBorder(
                                                             /* side: BorderSide(
                                                           width: 1,
                                                           color: Color(0xff0087FF)) */
                                                             ),
+                                                        child: const Icon(
+                                                          Icons.photo,
+                                                          color:
+                                                              Color(0xff0087FF),
+                                                          size: 17,
+                                                        ),
                                                       ),
                                                       const Text(
                                                         'gallery',
@@ -274,9 +274,9 @@ class _UploadBrandState extends State<UploadBrand> {
                                                           width: 2),
                                                       shape: BoxShape.circle,
                                                     ),
-                                                    child: Padding(
+                                                    child: const Padding(
                                                       padding:
-                                                          const EdgeInsets.all(
+                                                          EdgeInsets.all(
                                                               4.0),
                                                       child: Icon(
                                                         Icons.close,
@@ -345,14 +345,14 @@ class _UploadBrandState extends State<UploadBrand> {
                   sizedbox(),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: UploadImage().radius(),
+                      borderRadius: const UploadImage().radius(),
                       border: Border.all(color: Colors.black, width: 0.5),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 8),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton(
-                            hint: Padding(
+                            hint: const Padding(
                               padding: EdgeInsets.only(left: 8.0),
                               child: Text(
                                 'select your business categories*',
@@ -379,7 +379,7 @@ class _UploadBrandState extends State<UploadBrand> {
                   sizedbox(),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: UploadImage().radius(),
+                      borderRadius: const UploadImage().radius(),
                       border: Border.all(color: Colors.black, width: 0.5),
                     ),
                     child: Padding(
@@ -448,15 +448,14 @@ class _UploadBrandState extends State<UploadBrand> {
                                 builder: (context) => const LoginPage()),
                           );
                         } else {
-                          print('aa');
                         }
                       },
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: const Color(0xff0087FF),
                           shape: RoundedRectangleBorder(
-                              borderRadius: UploadImage().radius())),
-                      child: Text(
+                              borderRadius: const UploadImage().radius())),
+                      child: const Text(
                         "Confirm & Continue",
                         style: TextStyle(
                           color: Colors.white,
@@ -477,7 +476,7 @@ class _UploadBrandState extends State<UploadBrand> {
 
   sizedbox() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.02,
     );
@@ -485,7 +484,7 @@ class _UploadBrandState extends State<UploadBrand> {
 
   sizedbox1() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.04,
     );
@@ -495,16 +494,16 @@ class _UploadBrandState extends State<UploadBrand> {
     return InputDecoration(
         labelText: labeltext,
         errorStyle: const TextStyle(fontSize: 8, height: 0.2),
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
             color: Color(0xffC4C4C4), fontFamily: 'Poppins', fontSize: 12),
         focusedBorder: OutlineInputBorder(
-            borderRadius: UploadImage().radius(),
+            borderRadius: const UploadImage().radius(),
             borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
         contentPadding: const EdgeInsets.all(15),
         border: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Color(0xff0087FF),
             ),
-            borderRadius: UploadImage().radius()));
+            borderRadius: const UploadImage().radius()));
   }
 }

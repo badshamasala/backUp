@@ -1,16 +1,10 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
-import 'package:flutter_application_1/ONBOARDING/splashscreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -36,7 +30,7 @@ class _UploadPublicState extends State<UploadPublic> {
 
   bool btnchng = true;
 
-  var size, height, width;
+ 
   File? image;
   Future pickImage(ImageSource source) async {
     try {
@@ -53,9 +47,9 @@ class _UploadPublicState extends State<UploadPublic> {
 
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+    Size size = MediaQuery.of(context).size;
+    double height = size.height,  width = size.width;
+  
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -80,7 +74,7 @@ class _UploadPublicState extends State<UploadPublic> {
                               ),
                             )
                           // Image. file
-                          : CircleAvatar(
+                          : const CircleAvatar(
                               radius: 45,
                               backgroundColor: Colors.blue,
                               child: CircleAvatar(
@@ -138,12 +132,12 @@ class _UploadPublicState extends State<UploadPublic> {
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
-                                              children: [
+                                              children: const [
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.only(
+                                                      EdgeInsets.only(
                                                           left: 80.0),
-                                                  child: const Text(
+                                                  child: Text(
                                                     'Your Profile Photo',
                                                     style: TextStyle(
                                                         color:
@@ -157,7 +151,7 @@ class _UploadPublicState extends State<UploadPublic> {
                                             SizedBox(
                                               height: height * 0.01,
                                             ),
-                                            Divider(),
+                                            const Divider(),
                                             SizedBox(
                                               height: height * 0.03,
                                             ),
@@ -170,7 +164,7 @@ class _UploadPublicState extends State<UploadPublic> {
                                                     RawMaterialButton(
                                                       padding: EdgeInsets.zero,
                                                       constraints:
-                                                          BoxConstraints(
+                                                          const BoxConstraints(
                                                               minHeight: 45,
                                                               minWidth: 45),
                                                       onPressed: () {
@@ -184,21 +178,21 @@ class _UploadPublicState extends State<UploadPublic> {
                                                       },
                                                       elevation: 0,
                                                       fillColor:
-                                                          Color(0xffDADADA),
-                                                      child: FaIcon(
+                                                          const Color(0xffDADADA),
+                                                      /*  padding: EdgeInsets.all(15.0), */
+                                                      shape: const CircleBorder(
+                                                          /* side: BorderSide(
+                                                            width: 1,
+                                                            color: Color(0xff0087FF)) */
+                                                          ),
+                                                      child: const FaIcon(
                                                         FontAwesomeIcons.camera,
                                                         color:
                                                             Color(0xff0087FF),
                                                         size: 17,
                                                       ),
-                                                      /*  padding: EdgeInsets.all(15.0), */
-                                                      shape: CircleBorder(
-                                                          /* side: BorderSide(
-                                                            width: 1,
-                                                            color: Color(0xff0087FF)) */
-                                                          ),
                                                     ),
-                                                    Text(
+                                                    const Text(
                                                       'camera',
                                                       style: TextStyle(
                                                           fontFamily: 'Poppins',
@@ -212,7 +206,7 @@ class _UploadPublicState extends State<UploadPublic> {
                                                     RawMaterialButton(
                                                       padding: EdgeInsets.zero,
                                                       constraints:
-                                                          BoxConstraints(
+                                                          const BoxConstraints(
                                                               minHeight: 45,
                                                               minWidth: 45),
                                                       onPressed: () {
@@ -226,21 +220,21 @@ class _UploadPublicState extends State<UploadPublic> {
                                                       },
                                                       elevation: 0,
                                                       fillColor:
-                                                          Color(0xffDADADA),
-                                                      child: Icon(
+                                                          const Color(0xffDADADA),
+                                                      /*  padding: EdgeInsets.all(15.0), */
+                                                      shape: const CircleBorder(
+                                                          /* side: BorderSide(
+                                                            width: 1,
+                                                            color: Color(0xff0087FF)) */
+                                                          ),
+                                                      child: const Icon(
                                                         Icons.photo,
                                                         color:
                                                             Color(0xff0087FF),
                                                         size: 17,
                                                       ),
-                                                      /*  padding: EdgeInsets.all(15.0), */
-                                                      shape: CircleBorder(
-                                                          /* side: BorderSide(
-                                                            width: 1,
-                                                            color: Color(0xff0087FF)) */
-                                                          ),
                                                     ),
-                                                    Text(
+                                                    const Text(
                                                       'gallery',
                                                       style: TextStyle(
                                                           fontFamily: 'Poppins',
@@ -273,9 +267,9 @@ class _UploadPublicState extends State<UploadPublic> {
                                                         width: 2),
                                                     shape: BoxShape.circle,
                                                   ),
-                                                  child: Padding(
+                                                  child: const Padding(
                                                     padding:
-                                                        const EdgeInsets.all(
+                                                        EdgeInsets.all(
                                                             4.0),
                                                     child: Icon(
                                                       Icons.close,
@@ -356,15 +350,15 @@ class _UploadPublicState extends State<UploadPublic> {
                   sizedbox(),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: UploadImage().radius(),
+                      borderRadius: const UploadImage().radius(),
                       border: Border.all(color: Colors.black, width: 0.5),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 8),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton(
-                            hint: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
+                            hint: const Padding(
+                              padding: EdgeInsets.only(left: 8.0),
                               child: Text(
                                 'Choose one of category',
                                 style: TextStyle(
@@ -423,10 +417,9 @@ class _UploadPublicState extends State<UploadPublic> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginPage()),
+                                builder: (context) => const LoginPage()),
                           );
                         } else {
-                          print('aa');
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -436,8 +429,8 @@ class _UploadPublicState extends State<UploadPublic> {
                           //     horizontal: 40.0, vertical: 20.0),
                           backgroundColor: const Color(0xff0087FF),
                           shape: RoundedRectangleBorder(
-                              borderRadius: UploadImage().radius())),
-                      child: Text(
+                              borderRadius: const UploadImage().radius())),
+                      child: const Text(
                         "Confirm & Continue",
                         style: TextStyle(
                           color: Colors.white,
@@ -458,7 +451,7 @@ class _UploadPublicState extends State<UploadPublic> {
 
   sizedbox() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.02,
     );
@@ -466,7 +459,7 @@ class _UploadPublicState extends State<UploadPublic> {
 
   sizedbox1() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return SizedBox(
       height: height * 0.04,
     );
@@ -476,16 +469,16 @@ class _UploadPublicState extends State<UploadPublic> {
     return InputDecoration(
         labelText: labeltext,
         errorStyle: const TextStyle(fontSize: 8, height: 0.2),
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
             color: Color(0xffC4C4C4), fontFamily: 'Poppins', fontSize: 12),
         focusedBorder: OutlineInputBorder(
-            borderRadius: UploadImage().radius(),
+            borderRadius: const UploadImage().radius(),
             borderSide: const BorderSide(color: Color(0xff0087FF), width: 1)),
         contentPadding: const EdgeInsets.all(15),
         border: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Color(0xff0087FF),
             ),
-            borderRadius: UploadImage().radius()));
+            borderRadius: const UploadImage().radius()));
   }
 }

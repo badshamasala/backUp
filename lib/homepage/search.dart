@@ -38,9 +38,9 @@ class _SearchState extends State<Search> {
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
                 padding: EdgeInsets.zero,
-                constraints: BoxConstraints(),
+                constraints: const BoxConstraints(),
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back,
                   color: primaryColorOfApp,
                 )),
@@ -83,7 +83,7 @@ class _SearchState extends State<Search> {
             Expanded(
                 child: StaggeredGridView.countBuilder(
               scrollDirection: Axis.vertical,
-              physics: ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               crossAxisCount: 3,
               itemCount: urlImages.length,
               itemBuilder: (context, index) => Image.network(
@@ -91,8 +91,8 @@ class _SearchState extends State<Search> {
                 fit: BoxFit.cover,
               ),
               staggeredTileBuilder: (int index) => index % 3 == 0
-                  ? StaggeredTile.count(1, 2)
-                  : StaggeredTile.count(1, 1),
+                  ? const StaggeredTile.count(1, 2)
+                  : const StaggeredTile.count(1, 1),
               mainAxisSpacing: 4,
               crossAxisSpacing: 4.0,
             ))
@@ -111,15 +111,15 @@ class _SearchState extends State<Search> {
       count: 10);
   buildInputdecoration(String labeltext) {
     return InputDecoration(
-      prefixIcon: Icon(Icons.search),
+      prefixIcon: const Icon(Icons.search),
       labelText: labeltext,
       labelStyle: const TextStyle(
           color: Color(0xffE2E2E2), fontFamily: 'Poppins', fontSize: 12),
       enabledBorder: OutlineInputBorder(
-          borderRadius: UploadImage().radius(),
+          borderRadius: const UploadImage().radius(),
           borderSide: const BorderSide(color: Color(0xff333333), width: 0.5)),
       focusedBorder: OutlineInputBorder(
-          borderRadius: UploadImage().radius(),
+          borderRadius: const UploadImage().radius(),
           borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5)),
       contentPadding: const EdgeInsets.all(15),
     );

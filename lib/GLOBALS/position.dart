@@ -1,17 +1,21 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 class StackAndPositionedDemo extends StatefulWidget {
+  const StackAndPositionedDemo({super.key});
+
   @override
   _StackAndPositionedDemoState createState() => _StackAndPositionedDemoState();
 }
 
 class _StackAndPositionedDemoState extends State<StackAndPositionedDemo> {
-  var size, height, width;
+
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
+    Size size = MediaQuery.of(context).size;
+    double width = size.width;
+   
     return Scaffold(
       appBar: AppBar(
         title: const Text('Stack & Positioned Widget'),
@@ -20,7 +24,7 @@ class _StackAndPositionedDemoState extends State<StackAndPositionedDemo> {
       body: Column(
 
         children: [
-          Container(
+          SizedBox(
             height: 200,
             child: Stack(
               children: <Widget>[

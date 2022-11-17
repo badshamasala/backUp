@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/bx.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/eva.dart';
 import 'package:share_plus/share_plus.dart';
@@ -16,7 +19,7 @@ var everyone = 'Everyone';
 var followers = 'Followers';
 var following = 'Following';
 var off = 'Off';
-var sourceLocation = LatLng(19.0715252, 72.8692906);
+var sourceLocation = const LatLng(19.0715252, 72.8692906);
 buildsecurity(context) {
   Size size;
   double height, width;
@@ -67,14 +70,14 @@ buildsecurity(context) {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.arrow_back,
                               color: primaryColorOfApp,
                             )),
                         SizedBox(
                           width: width * 0.01,
                         ),
-                        Text(
+                        const Text(
                           'Security',
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -120,7 +123,9 @@ buildsecurity(context) {
                       height: height * 0.03,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        buildSavePassword(context);
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -151,37 +156,44 @@ buildsecurity(context) {
                     SizedBox(
                       height: height * 0.03,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/securepass.svg',
-                              height: 18,
-                              width: 18,
-                            ),
-                            const SizedBox(
-                              width: 13,
-                            ),
-                            Text(
-                              'Password',
-                              style: ProfileSelf().buildtextstyle(),
-                            ),
-                          ],
-                        ),
-                        const Iconify(
-                          Eva.arrow_right_fill,
-                          size: 15,
-                          color: Color(0xff333333),
-                        )
-                      ],
+                    InkWell(
+                      onTap: () {
+                        buildPassword(context);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/securepass.svg',
+                                height: 18,
+                                width: 18,
+                              ),
+                              const SizedBox(
+                                width: 13,
+                              ),
+                              Text(
+                                'Password',
+                                style: ProfileSelf().buildtextstyle(),
+                              ),
+                            ],
+                          ),
+                          const Iconify(
+                            Eva.arrow_right_fill,
+                            size: 15,
+                            color: Color(0xff333333),
+                          )
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: height * 0.03,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        buildMobile(context);
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -216,7 +228,9 @@ buildsecurity(context) {
                       height: height * 0.03,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        buildEmail(context);
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -329,14 +343,14 @@ buildloginActivity(context) {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.arrow_back,
                               color: primaryColorOfApp,
                             )),
                         SizedBox(
                           width: width * 0.01,
                         ),
-                        Text(
+                        const Text(
                           'Login Activity',
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -352,7 +366,7 @@ buildloginActivity(context) {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           'Login History',
                           style: TextStyle(
@@ -385,7 +399,7 @@ buildloginActivity(context) {
                               horizontalTitleGap: 0,
                               leading: SvgPicture.asset('assets/location.svg'),
                               title: Row(
-                                children: [
+                                children: const [
                                   Text(
                                     'Apple iphone',
                                     style: TextStyle(
@@ -403,7 +417,7 @@ buildloginActivity(context) {
                                   ),
                                 ],
                               ),
-                              subtitle: Text(
+                              subtitle: const Text(
                                 'Mumbai, Maharashtra November 30 at 12:30 pm',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -414,180 +428,7 @@ buildloginActivity(context) {
                                   onPressed: () {
                                     buildLoginHistory(context);
                                   },
-                                  icon: Icon(Icons.more_vert)),
-                            ),
-                          );
-                        })),
-                    SizedBox(
-                      height: height * 0.1,
-                    )
-                  ])),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        /*   width: 45,
-                                  height: 45, */
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
-            ],
-          );
-        });
-      });
-}
-buildSavePassword(context) {
-  Size size;
-  double height, width;
-  size = MediaQuery.of(context).size;
-  height = size.height;
-  width = size.width;
-  return showModalBottomSheet(
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        // <-- SEE HERE
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20.0),
-        ),
-      ),
-      context: context,
-      builder: (BuildContext context) {
-        return StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-          return Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              color: const Color(0xffE2E2E2),
-                              borderRadius: BorderRadius.circular(8)),
-                          height: 5,
-                          width: 100,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                            padding: const EdgeInsets.all(0),
-                            constraints: const BoxConstraints(),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: primaryColorOfApp,
-                            )),
-                        SizedBox(
-                          width: width * 0.01,
-                        ),
-                        Text(
-                          'Login Activity',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: Color(0xff333333),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        ),
-                      ],
-                    ),
-                    const Divider(),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Login History',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontSize: 15),
-                        ),
-                        Text(
-                          'are you logged in ?',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 8),
-                        ),
-                      ],
-                    ),
-                    ListView.separated(
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            height: height * 0.01,
-                          );
-                        },
-                        itemCount: 5,
-                        shrinkWrap: true,
-                        itemBuilder: ((context, index) {
-                          return SizedBox(
-                            height: 40,
-                            child: ListTile(
-                              horizontalTitleGap: 0,
-                              leading: SvgPicture.asset('assets/location.svg'),
-                              title: Row(
-                                children: [
-                                  Text(
-                                    'Apple iphone',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        color: customTextColor,
-                                        fontSize: 10),
-                                  ),
-                                  Text(
-                                    'Active Online',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xff038026),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 10),
-                                  ),
-                                ],
-                              ),
-                              subtitle: Text(
-                                'Mumbai, Maharashtra November 30 at 12:30 pm',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: customTextColor,
-                                    fontSize: 10),
-                              ),
-                              trailing: IconButton(
-                                  onPressed: () {
-                                    buildLoginHistory(context);
-                                  },
-                                  icon: Icon(Icons.more_vert)),
+                                  icon: const Icon(Icons.more_vert)),
                             ),
                           );
                         })),
@@ -626,12 +467,1191 @@ buildSavePassword(context) {
       });
 }
 
-buildLoginHistory(context) {
+buildSavePassword(context) {
+  var password = TextEditingController();
+  bool obscure = true;
   Size size;
   double height, width;
   size = MediaQuery.of(context).size;
   height = size.height;
   width = size.width;
+  return showModalBottomSheet(
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        // <-- SEE HERE
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20.0),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xffE2E2E2),
+                                borderRadius: BorderRadius.circular(8)),
+                            height: 5,
+                            width: 100,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: primaryColorOfApp,
+                              )),
+                          SizedBox(
+                            width: width * 0.01,
+                          ),
+                          const Text(
+                            'Saved Password',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      const Divider(),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'App and websites',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        children: const [
+                          Text(
+                            'Apple iphone',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*     fontWeight: FontWeight.bold, */
+                                fontSize: 10),
+                          ),
+                          Text(
+                            'Active',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff038026),
+                                /*      fontWeight: FontWeight.bold, */
+                                fontSize: 8),
+                          ),
+                          Text(
+                            'Saved Password',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*                fontWeight: FontWeight.bold, */
+                                fontSize: 10),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Mumbai, Maharashtra, India',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*      fontWeight: FontWeight.bold, */
+                                fontSize: 8),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            '@profile.username',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: primaryColorOfApp,
+                                /*   fontWeight: FontWeight.bold, */
+                                fontSize: 13),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      SizedBox(
+                        height: 35,
+                        child: TextFormField(
+                          controller: password,
+                          obscureText: obscure,
+                          decoration: InputDecoration(
+                            errorStyle:
+                                const TextStyle(fontSize: 8, height: 0.2),
+                            labelText: 'password',
+                            labelStyle: const TextStyle(
+                                color: Color(0xffC4C4C4),
+                                fontFamily: 'Poppins',
+                                fontSize: 12),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: primaryColorOfApp, width: 0.5)),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: customTextColor, width: 0.5)),
+                            suffixIcon: GestureDetector(
+                              child: Icon(obscure
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                              onTap: () {
+                                setState(() {
+                                  obscure = !obscure;
+                                });
+                              },
+                            ),
+                            contentPadding: const EdgeInsets.all(15),
+                          ),
+                          onChanged: (value) {
+                            // do something
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          TextButton(
+                            style: TextButton.styleFrom(
+                                /* minimumSize: Size(100, 5), */
+                                elevation: 0,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                padding: EdgeInsets.zero,
+                                tapTargetSize:
+                                    MaterialTapTargetSize.shrinkWrap),
+                            onPressed: () {},
+                            child: const Text('Change Password',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: primaryColorOfApp,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.5)),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Other Multiple Devices Your Password Saved',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*       fontWeight: FontWeight.bold, */
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Windows',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*       fontWeight: FontWeight.bold, */
+                                fontSize: 12),
+                          ),
+                          Text(
+                            'Active',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff038026),
+                                /*        fontWeight: FontWeight.bold, */
+                                fontSize: 12),
+                          ),
+                          Text(
+                            'Saved Password',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*      fontWeight: FontWeight.bold, */
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Mumbai, Maharashtra, India  15 October 2022 at 10:30 am',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*   fontWeight: FontWeight.bold, */
+                                fontSize: 9.4),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.1,
+                      )
+                    ])),
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
+                                    height: 45, */
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+              ],
+            ),
+          );
+        });
+      });
+}
+
+buildPassword(context) {
+  var password = TextEditingController();
+  bool obscure = true;
+  Size size;
+  double height, width;
+  size = MediaQuery.of(context).size;
+  height = size.height;
+  width = size.width;
+  return showModalBottomSheet(
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        // <-- SEE HERE
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20.0),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xffE2E2E2),
+                                borderRadius: BorderRadius.circular(8)),
+                            height: 5,
+                            width: 100,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: primaryColorOfApp,
+                              )),
+                          SizedBox(
+                            width: width * 0.01,
+                          ),
+                          const Text(
+                            'Password',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      const Divider(),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            'Last Change Password ',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*     fontWeight: FontWeight.bold, */
+                                fontSize: 12),
+                          ),
+                          Text(
+                            'October 30 2022',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*      fontWeight: FontWeight.bold, */
+                                fontSize: 10),
+                          ),
+                          Text(
+                            'at 08:30 pm',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*                fontWeight: FontWeight.bold, */
+                                fontSize: 10),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            'Change Your Password',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*      fontWeight: FontWeight.bold, */
+                                fontSize: 13),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            ' Secure Your Profile ',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*   fontWeight: FontWeight.bold, */
+                                fontSize: 13),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      SizedBox(
+                        height: 35,
+                        child: TextFormField(
+                          controller: password,
+                          obscureText: obscure,
+                          decoration: InputDecoration(
+                            errorStyle:
+                                const TextStyle(fontSize: 8, height: 0.2),
+                            labelText: 'Current Password',
+                            labelStyle: const TextStyle(
+                                color: Color(0xffC4C4C4),
+                                fontFamily: 'Poppins',
+                                fontSize: 12),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: primaryColorOfApp, width: 0.5)),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: customTextColor, width: 0.5)),
+                            suffixIcon: GestureDetector(
+                              child: Icon(obscure
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                              onTap: () {
+                                setState(() {
+                                  obscure = !obscure;
+                                });
+                              },
+                            ),
+                            contentPadding: const EdgeInsets.all(15),
+                          ),
+                          onChanged: (value) {
+                            // do something
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      SizedBox(
+                        height: 35,
+                        child: TextFormField(
+                          controller: password,
+                          obscureText: obscure,
+                          decoration: InputDecoration(
+                            errorStyle:
+                                const TextStyle(fontSize: 8, height: 0.2),
+                            labelText: 'New Password',
+                            labelStyle: const TextStyle(
+                                color: Color(0xffC4C4C4),
+                                fontFamily: 'Poppins',
+                                fontSize: 12),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: primaryColorOfApp, width: 0.5)),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: customTextColor, width: 0.5)),
+                            suffixIcon: GestureDetector(
+                              child: Icon(obscure
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                              onTap: () {
+                                setState(() {
+                                  obscure = !obscure;
+                                });
+                              },
+                            ),
+                            contentPadding: const EdgeInsets.all(15),
+                          ),
+                          onChanged: (value) {
+                            // do something
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      SizedBox(
+                        height: 35,
+                        child: TextFormField(
+                          controller: password,
+                          obscureText: obscure,
+                          decoration: InputDecoration(
+                            errorStyle:
+                                const TextStyle(fontSize: 8, height: 0.2),
+                            labelText: 'New Confirm Password ',
+                            labelStyle: const TextStyle(
+                                color: Color(0xffC4C4C4),
+                                fontFamily: 'Poppins',
+                                fontSize: 12),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: primaryColorOfApp, width: 0.5)),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: customTextColor, width: 0.5)),
+                            suffixIcon: GestureDetector(
+                              child: Icon(obscure
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                              onTap: () {
+                                setState(() {
+                                  obscure = !obscure;
+                                });
+                              },
+                            ),
+                            contentPadding: const EdgeInsets.all(15),
+                          ),
+                          onChanged: (value) {
+                            // do something
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                                minimumSize: const Size(140, 35),
+                                /*    minimumSize: Size(32, 30), */
+                                elevation: 0,
+                                /* padding: EdgeInsets.zero, */
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                side: const BorderSide(
+                                  color: Color(0xff0087FF),
+                                ),
+                                /*  padding:
+                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5.0))),
+                            child: const Padding(
+                              padding: EdgeInsets.all(1.0),
+                              child: Text(
+                                "Cancel",
+                                style: TextStyle(
+                                    color: Color(0xff333333),
+                                    fontSize: 12,
+                                    fontFamily: 'Poppins'),
+                              ),
+                            ),
+                          ),
+                          /*  SizedBox(
+                                              width: width * 0.03,
+                                            ), */
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(135, 35),
+                                /*  minimumSize: Size(32, 30), */
+                                elevation: 0,
+                                /* padding: EdgeInsets.zero, */
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                /*   side: const BorderSide(
+                                                    color: Color(0xff0087FF),
+                                                  ), */
+                                /*   padding:
+                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                                backgroundColor: primaryColorOfApp,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5.0))),
+                            child: const Padding(
+                              padding: EdgeInsets.all(1.0),
+                              child: Text(
+                                "Save Changes",
+                                style: TextStyle(
+                                    fontSize: 12, fontFamily: 'Poppins'),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.1,
+                      )
+                    ])),
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
+                                    height: 45, */
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+              ],
+            ),
+          );
+        });
+      });
+}
+
+buildMobile(context) {
+  Size size;
+  double height, width;
+  size = MediaQuery.of(context).size;
+  height = size.height;
+  width = size.width;
+  return showModalBottomSheet(
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        // <-- SEE HERE
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20.0),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xffE2E2E2),
+                                borderRadius: BorderRadius.circular(8)),
+                            height: 5,
+                            width: 100,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: primaryColorOfApp,
+                              )),
+                          SizedBox(
+                            width: width * 0.01,
+                          ),
+                          const Text(
+                            'Mobile',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      const Divider(),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Last Change Your Mobile Number ',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*     fontWeight: FontWeight.bold, */
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'October 30 2022 at 08:30 pm',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*      fontWeight: FontWeight.bold, */
+                                fontSize: 10),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
+                      SizedBox(
+                        height: 48,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: 7,
+                              left: 0,
+                              height: 40,
+                              width: 288,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                        width: 0.5,
+                                        color: const Color(0xff515253)),
+                                    borderRadius: BorderRadius.circular(5)),
+                                /*  width: 150,
+                      height: 150, */
+                                /*  color: Colors.green[300], */
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: width * 0.02,
+                                    ),
+                                    const Icon(
+                                      Icons.lock,
+                                      color: Color(0xff737373),
+                                    ),
+                                    SizedBox(
+                                      width: width * 0.02,
+                                    ),
+                                    Text(
+                                      '+91 8689880061',
+                                      style: TextStyle(
+                                          color: const Color(0xffC4C4C4),
+                                          fontFamily: 'Poppins',
+                                          fontSize: width * 0.06),
+                                    ),
+                                    SizedBox(
+                                      width: width * 0.27,
+                                    ),
+                                    const Icon(
+                                      Icons.check_circle_outline,
+                                      color: Color(0xff038026),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 0,
+                              left: 10,
+                              width: 170,
+                              height: 13,
+                              child: Container(
+                                /*   width: 200,
+                      height: 150, */
+                                color: Colors.white,
+                                child: const Text(
+                                  'Your 10 digit Mobile number is verified',
+                                  style: TextStyle(
+                                      color: Color(0xff515253),
+                                      fontSize: 10,
+                                      fontFamily: 'Poppins'),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'This contact won\'t be shared anyone or anywhere',
+                            style: TextStyle(
+                                color: customTextColor,
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Change your number anytime',
+                            style: TextStyle(
+                                color: Color(0xff515253),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                                /* minimumSize: Size(100, 5), */
+                                elevation: 0,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                padding: EdgeInsets.zero,
+                                tapTargetSize:
+                                    MaterialTapTargetSize.shrinkWrap),
+                            onPressed: () {},
+                            child: const Text('Change ?',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: primaryColorOfApp,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                )),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Verify again, Secure your Profile',
+                            style: TextStyle(
+                                color: Color(0xff515253),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                                /* minimumSize: Size(100, 5), */
+                                elevation: 0,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                padding: EdgeInsets.zero,
+                                tapTargetSize:
+                                    MaterialTapTargetSize.shrinkWrap),
+                            onPressed: () {},
+                            child: const Text('Verify',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: primaryColorOfApp,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                )),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
+                      SizedBox(
+                        height: height * 0.1,
+                      )
+                    ])),
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
+                                    height: 45, */
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+              ],
+            ),
+          );
+        });
+      });
+}
+
+buildEmail(context) {
+  Size size;
+  double height, width;
+  size = MediaQuery.of(context).size;
+  height = size.height;
+  width = size.width;
+  return showModalBottomSheet(
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        // <-- SEE HERE
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20.0),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xffE2E2E2),
+                                borderRadius: BorderRadius.circular(8)),
+                            height: 5,
+                            width: 100,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: primaryColorOfApp,
+                              )),
+                          SizedBox(
+                            width: width * 0.01,
+                          ),
+                          const Text(
+                            'Email',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      const Divider(),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Last Change Your Email ID',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*     fontWeight: FontWeight.bold, */
+                                fontSize: 12),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.01,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'October 30 2022 at 08:30 pm',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                /*      fontWeight: FontWeight.bold, */
+                                fontSize: 10),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
+                      SizedBox(
+                        height: 35,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            errorStyle:
+                                const TextStyle(fontSize: 8, height: 0.2),
+                            labelText: 'email id',
+                            labelStyle: const TextStyle(
+                                color: Color(0xffC4C4C4),
+                                fontFamily: 'Poppins',
+                                fontSize: 12),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: primaryColorOfApp, width: 0.5)),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                    color: customTextColor, width: 0.5)),
+                            suffixIcon: const Iconify(
+                              Bx.edit,
+                              color: Color(0xffc4c4c4),
+                            ),
+                            contentPadding: const EdgeInsets.all(15),
+                          ),
+                          onChanged: (value) {
+                            // do something
+                          },
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Your Email not verify',
+                            style: TextStyle(
+                                color: Color(0xffED1B24),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Verify and Secure your Profile',
+                            style: TextStyle(
+                                color: Color(0xff515253),
+                                fontSize: 10,
+                                fontFamily: 'Poppins'),
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                                /* minimumSize: Size(100, 5), */
+                                elevation: 0,
+                                visualDensity: const VisualDensity(vertical: -4),
+                                padding: EdgeInsets.zero,
+                                tapTargetSize:
+                                    MaterialTapTargetSize.shrinkWrap),
+                            onPressed: () {},
+                            child: const Text('Verify',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: primaryColorOfApp,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                )),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: height * 0.1,
+                      )
+                    ])),
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          /*   width: 45,
+                                    height: 45, */
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+              ],
+            ),
+          );
+        });
+      });
+}
+
+buildLoginHistory(context) {
+  Size size;
+  double height;
+  size = MediaQuery.of(context).size;
+  height = size.height;
   return showModalBottomSheet(
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -655,7 +1675,7 @@ buildLoginHistory(context) {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text(
                           'Login History',
                           style: TextStyle(
@@ -689,7 +1709,7 @@ buildLoginHistory(context) {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           'Oppo 11 Pro',
                           style: TextStyle(
@@ -711,7 +1731,7 @@ buildLoginHistory(context) {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           'be careful ',
                           style: TextStyle(
@@ -723,7 +1743,7 @@ buildLoginHistory(context) {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           'are you sure, logged in by you ? ',
                           style: TextStyle(
@@ -742,7 +1762,7 @@ buildLoginHistory(context) {
                         OutlinedButton(
                           onPressed: () {},
                           style: OutlinedButton.styleFrom(
-                              minimumSize: Size(140, 35),
+                              minimumSize: const Size(140, 35),
                               /*    minimumSize: Size(32, 30), */
                               elevation: 0,
                               /* padding: EdgeInsets.zero, */
@@ -755,9 +1775,9 @@ buildLoginHistory(context) {
                               backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: const Text(
+                          child: const Padding(
+                            padding: EdgeInsets.all(1.0),
+                            child: Text(
                               "Cancel",
                               style: TextStyle(
                                   color: Color(0xff333333),
@@ -772,7 +1792,7 @@ buildLoginHistory(context) {
                         ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              minimumSize: Size(135, 35),
+                              minimumSize: const Size(135, 35),
                               /*  minimumSize: Size(32, 30), */
                               elevation: 0,
                               /* padding: EdgeInsets.zero, */
@@ -786,9 +1806,9 @@ buildLoginHistory(context) {
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: const Text(
+                          child: const Padding(
+                            padding: EdgeInsets.all(1.0),
+                            child: Text(
                               "Log Out",
                               style: TextStyle(
                                   fontSize: 12, fontFamily: 'Poppins'),
@@ -899,8 +1919,8 @@ aboutProfile(context) {
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Text(
+                      children: const [
+                        Text(
                           '@Nanncyjain23',
                           style: TextStyle(
                               fontSize: 12,
@@ -959,7 +1979,7 @@ aboutProfile(context) {
                                                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
                                               ),
                                               title: Row(
-                                                children: [
+                                                children: const [
                                                   Text(
                                                     '@Nanncyjain23 ',
                                                     style: TextStyle(
@@ -991,8 +2011,8 @@ aboutProfile(context) {
                                               child: Column(
                                                 children: [
                                                   Row(
-                                                    children: [
-                                                      const Text(
+                                                    children: const [
+                                                      Text(
                                                         'Information about this profile',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -1007,8 +2027,8 @@ aboutProfile(context) {
                                                     height: height * 0.04,
                                                   ),
                                                   Row(
-                                                    children: [
-                                                      const Text(
+                                                    children: const [
+                                                      Text(
                                                         'this is viewer’s private profile ',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -1021,8 +2041,8 @@ aboutProfile(context) {
                                                     height: height * 0.01,
                                                   ),
                                                   Row(
-                                                    children: [
-                                                      const Text(
+                                                    children: const [
+                                                      Text(
                                                         'this profile created in 24-july-2018 ',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -1035,8 +2055,8 @@ aboutProfile(context) {
                                                     height: height * 0.01,
                                                   ),
                                                   Row(
-                                                    children: [
-                                                      const Text(
+                                                    children: const [
+                                                      Text(
                                                         'this profile created in india ',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -1049,8 +2069,8 @@ aboutProfile(context) {
                                                     height: height * 0.01,
                                                   ),
                                                   Row(
-                                                    children: [
-                                                      const Text(
+                                                    children: const [
+                                                      Text(
                                                         'this profile is verified  ',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -1069,20 +2089,20 @@ aboutProfile(context) {
                                                     height: height * 0.01,
                                                   ),
                                                   Row(
-                                                    children: [
-                                                      const Text(
+                                                    children: const [
+                                                      Text(
                                                         'this profile current rating is',
                                                         style: TextStyle(
                                                             fontFamily:
                                                                 'Poppins',
                                                             fontSize: 12),
                                                       ),
-                                                      const Icon(
+                                                      Icon(
                                                         Icons.star,
                                                         color: Colors.green,
                                                         size: 17,
                                                       ),
-                                                      const Text(
+                                                      Text(
                                                         '4.8',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -1098,8 +2118,8 @@ aboutProfile(context) {
                                                     height: height * 0.04,
                                                   ),
                                                   Row(
-                                                    children: [
-                                                      const Text(
+                                                    children: const [
+                                                      Text(
                                                         'how much would you like to ratings this profile?',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -1370,8 +2390,8 @@ aboutProfile(context) {
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
-                                              children: [
-                                                const Text(
+                                              children: const [
+                                                Text(
                                                   'share to ',
                                                   style: TextStyle(
                                                       fontSize: 12,
@@ -1532,7 +2552,7 @@ aboutProfile(context) {
                                                                           .circular(
                                                                               5.0))),
                                                       onPressed: () {},
-                                                      child: Text(
+                                                      child: const Text(
                                                         'Send',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -1644,8 +2664,8 @@ aboutProfile(context) {
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
-                                            children: [
-                                              const Text(
+                                            children: const [
+                                              Text(
                                                 'Notifications',
                                                 style: TextStyle(
                                                     fontSize: 15,
@@ -1659,7 +2679,7 @@ aboutProfile(context) {
                                               ),
                                             ],
                                           ),
-                                          Container(
+                                          SizedBox(
                                             /* color: Colors.red, */
                                             height: 48,
                                             child: Stack(
@@ -1693,7 +2713,7 @@ aboutProfile(context) {
                                                                       .only(
                                                                   left: 8.0),
                                                           child: Row(
-                                                            children: [
+                                                            children: const [
                                                               Text(
                                                                 '26548 rank ',
                                                                 style: TextStyle(
@@ -1702,13 +2722,13 @@ aboutProfile(context) {
                                                                     fontFamily:
                                                                         'Poppins'),
                                                               ),
-                                                              const Text(
+                                                              Text(
                                                                 '489659984 ',
                                                                 style: TextStyle(
                                                                     fontFamily:
                                                                         'Poppins'),
                                                               ),
-                                                              const Text(
+                                                              Text(
                                                                 'Points',
                                                                 style: TextStyle(
                                                                     fontFamily:
@@ -1754,7 +2774,7 @@ aboutProfile(context) {
                                           ),
                                           Row(
                                             children: [
-                                              Text(
+                                              const Text(
                                                 'Today',
                                                 style: TextStyle(
                                                     color: primaryColorOfApp,
@@ -1772,7 +2792,7 @@ aboutProfile(context) {
                                             ],
                                           ),
                                           const Divider(),
-                                          Container(
+                                          SizedBox(
                                             /* color: Colors.red, */
                                             height: 160,
                                             child: Stack(
@@ -1805,14 +2825,14 @@ aboutProfile(context) {
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
                                                                     .spaceBetween,
-                                                            children: [
-                                                              const Text(
+                                                            children: const [
+                                                              Text(
                                                                 'No. 1 rank',
                                                                 style: TextStyle(
                                                                     fontFamily:
                                                                         'Poppins'),
                                                               ),
-                                                              const Text(
+                                                              Text(
                                                                 '2565489659984',
                                                                 style: TextStyle(
                                                                     fontFamily:
@@ -1838,14 +2858,14 @@ aboutProfile(context) {
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
                                                                     .spaceBetween,
-                                                            children: [
-                                                              const Text(
+                                                            children: const [
+                                                              Text(
                                                                 'No. 1 rank',
                                                                 style: TextStyle(
                                                                     fontFamily:
                                                                         'Poppins'),
                                                               ),
-                                                              const Text(
+                                                              Text(
                                                                 '2565489659984',
                                                                 style: TextStyle(
                                                                     fontFamily:
@@ -1871,14 +2891,14 @@ aboutProfile(context) {
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
                                                                     .spaceBetween,
-                                                            children: [
-                                                              const Text(
+                                                            children: const [
+                                                              Text(
                                                                 'No. 1 rank',
                                                                 style: TextStyle(
                                                                     fontFamily:
                                                                         'Poppins'),
                                                               ),
-                                                              const Text(
+                                                              Text(
                                                                 '2565489659984',
                                                                 style: TextStyle(
                                                                     fontFamily:
@@ -2000,7 +3020,7 @@ aboutProfile(context) {
                       'earn points this profile',
                       style: ProfileSelf().buildtextstyle(),
                     ),
-                    leading: Iconify(
+                    leading: const Iconify(
                       EmojioneMonotone.wrapped_gift,
                       color: customTextColor,
                       size: 18,
@@ -2062,8 +3082,8 @@ aboutProfile(context) {
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
-                                              children: [
-                                                const Text(
+                                              children: const [
+                                                Text(
                                                   '@Nanncyjain23',
                                                   style: TextStyle(
                                                       fontSize: 15,
@@ -2081,8 +3101,8 @@ aboutProfile(context) {
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
-                                              children: [
-                                                const Text(
+                                              children: const [
+                                                Text(
                                                   'this profile joined multiple group ',
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
@@ -2094,8 +3114,8 @@ aboutProfile(context) {
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
-                                              children: [
-                                                const Text(
+                                              children: const [
+                                                Text(
                                                   'only showing public group ',
                                                   style: TextStyle(
                                                     fontFamily: 'Poppins',
@@ -2146,7 +3166,7 @@ aboutProfile(context) {
                                                                   'Shopping Center',
                                                                   style: ProfileSelf()
                                                                       .buildtextstyle()),
-                                                              Text(
+                                                              const Text(
                                                                 '@see-groups',
                                                                 style: TextStyle(
                                                                     color:
@@ -2314,8 +3334,8 @@ aboutProfile(context) {
                                                           fontFamily: 'Satisfy',
                                                           fontSize:
                                                               width * 0.08,
-                                                          shadows: [
-                                                            const Shadow(
+                                                          shadows: const [
+                                                            Shadow(
                                                               blurRadius: 5.0,
                                                               color: Color(
                                                                   0xff000000),
@@ -2332,7 +3352,7 @@ aboutProfile(context) {
                                                       style: OutlinedButton
                                                           .styleFrom(
                                                               elevation: 0,
-                                                              side: BorderSide(
+                                                              side: const BorderSide(
                                                                   width: 0.5,
                                                                   color:
                                                                       primaryColorOfApp),
@@ -2350,7 +3370,7 @@ aboutProfile(context) {
                                                                           .circular(
                                                                               5.0))),
                                                       onPressed: () {},
-                                                      child: Text(
+                                                      child: const Text(
                                                         'follow',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -2390,8 +3410,8 @@ aboutProfile(context) {
                                                           const EdgeInsets.all(
                                                               8.0),
                                                       child: Column(
-                                                        children: [
-                                                          const Iconify(
+                                                        children: const [
+                                                          Iconify(
                                                             Bi.qr_code,
                                                             size: 140,
                                                           ),
@@ -2416,8 +3436,8 @@ aboutProfile(context) {
                                               padding: const EdgeInsets.only(
                                                   left: 28.0),
                                               child: Row(
-                                                children: [
-                                                  const Text(
+                                                children: const [
+                                                  Text(
                                                     'LOGIN:',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
@@ -2447,13 +3467,13 @@ aboutProfile(context) {
                                                         .spaceBetween,
                                                 children: [
                                                   Column(
-                                                    children: [
+                                                    children: const [
                                                       Icon(
                                                         Icons.download,
                                                         color:
                                                             primaryColorOfApp,
                                                       ),
-                                                      const Text(
+                                                      Text(
                                                           'download QR code')
                                                     ],
                                                   ),
@@ -2573,8 +3593,8 @@ aboutProfile(context) {
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
-                                              children: [
-                                                const Text(
+                                              children: const [
+                                                Text(
                                                   '@Nanncyjain23',
                                                   style: TextStyle(
                                                       fontSize: 15,
@@ -2854,8 +3874,8 @@ aboutProfile(context) {
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
-                                              children: [
-                                                const Text(
+                                              children: const [
+                                                Text(
                                                   '@Nanncyjain23',
                                                   style: TextStyle(
                                                       fontSize: 15,
@@ -3063,7 +4083,7 @@ aboutProfile(context) {
                                                                   BorderRadius
                                                                       .circular(
                                                                           5.0))),
-                                                  child: Text(
+                                                  child: const Text(
                                                     "Block & report",
                                                     style: TextStyle(
                                                         fontWeight:

@@ -44,7 +44,7 @@ class _Interaction1State extends State<Interaction1> {
           /*   leadingWidth: 8, */
           elevation: 0,
           backgroundColor: Colors.white,
-          title: Text('Interactions',
+          title: const Text('Interactions',
               style: TextStyle(
                 fontFamily: 'Poppins',
                 color: Color(0xff333333),
@@ -53,11 +53,11 @@ class _Interaction1State extends State<Interaction1> {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: IconButton(
                 padding: EdgeInsets.zero,
-                constraints: BoxConstraints(),
+                constraints: const BoxConstraints(),
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back,
                   color: primaryColorOfApp,
                 )),
@@ -69,16 +69,16 @@ class _Interaction1State extends State<Interaction1> {
             
             ButtonsTabBar(
               borderWidth: 1,
-              buttonMargin: EdgeInsets.all(6),
+              buttonMargin: const EdgeInsets.all(6),
               borderColor: primaryColorOfApp,
               unselectedBorderColor: primaryColorOfApp,
-              contentPadding: EdgeInsets.symmetric(horizontal: 24),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 24),
               radius: 20,
-              backgroundColor: Color(0xff0087FF),
-              unselectedBackgroundColor: Color(0xffFFFFFF),
-              unselectedLabelStyle: TextStyle(color: Color(0xff0087FF)),
-              labelStyle: TextStyle(color: Colors.white, fontFamily: 'Poppins'),
-              tabs: [
+              backgroundColor: const Color(0xff0087FF),
+              unselectedBackgroundColor: const Color(0xffFFFFFF),
+              unselectedLabelStyle: const TextStyle(color: Color(0xff0087FF)),
+              labelStyle: const TextStyle(color: Colors.white, fontFamily: 'Poppins'),
+              tabs: const [
                 Tab(
                   text: "Viewed me",
                 ),
@@ -99,7 +99,7 @@ class _Interaction1State extends State<Interaction1> {
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text(
                               'Visit Your Profile',
                               style: TextStyle(
@@ -110,11 +110,11 @@ class _Interaction1State extends State<Interaction1> {
                           ],
                         ),
                       ),
-                      Divider(),
+                      const Divider(),
                       Expanded(
                         child: ListView.separated(
                             separatorBuilder: (context, index) {
-                              return Divider();
+                              return const Divider();
                             },
                             shrinkWrap: true,
                             itemCount: images.length,
@@ -140,7 +140,7 @@ class _Interaction1State extends State<Interaction1> {
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
-                                                children: [
+                                                children: const [
                                                   Text(
                                                     '@abdcprofile',
                                                     style: TextStyle(
@@ -204,7 +204,7 @@ class _Interaction1State extends State<Interaction1> {
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text(
                               'Your Survey Post',
                               style: TextStyle(
@@ -215,11 +215,11 @@ class _Interaction1State extends State<Interaction1> {
                           ],
                         ),
                       ),
-                      Divider(),
+                      const Divider(),
                       Expanded(
                         child: ListView.separated(
                             separatorBuilder: (context, index) {
-                              return Divider();
+                              return const Divider();
                             },
                             shrinkWrap: true,
                             itemCount: images.length,
@@ -258,7 +258,7 @@ class _Interaction1State extends State<Interaction1> {
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
-                                                children: [
+                                                children: const [
                                                   Text(
                                                     '@abdcprofile',
                                                     style: TextStyle(
@@ -286,7 +286,7 @@ class _Interaction1State extends State<Interaction1> {
                                             )
                                           ],
                                         ),
-                                        Iconify(
+                                        const Iconify(
                                           Eva.arrow_right_fill,
                                           size: 15,
                                           color: Color(0xff333333),
@@ -306,7 +306,7 @@ class _Interaction1State extends State<Interaction1> {
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text(
                               'Likes Your Post',
                               style: TextStyle(
@@ -317,11 +317,11 @@ class _Interaction1State extends State<Interaction1> {
                           ],
                         ),
                       ),
-                      Divider(),
+                      const Divider(),
                       Expanded(
                         child: ListView.separated(
                             separatorBuilder: (context, index) {
-                              return Divider();
+                              return const Divider();
                             },
                             shrinkWrap: true,
                             itemCount: images.length,
@@ -354,7 +354,7 @@ class _Interaction1State extends State<Interaction1> {
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
-                                                children: [
+                                                children: const [
                                                   Text(
                                                     '@abdcprofile',
                                                     style: TextStyle(
@@ -382,7 +382,7 @@ class _Interaction1State extends State<Interaction1> {
                                             )
                                           ],
                                         ),
-                                        Iconify(
+                                        const Iconify(
                                           Eva.arrow_right_fill,
                                           size: 15,
                                           color: Color(0xff333333),

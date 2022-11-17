@@ -10,12 +10,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/ooui.dart';
-import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
-import 'package:provider/provider.dart';
 
-import '../GOOGLE LOGIN/googleprovider.dart';
 
 class Home1 extends StatefulWidget {
   const Home1({super.key});
@@ -50,6 +47,7 @@ class _Home1State extends State<Home1> {
   late ScrollController controller;
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     controller = ScrollController();
@@ -58,6 +56,7 @@ class _Home1State extends State<Home1> {
   @override
   void dispose() {
     controller.dispose();
+    // ignore: todo
     // TODO: implement dispose
     super.dispose();
   }
@@ -78,13 +77,11 @@ class _Home1State extends State<Home1> {
 
   @override
   Widget build(BuildContext context) {
-    
-    
     Size size = MediaQuery.of(context).size;
-   double height = size.height ,width = size.width;
+    double height = size.height, width = size.width;
 
     return Scaffold(
-        backgroundColor: Color(0xffc4c4c4),
+        backgroundColor: const Color(0xffc4c4c4),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,
@@ -106,8 +103,8 @@ class _Home1State extends State<Home1> {
                   color: const Color(0xff0B1C3D),
                   fontFamily: 'Satisfy',
                   fontSize: width * 0.08,
-                  shadows: [
-                    const Shadow(
+                  shadows: const [
+                    Shadow(
                       blurRadius: 8.0,
                       color: Color(0xff2C81F8),
                       offset: Offset(1.0, 1.0),
@@ -119,22 +116,22 @@ class _Home1State extends State<Home1> {
           ),
           actions: [
             Container(
-                margin: EdgeInsets.all(0),
-                padding: EdgeInsets.all(5),
+                margin: const EdgeInsets.all(0),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
 
                     /*   borderRadius: BorderRadius.circular(40), */
                     border: Border.all(width: 1, color: primaryColorOfApp)),
                 child: IconButton(
-                    padding: EdgeInsets.all(0),
-                    constraints: BoxConstraints(),
+                    padding: const EdgeInsets.all(0),
+                    constraints: const BoxConstraints(),
                     onPressed: () {
                       /*  final provider =
                           Provider.of<Googleprovider>(context, listen: false);
                       provider.logout(); */
                     },
-                    icon: Iconify(
+                    icon: const Iconify(
                       Bi.qr_code_scan,
                       size: 20,
                       color: iconColor,
@@ -143,18 +140,18 @@ class _Home1State extends State<Home1> {
               width: width * 0.01,
             ),
             Container(
-                margin: EdgeInsets.all(0),
-                padding: EdgeInsets.all(5),
+                margin: const EdgeInsets.all(0),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
 
                     /*   borderRadius: BorderRadius.circular(40), */
                     border: Border.all(width: 1, color: primaryColorOfApp)),
                 child: IconButton(
-                    padding: EdgeInsets.all(0),
-                    constraints: BoxConstraints(),
+                    padding: const EdgeInsets.all(0),
+                    constraints: const BoxConstraints(),
                     onPressed: () {},
-                    icon: Iconify(
+                    icon: const Iconify(
                       Ooui.bell,
                       size: 20,
                       color: iconColor,
@@ -163,19 +160,21 @@ class _Home1State extends State<Home1> {
               width: width * 0.01,
             ),
             Container(
-                margin: EdgeInsets.all(0),
-                padding: EdgeInsets.all(5),
+                margin: const EdgeInsets.all(0),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
 
                     /*   borderRadius: BorderRadius.circular(40), */
                     border: Border.all(width: 1, color: primaryColorOfApp)),
                 child: IconButton(
-                    padding: EdgeInsets.all(0),
-                    constraints: BoxConstraints(),
+                    padding: const EdgeInsets.all(0),
+                    constraints: const BoxConstraints(),
                     onPressed: () {},
                     icon: SvgPicture.asset(
+                      
                       'assets/c2c.svg',
+                      
                       width: 18,
                       height: 18,
                     ))),
@@ -195,10 +194,10 @@ class _Home1State extends State<Home1> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 5),
                   child: ListView.separated(
-                      physics: ClampingScrollPhysics(),
+                      physics: const ClampingScrollPhysics(),
                       shrinkWrap: true,
                       separatorBuilder: (context, index) {
-                        return SizedBox(
+                        return const SizedBox(
                           width: 10,
                         );
                       },
@@ -210,13 +209,13 @@ class _Home1State extends State<Home1> {
                             children: [
                               Stack(children: [
                                 Container(
-                                    padding: EdgeInsets.all(5),
+                                    padding: const EdgeInsets.all(5),
                                     decoration: BoxDecoration(
                                       border: Border.all(
                                           width: 2, color: primaryColorOfApp),
                                       shape: BoxShape.circle,
                                     ),
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.person,
                                       color: Color(0xffc4c4c4),
                                       size: 40,
@@ -226,26 +225,26 @@ class _Home1State extends State<Home1> {
                                   left: 30,
                                   child: Container(
                                       height: 20,
-                                      margin: EdgeInsets.all(0),
-                                      padding: EdgeInsets.all(0),
+                                      margin: const EdgeInsets.all(0),
+                                      padding: const EdgeInsets.all(0),
                                       decoration: BoxDecoration(
                                           border: Border.all(width: 2),
                                           shape: BoxShape.circle,
                                           color: primaryColorOfApp),
                                       child: IconButton(
-                                          padding: EdgeInsets.all(0),
-                                          constraints: BoxConstraints(),
+                                          padding: const EdgeInsets.all(0),
+                                          constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: Icon(
+                                          icon: const Icon(
                                             Icons.add,
                                             size: 15,
                                           ))),
                                 )
                               ]),
-                              SizedBox(
+                              const SizedBox(
                                 height: 2,
                               ),
-                              Text(
+                              const Text(
                                 'Add Story',
                                 style: TextStyle(
                                     color: primaryColorOfApp,
@@ -258,7 +257,7 @@ class _Home1State extends State<Home1> {
                           return Column(
                             children: [
                               Container(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 decoration: BoxDecoration(
                                   border: Border.all(
                                       width: 2, color: primaryColorOfApp),
@@ -271,12 +270,12 @@ class _Home1State extends State<Home1> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 2,
                               ),
                               Text(
                                 names[index],
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: customTextColor,
                                     fontFamily: 'Poppins',
                                     fontSize: 10),
@@ -295,8 +294,8 @@ class _Home1State extends State<Home1> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Row(children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 5.0),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 5.0),
                             child: CircleAvatar(
                               radius: 23,
                               backgroundColor: primaryColorOfApp,
@@ -312,13 +311,13 @@ class _Home1State extends State<Home1> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 3.0),
-                            child: Container(
+                            padding: const EdgeInsets.only(left: 3.0),
+                            child: SizedBox(
                               width: 140,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Text('Sponsered by',
+                                  const Text('Sponsered by',
                                       style: TextStyle(
                                           fontFamily: 'Poppins', fontSize: 10)),
                                   InkWell(
@@ -327,10 +326,10 @@ class _Home1State extends State<Home1> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                PeopleProfile()),
+                                                const PeopleProfile()),
                                       );
                                     },
-                                    child: Text('@SPIDER-MAN',
+                                    child: const Text('@SPIDER-MAN',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
@@ -346,7 +345,7 @@ class _Home1State extends State<Home1> {
                         ),
                         OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                                side: BorderSide(color: primaryColorOfApp),
+                                side: const BorderSide(color: primaryColorOfApp),
                                 padding: EdgeInsets.zero,
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                 elevation: 0,
@@ -357,17 +356,17 @@ class _Home1State extends State<Home1> {
                                 backgroundColor: primaryColorOfApp,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5.0))),
-                            onPressed: () {},
-                            child: Text(
+                            onPressed: (){},
+                            child: const Text(
                               'Follow',
                               style: TextStyle(
                                   fontFamily: 'Poppins', fontSize: 12),
                             )),
-                        IconButton(
+                            IconButton(
                             padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
+                            constraints: const BoxConstraints(),
                             onPressed: () {},
-                            icon: Icon(Icons.more_vert)),
+                            icon: const Icon(Icons.more_vert)),
                       ],
                     ),
                     Padding(
@@ -375,7 +374,7 @@ class _Home1State extends State<Home1> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(5),
                         child: Image.network(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QprGHP-E72bJzurFg83woK-h_i4Fu0WPfQ&usqp=CAU',
+                          'https://cdn.zeebiz.com/sites/default/files/styles/zeebiz_850x478/public/2022/09/11/199737-bramhastra-tw.jpg?itok=nGR3gI8o ',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -400,7 +399,7 @@ class _Home1State extends State<Home1> {
                               SizedBox(
                                 height: height * 0.01,
                               ),
-                              Text(
+                              const Text(
                                 'Like 67k',
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 8),
@@ -425,7 +424,7 @@ class _Home1State extends State<Home1> {
                               SizedBox(
                                 height: height * 0.013,
                               ),
-                              Text(
+                              const Text(
                                 'Share 10k',
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 8),
@@ -435,24 +434,24 @@ class _Home1State extends State<Home1> {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
-                          Text(
+                          const Text(
                             "100M+",
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 13,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text(
+                          const Text(
                             "Views",
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 15,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 30,
                           ),
                           SizedBox(
@@ -473,8 +472,8 @@ class _Home1State extends State<Home1> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(5.0))),
-                              child: Padding(
-                                padding: const EdgeInsets.all(1.0),
+                              child: const Padding(
+                                padding: EdgeInsets.all(1.0),
                                 child: Text(
                                   "Book Now",
                                   style: TextStyle(
@@ -495,7 +494,7 @@ class _Home1State extends State<Home1> {
               Flexible(
                 child: ListView.builder(
                     /* controller: controller, */
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     itemCount: userlist.length,
@@ -532,7 +531,7 @@ class _Home1State extends State<Home1> {
                                             ),
                                           ),
                                         ),
-                                        Positioned(
+                                        const Positioned(
                                           top: 30,
                                           child: CircleAvatar(
                                             radius: 5,
@@ -548,18 +547,18 @@ class _Home1State extends State<Home1> {
                                         Row(
                                           children: [
                                             Text(userlist[index].username,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 10,
                                                     fontWeight:
                                                         FontWeight.bold)),
                                             Text(userlist[index].userId,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 10,
                                                     color: primaryColorOfApp)),
                                             Text(userlist[index].status,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 10,
                                                     color: Color(0xff08A434))),
@@ -568,12 +567,12 @@ class _Home1State extends State<Home1> {
                                         Row(
                                           children: [
                                             Text(userlist[index].location,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 10,
                                                 )),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
+                                            const Padding(
+                                              padding: EdgeInsets.only(
                                                   left: 5.0),
                                               child: Iconify(
                                                 Ri.share_box_line,
@@ -599,7 +598,7 @@ class _Home1State extends State<Home1> {
                                                               0xff0087FF),
                                                     ),
                                                     onPressed: followLink,
-                                                    child: Text(
+                                                    child: const Text(
                                                       'https://myttube.com',
                                                       style: TextStyle(
                                                           fontFamily: 'Poppins',
@@ -618,7 +617,7 @@ class _Home1State extends State<Home1> {
                               ), */
                                     OutlinedButton(
                                         style: OutlinedButton.styleFrom(
-                                            side: BorderSide(
+                                            side: const BorderSide(
                                                 color: primaryColorOfApp),
                                             padding: EdgeInsets.zero,
                                             tapTargetSize: MaterialTapTargetSize
@@ -633,7 +632,7 @@ class _Home1State extends State<Home1> {
                                                     BorderRadius.circular(
                                                         5.0))),
                                         onPressed: () {},
-                                        child: Text(
+                                        child: const Text(
                                           'following',
                                           style: TextStyle(
                                               fontFamily: 'Poppins',
@@ -644,9 +643,9 @@ class _Home1State extends State<Home1> {
                               ), */
                                     IconButton(
                                         padding: EdgeInsets.zero,
-                                        constraints: BoxConstraints(),
+                                        constraints: const BoxConstraints(),
                                         onPressed: () {},
-                                        icon: Icon(Icons.more_vert)),
+                                        icon: const Icon(Icons.more_vert)),
                                   ]),
                               Padding(
                                 padding: const EdgeInsets.only(top: 2.0),
@@ -672,7 +671,7 @@ class _Home1State extends State<Home1> {
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Like',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -683,7 +682,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                       Text(
                                         userlist[index].likecount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10),
                                       ),
@@ -699,7 +698,7 @@ class _Home1State extends State<Home1> {
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Comments',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -710,7 +709,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                       Text(
                                         userlist[index].commentcount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10),
                                       ),
@@ -726,7 +725,7 @@ class _Home1State extends State<Home1> {
                                       SizedBox(
                                         height: height * 0.015,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Share',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -737,7 +736,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                       Text(
                                         userlist[index].sharecount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10),
                                       ),
@@ -748,16 +747,16 @@ class _Home1State extends State<Home1> {
                                     children: [
                                       IconButton(
                                           padding: EdgeInsets.zero,
-                                          constraints: BoxConstraints(),
+                                          constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: Iconify(
+                                          icon: const Iconify(
                                             EmojioneMonotone.wrapped_gift,
                                             color: primaryColorOfApp,
                                           )),
                                       SizedBox(
                                         height: height * 0.015,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Gift',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -768,7 +767,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                       Text(
                                         userlist[index].giftcount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10),
                                       ),
@@ -780,7 +779,7 @@ class _Home1State extends State<Home1> {
                                         const EdgeInsets.only(bottom: 30.0),
                                     child: Text(
                                       userlist[index].viewcount.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'Poppins',
                                           fontSize: 10,
                                           fontWeight: FontWeight.bold),
@@ -794,13 +793,13 @@ class _Home1State extends State<Home1> {
                                     children: [
                                       IconButton(
                                           padding: EdgeInsets.zero,
-                                          constraints: BoxConstraints(),
+                                          constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: Iconify(Bi.bookmark_star)),
+                                          icon: const Iconify(Bi.bookmark_star)),
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Save',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -809,7 +808,7 @@ class _Home1State extends State<Home1> {
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
-                                      Text(
+                                      const Text(
                                         '' /* userlist[index].giftcount.toString() */,
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -825,7 +824,7 @@ class _Home1State extends State<Home1> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     RichText(
-                                      text: TextSpan(
+                                      text: const TextSpan(
                                           text: '#Timepass',
                                           style: TextStyle(
                                               color: Colors.black, fontSize: 9),
@@ -855,14 +854,14 @@ class _Home1State extends State<Home1> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Row(
-                                      children: [
+                                      children: const [
                                         Iconify(
                                           Bi.check_circle_fill,
                                           color: Colors.red,
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 2.0),
+                                              EdgeInsets.only(left: 2.0),
                                           child: Text(
                                             'boat',
                                             style: TextStyle(
@@ -873,7 +872,7 @@ class _Home1State extends State<Home1> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 2.0),
+                                              EdgeInsets.only(left: 2.0),
                                           child: Text(
                                             'Sponsered',
                                             style: TextStyle(
@@ -889,16 +888,16 @@ class _Home1State extends State<Home1> {
                                     padding: const EdgeInsets.only(right: 8.0),
                                     child: IconButton(
                                         padding: EdgeInsets.zero,
-                                        constraints: BoxConstraints(),
+                                        constraints: const BoxConstraints(),
                                         onPressed: () {},
-                                        icon: Icon(Icons.more_vert)),
+                                        icon: const Icon(Icons.more_vert)),
                                   )
                                 ],
                               ),
                               Stack(
                                 alignment: Alignment.bottomCenter,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     width: double.infinity,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(5),
@@ -929,8 +928,8 @@ class _Home1State extends State<Home1> {
                                               borderRadius:
                                                   BorderRadius.circular(5.0))),
                                       child: Row(
-                                        children: [
-                                          const Text(
+                                        children: const [
+                                          Text(
                                             "Shop Now",
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -959,8 +958,8 @@ class _Home1State extends State<Home1> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 2.0),
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 2.0),
                                       child: CircleAvatar(
                                         radius: 23,
                                         backgroundColor: Color(0xff0A8794),
@@ -982,7 +981,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                     ),
                                     Row(
-                                      children: [
+                                      children: const [
                                         Text('Furniture',
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
@@ -1001,7 +1000,7 @@ class _Home1State extends State<Home1> {
                               ), */
                                     OutlinedButton(
                                         style: OutlinedButton.styleFrom(
-                                            side: BorderSide(
+                                            side: const BorderSide(
                                                 color: primaryColorOfApp),
                                             padding: EdgeInsets.zero,
                                             tapTargetSize: MaterialTapTargetSize
@@ -1017,7 +1016,7 @@ class _Home1State extends State<Home1> {
                                                     BorderRadius.circular(
                                                         5.0))),
                                         onPressed: () {},
-                                        child: Text(
+                                        child: const Text(
                                           'follow',
                                           style: TextStyle(
                                               fontFamily: 'Poppins',
@@ -1028,15 +1027,15 @@ class _Home1State extends State<Home1> {
                               ), */
                                     IconButton(
                                         padding: EdgeInsets.zero,
-                                        constraints: BoxConstraints(),
+                                        constraints: const BoxConstraints(),
                                         onPressed: () {},
-                                        icon: Icon(Icons.more_vert)),
+                                        icon: const Icon(Icons.more_vert)),
                                   ]),
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
+                                  children: const [
                                     Text(
                                         'Avail up to 50% additional discount on best furniture in the ..',
                                         style: TextStyle(
@@ -1067,7 +1066,7 @@ class _Home1State extends State<Home1> {
                                           MaterialTapTargetSize.shrinkWrap,
                                       elevation: 0,
                                       foregroundColor: Colors.white,
-                                      backgroundColor: Color(0xff0C616A),
+                                      backgroundColor: const Color(0xff0C616A),
                                     ),
                                     onPressed: () {},
                                     child: Padding(
@@ -1075,7 +1074,7 @@ class _Home1State extends State<Home1> {
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: [
+                                        children: const [
                                           Text(
                                             'Order Now',
                                             style: TextStyle(
@@ -1109,7 +1108,7 @@ class _Home1State extends State<Home1> {
                                         ),
                                         Row(
                                           children: [
-                                            Text(
+                                            const Text(
                                               'Like',
                                               style: TextStyle(
                                                   fontFamily: 'Poppins',
@@ -1119,7 +1118,7 @@ class _Home1State extends State<Home1> {
                                               userlist[index]
                                                   .likecount
                                                   .toString(),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 10),
                                             ),
@@ -1138,7 +1137,7 @@ class _Home1State extends State<Home1> {
                                         ),
                                         Row(
                                           children: [
-                                            Text(
+                                            const Text(
                                               'Share',
                                               style: TextStyle(
                                                   fontFamily: 'Poppins',
@@ -1148,7 +1147,7 @@ class _Home1State extends State<Home1> {
                                               userlist[index]
                                                   .sharecount
                                                   .toString(),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 10),
                                             ),
@@ -1168,7 +1167,7 @@ class _Home1State extends State<Home1> {
                                         ),
                                         Row(
                                           children: [
-                                            Text(
+                                            const Text(
                                               'Comments',
                                               style: TextStyle(
                                                   fontFamily: 'Poppins',
@@ -1178,7 +1177,7 @@ class _Home1State extends State<Home1> {
                                               userlist[index]
                                                   .commentcount
                                                   .toString(),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 10),
                                             ),
@@ -1191,7 +1190,7 @@ class _Home1State extends State<Home1> {
                                           const EdgeInsets.only(bottom: 30.0),
                                       child: Text(
                                         userlist[index].viewcount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
                                             fontWeight: FontWeight.bold),
@@ -1211,7 +1210,7 @@ class _Home1State extends State<Home1> {
                                           height: height * 0.01,
                                         ),
                                         Row(
-                                          children: [
+                                          children: const [
                                             Text(
                                               'Save',
                                               style: TextStyle(
@@ -1268,7 +1267,7 @@ class _Home1State extends State<Home1> {
                                             ),
                                           ),
                                         ),
-                                        Positioned(
+                                        const Positioned(
                                           top: 30,
                                           child: CircleAvatar(
                                             radius: 5,
@@ -1283,19 +1282,19 @@ class _Home1State extends State<Home1> {
                                       children: [
                                         Row(
                                           children: [
-                                            Text('nyraa grover',
+                                            const Text('nyraa grover',
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 10,
                                                     fontWeight:
                                                         FontWeight.bold)),
-                                            Text('@nyra_kameover',
+                                            const Text('@nyra_kameover',
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 10,
                                                     color: primaryColorOfApp)),
                                             Text(userlist[index].status,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 10,
                                                     color: Color(0xff08A434))),
@@ -1304,12 +1303,12 @@ class _Home1State extends State<Home1> {
                                         Row(
                                           children: [
                                             Text(userlist[index].location,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 10,
                                                 )),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
+                                            const Padding(
+                                              padding: EdgeInsets.only(
                                                   left: 5.0),
                                               child: Iconify(
                                                 Ri.share_box_line,
@@ -1335,7 +1334,7 @@ class _Home1State extends State<Home1> {
                                                               0xff0087FF),
                                                     ),
                                                     onPressed: followLink,
-                                                    child: Text(
+                                                    child: const Text(
                                                       'https://myttube.com',
                                                       style: TextStyle(
                                                           fontFamily: 'Poppins',
@@ -1354,7 +1353,7 @@ class _Home1State extends State<Home1> {
                               ), */
                                     OutlinedButton(
                                         style: OutlinedButton.styleFrom(
-                                            side: BorderSide(
+                                            side: const BorderSide(
                                                 color: primaryColorOfApp),
                                             padding: EdgeInsets.zero,
                                             tapTargetSize: MaterialTapTargetSize
@@ -1369,7 +1368,7 @@ class _Home1State extends State<Home1> {
                                                     BorderRadius.circular(
                                                         5.0))),
                                         onPressed: () {},
-                                        child: Text(
+                                        child: const Text(
                                           'following',
                                           style: TextStyle(
                                               fontFamily: 'Poppins',
@@ -1380,9 +1379,9 @@ class _Home1State extends State<Home1> {
                               ), */
                                     IconButton(
                                         padding: EdgeInsets.zero,
-                                        constraints: BoxConstraints(),
+                                        constraints: const BoxConstraints(),
                                         onPressed: () {},
-                                        icon: Icon(Icons.more_vert)),
+                                        icon: const Icon(Icons.more_vert)),
                                   ]),
                               Padding(
                                 padding: const EdgeInsets.only(top: 2.0),
@@ -1408,7 +1407,7 @@ class _Home1State extends State<Home1> {
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Like',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -1419,7 +1418,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                       Text(
                                         userlist[index].likecount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10),
                                       ),
@@ -1435,7 +1434,7 @@ class _Home1State extends State<Home1> {
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Comments',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -1446,7 +1445,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                       Text(
                                         userlist[index].commentcount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10),
                                       ),
@@ -1462,7 +1461,7 @@ class _Home1State extends State<Home1> {
                                       SizedBox(
                                         height: height * 0.015,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Share',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -1473,7 +1472,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                       Text(
                                         userlist[index].sharecount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10),
                                       ),
@@ -1484,16 +1483,16 @@ class _Home1State extends State<Home1> {
                                     children: [
                                       IconButton(
                                           padding: EdgeInsets.zero,
-                                          constraints: BoxConstraints(),
+                                          constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: Iconify(
+                                          icon: const Iconify(
                                             EmojioneMonotone.wrapped_gift,
                                             color: primaryColorOfApp,
                                           )),
                                       SizedBox(
                                         height: height * 0.015,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Gift',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -1504,7 +1503,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                       Text(
                                         userlist[index].giftcount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10),
                                       ),
@@ -1516,7 +1515,7 @@ class _Home1State extends State<Home1> {
                                         const EdgeInsets.only(bottom: 30.0),
                                     child: Text(
                                       userlist[index].viewcount.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'Poppins',
                                           fontSize: 10,
                                           fontWeight: FontWeight.bold),
@@ -1530,13 +1529,13 @@ class _Home1State extends State<Home1> {
                                     children: [
                                       IconButton(
                                           padding: EdgeInsets.zero,
-                                          constraints: BoxConstraints(),
+                                          constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: Iconify(Bi.bookmark_star)),
+                                          icon: const Iconify(Bi.bookmark_star)),
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
-                                      Text(
+                                      const Text(
                                         'Save',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -1545,7 +1544,7 @@ class _Home1State extends State<Home1> {
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
-                                      Text(
+                                      const Text(
                                         '' /* userlist[index].giftcount.toString() */,
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -1561,7 +1560,7 @@ class _Home1State extends State<Home1> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     RichText(
-                                      text: TextSpan(
+                                      text: const TextSpan(
                                           text: '#Timepass',
                                           style: TextStyle(
                                               color: Colors.black, fontSize: 9),
@@ -1591,14 +1590,14 @@ class _Home1State extends State<Home1> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Row(
-                                      children: [
+                                      children: const [
                                         Iconify(
                                           Bi.check_circle_fill,
                                           color: Color(0xffFD6B06),
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 2.0),
+                                              EdgeInsets.only(left: 2.0),
                                           child: Text(
                                             'Xiaomi',
                                             style: TextStyle(
@@ -1609,7 +1608,7 @@ class _Home1State extends State<Home1> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 2.0),
+                                              EdgeInsets.only(left: 2.0),
                                           child: Text(
                                             'Sponsered',
                                             style: TextStyle(
@@ -1625,15 +1624,15 @@ class _Home1State extends State<Home1> {
                                     padding: const EdgeInsets.only(right: 8.0),
                                     child: IconButton(
                                         padding: EdgeInsets.zero,
-                                        constraints: BoxConstraints(),
+                                        constraints: const BoxConstraints(),
                                         onPressed: () {},
-                                        icon: Icon(Icons.more_vert)),
+                                        icon: const Icon(Icons.more_vert)),
                                   )
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     height: 150,
                                     width: 150,
                                     child: ClipRRect(
@@ -1644,13 +1643,13 @@ class _Home1State extends State<Home1> {
                                       ),
                                     ),
                                   ),
-                                  VerticalDivider(
+                                  const VerticalDivider(
                                     width: 5,
                                   ),
                                   Stack(
                                     alignment: Alignment.bottomLeft,
                                     children: [
-                                      Container(
+                                      SizedBox(
                                         height: 150,
                                         width: 150,
                                         child: ClipRRect(
@@ -1670,18 +1669,18 @@ class _Home1State extends State<Home1> {
                                               elevation: 0,
                                               minimumSize: const Size(150, 40),
                                               backgroundColor:
-                                                  Color(0xffFD6B06),
+                                                  const Color(0xffFD6B06),
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.0))),
-                                          child: Container(
+                                          child: SizedBox(
                                             width: 120,
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
-                                              children: [
-                                                const Text(
+                                              children: const [
+                                                Text(
                                                   "Shop Now",
                                                   style: TextStyle(
                                                       color: Colors.white,
@@ -1712,7 +1711,7 @@ class _Home1State extends State<Home1> {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             'Suggested for you',
                             style: TextStyle(
@@ -1732,7 +1731,7 @@ class _Home1State extends State<Home1> {
                       height: 220,
                       child: ListView.separated(
                           separatorBuilder: (context, index) {
-                            return VerticalDivider(
+                            return const VerticalDivider(
                               color: Colors.white,
                               width: 5,
                             );
@@ -1743,16 +1742,14 @@ class _Home1State extends State<Home1> {
                             return Stack(
                               alignment: Alignment.topCenter,
                               children: [
-                                Container(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(5),
-                                    child: Image.network(
-                                      userlist[index].image,
-                                      height: 200,
-                                      width: 100,
-                                      fit: BoxFit.cover,
-                                      colorBlendMode: BlendMode.darken,
-                                    ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(5),
+                                  child: Image.network(
+                                    userlist[index].image,
+                                    height: 200,
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                    colorBlendMode: BlendMode.darken,
                                   ),
                                 ),
                                 Positioned(
@@ -1773,7 +1770,7 @@ class _Home1State extends State<Home1> {
                                 Positioned(
                                   top: 70,
                                   child: Text(userlist[index].userId,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w400,
@@ -1782,12 +1779,12 @@ class _Home1State extends State<Home1> {
                                 Positioned(
                                   top: 85,
                                   child: Text(userlist[index].username,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w600)),
                                 ),
-                                Positioned(
+                                const Positioned(
                                   top: 145,
                                   child: Text('Suggested for you',
                                       style: TextStyle(
@@ -1800,7 +1797,7 @@ class _Home1State extends State<Home1> {
                                   top: 165,
                                   child: OutlinedButton(
                                       style: OutlinedButton.styleFrom(
-                                          side: BorderSide(
+                                          side: const BorderSide(
                                               color: primaryColorOfApp),
                                           padding: EdgeInsets.zero,
                                           tapTargetSize:
@@ -1815,7 +1812,7 @@ class _Home1State extends State<Home1> {
                                               borderRadius:
                                                   BorderRadius.circular(5.0))),
                                       onPressed: () {},
-                                      child: Text(
+                                      child: const Text(
                                         'Follow',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
@@ -1859,7 +1856,7 @@ class _Home1State extends State<Home1> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
-                                      children: [
+                                      children: const [
                                         Text('flipKart',
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
@@ -1873,7 +1870,7 @@ class _Home1State extends State<Home1> {
                                         ),
                                       ],
                                     ),
-                                    Text('Sponsored',
+                                    const Text('Sponsored',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
@@ -1888,7 +1885,7 @@ class _Home1State extends State<Home1> {
                           ),
                           OutlinedButton(
                               style: OutlinedButton.styleFrom(
-                                  side: BorderSide(color: primaryColorOfApp),
+                                  side: const BorderSide(color: primaryColorOfApp),
                                   padding: EdgeInsets.zero,
                                   tapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap,
@@ -1902,25 +1899,25 @@ class _Home1State extends State<Home1> {
                                       borderRadius:
                                           BorderRadius.circular(5.0))),
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 'follow',
                                 style: TextStyle(
                                     fontFamily: 'Poppins', fontSize: 12),
                               )),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           IconButton(
                               padding: EdgeInsets.zero,
-                              constraints: BoxConstraints(),
+                              constraints: const BoxConstraints(),
                               onPressed: () {},
-                              icon: Icon(Icons.more_vert)),
+                              icon: const Icon(Icons.more_vert)),
                         ]),
                     SizedBox(
                       height: 150,
                       child: ListView.separated(
                           separatorBuilder: (context, index) {
-                            return VerticalDivider(
+                            return const VerticalDivider(
                               /*     color: Colors.white, */
                               width: 5,
                             );
@@ -1942,7 +1939,7 @@ class _Home1State extends State<Home1> {
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: [
+                                        children: const [
                                           Text('Boats',
                                               style: TextStyle(
                                                   fontFamily: 'Poppins',
@@ -1962,7 +1959,7 @@ class _Home1State extends State<Home1> {
                                       ),
                                       OutlinedButton(
                                           style: OutlinedButton.styleFrom(
-                                              side: BorderSide(
+                                              side: const BorderSide(
                                                   color: primaryColorOfApp),
                                               padding: EdgeInsets.zero,
                                               tapTargetSize:
@@ -1981,7 +1978,7 @@ class _Home1State extends State<Home1> {
                                                       BorderRadius.circular(
                                                           5.0))),
                                           onPressed: () {},
-                                          child: Text(
+                                          child: const Text(
                                             'Shop Now',
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
@@ -2005,10 +2002,9 @@ class _Home1State extends State<Home1> {
 
 sizedbox(context) {
   Size size;
-  double height, width;
+  double height;
   size = MediaQuery.of(context).size;
   height = size.height;
-  width = size.width;
   return SizedBox(
     height: height * 0.02,
   );
@@ -2043,7 +2039,7 @@ class Modal {
 }
 
 final userlist = [
-  Modal(
+  const Modal(
     userId: '@m.mehta23',
     status: 'Online',
     location: 'mumbai',
@@ -2057,7 +2053,7 @@ final userlist = [
     giftcount: '15',
     viewcount: '500k+ Views',
   ),
-  Modal(
+  const Modal(
     userId: '@Akash',
     status: 'Online',
     location: 'mumbai',
@@ -2071,7 +2067,7 @@ final userlist = [
     giftcount: '15',
     viewcount: '500k+ Views',
   ),
-  Modal(
+  const Modal(
     userId: '@Pravin',
     status: 'Online',
     location: 'mumbai',
@@ -2085,7 +2081,7 @@ final userlist = [
     giftcount: '15',
     viewcount: '500k+ Views',
   ),
-  Modal(
+  const Modal(
     userId: '@Farhan',
     status: 'Online',
     location: 'mumbai',

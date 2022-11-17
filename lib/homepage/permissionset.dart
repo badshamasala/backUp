@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
@@ -9,7 +11,6 @@ import 'package:iconify_flutter/icons/ri.dart';
 permissionmethod(context) {
   
   bool emailid = false;
-  bool emailid1 = false;
   var groupemail;
   Size size;
   double height, width;
@@ -44,7 +45,7 @@ permissionmethod(context) {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -57,19 +58,19 @@ permissionmethod(context) {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Permission set',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -78,16 +79,16 @@ permissionmethod(context) {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         height: height * 0.01,
                       ),
-                      TabBar(
+                      const TabBar(
                         indicatorWeight: 1,
                         indicatorSize: TabBarIndicatorSize.label,
                         indicatorPadding: EdgeInsets.zero,
                         labelColor: primaryColorOfApp,
-                        unselectedLabelColor: const Color(0xff333333),
+                        unselectedLabelColor: Color(0xff333333),
                         tabs: [
                           Tab(
                             height: 20,
@@ -110,7 +111,7 @@ permissionmethod(context) {
                       SizedBox(
                         height: height * 0.01,
                       ),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         height: 300,
                         child: TabBarView(children: [
@@ -120,7 +121,7 @@ permissionmethod(context) {
                               children: [
                                 Container(
                                   decoration: BoxDecoration(
-                                      color: Color(0xffe2e2e2),
+                                      color: const Color(0xffe2e2e2),
                                       borderRadius: BorderRadius.circular(5)),
                                   child: Column(
                                     children: [
@@ -130,7 +131,7 @@ permissionmethod(context) {
                                         visualDensity:
                                             const VisualDensity(vertical: -3),
                                         dense: true,
-                                        leading: CircleAvatar(
+                                        leading: const CircleAvatar(
                                           radius: 20,
                                           backgroundImage: NetworkImage(
                                               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
@@ -147,8 +148,8 @@ permissionmethod(context) {
                                       /*    SizedBox(
                                                                   height: height * 0.01,
                                                                 ), */
-                                      Divider(),
-                                      Text(
+                                      const Divider(),
+                                      const Text(
                                         'this profile use admin access, post, all access your profile, like you',
                                         style: TextStyle(
                                             fontSize: 8,
@@ -162,8 +163,8 @@ permissionmethod(context) {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
+                                          const Padding(
+                                            padding: EdgeInsets.only(
                                                 left: 16.0),
                                             child: Text(
                                               'Admin ',
@@ -221,7 +222,7 @@ permissionmethod(context) {
                                                                       Container(
                                                                         decoration: BoxDecoration(
                                                                             color:
-                                                                                Color(0xffe2e2e2),
+                                                                                const Color(0xffe2e2e2),
                                                                             borderRadius: BorderRadius.circular(5)),
                                                                         child:
                                                                             Column(
@@ -231,7 +232,7 @@ permissionmethod(context) {
                                                                               horizontalTitleGap: 0.0,
                                                                               visualDensity: const VisualDensity(vertical: -3),
                                                                               dense: true,
-                                                                              leading: CircleAvatar(
+                                                                              leading: const CircleAvatar(
                                                                                 radius: 20,
                                                                                 backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
                                                                               ),
@@ -247,12 +248,12 @@ permissionmethod(context) {
                                                                             /*    SizedBox(
                                                                   height: height * 0.01,
                                                                 ), */
-                                                                            Divider(),
+                                                                            const Divider(),
                                                                             Row(
                                                                               mainAxisAlignment: MainAxisAlignment.start,
-                                                                              children: [
+                                                                              children: const [
                                                                                 Padding(
-                                                                                  padding: const EdgeInsets.only(left: 25.0),
+                                                                                  padding: EdgeInsets.only(left: 25.0),
                                                                                   child: Text(
                                                                                     'are you sure remove this profile ? ',
                                                                                     style: TextStyle(fontSize: 8, fontFamily: 'Poppins', color: customTextColor),
@@ -274,7 +275,7 @@ permissionmethod(context) {
                                                                                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                                                                         ),
                                                                                         onPressed: () {},
-                                                                                        child: Text('Cancel', style: TextStyle(color: customTextColor, fontSize: 12)))),
+                                                                                        child: const Text('Cancel', style: TextStyle(color: customTextColor, fontSize: 12)))),
                                                                                 TextButton(
                                                                                     style: TextButton.styleFrom(
                                                                                       padding: EdgeInsets.zero,
@@ -282,7 +283,7 @@ permissionmethod(context) {
                                                                                     ),
                                                                                     onPressed: () {},
                                                                                     child: Row(
-                                                                                      children: [
+                                                                                      children: const [
                                                                                         Icon(
                                                                                           Icons.delete,
                                                                                           color: Color(0xffED1B24),
@@ -327,9 +328,9 @@ permissionmethod(context) {
                                                                             .circle,
                                                                       ),
                                                                       child:
-                                                                          Padding(
+                                                                          const Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(4.0),
+                                                                            EdgeInsets.all(4.0),
                                                                         child:
                                                                             Icon(
                                                                           Icons
@@ -346,7 +347,7 @@ permissionmethod(context) {
                                                       });
                                                     }));
                                               },
-                                              child: Text('Remove',
+                                              child: const Text('Remove',
                                                   style: TextStyle(
                                                       color: Colors.red,
                                                       fontSize: 12)))
@@ -360,7 +361,7 @@ permissionmethod(context) {
                                 ),
                                 Container(
                                   decoration: BoxDecoration(
-                                      color: Color(0xffe2e2e2),
+                                      color: const Color(0xffe2e2e2),
                                       borderRadius: BorderRadius.circular(5)),
                                   child: Column(
                                     children: [
@@ -370,7 +371,7 @@ permissionmethod(context) {
                                         visualDensity:
                                             const VisualDensity(vertical: -3),
                                         dense: true,
-                                        leading: CircleAvatar(
+                                        leading: const CircleAvatar(
                                           radius: 20,
                                           backgroundImage: NetworkImage(
                                               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
@@ -387,13 +388,13 @@ permissionmethod(context) {
                                       /*    SizedBox(
                                                                   height: height * 0.01,
                                                                 ), */
-                                      Divider(),
+                                      const Divider(),
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
-                                        children: [
+                                        children: const [
                                           Padding(
-                                            padding: const EdgeInsets.only(
+                                            padding: EdgeInsets.only(
                                                 left: 25.0),
                                             child: Text(
                                               'this profile, post, video & reply message #Content',
@@ -412,8 +413,8 @@ permissionmethod(context) {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
+                                          const Padding(
+                                            padding: EdgeInsets.only(
                                                 left: 16.0),
                                             child: Text(
                                               'Manager',
@@ -432,7 +433,7 @@ permissionmethod(context) {
                                                         .shrinkWrap,
                                               ),
                                               onPressed: () {},
-                                              child: Text('Remove',
+                                              child: const Text('Remove',
                                                   style: TextStyle(
                                                       color: Colors.red,
                                                       fontSize: 12)))
@@ -487,13 +488,13 @@ permissionmethod(context) {
                                                             padding:
                                                                 EdgeInsets.zero,
                                                             constraints:
-                                                                BoxConstraints(),
+                                                                const BoxConstraints(),
                                                             onPressed: () {
                                                               Navigator.of(
                                                                       context)
                                                                   .pop();
                                                             },
-                                                            icon: Icon(
+                                                            icon: const Icon(
                                                               Icons.arrow_back,
                                                               color:
                                                                   primaryColorOfApp,
@@ -509,7 +510,7 @@ permissionmethod(context) {
                                                             isDense:
                                                                 true, // Added this
                                                             contentPadding:
-                                                                EdgeInsets.all(
+                                                                const EdgeInsets.all(
                                                                     8),
                                                             labelText:
                                                                 'Profile Name.. e.g.  ajay singh',
@@ -556,7 +557,7 @@ permissionmethod(context) {
                                                         const VisualDensity(
                                                             vertical: -3),
                                                     dense: true,
-                                                    leading: CircleAvatar(
+                                                    leading: const CircleAvatar(
                                                       radius: 20,
                                                       backgroundImage: NetworkImage(
                                                           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlNVVvK5ZVf-mcb5NoM_Koh1f3Nfh8H2qGOA&usqp=CAU'),
@@ -617,7 +618,7 @@ permissionmethod(context) {
                                                                                 children: [
                                                                                   Row(
                                                                                     children: [
-                                                                                      CircleAvatar(
+                                                                                      const CircleAvatar(
                                                                                         radius: 20,
                                                                                         backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
                                                                                       ),
@@ -627,7 +628,7 @@ permissionmethod(context) {
                                                                                       Column(
                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                                                         children: [
-                                                                                          Text(
+                                                                                          const Text(
                                                                                             '@Profile.Username007',
                                                                                             style: TextStyle(color: primaryColorOfApp, fontFamily: 'Poppins', fontSize: 10),
                                                                                           ),
@@ -648,10 +649,10 @@ permissionmethod(context) {
                                                                                             // padding: EdgeInsets.symmetric(
                                                                                             //     horizontal: 40.0, vertical: 20.0),
                                                                                             backgroundColor: const Color(0xffFFFFFF),
-                                                                                            side: BorderSide(color: customTextColor),
+                                                                                            side: const BorderSide(color: customTextColor),
                                                                                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
                                                                                         onPressed: () {},
-                                                                                        child: Text(
+                                                                                        child: const Text(
                                                                                           'Accepted',
                                                                                           style: TextStyle(fontFamily: 'Poppins', color: customTextColor, fontSize: 10),
                                                                                         )),
@@ -662,7 +663,7 @@ permissionmethod(context) {
                                                                                 height: height * 0.01,
                                                                               ),
                                                                               Row(
-                                                                                children: [
+                                                                                children: const [
                                                                                   Text('@Profile.Username007 accepted your request',
                                                                                       style: TextStyle(
                                                                                         fontFamily: 'Poppins',
@@ -671,9 +672,9 @@ permissionmethod(context) {
                                                                                       )),
                                                                                 ],
                                                                               ),
-                                                                              Divider(),
+                                                                              const Divider(),
                                                                               Row(
-                                                                                children: [
+                                                                                children: const [
                                                                                   Text('you can permission to ',
                                                                                       style: TextStyle(
                                                                                         fontFamily: 'Poppins',
@@ -686,7 +687,7 @@ permissionmethod(context) {
                                                                                 height: height * 0.01,
                                                                               ),
                                                                               Row(
-                                                                                children: [
+                                                                                children: const [
                                                                                   Text('Select One Option ',
                                                                                       style: TextStyle(
                                                                                         fontFamily: 'Poppins',
@@ -707,7 +708,7 @@ permissionmethod(context) {
                                                                                     children: [
                                                                                       Row(
                                                                                         mainAxisAlignment: MainAxisAlignment.start,
-                                                                                        children: [
+                                                                                        children: const [
                                                                                           Text(
                                                                                             'Admin',
                                                                                             style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
@@ -716,7 +717,7 @@ permissionmethod(context) {
                                                                                       ),
                                                                                       Row(
                                                                                         mainAxisAlignment: MainAxisAlignment.start,
-                                                                                        children: [
+                                                                                        children: const [
                                                                                           Text(
                                                                                             'access all: Post, share, like, comments, repost & live',
                                                                                             style: TextStyle(fontFamily: 'Poppins', fontSize: 8),
@@ -749,7 +750,7 @@ permissionmethod(context) {
                                                                                       Row(
                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
                                                                                         mainAxisAlignment: MainAxisAlignment.start,
-                                                                                        children: [
+                                                                                        children: const [
                                                                                           Text(
                                                                                             'Manager ',
                                                                                             style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
@@ -782,7 +783,7 @@ permissionmethod(context) {
                                                                               Row(
                                                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                 children: [
-                                                                                  Text(
+                                                                                  const Text(
                                                                                     'You can set limitation',
                                                                                     style: TextStyle(color: customTextColor, fontFamily: 'Poppins', fontSize: 10),
                                                                                   ),
@@ -797,7 +798,7 @@ permissionmethod(context) {
                                                                                           WidgetProfilePage().buildgotoset(context);
                                                                                         },
                                                                                         child: Row(
-                                                                                          children: [
+                                                                                          children: const [
                                                                                             Text('GO TO SET', style: TextStyle(color: primaryColorOfApp, fontSize: 10)),
                                                                                             Iconify(
                                                                                               Eva.arrow_right_fill,
@@ -822,7 +823,7 @@ permissionmethod(context) {
                                                                                           backgroundColor: const Color(0xff0087FF),
                                                                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
                                                                                       onPressed: () {},
-                                                                                      child: Text('Confirm', style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Poppins'))))
+                                                                                      child: const Text('Confirm', style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Poppins'))))
                                                                             ])),
                                                                     Positioned.fill(
                                                                         top: -36,
@@ -843,8 +844,8 @@ permissionmethod(context) {
                                                                                 border: Border.all(color: Colors.white, width: 2),
                                                                                 shape: BoxShape.circle,
                                                                               ),
-                                                                              child: Padding(
-                                                                                padding: const EdgeInsets.all(4.0),
+                                                                              child: const Padding(
+                                                                                padding: EdgeInsets.all(4.0),
                                                                                 child: Icon(
                                                                                   Icons.close,
                                                                                   color: Colors.white,
@@ -905,9 +906,9 @@ permissionmethod(context) {
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
-                                                          child: Padding(
+                                                          child: const Padding(
                                                             padding:
-                                                                const EdgeInsets
+                                                                EdgeInsets
                                                                     .all(4.0),
                                                             child: Icon(
                                                               Icons.close,
@@ -924,23 +925,23 @@ permissionmethod(context) {
                                         });
                                   },
                                   decoration: InputDecoration(
-                                    prefixIcon: Padding(
-                                      padding: const EdgeInsets.only(left: 8.0),
+                                    prefixIcon: const Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
                                       child: Iconify(
                                         Ri.search_line,
                                         size: 15,
                                         color: Color(0xffDADADA),
                                       ),
                                     ),
-                                    prefixIconConstraints: BoxConstraints(),
+                                    prefixIconConstraints: const BoxConstraints(),
                                     isDense: true,
                                     labelText: 'Search Profile Name',
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color: Color(0xffc4c4c4),
                                         fontFamily: 'Poppins',
                                         fontSize: 12),
                                     border: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Color(0xff737373)),
                                         borderRadius: BorderRadius.circular(5)),
                                   ),
@@ -966,8 +967,8 @@ permissionmethod(context) {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,

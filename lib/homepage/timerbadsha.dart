@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GETX/gettimer.dart';
@@ -46,7 +45,7 @@ class _TimerbadshaState extends State<Timerbadsha> {
           GetBuilder<GetUpdateSeconds>(
             builder: (builder) => Text(
               '${getkar.seconds}',
-              style: TextStyle(fontSize: 25),
+              style: const TextStyle(fontSize: 25),
             ),
           ),
           ElevatedButton(
@@ -63,13 +62,13 @@ class _TimerbadshaState extends State<Timerbadsha> {
                           GetBuilder<GetUpdateSeconds>(
             builder: (builder) => Text(
               '${getkar.seconds}',
-              style: TextStyle(fontSize: 25),
+              style: const TextStyle(fontSize: 25),
             ),
           ),], );
                       });
                     }));
               },
-              child: Text('stb'))
+              child: const Text('stb'))
         ],
       ),
     );

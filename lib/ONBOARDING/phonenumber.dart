@@ -1,4 +1,5 @@
-import 'dart:ui';
+
+// ignore_for_file: library_private_types_in_public_api, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,20 +12,19 @@ import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:provider/provider.dart';
-import 'package:sms_autofill/sms_autofill.dart';
 
 class PhoneNumber extends StatefulWidget {
+  const PhoneNumber({super.key});
+
   @override
   _PhoneNumberState createState() => _PhoneNumberState();
 }
 
 class _PhoneNumberState extends State<PhoneNumber> {
-  GlobalKey<FormState> _formKey = GlobalKey();
+  final GlobalKey<FormState> _formKey = GlobalKey();
 
   bool check10number = true;
   bool check6digit = true;
@@ -56,7 +56,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   SizedBox(
                     height: height * 0.02,
                   ),
-                  Center(
+                  const Center(
                     child: Text(
                       'Sign Up',
                       style: TextStyle(
@@ -68,7 +68,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Center(
+                  const Center(
                       child: Text(
                     'Enter Your Phone Number to Proceed Sign Up',
                     style: TextStyle(
@@ -86,8 +86,8 @@ class _PhoneNumberState extends State<PhoneNumber> {
                            
                           },
                           child: Row(
-                            children: [
-                              const FaIcon(
+                            children: const [
+                              FaIcon(
                                 FontAwesomeIcons.globe,
                                 size: 15,
                                 color: Colors.grey,
@@ -134,9 +134,9 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     ],
                     decoration: InputDecoration(
                       hintText: '8888888888',
-                      hintStyle: TextStyle(color: Color(0xffc4c4c4)),
+                      hintStyle: const TextStyle(color: Color(0xffc4c4c4)),
                       /* isDense: true, */
-                      prefixIcon: Container(
+                      prefixIcon: SizedBox(
                         width: 60,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 8.0),
@@ -147,8 +147,8 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                 height: 20,
                                 width: 20,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8.0),
+                              const Padding(
+                                padding: EdgeInsets.only(right: 8.0),
                                 child: Text(
                                   "+91",
                                   style: TextStyle(
@@ -165,9 +165,9 @@ class _PhoneNumberState extends State<PhoneNumber> {
                         ),
                       ),
                       prefixIconConstraints:
-                          BoxConstraints(minWidth: 0, minHeight: 0),
+                          const BoxConstraints(minWidth: 0, minHeight: 0),
                       labelText: 'Enter your 10 digit Mobile number*',
-                      labelStyle: TextStyle(
+                      labelStyle: const TextStyle(
                           color: /* focusNode.hasFocus
                               ? */
                               Colors.black /* : Color(0xffc4c4c4) */,
@@ -185,7 +185,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                       /*     prefixIconColor: Color(0xffc4c4c4c), */
                       /* prefixStyle:
                           TextStyle(fontFamily: 'Poppins', fontSize: 15), */
-                      contentPadding: EdgeInsets.symmetric(
+                      contentPadding: const EdgeInsets.symmetric(
                         horizontal: 20.0,
                       ),
                       // hintText: 'Enter Your Username',
@@ -286,7 +286,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                       ),
                                                       Text(
                                                         'Otp has been sent to +91 $phonekanumber',
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15,
                                                         ),
@@ -347,11 +347,11 @@ class _PhoneNumberState extends State<PhoneNumber> {
 
                                                       OtpTextField(
                                                         filled: true,
-                                                        margin: EdgeInsets.only(
+                                                        margin: const EdgeInsets.only(
                                                             right: 4.0),
                                                         fieldWidth: 45,
                                                         fillColor:
-                                                            Color(0xffDFEEFC),
+                                                            const Color(0xffDFEEFC),
                                                         borderWidth: 1,
                                                         focusedBorderColor:
                                                             primaryColorOfApp,
@@ -414,7 +414,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                                         getkar.timerkhatam1
                                                                             ? 'Resend OTP in ${getkar.seconds} Sec'
                                                                             : 'Resend OTP',
-                                                                        style: TextStyle(
+                                                                        style: const TextStyle(
                                                                             fontFamily:
                                                                                 'Poppins',
                                                                             fontSize:
@@ -507,9 +507,9 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
-                                                        child: Padding(
+                                                        child: const Padding(
                                                           padding:
-                                                              const EdgeInsets
+                                                              EdgeInsets
                                                                   .all(4.0),
                                                           child: Icon(
                                                             Icons.close,
@@ -534,8 +534,8 @@ class _PhoneNumberState extends State<PhoneNumber> {
                           //     horizontal: 40.0, vertical: 20.0),
                           backgroundColor: const Color(0xff0087FF),
                           shape: RoundedRectangleBorder(
-                              borderRadius: UploadImage().radius())),
-                      child: Text(
+                              borderRadius: const UploadImage().radius())),
+                      child: const Text(
                         /*  otplodaing ? 'Loading...' : */ "Continue",
                         style: TextStyle(
                             color: Colors.white,

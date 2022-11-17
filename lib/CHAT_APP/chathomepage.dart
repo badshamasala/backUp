@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/CHAT_APP/auth_service.dart';
-import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
+import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 
 class Chathomepage extends StatefulWidget {
   const Chathomepage({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class Chathomepage extends StatefulWidget {
 }
 
 class _ChathomepageState extends State<Chathomepage> {
-  var _useremail = "";
+  final _useremail = "";
   var _userpassword = "";
   var _userfullname = "";
   var _usermobile = "";
@@ -90,7 +90,7 @@ class _ChathomepageState extends State<Chathomepage> {
       ),
       body: Column(
         children: [
-          Text('axaxaxaxa'),
+          const Text('axaxaxaxa'),
           Text(_usermobile),
           Text(_userUsername),
           Text(_userpassword),
@@ -100,7 +100,7 @@ class _ChathomepageState extends State<Chathomepage> {
               onPressed: () {
                 authService.logout(context);
               },
-              child: Text('logout'))
+              child: const Text('logout'))
         ],
       ),
     );

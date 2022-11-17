@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
@@ -462,7 +464,7 @@ class _AccountTypeState extends State<AccountType> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginPage()),
+                                builder: (context) => const LoginPage()),
                           );
                         },
                         child: const Text(

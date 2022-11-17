@@ -9,7 +9,7 @@ class Googlemaps1 extends StatefulWidget {
 }
 
 class _Googlemaps1State extends State<Googlemaps1> {
-  var sourceLocation = LatLng(19.0715252, 72.8692906);
+  var sourceLocation = const LatLng(19.0715252, 72.8692906);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class _Googlemaps1State extends State<Googlemaps1> {
       appBar: AppBar(
         title: const Text(''),
       ),
-      body: Container(
+      body: SizedBox(
         height: 200,
         child: GoogleMap(
               initialCameraPosition: CameraPosition( 

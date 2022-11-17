@@ -1,10 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/CHAT_APP/auth_service.dart';
 import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
-import 'package:flutter_application_1/CHAT_APP/loginpage.dart';
-import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
-import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
-import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -26,14 +25,14 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(),
       body: isloading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : Form(
               key: _formKey,
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
@@ -41,12 +40,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         labelText: 'fullname',
                         border: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: Colors.black, width: 0.5),
+                                const BorderSide(color: Colors.black, width: 0.5),
                             borderRadius: BorderRadius.circular(5))),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please enter full name';
                       }
+                      return null;
                     },
                     onChanged: (value) {
                       setState(() {
@@ -54,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       });
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
@@ -62,7 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         labelText: 'Email',
                         border: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: Colors.black, width: 0.5),
+                                const BorderSide(color: Colors.black, width: 0.5),
                             borderRadius: BorderRadius.circular(5))),
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -80,7 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       });
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
@@ -88,12 +88,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         labelText: 'password',
                         border: OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: Colors.black, width: 0.5),
+                                const BorderSide(color: Colors.black, width: 0.5),
                             borderRadius: BorderRadius.circular(5))),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please enter password';
                       }
+                      return null;
                     },
                     onChanged: (value) {
                       setState(() {
@@ -101,14 +102,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       });
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   ElevatedButton(
                       onPressed: () {
                         register();
                       },
-                      child: Text('Register'))
+                      child: const Text('Register'))
                 ],
               ),
             ),
@@ -117,9 +118,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
   register() async {
     if (_formKey.currentState!.validate()) {
-      print(fullname);
-      print(email);
-      print(password);
       setState(() {
         isloading = true;
       });
@@ -134,7 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
         
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Chathomepage()),
+            MaterialPageRoute(builder: (context) => const Chathomepage()),
           );
           setState(() {
             isloading = false;

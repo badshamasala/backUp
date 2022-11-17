@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
@@ -37,18 +39,17 @@ class _ChangeInterestState extends State<ChangeInterest> {
   @override
   Widget build(BuildContext context) {
     Size size;
-    double height, width;
+    double height;
     size = MediaQuery.of(context).size;
     height = size.height;
-    width = size.width;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: primaryColorOfApp, // <-- SEE HERE
         ),
         backgroundColor: Colors.transparent,
-        title: Text(
+        title: const Text(
           'Change Interest',
           style: TextStyle(
               color: customTextColor, fontFamily: 'Poppins', fontSize: 15),
@@ -57,11 +58,11 @@ class _ChangeInterestState extends State<ChangeInterest> {
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: IconButton(
               padding: EdgeInsets.zero,
-              constraints: BoxConstraints(),
+              constraints: const BoxConstraints(),
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: primaryColorOfApp,
               )),
@@ -75,7 +76,7 @@ class _ChangeInterestState extends State<ChangeInterest> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: const [
                   Text(
                     'Choose Your Interest (minimum 5 Options)',
                     style: TextStyle(
@@ -90,9 +91,9 @@ class _ChangeInterestState extends State<ChangeInterest> {
               ),
               GridView.builder(
                   scrollDirection: Axis.vertical,
-                  padding: EdgeInsets.all(0),
+                  padding: const EdgeInsets.all(0),
                   shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       mainAxisExtent: 35,
                       /*     childAspectRatio: 3.5, */
                       crossAxisSpacing: 10,
@@ -122,7 +123,7 @@ class _ChangeInterestState extends State<ChangeInterest> {
                               shape: BoxShape.rectangle),
                           /*  width: 50, */
                           child: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Text(
                               changeinterest[index],
                               style: TextStyle(
@@ -150,7 +151,7 @@ class _ChangeInterestState extends State<ChangeInterest> {
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
-                          borderRadius: UploadImage().radius())),
+                          borderRadius: const UploadImage().radius())),
                   child: const Text(
                     "Save Changes",
                     style: TextStyle(

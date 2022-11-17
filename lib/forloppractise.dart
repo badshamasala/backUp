@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +33,7 @@ class _ForloppractiseState extends State<Forloppractise> {
               onPressed: () {
                 getkar.badshakamethod();
               },
-              child: Text('button'))
+              child: const Text('button'))
         ],
       ),
     );
@@ -51,7 +53,10 @@ class ForGetUpdate extends GetxController {
     for (int i = 0; i < forkilist.length; i++) {
     /*   newlist.add(forkilist[i]); */
       newlist.add(forkilist[i]);
-      print(newlist);
+      if (    newlist.isNotEmpty) {
+        print(newlist);
+     
+      }
     }
     update();
   }

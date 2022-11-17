@@ -1,27 +1,11 @@
-import 'dart:io';
-import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
+// ignore_for_file: must_be_immutable, unused_local_variable
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/homepage/change_interest.dart';
-import 'package:flutter_application_1/homepage/home1.dart';
-import 'package:flutter_application_1/homepage/malefemale.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
-import 'package:flutter_application_1/homepage/widget_notification.dart';
-import 'package:flutter_application_1/interaction.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/akar_icons.dart';
-import 'package:iconify_flutter/icons/bi.dart';
-import 'package:iconify_flutter/icons/bx.dart';
-import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/eva.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:share_plus/share_plus.dart';
 
 class WidgetProfilePage extends StatefulWidget {
   WidgetProfilePage({Key? key}) : super(key: key);
@@ -34,6 +18,7 @@ class WidgetProfilePage extends StatefulWidget {
   bool emailid = false;
   bool emailid1 = false;
   bool urlvariable = false;
+  // ignore: prefer_typing_uninitialized_variables
   var groupemail;
 
   List items = [
@@ -84,7 +69,7 @@ class WidgetProfilePage extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -97,19 +82,19 @@ class WidgetProfilePage extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Story',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -118,7 +103,7 @@ class WidgetProfilePage extends StatefulWidget {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         height: 150,
                         child: Stack(children: [
@@ -166,7 +151,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -196,7 +181,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -297,7 +282,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -327,7 +312,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -400,8 +385,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -498,7 +483,7 @@ class WidgetProfilePage extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -511,19 +496,19 @@ class WidgetProfilePage extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Go to Set',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -532,7 +517,7 @@ class WidgetProfilePage extends StatefulWidget {
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Container(
                         decoration: BoxDecoration(
                             border: Border.all(
@@ -565,7 +550,7 @@ class WidgetProfilePage extends StatefulWidget {
                                     })
                               ],
                             ),
-                            Divider(
+                            const Divider(
                               height: 1,
                             ),
                             Row(
@@ -631,7 +616,7 @@ class WidgetProfilePage extends StatefulWidget {
                                     })
                               ],
                             ),
-                            Divider(
+                            const Divider(
                               height: 1,
                             ),
                             Row(
@@ -697,7 +682,7 @@ class WidgetProfilePage extends StatefulWidget {
                                     })
                               ],
                             ),
-                            Divider(
+                            const Divider(
                               height: 1,
                             ),
                             Row(
@@ -763,7 +748,7 @@ class WidgetProfilePage extends StatefulWidget {
                                     })
                               ],
                             ),
-                            Divider(
+                            const Divider(
                               height: 1,
                             ),
                             Row(
@@ -829,7 +814,7 @@ class WidgetProfilePage extends StatefulWidget {
                                     })
                               ],
                             ),
-                            Divider(
+                            const Divider(
                               height: 1,
                             ),
                             Row(
@@ -879,8 +864,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -910,7 +895,7 @@ class WidgetProfilePage extends StatefulWidget {
       prefix: prefix,
       suffixIcon: suffix,
       hintText: hinttext,
-      hintStyle: TextStyle(fontSize: 10),
+      hintStyle: const TextStyle(fontSize: 10),
       contentPadding: const EdgeInsets.all(15),
     );
   }
@@ -950,7 +935,7 @@ class WidgetProfilePage extends StatefulWidget {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                    color: Color(0xffE2E2E2),
+                                    color: const Color(0xffE2E2E2),
                                     borderRadius: BorderRadius.circular(8)),
                                 height: 5,
                                 width: 100,
@@ -963,19 +948,19 @@ class WidgetProfilePage extends StatefulWidget {
                           Row(
                             children: [
                               IconButton(
-                                  padding: EdgeInsets.all(0),
-                                  constraints: BoxConstraints(),
+                                  padding: const EdgeInsets.all(0),
+                                  constraints: const BoxConstraints(),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_back,
                                     color: primaryColorOfApp,
                                   )),
                               SizedBox(
                                 width: width * 0.01,
                               ),
-                              Text(
+                              const Text(
                                 'Activity Status',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -983,8 +968,8 @@ class WidgetProfilePage extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Divider(),
-                          Container(
+                          const Divider(),
+                          SizedBox(
                             /* color: Colors.red, */
                             height: 200,
                             child: Stack(children: [
@@ -1034,7 +1019,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1066,7 +1051,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1098,7 +1083,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1170,8 +1155,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -1221,7 +1206,7 @@ class WidgetProfilePage extends StatefulWidget {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                    color: Color(0xffE2E2E2),
+                                    color: const Color(0xffE2E2E2),
                                     borderRadius: BorderRadius.circular(8)),
                                 height: 5,
                                 width: 100,
@@ -1234,19 +1219,19 @@ class WidgetProfilePage extends StatefulWidget {
                           Row(
                             children: [
                               IconButton(
-                                  padding: EdgeInsets.all(0),
-                                  constraints: BoxConstraints(),
+                                  padding: const EdgeInsets.all(0),
+                                  constraints: const BoxConstraints(),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_back,
                                     color: primaryColorOfApp,
                                   )),
                               SizedBox(
                                 width: width * 0.01,
                               ),
-                              Text(
+                              const Text(
                                 'Show Reward Points',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -1254,8 +1239,8 @@ class WidgetProfilePage extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Divider(),
-                          Container(
+                          const Divider(),
+                          SizedBox(
                             /* color: Colors.red, */
                             height: 200,
                             child: Stack(children: [
@@ -1305,7 +1290,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1337,7 +1322,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1369,7 +1354,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1441,8 +1426,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -1492,7 +1477,7 @@ class WidgetProfilePage extends StatefulWidget {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                    color: Color(0xffE2E2E2),
+                                    color: const Color(0xffE2E2E2),
                                     borderRadius: BorderRadius.circular(8)),
                                 height: 5,
                                 width: 100,
@@ -1505,19 +1490,19 @@ class WidgetProfilePage extends StatefulWidget {
                           Row(
                             children: [
                               IconButton(
-                                  padding: EdgeInsets.all(0),
-                                  constraints: BoxConstraints(),
+                                  padding: const EdgeInsets.all(0),
+                                  constraints: const BoxConstraints(),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_back,
                                     color: primaryColorOfApp,
                                   )),
                               SizedBox(
                                 width: width * 0.01,
                               ),
-                              Text(
+                              const Text(
                                 '@Mension',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -1525,8 +1510,8 @@ class WidgetProfilePage extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Divider(),
-                          Container(
+                          const Divider(),
+                          SizedBox(
                             /* color: Colors.red, */
                             height: 200,
                             child: Stack(children: [
@@ -1576,7 +1561,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1608,7 +1593,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1640,7 +1625,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1712,8 +1697,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -1763,7 +1748,7 @@ class WidgetProfilePage extends StatefulWidget {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                    color: Color(0xffE2E2E2),
+                                    color: const Color(0xffE2E2E2),
                                     borderRadius: BorderRadius.circular(8)),
                                 height: 5,
                                 width: 100,
@@ -1776,19 +1761,19 @@ class WidgetProfilePage extends StatefulWidget {
                           Row(
                             children: [
                               IconButton(
-                                  padding: EdgeInsets.all(0),
-                                  constraints: BoxConstraints(),
+                                  padding: const EdgeInsets.all(0),
+                                  constraints: const BoxConstraints(),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_back,
                                     color: primaryColorOfApp,
                                   )),
                               SizedBox(
                                 width: width * 0.01,
                               ),
-                              Text(
+                              const Text(
                                 'Tag',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -1796,8 +1781,8 @@ class WidgetProfilePage extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Divider(),
-                          Container(
+                          const Divider(),
+                          SizedBox(
                             /* color: Colors.red, */
                             height: 200,
                             child: Stack(children: [
@@ -1847,7 +1832,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1879,7 +1864,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1911,7 +1896,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -1983,8 +1968,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -2034,7 +2019,7 @@ class WidgetProfilePage extends StatefulWidget {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                    color: Color(0xffE2E2E2),
+                                    color: const Color(0xffE2E2E2),
                                     borderRadius: BorderRadius.circular(8)),
                                 height: 5,
                                 width: 100,
@@ -2047,19 +2032,19 @@ class WidgetProfilePage extends StatefulWidget {
                           Row(
                             children: [
                               IconButton(
-                                  padding: EdgeInsets.all(0),
-                                  constraints: BoxConstraints(),
+                                  padding: const EdgeInsets.all(0),
+                                  constraints: const BoxConstraints(),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.arrow_back,
                                     color: primaryColorOfApp,
                                   )),
                               SizedBox(
                                 width: width * 0.01,
                               ),
-                              Text(
+                              const Text(
                                 'Send me GIFT',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -2067,8 +2052,8 @@ class WidgetProfilePage extends StatefulWidget {
                               ),
                             ],
                           ),
-                          Divider(),
-                          Container(
+                          const Divider(),
+                          SizedBox(
                             /* color: Colors.red, */
                             height: 200,
                             child: Stack(children: [
@@ -2118,7 +2103,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -2150,7 +2135,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -2182,7 +2167,7 @@ class WidgetProfilePage extends StatefulWidget {
                                               })
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         height: 1,
                                       ),
                                       Row(
@@ -2348,8 +2333,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -2397,7 +2382,7 @@ class WidgetProfilePage extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -2410,26 +2395,26 @@ class WidgetProfilePage extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Groups',
                             style: TextStyle(
                                 fontFamily: 'Poppins', color: customTextColor),
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         /*         color: Colors.red, */
                         height: 180,
@@ -2478,7 +2463,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2508,7 +2493,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2538,7 +2523,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2643,7 +2628,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2673,7 +2658,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2703,7 +2688,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2808,7 +2793,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -2881,8 +2866,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -2930,7 +2915,7 @@ class WidgetProfilePage extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -2943,26 +2928,26 @@ class WidgetProfilePage extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Live',
                             style: TextStyle(
                                 fontFamily: 'Poppins', color: customTextColor),
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         /* color: Colors.red, */
                         height: 180,
@@ -3011,7 +2996,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3041,7 +3026,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3071,7 +3056,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3176,7 +3161,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3206,7 +3191,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3236,7 +3221,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3331,7 +3316,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
-                                          Iconify(
+                                          const Iconify(
                                             Eva.arrow_right_fill,
                                             size: 15,
                                             color: Color(0xff333333),
@@ -3381,8 +3366,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -3430,7 +3415,7 @@ class WidgetProfilePage extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -3443,26 +3428,26 @@ class WidgetProfilePage extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Chat-Box',
                             style: TextStyle(
                                 fontFamily: 'Poppins', color: customTextColor),
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         /* color: Colors.red, */
                         height: 200,
@@ -3511,7 +3496,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3541,7 +3526,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3571,7 +3556,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3676,7 +3661,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3706,7 +3691,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3736,7 +3721,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3809,8 +3794,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -3858,7 +3843,7 @@ class WidgetProfilePage extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -3871,26 +3856,26 @@ class WidgetProfilePage extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Post-Photo & Video',
                             style: TextStyle(
                                 fontFamily: 'Poppins', color: customTextColor),
                           ),
                         ],
                       ),
-                      Divider(
+                      const Divider(
                         height: 1,
                       ),
                       SizedBox(
@@ -3940,7 +3925,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -3970,7 +3955,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4000,7 +3985,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4101,7 +4086,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4131,7 +4116,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4161,7 +4146,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4262,7 +4247,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4292,7 +4277,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4322,7 +4307,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4395,8 +4380,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -4444,7 +4429,7 @@ class WidgetProfilePage extends StatefulWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 5,
                             width: 100,
@@ -4457,26 +4442,26 @@ class WidgetProfilePage extends StatefulWidget {
                       Row(
                         children: [
                           IconButton(
-                              padding: EdgeInsets.all(0),
-                              constraints: BoxConstraints(),
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          Text(
+                          const Text(
                             'Comments',
                             style: TextStyle(
                                 fontFamily: 'Poppins', color: customTextColor),
                           ),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         /* color: Colors.red, */
                         height: 200,
@@ -4525,7 +4510,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4555,7 +4540,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4585,7 +4570,7 @@ class WidgetProfilePage extends StatefulWidget {
                                           })
                                     ],
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   Row(
@@ -4695,18 +4680,18 @@ class WidgetProfilePage extends StatefulWidget {
                                                             children: [
                                                               IconButton(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               0),
                                                                   constraints:
-                                                                      BoxConstraints(),
+                                                                      const BoxConstraints(),
                                                                   onPressed:
                                                                       () {
                                                                     Navigator.of(
                                                                             context)
                                                                         .pop();
                                                                   },
-                                                                  icon: Icon(
+                                                                  icon: const Icon(
                                                                     Icons
                                                                         .arrow_back,
                                                                     color:
@@ -4716,7 +4701,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                 width: width *
                                                                     0.01,
                                                               ),
-                                                              Text(
+                                                              const Text(
                                                                 'People',
                                                                 style: TextStyle(
                                                                     fontFamily:
@@ -4728,14 +4713,14 @@ class WidgetProfilePage extends StatefulWidget {
                                                               ),
                                                             ],
                                                           ),
-                                                          Divider(),
+                                                          const Divider(),
                                                           TextFormField(
                                                               decoration:
                                                                   InputDecoration(
                                                                       isDense:
                                                                           true, // Added this
                                                                       contentPadding:
-                                                                          EdgeInsets.all(
+                                                                          const EdgeInsets.all(
                                                                               8),
                                                                       labelText:
                                                                           'Search profile Name',
@@ -4782,7 +4767,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                               -3),
                                                                   dense: true,
                                                                   leading:
-                                                                      CircleAvatar(
+                                                                      const CircleAvatar(
                                                                     radius: 20,
                                                                     backgroundImage:
                                                                         NetworkImage(
@@ -4808,7 +4793,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                           backgroundColor: primaryColorOfApp,
                                                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
                                                                       onPressed: () {},
-                                                                      child: Text(
+                                                                      child: const Text(
                                                                         'Block',
                                                                         style: TextStyle(
                                                                             fontFamily:
@@ -4843,9 +4828,9 @@ class WidgetProfilePage extends StatefulWidget {
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
-                                                            child: Padding(
+                                                            child: const Padding(
                                                               padding:
-                                                                  const EdgeInsets
+                                                                  EdgeInsets
                                                                       .all(4.0),
                                                               child: Icon(
                                                                 Icons.close,
@@ -4879,7 +4864,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
-                                          Iconify(
+                                          const Iconify(
                                             Eva.arrow_right_fill,
                                             size: 15,
                                             color: Color(0xff333333),
@@ -4888,7 +4873,7 @@ class WidgetProfilePage extends StatefulWidget {
                                       ),
                                     ),
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   InkWell(
@@ -4924,18 +4909,18 @@ class WidgetProfilePage extends StatefulWidget {
                                                             children: [
                                                               IconButton(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               0),
                                                                   constraints:
-                                                                      BoxConstraints(),
+                                                                      const BoxConstraints(),
                                                                   onPressed:
                                                                       () {
                                                                     Navigator.of(
                                                                             context)
                                                                         .pop();
                                                                   },
-                                                                  icon: Icon(
+                                                                  icon: const Icon(
                                                                     Icons
                                                                         .arrow_back,
                                                                     color:
@@ -4945,7 +4930,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                 width: width *
                                                                     0.01,
                                                               ),
-                                                              Text(
+                                                              const Text(
                                                                 'Followers',
                                                                 style: TextStyle(
                                                                     fontFamily:
@@ -4957,14 +4942,14 @@ class WidgetProfilePage extends StatefulWidget {
                                                               ),
                                                             ],
                                                           ),
-                                                          Divider(),
+                                                          const Divider(),
                                                           TextFormField(
                                                               decoration:
                                                                   InputDecoration(
                                                                       isDense:
                                                                           true, // Added this
                                                                       contentPadding:
-                                                                          EdgeInsets.all(
+                                                                          const EdgeInsets.all(
                                                                               8),
                                                                       labelText:
                                                                           'Search profile Name',
@@ -5011,7 +4996,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                               -3),
                                                                   dense: true,
                                                                   leading:
-                                                                      CircleAvatar(
+                                                                      const CircleAvatar(
                                                                     radius: 20,
                                                                     backgroundImage:
                                                                         NetworkImage(
@@ -5037,7 +5022,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                           backgroundColor: primaryColorOfApp,
                                                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
                                                                       onPressed: () {},
-                                                                      child: Text(
+                                                                      child: const Text(
                                                                         'Block',
                                                                         style: TextStyle(
                                                                             fontFamily:
@@ -5072,9 +5057,9 @@ class WidgetProfilePage extends StatefulWidget {
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
-                                                            child: Padding(
+                                                            child: const Padding(
                                                               padding:
-                                                                  const EdgeInsets
+                                                                  EdgeInsets
                                                                       .all(4.0),
                                                               child: Icon(
                                                                 Icons.close,
@@ -5108,7 +5093,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
-                                          Iconify(
+                                          const Iconify(
                                             Eva.arrow_right_fill,
                                             size: 15,
                                             color: Color(0xff333333),
@@ -5117,7 +5102,7 @@ class WidgetProfilePage extends StatefulWidget {
                                       ),
                                     ),
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                   ),
                                   InkWell(
@@ -5153,18 +5138,18 @@ class WidgetProfilePage extends StatefulWidget {
                                                             children: [
                                                               IconButton(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               0),
                                                                   constraints:
-                                                                      BoxConstraints(),
+                                                                      const BoxConstraints(),
                                                                   onPressed:
                                                                       () {
                                                                     Navigator.of(
                                                                             context)
                                                                         .pop();
                                                                   },
-                                                                  icon: Icon(
+                                                                  icon: const Icon(
                                                                     Icons
                                                                         .arrow_back,
                                                                     color:
@@ -5174,7 +5159,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                 width: width *
                                                                     0.01,
                                                               ),
-                                                              Text(
+                                                              const Text(
                                                                 'Following',
                                                                 style: TextStyle(
                                                                     fontFamily:
@@ -5186,14 +5171,14 @@ class WidgetProfilePage extends StatefulWidget {
                                                               ),
                                                             ],
                                                           ),
-                                                          Divider(),
+                                                          const Divider(),
                                                           TextFormField(
                                                               decoration:
                                                                   InputDecoration(
                                                                       isDense:
                                                                           true, // Added this
                                                                       contentPadding:
-                                                                          EdgeInsets.all(
+                                                                          const EdgeInsets.all(
                                                                               8),
                                                                       labelText:
                                                                           'Search profile Name',
@@ -5240,7 +5225,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                               -3),
                                                                   dense: true,
                                                                   leading:
-                                                                      CircleAvatar(
+                                                                      const CircleAvatar(
                                                                     radius: 20,
                                                                     backgroundImage:
                                                                         NetworkImage(
@@ -5266,7 +5251,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                                           backgroundColor: primaryColorOfApp,
                                                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
                                                                       onPressed: () {},
-                                                                      child: Text(
+                                                                      child: const Text(
                                                                         'Block',
                                                                         style: TextStyle(
                                                                             fontFamily:
@@ -5301,9 +5286,9 @@ class WidgetProfilePage extends StatefulWidget {
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
-                                                            child: Padding(
+                                                            child: const Padding(
                                                               padding:
-                                                                  const EdgeInsets
+                                                                  EdgeInsets
                                                                       .all(4.0),
                                                               child: Icon(
                                                                 Icons.close,
@@ -5337,7 +5322,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                   fontSize: width * 0.03),
                                             ),
                                           ),
-                                          Iconify(
+                                          const Iconify(
                                             Eva.arrow_right_fill,
                                             size: 15,
                                             color: Color(0xff333333),
@@ -5389,8 +5374,8 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GLOBALS/commentfile.dart';
+import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/homepage/peopleprofiletab.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
 import 'package:flutter_application_1/homepage/video_player.dart';
@@ -20,7 +20,7 @@ class PeopleProfile extends StatefulWidget {
 class _PeopleProfileState extends State<PeopleProfile> {
   allnotification(context) {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return showModalBottomSheet(
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
@@ -42,9 +42,9 @@ class _PeopleProfileState extends State<PeopleProfile> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        color: Color(0xffE2E2E2),
+                        color: const Color(0xffE2E2E2),
                         border:
-                            Border.all(width: 0.5, color: Color(0xffE2E2E2)),
+                            Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                         borderRadius: BorderRadius.circular(10)),
                     height: 5,
                     width: 100,
@@ -54,7 +54,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         'Notifications',
                         style: TextStyle(
@@ -64,7 +64,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       ),
                     ],
                   ),
-                  Divider(),
+                  const Divider(),
                   ListTile(
                       minLeadingWidth: 10,
                       visualDensity: const VisualDensity(vertical: -3),
@@ -211,8 +211,8 @@ class _PeopleProfileState extends State<PeopleProfile> {
                             border: Border.all(color: Colors.white, width: 2),
                             shape: BoxShape.circle,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.close,
                               color: Colors.white,
@@ -275,11 +275,10 @@ class _PeopleProfileState extends State<PeopleProfile> {
   @override
   Widget build(BuildContext context) {
     Size size;
-    double height, width;
+    double height;
     size = MediaQuery.of(context).size;
     height = size.height;
-    width = size.width;
-    /* coverheight - profile / 2 */;
+    /* coverheight - profile / 2 */
     return SafeArea(
       child: DefaultTabController(
         length: 4,
@@ -302,22 +301,22 @@ class _PeopleProfileState extends State<PeopleProfile> {
                           blurRadius: 15.0,
                           offset: Offset(0.0, 0.75)),
                     ], */
-                    color: Color(0xffE2E2E2),
+                    color: const Color(0xffE2E2E2),
                     shape: BoxShape.rectangle,
-                    border: Border.all(width: 0.5, color: Color(0xffE2E2E2)),
+                    border: Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(3.0),
                   child: TabBar(
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorPadding: EdgeInsets.zero,
-                    labelColor: Color(0xff0087FF),
-                    unselectedLabelColor: Color(0xff333333),
+                    labelColor: const Color(0xff0087FF),
+                    unselectedLabelColor: const Color(0xff333333),
                     tabs: [
                       Tab(
                         height: 20,
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.photo,
                               size: 10,
@@ -333,7 +332,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       Tab(
                         height: 20,
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.play_arrow,
                               size: 10,
@@ -349,7 +348,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       Tab(
                         height: 20,
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.restore,
                               size: 10,
@@ -365,7 +364,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       Tab(
                         height: 20,
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.account_circle,
                               size: 10,
@@ -391,10 +390,10 @@ class _PeopleProfileState extends State<PeopleProfile> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 5),
                 child: ListView.separated(
-                    physics: ClampingScrollPhysics(),
+                    physics: const ClampingScrollPhysics(),
                     shrinkWrap: true,
                     separatorBuilder: (context, index) {
-                      return SizedBox(
+                      return const SizedBox(
                         width: 10,
                       );
                     },
@@ -404,7 +403,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       return Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.all(5),
+                            padding: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               border: Border.all(
                                   width: 2, color: primaryColorOfApp),
@@ -417,12 +416,12 @@ class _PeopleProfileState extends State<PeopleProfile> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 2,
                           ),
                           Text(
                             names[index],
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
                                 fontSize: 10),
@@ -494,7 +493,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
                                 constraints:
-                                    BoxConstraints(minHeight: 45, minWidth: 45),
+                                    const BoxConstraints(minHeight: 45, minWidth: 45),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
@@ -504,17 +503,17 @@ class _PeopleProfileState extends State<PeopleProfile> {
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,
-                                child: FaIcon(
-                                  FontAwesomeIcons.circlePlay,
-                                  color: Color(0xff333333),
-                                  size: 17,
-                                ),
                                 /*  padding: EdgeInsets.all(15.0), */
-                                shape: CircleBorder(
+                                shape: const CircleBorder(
                                     /* side: BorderSide(
                                                       width: 1,
                                                       color: Color(0xff0087FF)) */
                                     ),
+                                child: const FaIcon(
+                                  FontAwesomeIcons.circlePlay,
+                                  color: Color(0xff333333),
+                                  size: 17,
+                                ),
                               ),
                             ],
                           );
@@ -551,7 +550,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
                                 constraints:
-                                    BoxConstraints(minHeight: 45, minWidth: 45),
+                                    const BoxConstraints(minHeight: 45, minWidth: 45),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
@@ -561,17 +560,17 @@ class _PeopleProfileState extends State<PeopleProfile> {
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,
-                                child: FaIcon(
-                                  FontAwesomeIcons.circlePlay,
-                                  color: Color(0xff333333),
-                                  size: 17,
-                                ),
                                 /*  padding: EdgeInsets.all(15.0), */
-                                shape: CircleBorder(
+                                shape: const CircleBorder(
                                     /* side: BorderSide(
                                                       width: 1,
                                                       color: Color(0xff0087FF)) */
                                     ),
+                                child: const FaIcon(
+                                  FontAwesomeIcons.circlePlay,
+                                  color: Color(0xff333333),
+                                  size: 17,
+                                ),
                               ),
                             ],
                           );
@@ -608,7 +607,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
                                 constraints:
-                                    BoxConstraints(minHeight: 45, minWidth: 45),
+                                    const BoxConstraints(minHeight: 45, minWidth: 45),
                                 onPressed: () {
                                   /*   pickImage(ImageSource.camera);
                                   Navigator.of(context).pop();
@@ -618,17 +617,17 @@ class _PeopleProfileState extends State<PeopleProfile> {
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,
-                                child: FaIcon(
-                                  FontAwesomeIcons.circlePlay,
-                                  color: Color(0xff333333),
-                                  size: 17,
-                                ),
                                 /*  padding: EdgeInsets.all(15.0), */
-                                shape: CircleBorder(
+                                shape: const CircleBorder(
                                     /* side: BorderSide(
                                                       width: 1,
                                                       color: Color(0xff0087FF)) */
                                     ),
+                                child: const FaIcon(
+                                  FontAwesomeIcons.circlePlay,
+                                  color: Color(0xff333333),
+                                  size: 17,
+                                ),
                               ),
                             ],
                           );
@@ -653,7 +652,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
         children: [
-          Text(
+          const Text(
             'Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..',
             style: TextStyle(
                 color: Color(0xff03194B), fontSize: 10, fontFamily: 'Poppins'),
@@ -664,7 +663,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
               OutlinedButton(
                 onPressed: () {},
                 style: OutlinedButton.styleFrom(
-                    minimumSize: Size(90, 35),
+                    minimumSize: const Size(90, 35),
                     /*    minimumSize: Size(32, 30), */
                     elevation: 5,
                     /* padding: EdgeInsets.zero, */
@@ -677,9 +676,9 @@ class _PeopleProfileState extends State<PeopleProfile> {
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0))),
-                child: Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: const Text(
+                child: const Padding(
+                  padding: EdgeInsets.all(1.0),
+                  child: Text(
                     "Following",
                     style: TextStyle(
                         color: Color(0xff333333),
@@ -694,7 +693,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
               OutlinedButton(
                 onPressed: () {},
                 style: OutlinedButton.styleFrom(
-                    minimumSize: Size(90, 35),
+                    minimumSize: const Size(90, 35),
                     /*  minimumSize: Size(32, 30), */
                     elevation: 5,
                     /* padding: EdgeInsets.zero, */
@@ -707,9 +706,9 @@ class _PeopleProfileState extends State<PeopleProfile> {
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0))),
-                child: Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: const Text(
+                child: const Padding(
+                  padding: EdgeInsets.all(1.0),
+                  child: Text(
                     "Chat-Box",
                     style: TextStyle(
                         color: Color(0xff333333),
@@ -724,7 +723,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
               OutlinedButton(
                 onPressed: () {},
                 style: OutlinedButton.styleFrom(
-                    minimumSize: Size(90, 35),
+                    minimumSize: const Size(90, 35),
                     elevation: 5,
                     /* padding: EdgeInsets.zero, */
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -736,9 +735,9 @@ class _PeopleProfileState extends State<PeopleProfile> {
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0))),
-                child: Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: const Text(
+                child: const Padding(
+                  padding: EdgeInsets.all(1.0),
+                  child: Text(
                     "Suggestion",
                     style: TextStyle(
                         color: Color(0xff333333),
@@ -758,7 +757,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Peopleprofiletab(value: 2,)),
+                  MaterialPageRoute(builder: (context) => const Peopleprofiletab(value: 2,)),
                 );
               },
               style: OutlinedButton.styleFrom(
@@ -774,9 +773,9 @@ class _PeopleProfileState extends State<PeopleProfile> {
                   backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5.0))),
-              child: Padding(
-                padding: const EdgeInsets.all(1.0),
-                child: const Text(
+              child: const Padding(
+                padding: EdgeInsets.all(1.0),
+                child: Text(
                   "Connect to Email",
                   style: TextStyle(
                       color: Color(0xff333333),
@@ -792,19 +791,18 @@ class _PeopleProfileState extends State<PeopleProfile> {
   }
 
   buildtop() {
-    final bottom = 60.0;
-    final top = 70.0;
+    const bottom = 60.0;
+    const top = 70.0;
     Size size;
-    double height, width;
+    double width;
     size = MediaQuery.of(context).size;
-    height = size.height;
     width = size.width;
     return Stack(
       clipBehavior: Clip.none,
       alignment: Alignment.bottomLeft,
       children: [
         Container(
-          margin: EdgeInsets.only(bottom: bottom),
+          margin: const EdgeInsets.only(bottom: bottom),
           child: Image.network(
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaSlC5NEH60CTgwgBpXYJTI37o3jNNQImqhw&usqp=CAU',
             width: double.infinity,
@@ -828,7 +826,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                     child: CircleAvatar(
                       radius: 45,
                       backgroundColor: Colors.grey.shade800,
-                      backgroundImage: NetworkImage(
+                      backgroundImage: const NetworkImage(
                           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkuP4A26vUkEZwYJL4zGV8KRxUbBmcX11Mdw&usqp=CAU'),
                     )),
               ),
@@ -837,24 +835,24 @@ class _PeopleProfileState extends State<PeopleProfile> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Peopleprofiletab(value: 0,)),
+                    MaterialPageRoute(builder: (context) => const Peopleprofiletab(value: 0,)),
                   );
                 },
                 style: OutlinedButton.styleFrom(
-                    minimumSize: Size(32, 30),
+                    minimumSize: const Size(32, 30),
                     elevation: 5,
                     /* padding: EdgeInsets.zero, */
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     side: const BorderSide(
                       color: Color(0xff0087FF),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 9.0, vertical: 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 9.0, vertical: 0),
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0))),
-                child: Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: const Text(
+                child: const Padding(
+                  padding: EdgeInsets.all(1.0),
+                  child: Text(
                     "12.5M Followers",
                     style: TextStyle(
                         color: Color(0xff333333),
@@ -872,18 +870,18 @@ class _PeopleProfileState extends State<PeopleProfile> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Peopleprofiletab(value: 1,)),
+                    MaterialPageRoute(builder: (context) => const Peopleprofiletab(value: 1,)),
                   );
                 },
                 style: OutlinedButton.styleFrom(
-                    minimumSize: Size(32, 30),
+                    minimumSize: const Size(32, 30),
                     elevation: 5,
                     /*   padding: EdgeInsets.zero, */
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     side: const BorderSide(
                       color: Color(0xff0087FF),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 9, vertical: 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 0),
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0))),
@@ -903,18 +901,18 @@ class _PeopleProfileState extends State<PeopleProfile> {
                   height: 30,
                   width: 31,
                   decoration: BoxDecoration(
-                      boxShadow: [],
+                      boxShadow: const [],
                       color: Colors.white,
                       border:
                           Border.all(width: 1, color: const Color(0xff0087FF)),
                       borderRadius: BorderRadius.circular(5)),
                   child: IconButton(
                       padding: EdgeInsets.zero,
-                      constraints: BoxConstraints(),
+                      constraints: const BoxConstraints(),
                       onPressed: () {
                         aboutProfile(context);
                       },
-                      icon: Icon(Icons.more_horiz)),
+                      icon: const Icon(Icons.more_horiz)),
                 ),
               )
             ],
@@ -931,7 +929,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Nanncy Jain',
                         style: TextStyle(
                             fontSize: 13,
@@ -941,7 +939,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       SizedBox(
                         width: width * 0.06,
                       ),
-                      Text(
+                      const Text(
                         'lats seen today 12:15 PM',
                         style: TextStyle(
                             fontSize: 10,
@@ -953,7 +951,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         '@Nanncyjain23',
                         style: TextStyle(
                             fontSize: 10,
@@ -963,7 +961,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       SizedBox(
                         width: width * 0.005,
                       ),
-                      Iconify(
+                      const Iconify(
                         Bi.patch_check,
                         color: primaryColorOfApp,
                         size: 17,
@@ -971,15 +969,15 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       SizedBox(
                         width: width * 0.15,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 5.0),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 5.0),
                         child: Iconify(
                           MaterialSymbols.star_rounded,
                           color: Color(0xff08A434),
                           size: 20,
                         ),
                       ),
-                      Text(
+                      const Text(
                         '4.8',
                         style: TextStyle(
                           fontSize: 13,
@@ -992,11 +990,11 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       ), */
                       IconButton(
                           padding: EdgeInsets.zero,
-                          constraints: BoxConstraints(),
+                          constraints: const BoxConstraints(),
                           onPressed: () {
                             allnotification(context);
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.notifications,
                             color: Color(0xff0087FF),
                           ))
@@ -1013,9 +1011,8 @@ class _PeopleProfileState extends State<PeopleProfile> {
 
   sizedbox(context) {
     Size size;
-    double height, width;
+    double width;
     size = MediaQuery.of(context).size;
-    height = size.height;
     width = size.width;
     return SizedBox(
       width: width * 0.01,

@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -28,7 +30,7 @@ class _VideoAppState extends State<VideoApp> {
     return Scaffold(
       body: Center(
         child: _controller.value.isInitialized
-            ? Container(
+            ? SizedBox(
                 height: 400,
                 child: AspectRatio(
                   aspectRatio: 1.5,

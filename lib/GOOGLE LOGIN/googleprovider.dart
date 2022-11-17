@@ -1,13 +1,12 @@
-import 'dart:convert';
+// ignore_for_file: avoid_print
 
+import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Googleprovider extends ChangeNotifier {
   final googlesignin = GoogleSignIn();
@@ -97,7 +96,6 @@ class Googleprovider extends ChangeNotifier {
       print(status);
       var token = jsondata[0]["token"];
       print(token);
-      dynamic saveotp;
 
       if (status == true) {
         return token;

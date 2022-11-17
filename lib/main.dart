@@ -1,23 +1,10 @@
+// ignore_for_file: unused_field
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
-import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
-import 'package:flutter_application_1/CHAT_APP/loginpage.dart';
-import 'package:flutter_application_1/CHAT_APP/sharedPref.dart';
-import 'package:flutter_application_1/GETX/gettimer.dart';
+import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-
-import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
-import 'package:flutter_application_1/ONBOARDING/slider.dart';
-import 'package:flutter_application_1/SHARE/googlemaps1.dart';
-import 'package:flutter_application_1/forloppractise.dart';
-import 'package:flutter_application_1/homepage/ads.dart';
-import 'package:flutter_application_1/homepage/change_interest.dart';
-import 'package:flutter_application_1/homepage/checkimage1.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
-import 'package:flutter_application_1/homepage/self_profile.dart';
-import 'package:flutter_application_1/homepage/verification1.dart';
-
 import 'package:flutter_application_1/localestring.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -25,11 +12,11 @@ import 'package:provider/provider.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -40,6 +27,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
 
@@ -48,7 +36,7 @@ class _MyAppState extends State<MyApp> {
 
   getUserLoggedInStatus() async {
     await SharedPref.getUserLoggedInStatus().then((value) {
-    /*   print(_isLoggedIn); */
+      /*   print(_isLoggedIn); */
       if (value != null) {
         setState(() {
           _isLoggedIn = value;
@@ -63,11 +51,11 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Googleprovider()),
-    /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
+        /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
       ],
       child: GetMaterialApp(
           translations: LocalString(),
-          locale: Locale('en', 'US'),
+          locale: const Locale('en', 'US'),
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
@@ -81,8 +69,8 @@ class _MyAppState extends State<MyApp> {
           GlobalWidgetsLocalizations.delegate
       ], */
 
-          home: HomePage() /* LoginPage12() */
-             /*  IntroScreen() */ /* _isLoggedIn
+          home: const HomePage() /* LoginPage12() */
+          /*  IntroScreen() */ /* _isLoggedIn
               ? Chathomepage()
               : LoginPage12() */ /* FutureBuilder(
           future: _initialization,
