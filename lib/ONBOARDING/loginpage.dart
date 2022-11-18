@@ -1,8 +1,8 @@
-
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
@@ -24,6 +24,11 @@ var abc = "";
 class _LoginPageState extends State<LoginPage> {
   bool email = false;
   bool mobile = false;
+
+  var phonecont = TextEditingController();
+  dynamic phonekanumber;
+  var token = "";
+  var checktoken = "";
   @override
   void initState() {
     super.initState();
@@ -38,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  final GetUpdateSeconds getkar = Get.put(GetUpdateSeconds());
   var username = TextEditingController();
   bool isbuttonactive = false;
   bool isbuttonactive2 = false;
@@ -70,13 +76,20 @@ class _LoginPageState extends State<LoginPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: height * 0.03,
+                            height: height * 0.09,
                           ),
-                          Center(child: SvgPicture.asset('assets/new.svg')),
+                          Center(
+                              child: SvgPicture.asset(
+                            'assets/new.svg',
+                            height: 155,
+                            width: 155,
+                          )),
                           SizedBox(
                             height: height * 0.03,
                           ),
                           TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'Please enter username';
@@ -85,38 +98,32 @@ class _LoginPageState extends State<LoginPage> {
                             },
                             controller: username,
                             decoration: InputDecoration(
+                              isDense: true,
                               errorStyle:
                                   const TextStyle(fontSize: 8, height: 0.2),
                               labelText: 'username'.tr,
                               labelStyle: const TextStyle(
-                                  color: Color(0xffC4C4C4),
+                                  color: customTextColor,
                                   fontFamily: 'Poppins',
                                   fontSize: 12),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: const BorderSide(
+                                      color: customTextColor, width: 0.5)),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: const BorderSide(
                                       color: customTextColor, width: 0.5)),
+                              focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xffED1B24), width: 0.5)),
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: const UploadImage().radius(),
                                   borderSide: const BorderSide(
                                       color: Color(0xff0087FF), width: 0.5)),
-                              /*  enabledBorder: OutlineInputBorder(
-                        borderRadius: UploadImage().radius(),
-                        borderSide: const BorderSide(
-                            color: Color(0xff333333), width: 0.5)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: UploadImage().radius(),
-                        borderSide: const BorderSide(
-                            color: Color(0xff0087FF), width: 1)), */
-                              /*  suffixIcon: const Icon(Icons.check), */
-                              // hintText: 'Enter Your Username',
-                              contentPadding: const EdgeInsets.all(15),
-                              /*  border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xff0087FF),
-                              ),
-                              borderRadius: BorderRadius.circular(16)
-                              ) */
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 10.0),
                             ),
                             onChanged: (value) {
                               // do something
@@ -126,22 +133,32 @@ class _LoginPageState extends State<LoginPage> {
                             height: height * 0.02,
                           ),
                           TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            obscuringCharacter: '*',
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'Please enter password';
+                              } else if (value.length < 3) {
+                                return 'Password should be minimum 3 characters';
                               }
                               return null;
                             },
                             controller: password,
                             obscureText: obscure,
                             decoration: InputDecoration(
+                              isDense: true,
                               errorStyle:
                                   const TextStyle(fontSize: 8, height: 0.2),
                               labelText: 'password'.tr,
                               labelStyle: const TextStyle(
-                                  color: Color(0xffC4C4C4),
+                                  color: customTextColor,
                                   fontFamily: 'Poppins',
                                   fontSize: 12),
+                              focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xffED1B24), width: 0.5)),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: const BorderSide(
@@ -150,39 +167,31 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: const UploadImage().radius(),
                                   borderSide: const BorderSide(
                                       color: Color(0xff0087FF), width: 0.5)),
-                              /*     enabledBorder: OutlineInputBorder(
-                        borderRadius: UploadImage().radius(),
-                        borderSide: const BorderSide(
-                            color: Color(0xff333333), width: 0.5)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: UploadImage().radius(),
-                        borderSide: const BorderSide(
-                            color: Color(0xff0087FF), width: 1)), */
-                              suffixIcon: GestureDetector(
-                                child: Icon(obscure
-                                    ? Icons.visibility_off
-                                    : Icons.visibility),
-                                onTap: () {
-                                  setState(() {
-                                    obscure = !obscure;
-                                  });
-                                },
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: const BorderSide(
+                                      color: customTextColor, width: 0.5)),
+                              suffixIconConstraints: const BoxConstraints(),
+                              suffixIcon: Padding(
+                                padding: const EdgeInsets.only(right: 8.0),
+                                child: GestureDetector(
+                                  child: Icon(obscure
+                                      ? Icons.visibility_off
+                                      : Icons.visibility),
+                                  onTap: () {
+                                    setState(() {
+                                      obscure = !obscure;
+                                    });
+                                  },
+                                ),
                               ),
-                              // hintText: 'Enter Password',
-                              contentPadding: const EdgeInsets.all(15),
-                              /*  border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xff0087FF),
-                              ),
-                              borderRadius: BorderRadius.circular(15)) */
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 10.0),
                             ),
                             onChanged: (value) {
                               // do something
                             },
                           ),
-                          /* SizedBox(
-                  height: height * 0.03,
-                ), */
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
@@ -215,7 +224,7 @@ class _LoginPageState extends State<LoginPage> {
                                                     Padding(
                                                       padding:
                                                           const EdgeInsets.only(
-                                                              top: 5.0),
+                                                              top: 15.0),
                                                       child: Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
@@ -238,9 +247,9 @@ class _LoginPageState extends State<LoginPage> {
                                                                 color:
                                                                     primaryColorOfApp,
                                                               )),
-                                                          Text(
-                                                            'forgot'.tr,
-                                                            style: const TextStyle(
+                                                          const Text(
+                                                            'Forgot Password',
+                                                            style: TextStyle(
                                                                 color:
                                                                     customTextColor,
                                                                 fontFamily:
@@ -253,16 +262,13 @@ class _LoginPageState extends State<LoginPage> {
                                                     SizedBox(
                                                       height: height * 0.03,
                                                     ),
-                                                    SizedBox(
-                                                      height: 40,
-                                                      child: TextFormField(
-                                                        decoration:
-                                                            buildInputdecoration(
-                                                                'username'.tr),
-                                                      ),
+                                                    TextFormField(
+                                                      decoration:
+                                                          buildInputdecoration(
+                                                              'username'.tr),
                                                     ),
                                                     SizedBox(
-                                                      height: height * 0.04,
+                                                      height: height * 0.03,
                                                     ),
                                                     Row(
                                                       mainAxisAlignment:
@@ -287,18 +293,19 @@ class _LoginPageState extends State<LoginPage> {
                                                       ],
                                                     ),
                                                     SizedBox(
-                                                      height: height * 0.01,
+                                                      height: height * 0.04,
                                                     ),
                                                     Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
-                                                              .spaceEvenly,
+                                                              .spaceBetween,
                                                       children: [
                                                         OutlinedButton(
                                                           style: OutlinedButton
                                                               .styleFrom(
                                                                   minimumSize:
-                                                                      const Size(120,
+                                                                      const Size(
+                                                                          139,
                                                                           35),
                                                                   /*    minimumSize: Size(32, 30), */
                                                                   elevation: 0,
@@ -335,7 +342,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                           0xff0087FF)
                                                                       : const Color(
                                                                           0xff333333),
-                                                                  fontSize: 10,
+                                                                  fontSize: 12,
                                                                   fontFamily:
                                                                       'Poppins'),
                                                             ),
@@ -347,9 +354,6 @@ class _LoginPageState extends State<LoginPage> {
                                                             });
                                                           },
                                                         ),
-                                                        SizedBox(
-                                                          width: width * 0.08,
-                                                        ),
                                                         OutlinedButton(
                                                           onPressed: () {
                                                             setState(() {
@@ -360,7 +364,8 @@ class _LoginPageState extends State<LoginPage> {
                                                           style: OutlinedButton
                                                               .styleFrom(
                                                                   minimumSize:
-                                                                      const Size(120,
+                                                                      const Size(
+                                                                          139,
                                                                           35),
                                                                   /*  minimumSize: Size(32, 30), */
                                                                   elevation: 0,
@@ -397,7 +402,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                           0xff0087FF)
                                                                       : const Color(
                                                                           0xff333333),
-                                                                  fontSize: 10,
+                                                                  fontSize: 12,
                                                                   fontFamily:
                                                                       'Poppins'),
                                                             ),
@@ -425,7 +430,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                     customTextColor,
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                fontSize: 10),
+                                                                fontSize: 9),
                                                           ),
                                                         ),
                                                       ],
@@ -434,6 +439,7 @@ class _LoginPageState extends State<LoginPage> {
                                                       height: height * 0.04,
                                                     ),
                                                     SizedBox(
+                                                      height: 40,
                                                       width: double.infinity,
                                                       child: ElevatedButton(
                                                         onPressed:
@@ -441,8 +447,8 @@ class _LoginPageState extends State<LoginPage> {
                                                                     mobile ==
                                                                         true
                                                                 ? () {
-                                                                    showModalBottomSheet<
-                                                                            dynamic>(
+                                                                    showModalBottomSheet(
+                                                                        /*     isDismissible: false, */
                                                                         isScrollControlled:
                                                                             true,
                                                                         shape:
@@ -460,238 +466,336 @@ class _LoginPageState extends State<LoginPage> {
                                                                         builder:
                                                                             (BuildContext
                                                                                 context) {
-                                                                          return Stack(
-                                                                            clipBehavior:
-                                                                                Clip.none,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                                                                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                                                                                  Row(
-                                                                                    children: [
-                                                                                      IconButton(
-                                                                                          onPressed: () {
-                                                                                            Navigator.pop(context);
-                                                                                          },
-                                                                                          icon: const Icon(Icons.arrow_back)),
-                                                                                      const SizedBox(
-                                                                                        width: 65,
+                                                                          /*   return GetBuilder<HomeController>(
+                                        builder: (controller) { */
+                                                                          return StatefulBuilder(builder:
+                                                                              (context, setState) {
+                                                                            return Padding(
+                                                                              padding: MediaQuery.of(context).viewInsets,
+                                                                              child: Stack(
+                                                                                clipBehavior: Clip.none,
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                                                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                                                                                      Row(
+                                                                                        children: [
+                                                                                          IconButton(
+                                                                                              onPressed: () {
+                                                                                                Navigator.pop(context);
+                                                                                              },
+                                                                                              icon: const Icon(Icons.arrow_back)),
+                                                                                          const SizedBox(
+                                                                                            width: 65,
+                                                                                          ),
+                                                                                          const Text(
+                                                                                            'Enter OTP',
+                                                                                            style: TextStyle(
+                                                                                              fontFamily: 'Poppins',
+                                                                                              fontSize: 20,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
                                                                                       ),
                                                                                       const Text(
-                                                                                        'Enter OTP',
+                                                                                        'Otp has been sent to +91 8689880061',
                                                                                         style: TextStyle(
                                                                                           fontFamily: 'Poppins',
-                                                                                          fontSize: 20,
+                                                                                          fontSize: 15,
                                                                                         ),
                                                                                       ),
-                                                                                    ],
-                                                                                  ),
-                                                                                  const Text(
-                                                                                    'Otp has been sent to +91 8689880061',
-                                                                                    style: TextStyle(
-                                                                                      fontFamily: 'Poppins',
-                                                                                      fontSize: 15,
-                                                                                    ),
-                                                                                  ),
-                                                                                  SizedBox(
-                                                                                    height: height * 0.05,
-                                                                                  ),
-                                                                                  OtpTextField(
-                                                                                    numberOfFields: 6,
-                                                                                    borderColor: const Color(0xFF0087FF),
-                                                                                    //set to true to show as box or false to show as dash
-                                                                                    showFieldAsBox: true,
-                                                                                    //runs when a code is typed in
-                                                                                    onCodeChanged: (String code) {
-                                                                                      //handle validation or checks here
-                                                                                    },
-                                                                                    //runs when every textfield is filled
-                                                                                    onSubmit: (String verificationCode) {
-                                                                                      showDialog(
-                                                                                          context: context,
-                                                                                          builder: (context) {
-                                                                                            return AlertDialog(
-                                                                                              title: const Text("Verification Code"),
-                                                                                              content: Text('Code entered is $verificationCode'),
-                                                                                            );
-                                                                                          });
-                                                                                    }, // end onSubmit
-                                                                                  ),
-                                                                                  /* _buildOtp(), */
-                                                                                  SizedBox(
-                                                                                    height: height * 0.01,
-                                                                                  ),
-                                                                                  TextButton(
-                                                                                      onPressed: () {},
-                                                                                      child: const Text(
-                                                                                        'Resen Otp in 30sec',
-                                                                                        style: TextStyle(fontFamily: 'Poppins', fontSize: 15, color: primaryColorOfApp),
-                                                                                      )),
-                                                                                  SizedBox(
-                                                                                    width: double.infinity,
-                                                                                    // height: 50,
-                                                                                    child: ElevatedButton(
-                                                                                      onPressed: () {
-                                                                                        showModalBottomSheet<dynamic>(
-                                                                                            isScrollControlled: true,
-                                                                                            shape: const RoundedRectangleBorder(
-                                                                                              // <-- SEE HERE
-                                                                                              borderRadius: BorderRadius.vertical(
-                                                                                                top: Radius.circular(20.0),
-                                                                                              ),
-                                                                                            ),
-                                                                                            // isScrollControlled: true,
-                                                                                            context: context,
-                                                                                            builder: (BuildContext context) {
-                                                                                              return Stack(
-                                                                                                clipBehavior: Clip.none,
-                                                                                                children: [
-                                                                                                  Padding(
-                                                                                                      padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                                                                                                      child: Column(mainAxisSize: MainAxisSize.min, children: [
-                                                                                                        SizedBox(
-                                                                                                          height: height * 0.03,
-                                                                                                        ),
-                                                                                                        Row(
-                                                                                                          mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                          children: const [
-                                                                                                            Text(
-                                                                                                              'Verified',
-                                                                                                              style: TextStyle(fontFamily: 'Poppins', fontSize: 15, color: primaryColorOfApp),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                        SizedBox(
-                                                                                                          height: height * 0.03,
-                                                                                                        ),
-                                                                                                        Row(
-                                                                                                          mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                          children: const [
-                                                                                                            Text(
-                                                                                                              'Your OTP has been verified ',
-                                                                                                              style: TextStyle(
-                                                                                                                fontFamily: 'Poppins',
-                                                                                                                fontSize: 12,
-                                                                                                              ),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                        SizedBox(
-                                                                                                          height: height * 0.02,
-                                                                                                        ),
-                                                                                                        SizedBox(
-                                                                                                          height: 40,
-                                                                                                          child: TextFormField(
-                                                                                                            decoration: buildInputdecoration('Enter New Password'),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        SizedBox(
-                                                                                                          height: height * 0.015,
-                                                                                                        ),
-                                                                                                        SizedBox(
-                                                                                                          height: 40,
-                                                                                                          child: TextFormField(
-                                                                                                            decoration: buildInputdecoration('Confirm Password'),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        SizedBox(
-                                                                                                          height: height * 0.02,
-                                                                                                        ),
-                                                                                                        SizedBox(
-                                                                                                          width: double.infinity,
-                                                                                                          // height: 50,
-                                                                                                          child: ElevatedButton(
-                                                                                                            onPressed: () {},
-                                                                                                            style: ElevatedButton.styleFrom(
-                                                                                                                elevation: 0,
-                                                                                                                /* minimumSize: const Size(0.0, 40), */
-                                                                                                                // padding: EdgeInsets.symmetric(
-                                                                                                                //     horizontal: 40.0, vertical: 20.0),
-                                                                                                                backgroundColor: const Color(0xff0087FF),
-                                                                                                                shape: RoundedRectangleBorder(borderRadius: const UploadImage().radius())),
-                                                                                                            child: const Text(
-                                                                                                              "Confirm",
-                                                                                                              style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Poppins'),
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        SizedBox(
-                                                                                                          height: height * 0.1,
-                                                                                                        ),
-                                                                                                      ])),
-                                                                                                  Positioned.fill(
-                                                                                                      top: -36,
-                                                                                                      child: Align(
-                                                                                                        alignment: Alignment.topCenter,
-                                                                                                        child: InkWell(
-                                                                                                          onTap: () {
-                                                                                                            Navigator.pop(context);
-                                                                                                          },
-                                                                                                          child: Container(
-                                                                                                            /*   width: 45,
-                                    height: 45, */
-                                                                                                            decoration: BoxDecoration(
-                                                                                                              border: Border.all(color: Colors.white, width: 2),
-                                                                                                              shape: BoxShape.circle,
-                                                                                                            ),
-                                                                                                            child: const Padding(
-                                                                                                              padding: EdgeInsets.all(4.0),
-                                                                                                              child: Icon(
-                                                                                                                Icons.close,
-                                                                                                                color: Colors.white,
-                                                                                                              ),
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ))
-                                                                                                ],
-                                                                                              );
-                                                                                            });
-                                                                                      },
-                                                                                      style: ElevatedButton.styleFrom(
-                                                                                          /*       minimumSize: const Size(0.0, 40), */
-                                                                                          // padding: EdgeInsets.symmetric(
-                                                                                          //     horizontal: 40.0, vertical: 20.0),
-                                                                                          backgroundColor: const Color(0xff0087FF),
-                                                                                          shape: RoundedRectangleBorder(borderRadius: const UploadImage().radius())),
-                                                                                      child: const Text(
-                                                                                        "Verify",
-                                                                                        style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Poppins'),
+                                                                                      SizedBox(
+                                                                                        height: height * 0.05,
                                                                                       ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  SizedBox(
-                                                                                    height: height * 0.2,
-                                                                                  ),
-                                                                                ]),
-                                                                              ),
-                                                                              Positioned.fill(
-                                                                                  top: -36,
-                                                                                  child: Align(
-                                                                                    alignment: Alignment.topCenter,
-                                                                                    child: InkWell(
-                                                                                      onTap: () {
-                                                                                        Navigator.pop(context);
-                                                                                      },
-                                                                                      child: Container(
-                                                                                        /*   width: 45,
+                                                                                      /*   GetBuilder< HomeController>(
+                                                            builder:(controller) {
+                                                          return */
+                                                                                      /*  Obx((() =>
+                                                            PinFieldAutoFill(
+                                                              textInputAction:
+                                                                  TextInputAction
+                                                                      .done,
+                                                              controller: controller
+                                                                  .otpEditingController,
+                                                              decoration:
+                                                                  UnderlineDecoration(
+                                                                textStyle: const TextStyle(
+                                                                    fontSize:
+                                                                        16,
+                                                                    color: Colors
+                                                                        .blue),
+                                                                colorBuilder:
+                                                                    const FixedColorBuilder(
+                                                                  Colors
+                                                                      .transparent,
+                                                                ),
+                                                                bgColorBuilder:
+                                                                    FixedColorBuilder(
+                                                                  Colors.grey
+                                                                      .withOpacity(
+                                                                          0.2),
+                                                                ),
+                                                              ),
+                                                              currentCode:
+                                                                  controller
+                                                                      .messageOtpCode
+                                                                      .value,
+                                                              onCodeSubmitted:
+                                                                  (code) {},
+                                                              onCodeChanged:
+                                                                  (code) {
+                                                                controller
+                                                                    .messageOtpCode
+                                                                    .value = code!;
+                                                                controller
+                                                                    .countdownController
+                                                                    .pause();
+                                                                if (code.length ==
+                                                                    6) {
+                                                                  // To perform some operation
+                                                                }
+                                                              },
+                                                            ))), */
+                                                                                      /* }), */
+
+                                                                                      OtpTextField(
+                                                                                        filled: true,
+                                                                                        margin: const EdgeInsets.only(right: 4.0),
+                                                                                        fieldWidth: 45,
+                                                                                        fillColor: const Color(0xffDFEEFC),
+                                                                                        borderWidth: 1,
+                                                                                        focusedBorderColor: primaryColorOfApp,
+                                                                                        numberOfFields: 6,
+                                                                                        borderColor: primaryColorOfApp,
+                                                                                        showFieldAsBox: true,
+                                                                                        onSubmit: (verificationCode) {
+                                                                                          /*     setState(() {
+                                                          checktoken =
+                                                              verificationCode;
+                                                        });
+                                                        if (verificationCode
+                                                                .length ==
+                                                            6) {
+                                                          setState(() {
+                                                            check6digit = false;
+                                                          });
+                                                        }
+                                                        if (verificationCode
+                                                                .length <
+                                                            6) {
+                                                          setState(() {
+                                                            check6digit = true;
+                                                          });
+                                                        } */
+                                                                                        },
+                                                                                      ),
+                                                                                      SizedBox(
+                                                                                        height: height * 0.01,
+                                                                                      ),
+                                                                                      Row(
+                                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                                        children: [
+                                                                                          GetBuilder<GetUpdateSeconds>(
+                                                                                            builder: (controller) => TextButton(
+                                                                                                onPressed: getkar.timerkhatam1
+                                                                                                    ? null
+                                                                                                    : () async {
+                                                                                                        final provider = Provider.of<Googleprovider>(context, listen: false);
+                                                                                                        token = await provider.otpmethod(phonekanumber);
+                                                                                                        print('badshamasala');
+                                                                                                        getkar.nayamethod();
+                                                                                                      },
+                                                                                                child: GetBuilder<GetUpdateSeconds>(
+                                                                                                  builder: (controller) => Text(
+                                                                                                    getkar.timerkhatam1 ? 'Resend OTP in ${getkar.seconds} Sec' : 'Resend OTP',
+                                                                                                    style: const TextStyle(fontFamily: 'Poppins', fontSize: 10, color: primaryColorOfApp),
+                                                                                                  ),
+                                                                                                )),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                      SizedBox(
+                                                                                        height: 40,
+                                                                                        width: double.infinity,
+                                                                                        // height: 50,
+                                                                                        child: ElevatedButton(
+                                                                                          onPressed:
+                                                                                              /* check6digit
+                                                                    ? null
+                                                                    : */
+                                                                                              () {
+                                                                                            /*  if (token ==
+                                                                            checktoken) { */
+                                                                                            showModalBottomSheet<dynamic>(
+                                                                                                isScrollControlled: true,
+                                                                                                shape: const RoundedRectangleBorder(
+                                                                                                  // <-- SEE HERE
+                                                                                                  borderRadius: BorderRadius.vertical(
+                                                                                                    top: Radius.circular(20.0),
+                                                                                                  ),
+                                                                                                ),
+                                                                                                // isScrollControlled: true,
+                                                                                                context: context,
+                                                                                                builder: (BuildContext context) {
+                                                                                                  return Padding(
+                                                                                                    padding: MediaQuery.of(context).viewInsets,
+                                                                                                    child: Stack(
+                                                                                                      clipBehavior: Clip.none,
+                                                                                                      children: [
+                                                                                                        Padding(
+                                                                                                            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                                                                                                            child: Column(mainAxisSize: MainAxisSize.min, children: [
+                                                                                                              SizedBox(
+                                                                                                                height: height * 0.03,
+                                                                                                              ),
+                                                                                                              Row(
+                                                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                                children: const [
+                                                                                                                  Text(
+                                                                                                                    'Verified',
+                                                                                                                    style: TextStyle(fontFamily: 'Poppins', fontSize: 15, color: primaryColorOfApp),
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ),
+                                                                                                              SizedBox(
+                                                                                                                height: height * 0.03,
+                                                                                                              ),
+                                                                                                              Row(
+                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                children: const [
+                                                                                                                  Text(
+                                                                                                                    'Your OTP has been verified ',
+                                                                                                                    style: TextStyle(
+                                                                                                                      fontFamily: 'Poppins',
+                                                                                                                      fontSize: 12,
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                ],
+                                                                                                              ),
+                                                                                                              SizedBox(
+                                                                                                                height: height * 0.02,
+                                                                                                              ),
+                                                                                                              TextFormField(
+                                                                                                                decoration: buildInputdecoration('Enter New Password'),
+                                                                                                              ),
+                                                                                                              SizedBox(
+                                                                                                                height: height * 0.015,
+                                                                                                              ),
+                                                                                                              TextFormField(
+                                                                                                                decoration: buildInputdecoration('Confirm Password'),
+                                                                                                              ),
+                                                                                                              SizedBox(
+                                                                                                                height: height * 0.02,
+                                                                                                              ),
+                                                                                                              SizedBox(
+                                                                                                                width: double.infinity,
+                                                                                                                height: 40,
+                                                                                                                child: ElevatedButton(
+                                                                                                                  onPressed: () {},
+                                                                                                                  style: ElevatedButton.styleFrom(
+                                                                                                                      elevation: 0,
+                                                                                                                      /* minimumSize: const Size(0.0, 40), */
+                                                                                                                      // padding: EdgeInsets.symmetric(
+                                                                                                                      //     horizontal: 40.0, vertical: 20.0),
+                                                                                                                      backgroundColor: const Color(0xff0087FF),
+                                                                                                                      shape: RoundedRectangleBorder(borderRadius: const UploadImage().radius())),
+                                                                                                                  child: const Text(
+                                                                                                                    "Confirm",
+                                                                                                                    style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                              SizedBox(
+                                                                                                                height: height * 0.1,
+                                                                                                              ),
+                                                                                                            ])),
+                                                                                                        Positioned.fill(
+                                                                                                            top: -36,
+                                                                                                            child: Align(
+                                                                                                              alignment: Alignment.topCenter,
+                                                                                                              child: InkWell(
+                                                                                                                onTap: () {
+                                                                                                                  Navigator.pop(context);
+                                                                                                                },
+                                                                                                                child: Container(
+                                                                                                                  /*   width: 45,
                                     height: 45, */
-                                                                                        decoration: BoxDecoration(
-                                                                                          border: Border.all(color: Colors.white, width: 2),
-                                                                                          shape: BoxShape.circle,
-                                                                                        ),
-                                                                                        child: const Padding(
-                                                                                          padding: EdgeInsets.all(4.0),
-                                                                                          child: Icon(
-                                                                                            Icons.close,
-                                                                                            color: Colors.white,
+                                                                                                                  decoration: BoxDecoration(
+                                                                                                                    border: Border.all(color: Colors.white, width: 2),
+                                                                                                                    shape: BoxShape.circle,
+                                                                                                                  ),
+                                                                                                                  child: const Padding(
+                                                                                                                    padding: EdgeInsets.all(4.0),
+                                                                                                                    child: Icon(
+                                                                                                                      Icons.close,
+                                                                                                                      color: Colors.white,
+                                                                                                                    ),
+                                                                                                                  ),
+                                                                                                                ),
+                                                                                                              ),
+                                                                                                            ))
+                                                                                                      ],
+                                                                                                    ),
+                                                                                                  );
+                                                                                                });
+
+                                                                                            /*   } else {
+                                                                          Fluttertoast.showToast(
+                                                                              msg: "Wrong OTP",
+                                                                              backgroundColor: Colors.black,
+                                                                              textColor: Colors.white,
+                                                                              fontSize: 16.0);
+                                                                        } */
+                                                                                          },
+                                                                                          style: ElevatedButton.styleFrom(
+                                                                                              elevation: 0,
+                                                                                              /*      minimumSize: const Size(0.0, 40), */
+                                                                                              // padding: EdgeInsets.symmetric(
+                                                                                              //     horizontal: 40.0, vertical: 20.0),
+                                                                                              backgroundColor: const Color(0xff0087FF),
+                                                                                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7.0))),
+                                                                                          child: const Text(
+                                                                                            "Verify & Continue",
+                                                                                            style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
                                                                                           ),
                                                                                         ),
                                                                                       ),
-                                                                                    ),
-                                                                                  ))
-                                                                            ],
-                                                                          );
+                                                                                      SizedBox(
+                                                                                        height: height * 0.2,
+                                                                                      ),
+                                                                                    ]),
+                                                                                  ),
+                                                                                  Positioned.fill(
+                                                                                      top: -36,
+                                                                                      child: Align(
+                                                                                        alignment: Alignment.topCenter,
+                                                                                        child: InkWell(
+                                                                                          onTap: () {
+                                                                                            print('badsha');
+                                                                                            Navigator.pop(context);
+                                                                                          },
+                                                                                          child: Container(
+                                                                                            /*   width: 45,
+                                                                          height: 45, */
+                                                                                            decoration: BoxDecoration(
+                                                                                              border: Border.all(color: Colors.white, width: 2),
+                                                                                              shape: BoxShape.circle,
+                                                                                            ),
+                                                                                            child: const Padding(
+                                                                                              padding: EdgeInsets.all(4.0),
+                                                                                              child: Icon(
+                                                                                                Icons.close,
+                                                                                                color: Colors.white,
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      )),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                            /*    }); */
+                                                                          });
                                                                         });
                                                                   }
                                                                 : null,
@@ -704,7 +808,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            5.0))),
+                                                                            7.0))),
                                                         child: Text(
                                                           "confirm".tr,
                                                           style: TextStyle(
@@ -749,8 +853,8 @@ class _LoginPageState extends State<LoginPage> {
                                                         ),
                                                         child: const Padding(
                                                           padding:
-                                                              EdgeInsets
-                                                                  .all(4.0),
+                                                              EdgeInsets.all(
+                                                                  4.0),
                                                           child: Icon(
                                                             Icons.close,
                                                             color: Colors.white,
@@ -769,13 +873,15 @@ class _LoginPageState extends State<LoginPage> {
                                     'forgot'.tr,
                                     style: const TextStyle(
                                         color: primaryColorOfApp,
-                                        fontFamily: 'Poppins'),
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0),
                                   ))
                             ],
                           ),
                           SizedBox(
                             width: double.infinity,
-                            // height: 50,
+                            height: 40,
                             child: ElevatedButton(
                               onPressed: () async {
                                 login();
@@ -787,13 +893,16 @@ class _LoginPageState extends State<LoginPage> {
                                   //     horizontal: 40.0, vertical: 20.0),
                                   backgroundColor: const Color(0xff0087FF),
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: const UploadImage().radius())),
+                                      borderRadius:
+                                          const UploadImage().radius())),
                               child: Text(
                                 "login".tr,
                                 style: const TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18,
-                                    fontFamily: 'Poppins'),
+                                    fontSize: 15,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 0.8),
                               ),
                             ),
                           ),
@@ -806,18 +915,22 @@ class _LoginPageState extends State<LoginPage> {
                               Container(
                                 color: const Color(0xff515253),
                                 height: height * 0.001,
-                                width: width * 0.30,
+                                width: width * 0.38,
                               ),
-                              Text(
-                                'or'.tr,
-                                style: const TextStyle(
-                                    color: Color(0xff515253),
-                                    fontFamily: 'Poppins'),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8.0, right: 8),
+                                child: Text(
+                                  'or'.tr,
+                                  style: const TextStyle(
+                                      color: Color(0xff515253),
+                                      fontFamily: 'Poppins'),
+                                ),
                               ),
                               Container(
                                 color: const Color(0xff515253),
                                 height: height * 0.001,
-                                width: width * 0.30,
+                                width: width * 0.38,
                               ),
                             ],
                           ),
@@ -825,16 +938,17 @@ class _LoginPageState extends State<LoginPage> {
                             height: height * 0.01,
                           ),
                           SizedBox(
-                            /*     height: 45, */
+                            height: 40,
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: () async {
-                                final provider = Provider.of<Googleprovider>(
+                                /*        final provider = Provider.of<Googleprovider>(
                                     context,
                                     listen: false);
-                                await provider.googlelogin();
+                                await provider.googlelogin(); */
                               },
                               style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.zero,
                                   elevation: 0,
                                   side: const BorderSide(
                                       color: Color(0xff0087FF), width: 0.7),
@@ -843,34 +957,35 @@ class _LoginPageState extends State<LoginPage> {
                                 horizontal: 40.0, vertical: 20.0), */
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: const UploadImage().radius())),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Image.asset(
-                                    'assets/google.png',
-                                    height: 25,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    "continue".tr,
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'Poppins'),
-                                  ),
-                                ],
+                                      borderRadius:
+                                          const UploadImage().radius())),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 6.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'assets/google.png',
+                                      height: 28,
+                                    ),
+                                    Text(
+                                      "continue".tr,
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Poppins'),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                           SizedBox(
-                            height: height * 0.04,
+                            height: height * 0.07,
                           ),
                           Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left: width * 0.04),
+                                padding: EdgeInsets.only(left: width * 0.02),
                                 child: Text(
                                   "dont".tr,
                                   style: const TextStyle(
@@ -881,14 +996,15 @@ class _LoginPageState extends State<LoginPage> {
                             ],
                           ),
                           SizedBox(
-                            /* height: 45, */
+                            height: 40,
                             width: double.infinity,
                             child: OutlinedButton(
                               onPressed: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const PhoneNumber()),
+                                      builder: (context) =>
+                                          const PhoneNumber()),
                                 );
                               },
                               style: OutlinedButton.styleFrom(
@@ -898,46 +1014,22 @@ class _LoginPageState extends State<LoginPage> {
                                 horizontal: 40.0, vertical: 20.0), */
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: const UploadImage().radius())),
+                                      borderRadius:
+                                          const UploadImage().radius())),
                               child: Text(
                                 "signup".tr,
                                 style: const TextStyle(
                                     color: Color(0xff0087FF),
                                     fontSize: 15,
-                                    fontFamily: 'Poppins'),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 0.8),
                               ),
                             ),
                           ),
                           const SizedBox(
                             height: 15,
                           ),
-                          /*   Container(
-                      // color: Colors.red,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            height: 10,
-                            width: 20,
-                            child: Checkbox(
-                                materialTapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap,
-                                value: value,
-                                onChanged: (value) {
-                                  setState(() {
-                                    this.value = value!;
-                                  });
-                                }),
-                          ),
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Text(
-                            'I accepted terms of services & privacy policy and licence agreement?',
-                            style: TextStyle(fontSize: 9),
-                          )
-                        ],
-                      ),
-                    ) */
                         ],
                       ),
                     ),
@@ -975,17 +1067,19 @@ class _LoginPageState extends State<LoginPage> {
 
   buildInputdecoration(String labeltext) {
     return InputDecoration(
+      isDense: true,
       /*   errorText: validationService.fullName.error, */
       labelText: labeltext,
       labelStyle: const TextStyle(
-          color: Color(0xffE2E2E2), fontFamily: 'Poppins', fontSize: 12),
+          color: customTextColor, fontFamily: 'Poppins', fontSize: 12),
       enabledBorder: OutlineInputBorder(
           borderRadius: const UploadImage().radius(),
           borderSide: const BorderSide(color: Color(0xff333333), width: 0.5)),
       focusedBorder: OutlineInputBorder(
           borderRadius: const UploadImage().radius(),
           borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5)),
-      contentPadding: const EdgeInsets.all(15),
+      contentPadding:
+          const EdgeInsets.symmetric(vertical: 10, horizontal: 10.0),
     );
   }
 }

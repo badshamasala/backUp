@@ -11,7 +11,7 @@ class LocalString extends Translations {
           'login': 'Login',
           'guest': 'Guest Login',
           'signup': 'Sign up',
-          'dont': 'don\'t have an account?',
+          'dont': 'Don\'t have an account?',
           'or': 'OR',
           'continue': 'Continue with Google',
           'forgot': 'Forgot Password ?',
@@ -19,7 +19,7 @@ class LocalString extends Translations {
           'password': 'Enter Password',
           'email': 'Email',
           'mobile': 'Mobile',
-          'confirm':'Confirm & Continue',
+          'confirm': 'Confirm & Continue',
           'select': 'Select one (via verification) for secure your profile',
           'keep':
               'To help keep your profile safe, my tube wants to\n make sure that it’s really you who trying to reset the password.'
@@ -40,7 +40,7 @@ class LocalString extends Translations {
           'password': 'पास वर्ड दर्ज करें',
           'email': 'ईमेल',
           'mobile': 'मोबाइल',
-          'confirm':'पुष्टि करें और जारी रखें',
+          'confirm': 'पुष्टि करें और जारी रखें',
           'select':
               'अपनी प्रोफ़ाइल सुरक्षित करने के लिए एक (सत्यापन के माध्यम से) का चयन करें',
           'keep':
@@ -62,7 +62,7 @@ class LocalString extends Translations {
           'password': 'পাসওয়ার্ড লিখুন',
           'email': 'ইমেইল',
           'mobile': 'মুঠোফোন',
-          'confirm':'নিশ্চিত করুন এবং চালিয়ে যান',
+          'confirm': 'নিশ্চিত করুন এবং চালিয়ে যান',
           'select':
               'আপনার প্রোফাইল সুরক্ষিত করার জন্য একটি (যাচাইয়ের মাধ্যমে) নির্বাচন করুন',
           'keep':
@@ -84,7 +84,7 @@ class LocalString extends Translations {
           'password': 'પાસવર્ડ દાખલ કરો',
           'email': 'ઇમેઇલ',
           'mobile': 'મોબાઇલ',
-          'confirm':'પુષ્ટિ કરો અને ચાલુ રાખો',
+          'confirm': 'પુષ્ટિ કરો અને ચાલુ રાખો',
           'select':
               'તમારી પ્રોફાઇલને સુરક્ષિત કરવા માટે એક (ચકાસણી દ્વારા) પસંદ કરો',
           'keep':
@@ -106,7 +106,7 @@ class LocalString extends Translations {
           'password': 'पासवर्ड टाका',
           'email': 'ईमेल',
           'mobile': 'मोबाईल',
-          'confirm':'पुष्टी करा आणि सुरू ठेवा',
+          'confirm': 'पुष्टी करा आणि सुरू ठेवा',
           'select':
               'तुमचे प्रोफाइल सुरक्षित करण्यासाठी एक (सत्यापनाद्वारे) निवडा',
           'keep':
@@ -128,11 +128,12 @@ class LocalString extends Translations {
           'password': 'پاس ورڈ درج کریں',
           'email': 'ای میل',
           'mobile': 'موبائل',
-          'confirm':'تصدیق کریں اور جاری رکھیں',
-          'select':'اپنے پروفائل کو محفوظ بنانے کے لیے (تصدیق کے ذریعے) ایک کو منتخب کریں۔',
-          'keep':'آپ کے پروفائل کو محفوظ رکھنے میں مدد کے لیے، میری ٹیوب \nاس بات کو یقینی بنانا چاہتی ہے کہ واقعی آپ ہی ہیں جو پاس ورڈ\n کو دوبارہ ترتیب دینے کی کوشش کر رہے ہیں'
+          'confirm': 'تصدیق کریں اور جاری رکھیں',
+          'select':
+              'اپنے پروفائل کو محفوظ بنانے کے لیے (تصدیق کے ذریعے) ایک کو منتخب کریں۔',
+          'keep':
+              'آپ کے پروفائل کو محفوظ رکھنے میں مدد کے لیے، میری ٹیوب \nاس بات کو یقینی بنانا چاہتی ہے کہ واقعی آپ ہی ہیں جو پاس ورڈ\n کو دوبارہ ترتیب دینے کی کوشش کر رہے ہیں'
         },
-       
         'or_IN': {
           'hello': 'ନମସ୍କାର',
           'find': 'ବନ୍ଧୁ ଖୋଜ ଏବଂ ଦୁନିଆର ପ୍ରେରଣା ପାଅ ',
@@ -149,7 +150,7 @@ class LocalString extends Translations {
           'password': 'ପାସୱାର୍ଡ ପ୍ରବେଶ କରନ୍ତୁ |',
           'email': 'ଇମେଲ୍ |',
           'mobile': 'ମୋବାଇଲ୍ |',
-          'confirm':'ନିଶ୍ଚିତ କରନ୍ତୁ ଏବଂ ଜାରି ରଖନ୍ତୁ |',
+          'confirm': 'ନିଶ୍ଚିତ କରନ୍ତୁ ଏବଂ ଜାରି ରଖନ୍ତୁ |',
           'select':
               'ଆପଣଙ୍କର ପ୍ରୋଫାଇଲ୍ ସୁରକ୍ଷିତ କରିବା ପାଇଁ ଗୋଟିଏ (ଯାଞ୍ଚ ମାଧ୍ୟମରେ) ଚୟନ କରନ୍ତୁ |',
           'keep':
@@ -171,7 +172,7 @@ class LocalString extends Translations {
           'password': 'ಪಾಸ್ವರ್ಡ್ ನಮೂದಿಸಿ',
           'email': 'ಇಮೇಲ್',
           'mobile': 'ಮೊಬೈಲ್',
-          'confirm':'ದೃಢೀಕರಿಸಿ ಮತ್ತು ಮುಂದುವರಿಸಿ',
+          'confirm': 'ದೃಢೀಕರಿಸಿ ಮತ್ತು ಮುಂದುವರಿಸಿ',
           'select':
               'ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿರಿಸಲು ಒಂದನ್ನು (ಪರಿಶೀಲನೆಯ ಮೂಲಕ) ಆಯ್ಕೆಮಾಡಿ',
           'keep':
@@ -193,7 +194,7 @@ class LocalString extends Translations {
           'password': 'கடவுச்சொல்லை உள்ளிடவும்',
           'email': 'மின்னஞ்சல்',
           'mobile': 'கைபேசி',
-          'confirm':'உறுதிசெய்து தொடரவும்',
+          'confirm': 'உறுதிசெய்து தொடரவும்',
           'select':
               'உங்கள் சுயவிவரத்தைப் பாதுகாக்க \n ஒன்றை (சரிபார்ப்பு மூலம்) தேர்ந்தெடுக்கவும்',
           'keep':
@@ -215,7 +216,7 @@ class LocalString extends Translations {
           'password': 'రహస్య సంకేతం తెలపండి',
           'email': 'ఇమెయిల్',
           'mobile': 'మొబైల్',
-          'confirm':'నిర్ధారించండి & కొనసాగించండి',
+          'confirm': 'నిర్ధారించండి & కొనసాగించండి',
           'select':
               'మీ ప్రొఫైల్‌ను భద్రపరచడానికి ఒకదాన్ని (ధృవీకరణ ద్వారా) ఎంచుకోండి',
           'keep':

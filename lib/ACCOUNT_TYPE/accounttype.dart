@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/ant_design.dart';
+import 'package:iconify_flutter/icons/bxs.dart';
 
 class AccountType extends StatefulWidget {
   final value;
@@ -34,62 +37,66 @@ class _AccountTypeState extends State<AccountType> {
           child: Column(
             children: [
               SizedBox(
-                height: height * 0.05,
+                height: height * 0.1,
               ),
               SizedBox(
-                height: 80,
+                height: 48,
                 child: Stack(
                   children: [
                     Positioned(
-                      top: 20,
+                      top: 7,
                       left: 0,
-                      height: 40,
+                      height: 35,
                       width: 288,
                       child: Container(
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(
                                 width: 0.5, color: const Color(0xff515253)),
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(5)),
                         /*  width: 150,
                 height: 150, */
                         /*  color: Colors.green[300], */
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            SizedBox(
-                              width: width * 0.08,
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: width * 0.04,
+                                ),
+                                const Iconify(
+                                  Bxs.lock_alt,
+                                  color: Color(0xffE2E2E2),
+                                  size: 19,
+                                ),
+                                SizedBox(
+                                  width: width * 0.02,
+                                ),
+                                Text(
+                                  '+91 ${widget.value}',
+                                  style: TextStyle(
+                                      color: const Color(0xffE2E2E2),
+                                      fontFamily: 'Poppins',
+                                      fontSize: width * 0.059),
+                                ),
+                              ],
                             ),
-                            const Icon(
-                              Icons.lock,
-                              color: Color(0xffC4C4C4),
-                            ),
-                            SizedBox(
-                              width: width * 0.02,
-                            ),
-                            Text(
-                              '+91 ${widget.value}',
-                              style: TextStyle(
-                                  color: const Color(0xffC4C4C4),
-                                  fontFamily: 'Poppins',
-                                  fontSize: width * 0.06),
-                            ),
-                            SizedBox(
-                              width: /* widget.value != ""
-                                  ? width * 0.28
-                                  : */
-                                  width * 0.18,
-                            ),
-                            const Icon(
-                              Icons.check_circle_outline,
-                              color: Colors.green,
-                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(right: 5.0),
+                              child: Iconify(
+                                AntDesign.check_circle_outlined,
+                                color: Color(0xff08A434),
+                                size: 19,
+                              ),
+                            )
                           ],
                         ),
                       ),
                     ),
                     Positioned(
-                      top: 13,
-                      left: 30,
+                      top: 0,
+                      left: 15,
                       width: 170,
                       height: 13,
                       child: Container(
@@ -113,7 +120,7 @@ class _AccountTypeState extends State<AccountType> {
                 child: Row(
                   children: const [
                     Text(
-                      'this contact won\'t be shared anyone or anywhere',
+                      'This contact won\'t be shared anyone or anywhere',
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 10,
@@ -123,7 +130,7 @@ class _AccountTypeState extends State<AccountType> {
                 ),
               ),
               SizedBox(
-                height: height * 0.05,
+                height: height * 0.04,
               ),
               Padding(
                 padding: EdgeInsets.only(left: width * 0.05),
@@ -131,11 +138,11 @@ class _AccountTypeState extends State<AccountType> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: const [
                     Text(
-                      'select type of Account',
+                      'Select type of account',
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 20,
-                          color: Color(0xff515253)),
+                          color: customTextColor),
                     ),
                   ],
                 ),
@@ -146,11 +153,11 @@ class _AccountTypeState extends State<AccountType> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      'you can change this anytime',
+                      'You can change this anytime ',
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: width * 0.045,
-                          color: const Color(0xff515253)),
+                          color: customTextColor),
                     ),
                   ],
                 ),
@@ -276,11 +283,134 @@ class _AccountTypeState extends State<AccountType> {
                 ),
               ),
               SizedBox(
-                height: height * 0.03,
+                height: height * 0.01,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: width * 0.09),
+                child: Row(
+                  children: [
+                    Text('You have an account?',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Poppins',
+                            fontSize: width * 0.04)),
+                    TextButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginPage()),
+                          );
+                        },
+                        child: const Text(
+                          'login',
+                          style: TextStyle(
+                              color: Color(
+                                0xff0087FF,
+                              ),
+                              fontFamily: 'Poppins',
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ))
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              SizedBox(
+                height: 15,
+                child: Padding(
+                  padding: EdgeInsets.only(left: width * 0.05),
+                  child: Row(
+                    children: [
+                      Text(
+                        'I accepted ',
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            color: const Color(0xff515253),
+                            fontSize: width * 0.03),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          foregroundColor: const Color(0xff0087FF),
+                        ),
+                        child: const Text(
+                          'terms of services ',
+                          style: TextStyle(fontSize: 11),
+                        ),
+                      ),
+                      const Text(
+                        '|',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: customTextColor,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          foregroundColor: const Color(0xff0087FF),
+                        ),
+                        child: const Text('privacy policy',
+                            style: TextStyle(fontSize: 11)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+                child: Padding(
+                  padding: EdgeInsets.only(left: width * 0.05),
+                  child: Row(
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          foregroundColor: const Color(0xff0087FF),
+                        ),
+                        child: const Text('Licence agreement',
+                            style: TextStyle(fontSize: 11)),
+                      ),
+                      const Text(
+                        ' &',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: customTextColor,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          foregroundColor: const Color(0xff0087FF),
+                        ),
+                        child: const Text('read more',
+                            style: TextStyle(fontSize: 11)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.02,
               ),
               SizedBox(
                 width: double.infinity,
-                // height: 50,
+                height: 40,
                 child: ElevatedButton(
                   onPressed: groupvalues == null
                       ? null
@@ -346,7 +476,7 @@ class _AccountTypeState extends State<AccountType> {
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
+                          borderRadius: BorderRadius.circular(7.0))),
                   child: Text(
                     "Confirm & Continue",
                     style: TextStyle(
@@ -357,129 +487,6 @@ class _AccountTypeState extends State<AccountType> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              SizedBox(
-                height: 15,
-                child: Padding(
-                  padding: EdgeInsets.only(left: width * 0.05),
-                  child: Row(
-                    children: [
-                      Text(
-                        'I accepted ',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: const Color(0xff515253),
-                            fontSize: width * 0.03),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          foregroundColor: const Color(0xff0087FF),
-                        ),
-                        child: const Text(
-                          'terms of services ',
-                          style: TextStyle(fontSize: 11),
-                        ),
-                      ),
-                      const Text(
-                        '& ',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Color(0xff515253),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          foregroundColor: const Color(0xff0087FF),
-                        ),
-                        child: const Text('privacy policy',
-                            style: TextStyle(fontSize: 11)),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 15,
-                child: Padding(
-                  padding: EdgeInsets.only(left: width * 0.05),
-                  child: Row(
-                    children: [
-                      Text(
-                        'and ',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: const Color(0xff515253),
-                            fontSize: width * 0.03),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          foregroundColor: const Color(0xff0087FF),
-                        ),
-                        child: const Text('license agreement',
-                            style: TextStyle(fontSize: 11)),
-                      ),
-                      const Text(
-                        ' &',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Color(0xff515253),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          foregroundColor: const Color(0xff0087FF),
-                        ),
-                        child: const Text('read more',
-                            style: TextStyle(fontSize: 11)),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: width * 0.05),
-                child: Row(
-                  children: [
-                    Text('you have an account?',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Poppins',
-                            fontSize: width * 0.04)),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const LoginPage()),
-                          );
-                        },
-                        child: const Text(
-                          'login',
-                          style: TextStyle(
-                              color: Color(
-                                0xff0087FF,
-                              ),
-                              fontFamily: 'Poppins',
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ))
-                  ],
-                ),
-              )
             ],
           ),
         ),

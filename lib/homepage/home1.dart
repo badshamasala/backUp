@@ -13,7 +13,6 @@ import 'package:iconify_flutter/icons/ooui.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 
-
 class Home1 extends StatefulWidget {
   const Home1({super.key});
 
@@ -83,41 +82,45 @@ class _Home1State extends State<Home1> {
     return Scaffold(
         backgroundColor: const Color(0xffc4c4c4),
         appBar: AppBar(
+          titleSpacing: 0,
           automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: Colors.white,
-          title: Row(
-            /* mainAxisAlignment: MainAxisAlignment.start, */
-            children: [
-              Image(
-                  image: const AssetImage(
-                    'assets/logo.png',
-                  ),
-                  height: height * 0.055,
-                  width: width * 0.12,
-                  fit: BoxFit.fitHeight),
-              Text(
-                'myttube',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: const Color(0xff0B1C3D),
-                  fontFamily: 'Satisfy',
-                  fontSize: width * 0.08,
-                  shadows: const [
-                    Shadow(
-                      blurRadius: 8.0,
-                      color: Color(0xff2C81F8),
-                      offset: Offset(1.0, 1.0),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 3.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image(
+                    image: const AssetImage(
+                      'assets/logo.png',
                     ),
-                  ],
+                    height: height * 0.05,
+                    width: width * 0.11,
+                    fit: BoxFit.fitHeight),
+                Text(
+                  'myttube',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: const Color(0xff0B1C3D),
+                    fontFamily: 'Satisfy',
+                    fontSize: width * 0.08,
+                    shadows: const [
+                      Shadow(
+                        blurRadius: 8.0,
+                        color: Color(0xff2C81F8),
+                        offset: Offset(1.0, 1.0),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           actions: [
             Container(
                 margin: const EdgeInsets.all(0),
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
 
@@ -133,15 +136,15 @@ class _Home1State extends State<Home1> {
                     },
                     icon: const Iconify(
                       Bi.qr_code_scan,
-                      size: 20,
+                      size: 17,
                       color: iconColor,
                     ))),
             SizedBox(
-              width: width * 0.01,
+              width: width * 0.015,
             ),
             Container(
                 margin: const EdgeInsets.all(0),
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
 
@@ -153,15 +156,15 @@ class _Home1State extends State<Home1> {
                     onPressed: () {},
                     icon: const Iconify(
                       Ooui.bell,
-                      size: 20,
+                      size: 19,
                       color: iconColor,
                     ))),
             SizedBox(
-              width: width * 0.01,
+              width: width * 0.015,
             ),
             Container(
                 margin: const EdgeInsets.all(0),
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
 
@@ -172,11 +175,9 @@ class _Home1State extends State<Home1> {
                     constraints: const BoxConstraints(),
                     onPressed: () {},
                     icon: SvgPicture.asset(
-                      
                       'assets/c2c.svg',
-                      
-                      width: 18,
-                      height: 18,
+                      width: 17,
+                      height: 17,
                     ))),
             SizedBox(
               width: width * 0.05,
@@ -345,7 +346,8 @@ class _Home1State extends State<Home1> {
                         ),
                         OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                                side: const BorderSide(color: primaryColorOfApp),
+                                side:
+                                    const BorderSide(color: primaryColorOfApp),
                                 padding: EdgeInsets.zero,
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                 elevation: 0,
@@ -356,13 +358,13 @@ class _Home1State extends State<Home1> {
                                 backgroundColor: primaryColorOfApp,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5.0))),
-                            onPressed: (){},
+                            onPressed: () {},
                             child: const Text(
                               'Follow',
                               style: TextStyle(
                                   fontFamily: 'Poppins', fontSize: 12),
                             )),
-                            IconButton(
+                        IconButton(
                             padding: EdgeInsets.zero,
                             constraints: const BoxConstraints(),
                             onPressed: () {},
@@ -572,8 +574,8 @@ class _Home1State extends State<Home1> {
                                                   fontSize: 10,
                                                 )),
                                             const Padding(
-                                              padding: EdgeInsets.only(
-                                                  left: 5.0),
+                                              padding:
+                                                  EdgeInsets.only(left: 5.0),
                                               child: Iconify(
                                                 Ri.share_box_line,
                                                 color: primaryColorOfApp,
@@ -795,7 +797,8 @@ class _Home1State extends State<Home1> {
                                           padding: EdgeInsets.zero,
                                           constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: const Iconify(Bi.bookmark_star)),
+                                          icon:
+                                              const Iconify(Bi.bookmark_star)),
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
@@ -860,8 +863,7 @@ class _Home1State extends State<Home1> {
                                           color: Colors.red,
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsets.only(left: 2.0),
+                                          padding: EdgeInsets.only(left: 2.0),
                                           child: Text(
                                             'boat',
                                             style: TextStyle(
@@ -871,8 +873,7 @@ class _Home1State extends State<Home1> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsets.only(left: 2.0),
+                                          padding: EdgeInsets.only(left: 2.0),
                                           child: Text(
                                             'Sponsered',
                                             style: TextStyle(
@@ -1308,8 +1309,8 @@ class _Home1State extends State<Home1> {
                                                   fontSize: 10,
                                                 )),
                                             const Padding(
-                                              padding: EdgeInsets.only(
-                                                  left: 5.0),
+                                              padding:
+                                                  EdgeInsets.only(left: 5.0),
                                               child: Iconify(
                                                 Ri.share_box_line,
                                                 color: primaryColorOfApp,
@@ -1531,7 +1532,8 @@ class _Home1State extends State<Home1> {
                                           padding: EdgeInsets.zero,
                                           constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: const Iconify(Bi.bookmark_star)),
+                                          icon:
+                                              const Iconify(Bi.bookmark_star)),
                                       SizedBox(
                                         height: height * 0.01,
                                       ),
@@ -1596,8 +1598,7 @@ class _Home1State extends State<Home1> {
                                           color: Color(0xffFD6B06),
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsets.only(left: 2.0),
+                                          padding: EdgeInsets.only(left: 2.0),
                                           child: Text(
                                             'Xiaomi',
                                             style: TextStyle(
@@ -1607,8 +1608,7 @@ class _Home1State extends State<Home1> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsets.only(left: 2.0),
+                                          padding: EdgeInsets.only(left: 2.0),
                                           child: Text(
                                             'Sponsered',
                                             style: TextStyle(
@@ -1885,7 +1885,8 @@ class _Home1State extends State<Home1> {
                           ),
                           OutlinedButton(
                               style: OutlinedButton.styleFrom(
-                                  side: const BorderSide(color: primaryColorOfApp),
+                                  side: const BorderSide(
+                                      color: primaryColorOfApp),
                                   padding: EdgeInsets.zero,
                                   tapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap,
