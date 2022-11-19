@@ -10,6 +10,7 @@ import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
@@ -220,17 +221,17 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     onPressed: check10number
                         ? null
                         : () async {
-                            /*   setState(() {
+                              setState(() {
                               otplodaing = true;
-                            }); */
-                            /*  final provider = Provider.of<Googleprovider>(
+                            });
+                             final provider = Provider.of<Googleprovider>(
                                 context,
-                                listen: false); */
-                            /* token = await provider
+                                listen: false);
+                            token = await provider
                                 .otpmethod(phonekanumber)
                                 .whenComplete(() {
                               otplodaing = false;
-                              getkar.startTimer(); */
+                              getkar.startTimer();
                             showModalBottomSheet(
                                 /*     isDismissible: false, */
                                 isScrollControlled: true,
@@ -413,10 +414,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                                         .timerkhatam1
                                                                     ? null
                                                                     : () async {
-                                                                        final provider = Provider.of<Googleprovider>(
-                                                                            context,
-                                                                            listen:
-                                                                                false);
+                                                                        final provider = Provider.of<Googleprovider>( context,listen:false);
                                                                         token =
                                                                             await provider.otpmethod(phonekanumber);
                                                                         print(
@@ -450,12 +448,12 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                     // height: 50,
                                                     child: ElevatedButton(
                                                       onPressed:
-                                                          /* check6digit
+                                                          check6digit
                                                                   ? null
-                                                                  : */
+                                                                  :
                                                           () {
-                                                        /*  if (token ==
-                                                                          checktoken) { */
+                                                         if (token ==
+                                                                          checktoken) {
                                                         Navigator.push(
                                                           context,
                                                           MaterialPageRoute(
@@ -467,13 +465,13 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                                       )),
                                                         );
 
-                                                        /*   } else {
+                                                          } else {
                                                                         Fluttertoast.showToast(
                                                                             msg: "Wrong OTP",
                                                                             backgroundColor: Colors.black,
                                                                             textColor: Colors.white,
                                                                             fontSize: 16.0);
-                                                                      } */
+                                                                      }
                                                       },
                                                       style: ElevatedButton
                                                           .styleFrom(
@@ -539,10 +537,10 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                         ],
                                       ),
                                     );
-                                    /*    }); */
+                                       });
                                   });
                                 });
-                            /*     }); */
+                              /*   }); */
                           },
                     style: ElevatedButton.styleFrom(
                         elevation: 0,

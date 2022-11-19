@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   int currentIndex = 0;
-  final screens = [
+  final List<Widget> screens = <Widget>[
     const Home1(),
     const Search(),
     const Chatmytube(),
@@ -33,88 +33,89 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: Scaffold(
-        backgroundColor: Colors.transparent.withOpacity(0),
-        body: screens[currentIndex],
-        bottomNavigationBar: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
-          ),
-          child: BottomNavigationBar(
-              backgroundColor: Colors.white,
-              type: BottomNavigationBarType.fixed,
-              currentIndex: currentIndex,
-              onTap: (index) => setState(() => currentIndex = index),
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              selectedItemColor: const Color(0xff0B1C3D),
-              items: [
-                BottomNavigationBarItem(
-                    icon: Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: SvgPicture.asset(
-                        'assets/hometabicon.svg',
-                        height: 25,
-                        width: 25,
-                      ),
-                    ),
-                    label: 'home'),
-                BottomNavigationBarItem(
-                    icon: Padding(
-                      padding: const EdgeInsets.only(right: 30),
-                      child: SvgPicture.asset(
-                        'assets/searchtab.svg',
-                        height: 25,
-                        width: 25,
-                      ),
-                    ),
-                    label: ''),
-                BottomNavigationBarItem(
-                    icon: Padding(
-                      padding: const EdgeInsets.only(left: 30.0),
-                      child: SvgPicture.asset(
-                        'assets/tabbaricon.svg',
-                        height: 27,
-                        width: 27,
-                      ),
-                    ),
-                    label: 'home'),
-                BottomNavigationBarItem(
-                    icon: CircleAvatar(
-                      radius: 14,
-                      backgroundColor: primaryColorOfApp,
-                      child: CircleAvatar(
-                          radius: 12,
-                          backgroundColor: Colors.white,
-                          child: CircleAvatar(
-                            radius: 10,
-                            backgroundColor: Colors.grey.shade800,
-                            backgroundImage: const NetworkImage(
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkuP4A26vUkEZwYJL4zGV8KRxUbBmcX11Mdw&usqp=CAU'),
-                          )),
-                    ),
-                    label: ''),
-              ]),
+    return Scaffold(
+      /*  backgroundColor: Colors.transparent, */
+      body: screens.elementAt(currentIndex),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(top: 30),
-          child: FloatingActionButton(
-            elevation: 0,
-            backgroundColor: Colors.white,
-            onPressed: () {
-              /* Overlay.of(context)?.insert(entry); */
-            },
-            child: const Padding(
-              padding: EdgeInsets.only(bottom: 8.0),
-              child: Image(
-                image: AssetImage('assets/logo.png'),
-                height: 40,
-                width: 40,
-              ),
+        child: BottomNavigationBar(
+            /*  backgroundColor: Colors.white, */
+            type: BottomNavigationBarType.fixed,
+            currentIndex: currentIndex,
+            onTap: (index) => setState(() => currentIndex = index),
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            selectedItemColor: const Color(0xff0B1C3D),
+            items: [
+              BottomNavigationBarItem(
+                  backgroundColor: Colors.white,
+                  icon: Padding(
+                    padding: const EdgeInsets.only(right: 16.0),
+                    child: SvgPicture.asset(
+                      'assets/hometabicon.svg',
+                      height: 25,
+                      width: 25,
+                    ),
+                  ),
+                  label: ''),
+              BottomNavigationBarItem(
+                  backgroundColor: Colors.red,
+                  icon: Padding(
+                    padding: const EdgeInsets.only(right: 30),
+                    child: SvgPicture.asset(
+                      'assets/searchtab.svg',
+                      height: 25,
+                      width: 25,
+                    ),
+                  ),
+                  label: ''),
+              BottomNavigationBarItem(
+                  backgroundColor: Colors.white,
+                  icon: Padding(
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: SvgPicture.asset(
+                      'assets/tabbaricon.svg',
+                      height: 27,
+                      width: 27,
+                    ),
+                  ),
+                  label: 'home'),
+              BottomNavigationBarItem(
+                  backgroundColor: Colors.white,
+                  icon: CircleAvatar(
+                    radius: 14,
+                    backgroundColor: primaryColorOfApp,
+                    child: CircleAvatar(
+                        radius: 12,
+                        backgroundColor: Colors.white,
+                        child: CircleAvatar(
+                          radius: 10,
+                          backgroundColor: Colors.grey.shade800,
+                          backgroundImage: const NetworkImage(
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkuP4A26vUkEZwYJL4zGV8KRxUbBmcX11Mdw&usqp=CAU'),
+                        )),
+                  ),
+                  label: ''),
+            ]),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(top: 30),
+        child: FloatingActionButton(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          onPressed: () {
+            /* Overlay.of(context)?.insert(entry); */
+          },
+          child: const Padding(
+            padding: EdgeInsets.only(bottom: 8.0),
+            child: Image(
+              image: AssetImage('assets/logo.png'),
+              height: 40,
+              width: 40,
             ),
           ),
         ),

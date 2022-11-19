@@ -34,7 +34,7 @@ import 'package:iconify_flutter/icons/tabler.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfileSelf extends StatefulWidget {
-  ProfileSelf({super.key});
+   ProfileSelf({super.key});
 
   @override
   State<ProfileSelf> createState() => _ProfileSelfState();

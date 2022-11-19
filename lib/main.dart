@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-import 'package:flutter_application_1/ONBOARDING/start_page.dart';
+import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/localestring.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +22,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool _isLoggedIn = false; 
+  bool _isLoggedIn = false;
 
   @override
   void initState() {
@@ -56,6 +56,8 @@ class _MyAppState extends State<MyApp> {
           translations: LocalString(),
           locale: const Locale('en', 'US'),
           debugShowCheckedModeBanner: false,
+          /* darkTheme: ThemeData.dark(),
+          themeMode: ThemeMode.dark, */
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,
@@ -68,7 +70,7 @@ class _MyAppState extends State<MyApp> {
           GlobalWidgetsLocalizations.delegate
       ], */
 
-          home: const IntroScreen() /* LoginPage12() */
+          home: const HomePage() /* LoginPage12() */
           /*  IntroScreen() */ /* _isLoggedIn
               ? Chathomepage()
               : LoginPage12() */ /* FutureBuilder(
