@@ -149,7 +149,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       dense: true,
                       onTap: () {},
                       title: Text(
-                        'video',
+                        'Video',
                         style: ProfileSelf().buildtextstyle(),
                       ),
                       leading: SvgPicture.asset(

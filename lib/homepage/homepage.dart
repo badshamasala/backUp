@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*  backgroundColor: Colors.transparent, */
+      backgroundColor: Colors.transparent,
       body: screens.elementAt(currentIndex),
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.only(
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           topRight: Radius.circular(30.0),
         ),
         child: BottomNavigationBar(
-            /*  backgroundColor: Colors.white, */
+            backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             onTap: (index) => setState(() => currentIndex = index),
