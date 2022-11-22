@@ -17,9 +17,9 @@ class AccountType extends StatefulWidget {
 }
 
 class _AccountTypeState extends State<AccountType> {
-  var value1 = false;
-  var value2 = false;
-  var value3 = false;
+  bool value1 = false;
+  bool value2 = false;
+  bool value3 = false;
   dynamic groupvalues;
 
   @override

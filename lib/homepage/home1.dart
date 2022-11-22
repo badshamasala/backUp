@@ -180,7 +180,9 @@ class _Home1State extends State<Home1> {
                       'assets/c2c.svg',
                       width: 17,
                       height: 17,
-                    ))),
+                    )
+                    )
+                    ),
             SizedBox(
               width: width * 0.03,
             ),
