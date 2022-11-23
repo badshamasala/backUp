@@ -3,8 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-import 'package:flutter_application_1/homepage/group_member.dart';
-import 'package:flutter_application_1/homepage/profile_acitvity.dart';
+import 'package:flutter_application_1/SHARE/atrompost.dart';
+import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/localestring.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -51,6 +51,7 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Googleprovider()),
+        ChangeNotifierProvider(create: (_) => TagFriendProvider()),
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
       ],
       child: GetMaterialApp(
@@ -71,7 +72,7 @@ class _MyAppState extends State<MyApp> {
           GlobalWidgetsLocalizations.delegate
       ], */
 
-          home: const GroupMember() /* LoginPage12() */
+          home: const  Atrompost() /* LoginPage12() */
           /*  IntroScreen() */ /* _isLoggedIn
               ? Chathomepage()
               : LoginPage12() */ /* FutureBuilder(

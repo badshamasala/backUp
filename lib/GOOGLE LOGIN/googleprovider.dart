@@ -115,6 +115,8 @@ class Googleprovider extends ChangeNotifier {
     }
   }
 
+  
+
   Future checkUserExist(dynamic username) async {
     try {
       final response = await http.post(
