@@ -1,8 +1,5 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/SHARE/atrom_post_model.dart';
 import 'package:http/http.dart' as http;
 
 class Atrompost extends StatefulWidget {
@@ -20,6 +17,7 @@ class _AtrompostState extends State<Atrompost> {
     atrompost = atromg8post();
   } */
   List allpost = [];
+  List allmedia = [];
 
   /* Future<List<PostkaModel>> */ atromg8post() async {
     print('---------------------------------------------');
@@ -42,16 +40,14 @@ class _AtrompostState extends State<Atrompost> {
     print('jsonData---------${jsondata}');
 
     for (int i = 0; i < data.length; i++) {
-        setState(() {
-      allpost.add(data[i]);
+      setState(() {
+        allpost.add(data[i]);
         if (data[i]['media_type'] == 5) {
-              List<String> allpost = [];
-              allpost.add(data[i]['media'].toString());
-
-           
-            }
+          allmedia.add(data[i]['media'].toString());
+          print('AllMedia----$allmedia');
+        }
       });
-      print('AllMedia-----------${allpost}');
+      print('AllPost-----------$allpost');
       print(allpost.length);
     }
   }
@@ -104,24 +100,17 @@ class _AtrompostState extends State<Atrompost> {
                         trailing: IconButton(
                             onPressed: () {}, icon: Icon(Icons.more_vert)),
                       ),
-                                Image.network(allpost[index]['media'])
+                      Image.network(allmedia[index]['media'])
 
-                      /*  Row(
-                        children: [
-                          Text(
-                           
-                            style: TextStyle(),
-                          )
-                        ],
-                      ), */
+                     
                     ],
                   );
-                })),
+                }
+                )
+                ),
           )
-        ])
-
-        /*      }), */
-        /*  */
+        ]
+        )
         );
   }
 }

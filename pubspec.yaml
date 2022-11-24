@@ -69,6 +69,8 @@ dependencies:
   flutter_polyline_points: ^1.0.0
   geolocator: ^9.0.2
   fl_chart: ^0.55.2
+  flutter_inset_box_shadow: ^1.0.8
+  scratcher: ^2.3.0
   
   
  

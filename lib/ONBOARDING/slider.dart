@@ -25,7 +25,7 @@ class _Slider1State extends State<Slider1> {
   List urlImages = [
     'assets/loginimg.svg',
     'assets/loginimg.svg',
-    'assets/loginimg.svg'
+    'assets/3rdimage.svg'
   ];
 
   @override
@@ -145,7 +145,7 @@ class _Slider1State extends State<Slider1> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                      elevation: 0,
+                      elevation: 10,
                       /*     minimumSize: const Size(0.0, 40), */
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
@@ -177,6 +177,7 @@ class _Slider1State extends State<Slider1> {
                     );
                   },
                   style: OutlinedButton.styleFrom(
+                      elevation: 10,
                       side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
@@ -251,6 +252,7 @@ class _Slider1State extends State<Slider1> {
                     );
                   },
                   style: OutlinedButton.styleFrom(
+                      elevation: 10,
                       side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
