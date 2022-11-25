@@ -26,7 +26,7 @@ class _ClipPathCheckState extends State<ClipPathCheck> {
           Container(
             color: Colors.yellow,
             child: CustomPaint(
-              size: Size(double.infinity,
+              size: const Size(double.infinity,
                   200), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
               painter: RPSCustomPainter(),
             ),
@@ -34,7 +34,7 @@ class _ClipPathCheckState extends State<ClipPathCheck> {
           Container(
             color: Colors.black,
             child: CustomPaint(
-              size: Size(double.infinity,
+              size: const Size(double.infinity,
                   100), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
               painter: RPSCustomPainter1(),
             ),

@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, non_constant_identifier_names
+// ignore_for_file: avoid_print, non_constant_identifier_names, unused_element, prefer_typing_uninitialized_variables
 
 import 'dart:convert';
 
@@ -20,7 +20,7 @@ class _TagFriendState extends State<TagFriend> {
   var tagfriend;
   @override
   void initState() {
-    // TODO: implement initState
+  
     super.initState();
     tagfriend = tagfriends();
   }
@@ -71,7 +71,7 @@ class _TagFriendState extends State<TagFriend> {
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0) */
-      ;
+      
     }
   }
 
@@ -112,7 +112,7 @@ class _TagFriendState extends State<TagFriend> {
                                       builder: (context, snapshot) {
                                         if (snapshot.connectionState ==
                                             ConnectionState.waiting) {
-                                          return Center(
+                                          return const Center(
                                               child:
                                                   CircularProgressIndicator());
                                         } else {
@@ -169,7 +169,7 @@ class _TagFriendState extends State<TagFriend> {
                 future: tagfriend,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.data == null) {
                     return Container(
                       color: Colors.red,
@@ -225,7 +225,7 @@ class TagFriendProvider extends ChangeNotifier {
       var jsondata = jsonDecode(response.body);
 
       print('Response---------${response.body}');
-      print('jsonData---------${jsondata}');
+      print('jsonData---------$jsondata');
 
       var firstname = jsondata[0]["firstname"];
       print('firstname--- $firstname');
@@ -275,7 +275,7 @@ class GetTagFriends extends GetxController {
       var jsondata = jsonDecode(response.body);
 
       print('Response---------${response.body}');
-      print('jsonData---------${jsondata}');
+      print('jsonData---------$jsondata');
 
       var firstname = jsondata[0]["firstname"];
       print('firstname--- $firstname');

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -37,7 +39,7 @@ class _AtrompostState extends State<Atrompost> {
 
     var jsondata = jsonDecode(response.body);
     var data = jsondata['posts']['data'];
-    print('jsonData---------${jsondata}');
+    print('jsonData---------$jsondata');
 
     for (int i = 0; i < data.length; i++) {
       setState(() {
@@ -63,7 +65,7 @@ class _AtrompostState extends State<Atrompost> {
               onPressed: () {
                 atromg8post();
               },
-              child: Text('btn')),
+              child: const Text('btn')),
           /*   FutureBuilder(
                 future: atromg8post(),
                 builder: (context, snapshot) {
@@ -98,7 +100,7 @@ class _AtrompostState extends State<Atrompost> {
                         ),
                         subtitle: Text(allpost[index]['created_at']),
                         trailing: IconButton(
-                            onPressed: () {}, icon: Icon(Icons.more_vert)),
+                            onPressed: () {}, icon: const Icon(Icons.more_vert)),
                       ),
                       Image.network(allmedia[index]['media'])
 

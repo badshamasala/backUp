@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
+// ignore_for_file: file_names, avoid_print, prefer_const_constructors
+
+import'package:flutter/material.dart';
+
 
 class MapPractise extends StatefulWidget {
   const MapPractise({Key? key}) : super(key: key);
@@ -20,7 +22,9 @@ class _MapPractiseState extends State<MapPractise> {
     "personalizations": [
       {
         "to": [
-          {"email": ""}
+          {
+            "email": ""
+          }
         ],
         "dynamic_template_data": {
           "EmployeeName": "",
@@ -75,7 +79,7 @@ class _MapPractiseState extends State<MapPractise> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    
     super.dispose();
     tagcontroller.dispose();
   }
@@ -137,7 +141,7 @@ class _MapPractiseState extends State<MapPractise> {
                               );
                       /*    }); */
                     });
-              } else if (value == '${tagcontroller.text}') {
+              } else if (value == tagcontroller.text) {
                 if (tagcontroller.text.isNotEmpty) {
                   badshaMethod();
                   showDialog(

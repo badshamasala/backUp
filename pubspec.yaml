@@ -71,6 +71,7 @@ dependencies:
   fl_chart: ^0.55.2
   flutter_inset_box_shadow: ^1.0.8
   scratcher: ^2.3.0
+  screenshot: ^1.2.3
   
   
  

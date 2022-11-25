@@ -3,13 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-import 'package:flutter_application_1/ONBOARDING/slider.dart';
-import 'package:flutter_application_1/SHARE/atrompost.dart';
-import 'package:flutter_application_1/SHARE/clip_path_check.dart';
-import 'package:flutter_application_1/SHARE/login_list_atrom.dart';
-import 'package:flutter_application_1/SHARE/mapPractise.dart';
+import 'package:flutter_application_1/ONBOARDING/lsts_check_sms.dart';
+import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_application_1/SHARE/neu_button.dart';
-import 'package:flutter_application_1/SHARE/scratch_card.dart';
+import 'package:flutter_application_1/SHARE/screenshot_image.dart';
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/localestring.dart';
 import 'package:get/get.dart';
@@ -78,7 +75,7 @@ class _MyAppState extends State<MyApp> {
           GlobalWidgetsLocalizations.delegate
       ], */
 
-          home:const ScratchCard() /* LoginPage12() */
+          home:const ScreenshotImage() /* LoginPage12() */
           /*  IntroScreen() */ /* _isLoggedIn
               ? Chathomepage()
               : LoginPage12() */ /* FutureBuilder(

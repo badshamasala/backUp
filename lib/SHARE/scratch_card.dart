@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,7 +23,6 @@ class _ScratchCardState extends State<ScratchCard> {
         children: [
           Scratcher(
             onScratchEnd: () {
-              print('object');
             },
             image:  Image.asset(
               'assets/logo.png',
@@ -31,8 +32,8 @@ class _ScratchCardState extends State<ScratchCard> {
             brushSize: 30,
             threshold: 50,
             color: primaryColorOfApp,
-            onChange: (value) => print("Scratch progress: $value%"),
-            onThreshold: () => print("Threshold reached, you won!"),
+            onChange: (value) => debugPrint("Scratch progress: $value%"),
+            onThreshold: () => log("Threshold reached, you won!"),
             child: Container(
               height: 300,
               width: 300,

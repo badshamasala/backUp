@@ -1,8 +1,9 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, avoid_print
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/SHARE/tag_friend.dart';
+
 import 'package:http/http.dart' as http;
 
 class LoginListAtrom extends StatefulWidget {
@@ -64,7 +65,7 @@ class _LoginListAtromState extends State<LoginListAtrom> {
     } on Exception catch (_) {
       throw Exception("Error on server");
 
-      ;
+      
     }
   }
 
@@ -78,8 +79,6 @@ class _LoginListAtromState extends State<LoginListAtrom> {
       ),
       body: Column(
         children: [
-         
-
           /* ElevatedButton(
               onPressed: () {
                 newmethod = loginListUser();
@@ -89,7 +88,7 @@ class _LoginListAtromState extends State<LoginListAtrom> {
               future: ekvariable,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.data == null) {
                   return Container(
                     color: Colors.red,
@@ -193,16 +192,19 @@ class LoginListModal {
       };
 }
 
+// ignore: constant_identifier_names
 enum Browser { SAFARI_BROWSER, CHROME }
 
 final browserValues = EnumValues(
     {"Chrome": Browser.CHROME, "Safari Browser": Browser.SAFARI_BROWSER});
 
+// ignore: constant_identifier_names
 enum DeviceType { MOBILE, COMPUTER }
 
 final deviceTypeValues =
     EnumValues({"Computer": DeviceType.COMPUTER, "Mobile": DeviceType.MOBILE});
 
+// ignore: constant_identifier_names
 enum OsName { ANDROID, WINDOWS_10, MAC_OS_X }
 
 final osNameValues = EnumValues({
@@ -218,9 +220,7 @@ class EnumValues<T> {
   EnumValues(this.map);
 
   Map<T, String>? get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
+    reverseMap ??= map.map((k, v) => MapEntry(v, k));
     return reverseMap;
   }
 }
