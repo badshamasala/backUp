@@ -310,7 +310,12 @@ class _FormfillState extends State<Formfill> {
                         height: 40,
                         child: ElevatedButton(
                           onPressed: () {
-                            registrationmethod();
+                            Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const UploadImage()),
+                          );
+                          /*   registrationmethod(); */
                           },
                           style: ElevatedButton.styleFrom(
                               elevation: 0,

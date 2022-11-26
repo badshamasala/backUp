@@ -1,10 +1,16 @@
 // ignore_for_file: unused_field
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
+import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_application_1/ONBOARDING/lsts_check_sms.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
+import 'package:flutter_application_1/ONBOARDING/start_page.dart';
+import 'package:flutter_application_1/SHARE/atrompost.dart';
+import 'package:flutter_application_1/SHARE/mapPractise.dart';
 import 'package:flutter_application_1/SHARE/neu_button.dart';
 import 'package:flutter_application_1/SHARE/screenshot_image.dart';
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
@@ -15,29 +21,29 @@ import 'package:provider/provider.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+/* class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
-}
+} */
 
-class _MyAppState extends State<MyApp> {
-  bool _isLoggedIn = false;
+class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
+/*   bool _isLoggedIn = false; */
 
-  @override
+  /* @override
   void initState() {
     // ignore: todo
     // TODO: implement initState
     super.initState();
 
     getUserLoggedInStatus();
-  }
+  } */
 
-  getUserLoggedInStatus() async {
+  /* getUserLoggedInStatus() async {
     await SharedPref.getUserLoggedInStatus().then((value) {
       /*   print(_isLoggedIn); */
       if (value != null) {
@@ -46,7 +52,7 @@ class _MyAppState extends State<MyApp> {
         });
       }
     });
-  }
+  } */
 
   /* final Future<FirebaseApp> _initialization = Firebase.initializeApp(); */
   @override
@@ -55,44 +61,52 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider(create: (_) => Googleprovider()),
         ChangeNotifierProvider(create: (_) => TagFriendProvider()),
+        /*      ChangeNotifierProvider(create: (_) => ThemeProvider()), */
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
       ],
-      child: GetMaterialApp(
-          translations: LocalString(),
-          locale: const Locale('en', 'US'),
-          debugShowCheckedModeBanner: false,
-          /* darkTheme: ThemeData.dark(),
-          themeMode: ThemeMode.dark, */
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          /*   supportedLocales: L10n.all,
-        localizationsDelegates: [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate
-      ], */
+      child: /* Get */ ChangeNotifierProvider(
+          create: (context) => ThemeProvider(),
+          builder: (context, child) {
+            final themeProvider = Provider.of<ThemeProvider>(context);
+            return GetMaterialApp(
+                /*   themeMode: themeProvider.themeMode, */
+                /*  theme: AppTheme.lighttheme,
+                darkTheme: AppTheme.darktheme, */
 
-          home:const ScreenshotImage() /* LoginPage12() */
-          /*  IntroScreen() */ /* _isLoggedIn
-              ? Chathomepage()
-              : LoginPage12() */ /* FutureBuilder(
-          future: _initialization,
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              print('Error');
-            }
-            if (snapshot.connectionState == ConnectionState.done) {
-              return RegisterPage();
-            } else {
-              return Center(child: CircularProgressIndicator());
-            }
-          },
-        ), */
-          //home: GooglePage1(),
-          ),
+                translations: LocalString(),
+                locale: const Locale('en', 'US'),
+                debugShowCheckedModeBanner: false,
+                /* darkTheme: ThemeData.dark(),
+            themeMode: ThemeMode.dark, */
+                title: 'Flutter Demo',
+
+                /*   supportedLocales: L10n.all,
+          localizationsDelegates: [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate
+        ], */
+
+                home: const IntroScreen() /* LoginPage12() */
+                /*  IntroScreen() */ /* _isLoggedIn
+                ? Chathomepage()
+                : LoginPage12() */ /* FutureBuilder(
+            future: _initialization,
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                print('Error');
+              }
+              if (snapshot.connectionState == ConnectionState.done) {
+                return RegisterPage();
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ), */
+                //home: GooglePage1(),
+                );
+          }),
     );
   }
 }

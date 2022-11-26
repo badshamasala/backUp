@@ -1,7 +1,8 @@
 // ignore_for_file: file_names, avoid_print, prefer_const_constructors
 
-import'package:flutter/material.dart';
+import 'dart:math';
 
+import 'package:flutter/material.dart';
 
 class MapPractise extends StatefulWidget {
   const MapPractise({Key? key}) : super(key: key);
@@ -11,20 +12,24 @@ class MapPractise extends StatefulWidget {
 }
 
 class _MapPractiseState extends State<MapPractise> {
-  var myMap = {
-    "fulldetails": [],
-    "name": "",
-    "age": "",
-    "gender": "",
-    "dob": "",
+  Map myMap = {
+    "User1": "HOSPITAL",
+    "User2": "PATIENT",
   };
-  var newMap = {
+  Map genderMap = {
+    "Type1": "MALE",
+    "Type2": "FEMALE",
+    "Type3": "OTHER",
+  };
+  bool disabledropdown = true;
+  var dropdownkivalue;
+  var genderkivalue;
+
+  Map newMap = {
     "personalizations": [
       {
         "to": [
-          {
-            "email": ""
-          }
+          {"email": ""}
         ],
         "dynamic_template_data": {
           "EmployeeName": "",
@@ -41,9 +46,22 @@ class _MapPractiseState extends State<MapPractise> {
   };
 
   myMethod() {
-    myMap.update('name', (value) => 'rashid');
+    newMap['personalizations']![0]['dynamic_template_data']['EmployeeName'] =
+        "123456";
+    print(newMap);
+
+    /*    myMap.update('name', (value) => 'rashid');
     myMap.remove('gender');
-    print(myMap);
+    print(myMap); */
+
+    /*    print(myMap.keys);
+    print(myMap.values);
+    var s = myMap.entries.map((e) => e.value).toList();
+    print(s); */
+/*     var checkthis = myMap.keys.firstWhere(
+        (element) => myMap[element] == 'badsha',
+        orElse: () => 'Badshamasal');
+    print(checkthis); */
   }
 
   var namekilist = [
@@ -54,13 +72,12 @@ class _MapPractiseState extends State<MapPractise> {
     'ubaid',
     'hamza',
   ];
- 
   var newbadshalist2 = [];
 
 /*   var namekilist = []; */
   badshaMethod() {
     setState(() {
-     dynamic newbadshalist =
+      dynamic newbadshalist =
           namekilist.where((element) => element.startsWith(tagcontroller.text));
       if (tagcontroller.text.isNotEmpty) {
         if (newbadshalist2.contains(newbadshalist)) {
@@ -68,7 +85,6 @@ class _MapPractiseState extends State<MapPractise> {
         } else {
           newbadshalist2.add(newbadshalist);
         }
-  
       } else {
         newbadshalist2.clear();
       }
@@ -79,7 +95,6 @@ class _MapPractiseState extends State<MapPractise> {
 
   @override
   void dispose() {
-    
     super.dispose();
     tagcontroller.dispose();
   }
@@ -93,6 +108,64 @@ class _MapPractiseState extends State<MapPractise> {
       ),
       body: Column(
         children: [
+          ElevatedButton(
+              onPressed: () {
+                myMethod();
+              },
+              child: Text('badsha button')),
+          DropdownButton(
+              hint: const Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Text(
+                  'select your business categories',
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 12,
+                      color: Color(0xffC4C4C4)),
+                ),
+              ),
+              isExpanded: true,
+              value: dropdownkivalue,
+              items: myMap.entries
+                  .map((e) =>
+                      DropdownMenuItem(value: e.value, child: Text(e.value)))
+                  .toList(),
+              onChanged: (val) {
+                setState(() {
+                  dropdownkivalue = val;
+                  if (dropdownkivalue == myMap['User1']) {
+                    disabledropdown = true;
+                  } else if (dropdownkivalue == myMap['User2']) {
+                    setState(() {
+                      disabledropdown = false;
+                    });
+                  }
+                });
+              }),
+          DropdownButtonFormField(
+              hint: const Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Text(
+                  'select your GENDER',
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 12,
+                      color: Color(0xffC4C4C4)),
+                ),
+              ),
+              isExpanded: true,
+              value: genderkivalue,
+              items: genderMap.entries
+                  .map((e) =>
+                      DropdownMenuItem(value: e.value, child: Text(e.value)))
+                  .toList(),
+              onChanged: disabledropdown
+                  ? null
+                  : (val) {
+                      setState(() {
+                        genderkivalue = val;
+                      });
+                    }),
           ElevatedButton(
               onPressed: () {
                 badshaMethod();

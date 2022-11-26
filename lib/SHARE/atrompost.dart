@@ -2,7 +2,9 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/homepage/video_player.dart';
 import 'package:http/http.dart' as http;
+import 'package:video_player/video_player.dart';
 
 class Atrompost extends StatefulWidget {
   const Atrompost({Key? key}) : super(key: key);
@@ -31,7 +33,7 @@ class _AtrompostState extends State<Atrompost> {
       },
       body: jsonEncode({
         "token":
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXRyb21nOC5jb21cL2FwaVwvbG9naW4iLCJpYXQiOjE2NjkxNzkzOTUsImV4cCI6MTY2OTM5NTM5NSwibmJmIjoxNjY5MTc5Mzk1LCJqdGkiOiJyaXB0VmpPS283QjZQTHdtIiwic3ViIjoyOTA1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIiwiaXAiOiIxMDMuMTIyLjIwMS4xNDIifQ.SknxKNX2k6YI1xnmx9FdnzIKJAOQUPVL5WxsnSCDNOI",
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXRyb21nOC5jb21cL2FwaVwvbG9naW4iLCJpYXQiOjE2Njk0NDc5MjQsImV4cCI6MTY2OTY2MzkyNCwibmJmIjoxNjY5NDQ3OTI0LCJqdGkiOiJ0WW1SY0RlSm42c2JFemJPIiwic3ViIjoyOTA1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIiwiaXAiOiIxMDMuMTIyLjIwMS4xMjgifQ.cms5c1OgSzmIjMOYbWRlpri6NrAQ3F-KacXXz5RMNqo",
       }),
     );
 
@@ -44,10 +46,10 @@ class _AtrompostState extends State<Atrompost> {
     for (int i = 0; i < data.length; i++) {
       setState(() {
         allpost.add(data[i]);
-        if (data[i]['media_type'] == 5) {
+   /*      if (data[i]['media_type'] == 5) {
           allmedia.add(data[i]['media'].toString());
           print('AllMedia----$allmedia');
-        }
+        } */
       });
       print('AllPost-----------$allpost');
       print(allpost.length);
@@ -60,7 +62,9 @@ class _AtrompostState extends State<Atrompost> {
         appBar: AppBar(
           title: const Text(''),
         ),
-        body: Column(children: [
+        body: Column(
+          children: [
+          
           ElevatedButton(
               onPressed: () {
                 atromg8post();
@@ -102,7 +106,19 @@ class _AtrompostState extends State<Atrompost> {
                         trailing: IconButton(
                             onPressed: () {}, icon: const Icon(Icons.more_vert)),
                       ),
-                      Image.network(allmedia[index]['media'])
+                      if(allpost[index]['media_type']==5)...{
+                        for(var media in allpost[index]['media'])...{
+                             Image.network(media)
+                        }
+                  
+                      },
+                      if(allpost[index]['media_type']==2)...{
+                   
+                    VideoApp(value:allpost[index]['media'])
+                        
+                  
+                      }
+                     
 
                      
                     ],

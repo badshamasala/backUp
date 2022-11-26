@@ -191,7 +191,7 @@ class _UploadImageState extends State<UploadImage> {
                                                   child: const Iconify(
                                                     AntDesign.camera_filled,
                                                     color: Color(0xff0087FF),
-                                                    size: 17,
+                                                    size: 25,
                                                   ),
                                                 ),
                                                 const Text(
@@ -230,7 +230,7 @@ class _UploadImageState extends State<UploadImage> {
                                                   child: const Iconify(
                                                     Heroicons.photo_20_solid,
                                                     color: Color(0xff0087FF),
-                                                    size: 17,
+                                                    size: 25,
                                                   ),
                                                 ),
                                                 const Text(
@@ -581,17 +581,25 @@ class _UploadImageState extends State<UploadImage> {
                                           SizedBox(
                                             height: height * 0.05,
                                           ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 16.0),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                SizedBox(
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Text(
+                                                'this won\'t be shared any ror anywhere',
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xff515253)),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    right: 28.0),
+                                                child: SizedBox(
                                                   height: 10,
                                                   width: 20,
                                                   child: Checkbox(
+                                                      shape: CircleBorder(),
                                                       materialTapTargetSize:
                                                           MaterialTapTargetSize
                                                               .shrinkWrap,
@@ -602,18 +610,8 @@ class _UploadImageState extends State<UploadImage> {
                                                         });
                                                       }),
                                                 ),
-                                                /* SizedBox(
-                                            width: 15,
-                                          ), */
-                                                const Text(
-                                                  'this won\'t be shared any ror anywhere',
-                                                  style: TextStyle(
-                                                      fontSize: 12,
-                                                      fontFamily: 'Poppins',
-                                                      color: Color(0xff515253)),
-                                                )
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                           Row(
                                             mainAxisAlignment:

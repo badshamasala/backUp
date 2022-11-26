@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GETX/gettimer.dart';
+import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
@@ -58,9 +59,20 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double height = size.height, width = size.width;
-
+   /*  final themeProvider = Provider.of<ThemeProvider>(context, listen: false); */
     return SafeArea(
       child: Scaffold(
+    /*       appBar: AppBar(
+            backgroundColor: Colors.white,
+            title: Switch.adaptive(
+                value: themeProvider.isDarkMode,
+                onChanged: (value) {
+                  setState(() {});
+                  final provider =
+                      Provider.of<ThemeProvider>(context, listen: false);
+                  provider.toggleTheme(value);
+                }),
+          ), */
           body: isloading
               ? const Center(
                   child: CircularProgressIndicator(

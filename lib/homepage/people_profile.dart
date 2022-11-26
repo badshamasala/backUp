@@ -3,7 +3,6 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/homepage/peopleprofiletab.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
-import 'package:flutter_application_1/homepage/video_player.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -495,11 +494,11 @@ class _PeopleProfileState extends State<PeopleProfile> {
                                 constraints:
                                     const BoxConstraints(minHeight: 45, minWidth: 45),
                                 onPressed: () {
-                                  Navigator.push(
+                                 /*  Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => const VideoApp()),
-                                  );
+                                  ); */
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,
@@ -552,11 +551,11 @@ class _PeopleProfileState extends State<PeopleProfile> {
                                 constraints:
                                     const BoxConstraints(minHeight: 45, minWidth: 45),
                                 onPressed: () {
-                                  Navigator.push(
+                             /*      Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => const VideoApp()),
-                                  );
+                                  ); */
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,

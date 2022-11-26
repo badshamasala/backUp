@@ -8,6 +8,7 @@ import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_application_1/homepage/ads.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/permissionset.dart';
+import 'package:flutter_application_1/homepage/profile_acitvity.dart';
 import 'package:flutter_application_1/homepage/self_profile.dart';
 import 'package:flutter_application_1/homepage/verification1.dart';
 import 'package:flutter_application_1/homepage/video_player.dart';
@@ -34,7 +35,7 @@ import 'package:iconify_flutter/icons/tabler.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfileSelf extends StatefulWidget {
-   ProfileSelf({super.key});
+  ProfileSelf({super.key});
 
   @override
   State<ProfileSelf> createState() => _ProfileSelfState();
@@ -75,8 +76,8 @@ class ProfileSelf extends StatefulWidget {
                     Container(
                       decoration: BoxDecoration(
                           color: const Color(0xffe2e2e2),
-                          border:
-                              Border.all(width: 0.5, color: const Color(0xffe2e2e2)),
+                          border: Border.all(
+                              width: 0.5, color: const Color(0xffe2e2e2)),
                           borderRadius: BorderRadius.circular(10)),
                       height: 5,
                       width: 100,
@@ -734,7 +735,8 @@ class ProfileSelf extends StatefulWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Ads()),
+                            MaterialPageRoute(
+                                builder: (context) => const Ads()),
                           );
                         },
                         child: Row(
@@ -838,8 +840,8 @@ class ProfileSelf extends StatefulWidget {
                                                   children: [
                                                     Container(
                                                       decoration: BoxDecoration(
-                                                          color:
-                                                              const Color(0xffE2E2E2),
+                                                          color: const Color(
+                                                              0xffE2E2E2),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(8)),
@@ -855,7 +857,8 @@ class ProfileSelf extends StatefulWidget {
                                                   children: [
                                                     IconButton(
                                                         padding:
-                                                            const EdgeInsets.all(0),
+                                                            const EdgeInsets
+                                                                .all(0),
                                                         constraints:
                                                             const BoxConstraints(),
                                                         onPressed: () {
@@ -1596,8 +1599,7 @@ class ProfileSelf extends StatefulWidget {
                                                   shape: BoxShape.circle,
                                                 ),
                                                 child: const Padding(
-                                                  padding:
-                                                      EdgeInsets.all(4.0),
+                                                  padding: EdgeInsets.all(4.0),
                                                   child: Icon(
                                                     Icons.close,
                                                     color: Colors.white,
@@ -1935,7 +1937,13 @@ class ProfileSelf extends StatefulWidget {
                         height: height * 0.03,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ProfileAcitvity()),
+                          );
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -2462,7 +2470,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                         enabled: username,
                                         decoration: InputDecoration(
                                           labelText: username ? '' : '',
-                                          suffixIcon: const Icon(Icons.check_circle),
+                                          suffixIcon:
+                                              const Icon(Icons.check_circle),
                                           border: InputBorder.none,
                                         )),
                                   )),
@@ -2582,7 +2591,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           child: Container(
                                             child: full1
                                                 ? IconButton(
-                                                    padding: const EdgeInsets.all(0),
+                                                    padding:
+                                                        const EdgeInsets.all(0),
                                                     constraints:
                                                         const BoxConstraints(),
                                                     onPressed: () {
@@ -2596,7 +2606,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                       color: Color(0xff737373),
                                                     ))
                                                 : IconButton(
-                                                    padding: const EdgeInsets.all(0),
+                                                    padding:
+                                                        const EdgeInsets.all(0),
                                                     constraints:
                                                         const BoxConstraints(),
                                                     onPressed: () {
@@ -2677,7 +2688,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           child: Container(
                                             child: bio1
                                                 ? IconButton(
-                                                    padding: const EdgeInsets.all(0),
+                                                    padding:
+                                                        const EdgeInsets.all(0),
                                                     constraints:
                                                         const BoxConstraints(),
                                                     onPressed: () {
@@ -2691,7 +2703,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                       color: Color(0xff737373),
                                                     ))
                                                 : IconButton(
-                                                    padding: const EdgeInsets.all(0),
+                                                    padding:
+                                                        const EdgeInsets.all(0),
                                                     constraints:
                                                         const BoxConstraints(),
                                                     onPressed: () {
@@ -2825,7 +2838,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                     children: [
                                                       IconButton(
                                                           padding:
-                                                              const EdgeInsets.all(0),
+                                                              const EdgeInsets
+                                                                  .all(0),
                                                           constraints:
                                                               const BoxConstraints(),
                                                           onPressed: () {
@@ -3075,9 +3089,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                       MainAxisAlignment.start,
                                                   children: const [
                                                     Padding(
-                                                      padding:
-                                                          EdgeInsets.only(
-                                                              left: 50.0),
+                                                      padding: EdgeInsets.only(
+                                                          left: 50.0),
                                                       child: Text(
                                                         'Change Your Cover Photo',
                                                         style: TextStyle(
@@ -3120,7 +3133,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                           },
                                                           elevation: 0,
                                                           fillColor:
-                                                              const Color(0xffDADADA),
+                                                              const Color(
+                                                                  0xffDADADA),
                                                           /*  padding: EdgeInsets.all(15.0), */
                                                           shape: const CircleBorder(
                                                               /* side: BorderSide(
@@ -3167,7 +3181,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                           },
                                                           elevation: 0,
                                                           fillColor:
-                                                              const Color(0xffDADADA),
+                                                              const Color(
+                                                                  0xffDADADA),
                                                           /*  padding: EdgeInsets.all(15.0), */
                                                           shape: const CircleBorder(
                                                               /* side: BorderSide(
@@ -3219,8 +3234,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                     ),
                                                     child: const Padding(
                                                       padding:
-                                                          EdgeInsets.all(
-                                                              4.0),
+                                                          EdgeInsets.all(4.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color: Colors.white,
@@ -3813,8 +3827,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                           ),
                                                           child: const Padding(
                                                             padding:
-                                                                EdgeInsets
-                                                                    .all(4.0),
+                                                                EdgeInsets.all(
+                                                                    4.0),
                                                             child: Icon(
                                                               Icons.close,
                                                               color:
@@ -3883,13 +3897,12 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           children: [
                             RawMaterialButton(
                               padding: EdgeInsets.zero,
-                              constraints:
-                                  const BoxConstraints(minHeight: 45, minWidth: 45),
+                              constraints: const BoxConstraints(
+                                  minHeight: 45, minWidth: 45),
                               onPressed: () {
                                 getkar.pickforprofile(ImageSource.camera);
                                 Navigator.of(context).pop();
-                                setState(() {
-                                });
+                                setState(() {});
                               },
                               elevation: 0,
                               fillColor: const Color(0xffDADADA),
@@ -3916,13 +3929,12 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           children: [
                             RawMaterialButton(
                               padding: EdgeInsets.zero,
-                              constraints:
-                                  const BoxConstraints(minHeight: 45, minWidth: 45),
+                              constraints: const BoxConstraints(
+                                  minHeight: 45, minWidth: 45),
                               onPressed: () {
                                 getkar.pickforprofile(ImageSource.gallery);
                                 Navigator.of(context).pop();
-                                setState(() {
-                                });
+                                setState(() {});
                               },
                               elevation: 0,
                               fillColor: const Color(0xffDADADA),
@@ -4108,7 +4120,6 @@ class _ProfileSelfState extends State<ProfileSelf> {
     height = size.height;
     width = size.width;
     return SafeArea(
-
       top: false,
       child: DefaultTabController(
         length: 4,
@@ -4619,7 +4630,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     ], */
                     color: const Color(0xffE2E2E2),
                     shape: BoxShape.rectangle,
-                    border: Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
+                    border:
+                        Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(3.0),
@@ -4840,14 +4852,14 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               ),
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
-                                constraints:
-                                    const BoxConstraints(minHeight: 45, minWidth: 45),
+                                constraints: const BoxConstraints(
+                                    minHeight: 45, minWidth: 45),
                                 onPressed: () {
-                                  Navigator.push(
+                                  /*      Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => const VideoApp()),
-                                  );
+                                  ); */
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,
@@ -4897,14 +4909,14 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               ),
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
-                                constraints:
-                                    const BoxConstraints(minHeight: 45, minWidth: 45),
+                                constraints: const BoxConstraints(
+                                    minHeight: 45, minWidth: 45),
                                 onPressed: () {
-                                  Navigator.push(
+                                  /*  Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => const VideoApp()),
-                                  );
+                                  ); */
                                 },
                                 elevation: 0,
                                 fillColor: Colors.transparent,
@@ -4954,8 +4966,8 @@ class _ProfileSelfState extends State<ProfileSelf> {
                               ),
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
-                                constraints:
-                                    const BoxConstraints(minHeight: 45, minWidth: 45),
+                                constraints: const BoxConstraints(
+                                    minHeight: 45, minWidth: 45),
                                 onPressed: () {
                                   /*   pickImage(ImageSource.camera);
                                   Navigator.of(context).pop();
