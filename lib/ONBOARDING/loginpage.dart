@@ -59,11 +59,12 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double height = size.height, width = size.width;
-   /*  final themeProvider = Provider.of<ThemeProvider>(context, listen: false); */
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     return SafeArea(
       child: Scaffold(
-    /*       appBar: AppBar(
-            backgroundColor: Colors.white,
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             title: Switch.adaptive(
                 value: themeProvider.isDarkMode,
                 onChanged: (value) {
@@ -72,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                       Provider.of<ThemeProvider>(context, listen: false);
                   provider.toggleTheme(value);
                 }),
-          ), */
+          ),
           body: isloading
               ? const Center(
                   child: CircularProgressIndicator(
@@ -120,8 +121,10 @@ class _LoginPageState extends State<LoginPage> {
                                   fontSize: 12),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
-                                  borderSide: const BorderSide(
-                                      color: customTextColor, width: 0.5)),
+                                  borderSide: BorderSide(
+                                      color:
+                                          Theme.of(context).bottomAppBarColor,
+                                      width: 0.5)),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: const BorderSide(
@@ -181,15 +184,19 @@ class _LoginPageState extends State<LoginPage> {
                                       color: Color(0xff0087FF), width: 0.5)),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
-                                  borderSide: const BorderSide(
-                                      color: customTextColor, width: 0.5)),
+                                  borderSide: BorderSide(
+                                      color:
+                                          Theme.of(context).bottomAppBarColor,
+                                      width: 0.5)),
                               suffixIconConstraints: const BoxConstraints(),
                               suffixIcon: Padding(
-                                padding: const EdgeInsets.only(right: 8.0),
+                                padding: EdgeInsets.only(right: 8.0),
                                 child: GestureDetector(
-                                  child: Icon(obscure
-                                      ? Icons.visibility_off
-                                      : Icons.visibility),
+                                  child: Icon(
+                                      obscure
+                                          ? Icons.visibility_off
+                                          : Icons.visibility,
+                                      color: Theme.of(context).primaryColor),
                                   onTap: () {
                                     setState(() {
                                       obscure = !obscure;
@@ -883,8 +890,8 @@ class _LoginPageState extends State<LoginPage> {
                                   },
                                   child: Text(
                                     'forgot'.tr,
-                                    style: const TextStyle(
-                                        color: primaryColorOfApp,
+                                    style: TextStyle(
+                                        color: Theme.of(context).primaryColor,
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
                                         letterSpacing: 0),
@@ -925,7 +932,7 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Container(
-                                color: const Color(0xff515253),
+                                color: Theme.of(context).bottomAppBarColor,
                                 height: height * 0.001,
                                 width: width * 0.38,
                               ),
@@ -934,13 +941,14 @@ class _LoginPageState extends State<LoginPage> {
                                     const EdgeInsets.only(left: 8.0, right: 8),
                                 child: Text(
                                   'or'.tr,
-                                  style: const TextStyle(
-                                      color: Color(0xff515253),
+                                  style: TextStyle(
+                                      color:
+                                          Theme.of(context).bottomAppBarColor,
                                       fontFamily: 'Poppins'),
                                 ),
                               ),
                               Container(
-                                color: const Color(0xff515253),
+                                color: Theme.of(context).bottomAppBarColor,
                                 height: height * 0.001,
                                 width: width * 0.38,
                               ),
@@ -962,12 +970,14 @@ class _LoginPageState extends State<LoginPage> {
                               style: ElevatedButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                   elevation: 0,
-                                  side: const BorderSide(
-                                      color: Color(0xff0087FF), width: 0.7),
+                                  side: BorderSide(
+                                      color: Theme.of(context).primaryColor,
+                                      width: 0.7),
                                   /*   minimumSize: const Size(0, 40), */
                                   /*  padding: EdgeInsets.symmetric(
                                 horizontal: 40.0, vertical: 20.0), */
-                                  backgroundColor: Colors.white,
+                                  backgroundColor:
+                                      Theme.of(context).backgroundColor,
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
                                           const UploadImage().radius())),
@@ -982,8 +992,9 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                     Text(
                                       "continue".tr,
-                                      style: const TextStyle(
-                                          color: Colors.black,
+                                      style: TextStyle(
+                                          color: Theme.of(context)
+                                              .bottomAppBarColor,
                                           fontFamily: 'Poppins'),
                                     ),
                                   ],
@@ -1000,8 +1011,9 @@ class _LoginPageState extends State<LoginPage> {
                                 padding: EdgeInsets.only(left: width * 0.02),
                                 child: Text(
                                   "dont".tr,
-                                  style: const TextStyle(
-                                      color: Color(0xff515253),
+                                  style: TextStyle(
+                                      color:
+                                          Theme.of(context).bottomAppBarColor,
                                       fontFamily: 'Poppins'),
                                 ),
                               ),
@@ -1020,18 +1032,20 @@ class _LoginPageState extends State<LoginPage> {
                                 );
                               },
                               style: OutlinedButton.styleFrom(
-                                  side: const BorderSide(
-                                      color: Color(0xff0087FF), width: 0.7),
+                                  side: BorderSide(
+                                      color: Theme.of(context).primaryColor,
+                                      width: 0.7),
                                   /*  padding: EdgeInsets.symmetric(
                                 horizontal: 40.0, vertical: 20.0), */
-                                  backgroundColor: Colors.white,
+                                  backgroundColor:
+                                      Theme.of(context).backgroundColor,
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
                                           const UploadImage().radius())),
                               child: Text(
                                 "signup".tr,
-                                style: const TextStyle(
-                                    color: Color(0xff0087FF),
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor,
                                     fontSize: 15,
                                     fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w600,

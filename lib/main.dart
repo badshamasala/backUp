@@ -10,10 +10,14 @@ import 'package:flutter_application_1/ONBOARDING/lsts_check_sms.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 import 'package:flutter_application_1/SHARE/atrompost.dart';
+import 'package:flutter_application_1/SHARE/expandale_button_check.dart';
 import 'package:flutter_application_1/SHARE/mapPractise.dart';
 import 'package:flutter_application_1/SHARE/neu_button.dart';
 import 'package:flutter_application_1/SHARE/screenshot_image.dart';
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
+import 'package:flutter_application_1/homepage/chat_screen.dart';
+import 'package:flutter_application_1/homepage/chatmytube.dart';
+import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/localestring.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -69,10 +73,9 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
           builder: (context, child) {
             final themeProvider = Provider.of<ThemeProvider>(context);
             return GetMaterialApp(
-                /*   themeMode: themeProvider.themeMode, */
-                /*  theme: AppTheme.lighttheme,
-                darkTheme: AppTheme.darktheme, */
-
+                themeMode: themeProvider.themeMode,
+                theme: AppTheme.lighttheme,
+                darkTheme: AppTheme.darktheme,
                 translations: LocalString(),
                 locale: const Locale('en', 'US'),
                 debugShowCheckedModeBanner: false,
@@ -88,7 +91,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
             GlobalWidgetsLocalizations.delegate
         ], */
 
-                home: const IntroScreen() /* LoginPage12() */
+                home: const HomePage() /* LoginPage12() */
                 /*  IntroScreen() */ /* _isLoggedIn
                 ? Chathomepage()
                 : LoginPage12() */ /* FutureBuilder(

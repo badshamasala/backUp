@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_application_1/GLOBALS/colors.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.light;
@@ -21,7 +22,17 @@ class ThemeProvider extends ChangeNotifier {
 
 class AppTheme {
   static final darktheme = ThemeData(
-      scaffoldBackgroundColor: Colors.black, colorScheme: ColorScheme.dark());
+      bottomAppBarColor: Colors.white,
+      primaryColor: Colors.white,
+      secondaryHeaderColor: Colors.white,
+      backgroundColor: Colors.black,
+      scaffoldBackgroundColor: Colors.black,
+      colorScheme: ColorScheme.dark());
   static final lighttheme = ThemeData(
-      scaffoldBackgroundColor: Colors.white, colorScheme: ColorScheme.light());
+      primaryColor: primaryColorOfApp,
+      secondaryHeaderColor: primaryColorOfApp,
+      bottomAppBarColor: customTextColor,
+      backgroundColor: Colors.white,
+      scaffoldBackgroundColor: Colors.white,
+      colorScheme: ColorScheme.light());
 }

@@ -180,9 +180,7 @@ class _Home1State extends State<Home1> {
                       'assets/c2c.svg',
                       width: 17,
                       height: 17,
-                    )
-                    )
-                    ),
+                    ))),
             SizedBox(
               width: width * 0.03,
             ),
@@ -708,6 +706,8 @@ class _Home1State extends State<Home1> {
                                               // padding: EdgeInsets.symmetric(
                                               //     horizontal: 40.0, vertical: 20.0),
                                               backgroundColor: Colors.white,
+                                              foregroundColor:
+                                                  primaryColorOfApp,
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -716,6 +716,7 @@ class _Home1State extends State<Home1> {
                                           child: const Text(
                                             'following',
                                             style: TextStyle(
+                                                color: primaryColorOfApp,
                                                 fontFamily: 'Poppins',
                                                 fontSize: 12),
                                           )),
@@ -2088,6 +2089,7 @@ class _Home1State extends State<Home1> {
                                           child: const Text(
                                             'following',
                                             style: TextStyle(
+                                                color: primaryColorOfApp,
                                                 fontFamily: 'Poppins',
                                                 fontSize: 12),
                                           )),
