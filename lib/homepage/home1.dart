@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/people_profile.dart';
+import 'package:iconify_flutter/icons/ic.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/ri.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/link.dart';
@@ -54,6 +56,8 @@ class _Home1State extends State<Home1> {
     controller = ScrollController();
   }
 
+  bool floatchupa = true;
+
   @override
   void dispose() {
     controller.dispose();
@@ -74,6 +78,12 @@ class _Home1State extends State<Home1> {
         print('Failed to pick image: $e');
       }
     }
+  }
+
+  method1() {
+    setState(() {
+      floatchupa = true;
+    });
   }
 
   @override
@@ -185,6 +195,294 @@ class _Home1State extends State<Home1> {
               width: width * 0.03,
             ),
           ],
+        ),
+        floatingActionButtonLocation:
+            FloatingActionButtonLocation.miniEndDocked,
+        floatingActionButton: Visibility(
+          visible: floatchupa,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: FloatingActionButton(
+              mini: true,
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              elevation: 0,
+              backgroundColor: primaryColorOfApp,
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        insetPadding: EdgeInsets.zero,
+                        contentPadding: EdgeInsets.zero,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        backgroundColor: Colors.white.withOpacity(0.8),
+                        content: Padding(
+                          padding:
+                              const EdgeInsets.symmetric(horizontal: 15.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Column(
+                                crossAxisAlignment:
+                                    CrossAxisAlignment.center,
+                                children: [
+                                  Divider(
+                                    height: 15,
+                                    color: Colors.transparent,
+                                  ),
+                                  InkWell(
+                                    onDoubleTap: () {
+                                      Navigator.pop(context);
+                                      setState(() {
+                                        floatchupa = true;
+                                      });
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius: 0.5,
+                                              spreadRadius: 0.5,
+                                              offset: Offset(
+                                                2,
+                                                3,
+                                              ),
+                                            ),
+                                          ],
+                                          shape: BoxShape.circle,
+                                          color: primaryColorOfApp),
+                                      child: Padding(
+                                          padding:
+                                              const EdgeInsets.all(15.0),
+                                          child: SvgPicture.asset(
+                                            'assets/penicon.svg',
+                                            height: 38,
+                                            width: 20,
+                                          )),
+                                    ),
+                                  ),
+                                  Text(
+                                    'CREATE POST-CHOOSE ONE',
+                                    style: TextStyle(
+                                        color: primaryColorOfApp,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0.2),
+                                  ),
+                                ],
+                              ),
+                              Divider(
+                                height: 15,
+                                color: Colors.transparent,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Material(
+                                    elevation: 10,
+                                    borderRadius: BorderRadius.circular(25),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(13.0),
+                                        child: Iconify(
+                                          Ic.outline_add_photo_alternate,
+                                          color: primaryColorOfApp,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      'Add Photo',
+                                      style: TextStyle(
+                                          color: primaryColorOfApp,
+                                          fontFamily: 'Poppins',
+                                          /* fontWeight: FontWeight.w600, */
+                                          letterSpacing: 0.2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Divider(
+                                height: 15,
+                                color: Colors.transparent,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Material(
+                                    elevation: 10,
+                                    borderRadius: BorderRadius.circular(25),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(13.0),
+                                        child: Iconify(
+                                            MaterialSymbols
+                                                .video_call_rounded,
+                                            color: primaryColorOfApp),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      'Add Video',
+                                      style: TextStyle(
+                                          color: primaryColorOfApp,
+                                          fontFamily: 'Poppins',
+                                          /*     fontWeight: FontWeight.w600, */
+                                          letterSpacing: 0.2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Divider(
+                                height: 15,
+                                color: Colors.transparent,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Material(
+                                    elevation: 10,
+                                    borderRadius: BorderRadius.circular(25),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(13.0),
+                                        child: Iconify(Ic.outline_poll,
+                                            color: primaryColorOfApp),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      'Create Poll',
+                                      style: TextStyle(
+                                          color: primaryColorOfApp,
+                                          fontFamily: 'Poppins',
+                                          /* fontWeight: FontWeight.w600, */
+                                          letterSpacing: 0.2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Divider(
+                                height: 15,
+                                color: Colors.transparent,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Material(
+                                    elevation: 10,
+                                    borderRadius: BorderRadius.circular(25),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(13.0),
+                                        child: Iconify(
+                                            MaterialSymbols
+                                                .record_voice_over,
+                                            color: primaryColorOfApp),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      'Live Podcast',
+                                      style: TextStyle(
+                                          color: primaryColorOfApp,
+                                          fontFamily: 'Poppins',
+                                          /*      fontWeight: FontWeight.w600, */
+                                          letterSpacing: 0.2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Divider(
+                                height: 15,
+                                color: Colors.transparent,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Material(
+                                    borderRadius: BorderRadius.circular(25),
+                                    elevation: 10,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(13.0),
+                                        child: Iconify(Ic.baseline_live_tv,
+                                            color: primaryColorOfApp),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(left: 10.0),
+                                    child: Text(
+                                      'Live',
+                                      style: TextStyle(
+                                          color: primaryColorOfApp,
+                                          fontFamily: 'Poppins',
+                                          /* fontWeight: FontWeight.w600, */
+                                          letterSpacing: 0.2),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Divider(
+                                height: 25,
+                                color: Colors.transparent,
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }).then((_) {
+              /*     print('dekhjte----------'); */
+                  setState(() {
+                    floatchupa = true;
+                  });
+                });
+              /*   print('sssssssssss'); */
+                setState(() {
+        /*           print('12345677'); */
+                  floatchupa = false;
+                });
+              },
+              child: SvgPicture.asset(
+                'assets/c2c.svg',
+                width: 17,
+                height: 17,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
         body: SingleChildScrollView(
           /*     controller: controller, */

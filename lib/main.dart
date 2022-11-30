@@ -14,17 +14,23 @@ import 'package:flutter_application_1/SHARE/expandale_button_check.dart';
 import 'package:flutter_application_1/SHARE/mapPractise.dart';
 import 'package:flutter_application_1/SHARE/neu_button.dart';
 import 'package:flutter_application_1/SHARE/screenshot_image.dart';
+import 'package:flutter_application_1/SHARE/stripe_payment.dart';
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
+import 'package:flutter_application_1/chat_screen1.dart';
 import 'package:flutter_application_1/homepage/chat_screen.dart';
 import 'package:flutter_application_1/homepage/chatmytube.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/localestring.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+
+import 'SHARE/new_image_picker.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  Stripe.publishableKey = 'pk_test_51M9mJrSIrNH5UrZHRmyRLLHDVaQaI8pPKBmnq53pnCRxYQauwgEl0nDbyClMVVnBT9ehNfs10DV26QHGCShqwZ9P00orFyOx8b';
   runApp(MyApp());
 }
 
@@ -65,6 +71,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => Googleprovider()),
         ChangeNotifierProvider(create: (_) => TagFriendProvider()),
+        ChangeNotifierProvider(create: (_) => HomeProvider()),
         /*      ChangeNotifierProvider(create: (_) => ThemeProvider()), */
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
       ],
@@ -91,7 +98,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
             GlobalWidgetsLocalizations.delegate
         ], */
 
-                home: const HomePage() /* LoginPage12() */
+                home:  HomeScreen(username: 'rashid',) /* LoginPage12() */
                 /*  IntroScreen() */ /* _isLoggedIn
                 ? Chathomepage()
                 : LoginPage12() */ /* FutureBuilder(
