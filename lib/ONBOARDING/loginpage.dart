@@ -1071,10 +1071,9 @@ class _LoginPageState extends State<LoginPage> {
       });
       print('rashid');
       final provider = Provider.of<Googleprovider>(context, listen: false);
-      await provider
-          .loginmethod(username.text, password.text, context)
+      await provider.loginmethod(username.text, password.text, context)
           .then((value) async {
-        if (value == "True") {
+        if (value == true) {
           setState(() {
             isloading = false;
           });

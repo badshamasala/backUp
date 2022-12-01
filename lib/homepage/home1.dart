@@ -196,7 +196,7 @@ class _Home1State extends State<Home1> {
             ),
           ],
         ),
-        floatingActionButtonLocation:
+       /*  floatingActionButtonLocation:
             FloatingActionButtonLocation.miniEndDocked,
         floatingActionButton: Visibility(
           visible: floatchupa,
@@ -483,7 +483,7 @@ class _Home1State extends State<Home1> {
               ),
             ),
           ),
-        ),
+        ), */
         body: SingleChildScrollView(
           /*     controller: controller, */
           child: Column(

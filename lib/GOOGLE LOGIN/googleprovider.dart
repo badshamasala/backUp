@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/ALL_API_URL/api_list.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
@@ -42,8 +43,7 @@ class Googleprovider extends ChangeNotifier {
   Future loginmethod(String value1, String value2, context) async {
     try {
       final response = await http.post(
-        Uri.parse(
-            'http://103.69.242.42:8080/TestAPI/Auth.svc/authenticateUser'),
+        Uri.parse(ApiUrl.loginApi),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -59,7 +59,7 @@ class Googleprovider extends ChangeNotifier {
       var status = jsondata[0]["status"];
       print(status);
 
-      if (status == "True") {
+      if (status == true) {
         return status;
       } else {
         Fluttertoast.showToast(
@@ -80,7 +80,7 @@ class Googleprovider extends ChangeNotifier {
   Future otpmethod(dynamic mobileno) async {
     try {
       final response = await http.post(
-        Uri.parse('http://103.69.242.42:8080/TestAPI/message.svc/sendOTP'),
+        Uri.parse(ApiUrl.sendOtp),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -118,10 +118,10 @@ class Googleprovider extends ChangeNotifier {
 
   
 
-  Future checkUserExist(dynamic username) async {
+  Future checkUsername(dynamic username) async {
     try {
       final response = await http.post(
-        Uri.parse('http://103.69.242.42:8080/TestAPI/Auth.svc/VerifyUser'),
+        Uri.parse(ApiUrl.verifyUsername),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -136,9 +136,38 @@ class Googleprovider extends ChangeNotifier {
       var status = jsondata[0]["status"];
       print('Status - $status');
 
-      if (status == "True") {
+      if (status == true) {
         return status;
       }
+    } catch (e) {
+      Fluttertoast.showToast(
+          msg: e.toString(),
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  }
+  Future checkMobileno(dynamic mobile) async {
+    try {
+      final response = await http.post(
+        Uri.parse(ApiUrl.verifyMobileno),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          "api_key": "myttube123456",
+          "mobile": mobile,
+        }),
+      );
+      var jsondata = jsonDecode(response.body);
+      print('Response-- ${response.body}');
+
+      var status = jsondata[0]["status"];
+      print('Status - $status');
+
+      if (response.statusCode == 200) {
+        return status;
+      } 
     } catch (e) {
       Fluttertoast.showToast(
           msg: e.toString(),
@@ -151,8 +180,7 @@ class Googleprovider extends ChangeNotifier {
   Future registerUser(mobileno, username, password, fullname, email) async {
     try {
       final response = await http.post(
-        Uri.parse(
-            'http://103.69.242.42:8080/TestAPI/Auth.svc/insertIntoSignup'),
+        Uri.parse( ApiUrl.userRegistration),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -163,7 +191,8 @@ class Googleprovider extends ChangeNotifier {
           "user_id": username,
           "password": password,
           "full_name": fullname,
-          "email": email
+          "email": email,
+          "show_all" : true
         }),
       );
       var jsondata = jsonDecode(response.body);

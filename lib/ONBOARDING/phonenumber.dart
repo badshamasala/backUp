@@ -25,6 +25,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
   final GlobalKey<FormState> _formKey = GlobalKey();
 
   bool check10number = true;
+  bool mobilekivalue = true;
   bool check6digit = true;
   bool otplodaing = false;
   var phonecont = TextEditingController();
@@ -35,14 +36,21 @@ class _PhoneNumberState extends State<PhoneNumber> {
   final GetUpdateSeconds getkar = Get.put(GetUpdateSeconds());
 
   @override
+  void dispose() {
+    super.dispose();
+    phonecont.dispose();
+  }
+
+  bool status = true;
+  bool iconchupa = false;
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double height = size.height;
+    double height = size.height, width = size.width;
 
     return Scaffold(
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        reverse: true,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Form(
@@ -53,35 +61,46 @@ class _PhoneNumberState extends State<PhoneNumber> {
                 SizedBox(
                   height: height * 0.14,
                 ),
-                Center(
-                    child: SvgPicture.asset(
-                  'assets/mobileotp.svg',
-                  height: 220,
-                  width: 220,
-                )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/mobileotp.svg',
+                      height: height * 0.3,
+                      width: width * 0.2,
+                    ),
+                  ],
+                ),
                 SizedBox(
                   height: height * 0.1,
                 ),
-                const Center(
-                  child: Text(
-                    'Sign Up',
-                    style: TextStyle(
-                        color: primaryColorOfApp,
-                        fontSize: 20,
-                        fontFamily: 'Poppins'),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'Sign Up',
+                      style: TextStyle(
+                          color: primaryColorOfApp,
+                          fontSize: 20,
+                          fontFamily: 'Poppins'),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: height * 0.01,
                 ),
-                const Center(
-                    child: Text(
-                  'Enter Your Phone Number to Proceed Sign Up',
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: customTextColor,
-                      fontSize: 12),
-                )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'Enter Your Phone Number to Proceed Sign Up',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: customTextColor,
+                          fontSize: 12),
+                    ),
+                  ],
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -114,7 +133,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   height: height * 0.08,
                 ),
                 TextFormField(
-                  /* autofillHints: [AutofillHints.telephoneNumberDevice], */
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   autofocus: true,
                   controller: phonecont,
                   textAlign: TextAlign.start,
@@ -132,6 +151,11 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   ],
                   cursorHeight: 20,
                   decoration: InputDecoration(
+                   
+                
+              
+               
+                   
                     isDense: true,
                     hintText: '8888888888',
                     hintStyle: const TextStyle(color: Color(0xffc4c4c4)),
@@ -198,16 +222,20 @@ class _PhoneNumberState extends State<PhoneNumber> {
                           ) */
                   ),
                   onChanged: (value) {
+
                     phonekanumber = value;
-                    if (value.length == 10) {
-                      setState(() {
-                        check10number = false;
-                      });
-                    } else if (value.length < 10) {
+                   
+
+                    if (value.length != 10) {
                       setState(() {
                         check10number = true;
                       });
+                    } else {
+                      setState(() {
+                        check10number = false;
+                      });
                     }
+
                     // do something
                   },
                 ),
@@ -221,13 +249,31 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     onPressed: check10number
                         ? null
                         : () async {
-                            setState(() {
+                           final provider =
+                          Provider.of<Googleprovider>(context, listen: false);
+                  provider.checkMobileno(phonekanumber).then(
+                        (value) async {
+                          if (value == true) {
+                           
+
+                           
+                             Fluttertoast.showToast(
+                                msg: "Mobile no. Already Exist",
+                                backgroundColor: Colors.black,
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+                          
+                            return;
+                          } else {
+                              setState(() {
                               otplodaing = true;
                             });
-                            final provider = Provider.of<Googleprovider>(context, listen: false);
-                            token = await provider.otpmethod(phonekanumber).whenComplete(() {
+                          token = await provider
+                                .otpmethod(phonekanumber)
+                                .whenComplete(() {
                               otplodaing = false;
                               getkar.startTimer();
+                              phonecont.clear();
                               showModalBottomSheet(
                                   /*     isDismissible: false, */
                                   isScrollControlled: true,
@@ -387,17 +433,14 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                               verificationCode;
                                                         });
                                                         if (verificationCode
-                                                                .length ==
-                                                            6) {
-                                                          setState(() {
-                                                            check6digit = false;
-                                                          });
-                                                        }
-                                                        if (verificationCode
-                                                                .length <
+                                                                .length !=
                                                             6) {
                                                           setState(() {
                                                             check6digit = true;
+                                                          });
+                                                        } else {
+                                                          setState(() {
+                                                            check6digit = false;
                                                           });
                                                         }
                                                       },
@@ -464,7 +507,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                                     MaterialPageRoute(
                                                                         builder: (context) =>
                                                                             AccountType(
-                                                                              value: phonecont.text,
+                                                                              value: phonekanumber,
                                                                             )),
                                                                   );
                                                                 } else {
@@ -481,18 +524,15 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                                           16.0);
                                                                 }
                                                               },
-                                                        style: ElevatedButton
-                                                            .styleFrom(
-                                                                elevation: 0,
-                                                                /*      minimumSize: const Size(0.0, 40), */
-                                                                // padding: EdgeInsets.symmetric(
-                                                                //     horizontal: 40.0, vertical: 20.0),
-                                                                backgroundColor:
-                                                                    const Color(
-                                                                        0xff0087FF),
-                                                                shape: RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
+                                                        style: ElevatedButton.styleFrom(
+                                                            elevation: 0,
+                                                            backgroundColor:
+                                                                const Color(
+                                                                    0xff0087FF),
+                                                            shape: RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
                                                                             7.0))),
                                                         child: const Text(
                                                           "Verify & Continue",
@@ -547,20 +587,28 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                         ),
                                       );
                                     });
-                                  });
+                                  }).then((value) {
+                                setState(() {
+                                  check10number = true;
+                                });
+                              });
                             });
-                            /*   }); */
+                         
+                          }
+                        },
+                      );
+                            
+                    
+                            
+                       
                           },
                     style: ElevatedButton.styleFrom(
                         elevation: 0,
-                        /*        minimumSize: const Size(0.0, 40), */
-                        // padding: EdgeInsets.symmetric(
-                        //     horizontal: 40.0, vertical: 20.0),
                         backgroundColor: const Color(0xff0087FF),
                         shape: RoundedRectangleBorder(
                             borderRadius: const UploadImage().radius())),
-                    child:  Text(
-                       otplodaing ? 'Loading...' : "Continue",
+                    child: Text(
+                      otplodaing ? 'Loading...' : "Continue",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 15,

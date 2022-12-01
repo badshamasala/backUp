@@ -40,8 +40,9 @@ class _FormfillState extends State<Formfill> {
   String password = "";
   String email = "";
   bool status = true;
-  bool borderstatus = true;
   bool iconchupa = false;
+  bool borderstatus = true;
+  
   bool isloading = false;
 
   TextEditingController usernamecontroller = TextEditingController();
@@ -104,9 +105,11 @@ class _FormfillState extends State<Formfill> {
                           username = value;
                           final provider = Provider.of<Googleprovider>(context,
                               listen: false);
-                          provider.checkUserExist(username).then(
+                          provider.checkUsername(username).then(
                             (value) {
-                              if (value == "True") {
+                              if (value == true) {
+                                // THIS IS A MISTAKE BY ME WHEN I AM CALLING THE API IN ONCHANGED.............
+                                //THE TOAST MESSAGE IS KEEP ON COMING IT SHOULD ONLY COME ONCE........ 
                                 /*    Fluttertoast.showToast(
                               msg: "User Already Exist",
                               backgroundColor: Colors.red,
