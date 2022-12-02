@@ -42,7 +42,7 @@ class _FormfillState extends State<Formfill> {
   bool status = true;
   bool iconchupa = false;
   bool borderstatus = true;
-  
+
   bool isloading = false;
 
   TextEditingController usernamecontroller = TextEditingController();
@@ -109,7 +109,7 @@ class _FormfillState extends State<Formfill> {
                             (value) {
                               if (value == true) {
                                 // THIS IS A MISTAKE BY ME WHEN I AM CALLING THE API IN ONCHANGED.............
-                                //THE TOAST MESSAGE IS KEEP ON COMING IT SHOULD ONLY COME ONCE........ 
+                                //THE TOAST MESSAGE IS KEEP ON COMING IT SHOULD ONLY COME ONCE........
                                 /*    Fluttertoast.showToast(
                               msg: "User Already Exist",
                               backgroundColor: Colors.red,
@@ -313,12 +313,12 @@ class _FormfillState extends State<Formfill> {
                         height: 40,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
+                            /* Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const UploadImage()),
-                          );
-                          /*   registrationmethod(); */
+                          ); */
+                            registrationmethod();
                           },
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
@@ -629,7 +629,36 @@ class _FormfillState extends State<Formfill> {
       });
 
       final provider = Provider.of<Googleprovider>(context, listen: false);
-      provider
+
+      provider.checkEmailId(email).then((value) async {
+        if (value == true) {
+          setState(() {
+            isloading = true;
+          });
+          await Fluttertoast.showToast(
+                  msg: "Email Id. Already Exist",
+                  backgroundColor: Colors.black,
+                  textColor: Colors.white,
+                  fontSize: 16.0)
+              .then((value) {
+            setState(() {
+              isloading = false;
+            });
+          });
+
+          return;
+        } else {
+          setState(() {
+            isloading = false;
+          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const UploadImage()),
+          );
+        }
+      });
+
+      /* provider
           .registerUser(widget.value, username, password, fullname, email)
           .then(
         (value) async {
@@ -665,7 +694,7 @@ class _FormfillState extends State<Formfill> {
             return;
           }
         },
-      );
+      ); */
 
       /*     if (widget.value1) {
                             Navigator.push(
@@ -685,6 +714,6 @@ class _FormfillState extends State<Formfill> {
                                     builder: (context) =>
                                         const UploadPublic()));
                           } */
-    } else {}
+    } /* else {} */
   }
 }

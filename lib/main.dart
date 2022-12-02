@@ -98,7 +98,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
             GlobalWidgetsLocalizations.delegate
         ], */
 
-                home: IntroScreen() /* LoginPage12() */
+                home: UploadImage() /* LoginPage12() */
                 /*  IntroScreen() */ /* _isLoggedIn
                 ? Chathomepage()
                 : LoginPage12() */ /* FutureBuilder(

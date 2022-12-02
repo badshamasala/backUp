@@ -176,6 +176,35 @@ class Googleprovider extends ChangeNotifier {
           fontSize: 16.0);
     }
   }
+  Future checkEmailId(dynamic email) async {
+    try {
+      final response = await http.post(
+        Uri.parse(ApiUrl.verifyEmail),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          "api_key": "myttube123456",
+          "email"  : email,
+        }),
+      );
+      var jsondata = jsonDecode(response.body);
+      print('Response-- ${response.body}');
+
+      var status = jsondata[0]["status"];
+      print('Status - $status');
+
+      if (response.statusCode == 200) {
+        return status;
+      } 
+    } catch (e) {
+      Fluttertoast.showToast(
+          msg: e.toString(),
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  }
 
   Future registerUser(mobileno, username, password, fullname, email) async {
     try {
@@ -201,7 +230,7 @@ class Googleprovider extends ChangeNotifier {
       var status = jsondata[0]["status"];
       print('Status - $status');
 
-      if (status == "True") {
+      if (response.statusCode == 200) {
         return status;
       } else {
         print('error');
