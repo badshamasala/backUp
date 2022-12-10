@@ -4,14 +4,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/ONBOARDING/splashscreen.dart';
+import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
+import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
+import 'package:provider/provider.dart';
+
 
 class UploadImage extends StatefulWidget {
-  const UploadImage({super.key});
+  final value1;
+  final value2;
+  final value3;
+  final value4;
+  final value5;
+  const UploadImage(
+      {super.key,
+      this.value1,
+      this.value2,
+      this.value3,
+      this.value4,
+      this.value5});
 
   @override
   State<UploadImage> createState() => _UploadImageState();
@@ -22,6 +38,7 @@ class UploadImage extends StatefulWidget {
 }
 
 class _UploadImageState extends State<UploadImage> {
+  bool isloading = false;
   DateTime dateTime = DateTime.now();
   bool male = true;
   bool female = true;
@@ -31,6 +48,8 @@ class _UploadImageState extends State<UploadImage> {
   bool age3 = true;
   bool age4 = true;
   bool age5 = true;
+
+  var genderValue = "";
 
   bool value = false;
   bool value1 = false;
@@ -323,6 +342,7 @@ class _UploadImageState extends State<UploadImage> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
+                        genderValue = 'Male';
                         male = false;
                         female = true;
                         other = true;
@@ -376,6 +396,7 @@ class _UploadImageState extends State<UploadImage> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
+                        genderValue = 'Female';
                         female = false;
                         male = true;
                         other = true;
@@ -421,6 +442,7 @@ class _UploadImageState extends State<UploadImage> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
+                        genderValue = 'Other';
                         other = false;
                         male = true;
                         female = true;
@@ -1013,13 +1035,57 @@ class _UploadImageState extends State<UploadImage> {
                 width: double.infinity,
                 // height: 50,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
+                  onPressed: male && female && other
+                      ? null
+                      : () {
+                          final provider = Provider.of<Googleprovider>(context,
+                              listen: false);
+                          provider
+                              .registerUser(widget.value1, widget.value2,
+                                  widget.value3, widget.value4, widget.value5)
+                              .then(
+                            (value) async {
+                              if (value == true) {
+                                await SharedPref.savemytubeMobileno(widget.value1);
+                                await SharedPref.savemytubeUsername(widget.value2);
+                                await SharedPref.savemytubePassword(widget.value3);
+                                await SharedPref.savemytubeFullname(widget.value4);
+                                await SharedPref.savemytubeEmail(widget.value5);
+                                await SharedPref.savemytubeGender(genderValue);
+                                Fluttertoast.showToast(
+                                    msg: "User has been created",
+                                    backgroundColor: Colors.green,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0);
+                                setState(() {
+                                  isloading = false;
+                                });
+
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const LoginPage()),
+                                );
+                                return;
+                              } else {
+                                Fluttertoast.showToast(
+                                    msg: "Something Went Wrong ",
+                                    backgroundColor: Colors.red,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0);
+                                setState(() {
+                                  isloading = false;
+                                });
+                                return;
+                              }
+                            },
+                          );
+                          /*    Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const SplashScreen()),
-                    );
-                  },
+                    ); */
+                        },
                   style: ElevatedButton.styleFrom(
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       padding: EdgeInsets.zero,
@@ -1050,12 +1116,15 @@ class _UploadImageState extends State<UploadImage> {
   Widget buildDatePicker() => SizedBox(
         height: 150,
         child: CupertinoDatePicker(
-          minimumYear: 1950,
-          maximumYear: DateTime.now().year,
-          initialDateTime: dateTime,
-          mode: CupertinoDatePickerMode.date,
-          onDateTimeChanged: (dateTime) =>
-              setState(() => this.dateTime = dateTime),
-        ),
+            minimumYear: 1950,
+            maximumYear: DateTime.now().year,
+            initialDateTime: dateTime,
+            mode: CupertinoDatePickerMode.date,
+            onDateTimeChanged: (dateTime) {
+              setState(() {
+                this.dateTime = dateTime;
+              });
+              print(dateTime);
+            }),
       );
 }

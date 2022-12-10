@@ -2,30 +2,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
-import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
-import 'package:flutter_application_1/ONBOARDING/lsts_check_sms.dart';
-import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_application_1/ONBOARDING/start_page.dart';
-import 'package:flutter_application_1/SHARE/atrompost.dart';
-import 'package:flutter_application_1/SHARE/expandale_button_check.dart';
-import 'package:flutter_application_1/SHARE/mapPractise.dart';
-import 'package:flutter_application_1/SHARE/neu_button.dart';
-import 'package:flutter_application_1/SHARE/screenshot_image.dart';
-import 'package:flutter_application_1/SHARE/stripe_payment.dart';
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/chat_screen1.dart';
-import 'package:flutter_application_1/homepage/chat_screen.dart';
-import 'package:flutter_application_1/homepage/chatmytube.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_application_1/localestring.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import 'SHARE/new_image_picker.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -98,7 +86,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
             GlobalWidgetsLocalizations.delegate
         ], */
 
-                home: UploadImage() /* LoginPage12() */
+                home: MonetizeCheck() /* LoginPage12() */
                 /*  IntroScreen() */ /* _isLoggedIn
                 ? Chathomepage()
                 : LoginPage12() */ /* FutureBuilder(

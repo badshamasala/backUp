@@ -44,7 +44,6 @@ class GetUpdateSeconds extends GetxController {
       } else {
         timer!.cancel();
         timerband();
-        /* timerkinewvalue(); */
         update();
       }
     });
@@ -53,6 +52,12 @@ class GetUpdateSeconds extends GetxController {
   timerchalu() {
     timerkhatam1 = true;
     update();
+  }
+
+  methodAfterNavigation() {
+    print('++++++++++++++++++++++++++++++');
+    timer!.cancel();
+    timerkhatam1 = true;
   }
 
   timerband() {
@@ -99,6 +104,7 @@ class GetImage extends GetxController {
     image = null;
     update();
   }
+
   removeImagebanner() {
     image1 = null;
     update();

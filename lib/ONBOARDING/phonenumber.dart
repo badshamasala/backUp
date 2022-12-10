@@ -264,106 +264,97 @@ class _PhoneNumberState extends State<PhoneNumber> {
 
                                   return;
                                 } else { */
-                                  setState(() {
-                                    otplodaing = true;
-                                  });
-                                  token = await provider
-                                      .otpmethod(phonekanumber)
-                                      .whenComplete(() {
-                                    otplodaing = false;
-                                    getkar.startTimer();
-                                    phonecont.clear();
-                                    showModalBottomSheet(
-                                        /*     isDismissible: false, */
-                                        isScrollControlled: true,
-                                        shape: const RoundedRectangleBorder(
-                                          // <-- SEE HERE
-                                          borderRadius: BorderRadius.vertical(
-                                            top: Radius.circular(20.0),
-                                          ),
-                                        ),
-                                        // isScrollControlled: true,
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          /*   return GetBuilder<HomeController>(
+                            setState(() {
+                              otplodaing = true;
+                            });
+                            token = await provider
+                                .otpmethod(phonekanumber)
+                                .whenComplete(() {
+                              otplodaing = false;
+                              getkar.startTimer();
+                              phonecont.clear();
+                              showModalBottomSheet(
+                                  /*     isDismissible: false, */
+                                  isScrollControlled: true,
+                                  shape: const RoundedRectangleBorder(
+                                    // <-- SEE HERE
+                                    borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(20.0),
+                                    ),
+                                  ),
+                                  // isScrollControlled: true,
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    /*   return GetBuilder<HomeController>(
                                       builder: (controller) { */
-                                          return StatefulBuilder(
-                                              builder: (context, setState) {
-                                            return Padding(
-                                              padding: MediaQuery.of(context)
-                                                  .viewInsets,
-                                              child: Stack(
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 8.0),
-                                                    child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          SizedBox(
-                                                            height:
-                                                                height * 0.01,
+                                    return StatefulBuilder(
+                                        builder: (context, setState) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.of(context).viewInsets,
+                                        child: Stack(
+                                          clipBehavior: Clip.none,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 8.0),
+                                              child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    SizedBox(
+                                                      height: height * 0.01,
+                                                    ),
+                                                    Container(
+                                                      decoration: BoxDecoration(
+                                                          color: const Color(
+                                                              0xffE2E2E2),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(8)),
+                                                      height: 5,
+                                                      width: 100,
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        IconButton(
+                                                            onPressed: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            icon: const Icon(
+                                                              Icons.arrow_back,
+                                                              color:
+                                                                  primaryColorOfApp,
+                                                            )),
+                                                        const SizedBox(
+                                                          width: 65,
+                                                        ),
+                                                        const Text(
+                                                          'Enter OTP',
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 15,
                                                           ),
-                                                          Container(
-                                                            decoration: BoxDecoration(
-                                                                color: const Color(
-                                                                    0xffE2E2E2),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8)),
-                                                            height: 5,
-                                                            width: 100,
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              IconButton(
-                                                                  onPressed:
-                                                                      () {
-                                                                    Navigator.pop(
-                                                                        context);
-                                                                  },
-                                                                  icon:
-                                                                      const Icon(
-                                                                    Icons
-                                                                        .arrow_back,
-                                                                    color:
-                                                                        primaryColorOfApp,
-                                                                  )),
-                                                              const SizedBox(
-                                                                width: 65,
-                                                              ),
-                                                              const Text(
-                                                                'Enter OTP',
-                                                                style:
-                                                                    TextStyle(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 15,
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Text(
-                                                            'OTP has been sent to +91 $phonekanumber',
-                                                            style:
-                                                                const TextStyle(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 12,
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            height:
-                                                                height * 0.05,
-                                                          ),
-                                                          /*   GetBuilder< HomeController>(
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Text(
+                                                      'OTP has been sent to +91 $phonekanumber',
+                                                      style: const TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12,
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: height * 0.05,
+                                                    ),
+                                                    /*   GetBuilder< HomeController>(
                                                           builder:(controller) {
                                                         return */
-                                                          /*  Obx((() =>
+                                                    /*  Obx((() =>
                                                           PinFieldAutoFill(
                                                             textInputAction:
                                                                 TextInputAction
@@ -409,201 +400,201 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                               }
                                                             },
                                                           ))), */
-                                                          /* }), */
+                                                    /* }), */
 
-                                                          OtpTextField(
-                                                            onCodeChanged:
-                                                                (value) {
-                                                              setState(() {
-                                                                checktoken =
-                                                                    token;
-                                                              });
-                                                            },
-                                                            autoFocus: true,
-                                                            filled: true,
-                                                            margin:
-                                                                const EdgeInsets
-                                                                        .only(
-                                                                    right: 3.0),
-                                                            fieldWidth: 44,
-                                                            fillColor:
-                                                                const Color(
-                                                                    0xffDFEEFC),
-                                                            borderWidth: 0.5,
-                                                            focusedBorderColor:
-                                                                primaryColorOfApp,
-                                                            numberOfFields: 6,
-                                                            /*   enabledBorderColor:
+                                                    OtpTextField(
+                                                      onCodeChanged: (value) {
+                                                        setState(() {
+                                                          checktoken = token;
+                                                        });
+                                                      },
+                                                      autoFocus: true,
+                                                      filled: true,
+                                                      margin:
+                                                          const EdgeInsets.only(
+                                                              right: 3.0),
+                                                      fieldWidth: 44,
+                                                      fillColor: const Color(
+                                                          0xffDFEEFC),
+                                                      borderWidth: 0.5,
+                                                      focusedBorderColor:
+                                                          primaryColorOfApp,
+                                                      numberOfFields: 6,
+                                                      /*   enabledBorderColor:
                                                         customTextColor */
-                                                            borderColor:
-                                                                primaryColorOfApp,
-                                                            showFieldAsBox:
-                                                                true,
-                                                            onSubmit:
-                                                                (verificationCode) {
-                                                              setState(() {
-                                                                checktoken =
-                                                                    verificationCode;
-                                                              });
-                                                              if (verificationCode
-                                                                      .length !=
-                                                                  6) {
-                                                                setState(() {
-                                                                  check6digit =
-                                                                      true;
-                                                                });
-                                                              } else {
-                                                                setState(() {
-                                                                  check6digit =
-                                                                      false;
-                                                                });
-                                                              }
-                                                            },
-                                                          ),
-                                                          SizedBox(
-                                                            height:
-                                                                height * 0.01,
-                                                          ),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              GetBuilder<
-                                                                  GetUpdateSeconds>(
-                                                                builder: (controller) =>
-                                                                    TextButton(
-                                                                        onPressed: getkar
-                                                                                .timerkhatam1
-                                                                            ? null
-                                                                            : () async {
-                                                                                final provider = Provider.of<Googleprovider>(context, listen: false);
-                                                                                token = await provider.otpmethod(phonekanumber);
-                                                                                print('badshamasala');
-                                                                                getkar.nayamethod();
-                                                                              },
-                                                                        child: GetBuilder<
-                                                                            GetUpdateSeconds>(
-                                                                          builder: (controller) =>
-                                                                              Text(
-                                                                            getkar.timerkhatam1
-                                                                                ? 'Resend OTP in ${getkar.seconds} Sec'
-                                                                                : 'Resend OTP',
-                                                                            style: const TextStyle(
-                                                                                fontFamily: 'Poppins',
-                                                                                fontSize: 12,
-                                                                                color: primaryColorOfApp),
-                                                                          ),
-                                                                        )),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          SizedBox(
-                                                            height: 40,
-                                                            width:
-                                                                double.infinity,
-                                                            // height: 50,
-                                                            child:
-                                                                ElevatedButton(
-                                                              onPressed:
-                                                                  check6digit
+                                                      borderColor:
+                                                          primaryColorOfApp,
+                                                      showFieldAsBox: true,
+                                                      onSubmit:
+                                                          (verificationCode) {
+                                                        setState(() {
+                                                          checktoken =
+                                                              verificationCode;
+                                                        });
+                                                        if (verificationCode
+                                                                .length !=
+                                                            6) {
+                                                          setState(() {
+                                                            check6digit = true;
+                                                          });
+                                                        } else {
+                                                          setState(() {
+                                                            check6digit = false;
+                                                          });
+                                                        }
+                                                      },
+                                                    ),
+                                                    SizedBox(
+                                                      height: height * 0.01,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        GetBuilder<
+                                                            GetUpdateSeconds>(
+                                                          builder: (controller) =>
+                                                              TextButton(
+                                                                  onPressed: getkar
+                                                                          .timerkhatam1
                                                                       ? null
-                                                                      : () {
-                                                                          if (token ==
-                                                                              checktoken) {
-                                                                            Navigator.push(
+                                                                      : () async {
+                                                                          final provider = Provider.of<Googleprovider>(
                                                                               context,
-                                                                              MaterialPageRoute(
-                                                                                  builder: (context) => AccountType(
-                                                                                        value: phonekanumber,
-                                                                                      )),
-                                                                            );
-                                                                          } else {
-                                                                            Fluttertoast.showToast(
-                                                                                msg: "Wrong OTP",
-                                                                                backgroundColor: Colors.black,
-                                                                                textColor: Colors.white,
-                                                                                fontSize: 16.0);
-                                                                          }
+                                                                              listen: false);
+                                                                          token =
+                                                                              await provider.otpmethod(phonekanumber);
+                                                                          print(
+                                                                              'badshamasala');
+                                                                          getkar
+                                                                              .nayamethod();
                                                                         },
-                                                              style: ElevatedButton.styleFrom(
-                                                                  elevation: 0,
-                                                                  backgroundColor:
-                                                                      const Color(
-                                                                          0xff0087FF),
-                                                                  shape: RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              7.0))),
-                                                              child: const Text(
-                                                                "Verify & Continue",
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        15,
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          SizedBox(
-                                                            height:
-                                                                height * 0.1,
-                                                          ),
-                                                        ]),
-                                                  ),
-                                                  Positioned.fill(
-                                                      top: -36,
-                                                      child: Align(
-                                                        alignment:
-                                                            Alignment.topCenter,
-                                                        child: InkWell(
-                                                          onTap: () {
-                                                            print('badsha');
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: Container(
-                                                            /*   width: 45,
-                                                                        height: 45, */
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              border: Border.all(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  width: 2),
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                const Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(4.0),
-                                                              child: Icon(
-                                                                Icons.close,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                            ),
-                                                          ),
+                                                                  child: GetBuilder<
+                                                                      GetUpdateSeconds>(
+                                                                    builder:
+                                                                        (controller) =>
+                                                                            Text(
+                                                                      getkar.timerkhatam1
+                                                                          ? 'Resend OTP in ${getkar.seconds} Sec'
+                                                                          : 'Resend OTP',
+                                                                      style: const TextStyle(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontSize:
+                                                                              12,
+                                                                          color:
+                                                                              primaryColorOfApp),
+                                                                    ),
+                                                                  )),
                                                         ),
-                                                      )),
-                                                ],
-                                              ),
-                                            );
-                                          });
-                                        }).then((value) {
-                                      setState(() {
-                                        check10number = true;
-                                      });
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      height: 40,
+                                                      width: double.infinity,
+                                                      // height: 50,
+                                                      child: ElevatedButton(
+                                                        onPressed: check6digit
+                                                            ? null
+                                                            : () {
+                                                                if (token == checktoken) {
+                                                                        getkar.methodAfterNavigation();
+                                                                  Navigator.push (
+                                                                      context,
+                                                                      MaterialPageRoute(
+                                                                          builder: (context) => AccountType(
+                                                                                value: phonekanumber,
+                                                                              ))).then((value) {
+                                                                    print('--------badsha-------------');
+                                                                  /*   getkar.methodAfterNavigation(); */
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                  });
+                                                                } else {
+                                                                  Fluttertoast.showToast(
+                                                                      msg:
+                                                                          "Wrong OTP",
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .black,
+                                                                      textColor:
+                                                                          Colors
+                                                                              .white,
+                                                                      fontSize:
+                                                                          16.0);
+                                                                }
+                                                              },
+                                                        style: ElevatedButton.styleFrom(
+                                                            elevation: 0,
+                                                            backgroundColor:
+                                                                const Color(
+                                                                    0xff0087FF),
+                                                            shape: RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            7.0))),
+                                                        child: const Text(
+                                                          "Verify & Continue",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 15,
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: height * 0.1,
+                                                    ),
+                                                  ]),
+                                            ),
+                                            Positioned.fill(
+                                                top: -36,
+                                                child: Align(
+                                                  alignment:
+                                                      Alignment.topCenter,
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      print('badsha');
+                                                      Navigator.pop(context);
+                                                    },
+                                                    child: Container(
+                                                      /*   width: 45,
+                                                                        height: 45, */
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: Colors.white,
+                                                            width: 2),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: const Padding(
+                                                        padding:
+                                                            EdgeInsets.all(4.0),
+                                                        child: Icon(
+                                                          Icons.close,
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                )),
+                                          ],
+                                        ),
+                                      );
                                     });
-                                  });
-                                /* }
+                                  }).then((value) {
+                                setState(() {
+                                  check10number = true;
+                                });
+                              });
+                            });
+                            /* }
                               },
                             ); */
                           },
@@ -614,8 +605,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                             borderRadius: const UploadImage().radius())),
                     child: otplodaing
                         ? CircularProgressIndicator(
-                            strokeWidth: 3
-                            ,
+                            strokeWidth: 3,
                             color: Colors.white,
                           )
                         : Text(

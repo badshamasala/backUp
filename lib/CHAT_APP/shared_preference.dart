@@ -16,7 +16,8 @@ class SharedPref {
   static String mytubePassword = 'PASSWORD';
   static String mytubeFullname = 'FULLNAME';
   static String mytubeEmail    = 'EMAIL';
-  static String mytubeProfile    = 'PROFILE';
+  static String mytubeProfile  = 'PROFILE';
+  static String mytubeGender   = 'GENDER';
 
   
   
@@ -117,6 +118,29 @@ class SharedPref {
 //------------------------------------------------------------------------------------------------
 
 
+  static savemytubeGender(String gender)   async  {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return await sf.setString(mytubeGender, gender);
+  }
+  static Future<String?> getmytubeGender() async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return sf.getString(mytubeGender);
+  }
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+
+
 
 
 
@@ -130,7 +154,7 @@ class SharedPref {
     return await sf.setString(userFullNamekey, userfullname);
   }
 
-  static /* Future<String?> */ saveUserEmail(String useremail) async {
+  static saveUserEmail(String useremail) async {
     SharedPreferences sf = await SharedPreferences.getInstance();
     return await sf.setString(userEmailkey, useremail);
   }

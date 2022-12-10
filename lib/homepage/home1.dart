@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/people_profile.dart';
 import 'package:iconify_flutter/icons/ic.dart';
@@ -53,7 +54,20 @@ class _Home1State extends State<Home1> {
     // ignore: todo
     // TODO: implement initState
     super.initState();
+    getmytubeGender();
     controller = ScrollController();
+  }
+
+  var _userGender = "";
+  getmytubeGender() async {
+    await SharedPref.getmytubeGender().then((value) {
+      /*   print(_isLoggedIn); */
+      if (value != null) {
+        setState(() {
+          _userGender = value;
+        });
+      }
+    });
   }
 
   bool floatchupa = true;
@@ -126,6 +140,7 @@ class _Home1State extends State<Home1> {
                     ],
                   ),
                 ),
+              
               ],
             ),
           ),
@@ -142,9 +157,9 @@ class _Home1State extends State<Home1> {
                     padding: const EdgeInsets.all(0),
                     constraints: const BoxConstraints(),
                     onPressed: () {
-                      final provider =
+                    /*   final provider =
                           Provider.of<Googleprovider>(context, listen: false);
-                      provider.logout();
+                      provider.logout(); */
                     },
                     icon: const Iconify(
                       Bi.qr_code_scan,
@@ -196,7 +211,7 @@ class _Home1State extends State<Home1> {
             ),
           ],
         ),
-       /*  floatingActionButtonLocation:
+        /*  floatingActionButtonLocation:
             FloatingActionButtonLocation.miniEndDocked,
         floatingActionButton: Visibility(
           visible: floatchupa,

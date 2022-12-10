@@ -4399,7 +4399,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 width: 100,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  children: const [
+                                  children: [
                                     Text(
                                       '@Nanncyjain23',
                                       style: TextStyle(
@@ -4407,10 +4407,116 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                           fontFamily: 'Poppins',
                                           color: Color(0xff0087FF)),
                                     ),
-                                    Iconify(
-                                      Bi.patch_check,
-                                      size: 15,
-                                      color: primaryColorOfApp,
+                                    IconButton(
+                                      padding: EdgeInsets.zero,
+                                      constraints: BoxConstraints(),
+                                      onPressed: () {
+                                        showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            shape: const RoundedRectangleBorder(
+                                              // <-- SEE HERE
+                                              borderRadius:
+                                                  BorderRadius.vertical(
+                                                top: Radius.circular(20.0),
+                                              ),
+                                            ),
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return StatefulBuilder(builder:
+                                                  (BuildContext context,
+                                                      StateSetter setState) {
+                                                return Stack(
+                                                  clipBehavior: Clip.none,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .symmetric(
+                                                                horizontal:
+                                                                    16.0),
+                                                        child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisAlignment : MainAxisAlignment.center,
+                                                                children: [
+                                                                  Iconify(
+                                                                    Bi.patch_check,
+                                                                    color: Color(
+                                                                        0xff037F26),size: 30,
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisAlignment : MainAxisAlignment.center,
+                                                                children: [
+                                                                  Text('Verified',
+                                                                  style: TextStyle(
+                                                                    color: Color(0xff037F26),
+                                                                    fontFamily: 'Poppins',
+                                                                    fontSize: 15 ),),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisAlignment : MainAxisAlignment.center,
+                                                                children: [
+                                                                  Text('This is a private viewer’s profile,#continue.....content',
+                                                                  style: TextStyle(
+                                                                    color: customTextColor,
+                                                                    fontFamily: 'Poppins',
+                                                                    fontSize: 10 ),),
+                                                                ],
+                                                              ),
+                                                            ])),
+                                                    Positioned.fill(
+                                                        top: -36,
+                                                        child: Align(
+                                                          alignment: Alignment
+                                                              .topCenter,
+                                                          child: InkWell(
+                                                            onTap: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            child: Container(
+                                                              /*   width: 45,
+                                  height: 45, */
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                border: Border.all(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    width: 2),
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                              ),
+                                                              child:
+                                                                  const Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            4.0),
+                                                                child: Icon(
+                                                                  Icons.close,
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ))
+                                                  ],
+                                                );
+                                              });
+                                            });
+                                      },
+                                      icon: Iconify(
+                                        Bi.patch_check,
+                                        size: 15,
+                                        color: primaryColorOfApp,
+                                      ),
                                     ),
                                   ],
                                 ),

@@ -622,19 +622,19 @@ class _FormfillState extends State<Formfill> {
             borderRadius: BorderRadius.circular(5)));
   }
 
-  registrationmethod() {
-    if (_formKey.currentState!.validate()) {
+  registrationmethod() async {
+    if (_formKey.currentState!.validate())  {
       setState(() {
         isloading = true;
       });
 
       final provider = Provider.of<Googleprovider>(context, listen: false);
 
-      provider.checkEmailId(email).then((value) async {
+      await provider.checkEmailId(email).then((value) async {
         if (value == true) {
-          setState(() {
+          /*setState(() {
             isloading = true;
-          });
+          }); */
           await Fluttertoast.showToast(
                   msg: "Email Id. Already Exist",
                   backgroundColor: Colors.black,
@@ -653,7 +653,7 @@ class _FormfillState extends State<Formfill> {
           });
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const UploadImage()),
+            MaterialPageRoute(builder: (context) =>  UploadImage(value1: widget.value, value2:username , value3: password, value4: fullname, value5: email,)),
           );
         }
       });
