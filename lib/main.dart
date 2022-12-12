@@ -9,6 +9,7 @@ import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/chat_screen1.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
+import 'package:flutter_application_1/homepage/rewards_point.dart';
 import 'package:flutter_application_1/localestring.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
@@ -86,7 +87,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
             GlobalWidgetsLocalizations.delegate
         ], */
 
-                home: MonetizeCheck() /* LoginPage12() */
+                home: IntroScreen() /* LoginPage12() */
                 /*  IntroScreen() */ /* _isLoggedIn
                 ? Chathomepage()
                 : LoginPage12() */ /* FutureBuilder(

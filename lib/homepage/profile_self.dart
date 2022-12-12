@@ -7,6 +7,7 @@ import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_application_1/homepage/ads.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
+import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_application_1/homepage/permissionset.dart';
 import 'package:flutter_application_1/homepage/profile_acitvity.dart';
 import 'package:flutter_application_1/homepage/self_profile.dart';
@@ -604,31 +605,40 @@ class ProfileSelf extends StatefulWidget {
                       SizedBox(
                         height: height * 0.03,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/setfolo.svg',
-                                height: 18,
-                                width: 18,
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Monetize',
-                                style: ProfileSelf().buildtextstyle(),
-                              ),
-                            ],
-                          ),
-                          const Iconify(
-                            Eva.arrow_right_fill,
-                            size: 15,
-                            color: Color(0xff333333),
-                          )
-                        ],
+                      InkWell(
+                        onTap: () {
+                             Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MonetizeCheck()),
+                          );
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  'assets/setfolo.svg',
+                                  height: 18,
+                                  width: 18,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Monetize',
+                                  style: ProfileSelf().buildtextstyle(),
+                                ),
+                              ],
+                            ),
+                            const Iconify(
+                              Eva.arrow_right_fill,
+                              size: 15,
+                              color: Color(0xff333333),
+                            )
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: height * 0.03,
@@ -1835,8 +1845,10 @@ class ProfileSelf extends StatefulWidget {
   buildpersonalsetting(context) {
     Size size;
     double height;
+    double width;
     size = MediaQuery.of(context).size;
     height = size.height;
+    width = size.width;
     return showModalBottomSheet(
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
@@ -1975,32 +1987,449 @@ class ProfileSelf extends StatefulWidget {
                       SizedBox(
                         height: height * 0.03,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/digitalicon.svg',
-                                height: 15,
-                                width: 15,
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              const Text(
-                                'Digital Collections',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 12),
-                              ),
-                            ],
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                          isScrollControlled: true,
+                          shape: const RoundedRectangleBorder(
+                            // <-- SEE HERE
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(20.0),
+                            ),
                           ),
-                          const Iconify(
-                            Eva.arrow_right_fill,
-                            size: 15,
-                            color: Color(0xff333333),
-                          )
-                        ],
+                          context: context,
+                          builder: (BuildContext context) {
+                            return DefaultTabController(
+                              length: 2,
+                              child: StatefulBuilder(builder:
+                                  (BuildContext context, StateSetter setState) {
+                                return Stack(
+                                  clipBehavior: Clip.none,
+                                  children: [
+                                    Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          SizedBox(
+                                            height: height * 0.01,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                    color:
+                                                        const Color(0xffE2E2E2),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8)),
+                                                height: 5,
+                                                width: 100,
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: height * 0.01,
+                                          ),
+                                          Row(
+                                            children: [
+                                              IconButton(
+                                                  padding:
+                                                      const EdgeInsets.all(0),
+                                                  constraints:
+                                                      const BoxConstraints(),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.arrow_back,
+                                                    color: primaryColorOfApp,
+                                                  )),
+                                              SizedBox(
+                                                width: width * 0.01,
+                                              ),
+                                              const Text(
+                                                'Digital Collections',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xff333333),
+                                                    /*     fontWeight:
+                                                        FontWeight.bold, */
+                                                    fontSize: 15),
+                                              ),
+                                            ],
+                                          ),
+                                          const Divider(),
+                                          SizedBox(
+                                            height: height * 0.03,
+                                          ),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                                color: const Color(0xffE2E2E2),
+                                                shape: BoxShape.rectangle,
+                                                border: Border.all(
+                                                    width: 0.5,
+                                                    color: const Color(
+                                                        0xffE2E2E2)),
+                                                borderRadius:
+                                                    BorderRadius.circular(10)),
+                                            child: const TabBar(
+                                              indicatorWeight: 0.1,
+                                              automaticIndicatorColorAdjustment:
+                                                  false,
+                                              /* isScrollable: true, */
+                                              indicatorSize:
+                                                  TabBarIndicatorSize.label,
+                                              indicatorPadding: EdgeInsets.zero,
+                                              labelColor: primaryColorOfApp,
+                                              unselectedLabelColor:
+                                                  Color(0xff333333),
+                                              tabs: [
+                                                Tab(
+                                                  text: 'Received',
+                                                ),
+                                                Tab(
+                                                  text: 'Sent',
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 390,
+                                            child: TabBarView(children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 16.0),
+                                                child: Column(
+                                                  children: [
+                                                    SizedBox(
+                                                      height: height * 0.01,
+                                                    ),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        showScratchCard(context);
+                                                      },
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Row(
+                                                            children: [
+                                                              SvgPicture.asset(
+                                                                'assets/awardicon.svg',
+                                                                height: 18,
+                                                                width: 18,
+                                                              ),
+                                                              SizedBox(
+                                                                width: width *
+                                                                    0.01,
+                                                              ),
+                                                              RichText(
+                                                                text:
+                                                                    const TextSpan(
+                                                                  text:
+                                                                      'Rewards from',
+                                                                  style: TextStyle(
+                                                                      color:
+                                                                          customTextColor,
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          10),
+                                                                  children: <
+                                                                      TextSpan>[
+                                                                    TextSpan(
+                                                                        text:
+                                                                            'myttube’s',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color:
+                                                                              primaryColorOfApp,
+                                                                          fontFamily:
+                                                                              'Satisfy',
+                                                                        )),
+                                                                    TextSpan(
+                                                                        text:
+                                                                            'Sponshored partners',
+                                                                        style: TextStyle(
+                                                                            color:
+                                                                                customTextColor,
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            fontSize:
+                                                                                10)),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          const Iconify(
+                                                            Eva.arrow_right_fill,
+                                                            size: 15,
+                                                            color: Color(
+                                                                0xff333333),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: height * 0.03,
+                                                    ),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        showRecievedGift(context);
+                                                      },
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Row(
+                                                            children: [
+                                                              SvgPicture.asset(
+                                                                'assets/gifticon1.svg',
+                                                                height: 20,
+                                                                width: 20,
+                                                              ),
+                                                              SizedBox(
+                                                                width: width *
+                                                                    0.01,
+                                                              ),
+                                                              const Text(
+                                                                'Received Gift from Fans/Followers',
+                                                                style: TextStyle(
+                                                                    fontFamily: 'Poppins',
+                                                                    color: Color(0xff333333),
+                                                                    /*     fontWeight:
+                                                                FontWeight.bold, */
+                                                                    fontSize: 10),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          const Iconify(
+                                                            Eva.arrow_right_fill,
+                                                            size: 15,
+                                                            color: Color(
+                                                                0xff333333),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: height * 0.03,
+                                                    ),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        showCollectedPoints(context);
+                                                      },
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Row(
+                                                            children: [
+                                                              SvgPicture.asset(
+                                                                'assets/digitalicon.svg',
+                                                                height: 15,
+                                                                width: 15,
+                                                                color:
+                                                                    primaryColorOfApp,
+                                                              ),
+                                                              SizedBox(
+                                                                width: width *
+                                                                    0.01,
+                                                              ),
+                                                              RichText(
+                                                                text:
+                                                                    const TextSpan(
+                                                                  text:
+                                                                      'Collect Points from',
+                                                                  style: TextStyle(
+                                                                      color:
+                                                                          customTextColor,
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          10),
+                                                                  children: <
+                                                                      TextSpan>[
+                                                                    TextSpan(
+                                                                        text:
+                                                                            'myttube’s',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color:
+                                                                              primaryColorOfApp,
+                                                                          fontFamily:
+                                                                              'Satisfy',
+                                                                        )),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          const Iconify(
+                                                            Eva.arrow_right_fill,
+                                                            size: 15,
+                                                            color: Color(
+                                                                0xff333333),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      height: height * 0.05,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        const Text(
+                                                          'Invite your friends\n Win surprise gift',
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color: Color(
+                                                                  0xff333333),
+                                                              /*     fontWeight:
+                                                              FontWeight.bold, */
+                                                              fontSize: 10),
+                                                        ),
+                                                        OutlinedButton.icon(
+                                                          icon:
+                                                              SvgPicture.asset(
+                                                            'assets/inviteicon.svg',
+                                                            /*     height: 18,
+                                                            width: 18, */
+                                                          ),
+                                                          onPressed: () {},
+                                                          style: OutlinedButton
+                                                              .styleFrom(
+                                                                  minimumSize:
+                                                                      const Size(
+                                                                          140,
+                                                                          35),
+                                                                  /*    minimumSize: Size(32, 30), */
+                                                                  elevation: 0,
+                                                                  /* padding: EdgeInsets.zero, */
+                                                                  tapTargetSize:
+                                                                      MaterialTapTargetSize
+                                                                          .shrinkWrap,
+                                                                  side:
+                                                                      const BorderSide(
+                                                                    color: Color(
+                                                                        0xff0087FF),
+                                                                  ),
+                                                                  /*  padding:
+                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                                                                  foregroundColor:
+                                                                      primaryColorOfApp,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .white,
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0))),
+                                                          label: const Padding(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    1.0),
+                                                            child: Text(
+                                                              "Invite",
+                                                              style: TextStyle(
+                                                                  fontSize: 12,
+                                                                  fontFamily:
+                                                                      'Poppins'),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    SvgPicture.asset(
+                                                      'assets/multidigi.svg',
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Column(
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      SvgPicture.asset(
+                                                        'assets/awardicon.svg',
+                                                      ),
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
+                                            ]),
+                                          ),
+                                        ]),
+                                    Positioned.fill(
+                                        top: -36,
+                                        child: Align(
+                                          alignment: Alignment.topCenter,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Container(
+                                              /*   width: 45,
+                                    height: 45, */
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.white,
+                                                    width: 2),
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: const Padding(
+                                                padding: EdgeInsets.all(4.0),
+                                                child: Icon(
+                                                  Icons.close,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ))
+                                  ],
+                                );
+                              }),
+                            );
+                          });
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  'assets/digitalicon.svg',
+                                  height: 15,
+                                  width: 15,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Text(
+                                  'Digital Collections',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins', fontSize: 12),
+                                ),
+                              ],
+                            ),
+                            const Iconify(
+                              Eva.arrow_right_fill,
+                              size: 15,
+                              color: Color(0xff333333),
+                            )
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: height * 0.03,
