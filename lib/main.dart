@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/NEW_FOLDER/archive_check.dart';
+import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
 import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/chat_screen1.dart';
@@ -87,7 +89,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
             GlobalWidgetsLocalizations.delegate
         ], */
 
-                home: IntroScreen() /* LoginPage12() */
+                home: History1() /* LoginPage12() */
                 /*  IntroScreen() */ /* _isLoggedIn
                 ? Chathomepage()
                 : LoginPage12() */ /* FutureBuilder(

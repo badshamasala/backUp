@@ -962,10 +962,10 @@ class _LoginPageState extends State<LoginPage> {
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: () async {
-                                /*        final provider = Provider.of<Googleprovider>(
+                                       final provider = Provider.of<Googleprovider>(
                                     context,
                                     listen: false);
-                                await provider.googlelogin(); */
+                                await provider.googlelogin();
                               },
                               style: ElevatedButton.styleFrom(
                                   padding: EdgeInsets.zero,

@@ -98,7 +98,7 @@ class _Slider1State extends State<Slider1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 15,
+                      height: 17,
                       child: TextButton(
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,

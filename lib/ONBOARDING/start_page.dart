@@ -45,7 +45,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 height: height * 0.1,
               ),
               SizedBox(
-                height: 50,
+                height: 52,
                 child: ShaderMask(
                     blendMode: BlendMode.srcIn,
                     shaderCallback: (rect) => const LinearGradient(
@@ -84,7 +84,7 @@ class _IntroScreenState extends State<IntroScreen> {
                       Text(
                         ' your own story and\n share it with\n the world',
                         style: TextStyle(
-                            fontSize: width * 0.11, fontFamily: 'Imprima'),
+                            fontSize: width * 0.10, fontFamily: 'Imprima'),
                       ),
                     ],
                   )),
