@@ -5,8 +5,10 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../ACCOUNT_TYPE/uploadimage.dart';
@@ -40,7 +42,7 @@ class _Slider1State extends State<Slider1> {
           child: Column(
             children: [
               SizedBox(
-                height: height * 0.03,
+                height: 5.h,
               ),
               CarouselSlider.builder(
                   itemCount: urlImages.length,
@@ -51,7 +53,7 @@ class _Slider1State extends State<Slider1> {
                   },
                   options: CarouselOptions(
                     viewportFraction: 1,
-                    height: 235,
+                    height: 35.h,
                     onPageChanged: (index, reason) {
                       setState(() {
                         activeIndex = index;
@@ -59,17 +61,17 @@ class _Slider1State extends State<Slider1> {
                     },
                   )),
               SizedBox(
-                height: height * 0.02,
+                height: 2.h,
               ),
               buildIndicator(),
               SizedBox(
-                height: height * 0.02,
+                height: 2.h,
               ),
               Text(
                 "find".tr,
                 style: TextStyle(
                     color: const Color(0xff0087FF),
-                    fontSize: width * 0.04,
+                    fontSize: 13.sp,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400),
               ),
@@ -80,7 +82,7 @@ class _Slider1State extends State<Slider1> {
                 "welcome".tr,
                 style: TextStyle(
                     color: const Color(0xff0087FF),
-                    fontSize: width * 0.05,
+                    fontSize: /* width * 0.05 */ 15.sp,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w400),
               ),
@@ -88,54 +90,48 @@ class _Slider1State extends State<Slider1> {
                 "myttube".tr,
                 style: TextStyle(
                     color: const Color(0xff0087FF),
-                    fontSize: width * 0.05,
+                    fontSize: /* width * 0.05 */ 15.sp,
                     fontFamily: 'Satisfy',
                     fontWeight: FontWeight.w400),
               ),
-              SizedBox(
-                height: 20,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 17,
-                      child: TextButton(
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      onPressed: () {
+                        selectlanguagemethod(context);
+                      },
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/globemap.svg',
+                            height: 2.h,
+                            width: 2.w,
                           ),
-                          onPressed: () {
-                            selectlanguagemethod(context);
-                          },
-                          child: Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/globemap.svg',
-                                height: 12,
-                                width: 12,
-                              ),
-                              const SizedBox(
-                                width: 3,
-                              ),
-                              const Text(
-                                'Select your language',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xff515253),
-                                    fontSize: 12),
-                              ),
-                            ],
-                          )),
-                    ),
-                  ],
-                ),
+                          const SizedBox(
+                            width: 3,
+                          ),
+                          const Text(
+                            'Select your language',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff515253),
+                                fontSize: 12),
+                          ),
+                        ],
+                      )),
+                ],
               ),
               SizedBox(
-                height: height * 0.03,
+                height: 2.h,
               ),
               SizedBox(
                 width: double.infinity,
-                height: 40,
+                height: 6.h,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -145,7 +141,8 @@ class _Slider1State extends State<Slider1> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                      elevation: 10,
+                      elevation: 0,
+
                       /*     minimumSize: const Size(0.0, 40), */
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
@@ -154,9 +151,9 @@ class _Slider1State extends State<Slider1> {
                           borderRadius: const UploadImage().radius())),
                   child: Text(
                     "login".tr,
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 15.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.8),
@@ -164,10 +161,10 @@ class _Slider1State extends State<Slider1> {
                 ),
               ),
               SizedBox(
-                height: height * 0.02,
+                height: 2.h,
               ),
               SizedBox(
-                height: 40,
+                height: 6.h,
                 width: double.infinity,
                 child: OutlinedButton(
                   onPressed: () {
@@ -177,7 +174,7 @@ class _Slider1State extends State<Slider1> {
                     );
                   },
                   style: OutlinedButton.styleFrom(
-                      elevation: 10,
+                      elevation: 0,
                       side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
@@ -188,9 +185,9 @@ class _Slider1State extends State<Slider1> {
                           borderRadius: const UploadImage().radius())),
                   child: Text(
                     "guest".tr,
-                    style: const TextStyle(
-                        color: Color(0xff0087FF),
-                        fontSize: 15,
+                    style: TextStyle(
+                        color: primaryColorOfApp,
+                        fontSize: 15.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.2),
@@ -198,7 +195,7 @@ class _Slider1State extends State<Slider1> {
                 ),
               ),
               SizedBox(
-                height: height * 0.02,
+                height: 2.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -241,7 +238,7 @@ class _Slider1State extends State<Slider1> {
                 ],
               ),
               SizedBox(
-                height: 40,
+                height: 6.h,
                 width: double.infinity,
                 child: OutlinedButton(
                   onPressed: () {
@@ -252,7 +249,7 @@ class _Slider1State extends State<Slider1> {
                     );
                   },
                   style: OutlinedButton.styleFrom(
-                      elevation: 10,
+                      elevation: 0,
                       side: const BorderSide(
                         color: Color(0xff0087FF),
                       ),
@@ -263,9 +260,9 @@ class _Slider1State extends State<Slider1> {
                           borderRadius: const UploadImage().radius())),
                   child: Text(
                     "signup".tr,
-                    style: const TextStyle(
-                        color: Color(0xff0087FF),
-                        fontSize: 15,
+                    style: TextStyle(
+                        color: primaryColorOfApp,
+                        fontSize: 15.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.8),

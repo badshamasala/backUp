@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
     final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(
+          /* appBar: AppBar(
             elevation: 0,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             title: Switch.adaptive(
@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                       Provider.of<ThemeProvider>(context, listen: false);
                   provider.toggleTheme(value);
                 }),
-          ),
+          ), */
           body: isloading
               ? const Center(
                   child: CircularProgressIndicator(
@@ -138,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                                   borderSide: const BorderSide(
                                       color: Color(0xff0087FF), width: 0.5)),
                               contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 10.0),
+                                  vertical: 8, horizontal: 10.0),
                             ),
                             onChanged: (value) {
                               // do something
@@ -962,7 +962,7 @@ class _LoginPageState extends State<LoginPage> {
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: () async {
-                                       final provider = Provider.of<Googleprovider>(
+                                final provider = Provider.of<Googleprovider>(
                                     context,
                                     listen: false);
                                 await provider.googlelogin();
@@ -1071,7 +1071,8 @@ class _LoginPageState extends State<LoginPage> {
       });
       print('rashid');
       final provider = Provider.of<Googleprovider>(context, listen: false);
-      await provider.loginmethod(username.text, password.text, context)
+      await provider
+          .loginmethod(username.text, password.text, context)
           .then((value) async {
         if (value == true) {
           setState(() {

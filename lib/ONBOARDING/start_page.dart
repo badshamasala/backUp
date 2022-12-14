@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
+import 'package:sizer/sizer.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -10,6 +13,17 @@ class IntroScreen extends StatefulWidget {
 }
 
 class _IntroScreenState extends State<IntroScreen> {
+   @override
+  void initState() {
+    super.initState();
+    Timer(
+        const Duration(seconds: 1),
+        () => Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const Slider1()
+            )
+            )
+            );
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -17,12 +31,13 @@ class _IntroScreenState extends State<IntroScreen> {
 
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: width * 0.07),
+        padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: height * 0.17,
+                height: 14.h,
               ),
               ShaderMask(
                   blendMode: BlendMode.srcIn,
@@ -31,44 +46,40 @@ class _IntroScreenState extends State<IntroScreen> {
                           end: Alignment.topLeft,
                           colors: [Color(0xff03194B), Color(0xff2C81F8)])
                       .createShader(rect),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        ' welcome to myttube,\n entertainment world',
-                        style: TextStyle(
-                            fontSize: width * 0.071, fontFamily: 'Imprima'),
-                      ),
-                    ],
+                  child: Text(
+                    'welcome to myttube,',
+                    style: TextStyle(
+                        fontSize: 20.sp,
+                        fontFamily: 'Poppins',
+                        color: Colors.black),
+                  )),
+              ShaderMask(
+                  blendMode: BlendMode.srcIn,
+                  shaderCallback: (rect) => const LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.topLeft,
+                          colors: [Color(0xff03194B), Color(0xff2C81F8)])
+                      .createShader(rect),
+                  child: Text(
+                    'entertainment world',
+                    style: TextStyle(fontSize: 20.sp, fontFamily: 'Poppins'),
                   )),
               SizedBox(
-                height: height * 0.1,
+                height: 14.h,
               ),
-              SizedBox(
-                height: 52,
-                child: ShaderMask(
-                    blendMode: BlendMode.srcIn,
-                    shaderCallback: (rect) => const LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color(0xff2C81F8),
-                              Color(0xff03194B),
-                            ]).createShader(rect),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 7.0, top: 10),
-                          child: Text(
-                            'CREATE',
-                            style: TextStyle(
-                                fontSize: width * 0.11, fontFamily: 'Satisfy'),
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
+              ShaderMask(
+                  blendMode: BlendMode.srcIn,
+                  shaderCallback: (rect) => const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xff2C81F8),
+                            Color(0xff03194B),
+                          ]).createShader(rect),
+                  child: Text(
+                    'CREATE',
+                    style: TextStyle(fontSize: 25.sp, fontFamily: 'Satisfy'),
+                  )),
               ShaderMask(
                   blendMode: BlendMode.srcIn,
                   shaderCallback: (rect) => const LinearGradient(
@@ -78,18 +89,38 @@ class _IntroScreenState extends State<IntroScreen> {
                             Color(0xff2C81F8),
                             Color(0xff03194B),
                           ]).createShader(rect),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        ' your own story and\n share it with\n the world',
-                        style: TextStyle(
-                            fontSize: width * 0.10, fontFamily: 'Imprima'),
-                      ),
-                    ],
+                  child: Text(
+                    'your own story and',
+                    style: TextStyle(fontSize: 25.sp, fontFamily: 'Poppins'),
+                  )),
+              ShaderMask(
+                  blendMode: BlendMode.srcIn,
+                  shaderCallback: (rect) => const LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.topLeft,
+                          colors: [
+                            Color(0xff2C81F8),
+                            Color(0xff03194B),
+                          ]).createShader(rect),
+                  child: Text(
+                    'share it with',
+                    style: TextStyle(fontSize: 25.sp, fontFamily: 'Poppins'),
+                  )),
+              ShaderMask(
+                  blendMode: BlendMode.srcIn,
+                  shaderCallback: (rect) => const LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.topLeft,
+                          colors: [
+                            Color(0xff2C81F8),
+                            Color(0xff03194B),
+                          ]).createShader(rect),
+                  child: Text(
+                    'the world',
+                    style: TextStyle(fontSize: 25.sp, fontFamily: 'Poppins'),
                   )),
               SizedBox(
-                height: height * 0.2,
+                height: 16.h,
               ),
               ShaderMask(
                   blendMode: BlendMode.srcIn,
@@ -100,53 +131,50 @@ class _IntroScreenState extends State<IntroScreen> {
                             primaryColorOfApp,
                             Color(0xff03194B),
                           ]).createShader(rect),
-                  child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Slider1()),
-                        );
-                      },
-                      child: Text(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
                         'Get started',
                         style: TextStyle(
                             fontFamily: 'Poppins',
-                            fontSize: width * 0.055,
+                            fontSize: 15.sp,
                             fontWeight: FontWeight.w600,
-                            letterSpacing: 0.5),
-                      ))),
+                            letterSpacing: 0.5.sp),
+                      ),
+                    ],
+                  )),
               SizedBox(
-                height: height * 0.04,
+                height: 10.h,
               ),
-              Stack(
-                clipBehavior: Clip.none,
-                alignment: Alignment.bottomCenter,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image(
                       image: const AssetImage(
                         'assets/logo.png',
                       ),
-                      height: height * 0.05,
-                      width: width * 0.10,
-                      fit: BoxFit.fitHeight),
-                  Positioned(
-                    top: 28,
-                    child: Text(
-                      'myttube',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: const Color(0xff18346D),
-                        fontFamily: 'Satisfy',
-                        fontSize: width * 0.08,
-                        shadows: const [
-                          Shadow(
-                            blurRadius: 8.0,
-                            color: Color(0xff0087FF),
-                            offset: Offset(1.0, 1.0),
-                          ),
-                        ],
-                      ),
+                      height: 5.h,
+                      width: 10.w,
+                      fit: BoxFit.cover),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'myttube',
+                    style: TextStyle(
+                      color: Color(0xff18346D),
+                      fontFamily: 'Satisfy',
+                      fontSize: 20.sp,
+                      shadows: [
+                        Shadow(
+                          blurRadius: 8.sp,
+                          color: Color(0xff0087FF),
+                          offset: Offset(1.sp, 1.sp),
+                        ),
+                      ],
                     ),
                   ),
                 ],
