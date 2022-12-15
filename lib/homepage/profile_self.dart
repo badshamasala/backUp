@@ -34,6 +34,7 @@ import 'package:iconify_flutter/icons/ooui.dart';
 import 'package:iconify_flutter/icons/tabler.dart';
 
 import 'package:image_picker/image_picker.dart';
+import 'package:sizer/sizer.dart';
 
 class ProfileSelf extends StatefulWidget {
   ProfileSelf({super.key});
@@ -402,7 +403,7 @@ class ProfileSelf extends StatefulWidget {
                     ),
                     SizedBox(
                       width: double.infinity,
-                      // height: 50,
+                       height: 6.h,
                       child: ElevatedButton(
                         onPressed: () {
                           /*   Navigator.push(

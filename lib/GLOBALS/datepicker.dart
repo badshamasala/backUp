@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class DatePickerPage extends StatefulWidget {
   const DatePickerPage({super.key});
@@ -168,7 +169,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                               ),
                               SizedBox(
                                 width: double.infinity,
-                                // height: 50,
+                                height: 6.h,
                                 child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(

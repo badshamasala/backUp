@@ -79,6 +79,8 @@ dependencies:
   socket_io_client: ^2.0.0
   flutter_screenutil: ^5.6.0
   sizer: ^2.0.15
+  pin_code_fields: ^7.4.0
+  flutter_holo_date_picker: ^1.1.0
   
   
   

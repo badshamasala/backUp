@@ -1,6 +1,7 @@
 // ignore_for_file: unused_field
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';

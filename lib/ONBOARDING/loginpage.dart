@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
@@ -11,7 +12,9 @@ import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -94,13 +97,14 @@ class _LoginPageState extends State<LoginPage> {
                           Center(
                               child: SvgPicture.asset(
                             'assets/new.svg',
-                            height: 155,
-                            width: 155,
+                            height: 20.h,
+                            width: 20.w,
                           )),
                           SizedBox(
                             height: height * 0.03,
                           ),
                           TextFormField(
+                            cursorColor: primaryColorOfApp,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             validator: (value) {
@@ -115,16 +119,16 @@ class _LoginPageState extends State<LoginPage> {
                               errorStyle:
                                   const TextStyle(fontSize: 8, height: 0.2),
                               labelText: 'username'.tr,
-                              labelStyle: const TextStyle(
+                              labelStyle: TextStyle(
                                   color: customTextColor,
                                   fontFamily: 'Poppins',
-                                  fontSize: 12),
+                                  fontSize: 10.sp),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: BorderSide(
                                       color:
                                           Theme.of(context).bottomAppBarColor,
-                                      width: 0.5)),
+                                      width: 0.5.sp)),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: const BorderSide(
@@ -138,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                                   borderSide: const BorderSide(
                                       color: Color(0xff0087FF), width: 0.5)),
                               contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 8, horizontal: 10.0),
+                                  vertical: 10, horizontal: 10.0),
                             ),
                             onChanged: (value) {
                               // do something
@@ -148,6 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                             height: height * 0.02,
                           ),
                           TextFormField(
+                            cursorColor: primaryColorOfApp,
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
                             obscuringCharacter: '*',
@@ -166,10 +171,10 @@ class _LoginPageState extends State<LoginPage> {
                               errorStyle:
                                   const TextStyle(fontSize: 8, height: 0.2),
                               labelText: 'password'.tr,
-                              labelStyle: const TextStyle(
+                              labelStyle: TextStyle(
                                   color: customTextColor,
                                   fontFamily: 'Poppins',
-                                  fontSize: 12),
+                                  fontSize: 10.sp),
                               focusedErrorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   borderSide: const BorderSide(
@@ -266,13 +271,15 @@ class _LoginPageState extends State<LoginPage> {
                                                                 color:
                                                                     primaryColorOfApp,
                                                               )),
-                                                          const Text(
+                                                          Text(
                                                             'Forgot Password',
                                                             style: TextStyle(
                                                                 color:
                                                                     customTextColor,
                                                                 fontFamily:
-                                                                    'Poppins'),
+                                                                    'Poppins',
+                                                                fontSize:
+                                                                    12.sp),
                                                           )
                                                         ],
                                                       ),
@@ -458,7 +465,7 @@ class _LoginPageState extends State<LoginPage> {
                                                       height: height * 0.04,
                                                     ),
                                                     SizedBox(
-                                                      height: 40,
+                                                      height: 6.h,
                                                       width: double.infinity,
                                                       child: ElevatedButton(
                                                         onPressed:
@@ -495,117 +502,111 @@ class _LoginPageState extends State<LoginPage> {
                                                                                 clipBehavior: Clip.none,
                                                                                 children: [
                                                                                   Padding(
-                                                                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                                                    padding: EdgeInsets.symmetric(horizontal: 8.w),
                                                                                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                                                                                       Row(
+                                                                                        mainAxisAlignment: MainAxisAlignment.center,
                                                                                         children: [
-                                                                                          IconButton(
-                                                                                              onPressed: () {
-                                                                                                Navigator.pop(context);
-                                                                                              },
-                                                                                              icon: const Icon(Icons.arrow_back)),
-                                                                                          const SizedBox(
-                                                                                            width: 65,
-                                                                                          ),
-                                                                                          const Text(
-                                                                                            'Enter OTP',
-                                                                                            style: TextStyle(
-                                                                                              fontFamily: 'Poppins',
-                                                                                              fontSize: 20,
-                                                                                            ),
+                                                                                          Text(
+                                                                                            'myttube',
+                                                                                            style: TextStyle(fontFamily: 'Satisfy', fontSize: 12.sp, color: primaryColorOfApp),
                                                                                           ),
                                                                                         ],
                                                                                       ),
-                                                                                      const Text(
-                                                                                        'Otp has been sent to +91 8689880061',
-                                                                                        style: TextStyle(
-                                                                                          fontFamily: 'Poppins',
-                                                                                          fontSize: 15,
-                                                                                        ),
+                                                                                      Row(
+                                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                                        children: [
+                                                                                          Text(
+                                                                                            'Password recovery',
+                                                                                            style: TextStyle(fontFamily: 'Poppins', fontSize: 15.sp, color: Colors.black),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                      Row(
+                                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                                        children: [
+                                                                                          Text(
+                                                                                            'Otp has been sent to +91 8689880061',
+                                                                                            style: TextStyle(fontFamily: 'Poppins', fontSize: 12.sp, color: customTextColor),
+                                                                                          ),
+                                                                                        ],
                                                                                       ),
                                                                                       SizedBox(
                                                                                         height: height * 0.05,
                                                                                       ),
-                                                                                      /*   GetBuilder< HomeController>(
-                                                            builder:(controller) {
-                                                          return */
-                                                                                      /*  Obx((() =>
-                                                            PinFieldAutoFill(
-                                                              textInputAction:
-                                                                  TextInputAction
-                                                                      .done,
-                                                              controller: controller
-                                                                  .otpEditingController,
-                                                              decoration:
-                                                                  UnderlineDecoration(
-                                                                textStyle: const TextStyle(
-                                                                    fontSize:
-                                                                        16,
-                                                                    color: Colors
-                                                                        .blue),
-                                                                colorBuilder:
-                                                                    const FixedColorBuilder(
-                                                                  Colors
-                                                                      .transparent,
-                                                                ),
-                                                                bgColorBuilder:
-                                                                    FixedColorBuilder(
-                                                                  Colors.grey
-                                                                      .withOpacity(
-                                                                          0.2),
-                                                                ),
-                                                              ),
-                                                              currentCode:
-                                                                  controller
-                                                                      .messageOtpCode
-                                                                      .value,
-                                                              onCodeSubmitted:
-                                                                  (code) {},
-                                                              onCodeChanged:
-                                                                  (code) {
-                                                                controller
-                                                                    .messageOtpCode
-                                                                    .value = code!;
-                                                                controller
-                                                                    .countdownController
-                                                                    .pause();
-                                                                if (code.length ==
-                                                                    6) {
-                                                                  // To perform some operation
-                                                                }
-                                                              },
-                                                            ))), */
-                                                                                      /* }), */
-
-                                                                                      OtpTextField(
-                                                                                        filled: true,
-                                                                                        margin: const EdgeInsets.only(right: 4.0),
-                                                                                        fieldWidth: 45,
-                                                                                        fillColor: const Color(0xffDFEEFC),
-                                                                                        borderWidth: 1,
-                                                                                        focusedBorderColor: primaryColorOfApp,
-                                                                                        numberOfFields: 6,
-                                                                                        borderColor: primaryColorOfApp,
-                                                                                        showFieldAsBox: true,
-                                                                                        onSubmit: (verificationCode) {
-                                                                                          /*     setState(() {
-                                                          checktoken =
-                                                              verificationCode;
-                                                        });
-                                                        if (verificationCode
-                                                                .length ==
-                                                            6) {
-                                                          setState(() {
-                                                            check6digit = false;
-                                                          });
-                                                        }
-                                                        if (verificationCode
-                                                                .length <
+                                                                                      PinCodeTextField(
+                                                                                        cursorHeight: 20,
+                                                                                        appContext: context,
+                                                                                        length: 6,
+                                                                                        obscureText: false,
+                                                                                        animationType: AnimationType.fade,
+                                                                                        inputFormatters: [
+                                                                                          FilteringTextInputFormatter.digitsOnly
+                                                                                        ],
+                                                                                        cursorColor: primaryColorOfApp,
+                                                                                        keyboardType: TextInputType.number,
+                                                                                        pinTheme: PinTheme(
+                                                                                          borderWidth: 0.5,
+                                                                                          shape: PinCodeFieldShape.box,
+                                                                                          borderRadius: BorderRadius.circular(5),
+                                                                                          inactiveColor: customTextColor,
+                                                                                          activeColor: primaryColorOfApp,
+                                                                                          selectedColor: customTextColor,
+                                                                                          selectedFillColor: Colors.white,
+                                                                                          inactiveFillColor: Colors.white,
+                                                                                          fieldHeight: 40,
+                                                                                          fieldWidth: 40,
+                                                                                          activeFillColor: Color(0xffDFEEFC),
+                                                                                        ),
+                                                                                        animationDuration: Duration(milliseconds: 300),
+                                                                                        backgroundColor: Colors.transparent,
+                                                                                        enableActiveFill: true,
+                                                                                        /* errorAnimationController: errorController,
+  controller: textEditingController, */
+                                                                                        onCompleted: (verificationCode) {
+                                                                                          setState(() {
+                                                                                            checktoken = verificationCode;
+                                                                                          });
+                                                                                          /*  if (verificationCode
+                                                                .length !=
                                                             6) {
                                                           setState(() {
                                                             check6digit = true;
                                                           });
+                                                        } else {
+                                                          setState(() {
+                                                            check6digit = false;
+                                                          });
                                                         } */
+                                                                                        },
+                                                                                        /*   onSubmitted:
+                                                          (verificationCode) {
+                                                        setState(() {
+                                                          checktoken =
+                                                              verificationCode;
+                                                        });
+                                                        if (verificationCode
+                                                                .length !=
+                                                            6) {
+                                                          setState(() {
+                                                            check6digit = true;
+                                                          });
+                                                        } else {
+                                                          setState(() {
+                                                            check6digit = false;
+                                                          });
+                                                        }
+                                                      }, */
+                                                                                        onChanged: (value) {
+                                                                                          setState(() {
+                                                                                            checktoken = token;
+                                                                                          });
+                                                                                        },
+                                                                                        beforeTextPaste: (text) {
+                                                                                          print("Allowing to paste $text");
+                                                                                          //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                                                                                          //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                                                                                          return true;
                                                                                         },
                                                                                       ),
                                                                                       SizedBox(
@@ -634,7 +635,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                                         ],
                                                                                       ),
                                                                                       SizedBox(
-                                                                                        height: 40,
+                                                                                        height: 6.h,
                                                                                         width: double.infinity,
                                                                                         // height: 50,
                                                                                         child: ElevatedButton(
@@ -708,7 +709,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                                                               ),
                                                                                                               SizedBox(
                                                                                                                 width: double.infinity,
-                                                                                                                height: 40,
+                                                                                                                height: 6.h,
                                                                                                                 child: ElevatedButton(
                                                                                                                   onPressed: () {},
                                                                                                                   style: ElevatedButton.styleFrom(
@@ -894,13 +895,14 @@ class _LoginPageState extends State<LoginPage> {
                                         color: Theme.of(context).primaryColor,
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
+                                        fontSize: 12.sp,
                                         letterSpacing: 0),
                                   ))
                             ],
                           ),
                           SizedBox(
                             width: double.infinity,
-                            height: 40,
+                            height: 6.h,
                             child: ElevatedButton(
                               onPressed: () async {
                                 login();
@@ -916,9 +918,9 @@ class _LoginPageState extends State<LoginPage> {
                                           const UploadImage().radius())),
                               child: Text(
                                 "login".tr,
-                                style: const TextStyle(
+                                style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 15,
+                                    fontSize: 12.sp,
                                     fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w600,
                                     letterSpacing: 0.8),
@@ -926,7 +928,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           SizedBox(
-                            height: height * 0.01,
+                            height: 3.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -944,7 +946,8 @@ class _LoginPageState extends State<LoginPage> {
                                   style: TextStyle(
                                       color:
                                           Theme.of(context).bottomAppBarColor,
-                                      fontFamily: 'Poppins'),
+                                      fontFamily: 'Poppins',
+                                      fontSize: 12.sp),
                                 ),
                               ),
                               Container(
@@ -955,19 +958,19 @@ class _LoginPageState extends State<LoginPage> {
                             ],
                           ),
                           SizedBox(
-                            height: height * 0.01,
+                            height: 3.h,
                           ),
                           SizedBox(
-                            height: 40,
+                            height: 6.h,
                             width: double.infinity,
-                            child: ElevatedButton(
+                            child: OutlinedButton(
                               onPressed: () async {
                                 final provider = Provider.of<Googleprovider>(
                                     context,
                                     listen: false);
                                 await provider.googlelogin();
                               },
-                              style: ElevatedButton.styleFrom(
+                              style: OutlinedButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                   elevation: 0,
                                   side: BorderSide(
@@ -995,7 +998,8 @@ class _LoginPageState extends State<LoginPage> {
                                       style: TextStyle(
                                           color: Theme.of(context)
                                               .bottomAppBarColor,
-                                          fontFamily: 'Poppins'),
+                                          fontFamily: 'Poppins',
+                                          fontSize: 12.sp),
                                     ),
                                   ],
                                 ),
@@ -1003,7 +1007,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           SizedBox(
-                            height: height * 0.07,
+                            height: 5.h,
                           ),
                           Row(
                             children: [
@@ -1014,13 +1018,14 @@ class _LoginPageState extends State<LoginPage> {
                                   style: TextStyle(
                                       color:
                                           Theme.of(context).bottomAppBarColor,
-                                      fontFamily: 'Poppins'),
+                                      fontFamily: 'Poppins',
+                                      fontSize: 10.sp),
                                 ),
                               ),
                             ],
                           ),
                           SizedBox(
-                            height: 40,
+                            height: 6.h,
                             width: double.infinity,
                             child: OutlinedButton(
                               onPressed: () {
@@ -1046,15 +1051,12 @@ class _LoginPageState extends State<LoginPage> {
                                 "signup".tr,
                                 style: TextStyle(
                                     color: Theme.of(context).primaryColor,
-                                    fontSize: 15,
+                                    fontSize: 12.sp,
                                     fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w600,
                                     letterSpacing: 0.8),
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 15,
                           ),
                         ],
                       ),

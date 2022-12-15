@@ -7,6 +7,7 @@ import 'package:flutter_application_1/homepage/widget_profile_page.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/ri.dart';
+import 'package:sizer/sizer.dart';
 
 permissionmethod(context) {
   
@@ -575,7 +576,7 @@ permissionmethod(context) {
                                                   ),
                                                   SizedBox(
                                                     width: double.infinity,
-                                                    // height: 50,
+                                                     height: 6.h,
                                                     child: ElevatedButton(
                                                       onPressed: () {
                                                         showModalBottomSheet(
@@ -813,6 +814,7 @@ permissionmethod(context) {
                                                                                 height: height * 0.04,
                                                                               ),
                                                                               SizedBox(
+                                                                                height: 6.h,
                                                                                   width: double.infinity,
                                                                                   child: ElevatedButton(
                                                                                       style: ElevatedButton.styleFrom(

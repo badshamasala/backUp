@@ -153,7 +153,7 @@ class _Slider1State extends State<Slider1> {
                     "login".tr,
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15.sp,
+                        fontSize: 12.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.8),
@@ -187,7 +187,7 @@ class _Slider1State extends State<Slider1> {
                     "guest".tr,
                     style: TextStyle(
                         color: primaryColorOfApp,
-                        fontSize: 15.sp,
+                        fontSize: 12.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.2),
@@ -209,8 +209,10 @@ class _Slider1State extends State<Slider1> {
                     padding: const EdgeInsets.only(left: 8.0, right: 8),
                     child: Text(
                       'or'.tr,
-                      style: const TextStyle(
-                          color: Color(0xff515253), fontFamily: 'Poppins'),
+                      style: TextStyle(
+                          color: Color(0xff515253),
+                          fontFamily: 'Poppins',
+                          fontSize: 10.sp),
                     ),
                   ),
                   Container(
@@ -229,9 +231,10 @@ class _Slider1State extends State<Slider1> {
                     padding: EdgeInsets.only(left: width * 0.03),
                     child: Text(
                       "dont".tr,
-                      style: const TextStyle(
-                          color: Color(0xff515253),
+                      style: TextStyle(
+                          color: customTextColor,
                           fontFamily: 'Poppins',
+                          fontSize: 10.sp,
                           wordSpacing: 0),
                     ),
                   ),
@@ -262,7 +265,7 @@ class _Slider1State extends State<Slider1> {
                     "signup".tr,
                     style: TextStyle(
                         color: primaryColorOfApp,
-                        fontSize: 15.sp,
+                        fontSize: 12.sp,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.8),

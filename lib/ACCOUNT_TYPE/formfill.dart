@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/upload_brand.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/upload_public.dart';
 
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
@@ -9,10 +11,12 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/bxs.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 
 class Formfill extends StatefulWidget {
   final value1;
@@ -44,8 +48,40 @@ class _FormfillState extends State<Formfill> {
   bool borderstatus = true;
 
   bool isloading = false;
+  bool focus = false;
 
   TextEditingController usernamecontroller = TextEditingController();
+
+  late FocusNode fullNamefocusNode;
+  late FocusNode userNamefocusNode;
+  late FocusNode passWordfocusNode;
+  late FocusNode emailfocusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    fullNamefocusNode = FocusNode();
+    userNamefocusNode = FocusNode();
+    passWordfocusNode = FocusNode();
+    emailfocusNode = FocusNode();
+
+    // listen to focus changes
+    /*   focusNode.addListener(() {
+    
+      setState(() {
+        focus = true;
+      });
+    }); */
+  }
+
+  @override
+  void dispose() {
+    fullNamefocusNode.dispose();
+    userNamefocusNode.dispose();
+    passWordfocusNode.dispose();
+    emailfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +108,8 @@ class _FormfillState extends State<Formfill> {
                       buildstacknumber(),
                       sizedbox1(),
                       TextFormField(
+                        focusNode: fullNamefocusNode,
+                        cursorColor: primaryColorOfApp,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -90,6 +128,8 @@ class _FormfillState extends State<Formfill> {
                       ),
                       sizedbox(),
                       TextFormField(
+                        focusNode: userNamefocusNode,
+                        cursorColor: primaryColorOfApp,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         /*      controller: usernamecontroller, */
                         onChanged: (value) {
@@ -145,6 +185,12 @@ class _FormfillState extends State<Formfill> {
                           return null;
                         },
                         decoration: InputDecoration(
+                            prefix: Text(
+                              '@',
+                              style: TextStyle(
+                                color: primaryColorOfApp,
+                              ),
+                            ),
                             suffixIconConstraints: const BoxConstraints(),
                             isDense: true,
                             errorText: iconchupa
@@ -177,13 +223,15 @@ class _FormfillState extends State<Formfill> {
                                         ),
                                       )
                                 : null,
-                            labelText: 'Username',
+                            labelText: 'Enter Your Username',
                             errorStyle: TextStyle(
                                 fontSize: 8,
                                 height: 0.2,
                                 color: status ? Colors.green : Colors.red),
-                            labelStyle: const TextStyle(
-                                color: Color(0xffc4c4c4),
+                            labelStyle: TextStyle(
+                                color: userNamefocusNode.hasFocus
+                                    ? customTextColor
+                                    : Color(0xffc4c4c4),
                                 fontFamily: 'Poppins',
                                 fontSize: 12),
                             focusedBorder: OutlineInputBorder(
@@ -204,6 +252,8 @@ class _FormfillState extends State<Formfill> {
                       ),
                       sizedbox(),
                       TextFormField(
+                        focusNode: passWordfocusNode,
+                        cursorColor: primaryColorOfApp,
                         obscuringCharacter: '*',
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         validator: (value) {
@@ -222,8 +272,10 @@ class _FormfillState extends State<Formfill> {
                           isDense: true,
                           suffixIconConstraints: const BoxConstraints(),
                           labelText: 'Password',
-                          labelStyle: const TextStyle(
-                              color: Color(0xffc4c4c4),
+                          labelStyle: TextStyle(
+                              color: passWordfocusNode.hasFocus
+                                  ? customTextColor
+                                  : Color(0xffc4c4c4),
                               fontFamily: 'Poppins',
                               fontSize: 12),
                           border: OutlineInputBorder(
@@ -248,9 +300,14 @@ class _FormfillState extends State<Formfill> {
                           suffixIcon: Padding(
                             padding: const EdgeInsets.only(right: 8.0),
                             child: GestureDetector(
-                              child: Icon(obscure
-                                  ? Icons.visibility_off
-                                  : Icons.visibility),
+                              child: Icon(
+                                obscure
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                                color: obscure
+                                    ? Color(0xff515253)
+                                    : Color(0xffDADADA),
+                              ),
                               onTap: () {
                                 setState(() {
                                   obscure = !obscure;
@@ -265,6 +322,8 @@ class _FormfillState extends State<Formfill> {
                       ),
                       sizedbox(),
                       TextFormField(
+                          focusNode: emailfocusNode,
+                          cursorColor: primaryColorOfApp,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (value) {
                             if (value!.isEmpty) {
@@ -279,38 +338,41 @@ class _FormfillState extends State<Formfill> {
                           onChanged: (value) {
                             email = value;
                           },
-                          decoration: buildInputdecoration('Enter Your Email')),
-                      sizedbox1(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: width * 0.04),
-                            child: Text(
-                              "Show your email contact info everyone",
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontFamily: 'Poppins',
-                                  fontSize: width * 0.03),
+                          decoration:
+                              buildInputdecoration1('Enter Your Email')),
+                      Padding(
+                        padding: EdgeInsets.only(top: 4.sp),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: width * 0.04),
+                              child: Text(
+                                "Show your email contact info everyone",
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontFamily: 'Poppins',
+                                    fontSize: width * 0.03),
+                              ),
                             ),
-                          ),
-                          Checkbox(
-                              activeColor: primaryColorOfApp,
-                              shape: const CircleBorder(),
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              value: emailshow,
-                              onChanged: ((value) {
-                                setState(() {
-                                  emailshow = value!;
-                                });
-                              }))
-                        ],
+                            Checkbox(
+                                activeColor: primaryColorOfApp,
+                                shape: const CircleBorder(),
+                                materialTapTargetSize:
+                                    MaterialTapTargetSize.shrinkWrap,
+                                value: emailshow,
+                                onChanged: ((value) {
+                                  setState(() {
+                                    emailshow = value!;
+                                  });
+                                }))
+                          ],
+                        ),
                       ),
                       sizedbox1(),
                       SizedBox(
                         width: double.infinity,
-                        height: 40,
+                        height: 6.h,
                         child: ElevatedButton(
                           onPressed: () {
                             /* Navigator.push(
@@ -351,10 +413,53 @@ class _FormfillState extends State<Formfill> {
     double height = size.height, width = size.width;
     return Column(
       children: [
+        TextFormField(
+          enabled: false,
+          initialValue: '+91 ${widget.value}',
+          decoration: InputDecoration(
+            isDense: true,
+            prefixStyle: TextStyle(
+                color: const Color(0xffe2e2e2),
+                fontFamily: 'Poppins',
+                fontSize: 18.sp),
+            prefix: Padding(
+              padding: EdgeInsets.only(
+                right: 5,
+              ),
+              child: Row(
+                children: [
+                  const Iconify(
+                    Bxs.lock_alt,
+                    color: Color(0xffE2E2E2),
+                  ),
+                  Text('+91 ${widget.value}')
+                ],
+              ),
+            ),
+            suffixIcon: Padding(
+              padding: EdgeInsets.only(right: 8.sp),
+              child: Iconify(
+                AntDesign.check_circle_outlined,
+                color: Color(0xff08A434),
+                size: 20.sp,
+              ),
+            ),
+            suffixIconConstraints: const BoxConstraints(),
+            prefixIconConstraints: const BoxConstraints(),
+            labelText: 'Your 10 digit Mobile number is verified',
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5),
+                borderSide:
+                    const BorderSide(color: Color(0xff333333), width: 0.5)),
+            labelStyle: const TextStyle(
+                color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
+            contentPadding: const EdgeInsets.symmetric(
+              vertical: 5,
+              horizontal: 10.0,
+            ),
+          ),
+        ),
         /* SizedBox(
-          height: height * 0.05,
-        ), */
-        SizedBox(
           height: 48,
           child: Stack(
             children: [
@@ -429,16 +534,16 @@ class _FormfillState extends State<Formfill> {
               ),
             ],
           ),
-        ),
+        ), */
         Padding(
-          padding: EdgeInsets.only(left: width * 0.05),
+          padding: EdgeInsets.only(left: width * 0.05, top: 1.5.h),
           child: Row(
-            children: const [
+            children: [
               Text(
                 'This contact won\'t be shared anyone or anywhere',
                 style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 10,
+                    fontSize: 10.sp,
                     color: customTextColor),
               ),
             ],
@@ -607,8 +712,35 @@ class _FormfillState extends State<Formfill> {
         isDense: true,
         labelText: labeltext,
         errorStyle: const TextStyle(fontSize: 8, height: 0.2),
-        labelStyle: const TextStyle(
-            color: Color(0xffc4c4c4), fontFamily: 'Poppins', fontSize: 12),
+        labelStyle: TextStyle(
+            color: fullNamefocusNode.hasFocus
+                ? customTextColor
+                : Color(0xffc4c4c4),
+            fontFamily: 'Poppins',
+            fontSize: 12),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5)),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: const BorderSide(color: customTextColor, width: 0.5)),
+        border: OutlineInputBorder(
+            borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5),
+            borderRadius: BorderRadius.circular(5)));
+  }
+
+  buildInputdecoration1(String labeltext) {
+    return InputDecoration(
+        isDense: true,
+        labelText: labeltext,
+        errorStyle: const TextStyle(fontSize: 8, height: 0.2),
+        labelStyle: TextStyle(
+            color:
+                emailfocusNode.hasFocus ? customTextColor : Color(0xffc4c4c4),
+            fontFamily: 'Poppins',
+            fontSize: 12),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
             borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5)),
@@ -623,7 +755,7 @@ class _FormfillState extends State<Formfill> {
   }
 
   registrationmethod() async {
-    if (_formKey.currentState!.validate())  {
+    if (_formKey.currentState!.validate()) {
       setState(() {
         isloading = true;
       });
@@ -651,10 +783,39 @@ class _FormfillState extends State<Formfill> {
           setState(() {
             isloading = false;
           });
-          Navigator.push(
+          if (widget.value1) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>  UploadImage(  value1: widget.value,
+                      value2: username,
+                      value3: password,
+                      value4: fullname,
+                      value5: email,)),
+                            );
+                          } else if (widget.value2) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const UploadBrand()));
+                          } else if (widget.value3) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const UploadPublic()));
+                          }
+          /* Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) =>  UploadImage(value1: widget.value, value2:username , value3: password, value4: fullname, value5: email,)),
-          );
+            MaterialPageRoute(
+                builder: (context) => UploadImage(
+                      value1: widget.value,
+                      value2: username,
+                      value3: password,
+                      value4: fullname,
+                      value5: email,
+                    )),
+          ); */
         }
       });
 

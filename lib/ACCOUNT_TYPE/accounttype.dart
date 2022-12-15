@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
@@ -7,10 +9,11 @@ import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/bxs.dart';
+import 'package:sizer/sizer.dart';
 
 class AccountType extends StatefulWidget {
   final value;
-  const AccountType({super.key, required this.value});
+  const AccountType({super.key, this.value});
 
   @override
   State<AccountType> createState() => _AccountTypeState();
@@ -39,7 +42,54 @@ class _AccountTypeState extends State<AccountType> {
               SizedBox(
                 height: height * 0.1,
               ),
-              SizedBox(
+              TextFormField(
+                enabled: false,
+                initialValue: '+91 ${widget.value}',
+                decoration: InputDecoration(
+                  isDense: true,
+                  prefixStyle: TextStyle(
+                      color: const Color(0xffe2e2e2),
+                      fontFamily: 'Poppins',
+                      fontSize: 18.sp),
+                  prefix: Padding(
+                    padding: EdgeInsets.only(
+                      right: 5,
+                    ),
+                    child: Row(
+                      children: [
+                        const Iconify(
+                          Bxs.lock_alt,
+                          color: Color(0xffE2E2E2),
+                        ),
+                        Text('+91 ${widget.value}')
+                      ],
+                    ),
+                  ),
+                  suffixIcon: Padding(
+                    padding: EdgeInsets.only(right: 8.sp),
+                    child: Iconify(
+                      AntDesign.check_circle_outlined,
+                      color: Color(0xff08A434),
+                      size: 20.sp,
+                    ),
+                  ),
+                  suffixIconConstraints: const BoxConstraints(),
+                  prefixIconConstraints: const BoxConstraints(),
+                  labelText: 'Your 10 digit Mobile number is verified',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      borderSide: const BorderSide(
+                          color: Color(0xff333333), width: 0.5)),
+                  labelStyle: const TextStyle(
+                      color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 5,
+                    horizontal: 10.0,
+                  ),
+                ),
+              ),
+              /* Container(
+                color: Colors.red,
                 height: 48,
                 child: Stack(
                   children: [
@@ -114,16 +164,17 @@ class _AccountTypeState extends State<AccountType> {
                     ),
                   ],
                 ),
-              ),
+              ), */
               Padding(
-                padding: EdgeInsets.only(left: width * 0.05),
+                padding:
+                    EdgeInsets.only(left: width * 0.05, top: height * 0.01),
                 child: Row(
-                  children: const [
+                  children: [
                     Text(
                       'This contact won\'t be shared anyone or anywhere',
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 10,
+                          fontSize: 10.sp,
                           color: Color(0xff333333)),
                     ),
                   ],
@@ -136,12 +187,12 @@ class _AccountTypeState extends State<AccountType> {
                 padding: EdgeInsets.only(left: width * 0.05),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       'Select type of account',
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 20,
+                          fontSize: 18.sp,
                           color: customTextColor),
                     ),
                   ],
@@ -156,7 +207,7 @@ class _AccountTypeState extends State<AccountType> {
                       'You can change this anytime ',
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: width * 0.045,
+                          fontSize: 13.sp,
                           color: customTextColor),
                     ),
                   ],
@@ -171,34 +222,54 @@ class _AccountTypeState extends State<AccountType> {
                         width: 0.5,
                         color: value1 ? primaryColorOfApp : Colors.black),
                     borderRadius: BorderRadius.circular(10)),
-                child: ListTile(
-                  visualDensity: const VisualDensity(vertical: 3),
-                  title: const Text(
-                    'Viewer or private',
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff515253)),
-                  ),
-                  trailing: Transform.scale(
-                    scale: 1.3,
-                    child: Radio(
-                      value: value1,
-                      groupValue: groupvalues,
-                      onChanged: (val) {
-                        setState(() {
-                          value1 = true;
-                          value2 = false;
-                          value3 = false;
-                          groupvalues = value1;
-                        });
-                      },
-                    ),
-                  ),
-                  subtitle: Text(
-                    '#content-excellent for Entertainment,\n collect points, surprise gift and more',
-                    style: TextStyle(
-                        fontFamily: 'Poppins', fontSize: width * 0.035),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Viewer or private',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.bold,
+                                color: customTextColor,
+                                fontSize: 15.sp),
+                          ),
+                          Transform.scale(
+                            scale: 1.3,
+                            child: Radio(
+                              splashRadius: 0,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              value: value1,
+                              groupValue: groupvalues,
+                              onChanged: (val) {
+                                setState(() {
+                                  value1 = true;
+                                  value2 = false;
+                                  value3 = false;
+                                  groupvalues = value1;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        '#content-excellent for Entertainment,',
+                        style:
+                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                      ),
+                      Text(
+                        'collect points, surprise gift and more',
+                        style:
+                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -211,34 +282,54 @@ class _AccountTypeState extends State<AccountType> {
                         width: 0.5,
                         color: value2 ? primaryColorOfApp : Colors.black),
                     borderRadius: BorderRadius.circular(10)),
-                child: ListTile(
-                  visualDensity: const VisualDensity(vertical: 3),
-                  title: const Text(
-                    'Business or Brand',
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff515253)),
-                  ),
-                  trailing: Transform.scale(
-                    scale: 1.3,
-                    child: Radio(
-                      value: value2,
-                      groupValue: groupvalues,
-                      onChanged: (value) {
-                        setState(() {
-                          value2 = true;
-                          value1 = false;
-                          value3 = false;
-                          groupvalues = value2;
-                        });
-                      },
-                    ),
-                  ),
-                  subtitle: Text(
-                    '#content-excellent for grow your\n brand, business in the world and more',
-                    style: TextStyle(
-                        fontFamily: 'Poppins', fontSize: width * 0.034),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Business or Brand',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.bold,
+                                color: customTextColor,
+                                fontSize: 15.sp),
+                          ),
+                          Transform.scale(
+                            scale: 1.3,
+                            child: Radio(
+                              splashRadius: 0,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              value: value2,
+                              groupValue: groupvalues,
+                              onChanged: (val) {
+                                setState(() {
+                                  value1 = false;
+                                  value2 = true;
+                                  value3 = false;
+                                  groupvalues = value2;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        '#content-excellent for Entertainment,',
+                        style:
+                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                      ),
+                      Text(
+                        'collect points, surprise gift and more',
+                        style:
+                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -251,34 +342,54 @@ class _AccountTypeState extends State<AccountType> {
                         width: 0.5,
                         color: value3 ? primaryColorOfApp : Colors.black),
                     borderRadius: BorderRadius.circular(10)),
-                child: ListTile(
-                  visualDensity: const VisualDensity(vertical: 3),
-                  title: const Text(
-                    'creator or public figure',
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff515253)),
-                  ),
-                  trailing: Transform.scale(
-                    scale: 1.3,
-                    child: Radio(
-                      value: value3,
-                      groupValue: groupvalues,
-                      onChanged: (val) {
-                        setState(() {
-                          value3 = true;
-                          value2 = false;
-                          value1 = false;
-                          groupvalues = value3;
-                        });
-                      },
-                    ),
-                  ),
-                  subtitle: Text(
-                    '#content-excellent for collaboration,\n earn money and many more',
-                    style: TextStyle(
-                        fontFamily: 'Poppins', fontSize: width * 0.035),
+                child: Padding(
+                  padding: EdgeInsets.all(8.sp),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'creator or public figure',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.bold,
+                                color: customTextColor,
+                                fontSize: 15.sp),
+                          ),
+                          Transform.scale(
+                            scale: 1.3,
+                            child: Radio(
+                              splashRadius: 0,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              value: value3,
+                              groupValue: groupvalues,
+                              onChanged: (val) {
+                                setState(() {
+                                  value1 = false;
+                                  value2 = false;
+                                  value3 = true;
+                                  groupvalues = value3;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        '#content-excellent for Entertainment,',
+                        style:
+                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                      ),
+                      Text(
+                        'collect points, surprise gift and more',
+                        style:
+                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -410,7 +521,7 @@ class _AccountTypeState extends State<AccountType> {
               ),
               SizedBox(
                 width: double.infinity,
-                height: 40,
+                height: 6.h,
                 child: ElevatedButton(
                   onPressed: groupvalues == null
                       ? null

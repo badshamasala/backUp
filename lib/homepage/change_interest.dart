@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:sizer/sizer.dart';
 
 class ChangeInterest extends StatefulWidget {
   const ChangeInterest({Key? key}) : super(key: key);
@@ -141,7 +142,7 @@ class _ChangeInterestState extends State<ChangeInterest> {
               ),
               SizedBox(
                 width: double.infinity,
-                // height: 50,
+                 height: 6.h,
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(

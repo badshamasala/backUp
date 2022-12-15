@@ -12,7 +12,9 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 
 class PhoneNumber extends StatefulWidget {
   const PhoneNumber({super.key});
@@ -154,33 +156,30 @@ class _PhoneNumberState extends State<PhoneNumber> {
                     isDense: true,
                     hintText: '8888888888',
                     hintStyle: const TextStyle(color: Color(0xffc4c4c4)),
-                    /* isDense: true, */
-                    prefixIcon: SizedBox(
+
+                    prefix: SizedBox(
                       width: 60,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              'assets/indianflag1.png',
-                              height: 20,
-                              width: 20,
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'assets/indianflag1.png',
+                            height: 20,
+                            width: 20,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(right: 8.0),
+                            child: Text(
+                              "+91",
+                              style: TextStyle(
+                                  color: /*  focusNode.hasFocus
+                                      ? */
+                                      Colors.black,
+                                  /* : Color(0xffc4c4c4), */
+                                  fontFamily: 'Poppins',
+                                  fontSize: 16),
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(right: 8.0),
-                              child: Text(
-                                "+91",
-                                style: TextStyle(
-                                    color: /*  focusNode.hasFocus
-                                        ? */
-                                        Colors.black,
-                                    /* : Color(0xffc4c4c4), */
-                                    fontFamily: 'Poppins',
-                                    fontSize: 16),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                     prefixIconConstraints: const BoxConstraints(),
@@ -237,7 +236,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                 ),
                 SizedBox(
                   width: double.infinity,
-                  height: 40,
+                  height: 6.h,
                   child: ElevatedButton(
                     onPressed: check10number
                         ? null
@@ -328,24 +327,26 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                               color:
                                                                   primaryColorOfApp,
                                                             )),
-                                                        const SizedBox(
-                                                          width: 65,
+                                                        SizedBox(
+                                                          width: 23.w,
                                                         ),
-                                                        const Text(
-                                                          'Enter OTP',
-                                                          style: TextStyle(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 15,
+                                                        Center(
+                                                          child: Text(
+                                                            'Enter OTP',
+                                                            style: TextStyle(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 15.sp,
+                                                            ),
                                                           ),
                                                         ),
                                                       ],
                                                     ),
                                                     Text(
                                                       'OTP has been sent to +91 $phonekanumber',
-                                                      style: const TextStyle(
+                                                      style: TextStyle(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 12,
+                                                        fontSize: 10.sp,
                                                       ),
                                                     ),
                                                     SizedBox(
@@ -401,8 +402,102 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                             },
                                                           ))), */
                                                     /* }), */
-
-                                                    OtpTextField(
+                                                    PinCodeTextField(
+                                                      cursorHeight: 20,
+                                                      appContext: context,
+                                                      length: 6,
+                                                      obscureText: false,
+                                                      animationType:
+                                                          AnimationType.fade,
+                                                      inputFormatters: [
+                                                        FilteringTextInputFormatter
+                                                            .digitsOnly
+                                                      ],
+                                                      cursorColor:
+                                                          primaryColorOfApp,
+                                                      keyboardType:
+                                                          TextInputType.number,
+                                                      pinTheme: PinTheme(
+                                                        borderWidth: 0.5,
+                                                        shape: PinCodeFieldShape
+                                                            .box,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                        inactiveColor:
+                                                            customTextColor,
+                                                        activeColor:
+                                                            primaryColorOfApp,
+                                                        selectedColor:
+                                                            customTextColor,
+                                                        selectedFillColor:
+                                                            Colors.white,
+                                                        inactiveFillColor:
+                                                            Colors.white,
+                                                        fieldHeight: 40,
+                                                        fieldWidth: 40,
+                                                        activeFillColor:
+                                                            Color(0xffDFEEFC),
+                                                      ),
+                                                      animationDuration:
+                                                          Duration(
+                                                              milliseconds:
+                                                                  300),
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      enableActiveFill: true,
+                                                      /* errorAnimationController: errorController,
+  controller: textEditingController, */
+                                                      onCompleted:
+                                                          (verificationCode) {
+                                                        setState(() {
+                                                          checktoken =
+                                                              verificationCode;
+                                                        });
+                                                        if (verificationCode
+                                                                .length !=
+                                                            6) {
+                                                          setState(() {
+                                                            check6digit = true;
+                                                          });
+                                                        } else {
+                                                          setState(() {
+                                                            check6digit = false;
+                                                          });
+                                                        }
+                                                      },
+                                                      /*   onSubmitted:
+                                                          (verificationCode) {
+                                                        setState(() {
+                                                          checktoken =
+                                                              verificationCode;
+                                                        });
+                                                        if (verificationCode
+                                                                .length !=
+                                                            6) {
+                                                          setState(() {
+                                                            check6digit = true;
+                                                          });
+                                                        } else {
+                                                          setState(() {
+                                                            check6digit = false;
+                                                          });
+                                                        }
+                                                      }, */
+                                                      onChanged: (value) {
+                                                        setState(() {
+                                                          checktoken = token;
+                                                        });
+                                                      },
+                                                      beforeTextPaste: (text) {
+                                                        print(
+                                                            "Allowing to paste $text");
+                                                        //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                                                        //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                                                        return true;
+                                                      },
+                                                    ),
+                                                    /*   OtpTextField(
                                                       onCodeChanged: (value) {
                                                         setState(() {
                                                           checktoken = token;
@@ -420,10 +515,10 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                       focusedBorderColor:
                                                           primaryColorOfApp,
                                                       numberOfFields: 6,
-                                                      /*   enabledBorderColor:
-                                                        customTextColor */
+                                                      enabledBorderColor:
+                                                          customTextColor,
                                                       borderColor:
-                                                          primaryColorOfApp,
+                                                          customTextColor,
                                                       showFieldAsBox: true,
                                                       onSubmit:
                                                           (verificationCode) {
@@ -443,7 +538,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                           });
                                                         }
                                                       },
-                                                    ),
+                                                    ), */
                                                     SizedBox(
                                                       height: height * 0.01,
                                                     ),
@@ -491,23 +586,26 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                       ],
                                                     ),
                                                     SizedBox(
-                                                      height: 40,
+                                                      height: 6.h,
                                                       width: double.infinity,
                                                       // height: 50,
                                                       child: ElevatedButton(
                                                         onPressed: check6digit
                                                             ? null
                                                             : () {
-                                                                if (token == checktoken) {
-                                                                        getkar.methodAfterNavigation();
-                                                                  Navigator.push (
+                                                                if (token ==
+                                                                    checktoken) {
+                                                                  getkar
+                                                                      .methodAfterNavigation();
+                                                                  Navigator.push(
                                                                       context,
                                                                       MaterialPageRoute(
                                                                           builder: (context) => AccountType(
                                                                                 value: phonekanumber,
                                                                               ))).then((value) {
-                                                                    print('--------badsha-------------');
-                                                                  /*   getkar.methodAfterNavigation(); */
+                                                                    print(
+                                                                        '--------badsha-------------');
+                                                                    /*   getkar.methodAfterNavigation(); */
                                                                     Navigator.pop(
                                                                         context);
                                                                   });

@@ -9,6 +9,7 @@ import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
@@ -46,6 +47,7 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
   }
 
   bool check10number = true;
+  bool otpVariable = false;
   bool check6digit = true;
   bool otplodaing = false;
   var phonecont = TextEditingController();
@@ -199,11 +201,98 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
             SizedBox(
               height: 50,
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: PinCodeTextField(
+                cursorHeight: 20,
+                appContext: context,
+                length: 6,
+                obscureText: false,
+                animationType: AnimationType.fade,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                cursorColor: primaryColorOfApp,
+                keyboardType: TextInputType.number,
+                pinTheme: PinTheme(
+                  borderWidth: 0.5,
+                  shape: PinCodeFieldShape.box,
+                  borderRadius: BorderRadius.circular(5),
+                  inactiveColor: customTextColor,
+                  activeColor: primaryColorOfApp,
+                  selectedColor: customTextColor,
+                  selectedFillColor: Colors.white,
+                  inactiveFillColor: Colors.white,
+                  fieldHeight: 40,
+                  fieldWidth: 40,
+                  activeFillColor: Color(0xffDFEEFC),
+                ),
+                animationDuration: Duration(milliseconds: 300),
+                backgroundColor: Colors.white,
+                enableActiveFill: true,
+                /* errorAnimationController: errorController,
+  controller: textEditingController, */
+                onCompleted: (v) {
+                  print("Completed");
+                },
+                onChanged: (value) {
+                  print(value);
+                },
+                beforeTextPaste: (text) {
+                  print("Allowing to paste $text");
+                  //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                  //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                  return true;
+                },
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            OtpTextField(
+              cursorColor: primaryColorOfApp,
+              clearText: true,
+              showCursor: true,
+              onCodeChanged: (value) {
+                setState(() {
+                  checktoken = token;
+                  otpVariable = true;
+                });
+              },
+              autoFocus: true,
+              filled: true,
+              margin: const EdgeInsets.only(right: 3.0),
+              fieldWidth: 44,
+              fillColor: otpVariable ? Color(0xffDFEEFC) : Colors.white,
+              borderWidth: 0.5,
+              focusedBorderColor: primaryColorOfApp,
+              numberOfFields: 6,
+              enabledBorderColor: customTextColor,
+              borderColor: customTextColor,
+              showFieldAsBox: true,
+              onSubmit: (verificationCode) {
+                setState(() {
+                  checktoken = verificationCode;
+                });
+                if (verificationCode.length != 6) {
+                  setState(() {
+                    check6digit = true;
+                  });
+                } else {
+                  setState(() {
+                    check6digit = false;
+                  });
+                }
+              },
+            ),
+            SizedBox(
+              height: 50,
+            ),
             /*   Obx(() => */ PinFieldAutoFill(
+              cursor: Cursor(color: primaryColorOfApp, enabled: true, width: 2),
               textInputAction: TextInputAction.done,
               controller: controller.otpEditingController,
               decoration: UnderlineDecoration(
-                textStyle: const TextStyle(fontSize: 16, color: Colors.blue),
+                textStyle:
+                    const TextStyle(fontSize: 16, color: customTextColor),
                 colorBuilder: const FixedColorBuilder(
                   Colors.transparent,
                 ),

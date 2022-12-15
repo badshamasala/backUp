@@ -9,6 +9,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/ri.dart';
+import 'package:sizer/sizer.dart';
 import 'package:url_launcher/link.dart';
 
 class Ads extends StatefulWidget {
@@ -634,7 +635,7 @@ class _AdsState extends State<Ads> {
                         ),
                         SizedBox(
                           width: double.infinity,
-                          // height: 50,
+                           height: 6.h,
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
