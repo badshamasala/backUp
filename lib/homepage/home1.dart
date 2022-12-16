@@ -5,10 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/people_profile.dart';
+
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/ri.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import 'package:url_launcher/link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -140,7 +142,6 @@ class _Home1State extends State<Home1> {
                     ],
                   ),
                 ),
-              
               ],
             ),
           ),
@@ -157,7 +158,7 @@ class _Home1State extends State<Home1> {
                     padding: const EdgeInsets.all(0),
                     constraints: const BoxConstraints(),
                     onPressed: () {
-                    /*   final provider =
+                      /*   final provider =
                           Provider.of<Googleprovider>(context, listen: false);
                       provider.logout(); */
                     },
@@ -506,15 +507,15 @@ class _Home1State extends State<Home1> {
             children: [
               Container(
                 color: Colors.white,
-                height: 75,
+                height: 13.h,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 5),
                   child: ListView.separated(
                       physics: const ClampingScrollPhysics(),
                       shrinkWrap: true,
                       separatorBuilder: (context, index) {
-                        return const SizedBox(
-                          width: 8,
+                        return SizedBox(
+                          width: 2.1.w,
                         );
                       },
                       scrollDirection: Axis.horizontal,
@@ -525,48 +526,49 @@ class _Home1State extends State<Home1> {
                             children: [
                               Stack(children: [
                                 Container(
-                                    padding: const EdgeInsets.all(5),
                                     decoration: BoxDecoration(
                                       border: Border.all(
-                                          width: 1, color: primaryColorOfApp),
+                                          width: 1.sp,
+                                          color: primaryColorOfApp),
                                       shape: BoxShape.circle,
                                     ),
-                                    child: const Icon(
-                                      Icons.person,
-                                      color: Color(0xffc4c4c4),
-                                      size: 43,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(5.sp),
+                                      child: Icon(
+                                        Icons.person,
+                                        color: const Color(0xffc4c4c4),
+                                        size: 40.sp,
+                                      ),
                                     )),
                                 Positioned(
-                                  top: 41,
-                                  left: 32,
+                                  top: 6.h,
+                                  left: 10.w,
                                   child: Container(
-                                      alignment: Alignment.center,
-                                      height: 13,
-                                      margin: const EdgeInsets.all(0),
-                                      padding: const EdgeInsets.all(0),
+                                      height: 2.h,
                                       decoration: BoxDecoration(
-                                          border: Border.all(width: 1.5),
+                                          border: Border.all(width: 0.5.w),
                                           shape: BoxShape.circle,
                                           color: primaryColorOfApp),
                                       child: IconButton(
                                           padding: const EdgeInsets.all(0),
                                           constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.add,
-                                            size: 10,
+                                            size: 10.sp,
+                                            color: Colors.black,
                                           ))),
                                 )
                               ]),
-                              const SizedBox(
-                                height: 3,
+                              SizedBox(
+                                height: 1.h,
                               ),
-                              const Text(
+                              Text(
                                 'Add Story',
                                 style: TextStyle(
                                     color: primaryColorOfApp,
                                     fontFamily: 'Poppins',
-                                    fontSize: 10),
+                                    fontSize: 10.sp),
                               )
                             ],
                           );
@@ -585,31 +587,33 @@ class _Home1State extends State<Home1> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(1.5),
+                                  padding: EdgeInsets.all(1.5.sp),
                                   child: Container(
-                                    padding: const EdgeInsets.all(3),
                                     decoration: const BoxDecoration(
                                       color: Colors.white,
                                       shape: BoxShape.circle,
                                     ),
-                                    child: CircleAvatar(
-                                      radius: 23.5,
-                                      backgroundImage: NetworkImage(
-                                        images[index],
+                                    child: Padding(
+                                      padding: EdgeInsets.all(2.sp),
+                                      child: CircleAvatar(
+                                        radius: 23.sp,
+                                        backgroundImage: NetworkImage(
+                                          images[index],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                height: 2,
+                              SizedBox(
+                                height: 1.h,
                               ),
                               Text(
                                 names[index],
-                                style: const TextStyle(
+                                style: TextStyle(
                                     color: customTextColor,
                                     fontFamily: 'Poppins',
-                                    fontSize: 10),
+                                    fontSize: 10.sp),
                               )
                             ],
                           );
@@ -618,7 +622,7 @@ class _Home1State extends State<Home1> {
                 ),
               ),
               SizedBox(
-                height: height * 0.004,
+                height: 0.5.h,
               ),
               Flexible(
                 child: ListView.builder(
@@ -636,72 +640,50 @@ class _Home1State extends State<Home1> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               SizedBox(
-                                height: height * 0.006,
+                                height: 1.h,
                               ),
                               Row(
-                                /*       mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
                                 children: [
-                                  Row(children: [
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 5.0, left: 10),
-                                      child: CircleAvatar(
-                                        radius: 15,
-                                        backgroundColor: primaryColorOfApp,
-                                        child: CircleAvatar(
-                                          radius: 14.2,
-                                          backgroundColor: Colors.white,
-                                          child: CircleAvatar(
-                                            radius: 12.5,
-                                            backgroundImage: NetworkImage(
-                                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QprGHP-E72bJzurFg83woK-h_i4Fu0WPfQ&usqp=CAU'),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 3.0, top: 5),
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        /* color: Colors.red, */
-                                        width: 146,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            const Text('Sponsered by',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12,
-                                                    color: Color(0xff737373))),
-                                            SizedBox(
-                                              width: width * 0.001,
-                                            ),
-                                            InkWell(
-                                              onTap: () {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          const PeopleProfile()),
-                                                );
-                                              },
-                                              child: const Text('@SPIDER-MAN',
-                                                  style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 11,
-                                                      color:
-                                                          primaryColorOfApp)),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ]),
                                   SizedBox(
-                                    width: width * 0.13,
+                                    width: 3.w,
                                   ),
+                                  CircleAvatar(
+                                    radius: 15.sp,
+                                    backgroundColor: primaryColorOfApp,
+                                    child: CircleAvatar(
+                                      radius: 14.sp,
+                                      backgroundColor: Colors.white,
+                                      child: CircleAvatar(
+                                        radius: 13.sp,
+                                        backgroundImage: const NetworkImage(
+                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QprGHP-E72bJzurFg83woK-h_i4Fu0WPfQ&usqp=CAU'),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 2.w,
+                                  ),
+                                  Text('Sponsered by',
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 11.sp,
+                                          color: const Color(0xff737373))),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const PeopleProfile()),
+                                      );
+                                    },
+                                    child: Text('@SPIDER-MAN',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 11.sp,
+                                            color: primaryColorOfApp)),
+                                  ),
+                                  const Spacer(),
                                   OutlinedButton(
                                       style: OutlinedButton.styleFrom(
                                           side: const BorderSide(
@@ -710,7 +692,7 @@ class _Home1State extends State<Home1> {
                                           tapTargetSize:
                                               MaterialTapTargetSize.shrinkWrap,
                                           elevation: 0,
-                                          minimumSize: const Size(65.0, 24.0),
+                                          minimumSize: Size(20.5.w, 3.8.h),
                                           foregroundColor: Colors.white,
                                           // padding: EdgeInsets.symmetric(
                                           //     horizontal: 40.0, vertical: 20.0),
@@ -719,129 +701,112 @@ class _Home1State extends State<Home1> {
                                               borderRadius:
                                                   BorderRadius.circular(5.0))),
                                       onPressed: () {},
-                                      child: const Text(
+                                      child: Text(
                                         'Follow',
                                         style: TextStyle(
                                             fontFamily: 'Poppins',
-                                            fontSize: 12,
+                                            fontSize: 11.sp,
                                             fontWeight: FontWeight.bold),
                                       )),
-                                  SizedBox(
-                                    width: width * 0.01,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                    child: IconButton(
-                                        padding: EdgeInsets.zero,
-                                        constraints: const BoxConstraints(),
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.more_vert,
-                                          size: 17,
-                                        )),
-                                  ),
+                                  IconButton(
+                                      /*    padding: EdgeInsets.zero, */
+                                      constraints: const BoxConstraints(),
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.more_vert,
+                                        size: 19.sp,
+                                      )),
                                 ],
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 2.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 4.0, right: 4),
-                                    child: Image.network(
-                                      'https://cdn.zeebiz.com/sites/default/files/styles/zeebiz_850x478/public/2022/09/11/199737-bramhastra-tw.jpg?itok=nGR3gI8o ',
-                                      height: 130,
-                                      width: double.infinity,
-                                      fit: BoxFit.cover,
-                                    ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10.sp),
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 1.w),
+                                  child: Image.network(
+                                    'https://cdn.zeebiz.com/sites/default/files/styles/zeebiz_850x478/public/2022/09/11/199737-bramhastra-tw.jpg?itok=nGR3gI8o ',
+                                    height: 20.h,
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  SizedBox(
-                                    width: width * 0.03,
-                                  ),
+                                  const Spacer(),
                                   Column(
                                     children: [
                                       SizedBox(
-                                        height: height * 0.01,
+                                        height: 1.h,
                                       ),
                                       SvgPicture.asset(
                                         'assets/likeicon.svg',
-                                        height: 20,
-                                        width: 20,
+                                        height: 3.5.h,
+                                        width: 3.5.w,
                                         color: primaryColorOfApp,
                                       ),
                                       SizedBox(
-                                        height: height * 0.01,
+                                        height: 1.h,
                                       ),
-                                      const Text(
+                                      Text(
                                         'Like 67k',
                                         style: TextStyle(
-                                            fontFamily: 'Poppins', fontSize: 8),
+                                            fontFamily: 'Poppins',
+                                            fontSize: 8.sp),
                                       ),
                                       SizedBox(
-                                        height: height * 0.01,
+                                        height: 1.h,
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    width: width * 0.04,
-                                  ),
+                                  const Spacer(),
                                   Column(
                                     children: [
                                       SizedBox(
-                                        height: height * 0.01,
+                                        height: 1.h,
                                       ),
                                       SvgPicture.asset(
                                         'assets/shareicon.svg',
-                                        height: 18,
-                                        width: 18,
+                                        height: 3.5.h,
+                                        width: 3.5.w,
                                         color: iconColor,
                                       ),
                                       SizedBox(
-                                        height: height * 0.013,
+                                        height: 1.h,
                                       ),
-                                      const Text(
+                                      Text(
                                         'Share 10k',
                                         style: TextStyle(
-                                            fontFamily: 'Poppins', fontSize: 8),
+                                            fontFamily: 'Poppins',
+                                            fontSize: 8.sp),
                                       ),
                                       SizedBox(
-                                        height: height * 0.01,
+                                        height: 1.h,
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(
-                                    width: 25,
-                                  ),
-                                  const Text(
+                                  const Spacer(),
+                                  Text(
                                     "100M+",
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
-                                        fontSize: 14,
+                                        fontSize: 12.sp,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  const Text(
+                                  Text(
                                     "Views",
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
-                                      fontSize: 14,
+                                      fontSize: 12.sp,
                                     ),
                                   ),
-                                  const SizedBox(
-                                    width: 28,
-                                  ),
+                                  const Spacer(),
                                   Padding(
-                                    padding: const EdgeInsets.only(right: 4),
+                                    padding: EdgeInsets.only(right: 2.w),
                                     child: OutlinedButton(
                                       onPressed: () {},
                                       style: OutlinedButton.styleFrom(
-                                          minimumSize: const Size(95.0, 30.0),
+                                          minimumSize: Size(30.w, 5.h),
                                           elevation: 0,
                                           padding: EdgeInsets.zero,
                                           tapTargetSize:
@@ -854,17 +819,14 @@ class _Home1State extends State<Home1> {
                                           backgroundColor: Colors.white,
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(5.0))),
-                                      child: const Padding(
-                                        padding: EdgeInsets.all(1.0),
-                                        child: Text(
-                                          "Book Now",
-                                          style: TextStyle(
-                                              color: primaryColorOfApp,
-                                              fontSize: 12,
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w600),
-                                        ),
+                                                  BorderRadius.circular(5.sp))),
+                                      child: Text(
+                                        "Book Now",
+                                        style: TextStyle(
+                                            color: primaryColorOfApp,
+                                            fontSize: 12.sp,
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w600),
                                       ),
                                     ),
                                   ),
@@ -875,7 +837,7 @@ class _Home1State extends State<Home1> {
                         );
                       } else if (index.isEven) {
                         return Padding(
-                          padding: const EdgeInsets.only(top: 3.0),
+                          padding: EdgeInsets.only(top: 0.5.h),
                           child: Card(
                             margin: EdgeInsets.zero,
                             shape: RoundedRectangleBorder(
@@ -884,6 +846,9 @@ class _Home1State extends State<Home1> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
+                                SizedBox(
+                                  height: 1.h,
+                                ),
                                 Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -891,87 +856,78 @@ class _Home1State extends State<Home1> {
                                       Stack(
                                         alignment: Alignment.bottomRight,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 2.0),
+                                          CircleAvatar(
+                                            radius: 18.sp,
+                                            backgroundColor: primaryColorOfApp,
                                             child: CircleAvatar(
-                                              radius: 18,
-                                              backgroundColor:
-                                                  primaryColorOfApp,
+                                              radius: 17.sp,
+                                              backgroundColor: Colors.white,
                                               child: CircleAvatar(
-                                                radius: 17,
-                                                backgroundColor: Colors.white,
-                                                child: CircleAvatar(
-                                                  radius: 15,
-                                                  backgroundImage: NetworkImage(
-                                                      userlist[index].image),
-                                                ),
+                                                radius: 16.sp,
+                                                backgroundImage: NetworkImage(
+                                                    userlist[index].image),
                                               ),
                                             ),
                                           ),
-                                          const Positioned(
-                                            top: 26,
+                                          Positioned(
+                                            top: 4.h,
                                             child: CircleAvatar(
-                                              radius: 4,
+                                              radius: 4.sp,
                                               backgroundColor:
-                                                  Color(0xff08A434),
+                                                  const Color(0xff08A434),
                                             ),
                                           )
                                         ],
                                       ),
                                       Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Text(userlist[index].username,
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                       fontFamily: 'Poppins',
-                                                      fontSize: 10,
+                                                      fontSize: 10.sp,
                                                       fontWeight:
                                                           FontWeight.bold)),
                                               Text(userlist[index].userId,
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                       fontFamily: 'Poppins',
-                                                      fontSize: 10,
+                                                      fontSize: 12.sp,
                                                       color:
                                                           primaryColorOfApp)),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 2.0),
-                                                child: Text(
-                                                    userlist[index].status,
-                                                    style: const TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 10,
-                                                        color:
-                                                            Color(0xff08A434))),
-                                              ),
+                                              Text(userlist[index].status,
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 8.sp,
+                                                      color: const Color(
+                                                          0xff08A434))),
                                             ],
                                           ),
                                           Row(
                                             children: [
                                               Text(userlist[index].location,
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontFamily: 'Poppins',
-                                                    fontSize: 10,
+                                                    fontSize: 11.sp,
                                                   )),
-                                              const Padding(
-                                                padding:
-                                                    EdgeInsets.only(left: 5.0),
-                                                child: Iconify(
-                                                  Ri.share_box_line,
-                                                  color: primaryColorOfApp,
-                                                  size: 10,
-                                                ),
+                                              Iconify(
+                                                Ri.share_box_line,
+                                                color: primaryColorOfApp,
+                                                size: 10.sp,
                                               ),
                                               SizedBox(
-                                                height: 12,
+                                                height: 2.h,
                                                 child: Link(
                                                   target: LinkTarget.self,
                                                   uri: Uri.parse(
-                                                      'https://myttube.com/'),
+                                                    'https://myttube.com/',
+                                                  ),
                                                   builder:
                                                       (context, followLink) {
                                                     return TextButton(
@@ -987,12 +943,12 @@ class _Home1State extends State<Home1> {
                                                                 0xff0087FF),
                                                       ),
                                                       onPressed: followLink,
-                                                      child: const Text(
+                                                      child: Text(
                                                         'https://myttube.com',
                                                         style: TextStyle(
                                                             fontFamily:
                                                                 'Poppins',
-                                                            fontSize: 8),
+                                                            fontSize: 10.sp),
                                                       ),
                                                     );
                                                   },
@@ -1002,9 +958,9 @@ class _Home1State extends State<Home1> {
                                           ),
                                         ],
                                       ),
-                                      SizedBox(
-                                        width: width * 0.01,
-                                      ),
+                                      /*    SizedBox(
+                                        width: 2.w,
+                                      ), */
                                       OutlinedButton(
                                           style: OutlinedButton.styleFrom(
                                               side: const BorderSide(
@@ -1014,8 +970,7 @@ class _Home1State extends State<Home1> {
                                                   MaterialTapTargetSize
                                                       .shrinkWrap,
                                               elevation: 0,
-                                              minimumSize:
-                                                  const Size(65.0, 25.0),
+                                              minimumSize: Size(20.5.w, 3.8.h),
                                               // padding: EdgeInsets.symmetric(
                                               //     horizontal: 40.0, vertical: 20.0),
                                               backgroundColor: Colors.white,
@@ -1026,12 +981,12 @@ class _Home1State extends State<Home1> {
                                                       BorderRadius.circular(
                                                           5.0))),
                                           onPressed: () {},
-                                          child: const Text(
+                                          child: Text(
                                             'following',
                                             style: TextStyle(
                                                 color: primaryColorOfApp,
                                                 fontFamily: 'Poppins',
-                                                fontSize: 12),
+                                                fontSize: 11.sp),
                                           )),
                                       /*    SizedBox(
                                   width: 5,
@@ -1040,9 +995,9 @@ class _Home1State extends State<Home1> {
                                           padding: EdgeInsets.zero,
                                           constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.more_vert,
-                                            size: 20,
+                                            size: 19.sp,
                                           )),
                                     ]),
                                 Padding(
@@ -1060,264 +1015,231 @@ class _Home1State extends State<Home1> {
                                       )),
                                 ),
                                 SizedBox(
-                                  height: height * 0.01,
+                                  height: 1.5.h,
                                 ),
                                 Row(
-                                  /*      mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly, */
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
-                                      child: Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/likeicon.svg',
-                                            height: 18,
-                                            width: 18,
-                                            color: primaryColorOfApp,
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            'Like',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Text(
-                                            userlist[index]
-                                                .likecount
-                                                .toString(),
-                                            style: const TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      ),
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/likeicon.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: primaryColorOfApp,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          'Like',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                        Text(
+                                          userlist[index].likecount.toString(),
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                      ],
                                     ),
                                     /*  sizedbox(context), */
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
-                                      child: Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/commenticon.svg',
-                                            height: 18,
-                                            width: 18,
-                                            color: iconColor,
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            'Comments',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Text(
-                                            userlist[index]
-                                                .commentcount
-                                                .toString(),
-                                            style: const TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      ),
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/commenticon.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: iconColor,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          'Comments',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                        Text(
+                                          userlist[index]
+                                              .commentcount
+                                              .toString(),
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                      ],
                                     ),
                                     /*    sizedbox(context), */
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
+                                      padding: EdgeInsets.only(right: 3.sp),
                                       child: Column(
                                         children: [
                                           SvgPicture.asset(
                                             'assets/shareicon.svg',
-                                            height: 18,
-                                            width: 18,
+                                            height: 3.5.h,
+                                            width: 3.5.w,
                                             color: iconColor,
                                           ),
                                           SizedBox(
-                                            height: height * 0.01,
+                                            height: 1.h,
                                           ),
-                                          const Text(
+                                          Text(
                                             'Share',
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
+                                                fontSize: 9.sp),
                                           ),
                                           Text(
                                             userlist[index]
                                                 .sharecount
                                                 .toString(),
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 10),
+                                                fontSize: 9.sp),
                                           ),
                                         ],
                                       ),
                                     ),
                                     /*    sizedbox(context), */
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
-                                      child: Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/gifticon1.svg',
-                                            height: 18,
-                                            width: 18,
-                                            color: primaryColorOfApp,
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            'Gift',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Text(
-                                            userlist[index]
-                                                .giftcount
-                                                .toString(),
-                                            style: const TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      ),
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/gifticon1.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: primaryColorOfApp,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          'Gift',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                        Text(
+                                          userlist[index].giftcount.toString(),
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                      ],
                                     ),
                                     /* sizedbox(context), */
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          bottom: 30.0, left: 25),
-                                      child: Text(
-                                        userlist[index].viewcount.toString(),
-                                        style: const TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 0.5),
-                                      ),
+                                    Text(
+                                      userlist[index].viewcount.toString(),
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 0.5),
                                     ),
                                     /*  Text(
-                                    'View',
-                                    style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
-                                  ), */
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 25.0),
-                                      child: Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/starsave.svg',
-                                            height: 18,
-                                            width: 18,
-                                            color: primaryColorOfApp,
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            'Saved',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            '' /* userlist[index].giftcount.toString() */,
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      ),
+                                      'View',
+                                      style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
+                                    ), */
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/starsave.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: primaryColorOfApp,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          'Saved',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          '' /* userlist[index].giftcount.toString() */,
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 10.sp),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: const TextSpan(
-                                            text: '#Timepass',
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 9),
-                                            children: <TextSpan>[
-                                              TextSpan(
-                                                text: ' @followmyteam',
-                                                style: TextStyle(
-                                                    color: primaryColorOfApp,
-                                                    fontSize: 8),
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                    ' #Study#content#content#sample#morecontentxlam....',
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 8),
-                                              )
-                                            ]),
-                                      ),
-                                    ],
-                                  ),
+                                SizedBox(
+                                  height: 0.5.h,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    RichText(
+                                      text: TextSpan(
+                                          text: '#Timepass',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 8.sp),
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                              text: ' @followmyteam',
+                                              style: TextStyle(
+                                                  color: primaryColorOfApp,
+                                                  fontSize: 10.sp),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  ' #Study#content#content#samplekkxajkjax',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 8.sp),
+                                            )
+                                          ]),
+                                    ),
+                                  ],
                                 ),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: EdgeInsets.all(8.sp),
                                       child: Row(
-                                        children: const [
+                                        children: [
                                           Iconify(
                                             Bi.check_circle_fill,
                                             color: Colors.red,
-                                            size: 20,
+                                            size: 19.sp,
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.only(left: 2.0),
+                                            padding:
+                                                EdgeInsets.only(left: 2.sp),
                                             child: Text(
                                               'boat',
                                               style: TextStyle(
                                                   color: Colors.red,
                                                   fontFamily: 'Poppins',
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 12),
+                                                  fontSize: 12.sp),
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.only(left: 2.0),
+                                            padding:
+                                                EdgeInsets.only(left: 2.sp),
                                             child: Text(
                                               'Sponsered',
                                               style: TextStyle(
-                                                  color: Color(0xff737373),
+                                                  color:
+                                                      const Color(0xff737373),
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 8),
+                                                  fontSize: 10.sp),
                                             ),
                                           ),
                                         ],
@@ -1330,9 +1252,9 @@ class _Home1State extends State<Home1> {
                                           padding: EdgeInsets.zero,
                                           constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.more_vert,
-                                            size: 17,
+                                            size: 19.sp,
                                           )),
                                     )
                                   ],
@@ -1347,39 +1269,30 @@ class _Home1State extends State<Home1> {
                                         child: Image.network(
                                           'https://cdn.shopify.com/s/files/1/0057/8938/4802/articles/boAt-Rockerz-510---Best-Wireless-Headphones-of-2021_1_1024x.jpg?v=1611915753',
                                           width: double.infinity,
-                                          height: 130,
+                                          height: 20.h,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
                                     SizedBox(
                                       width: double.infinity,
-                                      height: 32,
+                                      height: 5.h,
                                       child: ElevatedButton(
-                                        onPressed: () {
-                                          /* Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                            builder: (context) => const GooglePage1()),
-                                            ); */
-                                        },
+                                        onPressed: () {},
                                         style: ElevatedButton.styleFrom(
                                             elevation: 0,
-                                            /*     minimumSize: const Size(0.0, 40), */
-                                            // padding: EdgeInsets.symmetric(
-                                            //     horizontal: 40.0, vertical: 20.0),
                                             backgroundColor: Colors.black,
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(
                                                         5.0))),
                                         child: Row(
-                                          children: const [
+                                          children: [
                                             Text(
                                               "Shop Now",
                                               style: TextStyle(
                                                   color: Colors.white,
-                                                  fontSize: 12,
+                                                  fontSize: 12.sp,
                                                   fontFamily: 'Poppins',
                                                   fontWeight: FontWeight.w700),
                                             ),
@@ -1404,71 +1317,74 @@ class _Home1State extends State<Home1> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
+                                SizedBox(
+                                  height: 1.5.h,
+                                ),
                                 Row(
                                     /*    mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly, */
                                     children: [
-                                      const Padding(
-                                        padding:
-                                            EdgeInsets.only(top: 4.0, left: 5),
+                                      SizedBox(
+                                        width: 3.w,
+                                      ),
+                                      CircleAvatar(
+                                        radius: 16.sp,
+                                        backgroundColor:
+                                            const Color(0xff0A8794),
                                         child: CircleAvatar(
-                                          radius: 16,
-                                          backgroundColor: Color(0xff0A8794),
-                                          child: CircleAvatar(
-                                            backgroundColor: Colors.white,
-                                            radius: 14,
-                                            child: Text('F',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    color: Color(0xff0A8794),
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.w900)),
-                                          ),
+                                          backgroundColor: Colors.white,
+                                          radius: 14.5.sp,
+                                          child: Text('F',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  color:
+                                                      const Color(0xff0A8794),
+                                                  fontSize: 20.sp,
+                                                  fontWeight: FontWeight.w900)),
                                         ),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 5.0, top: 5),
+                                          left: 5.0,
+                                        ),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
                                             Row(
-                                              children: const [
+                                              children: [
                                                 Text('Furniture',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xff0A8794),
-                                                        fontSize: 10,
+                                                        fontSize: 10.sp,
                                                         fontWeight:
                                                             FontWeight.w900)),
                                                 Text('@furniture.com',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 10,
+                                                        fontSize: 12.sp,
                                                         color:
                                                             primaryColorOfApp,
                                                         letterSpacing: 0.5)),
                                               ],
                                             ),
                                             Row(
-                                              children: const [
+                                              children: [
                                                 Text('Sponsered',
                                                     style: TextStyle(
                                                       fontFamily: 'Poppins',
-                                                      color: Color(0xff737373),
-                                                      fontSize: 10,
+                                                      color: const Color(
+                                                          0xff737373),
+                                                      fontSize: 10.sp,
                                                     )),
                                               ],
                                             ),
                                           ],
                                         ),
                                       ),
-                                      SizedBox(
-                                        width: width * 0.2,
-                                      ),
+                                      Spacer(),
                                       OutlinedButton(
                                           style: OutlinedButton.styleFrom(
                                               side: const BorderSide(
@@ -1478,9 +1394,8 @@ class _Home1State extends State<Home1> {
                                                   MaterialTapTargetSize
                                                       .shrinkWrap,
                                               elevation: 0,
+                                              minimumSize: Size(20.5.w, 3.8.h),
                                               foregroundColor: Colors.white,
-                                              minimumSize:
-                                                  const Size(65.0, 25.0),
                                               // padding: EdgeInsets.symmetric(
                                               //     horizontal: 40.0, vertical: 20.0),
                                               backgroundColor:
@@ -1490,30 +1405,33 @@ class _Home1State extends State<Home1> {
                                                       BorderRadius.circular(
                                                           5.0))),
                                           onPressed: () {},
-                                          child: const Text(
-                                            'follow',
+                                          child: Text(
+                                            'Follow',
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 12),
+                                                fontSize: 11.sp,
+                                                fontWeight: FontWeight.bold),
                                           )),
                                       IconButton(
-                                          padding: EdgeInsets.zero,
+                                          /*    padding: EdgeInsets.zero, */
                                           constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: const Icon(Icons.more_vert,
-                                              size: 18)),
+                                          icon: Icon(
+                                            Icons.more_vert,
+                                            size: 19.sp,
+                                          )),
                                     ]),
                                 Padding(
                                   padding: const EdgeInsets.only(left: 8.0),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: const [
+                                    children: [
                                       Text(
-                                          'Avail up to 50% additional discount on best furniture in the ..',
+                                          'Avail up to 50% additional discount on best furinute is the',
                                           style: TextStyle(
                                             fontFamily: 'Poppins',
-                                            fontSize: 10,
-                                            color: Color(
+                                            fontSize: 10.sp,
+                                            color: const Color(
                                                 0xff121212), /*   fontWeight: FontWeight.bold */
                                           )),
                                     ],
@@ -1522,7 +1440,9 @@ class _Home1State extends State<Home1> {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 2.0),
                                   child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
+                                      borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10)),
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             left: 4.0, right: 4),
@@ -1533,211 +1453,199 @@ class _Home1State extends State<Home1> {
                                         ),
                                       )),
                                 ),
-                                SizedBox(
-                                  height: 40,
-                                  width: double.infinity,
-                                  child: OutlinedButton(
-                                      style: OutlinedButton.styleFrom(
-                                        padding: EdgeInsets.zero,
-                                        tapTargetSize:
-                                            MaterialTapTargetSize.shrinkWrap,
-                                        elevation: 0,
-                                        foregroundColor: Colors.white,
-                                        backgroundColor:
-                                            const Color(0xff0C616A),
-                                      ),
-                                      onPressed: () {},
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: const [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 8.0),
-                                              child: Text(
-                                                'Order Now',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                              ),
-                                            ),
-                                            Icon(
-                                              Icons.chevron_right,
-                                              size: 20,
-                                              color: Colors.white,
-                                            )
-                                          ],
-                                        ),
-                                      )),
-                                ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 8.0),
-                                  child: Row(
-                                    /*        mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly, */
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 8.0),
-                                        child: Column(
-                                          children: [
-                                            SvgPicture.asset(
-                                              'assets/likeicon.svg',
-                                              height: 18,
-                                              width: 18,
-                                              color: primaryColorOfApp,
-                                            ),
-                                            SizedBox(
-                                              height: height * 0.01,
-                                            ),
-                                            Row(
-                                              children: [
-                                                const Text(
-                                                  'Like',
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 1.w),
+                                  child: SizedBox(
+                                    height: 6.h,
+                                    width: double.infinity,
+                                    child: OutlinedButton(
+                                        style: OutlinedButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                          tapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          elevation: 0,
+                                          foregroundColor: Colors.white,
+                                          backgroundColor:
+                                              const Color(0xff0C616A),
+                                        ),
+                                        onPressed: () {},
+                                        child: Padding(
+                                          padding: EdgeInsets.all(8.sp),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 8.sp),
+                                                child: Text(
+                                                  'Order Now',
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
-                                                      fontSize: 8),
+                                                      fontSize: 12.sp,
+                                                      fontWeight:
+                                                          FontWeight.w700),
                                                 ),
-                                                Text(
-                                                  userlist[index]
-                                                      .likecount
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 8),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 8.0),
-                                        child: Column(
-                                          children: [
-                                            SvgPicture.asset(
-                                              'assets/shareicon.svg',
-                                              height: 18,
-                                              width: 18,
-                                              color: iconColor,
-                                            ),
-                                            SizedBox(
-                                              height: height * 0.01,
-                                            ),
-                                            Row(
-                                              children: [
-                                                const Text(
-                                                  'Share',
-                                                  style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 8),
-                                                ),
-                                                Text(
-                                                  userlist[index]
-                                                      .sharecount
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 8),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      /*  sizedbox(context), */
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 8.0),
-                                        child: Column(
-                                          children: [
-                                            SvgPicture.asset(
-                                              'assets/commenticon.svg',
-                                              height: 18,
-                                              width: 18,
-                                              color: iconColor,
-                                            ),
-                                            SizedBox(
-                                              height: height * 0.01,
-                                            ),
-                                            Row(
-                                              children: [
-                                                const Text(
-                                                  'Comments',
-                                                  style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 8),
-                                                ),
-                                                Text(
-                                                  userlist[index]
-                                                      .commentcount
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 8),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 30.0, bottom: 20),
-                                        child: Row(
-                                          children: const [
-                                            Text(
-                                              '10k+',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              'Views',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 14),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: width * 0.19,
-                                      ),
-                                      Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/starsave.svg',
-                                            height: 18,
-                                            width: 18,
-                                            color: iconColor,
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Row(
-                                            children: const [
-                                              Text(
-                                                'Save',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 8),
                                               ),
+                                              Icon(
+                                                Icons.chevron_right,
+                                                size: 20.sp,
+                                                color: Colors.white,
+                                              )
                                             ],
                                           ),
-                                        ],
-                                      ),
-                                    ],
+                                        )),
                                   ),
                                 ),
                                 SizedBox(
-                                  height: height * 0.015,
+                                  height: 1.5.h,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/likeicon.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: primaryColorOfApp,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Like',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 9.sp),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 1.w),
+                                              child: Text(
+                                                userlist[index]
+                                                    .likecount
+                                                    .toString(),
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 9.sp),
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/shareicon.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: iconColor,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Share',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 9.sp),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 1.w),
+                                              child: Text(
+                                                userlist[index]
+                                                    .sharecount
+                                                    .toString(),
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 9.sp),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    /*  sizedbox(context), */
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/commenticon.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: iconColor,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Comments',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 9.sp),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 1.w),
+                                              child: Text(
+                                                userlist[index]
+                                                    .commentcount
+                                                    .toString(),
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 9.sp),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Text(
+                                      '10k+ Views',
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/starsave.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: iconColor,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Save',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 9.sp),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 1.h,
                                 )
                               ],
                             ),
@@ -2259,6 +2167,9 @@ class _Home1State extends State<Home1> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
+                                SizedBox(
+                                  height: 1.h,
+                                ),
                                 Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -2266,87 +2177,78 @@ class _Home1State extends State<Home1> {
                                       Stack(
                                         alignment: Alignment.bottomRight,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 2.0),
+                                          CircleAvatar(
+                                            radius: 18.sp,
+                                            backgroundColor: primaryColorOfApp,
                                             child: CircleAvatar(
-                                              radius: 18,
-                                              backgroundColor:
-                                                  primaryColorOfApp,
+                                              radius: 17.sp,
+                                              backgroundColor: Colors.white,
                                               child: CircleAvatar(
-                                                radius: 17,
-                                                backgroundColor: Colors.white,
-                                                child: CircleAvatar(
-                                                  radius: 15,
-                                                  backgroundImage: NetworkImage(
-                                                      userlist[index].image),
-                                                ),
+                                                radius: 16.sp,
+                                                backgroundImage: NetworkImage(
+                                                    userlist[index].image),
                                               ),
                                             ),
                                           ),
-                                          const Positioned(
-                                            top: 26,
+                                          Positioned(
+                                            top: 4.h,
                                             child: CircleAvatar(
-                                              radius: 4,
+                                              radius: 4.sp,
                                               backgroundColor:
-                                                  Color(0xff08A434),
+                                                  const Color(0xff08A434),
                                             ),
                                           )
                                         ],
                                       ),
                                       Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
-                                              const Text('nyraa grover ',
+                                              Text(userlist[index].username,
                                                   style: TextStyle(
                                                       fontFamily: 'Poppins',
-                                                      fontSize: 10,
+                                                      fontSize: 10.sp,
                                                       fontWeight:
                                                           FontWeight.bold)),
                                               Text(userlist[index].userId,
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                       fontFamily: 'Poppins',
-                                                      fontSize: 10,
+                                                      fontSize: 12.sp,
                                                       color:
                                                           primaryColorOfApp)),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 2.0),
-                                                child: Text(
-                                                    userlist[index].status,
-                                                    style: const TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 10,
-                                                        color:
-                                                            Color(0xff08A434))),
-                                              ),
+                                              Text(userlist[index].status,
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 8.sp,
+                                                      color: const Color(
+                                                          0xff08A434))),
                                             ],
                                           ),
                                           Row(
                                             children: [
                                               Text(userlist[index].location,
-                                                  style: const TextStyle(
+                                                  style: TextStyle(
                                                     fontFamily: 'Poppins',
-                                                    fontSize: 10,
+                                                    fontSize: 11.sp,
                                                   )),
-                                              const Padding(
-                                                padding:
-                                                    EdgeInsets.only(left: 5.0),
-                                                child: Iconify(
-                                                  Ri.share_box_line,
-                                                  color: primaryColorOfApp,
-                                                  size: 10,
-                                                ),
+                                              Iconify(
+                                                Ri.share_box_line,
+                                                color: primaryColorOfApp,
+                                                size: 10.sp,
                                               ),
                                               SizedBox(
-                                                height: 12,
+                                                height: 2.h,
                                                 child: Link(
                                                   target: LinkTarget.self,
                                                   uri: Uri.parse(
-                                                      'https://myttube.com/'),
+                                                    'https://myttube.com/',
+                                                  ),
                                                   builder:
                                                       (context, followLink) {
                                                     return TextButton(
@@ -2362,12 +2264,12 @@ class _Home1State extends State<Home1> {
                                                                 0xff0087FF),
                                                       ),
                                                       onPressed: followLink,
-                                                      child: const Text(
+                                                      child: Text(
                                                         'https://myttube.com',
                                                         style: TextStyle(
                                                             fontFamily:
                                                                 'Poppins',
-                                                            fontSize: 8),
+                                                            fontSize: 10.sp),
                                                       ),
                                                     );
                                                   },
@@ -2377,9 +2279,9 @@ class _Home1State extends State<Home1> {
                                           ),
                                         ],
                                       ),
-                                      SizedBox(
-                                        width: width * 0.01,
-                                      ),
+                                      /*    SizedBox(
+                                        width: 2.w,
+                                      ), */
                                       OutlinedButton(
                                           style: OutlinedButton.styleFrom(
                                               side: const BorderSide(
@@ -2389,33 +2291,34 @@ class _Home1State extends State<Home1> {
                                                   MaterialTapTargetSize
                                                       .shrinkWrap,
                                               elevation: 0,
-                                              minimumSize:
-                                                  const Size(65.0, 25.0),
+                                              minimumSize: Size(20.5.w, 3.8.h),
                                               // padding: EdgeInsets.symmetric(
                                               //     horizontal: 40.0, vertical: 20.0),
                                               backgroundColor: Colors.white,
+                                              foregroundColor:
+                                                  primaryColorOfApp,
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.0))),
                                           onPressed: () {},
-                                          child: const Text(
+                                          child: Text(
                                             'following',
                                             style: TextStyle(
                                                 color: primaryColorOfApp,
                                                 fontFamily: 'Poppins',
-                                                fontSize: 12),
+                                                fontSize: 11.sp),
                                           )),
                                       /*    SizedBox(
-                                    width: 5,
-                                  ), */
+                                  width: 5,
+                                ), */
                                       IconButton(
                                           padding: EdgeInsets.zero,
                                           constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.more_vert,
-                                            size: 20,
+                                            size: 19.sp,
                                           )),
                                     ]),
                                 Padding(
@@ -2433,231 +2336,194 @@ class _Home1State extends State<Home1> {
                                       )),
                                 ),
                                 SizedBox(
-                                  height: height * 0.01,
+                                  height: 1.5.h,
                                 ),
                                 Row(
-                                  /*      mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly, */
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
-                                      child: Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/likeicon.svg',
-                                            height: 18,
-                                            width: 18,
-                                            color: primaryColorOfApp,
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            'Like',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Text(
-                                            userlist[index]
-                                                .likecount
-                                                .toString(),
-                                            style: const TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      ),
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/likeicon.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: primaryColorOfApp,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          'Like',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                        Text(
+                                          userlist[index].likecount.toString(),
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                      ],
                                     ),
                                     /*  sizedbox(context), */
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
-                                      child: Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/commenticon.svg',
-                                            height: 18,
-                                            width: 18,
-                                            color: iconColor,
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            'Comments',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Text(
-                                            userlist[index]
-                                                .commentcount
-                                                .toString(),
-                                            style: const TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      ),
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/commenticon.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: iconColor,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          'Comments',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                        Text(
+                                          userlist[index]
+                                              .commentcount
+                                              .toString(),
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                      ],
                                     ),
                                     /*    sizedbox(context), */
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
+                                      padding: EdgeInsets.only(right: 3.sp),
                                       child: Column(
                                         children: [
                                           SvgPicture.asset(
                                             'assets/shareicon.svg',
-                                            height: 18,
-                                            width: 18,
+                                            height: 3.5.h,
+                                            width: 3.5.w,
                                             color: iconColor,
                                           ),
                                           SizedBox(
-                                            height: height * 0.01,
+                                            height: 1.h,
                                           ),
-                                          const Text(
+                                          Text(
                                             'Share',
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
+                                                fontSize: 9.sp),
                                           ),
                                           Text(
                                             userlist[index]
                                                 .sharecount
                                                 .toString(),
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 10),
+                                                fontSize: 9.sp),
                                           ),
                                         ],
                                       ),
                                     ),
                                     /*    sizedbox(context), */
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 15.0),
-                                      child: Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/gifticon1.svg',
-                                            height: 18,
-                                            width: 18,
-                                            color: primaryColorOfApp,
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            'Gift',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Text(
-                                            userlist[index]
-                                                .giftcount
-                                                .toString(),
-                                            style: const TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      ),
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/gifticon1.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: primaryColorOfApp,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          'Gift',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                        Text(
+                                          userlist[index].giftcount.toString(),
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                      ],
                                     ),
                                     /* sizedbox(context), */
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          bottom: 30.0, left: 25),
-                                      child: Text(
-                                        userlist[index].viewcount.toString(),
-                                        style: const TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.bold,
-                                            letterSpacing: 0.5),
-                                      ),
+                                    Text(
+                                      userlist[index].viewcount.toString(),
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 0.5),
                                     ),
                                     /*  Text(
                                       'View',
                                       style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
                                     ), */
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(left: 25.0),
-                                      child: Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/starsave.svg',
-                                            height: 18,
-                                            width: 18,
-                                            color: primaryColorOfApp,
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            'Saved',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 8),
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          const Text(
-                                            '' /* userlist[index].giftcount.toString() */,
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      ),
+                                    Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          'assets/starsave.svg',
+                                          height: 3.5.h,
+                                          width: 3.5.w,
+                                          color: primaryColorOfApp,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          'Saved',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 9.sp),
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Text(
+                                          '' /* userlist[index].giftcount.toString() */,
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 10.sp),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: const TextSpan(
-                                            text: '#Timepass',
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 9),
-                                            children: <TextSpan>[
-                                              TextSpan(
-                                                text: ' @followmyteam',
-                                                style: TextStyle(
-                                                    color: primaryColorOfApp,
-                                                    fontSize: 8),
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                    ' #Study#content#content#sample#morecontentxlam....',
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 8),
-                                              )
-                                            ]),
-                                      ),
-                                    ],
-                                  ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    RichText(
+                                      text: TextSpan(
+                                          text: '#Timepass',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.black,
+                                              fontSize: 8.sp),
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                              text: ' @followmyteam',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  color: primaryColorOfApp,
+                                                  fontSize: 10.sp),
+                                            ),
+                                            TextSpan(
+                                              text:
+                                                  ' #Study#content#content#sample#',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 8.sp),
+                                            )
+                                          ]),
+                                    ),
+                                  ],
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -2666,31 +2532,34 @@ class _Home1State extends State<Home1> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Row(
-                                        children: const [
+                                        children: [
                                           Iconify(
                                             Bi.check_circle_fill,
-                                            color: Color(0xffFD6B06),
-                                            size: 18,
+                                            color: const Color(0xffFD6B06),
+                                            size: 19.sp,
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.only(left: 2.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 2.0),
                                             child: Text(
                                               'Xiaomi',
                                               style: TextStyle(
                                                   color: Colors.red,
                                                   fontFamily: 'Poppins',
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 12),
+                                                  fontSize: 10.sp),
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.only(left: 2.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 2.0),
                                             child: Text(
                                               'Sponsered',
                                               style: TextStyle(
-                                                  color: Color(0xff737373),
+                                                  color:
+                                                      const Color(0xff737373),
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 8),
+                                                  fontSize: 10.sp),
                                             ),
                                           ),
                                         ],
@@ -2703,9 +2572,9 @@ class _Home1State extends State<Home1> {
                                           padding: EdgeInsets.zero,
                                           constraints: const BoxConstraints(),
                                           onPressed: () {},
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.more_vert,
-                                            size: 17,
+                                            size: 19.sp,
                                           )),
                                     )
                                   ],
@@ -2715,8 +2584,8 @@ class _Home1State extends State<Home1> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     SizedBox(
-                                      height: 140,
-                                      width: 159,
+                                      height: 20.h,
+                                      width: 49.5.w,
                                       child: Image.network(
                                         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrOCwZkwuVGBWL0nU_CxxB2x2HtmxDAoeTfw&usqp=CAU',
                                         fit: BoxFit.cover,
@@ -2729,32 +2598,31 @@ class _Home1State extends State<Home1> {
                                       alignment: Alignment.bottomLeft,
                                       children: [
                                         SizedBox(
-                                          height: 140,
-                                          width: 159,
+                                          height: 20.h,
+                                          width: 49.5.w,
                                           child: Image.network(
                                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwTt3L2d15j1RMm4L7lpch4bZoOXUKSF9lw&usqp=CAU',
                                             fit: BoxFit.cover,
                                           ),
                                         ),
                                         Positioned(
-                                          top: 99,
+                                          top: 14.h,
                                           child: ElevatedButton(
                                             onPressed: () {},
                                             style: ElevatedButton.styleFrom(
                                                 elevation: 0,
-                                                minimumSize:
-                                                    const Size(159, 33),
+                                                minimumSize: Size(49.5.w, 5.h),
                                                 backgroundColor:
                                                     const Color(0xffFD6B06),
                                                 shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             5.0))),
-                                            child: const Text(
+                                            child: Text(
                                               "Shop Now",
                                               style: TextStyle(
                                                   color: Colors.white,
-                                                  fontSize: 12,
+                                                  fontSize: 12.sp,
                                                   fontFamily: 'Poppins',
                                                   fontWeight: FontWeight.w900),
                                             ),

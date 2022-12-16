@@ -7,6 +7,7 @@ import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_application_1/homepage/ads.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
+import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_application_1/homepage/permissionset.dart';
 import 'package:flutter_application_1/homepage/profile_acitvity.dart';
@@ -403,7 +404,7 @@ class ProfileSelf extends StatefulWidget {
                     ),
                     SizedBox(
                       width: double.infinity,
-                       height: 6.h,
+                      height: 6.h,
                       child: ElevatedButton(
                         onPressed: () {
                           /*   Navigator.push(
@@ -608,7 +609,7 @@ class ProfileSelf extends StatefulWidget {
                       ),
                       InkWell(
                         onTap: () {
-                             Navigator.push(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const MonetizeCheck()),
@@ -1991,418 +1992,431 @@ class ProfileSelf extends StatefulWidget {
                       InkWell(
                         onTap: () {
                           showModalBottomSheet(
-                          isScrollControlled: true,
-                          shape: const RoundedRectangleBorder(
-                            // <-- SEE HERE
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(20.0),
-                            ),
-                          ),
-                          context: context,
-                          builder: (BuildContext context) {
-                            return DefaultTabController(
-                              length: 2,
-                              child: StatefulBuilder(builder:
-                                  (BuildContext context, StateSetter setState) {
-                                return Stack(
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                              isScrollControlled: true,
+                              shape: const RoundedRectangleBorder(
+                                // <-- SEE HERE
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(20.0),
+                                ),
+                              ),
+                              context: context,
+                              builder: (BuildContext context) {
+                                return DefaultTabController(
+                                  length: 2,
+                                  child: StatefulBuilder(builder:
+                                      (BuildContext context,
+                                          StateSetter setState) {
+                                    return Stack(
+                                      clipBehavior: Clip.none,
+                                      children: [
+                                        Column(
+                                            mainAxisSize: MainAxisSize.min,
                                             children: [
+                                              SizedBox(
+                                                height: height * 0.01,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                        color: const Color(
+                                                            0xffE2E2E2),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8)),
+                                                    height: 5,
+                                                    width: 100,
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: height * 0.01,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  IconButton(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              0),
+                                                      constraints:
+                                                          const BoxConstraints(),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                      icon: const Icon(
+                                                        Icons.arrow_back,
+                                                        color:
+                                                            primaryColorOfApp,
+                                                      )),
+                                                  SizedBox(
+                                                    width: width * 0.01,
+                                                  ),
+                                                  const Text(
+                                                    'Digital Collections',
+                                                    style: TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xff333333),
+                                                        /*     fontWeight:
+                                                        FontWeight.bold, */
+                                                        fontSize: 15),
+                                                  ),
+                                                ],
+                                              ),
+                                              const Divider(),
+                                              SizedBox(
+                                                height: height * 0.03,
+                                              ),
                                               Container(
                                                 decoration: BoxDecoration(
                                                     color:
                                                         const Color(0xffE2E2E2),
+                                                    shape: BoxShape.rectangle,
+                                                    border: Border.all(
+                                                        width: 0.5,
+                                                        color: const Color(
+                                                            0xffE2E2E2)),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8)),
-                                                height: 5,
-                                                width: 100,
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: height * 0.01,
-                                          ),
-                                          Row(
-                                            children: [
-                                              IconButton(
-                                                  padding:
-                                                      const EdgeInsets.all(0),
-                                                  constraints:
-                                                      const BoxConstraints(),
-                                                  onPressed: () {
-                                                    Navigator.of(context).pop();
-                                                  },
-                                                  icon: const Icon(
-                                                    Icons.arrow_back,
-                                                    color: primaryColorOfApp,
-                                                  )),
-                                              SizedBox(
-                                                width: width * 0.01,
-                                              ),
-                                              const Text(
-                                                'Digital Collections',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    color: Color(0xff333333),
-                                                    /*     fontWeight:
-                                                        FontWeight.bold, */
-                                                    fontSize: 15),
-                                              ),
-                                            ],
-                                          ),
-                                          const Divider(),
-                                          SizedBox(
-                                            height: height * 0.03,
-                                          ),
-                                          Container(
-                                            decoration: BoxDecoration(
-                                                color: const Color(0xffE2E2E2),
-                                                shape: BoxShape.rectangle,
-                                                border: Border.all(
-                                                    width: 0.5,
-                                                    color: const Color(
-                                                        0xffE2E2E2)),
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
-                                            child: const TabBar(
-                                              indicatorWeight: 0.1,
-                                              automaticIndicatorColorAdjustment:
-                                                  false,
-                                              /* isScrollable: true, */
-                                              indicatorSize:
-                                                  TabBarIndicatorSize.label,
-                                              indicatorPadding: EdgeInsets.zero,
-                                              labelColor: primaryColorOfApp,
-                                              unselectedLabelColor:
-                                                  Color(0xff333333),
-                                              tabs: [
-                                                Tab(
-                                                  text: 'Received',
-                                                ),
-                                                Tab(
-                                                  text: 'Sent',
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 390,
-                                            child: TabBarView(children: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 16.0),
-                                                child: Column(
-                                                  children: [
-                                                    SizedBox(
-                                                      height: height * 0.01,
+                                                            10)),
+                                                child: const TabBar(
+                                                  indicatorWeight: 0.1,
+                                                  automaticIndicatorColorAdjustment:
+                                                      false,
+                                                  /* isScrollable: true, */
+                                                  indicatorSize:
+                                                      TabBarIndicatorSize.label,
+                                                  indicatorPadding:
+                                                      EdgeInsets.zero,
+                                                  labelColor: primaryColorOfApp,
+                                                  unselectedLabelColor:
+                                                      Color(0xff333333),
+                                                  tabs: [
+                                                    Tab(
+                                                      text: 'Received',
                                                     ),
-                                                    InkWell(
-                                                      onTap: () {
-                                                        showScratchCard(context);
-                                                      },
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Row(
-                                                            children: [
-                                                              SvgPicture.asset(
-                                                                'assets/awardicon.svg',
-                                                                height: 18,
-                                                                width: 18,
-                                                              ),
-                                                              SizedBox(
-                                                                width: width *
-                                                                    0.01,
-                                                              ),
-                                                              RichText(
-                                                                text:
-                                                                    const TextSpan(
-                                                                  text:
-                                                                      'Rewards from',
-                                                                  style: TextStyle(
-                                                                      color:
-                                                                          customTextColor,
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          10),
-                                                                  children: <
-                                                                      TextSpan>[
-                                                                    TextSpan(
-                                                                        text:
-                                                                            'myttube’s',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          color:
-                                                                              primaryColorOfApp,
-                                                                          fontFamily:
-                                                                              'Satisfy',
-                                                                        )),
-                                                                    TextSpan(
-                                                                        text:
-                                                                            'Sponshored partners',
-                                                                        style: TextStyle(
-                                                                            color:
-                                                                                customTextColor,
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            fontSize:
-                                                                                10)),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          const Iconify(
-                                                            Eva.arrow_right_fill,
-                                                            size: 15,
-                                                            color: Color(
-                                                                0xff333333),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: height * 0.03,
-                                                    ),
-                                                    InkWell(
-                                                      onTap: () {
-                                                        showRecievedGift(context);
-                                                      },
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Row(
-                                                            children: [
-                                                              SvgPicture.asset(
-                                                                'assets/gifticon1.svg',
-                                                                height: 20,
-                                                                width: 20,
-                                                              ),
-                                                              SizedBox(
-                                                                width: width *
-                                                                    0.01,
-                                                              ),
-                                                              const Text(
-                                                                'Received Gift from Fans/Followers',
-                                                                style: TextStyle(
-                                                                    fontFamily: 'Poppins',
-                                                                    color: Color(0xff333333),
-                                                                    /*     fontWeight:
-                                                                FontWeight.bold, */
-                                                                    fontSize: 10),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          const Iconify(
-                                                            Eva.arrow_right_fill,
-                                                            size: 15,
-                                                            color: Color(
-                                                                0xff333333),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: height * 0.03,
-                                                    ),
-                                                    InkWell(
-                                                      onTap: () {
-                                                        showCollectedPoints(context);
-                                                      },
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Row(
-                                                            children: [
-                                                              SvgPicture.asset(
-                                                                'assets/digitalicon.svg',
-                                                                height: 15,
-                                                                width: 15,
-                                                                color:
-                                                                    primaryColorOfApp,
-                                                              ),
-                                                              SizedBox(
-                                                                width: width *
-                                                                    0.01,
-                                                              ),
-                                                              RichText(
-                                                                text:
-                                                                    const TextSpan(
-                                                                  text:
-                                                                      'Collect Points from',
-                                                                  style: TextStyle(
-                                                                      color:
-                                                                          customTextColor,
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          10),
-                                                                  children: <
-                                                                      TextSpan>[
-                                                                    TextSpan(
-                                                                        text:
-                                                                            'myttube’s',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          color:
-                                                                              primaryColorOfApp,
-                                                                          fontFamily:
-                                                                              'Satisfy',
-                                                                        )),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          const Iconify(
-                                                            Eva.arrow_right_fill,
-                                                            size: 15,
-                                                            color: Color(
-                                                                0xff333333),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: height * 0.05,
-                                                    ),
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        const Text(
-                                                          'Invite your friends\n Win surprise gift',
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color: Color(
-                                                                  0xff333333),
-                                                              /*     fontWeight:
-                                                              FontWeight.bold, */
-                                                              fontSize: 10),
-                                                        ),
-                                                        OutlinedButton.icon(
-                                                          icon:
-                                                              SvgPicture.asset(
-                                                            'assets/inviteicon.svg',
-                                                            /*     height: 18,
-                                                            width: 18, */
-                                                          ),
-                                                          onPressed: () {},
-                                                          style: OutlinedButton
-                                                              .styleFrom(
-                                                                  minimumSize:
-                                                                      const Size(
-                                                                          140,
-                                                                          35),
-                                                                  /*    minimumSize: Size(32, 30), */
-                                                                  elevation: 0,
-                                                                  /* padding: EdgeInsets.zero, */
-                                                                  tapTargetSize:
-                                                                      MaterialTapTargetSize
-                                                                          .shrinkWrap,
-                                                                  side:
-                                                                      const BorderSide(
-                                                                    color: Color(
-                                                                        0xff0087FF),
-                                                                  ),
-                                                                  /*  padding:
-                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                                                                  foregroundColor:
-                                                                      primaryColorOfApp,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .white,
-                                                                  shape: RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              5.0))),
-                                                          label: const Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    1.0),
-                                                            child: Text(
-                                                              "Invite",
-                                                              style: TextStyle(
-                                                                  fontSize: 12,
-                                                                  fontFamily:
-                                                                      'Poppins'),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    SvgPicture.asset(
-                                                      'assets/multidigi.svg',
+                                                    Tab(
+                                                      text: 'Sent',
                                                     ),
                                                   ],
                                                 ),
                                               ),
-                                              Column(
-                                                children: [
-                                                  Row(
+                                              SizedBox(
+                                                height: 390,
+                                                child: TabBarView(children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 16.0),
+                                                    child: Column(
+                                                      children: [
+                                                        SizedBox(
+                                                          height: height * 0.01,
+                                                        ),
+                                                        InkWell(
+                                                          onTap: () {
+                                                            showScratchCard(
+                                                                context);
+                                                          },
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                children: [
+                                                                  SvgPicture
+                                                                      .asset(
+                                                                    'assets/awardicon.svg',
+                                                                    height: 18,
+                                                                    width: 18,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width:
+                                                                        width *
+                                                                            0.01,
+                                                                  ),
+                                                                  RichText(
+                                                                    text:
+                                                                        const TextSpan(
+                                                                      text:
+                                                                          'Rewards from',
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                              customTextColor,
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontSize:
+                                                                              10),
+                                                                      children: <
+                                                                          TextSpan>[
+                                                                        TextSpan(
+                                                                            text:
+                                                                                'myttube’s',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: primaryColorOfApp,
+                                                                              fontFamily: 'Satisfy',
+                                                                            )),
+                                                                        TextSpan(
+                                                                            text:
+                                                                                'Sponshored partners',
+                                                                            style: TextStyle(
+                                                                                color: customTextColor,
+                                                                                fontFamily: 'Poppins',
+                                                                                fontSize: 10)),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              const Iconify(
+                                                                Eva.arrow_right_fill,
+                                                                size: 15,
+                                                                color: Color(
+                                                                    0xff333333),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: height * 0.03,
+                                                        ),
+                                                        InkWell(
+                                                          onTap: () {
+                                                            showRecievedGift(
+                                                                context);
+                                                          },
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                children: [
+                                                                  SvgPicture
+                                                                      .asset(
+                                                                    'assets/gifticon1.svg',
+                                                                    height: 20,
+                                                                    width: 20,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width:
+                                                                        width *
+                                                                            0.01,
+                                                                  ),
+                                                                  const Text(
+                                                                    'Received Gift from Fans/Followers',
+                                                                    style: TextStyle(
+                                                                        fontFamily: 'Poppins',
+                                                                        color: Color(0xff333333),
+                                                                        /*     fontWeight:
+                                                                FontWeight.bold, */
+                                                                        fontSize: 10),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              const Iconify(
+                                                                Eva.arrow_right_fill,
+                                                                size: 15,
+                                                                color: Color(
+                                                                    0xff333333),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: height * 0.03,
+                                                        ),
+                                                        InkWell(
+                                                          onTap: () {
+                                                            showCollectedPoints(
+                                                                context);
+                                                          },
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                children: [
+                                                                  SvgPicture
+                                                                      .asset(
+                                                                    'assets/digitalicon.svg',
+                                                                    height: 15,
+                                                                    width: 15,
+                                                                    color:
+                                                                        primaryColorOfApp,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width:
+                                                                        width *
+                                                                            0.01,
+                                                                  ),
+                                                                  RichText(
+                                                                    text:
+                                                                        const TextSpan(
+                                                                      text:
+                                                                          'Collect Points from',
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                              customTextColor,
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          fontSize:
+                                                                              10),
+                                                                      children: <
+                                                                          TextSpan>[
+                                                                        TextSpan(
+                                                                            text:
+                                                                                'myttube’s',
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: primaryColorOfApp,
+                                                                              fontFamily: 'Satisfy',
+                                                                            )),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              const Iconify(
+                                                                Eva.arrow_right_fill,
+                                                                size: 15,
+                                                                color: Color(
+                                                                    0xff333333),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: height * 0.05,
+                                                        ),
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceEvenly,
+                                                          children: [
+                                                            const Text(
+                                                              'Invite your friends\n Win surprise gift',
+                                                              style: TextStyle(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Color(
+                                                                      0xff333333),
+                                                                  /*     fontWeight:
+                                                              FontWeight.bold, */
+                                                                  fontSize: 10),
+                                                            ),
+                                                            OutlinedButton.icon(
+                                                              icon: SvgPicture
+                                                                  .asset(
+                                                                'assets/inviteicon.svg',
+                                                                /*     height: 18,
+                                                            width: 18, */
+                                                              ),
+                                                              onPressed: () {},
+                                                              style: OutlinedButton
+                                                                  .styleFrom(
+                                                                      minimumSize:
+                                                                          const Size(140,
+                                                                              35),
+                                                                      /*    minimumSize: Size(32, 30), */
+                                                                      elevation:
+                                                                          0,
+                                                                      /* padding: EdgeInsets.zero, */
+                                                                      tapTargetSize:
+                                                                          MaterialTapTargetSize
+                                                                              .shrinkWrap,
+                                                                      side:
+                                                                          const BorderSide(
+                                                                        color: Color(
+                                                                            0xff0087FF),
+                                                                      ),
+                                                                      /*  padding:
+                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
+                                                                      foregroundColor:
+                                                                          primaryColorOfApp,
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .white,
+                                                                      shape: RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(5.0))),
+                                                              label:
+                                                                  const Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            1.0),
+                                                                child: Text(
+                                                                  "Invite",
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          12,
+                                                                      fontFamily:
+                                                                          'Poppins'),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        SvgPicture.asset(
+                                                          'assets/multidigi.svg',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Column(
                                                     children: [
-                                                      SvgPicture.asset(
-                                                        'assets/awardicon.svg',
-                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          SvgPicture.asset(
+                                                            'assets/awardicon.svg',
+                                                          ),
+                                                        ],
+                                                      )
                                                     ],
-                                                  )
-                                                ],
+                                                  ),
+                                                ]),
                                               ),
                                             ]),
-                                          ),
-                                        ]),
-                                    Positioned.fill(
-                                        top: -36,
-                                        child: Align(
-                                          alignment: Alignment.topCenter,
-                                          child: InkWell(
-                                            onTap: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: Container(
-                                              /*   width: 45,
+                                        Positioned.fill(
+                                            top: -36,
+                                            child: Align(
+                                              alignment: Alignment.topCenter,
+                                              child: InkWell(
+                                                onTap: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Container(
+                                                  /*   width: 45,
                                     height: 45, */
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white,
-                                                    width: 2),
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: const Padding(
-                                                padding: EdgeInsets.all(4.0),
-                                                child: Icon(
-                                                  Icons.close,
-                                                  color: Colors.white,
+                                                  decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                        color: Colors.white,
+                                                        width: 2),
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: const Padding(
+                                                    padding:
+                                                        EdgeInsets.all(4.0),
+                                                    child: Icon(
+                                                      Icons.close,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ),
-                                        ))
-                                  ],
+                                            ))
+                                      ],
+                                    );
+                                  }),
                                 );
-                              }),
-                            );
-                          });
+                              });
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -2752,541 +2766,147 @@ class ProfileSelf extends StatefulWidget {
   /* */
 }
 
-class _ProfileSelfState extends State<ProfileSelf> {
-  final GetImage getkar = Get.put(GetImage());
-
-  buildeditmainpage(context) {
-    Size size;
-    double height, width;
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
-    return showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: Colors.white,
-        shape: const RoundedRectangleBorder(
-          // <-- SEE HERE
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20.0),
-          ),
+final GetImage getkar = Get.put(GetImage());
+buildbutton(context) {
+  Size size;
+  double height, width;
+  size = MediaQuery.of(context).size;
+  height = size.height;
+  width = size.width;
+  return showModalBottomSheet(
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        // <-- SEE HERE
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20.0),
         ),
-        context: context,
-        builder: (BuildContext context) {
-          return StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
-            return Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    SizedBox(
-                      height: height * 0.01,
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(builder: (context, setState) {
+          return Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Container(
+                      color: const Color(0xffE2E2E2),
+                      height: 5,
+                      width: 70,
                     ),
-                    Row(
+                  ),
+                  SizedBox(
+                    height: height * 0.02,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 28.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         IconButton(
-                            padding: EdgeInsets.zero,
+                            padding: const EdgeInsets.all(0),
                             constraints: const BoxConstraints(),
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
                             icon: const Icon(
                               Icons.arrow_back,
-                              size: 25,
                               color: primaryColorOfApp,
                             )),
-                        const Text(
-                          'Edit profile',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.bold),
+                        SizedBox(
+                          width: width * 0.01,
                         ),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            GetBuilder<GetImage>(builder: (controller) {
-                              return Container(
-                                child: getkar.image != null
-                                    ? CircleAvatar(
-                                        radius: 25,
-                                        backgroundColor: Colors.blue,
-                                        child: CircleAvatar(
-                                          radius: 23,
-                                          backgroundColor: Colors.white,
-                                          child: CircleAvatar(
-                                            radius: 21,
-                                            backgroundColor:
-                                                Colors.grey.shade800,
-                                            backgroundImage:
-                                                FileImage(getkar.image!),
-                                          ),
-                                        ),
-                                      )
-                                    // Image. file
-                                    : const Icon(
-                                        Icons.account_circle,
-                                        size: 50,
-                                        color: Color(0xffc4c4c4),
-                                      ),
-                              );
-                            }),
-                            SizedBox(
-                              height: 18,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  TextButton(
-                                      style: TextButton.styleFrom(
-                                          padding: EdgeInsets.zero,
-                                          tapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap),
-                                      onPressed: () {
-                                        print('rashid');
-                                        /*   getkar.pickforprofile(
-                                            ImageSource.gallery); */
-                                        buildbutton(context);
-                                      },
-                                      child: btnchng
-                                          ? Text(
-                                              'upload profile image',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.04,
-                                                  color:
-                                                      const Color(0xff0087FF)),
-                                            )
-                                          : Text(
-                                              'change profile image',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.04,
-                                                  color:
-                                                      const Color(0xff0087FF)),
-                                            ))
-                                ],
-                              ),
-                            ),
-                          ],
+                        const Text(
+                          'Profile Photo',
+                          style: TextStyle(
+                              color: Color(0xff333333),
+                              fontSize: 15,
+                              fontFamily: 'Poppins'),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      /* color: Colors.red, */
-                      height: 48,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 40,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(5)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: SizedBox(
-                                  height: 40,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 18.0, bottom: 3),
-                                    child: TextFormField(
-                                        enabled: username,
-                                        decoration: InputDecoration(
-                                          labelText: username ? '' : '',
-                                          suffixIcon:
-                                              const Icon(Icons.check_circle),
-                                          border: InputBorder.none,
-                                        )),
-                                  )),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: 10,
-                            width: 70,
-                            height: 10,
-                            child: Container(
-                              /*   width: 200,
-                  height: 150, */
-                              color: Colors.white,
-                              child: const Text(
-                                'Your Username',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 12,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          cancel
-                              ? TextButton(
-                                  style: TextButton.styleFrom(
-                                      /* minimumSize: Size(100, 5), */
-                                      elevation: 0,
-                                      visualDensity:
-                                          const VisualDensity(vertical: -4),
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap),
-                                  onPressed: () {
-                                    setState(() {
-                                      username = false;
-                                      cancel = false;
-                                    });
-                                  },
-                                  child: const Text('cancel?',
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          color: primaryColorOfApp,
-                                          fontSize: 10)),
+                  ),
+                  const Divider(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      GetBuilder<GetImage>(builder: (controller) {
+                        return Container(
+                          child: getkar.image != null
+                              ? CircleAvatar(
+                                  radius: 39,
+                                  backgroundColor: primaryColorOfApp,
+                                  child: CircleAvatar(
+                                      radius: 37,
+                                      backgroundColor: Colors.white,
+                                      child: CircleAvatar(
+                                        radius: 35,
+                                        backgroundColor: Colors.grey.shade800,
+                                        backgroundImage:
+                                            FileImage(getkar.image!),
+                                      )),
                                 )
-                              : TextButton(
-                                  style: TextButton.styleFrom(
-                                      /* minimumSize: Size(100, 5), */
-                                      elevation: 0,
-                                      visualDensity:
-                                          const VisualDensity(vertical: -4),
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap),
-                                  onPressed: () {
-                                    setState(() {
-                                      username = true;
-                                      cancel = true;
-                                    });
-                                  },
-                                  child: const Text('Change?',
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          color: primaryColorOfApp,
-                                          fontSize: 10)),
+                              // Image. file
+                              : const CircleAvatar(
+                                  radius: 35,
+                                  backgroundColor: Color(0xffc4c4c4),
+                                  child: CircleAvatar(
+                                      radius: 32,
+                                      backgroundColor: Colors.white,
+                                      child: Icon(
+                                        Icons.account_circle,
+                                        size: 64,
+                                        color: Color(0xffc4c4c4),
+                                      )),
                                 ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      /* color: Colors.red, */
-                      height: 48,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 40,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(5)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: SizedBox(
-                                  height: 40,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 18.0, bottom: 3),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(
-                                          width: 210,
-                                          child: TextFormField(
-                                              enabled: fullname,
-                                              decoration: const InputDecoration(
-                                                labelText: '',
-                                                border: InputBorder.none,
-                                              )),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 22.0),
-                                          child: Container(
-                                            child: full1
-                                                ? IconButton(
-                                                    padding:
-                                                        const EdgeInsets.all(0),
-                                                    constraints:
-                                                        const BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        fullname = false;
-                                                        full1 = false;
-                                                      });
-                                                    },
-                                                    icon: const Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    ))
-                                                : IconButton(
-                                                    padding:
-                                                        const EdgeInsets.all(0),
-                                                    constraints:
-                                                        const BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        fullname = true;
-                                                        full1 = true;
-                                                      });
-                                                    },
-                                                    icon: const Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    )),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: 10,
-                            width: 70,
-                            height: 10,
-                            child: Container(
-                              color: Colors.white,
-                              child: const Text(
-                                'Your Full Name',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      /* color: Colors.red, */
-                      height: 48,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 40,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(5)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: SizedBox(
-                                  height: 40,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 18.0, bottom: 3),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(
-                                          width: 210,
-                                          child: TextFormField(
-                                              enabled: bio,
-                                              decoration: const InputDecoration(
-                                                labelText: '',
-                                                border: InputBorder.none,
-                                              )),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 22.0),
-                                          child: Container(
-                                            child: bio1
-                                                ? IconButton(
-                                                    padding:
-                                                        const EdgeInsets.all(0),
-                                                    constraints:
-                                                        const BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        bio = false;
-                                                        bio1 = false;
-                                                      });
-                                                    },
-                                                    icon: const Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    ))
-                                                : IconButton(
-                                                    padding:
-                                                        const EdgeInsets.all(0),
-                                                    constraints:
-                                                        const BoxConstraints(),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        bio = true;
-                                                        bio1 = true;
-                                                      });
-                                                    },
-                                                    icon: const Iconify(
-                                                      Bx.edit,
-                                                      color: Color(0xff737373),
-                                                    )),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: 10,
-                            width: 15,
-                            height: 10,
-                            child: Container(
-                              color: Colors.white,
-                              child: const Text(
-                                'Bio',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    GetBuilder<GetImage>(builder: (controller) {
-                      return Container(
-                        child: getkar.image1 != null
-                            ? Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.circular(5),
-                                  border: Border.all(
-                                      color: Colors.black, width: 0.1),
-                                ),
-                                height: 70,
-                                width: double.infinity,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5),
-                                  child: Image.file(
-                                    getkar.image1!,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ))
-                            // Image. file
-                            : Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.circular(5),
-                                  border: Border.all(
-                                      color: Colors.black, width: 0.5),
-                                ),
-                                height: 70,
-                                width: double.infinity,
-                                child: const Icon(
-                                  Icons.photo,
-                                  size: 50,
-                                  color: Color(0xffc4c4c4),
-                                )),
-                      );
-                    }),
-                    SizedBox(
-                      height: 19,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          TextButton(
-                              style: TextButton.styleFrom(
+                        );
+                      }),
+                      SizedBox(
+                        height: 16,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                                style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                   tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap),
-                              onPressed: () {
-                                showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    shape: const RoundedRectangleBorder(
-                                      // <-- SEE HERE
-                                      borderRadius: BorderRadius.vertical(
-                                        top: Radius.circular(20.0),
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      shape: const RoundedRectangleBorder(
+                                        // <-- SEE HERE
+                                        borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(20.0),
+                                        ),
                                       ),
-                                    ),
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return Stack(
-                                        clipBehavior: Clip.none,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 18.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                SizedBox(
-                                                  height: height * 0.01,
-                                                ),
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
-                                                  child: Container(
-                                                    color:
-                                                        const Color(0xffE2E2E2),
-                                                    height: 5,
-                                                    width: 80,
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return StatefulBuilder(
+                                            builder: (context, setState) {
+                                          return Stack(
+                                            clipBehavior: Clip.none,
+                                            children: [
+                                              Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  SizedBox(
+                                                    height: height * 0.04,
                                                   ),
-                                                ),
-                                                SizedBox(
-                                                  height: height * 0.02,
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 8.0),
-                                                  child: Row(
+                                                  Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    children: [
-                                                      IconButton(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .all(0),
-                                                          constraints:
-                                                              const BoxConstraints(),
-                                                          onPressed: () {
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                          },
-                                                          icon: const Icon(
-                                                            Icons.arrow_back,
-                                                            color:
-                                                                primaryColorOfApp,
-                                                          )),
-                                                      SizedBox(
-                                                        width: width * 0.04,
-                                                      ),
-                                                      const Text(
-                                                        'Cover Photo',
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: const [
+                                                      Text(
+                                                        'Are You Sure Remove This Photo?',
                                                         style: TextStyle(
                                                             color: Color(
                                                                 0xff333333),
@@ -3296,1135 +2916,261 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                       ),
                                                     ],
                                                   ),
-                                                ),
-                                                const Divider(),
-                                                GetBuilder<GetImage>(
-                                                    builder: (controller) {
-                                                  return Container(
-                                                    child: getkar.image1 != null
-                                                        ? Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5),
-                                                              border: Border.all(
-                                                                  color: Colors
-                                                                      .black,
-                                                                  width: 0.1),
-                                                            ),
-                                                            height: 70,
-                                                            width:
-                                                                double.infinity,
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5),
-                                                              child: Image.file(
-                                                                getkar.image1!,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ))
-                                                        // Image. file
-                                                        : Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5),
-                                                              border: Border.all(
-                                                                  color: Colors
-                                                                      .black,
-                                                                  width: 0.5),
-                                                            ),
-                                                            height: 70,
-                                                            width:
-                                                                double.infinity,
-                                                            child: const Icon(
-                                                              Icons.photo,
-                                                              size: 50,
-                                                              color: Color(
-                                                                  0xffc4c4c4),
-                                                            )),
-                                                  );
-                                                }),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    TextButton(
-                                                        onPressed: () {
-                                                          showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              shape:
-                                                                  const RoundedRectangleBorder(
-                                                                // <-- SEE HERE
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .vertical(
-                                                                  top: Radius
-                                                                      .circular(
-                                                                          20.0),
-                                                                ),
-                                                              ),
-                                                              context: context,
-                                                              builder:
-                                                                  (BuildContext
-                                                                      context) {
-                                                                return StatefulBuilder(
-                                                                    builder:
-                                                                        (context,
-                                                                            setState) {
-                                                                  return Stack(
-                                                                    clipBehavior:
-                                                                        Clip.none,
-                                                                    children: [
-                                                                      Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.min,
-                                                                        children: [
-                                                                          SizedBox(
-                                                                            height:
-                                                                                height * 0.04,
-                                                                          ),
-                                                                          Row(
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
-                                                                            children: const [
-                                                                              Text(
-                                                                                'Are You Sure Remove This Photo?',
-                                                                                style: TextStyle(color: Color(0xff333333), fontSize: 15, fontFamily: 'Poppins'),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                          SizedBox(
-                                                                            height:
-                                                                                height * 0.04,
-                                                                          ),
-                                                                          Row(
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceEvenly,
-                                                                            children: [
-                                                                              TextButton(
-                                                                                onPressed: () {
-                                                                                  Navigator.pop(context);
-                                                                                },
-                                                                                child: const Text(
-                                                                                  'Cancel',
-                                                                                  style: TextStyle(color: customTextColor, fontSize: 13, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
-                                                                                ),
-                                                                              ),
-                                                                              TextButton(
-                                                                                onPressed: () {
-                                                                                  getkar.removeImagebanner();
-                                                                                  Navigator.pop(context);
-                                                                                },
-                                                                                child: Row(
-                                                                                  children: const [
-                                                                                    Icon(
-                                                                                      Icons.delete,
-                                                                                      color: Color(0xffED1B24),
-                                                                                      size: 13,
-                                                                                    ),
-                                                                                    Text(
-                                                                                      'Remove',
-                                                                                      style: TextStyle(color: Color(0xffED1B24), fontSize: 13, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              )
-                                                                            ],
-                                                                          ),
-                                                                          SizedBox(
-                                                                            height:
-                                                                                height * 0.04,
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                      Positioned.fill(
-                                                                          top: -36,
-                                                                          child: Align(
-                                                                            alignment:
-                                                                                Alignment.topCenter,
-                                                                            child:
-                                                                                InkWell(
-                                                                              onTap: () {
-                                                                                Navigator.pop(context);
-                                                                              },
-                                                                              child: Container(
-                                                                                /*   width: 45,
-                                    height: 45, */
-                                                                                decoration: BoxDecoration(
-                                                                                  border: Border.all(color: Colors.white, width: 2),
-                                                                                  shape: BoxShape.circle,
-                                                                                ),
-                                                                                child: const Padding(
-                                                                                  padding: EdgeInsets.all(4.0),
-                                                                                  child: Icon(
-                                                                                    Icons.close,
-                                                                                    color: Colors.white,
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ))
-                                                                    ],
-                                                                  );
-                                                                });
-                                                              });
-                                                        },
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  right: 5.0),
-                                                          child: Row(
-                                                            children: const [
-                                                              Icon(
-                                                                Icons.delete,
-                                                                color: Color(
-                                                                    0xffED1B24),
-                                                                size: 13,
-                                                              ),
-                                                              Text(
-                                                                'Remove',
-                                                                style: TextStyle(
-                                                                    color: Color(
-                                                                        0xffED1B24),
-                                                                    fontSize:
-                                                                        13,
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ))
-                                                  ],
-                                                ),
-                                                const Divider(),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: const [
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                          left: 50.0),
-                                                      child: Text(
-                                                        'Change Your Cover Photo',
-                                                        style: TextStyle(
-                                                            color: Color(
-                                                                0xff333333),
-                                                            fontSize: 12,
-                                                            fontFamily:
-                                                                'Poppins'),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: height * 0.03,
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    Column(
-                                                      children: [
-                                                        RawMaterialButton(
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          constraints:
-                                                              const BoxConstraints(
-                                                                  minHeight: 45,
-                                                                  minWidth: 45),
-                                                          onPressed: () {
-                                                            getkar.pickforbanner(
-                                                                ImageSource
-                                                                    .camera);
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                            setState(() {
-                                                              btnchng = false;
-                                                            });
-                                                          },
-                                                          elevation: 0,
-                                                          fillColor:
-                                                              const Color(
-                                                                  0xffDADADA),
-                                                          /*  padding: EdgeInsets.all(15.0), */
-                                                          shape: const CircleBorder(
-                                                              /* side: BorderSide(
-                                                            width: 1,
-                                                            color: Color(0xff0087FF)) */
-                                                              ),
-                                                          child: const Iconify(
-                                                            AntDesign
-                                                                .camera_filled,
-                                                            color: Color(
-                                                                0xff0087FF),
-                                                            size: 25,
-                                                          ),
-                                                        ),
-                                                        const Text(
-                                                          'camera',
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color: Color(
-                                                                  0xff333333)),
-                                                        )
-                                                      ],
-                                                    ),
-                                                    Column(
-                                                      children: [
-                                                        RawMaterialButton(
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          constraints:
-                                                              const BoxConstraints(
-                                                                  minHeight: 45,
-                                                                  minWidth: 45),
-                                                          onPressed: () {
-                                                            getkar.pickforbanner(
-                                                                ImageSource
-                                                                    .gallery);
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                            setState(() {
-                                                              btnchng = false;
-                                                            });
-                                                          },
-                                                          elevation: 0,
-                                                          fillColor:
-                                                              const Color(
-                                                                  0xffDADADA),
-                                                          /*  padding: EdgeInsets.all(15.0), */
-                                                          shape: const CircleBorder(
-                                                              /* side: BorderSide(
-                                                            width: 1,
-                                                            color: Color(0xff0087FF)) */
-                                                              ),
-                                                          child: const Iconify(
-                                                            Heroicons
-                                                                .photo_20_solid,
-                                                            color: Color(
-                                                                0xff0087FF),
-                                                            size: 25,
-                                                          ),
-                                                        ),
-                                                        const Text(
-                                                          'gallery',
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color: Color(
-                                                                  0xff333333)),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: height * 0.1,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
-                                  height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: const Padding(
-                                                      padding:
-                                                          EdgeInsets.all(4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
+                                                  SizedBox(
+                                                    height: height * 0.04,
                                                   ),
-                                                ),
-                                              ))
-                                        ],
-                                      );
-                                    });
-                              },
-                              child: btnchng
-                                  ? Text(
-                                      'upload banner',
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: width * 0.04,
-                                          color: const Color(0xff0087FF)),
-                                    )
-                                  : Text(
-                                      'change banner',
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: width * 0.04,
-                                          color: const Color(0xff0087FF)),
-                                    ))
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: 140,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.black, width: 0.5),
-                          ),
-                          child: DropdownButtonHideUnderline(
-                            child: DropdownButton(
-                                hint: const Padding(
-                                  padding: EdgeInsets.only(left: 8.0),
-                                  child: Text(
-                                    'select city',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12,
-                                        color: Color(0xffC4C4C4)),
-                                  ),
-                                ),
-                                /*  isExpanded: true, */
-                                value: value,
-                                items: items
-                                    .map((item) => DropdownMenuItem(
-                                        value: item, child: Text(item)))
-                                    .toList(),
-                                onChanged: (value) {
-                                  setState(() {
-                                    this.value = value as String?;
-                                  });
-                                }),
-                          ),
-                        ),
-                        Container(
-                          width: 140,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.black, width: 0.5),
-                          ),
-                          child: DropdownButtonHideUnderline(
-                            child: DropdownButton(
-                                hint: const Padding(
-                                  padding: EdgeInsets.only(left: 8.0),
-                                  child: Text(
-                                    'select state',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12,
-                                        color: Color(0xffC4C4C4)),
-                                  ),
-                                ),
-                                /*  isExpanded: true, */
-                                value: value,
-                                items: items
-                                    .map((item) => DropdownMenuItem(
-                                        value: item, child: Text(item)))
-                                    .toList(),
-                                onChanged: (value) {
-                                  setState(() {
-                                    this.value = value as String?;
-                                  });
-                                }),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                      /*             color: Colors.red, */
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextButton(
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                /*     foregroundColor: const Color(0xff0087FF), */
-                              ),
-                              onPressed: () {
-                                widget.buildaddresspage(context);
-                              },
-                              child: const Text(
-                                'Add/Change Address',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12,
-                                  color: primaryColorOfApp,
-                                ),
-                              )),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ChangeInterest()),
-                          );
-                          /*   Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
-                        ); */
-                        },
-                        style: OutlinedButton.styleFrom(
-                            side: const BorderSide(
-                              color: Color(0xff0087FF),
-                            ),
-                            /*  padding: EdgeInsets.symmetric(
-                                          horizontal: 40.0, vertical: 20.0), */
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0))),
-                        child: const Text(
-                          "Change Interest",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: customTextColor,
-                              /*  fontSize: 18, */
-                              fontFamily: 'Poppins'),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                      /*    color: Colors.yellow, */
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Auto Play (scrolling)",
-                            style: TextStyle(
-                                color: const Color(0xff515253),
-                                fontFamily: 'Poppins',
-                                fontSize: width * 0.03),
-                          ),
-                          Switch.adaptive(
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              activeColor: primaryColorOfApp,
-                              value: valueofswitch,
-                              onChanged: (valueofswitch) {
-                                setState(() {
-                                  this.valueofswitch = valueofswitch;
-                                });
-                              })
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
-                    SizedBox(
-                      height: 15,
-                      /*              color: Colors.green, */
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Location always",
-                            style: TextStyle(
-                                color: const Color(0xff515253),
-                                fontFamily: 'Poppins',
-                                fontSize: width * 0.03),
-                          ),
-                          Switch.adaptive(
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              activeColor: primaryColorOfApp,
-                              value: valueofswitch,
-                              onChanged: (valueofswitch) {
-                                setState(() {
-                                  this.valueofswitch = valueofswitch;
-                                });
-                              })
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: const [
-                        Text('Go to my',
-                            style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 10)),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 16,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          TextButton(
-                            style: TextButton.styleFrom(
-                                minimumSize: const Size(100, 0),
-                                elevation: 0,
-                                /*       visualDensity: VisualDensity(vertical: -4), */
-                                padding: EdgeInsets.zero,
-                                tapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap),
-                            onPressed: () {
-                              /*               Navigator.of(context).pop(); */
-                              ProfileSelf().buildpersonalsetting(context);
-                            },
-                            child: const Text('Personal Information Settings',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: primaryColorOfApp,
-                                    fontSize: 13)),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        OutlinedButton(
-                          onPressed: () {},
-                          style: OutlinedButton.styleFrom(
-                              minimumSize: const Size(140, 35),
-                              /*    minimumSize: Size(32, 30), */
-                              elevation: 0,
-                              /* padding: EdgeInsets.zero, */
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              side: const BorderSide(
-                                color: Color(0xff0087FF),
-                              ),
-                              /*  padding:
-                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                          child: const Padding(
-                            padding: EdgeInsets.all(1.0),
-                            child: Text(
-                              "Cancel",
-                              style: TextStyle(
-                                  color: Color(0xff333333),
-                                  fontSize: 12,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                        /*  SizedBox(
-                                              width: width * 0.03,
-                                            ), */
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              minimumSize: const Size(135, 35),
-                              /*  minimumSize: Size(32, 30), */
-                              elevation: 0,
-                              /* padding: EdgeInsets.zero, */
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              /*   side: const BorderSide(
-                                                    color: Color(0xff0087FF),
-                                                  ), */
-                              /*   padding:
-                              EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                              backgroundColor: primaryColorOfApp,
-                              foregroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                          child: const Padding(
-                            padding: EdgeInsets.all(1.0),
-                            child: Text(
-                              "Save Changes",
-                              style: TextStyle(
-                                  fontSize: 12, fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.04,
-                    ),
-                  ]),
-                ),
-                Positioned.fill(
-                    left: 12,
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
-              ],
-            );
-          });
-        });
-  }
-
-  buildbutton(context) {
-    Size size;
-    double height, width;
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
-    return showModalBottomSheet(
-        isScrollControlled: true,
-        shape: const RoundedRectangleBorder(
-          // <-- SEE HERE
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20.0),
-          ),
-        ),
-        context: context,
-        builder: (BuildContext context) {
-          return StatefulBuilder(builder: (context, setState) {
-            return Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Container(
-                        color: const Color(0xffE2E2E2),
-                        height: 5,
-                        width: 70,
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 28.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          IconButton(
-                              padding: const EdgeInsets.all(0),
-                              constraints: const BoxConstraints(),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              icon: const Icon(
-                                Icons.arrow_back,
-                                color: primaryColorOfApp,
-                              )),
-                          SizedBox(
-                            width: width * 0.01,
-                          ),
-                          const Text(
-                            'Profile Photo',
-                            style: TextStyle(
-                                color: Color(0xff333333),
-                                fontSize: 15,
-                                fontFamily: 'Poppins'),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Divider(),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        GetBuilder<GetImage>(builder: (controller) {
-                          return Container(
-                            child: getkar.image != null
-                                ? CircleAvatar(
-                                    radius: 39,
-                                    backgroundColor: primaryColorOfApp,
-                                    child: CircleAvatar(
-                                        radius: 37,
-                                        backgroundColor: Colors.white,
-                                        child: CircleAvatar(
-                                          radius: 35,
-                                          backgroundColor: Colors.grey.shade800,
-                                          backgroundImage:
-                                              FileImage(getkar.image!),
-                                        )),
-                                  )
-                                // Image. file
-                                : const CircleAvatar(
-                                    radius: 35,
-                                    backgroundColor: Color(0xffc4c4c4),
-                                    child: CircleAvatar(
-                                        radius: 32,
-                                        backgroundColor: Colors.white,
-                                        child: Icon(
-                                          Icons.account_circle,
-                                          size: 64,
-                                          color: Color(0xffc4c4c4),
-                                        )),
-                                  ),
-                          );
-                        }),
-                        SizedBox(
-                          height: 16,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextButton(
-                                  style: TextButton.styleFrom(
-                                    padding: EdgeInsets.zero,
-                                    tapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                  ),
-                                  onPressed: () {
-                                    showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        shape: const RoundedRectangleBorder(
-                                          // <-- SEE HERE
-                                          borderRadius: BorderRadius.vertical(
-                                            top: Radius.circular(20.0),
-                                          ),
-                                        ),
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          return StatefulBuilder(
-                                              builder: (context, setState) {
-                                            return Stack(
-                                              clipBehavior: Clip.none,
-                                              children: [
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    SizedBox(
-                                                      height: height * 0.04,
-                                                    ),
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: const [
-                                                        Text(
-                                                          'Are You Sure Remove This Photo?',
-                                                          style: TextStyle(
-                                                              color: Color(
-                                                                  0xff333333),
-                                                              fontSize: 15,
-                                                              fontFamily:
-                                                                  'Poppins'),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    SizedBox(
-                                                      height: height * 0.04,
-                                                    ),
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: const Text(
-                                                            'Cancel',
-                                                            style: TextStyle(
-                                                                color:
-                                                                    customTextColor,
-                                                                fontSize: 13,
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                          ),
-                                                        ),
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            getkar
-                                                                .removeImage();
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: Row(
-                                                            children: const [
-                                                              Icon(
-                                                                Icons.delete,
-                                                                color: Color(
-                                                                    0xffED1B24),
-                                                                size: 13,
-                                                              ),
-                                                              Text(
-                                                                'Remove',
-                                                                style: TextStyle(
-                                                                    color: Color(
-                                                                        0xffED1B24),
-                                                                    fontSize:
-                                                                        13,
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                    SizedBox(
-                                                      height: height * 0.04,
-                                                    ),
-                                                  ],
-                                                ),
-                                                Positioned.fill(
-                                                    top: -36,
-                                                    child: Align(
-                                                      alignment:
-                                                          Alignment.topCenter,
-                                                      child: InkWell(
-                                                        onTap: () {
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      TextButton(
+                                                        onPressed: () {
                                                           Navigator.pop(
                                                               context);
                                                         },
-                                                        child: Container(
-                                                          /*   width: 45,
+                                                        child: const Text(
+                                                          'Cancel',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  customTextColor,
+                                                              fontSize: 13,
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600),
+                                                        ),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () {
+                                                          getkar.removeImage();
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        child: Row(
+                                                          children: const [
+                                                            Icon(
+                                                              Icons.delete,
+                                                              color: Color(
+                                                                  0xffED1B24),
+                                                              size: 13,
+                                                            ),
+                                                            Text(
+                                                              'Remove',
+                                                              style: TextStyle(
+                                                                  color: Color(
+                                                                      0xffED1B24),
+                                                                  fontSize: 13,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  SizedBox(
+                                                    height: height * 0.04,
+                                                  ),
+                                                ],
+                                              ),
+                                              Positioned.fill(
+                                                  top: -36,
+                                                  child: Align(
+                                                    alignment:
+                                                        Alignment.topCenter,
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        /*   width: 45,
                                     height: 45, */
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            border: Border.all(
-                                                                color: Colors
-                                                                    .white,
-                                                                width: 2),
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          child: const Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    4.0),
-                                                            child: Icon(
-                                                              Icons.close,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          border: Border.all(
                                                               color:
                                                                   Colors.white,
-                                                            ),
+                                                              width: 2),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: const Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  4.0),
+                                                          child: Icon(
+                                                            Icons.close,
+                                                            color: Colors.white,
                                                           ),
                                                         ),
                                                       ),
-                                                    ))
-                                              ],
-                                            );
-                                          });
+                                                    ),
+                                                  ))
+                                            ],
+                                          );
                                         });
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(right: 5.0),
-                                    child: Row(
-                                      children: const [
-                                        Icon(
-                                          Icons.delete,
-                                          color: Color(0xffED1B24),
-                                          size: 13,
-                                        ),
-                                        Text(
-                                          'Remove',
-                                          style: TextStyle(
-                                              color: Color(0xffED1B24),
-                                              fontSize: 13,
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      ],
-                                    ),
-                                  )),
-                            ],
+                                      });
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 5.0),
+                                  child: Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.delete,
+                                        color: Color(0xffED1B24),
+                                        size: 13,
+                                      ),
+                                      Text(
+                                        'Remove',
+                                        style: TextStyle(
+                                            color: Color(0xffED1B24),
+                                            fontSize: 13,
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                    ],
+                                  ),
+                                )),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  const Divider(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(left: 60.0),
+                        child: Text(
+                          'Change Your Profile Photo',
+                          style: TextStyle(
+                              color: Color(0xff333333),
+                              fontSize: 12,
+                              fontFamily: 'Poppins'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
+                  SizedBox(
+                    height: height * 0.03,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          RawMaterialButton(
+                            padding: EdgeInsets.zero,
+                            constraints: const BoxConstraints(
+                                minHeight: 45, minWidth: 45),
+                            onPressed: () {
+                              getkar.pickforprofile(ImageSource.camera);
+                              Navigator.of(context).pop();
+                              setState(() {});
+                            },
+                            elevation: 0,
+                            fillColor: const Color(0xffDADADA),
+                            shape: const CircleBorder(
+                                /* side: BorderSide(
+                                                                width: 1,
+                                                                color: Color(0xff0087FF)) */
+                                ),
+                            child: const Iconify(
+                              AntDesign.camera_filled,
+                              color: Color(0xff0087FF),
+                              size: 25,
+                            ),
                           ),
-                        )
-                      ],
-                    ),
-                    const Divider(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: const [
-                        Padding(
-                          padding: EdgeInsets.only(left: 60.0),
-                          child: Text(
-                            'Change Your Profile Photo',
+                          const Text(
+                            'camera',
                             style: TextStyle(
-                                color: Color(0xff333333),
-                                fontSize: 12,
-                                fontFamily: 'Poppins'),
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333)),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          RawMaterialButton(
+                            padding: EdgeInsets.zero,
+                            constraints: const BoxConstraints(
+                                minHeight: 45, minWidth: 45),
+                            onPressed: () {
+                              getkar.pickforprofile(ImageSource.gallery);
+                              Navigator.of(context).pop();
+                              setState(() {});
+                            },
+                            elevation: 0,
+                            fillColor: const Color(0xffDADADA),
+                            /*  padding: EdgeInsets.all(15.0), */
+                            shape: const CircleBorder(
+                                /* side: BorderSide(
+                                                                width: 1,
+                                                                color: Color(0xff0087FF)) */
+                                ),
+                            child: const Iconify(
+                              Heroicons.photo_20_solid,
+                              color: Color(0xff0087FF),
+                              size: 25,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Column(
-                          children: [
-                            RawMaterialButton(
-                              padding: EdgeInsets.zero,
-                              constraints: const BoxConstraints(
-                                  minHeight: 45, minWidth: 45),
-                              onPressed: () {
-                                getkar.pickforprofile(ImageSource.camera);
-                                Navigator.of(context).pop();
-                                setState(() {});
-                              },
-                              elevation: 0,
-                              fillColor: const Color(0xffDADADA),
-                              shape: const CircleBorder(
-                                  /* side: BorderSide(
-                                                                width: 1,
-                                                                color: Color(0xff0087FF)) */
-                                  ),
-                              child: const Iconify(
-                                AntDesign.camera_filled,
-                                color: Color(0xff0087FF),
-                                size: 25,
-                              ),
-                            ),
-                            const Text(
-                              'camera',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xff333333)),
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            RawMaterialButton(
-                              padding: EdgeInsets.zero,
-                              constraints: const BoxConstraints(
-                                  minHeight: 45, minWidth: 45),
-                              onPressed: () {
-                                getkar.pickforprofile(ImageSource.gallery);
-                                Navigator.of(context).pop();
-                                setState(() {});
-                              },
-                              elevation: 0,
-                              fillColor: const Color(0xffDADADA),
-                              /*  padding: EdgeInsets.all(15.0), */
-                              shape: const CircleBorder(
-                                  /* side: BorderSide(
-                                                                width: 1,
-                                                                color: Color(0xff0087FF)) */
-                                  ),
-                              child: const Iconify(
-                                Heroicons.photo_20_solid,
-                                color: Color(0xff0087FF),
-                                size: 25,
-                              ),
-                            ),
-                            const Text(
-                              'gallery',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xff333333)),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.1,
-                    ),
-                  ],
-                ),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
+                          const Text(
+                            'gallery',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333)),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: height * 0.1,
+                  ),
+                ],
+              ),
+              Positioned.fill(
+                  top: -36,
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        /*   width: 45,
                                     height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(4.0),
+                          child: Icon(
+                            Icons.close,
+                            color: Colors.white,
                           ),
                         ),
                       ),
-                    ))
-              ],
-            );
-          });
+                    ),
+                  ))
+            ],
+          );
         });
-  }
+      });
+}
+
+class _ProfileSelfState extends State<ProfileSelf> {
+  final GetImage getkar = Get.put(GetImage());
 
   var images = [
     'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
@@ -4870,33 +3616,50 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                     .min,
                                                             children: [
                                                               Row(
-                                                                mainAxisAlignment : MainAxisAlignment.center,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
                                                                 children: [
                                                                   Iconify(
                                                                     Bi.patch_check,
                                                                     color: Color(
-                                                                        0xff037F26),size: 30,
+                                                                        0xff037F26),
+                                                                    size: 30,
                                                                   ),
                                                                 ],
                                                               ),
                                                               Row(
-                                                                mainAxisAlignment : MainAxisAlignment.center,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
                                                                 children: [
-                                                                  Text('Verified',
-                                                                  style: TextStyle(
-                                                                    color: Color(0xff037F26),
-                                                                    fontFamily: 'Poppins',
-                                                                    fontSize: 15 ),),
+                                                                  Text(
+                                                                    'Verified',
+                                                                    style: TextStyle(
+                                                                        color: Color(
+                                                                            0xff037F26),
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            15),
+                                                                  ),
                                                                 ],
                                                               ),
                                                               Row(
-                                                                mainAxisAlignment : MainAxisAlignment.center,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
                                                                 children: [
-                                                                  Text('This is a private viewer’s profile,#continue.....content',
-                                                                  style: TextStyle(
-                                                                    color: customTextColor,
-                                                                    fontFamily: 'Poppins',
-                                                                    fontSize: 10 ),),
+                                                                  Text(
+                                                                    'This is a private viewer’s profile,#continue.....content',
+                                                                    style: TextStyle(
+                                                                        color:
+                                                                            customTextColor,
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            10),
+                                                                  ),
                                                                 ],
                                                               ),
                                                             ])),
@@ -5087,7 +3850,11 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       ),
                       OutlinedButton(
                         onPressed: () {
-                          buildeditmainpage(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EditProfilePage()),
+                          );
                         },
                         style: OutlinedButton.styleFrom(
                             minimumSize: const Size(90, 35),
