@@ -1,11 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/cil.dart';
 import 'package:iconify_flutter/icons/ion.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class History1 extends StatefulWidget {
   const History1({Key? key}) : super(key: key);
@@ -20,10 +19,9 @@ class _History1State extends State<History1> {
   @override
   Widget build(BuildContext context) {
     Size size;
-    double height, width;
+    double height;
     size = MediaQuery.of(context).size;
     height = size.height;
-    width = size.width;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -248,7 +246,7 @@ class _History1State extends State<History1> {
                                                             activeColor:
                                                                 primaryColorOfApp,
                                                             shape:
-                                                                CircleBorder(),
+                                                                const CircleBorder(),
                                                             materialTapTargetSize:
                                                                 MaterialTapTargetSize
                                                                     .shrinkWrap,
@@ -427,7 +425,7 @@ class _History1State extends State<History1> {
                                         ),
                                         IconButton(
                                             onPressed: () {},
-                                            icon: Iconify(
+                                            icon: const Iconify(
                                                 Ion.md_close_circle_outline)),
                                       ],
                                     );

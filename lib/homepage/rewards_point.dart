@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+// ignore: unused_import
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scratcher/scratcher.dart';
 
@@ -62,7 +63,7 @@ class _RewardsPointState extends State<RewardsPoint> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: [
+              children: const [
                 Text(
                   'How does it work?',
                   style: TextStyle(fontSize: 15, fontFamily: 'Poppins'),
@@ -90,12 +91,12 @@ class _RewardsPointState extends State<RewardsPoint> {
                     _index = index;
                   });
                 },
-                steps: [
+                steps: const [
                   Step(
-                    title: const Text('Step 1 title'),
-                    content: const Text(''),
+                    title: Text('Step 1 title'),
+                    content: Text(''),
                   ),
-                  const Step(
+                  Step(
                     title: Text('Step 2 title'),
                     content: Text('Content for Step 2'),
                   ),

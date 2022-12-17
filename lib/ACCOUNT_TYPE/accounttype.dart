@@ -65,7 +65,7 @@ class _AccountTypeState extends State<AccountType> {
                                 ),
                                 Iconify(
                                   Bxs.lock_alt,
-                                  color: Color(0xffE2E2E2),
+                                  color: const Color(0xffE2E2E2),
                                   size: 19.sp,
                                 ),
                                 SizedBox(

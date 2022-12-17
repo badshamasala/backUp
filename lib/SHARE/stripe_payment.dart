@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, duplicate_ignore
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -27,7 +29,7 @@ class _StripePaymentState extends State<StripePayment> {
                 print('zxzxxz');
                 await makePayment();
               },
-              child: Text('btn'))
+              child: const Text('btn'))
         ],
       ),
     );

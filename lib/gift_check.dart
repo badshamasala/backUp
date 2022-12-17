@@ -19,10 +19,8 @@ class _GiftCheckState extends State<GiftCheck> {
   Widget build(BuildContext context) {
     Size size;
     double height;
-    double width;
     size = MediaQuery.of(context).size;
     height = size.height;
-    width = size.height;
     return Scaffold(
       appBar: AppBar(
         title: const Text(''),
@@ -73,7 +71,7 @@ class _GiftCheckState extends State<GiftCheck> {
                                         height: height * 0.01,
                                       ),
                                       Row(
-                                        children: [
+                                        children: const [
                                         
                                          
                              Text(
@@ -305,7 +303,7 @@ class _GiftCheckState extends State<GiftCheck> {
                       });
                     });
               },
-              child: Text('btn'))
+              child: const Text('btn'))
         ],
       ),
     );

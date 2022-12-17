@@ -1,16 +1,15 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
-
 import 'package:flutter_application_1/GETX/smsautofill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:provider/provider.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
 class LstsCheckSms extends StatefulWidget {
@@ -24,13 +23,14 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
   String codeKiValue = '';
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     listenOtp();
   }
 
   void listenOtp() async {
-    await SmsAutoFill().listenForCode;
+    SmsAutoFill().listenForCode;
   }
 
   void submit() async {
@@ -60,8 +60,6 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    double height = size.height;
     return Scaffold(
       appBar: AppBar(
         title: const Text(''),
@@ -69,7 +67,7 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
             TextFormField(
@@ -157,7 +155,7 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
                 // do something
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             SizedBox(
@@ -189,7 +187,7 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
                         borderRadius: const UploadImage().radius())),
                 child: Text(
                   otplodaing ? 'Loading...' : "Continue",
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 15,
                       fontFamily: 'Poppins',
@@ -198,7 +196,7 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Padding(
@@ -223,9 +221,9 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
                   inactiveFillColor: Colors.white,
                   fieldHeight: 40,
                   fieldWidth: 40,
-                  activeFillColor: Color(0xffDFEEFC),
+                  activeFillColor: const Color(0xffDFEEFC),
                 ),
-                animationDuration: Duration(milliseconds: 300),
+                animationDuration: const Duration(milliseconds: 300),
                 backgroundColor: Colors.white,
                 enableActiveFill: true,
                 /* errorAnimationController: errorController,
@@ -244,7 +242,7 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             OtpTextField(
@@ -261,7 +259,7 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
               filled: true,
               margin: const EdgeInsets.only(right: 3.0),
               fieldWidth: 44,
-              fillColor: otpVariable ? Color(0xffDFEEFC) : Colors.white,
+              fillColor: otpVariable ? const Color(0xffDFEEFC) : Colors.white,
               borderWidth: 0.5,
               focusedBorderColor: primaryColorOfApp,
               numberOfFields: 6,
@@ -283,7 +281,7 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
                 }
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             /*   Obx(() => */ PinFieldAutoFill(
@@ -310,7 +308,7 @@ class _LstsCheckSmsState extends State<LstsCheckSms> {
                     } */
               },
             ) /* ) */,
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             SizedBox(

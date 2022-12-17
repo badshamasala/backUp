@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GETX/gettimer.dart';
-import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -58,7 +56,8 @@ class _LoginPageState extends State<LoginPage> {
 
   /* @override
   void dispose() {
-    // TODO: implement dispose
+   
+    
     super.dispose();
     usernameForPassword.dispose();
     username.dispose();
@@ -72,7 +71,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double height = size.height, width = size.width;
-    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     return SafeArea(
       child: Scaffold(
           /* appBar: AppBar(
@@ -205,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                                       width: 0.5)),
                               suffixIconConstraints: const BoxConstraints(),
                               suffixIcon: Padding(
-                                padding: EdgeInsets.only(right: 8.0),
+                                padding: const EdgeInsets.only(right: 8.0),
                                 child: GestureDetector(
                                   child: Icon(
                                       obscure
@@ -248,7 +246,7 @@ class _LoginPageState extends State<LoginPage> {
                                             clipBehavior: Clip.none,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsets.symmetric(
+                                                padding: const EdgeInsets.symmetric(
                                                     horizontal: 18.0),
                                                 child: Column(
                                                   mainAxisSize:
@@ -613,9 +611,9 @@ class _LoginPageState extends State<LoginPage> {
                                                                                                 inactiveFillColor: Colors.white,
                                                                                                 fieldHeight: 40,
                                                                                                 fieldWidth: 40,
-                                                                                                activeFillColor: Color(0xffDFEEFC),
+                                                                                                activeFillColor: const Color(0xffDFEEFC),
                                                                                               ),
-                                                                                              animationDuration: Duration(milliseconds: 300),
+                                                                                              animationDuration: const Duration(milliseconds: 300),
                                                                                               backgroundColor: Colors.transparent,
                                                                                               enableActiveFill: true,
                                                                                               /* errorAnimationController: errorController,

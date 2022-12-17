@@ -217,7 +217,7 @@ class _Slider1State extends State<Slider1> {
                       child: Text(
                         'or'.tr,
                         style: TextStyle(
-                            color: Color(0xff515253),
+                            color: const Color(0xff515253),
                             fontFamily: 'Poppins',
                             fontSize: 10.sp),
                       ),

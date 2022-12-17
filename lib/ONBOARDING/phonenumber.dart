@@ -8,7 +8,6 @@ import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -444,10 +443,10 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                           fieldHeight: 40,
                                                           fieldWidth: 40,
                                                           activeFillColor:
-                                                              Color(0xffDFEEFC),
+                                                              const Color(0xffDFEEFC),
                                                         ),
                                                         animationDuration:
-                                                            Duration(
+                                                            const Duration(
                                                                 milliseconds:
                                                                     300),
                                                         backgroundColor:
@@ -713,11 +712,11 @@ class _PhoneNumberState extends State<PhoneNumber> {
                         shape: RoundedRectangleBorder(
                             borderRadius: const UploadImage().radius())),
                     child: otplodaing
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             strokeWidth: 3,
                             color: Colors.white,
                           )
-                        : Text(
+                        : const Text(
                             "Continue",
                             style: TextStyle(
                                 color: Colors.white,

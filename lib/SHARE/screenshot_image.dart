@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:screenshot/screenshot.dart';
@@ -26,7 +28,7 @@ class _ScreenshotImageState extends State<ScreenshotImage> {
                 width: 100,
                 height: 100,
                 color: Colors.red,
-                child: Center(child: Text('text'))),
+                child: const Center(child: Text('text'))),
           ),
           ElevatedButton(
               onPressed: () {
@@ -39,7 +41,7 @@ class _ScreenshotImageState extends State<ScreenshotImage> {
                   print(onError);
                 }); */
               },
-              child: Text('btn'))
+              child: const Text('btn'))
         ],
       ),
     );
@@ -52,7 +54,7 @@ class _ScreenshotImageState extends State<ScreenshotImage> {
       context: context,
       builder: (context) => Scaffold(
         appBar: AppBar(
-          title: Text("Captured widget screenshot"),
+          title: const Text("Captured widget screenshot"),
         ),
         body: Center(
             child: capturedImage != null

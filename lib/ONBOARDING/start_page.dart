@@ -26,8 +26,6 @@ class _IntroScreenState extends State<IntroScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
 
     return Scaffold(
       body: Padding(
@@ -165,13 +163,13 @@ class _IntroScreenState extends State<IntroScreen> {
                   Text(
                     'myttube',
                     style: TextStyle(
-                      color: Color(0xff18346D),
+                      color: const Color(0xff18346D),
                       fontFamily: 'Satisfy',
                       fontSize: 20.sp,
                       shadows: [
                         Shadow(
                           blurRadius: 8.sp,
-                          color: Color(0xff0087FF),
+                          color: primaryColorOfApp,
                           offset: Offset(1.sp, 1.sp),
                         ),
                       ],

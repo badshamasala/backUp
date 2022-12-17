@@ -1,10 +1,9 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/homepage/chat_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/bi.dart';
 
 class FavoriteProfile extends StatefulWidget {
   const FavoriteProfile({Key? key}) : super(key: key);
@@ -36,17 +35,12 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
   ];
   @override
   Widget build(BuildContext context) {
-    Size size;
-    double height, width;
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          iconTheme: IconThemeData(
+          iconTheme: const IconThemeData(
             color: primaryColorOfApp, // <-- SEE HERE
           ),
           backgroundColor: Colors.transparent,

@@ -84,7 +84,7 @@ class _ExpandaleButtonCheckState extends State<ExpandaleButtonCheck> {
         children: [
           SpeedDialChild(
             child: Row(
-              children: [const Icon(Icons.accessibility), Text('aaa')],
+              children: const [Icon(Icons.accessibility), Text('aaa')],
             ),
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
@@ -100,7 +100,7 @@ class _ExpandaleButtonCheckState extends State<ExpandaleButtonCheck> {
             onTap: () => debugPrint('SECOND CHILD'),
           ),
           SpeedDialChild(
-            child: /* !rmicons ? const */ Icon(Icons.margin),
+            child: /* !rmicons ? const */ const Icon(Icons.margin),
             backgroundColor: Colors.indigo,
             foregroundColor: Colors.white,
             label: 'Show Snackbar',

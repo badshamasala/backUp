@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/chat_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
-import 'package:iconify_flutter/icons/charm.dart';
 
 class Chatmytube extends StatefulWidget {
   const Chatmytube({Key? key}) : super(key: key);
@@ -56,7 +54,7 @@ class _ChatmytubeState extends State<Chatmytube> {
                         height: height * 0.04,
                         width: width * 0.10,
                         fit: BoxFit.fitHeight),
-                    Text(
+                    const Text(
                       'Chat-box',
                       style: TextStyle(
                           fontFamily: 'Poppins',
@@ -72,7 +70,7 @@ class _ChatmytubeState extends State<Chatmytube> {
                       height: 25,
                       width: 25,
                     ),
-                    Text(
+                    const Text(
                       'Groups',
                       style: TextStyle(
                           fontFamily: 'Poppins',
@@ -91,7 +89,7 @@ class _ChatmytubeState extends State<Chatmytube> {
                   border:
                       Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                   borderRadius: BorderRadius.circular(10)),
-              child: TabBar(
+              child: const TabBar(
                 labelStyle: TextStyle(
                     fontFamily: 'Poppins',
                     color: customTextColor,
@@ -127,14 +125,14 @@ class _ChatmytubeState extends State<Chatmytube> {
                         padding: const EdgeInsets.only(top: 8.0),
                         child: TextFormField(
                             decoration: InputDecoration(
-                                prefixIcon: Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                prefixIcon: const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Icon(
                                     Icons.search,
                                     color: Color(0xffDADADA),
                                   ),
                                 ),
-                                prefixIconConstraints: BoxConstraints(),
+                                prefixIconConstraints: const BoxConstraints(),
                                 isDense: true,
                                 labelText: 'Search',
                                 errorStyle:
@@ -161,7 +159,7 @@ class _ChatmytubeState extends State<Chatmytube> {
                       Flexible(
                         child: ListView.separated(
                             shrinkWrap: true,
-                            separatorBuilder: (context, index) => Divider(
+                            separatorBuilder: (context, index) => const Divider(
                                   color: Colors.transparent,
                                   height: 8,
                                 ),
@@ -180,7 +178,7 @@ class _ChatmytubeState extends State<Chatmytube> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
-                                      color: Color(0xffF0F0F0),
+                                      color: const Color(0xffF0F0F0),
                                       shape: BoxShape.rectangle),
                                   child: Column(
                                     children: [
@@ -225,7 +223,7 @@ class _ChatmytubeState extends State<Chatmytube> {
                                                           ),
                                                         ],
                                                       ),
-                                                      Text(
+                                                      const Text(
                                                         'hello, how are you?',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -246,7 +244,7 @@ class _ChatmytubeState extends State<Chatmytube> {
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text(
+                                                  const Text(
                                                     '10:15 pm',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
@@ -296,7 +294,7 @@ class _ChatmytubeState extends State<Chatmytube> {
                             ),
                           ],
                         ),
-                        subtitle: Text(
+                        subtitle: const Text(
                           'hello, how are you?',
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -328,7 +326,7 @@ class _ChatmytubeState extends State<Chatmytube> {
                             ),
                           ],
                         ),
-                        subtitle: Text(
+                        subtitle: const Text(
                           'hello, how are you?',
                           style: TextStyle(
                               fontFamily: 'Poppins',

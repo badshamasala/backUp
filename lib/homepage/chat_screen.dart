@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,6 +26,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void initState() {
+    super.initState();
+    // ignore: todo
     // TODO: implement initState
 
     messagecontroller.addListener(() {
@@ -41,6 +45,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   void dispose() {
+    // ignore: todo
     // TODO: implement dispose
     super.dispose();
     messagecontroller.dispose();
@@ -51,7 +56,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
-        iconTheme: IconThemeData(color: primaryColorOfApp),
+        iconTheme: const IconThemeData(color: primaryColorOfApp),
         elevation: 0,
         backgroundColor: Colors.white,
         title: Row(children: [
@@ -80,7 +85,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                   ],
                 ),
-                Text(
+                const Text(
                   'Nanncy Jain',
                   style: TextStyle(
                       fontFamily: 'Poppins',
@@ -91,23 +96,23 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
         ]),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: Iconify(
               Ph.phone_fill,
               size: 20,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: Iconify(
               Eva.video_fill,
               size: 20,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: Iconify(
               Zondicons.dots_horizontal_triple,
               size: 20,
@@ -124,8 +129,8 @@ class _ChatScreenState extends State<ChatScreen> {
           autofocus: true,
           decoration: InputDecoration(
               filled: true,
-              fillColor: Color(0xffc4c4c4),
-              suffixIconConstraints: BoxConstraints(),
+              fillColor: const Color(0xffc4c4c4),
+              suffixIconConstraints: const BoxConstraints(),
               suffixIcon: SizedBox(
                 width: 115,
                 /*  color: Colors.red, */
@@ -135,10 +140,10 @@ class _ChatScreenState extends State<ChatScreen> {
                     Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Color(0xffe2e2e2), shape: BoxShape.circle),
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(5.0),
                           child: FaIcon(
                             FontAwesomeIcons.faceSmile,
                             color: Color.fromRGBO(0, 0, 0, 1),
@@ -150,10 +155,10 @@ class _ChatScreenState extends State<ChatScreen> {
                     Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Color(0xffe2e2e2), shape: BoxShape.circle),
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(5.0),
                           child: Iconify(
                             Ic.round_attach_file,
                             color: primaryColorOfApp,
@@ -165,10 +170,10 @@ class _ChatScreenState extends State<ChatScreen> {
                     Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Color(0xffe2e2e2), shape: BoxShape.circle),
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(5.0),
                           child: Iconify(
                             Mdi.camera,
                             size: 20,
@@ -183,10 +188,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   ? Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 8),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Color(0xffe2e2e2), shape: BoxShape.circle),
-                        child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                        child: const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: Iconify(
                               Ri.send_plane_fill,
                               color: primaryColorOfApp,
@@ -195,10 +200,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   : Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 8),
                       child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               color: Color(0xffe2e2e2), shape: BoxShape.circle),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: Icon(
                               Icons.mic,
                               size: 25,
@@ -208,7 +213,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
               isDense: true,
               hintText: 'message',
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                   color: Color(0xffe2e2e2),
                   fontFamily: 'Poppins',
                   fontSize: 12),
@@ -229,7 +234,7 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       ),
       body: Column(
-        children: [],
+        children: const [],
       ),
     );
   }

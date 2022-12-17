@@ -1,23 +1,13 @@
 // ignore_for_file: unused_field
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-import 'package:flutter_application_1/NEW_FOLDER/archive_check.dart';
 
-import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
-import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
-import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/chat_screen1.dart';
-import 'package:flutter_application_1/homepage/homepage.dart';
-import 'package:flutter_application_1/homepage/monetize_check.dart';
-import 'package:flutter_application_1/homepage/rewards_point.dart';
 import 'package:flutter_application_1/localestring.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -80,6 +70,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
             return Sizer(
               builder: (context, orientation, deviceType) {
               return GetMaterialApp(
+
                   themeMode: themeProvider.themeMode,
                   theme: AppTheme.lighttheme,
                   darkTheme: AppTheme.darktheme,

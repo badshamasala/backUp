@@ -13,7 +13,6 @@ import 'package:flutter_application_1/homepage/permissionset.dart';
 import 'package:flutter_application_1/homepage/profile_acitvity.dart';
 import 'package:flutter_application_1/homepage/self_profile.dart';
 import 'package:flutter_application_1/homepage/verification1.dart';
-import 'package:flutter_application_1/homepage/video_player.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
 
@@ -25,7 +24,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/bi.dart';
-import 'package:iconify_flutter/icons/bx.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
@@ -3576,7 +3574,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       '@Nanncyjain23',
                                       style: TextStyle(
                                           fontSize: 10,
@@ -3585,7 +3583,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                     ),
                                     IconButton(
                                       padding: EdgeInsets.zero,
-                                      constraints: BoxConstraints(),
+                                      constraints: const BoxConstraints(),
                                       onPressed: () {
                                         showModalBottomSheet(
                                             isScrollControlled: true,
@@ -3619,7 +3617,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                 mainAxisAlignment:
                                                                     MainAxisAlignment
                                                                         .center,
-                                                                children: [
+                                                                children: const [
                                                                   Iconify(
                                                                     Bi.patch_check,
                                                                     color: Color(
@@ -3632,7 +3630,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                 mainAxisAlignment:
                                                                     MainAxisAlignment
                                                                         .center,
-                                                                children: [
+                                                                children: const [
                                                                   Text(
                                                                     'Verified',
                                                                     style: TextStyle(
@@ -3649,7 +3647,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                                                 mainAxisAlignment:
                                                                     MainAxisAlignment
                                                                         .center,
-                                                                children: [
+                                                                children: const [
                                                                   Text(
                                                                     'This is a private viewer’s profile,#continue.....content',
                                                                     style: TextStyle(
@@ -3705,7 +3703,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                               });
                                             });
                                       },
-                                      icon: Iconify(
+                                      icon: const Iconify(
                                         Bi.patch_check,
                                         size: 15,
                                         color: primaryColorOfApp,

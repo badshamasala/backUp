@@ -1,13 +1,8 @@
-import 'dart:io';
-import 'dart:ui';
+// ignore_for_file: avoid_print
+
 
 import 'package:drishya_picker/drishya_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/ic.dart';
-import 'package:iconify_flutter/icons/material_symbols.dart';
 
 class NewImagePicker extends StatefulWidget {
   const NewImagePicker({Key? key}) : super(key: key);
@@ -21,6 +16,7 @@ class _NewImagePickerState extends State<NewImagePicker> {
   List selectedEntities = [];
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     controller = GalleryController();
@@ -43,12 +39,12 @@ class _NewImagePickerState extends State<NewImagePicker> {
                 print('Image ---- $pickedImage');
                 /*      File file = File(2,pickedImage) */
               },
-              child: Text('btn')),
+              child: const Text('btn')),
           GalleryViewField(
             onChanged: (entity, removed) {},
             onSubmitted: (list) {},
             child: Column(
-              children: [
+              children: const [
                 Icon(Icons.camera),
               ],
             ),

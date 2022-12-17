@@ -351,7 +351,7 @@ class _UploadPublicState extends State<UploadPublic> {
                   sizedbox(),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius:  UploadImage().radius(),
+                      borderRadius:  const UploadImage().radius(),
                       border: Border.all(color: Colors.black, width: 0.5),
                     ),
                     child: Padding(

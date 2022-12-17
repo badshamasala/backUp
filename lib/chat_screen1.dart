@@ -1,3 +1,5 @@
+// ignore_for_file: library_prefixes, avoid_print
+
 import 'package:flutter/material.dart';
 
 import 'package:intl/intl.dart';

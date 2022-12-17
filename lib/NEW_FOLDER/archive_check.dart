@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
@@ -36,17 +38,12 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
   ];
   @override
   Widget build(BuildContext context) {
-    Size size;
-    double height, width;
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          iconTheme: IconThemeData(
+          iconTheme: const IconThemeData(
             color: primaryColorOfApp, // <-- SEE HERE
           ),
           backgroundColor: Colors.transparent,
@@ -102,7 +99,7 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child:  ListView.separated(
                             shrinkWrap: true,
-                            separatorBuilder: (context, index) => Divider(
+                            separatorBuilder: (context, index) => const Divider(
                                   color: Colors.transparent,
                                   height: 8,
                                 ),
@@ -121,7 +118,7 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
-                                      color: Color(0xffF0F0F0),
+                                      color: const Color(0xffF0F0F0),
                                       shape: BoxShape.rectangle),
                                   child: Column(
                                     children: [
@@ -166,7 +163,7 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
                                                           ),
                                                         ],
                                                       ),
-                                                      Text(
+                                                      const Text(
                                                         'hello, how are you?',
                                                         style: TextStyle(
                                                             fontFamily:
@@ -187,7 +184,7 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text(
+                                                  const Text(
                                                     '10:15 pm',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',

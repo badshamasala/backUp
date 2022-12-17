@@ -5,11 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/people_profile.dart';
-
-import 'package:iconify_flutter/icons/ic.dart';
-import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/ri.dart';
-import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,7 +14,6 @@ import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/ooui.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../GOOGLE LOGIN/googleprovider.dart';
 
 class Home1 extends StatefulWidget {
   const Home1({super.key});
@@ -60,13 +55,11 @@ class _Home1State extends State<Home1> {
     controller = ScrollController();
   }
 
-  var _userGender = "";
   getmytubeGender() async {
     await SharedPref.getmytubeGender().then((value) {
       /*   print(_isLoggedIn); */
       if (value != null) {
         setState(() {
-          _userGender = value;
         });
       }
     });
@@ -1402,7 +1395,7 @@ class _Home1State extends State<Home1> {
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
                                                         color:
-                                                            Color(0xff0A8794),
+                                                            const Color(0xff0A8794),
                                                         fontSize: 10.sp,
                                                         fontWeight:
                                                             FontWeight.w900)),
@@ -1429,7 +1422,7 @@ class _Home1State extends State<Home1> {
                                           ],
                                         ),
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       OutlinedButton(
                                           style: OutlinedButton.styleFrom(
                                               side: const BorderSide(

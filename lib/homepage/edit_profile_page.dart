@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
@@ -116,13 +118,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           : Container(
                               decoration: BoxDecoration(
                                   border: Border.all(
-                                      width: 1, color: Color(0xffe2e2e2)),
+                                      width: 1, color: const Color(0xffe2e2e2)),
                                   color: Colors.white,
                                   shape: BoxShape.circle),
                               child: Icon(
                                 Icons.account_circle,
                                 size: 48.sp,
-                                color: Color(0xffe2e2e2),
+                                color: const Color(0xffe2e2e2),
                               ),
                             ),
                     );

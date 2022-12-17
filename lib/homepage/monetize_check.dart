@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/homepage/rewards_point.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
-import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 
 class MonetizeCheck extends StatefulWidget {
@@ -21,7 +19,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -292,7 +290,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
 }
  showScratchCard(context) {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return showModalBottomSheet(
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
@@ -489,7 +487,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                                           shape: BoxShape.rectangle,
                                           border: Border.all(
                                               width: 1,
-                                              color: Color(0xff7E7E7E)),
+                                              color: const Color(0xff7E7E7E)),
                                           borderRadius:
                                               BorderRadius.circular(5)),
                                       child: Padding(
@@ -497,7 +495,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: [
+                                          children: const [
                                             Text(
                                               '₹ 300 Flat OFF',
                                               style: TextStyle(
@@ -531,7 +529,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                                 );
                               },
                               separatorBuilder: (context, index) {
-                                return Divider(
+                                return const Divider(
                                   height: 10,
                                 );
                               },
@@ -634,7 +632,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Container(
                       decoration: BoxDecoration(
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                                 blurStyle: BlurStyle.outer,
                                 color: Colors.grey,
@@ -679,14 +677,14 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                                       width: 20,
                                     ),
                                     Row(
-                                      children: [
-                                        const Text(
+                                      children: const [
+                                        Text(
                                           'GIFT ',
                                           style: TextStyle(
                                               fontFamily: 'Poppins',
                                               fontSize: 10),
                                         ),
-                                        const Text(
+                                        Text(
                                           ' 5',
                                           style: TextStyle(
                                               color: primaryColorOfApp,
@@ -730,7 +728,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
-                                      children: [
+                                      children: const [
                                         Text(
                                           '\u{20B9} ',
                                           style: TextStyle(
@@ -748,7 +746,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                                     SizedBox(
                                       height: height * 0.02,
                                     ),
-                                    Text(
+                                    const Text(
                                       '*tax applicable & conditions apply',
                                       style: TextStyle(
                                           color: customTextColor,
@@ -865,7 +863,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                                               SizedBox(
                                                 width: width * 0.01,
                                               ),
-                                              Text(
+                                              const Text(
                                                 'Flipkart',
                                                 style: TextStyle(
                                                   fontSize: 8,
@@ -875,7 +873,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                                               SizedBox(
                                                 width: width * 0.01,
                                               ),
-                                              Text(
+                                              const Text(
                                                 '\u{20B9} 825.00',
                                                 style: TextStyle(
                                                   fontSize: 8,
@@ -934,7 +932,7 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
 
  showFlipkart(context) {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return showModalBottomSheet(
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
@@ -976,8 +974,8 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                         'Flipkart Gift Voucher ₹ 1000',
                         style: TextStyle(
                             color: primaryColorOfApp,
@@ -990,12 +988,12 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Iconify(
                           MaterialSymbols.error_circle_rounded,
                           color: primaryColorOfApp,
                         ),
-                        const Text(
+                        Text(
                           'Expires December 2022',
                           style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
                         ),
@@ -1006,8 +1004,8 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Text(
+                      children: const [
+                        Text(
                           'copy Code & Use at Brand Official Checkout page ',
                           style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
                         ),
@@ -1024,15 +1022,15 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                               shape: BoxShape.rectangle,
                               border: Border.all(
                                   width: 0.6, color: primaryColorOfApp),
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(5),
                                   bottomLeft: Radius.circular(5))),
                           child: Padding(
                             padding: const EdgeInsets.all(2.0),
                             child: Row(
-                              children: [
+                              children: const [
                                 Iconify(MaterialSymbols.content_copy_outline),
-                                const Text(
+                                Text(
                                   'FLIPKART2022ORDER',
                                   style: TextStyle(
                                       fontFamily: 'Poppins', fontSize: 10),
@@ -1066,8 +1064,8 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Text(
+                      children: const [
+                        Text(
                           '*terms and conditions apply',
                           style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
                         ),
@@ -1149,8 +1147,8 @@ showCollectedPoints(context) {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Text(
+                      children: const [
+                        Text(
                           'Hey @profile username',
                           style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
                         ),
@@ -1158,8 +1156,8 @@ showCollectedPoints(context) {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Text(
+                      children: const [
+                        Text(
                           'Your reward points details is below',
                           style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
                         ),
@@ -1180,7 +1178,7 @@ showCollectedPoints(context) {
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
+                              children: const [
                                 Text(
                                   'Today 26 January 2022',
                                   style: TextStyle(
@@ -1207,7 +1205,7 @@ showCollectedPoints(context) {
                                 SizedBox(
                                   width: width * 0.01,
                                 ),
-                                Text(
+                                const Text(
                                   'YOUR RANK LEVEL-0',
                                   style: TextStyle(
                                       color: Color(0xff0B1C3D),
@@ -1219,7 +1217,7 @@ showCollectedPoints(context) {
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
+                            children: const [
                               Text(
                                 'VI-1',
                                 style: TextStyle(
@@ -1242,7 +1240,7 @@ showCollectedPoints(context) {
                               ),
                             ],
                           ),
-                          Divider(
+                          const Divider(
                             indent: 5,
                             endIndent: 5,
                             thickness: 2,
@@ -1250,7 +1248,7 @@ showCollectedPoints(context) {
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
+                            children: const [
                               Text(
                                 '00013',
                                 style: TextStyle(
@@ -1288,7 +1286,7 @@ showCollectedPoints(context) {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
-                              children: [
+                              children: const [
                                 Text(
                                   '@Profile_Username',
                                   style: TextStyle(
@@ -1303,7 +1301,7 @@ showCollectedPoints(context) {
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
+                              children: const [
                                 Text(
                                   '*NOTE: you not collect yet, any gift from myttube',
                                   style: TextStyle(

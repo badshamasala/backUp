@@ -1,6 +1,7 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, use_build_context_synchronously
+
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'package:image_picker/image_picker.dart';
@@ -552,7 +552,7 @@ class _UploadImageState extends State<UploadImage> {
                                           style: TextStyle(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.sp,
-                                              color: Color(0xff000000)),
+                                              color: const Color(0xff000000)),
                                         ),
                                         const Divider(
                                           color: Color(0xffe2e2e2),
@@ -574,7 +574,7 @@ class _UploadImageState extends State<UploadImage> {
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.sp,
                                                         color:
-                                                            Color(0xff000000)),
+                                                            const Color(0xff000000)),
                                                   ),
                                                   Text(
                                                     'Day',
@@ -582,7 +582,7 @@ class _UploadImageState extends State<UploadImage> {
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.sp,
                                                         color:
-                                                            Color(0xff000000)),
+                                                            const Color(0xff000000)),
                                                   ),
                                                   Text(
                                                     'Year',
@@ -590,7 +590,7 @@ class _UploadImageState extends State<UploadImage> {
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.sp,
                                                         color:
-                                                            Color(0xff000000)),
+                                                            const Color(0xff000000)),
                                                   ),
                                                 ],
                                               ),
@@ -606,7 +606,7 @@ class _UploadImageState extends State<UploadImage> {
                                                         fontSize: 10.sp,
                                                         fontFamily: 'Poppins',
                                                         color:
-                                                            Color(0xff515253)),
+                                                            const Color(0xff515253)),
                                                   ),
                                                   Checkbox(
                                                       shape:
@@ -633,7 +633,7 @@ class _UploadImageState extends State<UploadImage> {
                                                         fontSize: 10.sp,
                                                         fontFamily: 'Poppins',
                                                         color:
-                                                            Color(0xff515253)),
+                                                            const Color(0xff515253)),
                                                   ),
                                                   Switch.adaptive(
                                                       materialTapTargetSize:
@@ -658,7 +658,7 @@ class _UploadImageState extends State<UploadImage> {
                                                         fontSize: 10.sp,
                                                         fontFamily: 'Poppins',
                                                         color:
-                                                            Color(0xff515253)),
+                                                            const Color(0xff515253)),
                                                   ),
                                                   Switch.adaptive(
                                                       materialTapTargetSize:

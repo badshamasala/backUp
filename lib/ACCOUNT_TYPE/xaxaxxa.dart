@@ -1,7 +1,12 @@
+// ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
@@ -30,7 +35,7 @@ class MyHomePage extends StatelessWidget {
             child: const Text("Show picker widget"),
             onPressed: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => WidgetPage()));
+                  context, MaterialPageRoute(builder: (_) => const WidgetPage()));
             },
           )
         ],
@@ -40,6 +45,8 @@ class MyHomePage extends StatelessWidget {
 }
 
 class WidgetPage extends StatefulWidget {
+  const WidgetPage({super.key});
+
   @override
   _WidgetPageState createState() => _WidgetPageState();
 }
@@ -54,32 +61,20 @@ class _WidgetPageState extends State<WidgetPage> {
         appBar: AppBar(),
         body: Column(
           children: [
-            Container(
-              /*  decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                begin: FractionalOffset.topCenter,
-                end: FractionalOffset.bottomCenter,
-                colors: [
-                  Colors.grey[900]!,
-                  Colors.black,
-                ],
-                stops: const [0.7, 1.0],
-              )), */
-              child: DatePickerWidget(
-                looping: true,
-                initialDate: DateTime.now(),
-                dateFormat: "MMMM/dd/yyyy",
-                onChange: (DateTime newDate, _) {
-                  setState(() {
-                    _selectedDate = newDate;
-                  });
-                  print(_selectedDate);
-                },
-                pickerTheme: const DateTimePickerTheme(
-                  backgroundColor: Colors.transparent,
-                  itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),
-                  dividerColor: Colors.transparent,
-                ),
+            DatePickerWidget(
+              looping: true,
+              initialDate: DateTime.now(),
+              dateFormat: "MMMM/dd/yyyy",
+              onChange: (DateTime newDate, _) {
+                setState(() {
+                  _selectedDate = newDate;
+                });
+                print(_selectedDate);
+              },
+              pickerTheme: const DateTimePickerTheme(
+                backgroundColor: Colors.transparent,
+                itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),
+                dividerColor: Colors.transparent,
               ),
             ),
           ],

@@ -27,12 +27,12 @@ class AppTheme {
       secondaryHeaderColor: Colors.white,
       backgroundColor: Colors.black,
       scaffoldBackgroundColor: Colors.black,
-      colorScheme: ColorScheme.dark());
+      colorScheme: const ColorScheme.dark());
   static final lighttheme = ThemeData(
       primaryColor: primaryColorOfApp,
       secondaryHeaderColor: primaryColorOfApp,
       bottomAppBarColor: customTextColor,
       backgroundColor: Colors.white,
       scaffoldBackgroundColor: Colors.white,
-      colorScheme: ColorScheme.light());
+      colorScheme: const ColorScheme.light());
 }

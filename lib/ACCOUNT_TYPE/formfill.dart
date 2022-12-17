@@ -5,13 +5,10 @@ import 'package:flutter_application_1/ACCOUNT_TYPE/upload_brand.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/upload_public.dart';
 
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
-import 'package:flutter_application_1/CHAT_APP/chathomepage.dart';
-import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/bxs.dart';
@@ -185,7 +182,7 @@ class _FormfillState extends State<Formfill> {
                           return null;
                         },
                         decoration: InputDecoration(
-                            prefix: Text(
+                            prefix: const Text(
                               '@',
                               style: TextStyle(
                                 color: primaryColorOfApp,
@@ -201,18 +198,22 @@ class _FormfillState extends State<Formfill> {
                             focusedErrorBorder: OutlineInputBorder(
                                 //<-- SEE HERE
                                 borderSide: BorderSide(
-                                    color: status ? Colors.green : Colors.red)),
+                                    color: status
+                                        ? primaryColorOfApp
+                                        : Colors.red)),
                             errorBorder: OutlineInputBorder(
                                 //<-- SEE HERE
                                 borderSide: BorderSide(
-                                    color: status ? Colors.green : Colors.red)),
+                                    color: status
+                                        ? primaryColorOfApp
+                                        : Colors.red)),
                             suffixIcon: iconchupa
                                 ? status
                                     ? Padding(
                                         padding: EdgeInsets.only(right: 8.sp),
                                         child: Iconify(
                                           AntDesign.check_circle_outlined,
-                                          color: Color(0xff08A434),
+                                          color: const Color(0xff08A434),
                                           size: 20.sp,
                                         ),
                                       )
@@ -232,7 +233,7 @@ class _FormfillState extends State<Formfill> {
                             labelStyle: TextStyle(
                                 color: userNamefocusNode.hasFocus
                                     ? customTextColor
-                                    : Color(0xffc4c4c4),
+                                    : const Color(0xffc4c4c4),
                                 fontFamily: 'Poppins',
                                 fontSize: 12),
                             focusedBorder: OutlineInputBorder(
@@ -276,7 +277,7 @@ class _FormfillState extends State<Formfill> {
                           labelStyle: TextStyle(
                               color: passWordfocusNode.hasFocus
                                   ? customTextColor
-                                  : Color(0xffc4c4c4),
+                                  : const Color(0xffc4c4c4),
                               fontFamily: 'Poppins',
                               fontSize: 12),
                           border: OutlineInputBorder(
@@ -361,7 +362,7 @@ class _FormfillState extends State<Formfill> {
                               scale: 1.2.sp,
                               child: Checkbox(
                                   activeColor: primaryColorOfApp,
-                                  shape: CircleBorder(),
+                                  shape: const CircleBorder(),
                                   materialTapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap,
                                   value: emailshow,
@@ -415,7 +416,7 @@ class _FormfillState extends State<Formfill> {
 
   buildstacknumber() {
     Size size = MediaQuery.of(context).size;
-    double height = size.height, width = size.width;
+    double height = size.height;
     return Column(
       children: [
         SizedBox(
@@ -442,7 +443,7 @@ class _FormfillState extends State<Formfill> {
                           ),
                           Iconify(
                             Bxs.lock_alt,
-                            color: Color(0xffE2E2E2),
+                            color: const Color(0xffE2E2E2),
                             size: 19.sp,
                           ),
                           SizedBox(
@@ -615,7 +616,7 @@ class _FormfillState extends State<Formfill> {
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 15.sp,
-                                  color: Color(0xff515253)),
+                                  color: const Color(0xff515253)),
                             ),
                           ],
                         ),
@@ -665,7 +666,7 @@ class _FormfillState extends State<Formfill> {
         labelStyle: TextStyle(
             color: fullNamefocusNode.hasFocus
                 ? customTextColor
-                : Color(0xffc4c4c4),
+                : const Color(0xffc4c4c4),
             fontFamily: 'Poppins',
             fontSize: 12),
         focusedBorder: OutlineInputBorder(
@@ -688,7 +689,7 @@ class _FormfillState extends State<Formfill> {
         errorStyle: const TextStyle(fontSize: 8, height: 0.2),
         labelStyle: TextStyle(
             color:
-                emailfocusNode.hasFocus ? customTextColor : Color(0xffc4c4c4),
+                emailfocusNode.hasFocus ? customTextColor : const Color(0xffc4c4c4),
             fontFamily: 'Poppins',
             fontSize: 12),
         focusedBorder: OutlineInputBorder(
