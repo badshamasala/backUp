@@ -402,100 +402,111 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                             },
                                                           ))), */
                                                     /* }), */
-                                                    PinCodeTextField(
-                                                      cursorHeight: 20,
-                                                      appContext: context,
-                                                      length: 6,
-                                                      obscureText: false,
-                                                      animationType:
-                                                          AnimationType.fade,
-                                                      inputFormatters: [
-                                                        FilteringTextInputFormatter
-                                                            .digitsOnly
-                                                      ],
-                                                      cursorColor:
-                                                          primaryColorOfApp,
-                                                      keyboardType:
-                                                          TextInputType.number,
-                                                      pinTheme: PinTheme(
-                                                        borderWidth: 0.5,
-                                                        shape: PinCodeFieldShape
-                                                            .box,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                        inactiveColor:
-                                                            customTextColor,
-                                                        activeColor:
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal: 6.w),
+                                                      child: PinCodeTextField(
+                                                        autoFocus: true,
+                                                        cursorHeight: 20,
+                                                        appContext: context,
+                                                        length: 6,
+                                                        obscureText: false,
+                                                        animationType:
+                                                            AnimationType.fade,
+                                                        inputFormatters: [
+                                                          FilteringTextInputFormatter
+                                                              .digitsOnly
+                                                        ],
+                                                        cursorColor:
                                                             primaryColorOfApp,
-                                                        selectedColor:
-                                                            customTextColor,
-                                                        selectedFillColor:
-                                                            Colors.white,
-                                                        inactiveFillColor:
-                                                            Colors.white,
-                                                        fieldHeight: 40,
-                                                        fieldWidth: 40,
-                                                        activeFillColor:
-                                                            Color(0xffDFEEFC),
-                                                      ),
-                                                      animationDuration:
-                                                          Duration(
-                                                              milliseconds:
-                                                                  300),
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      enableActiveFill: true,
-                                                      /* errorAnimationController: errorController,
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .number,
+                                                        pinTheme: PinTheme(
+                                                          borderWidth: 0.5,
+                                                          shape:
+                                                              PinCodeFieldShape
+                                                                  .box,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(5),
+                                                          inactiveColor:
+                                                              customTextColor,
+                                                          activeColor:
+                                                              primaryColorOfApp,
+                                                          selectedColor:
+                                                              customTextColor,
+                                                          selectedFillColor:
+                                                              Colors.white,
+                                                          inactiveFillColor:
+                                                              Colors.white,
+                                                          fieldHeight: 40,
+                                                          fieldWidth: 40,
+                                                          activeFillColor:
+                                                              Color(0xffDFEEFC),
+                                                        ),
+                                                        animationDuration:
+                                                            Duration(
+                                                                milliseconds:
+                                                                    300),
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        enableActiveFill: true,
+                                                        /* errorAnimationController: errorController,
   controller: textEditingController, */
-                                                      onCompleted:
-                                                          (verificationCode) {
-                                                        setState(() {
-                                                          checktoken =
-                                                              verificationCode;
-                                                        });
-                                                        if (verificationCode
-                                                                .length !=
-                                                            6) {
+                                                        onCompleted:
+                                                            (verificationCode) {
                                                           setState(() {
-                                                            check6digit = true;
+                                                            checktoken =
+                                                                verificationCode;
                                                           });
-                                                        } else {
+                                                          if (verificationCode
+                                                                  .length !=
+                                                              6) {
+                                                            setState(() {
+                                                              check6digit =
+                                                                  true;
+                                                            });
+                                                          } else {
+                                                            setState(() {
+                                                              check6digit =
+                                                                  false;
+                                                            });
+                                                          }
+                                                        },
+                                                        /*   onSubmitted:
+                                                            (verificationCode) {
                                                           setState(() {
-                                                            check6digit = false;
+                                                            checktoken =
+                                                                verificationCode;
                                                           });
-                                                        }
-                                                      },
-                                                      /*   onSubmitted:
-                                                          (verificationCode) {
-                                                        setState(() {
-                                                          checktoken =
-                                                              verificationCode;
-                                                        });
-                                                        if (verificationCode
-                                                                .length !=
-                                                            6) {
+                                                          if (verificationCode
+                                                                  .length !=
+                                                              6) {
+                                                            setState(() {
+                                                              check6digit = true;
+                                                            });
+                                                          } else {
+                                                            setState(() {
+                                                              check6digit = false;
+                                                            });
+                                                          }
+                                                        }, */
+                                                        onChanged: (value) {
                                                           setState(() {
-                                                            check6digit = true;
+                                                            checktoken = token;
                                                           });
-                                                        } else {
-                                                          setState(() {
-                                                            check6digit = false;
-                                                          });
-                                                        }
-                                                      }, */
-                                                      onChanged: (value) {
-                                                        setState(() {
-                                                          checktoken = token;
-                                                        });
-                                                      },
-                                                      beforeTextPaste: (text) {
-                                                        print(
-                                                            "Allowing to paste $text");
-                                                        //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                                                        //but you can show anything you want here, like your pop up saying wrong paste format or etc
-                                                        return true;
-                                                      },
+                                                        },
+                                                        beforeTextPaste:
+                                                            (text) {
+                                                          print(
+                                                              "Allowing to paste $text");
+                                                          //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                                                          //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                                                          return true;
+                                                        },
+                                                      ),
                                                     ),
                                                     /*   OtpTextField(
                                                       onCodeChanged: (value) {

@@ -136,7 +136,7 @@ class Googleprovider extends ChangeNotifier {
       var status = jsondata[0]["status"];
       print('Status - $status');
 
-      if (status == true) {
+      if (response.statusCode == 200) {
         return status;
       }
     } catch (e) {
@@ -186,6 +186,36 @@ class Googleprovider extends ChangeNotifier {
         body: jsonEncode({
           "api_key": "myttube123456",
           "email"  : email,
+        }),
+      );
+      var jsondata = jsonDecode(response.body);
+      print('Response-- ${response.body}');
+
+      var status = jsondata[0]["status"];
+      print('Status - $status');
+
+      if (response.statusCode == 200) {
+        return status;
+      } 
+    } catch (e) {
+      Fluttertoast.showToast(
+          msg: e.toString(),
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  }
+  Future editPassword(username ,password) async {
+    try {
+      final response = await http.post(
+        Uri.parse(ApiUrl.editpassword),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          "api_key": "myttube123456",
+          "user_id"  : username,
+          "password"  : password,
         }),
       );
       var jsondata = jsonDecode(response.body);

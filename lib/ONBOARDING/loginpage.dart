@@ -11,6 +11,7 @@ import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
@@ -49,10 +50,19 @@ class _LoginPageState extends State<LoginPage> {
 
   final GetUpdateSeconds getkar = Get.put(GetUpdateSeconds());
   var username = TextEditingController();
+  var usernameForPassword = TextEditingController();
   bool isbuttonactive = false;
   bool isbuttonactive2 = false;
   bool isloading = false;
   var status = "";
+
+  /* @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    usernameForPassword.dispose();
+    username.dispose();
+  } */
 
   var password = TextEditingController();
   bool obscure = true;
@@ -238,17 +248,15 @@ class _LoginPageState extends State<LoginPage> {
                                             clipBehavior: Clip.none,
                                             children: [
                                               Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 18.0),
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 18.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.min,
                                                   children: [
                                                     Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 15.0),
+                                                      padding: EdgeInsets.only(
+                                                          top: 15.sp),
                                                       child: Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
@@ -271,15 +279,20 @@ class _LoginPageState extends State<LoginPage> {
                                                                 color:
                                                                     primaryColorOfApp,
                                                               )),
-                                                          Text(
-                                                            'Forgot Password',
-                                                            style: TextStyle(
-                                                                color:
-                                                                    customTextColor,
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize:
-                                                                    12.sp),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    left: 2.w),
+                                                            child: Text(
+                                                              'Forgot Password',
+                                                              style: TextStyle(
+                                                                  color:
+                                                                      customTextColor,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize:
+                                                                      12.sp),
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -289,6 +302,13 @@ class _LoginPageState extends State<LoginPage> {
                                                       height: height * 0.03,
                                                     ),
                                                     TextFormField(
+                                                      /* onChanged: (value) {
+                                                        usernameForPass = value;
+                                                      }, */
+                                                      controller:
+                                                          usernameForPassword,
+                                                      cursorColor:
+                                                          primaryColorOfApp,
                                                       decoration:
                                                           buildInputdecoration(
                                                               'username'.tr),
@@ -303,23 +323,23 @@ class _LoginPageState extends State<LoginPage> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  left: 8.0),
+                                                              EdgeInsets.only(
+                                                                  left: 4.w),
                                                           child: Text(
                                                             'select'.tr,
-                                                            style: const TextStyle(
+                                                            style: TextStyle(
                                                                 color:
                                                                     customTextColor,
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                fontSize: 8),
+                                                                fontSize:
+                                                                    10.sp),
                                                           ),
                                                         ),
                                                       ],
                                                     ),
                                                     SizedBox(
-                                                      height: height * 0.04,
+                                                      height: 4.h,
                                                     ),
                                                     Row(
                                                       mainAxisAlignment:
@@ -330,9 +350,8 @@ class _LoginPageState extends State<LoginPage> {
                                                           style: OutlinedButton
                                                               .styleFrom(
                                                                   minimumSize:
-                                                                      const Size(
-                                                                          139,
-                                                                          35),
+                                                                      Size(43.w,
+                                                                          5.h),
                                                                   /*    minimumSize: Size(32, 30), */
                                                                   elevation: 0,
                                                                   /* padding: EdgeInsets.zero, */
@@ -390,9 +409,8 @@ class _LoginPageState extends State<LoginPage> {
                                                           style: OutlinedButton
                                                               .styleFrom(
                                                                   minimumSize:
-                                                                      const Size(
-                                                                          139,
-                                                                          35),
+                                                                      Size(43.w,
+                                                                          5.h),
                                                                   /*  minimumSize: Size(32, 30), */
                                                                   elevation: 0,
                                                                   /* padding: EdgeInsets.zero, */
@@ -446,20 +464,39 @@ class _LoginPageState extends State<LoginPage> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  left: 8.0),
+                                                              EdgeInsets.only(
+                                                                  left: 4.w),
                                                           child: Text(
-                                                            'keep'.tr,
-                                                            style: const TextStyle(
+                                                            'To help keep your profile safe, myttube wants to make',
+                                                            style: TextStyle(
                                                                 color:
                                                                     customTextColor,
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                fontSize: 9),
+                                                                fontSize: 9.sp),
                                                           ),
                                                         ),
                                                       ],
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left: 4.w),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            'sure that it’s really you trying to password reset',
+                                                            style: TextStyle(
+                                                                color:
+                                                                    customTextColor,
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 9.sp),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                     SizedBox(
                                                       height: height * 0.04,
@@ -473,101 +510,121 @@ class _LoginPageState extends State<LoginPage> {
                                                                     mobile ==
                                                                         true
                                                                 ? () {
-                                                                    showModalBottomSheet(
-                                                                        /*     isDismissible: false, */
-                                                                        isScrollControlled:
-                                                                            true,
-                                                                        shape:
-                                                                            const RoundedRectangleBorder(
-                                                                          // <-- SEE HERE
-                                                                          borderRadius:
-                                                                              BorderRadius.vertical(
-                                                                            top:
-                                                                                Radius.circular(20.0),
-                                                                          ),
-                                                                        ),
-                                                                        // isScrollControlled: true,
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (BuildContext
-                                                                                context) {
-                                                                          /*   return GetBuilder<HomeController>(
+                                                                    final provider = Provider.of<
+                                                                            Googleprovider>(
+                                                                        context,
+                                                                        listen:
+                                                                            false);
+                                                                    provider
+                                                                        .checkUsername(
+                                                                            usernameForPassword.text)
+                                                                        .then(
+                                                                      (value) {
+                                                                        if (value ==
+                                        true) {
+                                                                          showModalBottomSheet(
+                                                                              /*     isDismissible: false, */
+                                                                              isScrollControlled: true,
+                                                                              shape: const RoundedRectangleBorder(
+                                                                                // <-- SEE HERE
+                                                                                borderRadius: BorderRadius.vertical(
+                                                                                  top: Radius.circular(20.0),
+                                                                                ),
+                                                                              ),
+                                                                              // isScrollControlled: true,
+                                                                              context: context,
+                                                                              builder: (BuildContext context) {
+                                                                                /*   return GetBuilder<HomeController>(
                                         builder: (controller) { */
-                                                                          return StatefulBuilder(builder:
-                                                                              (context, setState) {
-                                                                            return Padding(
-                                                                              padding: MediaQuery.of(context).viewInsets,
-                                                                              child: Stack(
-                                                                                clipBehavior: Clip.none,
-                                                                                children: [
-                                                                                  Padding(
-                                                                                    padding: EdgeInsets.symmetric(horizontal: 8.w),
-                                                                                    child: Column(mainAxisSize: MainAxisSize.min, children: [
-                                                                                      Row(
-                                                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                                                        children: [
-                                                                                          Text(
-                                                                                            'myttube',
-                                                                                            style: TextStyle(fontFamily: 'Satisfy', fontSize: 12.sp, color: primaryColorOfApp),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                      Row(
-                                                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                                                        children: [
-                                                                                          Text(
-                                                                                            'Password recovery',
-                                                                                            style: TextStyle(fontFamily: 'Poppins', fontSize: 15.sp, color: Colors.black),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                      Row(
-                                                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                                                        children: [
-                                                                                          Text(
-                                                                                            'Otp has been sent to +91 8689880061',
-                                                                                            style: TextStyle(fontFamily: 'Poppins', fontSize: 12.sp, color: customTextColor),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                      SizedBox(
-                                                                                        height: height * 0.05,
-                                                                                      ),
-                                                                                      PinCodeTextField(
-                                                                                        cursorHeight: 20,
-                                                                                        appContext: context,
-                                                                                        length: 6,
-                                                                                        obscureText: false,
-                                                                                        animationType: AnimationType.fade,
-                                                                                        inputFormatters: [
-                                                                                          FilteringTextInputFormatter.digitsOnly
-                                                                                        ],
-                                                                                        cursorColor: primaryColorOfApp,
-                                                                                        keyboardType: TextInputType.number,
-                                                                                        pinTheme: PinTheme(
-                                                                                          borderWidth: 0.5,
-                                                                                          shape: PinCodeFieldShape.box,
-                                                                                          borderRadius: BorderRadius.circular(5),
-                                                                                          inactiveColor: customTextColor,
-                                                                                          activeColor: primaryColorOfApp,
-                                                                                          selectedColor: customTextColor,
-                                                                                          selectedFillColor: Colors.white,
-                                                                                          inactiveFillColor: Colors.white,
-                                                                                          fieldHeight: 40,
-                                                                                          fieldWidth: 40,
-                                                                                          activeFillColor: Color(0xffDFEEFC),
-                                                                                        ),
-                                                                                        animationDuration: Duration(milliseconds: 300),
-                                                                                        backgroundColor: Colors.transparent,
-                                                                                        enableActiveFill: true,
-                                                                                        /* errorAnimationController: errorController,
+                                                                                return StatefulBuilder(builder: (context, setState) {
+                                                                                  return Padding(
+                                                                                    padding: MediaQuery.of(context).viewInsets,
+                                                                                    child: Stack(
+                                                                                      clipBehavior: Clip.none,
+                                                                                      children: [
+                                                                                        Padding(
+                                                                                          padding: EdgeInsets.symmetric(horizontal: 8.w),
+                                                                                          child: Column(mainAxisSize: MainAxisSize.min, children: [
+                                                                                            SizedBox(
+                                                                                              height: 2.h,
+                                                                                            ),
+                                                                                            Row(
+                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  'myttube',
+                                                                                                  style: TextStyle(fontFamily: 'Satisfy', fontSize: 12.sp, color: primaryColorOfApp),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                            SizedBox(
+                                                                                              height: 2.h,
+                                                                                            ),
+                                                                                            Row(
+                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  'Password recovery',
+                                                                                                  style: TextStyle(fontFamily: 'Poppins', fontSize: 15.sp, color: Colors.black),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                            Row(
+                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  'Otp has been sent to +91 8689880061',
+                                                                                                  style: TextStyle(fontFamily: 'Poppins', fontSize: 12.sp, color: customTextColor),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                            SizedBox(
+                                                                                              height: height * 0.05,
+                                                                                            ),
+                                                                                            Row(
+                                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  'Enter OTP',
+                                                                                                  style: TextStyle(fontFamily: 'Poppins', fontSize: 12.sp, color: customTextColor),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                            PinCodeTextField(
+                                                                                              autoFocus: true,
+                                                                                              cursorHeight: 20,
+                                                                                              appContext: context,
+                                                                                              length: 6,
+                                                                                              obscureText: false,
+                                                                                              animationType: AnimationType.fade,
+                                                                                              inputFormatters: [
+                                                                                                FilteringTextInputFormatter.digitsOnly
+                                                                                              ],
+                                                                                              cursorColor: primaryColorOfApp,
+                                                                                              keyboardType: TextInputType.number,
+                                                                                              pinTheme: PinTheme(
+                                                                                                borderWidth: 0.5,
+                                                                                                shape: PinCodeFieldShape.box,
+                                                                                                borderRadius: BorderRadius.circular(5),
+                                                                                                inactiveColor: customTextColor,
+                                                                                                activeColor: primaryColorOfApp,
+                                                                                                selectedColor: customTextColor,
+                                                                                                selectedFillColor: Colors.white,
+                                                                                                inactiveFillColor: Colors.white,
+                                                                                                fieldHeight: 40,
+                                                                                                fieldWidth: 40,
+                                                                                                activeFillColor: Color(0xffDFEEFC),
+                                                                                              ),
+                                                                                              animationDuration: Duration(milliseconds: 300),
+                                                                                              backgroundColor: Colors.transparent,
+                                                                                              enableActiveFill: true,
+                                                                                              /* errorAnimationController: errorController,
   controller: textEditingController, */
-                                                                                        onCompleted: (verificationCode) {
-                                                                                          setState(() {
-                                                                                            checktoken = verificationCode;
-                                                                                          });
-                                                                                          /*  if (verificationCode
+                                                                                              onCompleted: (verificationCode) {
+                                                                                                setState(() {
+                                                                                                  checktoken = verificationCode;
+                                                                                                });
+                                                                                                /*  if (verificationCode
                                                                 .length !=
                                                             6) {
                                                           setState(() {
@@ -578,8 +635,8 @@ class _LoginPageState extends State<LoginPage> {
                                                             check6digit = false;
                                                           });
                                                         } */
-                                                                                        },
-                                                                                        /*   onSubmitted:
+                                                                                              },
+                                                                                              /*   onSubmitted:
                                                           (verificationCode) {
                                                         setState(() {
                                                           checktoken =
@@ -597,226 +654,237 @@ class _LoginPageState extends State<LoginPage> {
                                                           });
                                                         }
                                                       }, */
-                                                                                        onChanged: (value) {
-                                                                                          setState(() {
-                                                                                            checktoken = token;
-                                                                                          });
-                                                                                        },
-                                                                                        beforeTextPaste: (text) {
-                                                                                          print("Allowing to paste $text");
-                                                                                          //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                                                                                          //but you can show anything you want here, like your pop up saying wrong paste format or etc
-                                                                                          return true;
-                                                                                        },
-                                                                                      ),
-                                                                                      SizedBox(
-                                                                                        height: height * 0.01,
-                                                                                      ),
-                                                                                      Row(
-                                                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                                                        children: [
-                                                                                          GetBuilder<GetUpdateSeconds>(
-                                                                                            builder: (controller) => TextButton(
-                                                                                                onPressed: getkar.timerkhatam1
-                                                                                                    ? null
-                                                                                                    : () async {
-                                                                                                        final provider = Provider.of<Googleprovider>(context, listen: false);
-                                                                                                        token = await provider.otpmethod(phonekanumber);
-                                                                                                        print('badshamasala');
-                                                                                                        getkar.nayamethod();
-                                                                                                      },
-                                                                                                child: GetBuilder<GetUpdateSeconds>(
-                                                                                                  builder: (controller) => Text(
-                                                                                                    getkar.timerkhatam1 ? 'Resend OTP in ${getkar.seconds} Sec' : 'Resend OTP',
-                                                                                                    style: const TextStyle(fontFamily: 'Poppins', fontSize: 10, color: primaryColorOfApp),
-                                                                                                  ),
-                                                                                                )),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                      SizedBox(
-                                                                                        height: 6.h,
-                                                                                        width: double.infinity,
-                                                                                        // height: 50,
-                                                                                        child: ElevatedButton(
-                                                                                          onPressed:
-                                                                                              /* check6digit
+                                                                                              onChanged: (value) {
+                                                                                                setState(() {
+                                                                                                  checktoken = token;
+                                                                                                });
+                                                                                              },
+                                                                                              beforeTextPaste: (text) {
+                                                                                                print("Allowing to paste $text");
+                                                                                                //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                                                                                                //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                                                                                                return true;
+                                                                                              },
+                                                                                            ),
+                                                                                            SizedBox(
+                                                                                              height: height * 0.01,
+                                                                                            ),
+                                                                                            Row(
+                                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                                              children: [
+                                                                                                GetBuilder<GetUpdateSeconds>(
+                                                                                                  builder: (controller) => TextButton(
+                                                                                                      onPressed: getkar.timerkhatam1
+                                                                                                          ? null
+                                                                                                          : () async {
+                                                                                                              final provider = Provider.of<Googleprovider>(context, listen: false);
+                                                                                                              token = await provider.otpmethod(phonekanumber);
+                                                                                                              print('badshamasala');
+                                                                                                              getkar.nayamethod();
+                                                                                                            },
+                                                                                                      child: GetBuilder<GetUpdateSeconds>(
+                                                                                                        builder: (controller) => Text(
+                                                                                                          getkar.timerkhatam1 ? 'Resend OTP in ${getkar.seconds} Sec' : 'Resend OTP',
+                                                                                                          style: const TextStyle(fontFamily: 'Poppins', fontSize: 10, color: primaryColorOfApp),
+                                                                                                        ),
+                                                                                                      )),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                            SizedBox(
+                                                                                              height: 6.h,
+                                                                                              width: double.infinity,
+                                                                                              // height: 50,
+                                                                                              child: ElevatedButton(
+                                                                                                onPressed:
+                                                                                                    /* check6digit
                                                                     ? null
                                                                     : */
-                                                                                              () {
-                                                                                            /*  if (token ==
+                                                                                                    () {
+                                                                                                  /*  if (token ==
                                                                             checktoken) { */
-                                                                                            showModalBottomSheet<dynamic>(
-                                                                                                isScrollControlled: true,
-                                                                                                shape: const RoundedRectangleBorder(
-                                                                                                  // <-- SEE HERE
-                                                                                                  borderRadius: BorderRadius.vertical(
-                                                                                                    top: Radius.circular(20.0),
-                                                                                                  ),
-                                                                                                ),
-                                                                                                // isScrollControlled: true,
-                                                                                                context: context,
-                                                                                                builder: (BuildContext context) {
-                                                                                                  return Padding(
-                                                                                                    padding: MediaQuery.of(context).viewInsets,
-                                                                                                    child: Stack(
-                                                                                                      clipBehavior: Clip.none,
-                                                                                                      children: [
-                                                                                                        Padding(
-                                                                                                            padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                                                                                                            child: Column(mainAxisSize: MainAxisSize.min, children: [
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.03,
-                                                                                                              ),
-                                                                                                              Row(
-                                                                                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                                children: const [
-                                                                                                                  Text(
-                                                                                                                    'Verified',
-                                                                                                                    style: TextStyle(fontFamily: 'Poppins', fontSize: 15, color: primaryColorOfApp),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.03,
-                                                                                                              ),
-                                                                                                              Row(
-                                                                                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                                                                                children: const [
-                                                                                                                  Text(
-                                                                                                                    'Your OTP has been verified ',
-                                                                                                                    style: TextStyle(
-                                                                                                                      fontFamily: 'Poppins',
-                                                                                                                      fontSize: 12,
+                                                                                                  showModalBottomSheet<dynamic>(
+                                                                                                      isScrollControlled: true,
+                                                                                                      shape: const RoundedRectangleBorder(
+                                                                                                        // <-- SEE HERE
+                                                                                                        borderRadius: BorderRadius.vertical(
+                                                                                                          top: Radius.circular(20.0),
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                      // isScrollControlled: true,
+                                                                                                      context: context,
+                                                                                                      builder: (BuildContext context) {
+                                                                                                        return Padding(
+                                                                                                          padding: MediaQuery.of(context).viewInsets,
+                                                                                                          child: Stack(
+                                                                                                            clipBehavior: Clip.none,
+                                                                                                            children: [
+                                                                                                              Padding(
+                                                                                                                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                                                                                                                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                                                                                                                    SizedBox(
+                                                                                                                      height: height * 0.03,
                                                                                                                     ),
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.02,
-                                                                                                              ),
-                                                                                                              TextFormField(
-                                                                                                                decoration: buildInputdecoration('Enter New Password'),
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.015,
-                                                                                                              ),
-                                                                                                              TextFormField(
-                                                                                                                decoration: buildInputdecoration('Confirm Password'),
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.02,
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                width: double.infinity,
-                                                                                                                height: 6.h,
-                                                                                                                child: ElevatedButton(
-                                                                                                                  onPressed: () {},
-                                                                                                                  style: ElevatedButton.styleFrom(
-                                                                                                                      elevation: 0,
-                                                                                                                      /* minimumSize: const Size(0.0, 40), */
-                                                                                                                      // padding: EdgeInsets.symmetric(
-                                                                                                                      //     horizontal: 40.0, vertical: 20.0),
-                                                                                                                      backgroundColor: const Color(0xff0087FF),
-                                                                                                                      shape: RoundedRectangleBorder(borderRadius: const UploadImage().radius())),
-                                                                                                                  child: const Text(
-                                                                                                                    "Confirm",
-                                                                                                                    style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
-                                                                                                                  ),
-                                                                                                                ),
-                                                                                                              ),
-                                                                                                              SizedBox(
-                                                                                                                height: height * 0.1,
-                                                                                                              ),
-                                                                                                            ])),
-                                                                                                        Positioned.fill(
-                                                                                                            top: -36,
-                                                                                                            child: Align(
-                                                                                                              alignment: Alignment.topCenter,
-                                                                                                              child: InkWell(
-                                                                                                                onTap: () {
-                                                                                                                  Navigator.pop(context);
-                                                                                                                },
-                                                                                                                child: Container(
-                                                                                                                  /*   width: 45,
+                                                                                                                    Row(
+                                                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                                      children: const [
+                                                                                                                        Text(
+                                                                                                                          'Verified',
+                                                                                                                          style: TextStyle(fontFamily: 'Poppins', fontSize: 15, color: primaryColorOfApp),
+                                                                                                                        ),
+                                                                                                                      ],
+                                                                                                                    ),
+                                                                                                                    SizedBox(
+                                                                                                                      height: height * 0.03,
+                                                                                                                    ),
+                                                                                                                    Row(
+                                                                                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                                                                                      children: const [
+                                                                                                                        Text(
+                                                                                                                          'Your OTP has been verified ',
+                                                                                                                          style: TextStyle(
+                                                                                                                            fontFamily: 'Poppins',
+                                                                                                                            fontSize: 12,
+                                                                                                                          ),
+                                                                                                                        ),
+                                                                                                                      ],
+                                                                                                                    ),
+                                                                                                                    SizedBox(
+                                                                                                                      height: height * 0.02,
+                                                                                                                    ),
+                                                                                                                    TextFormField(
+                                                                                                                      decoration: buildInputdecoration('Enter New Password'),
+                                                                                                                    ),
+                                                                                                                    SizedBox(
+                                                                                                                      height: height * 0.015,
+                                                                                                                    ),
+                                                                                                                    TextFormField(
+                                                                                                                      decoration: buildInputdecoration('Confirm Password'),
+                                                                                                                    ),
+                                                                                                                    SizedBox(
+                                                                                                                      height: height * 0.02,
+                                                                                                                    ),
+                                                                                                                    SizedBox(
+                                                                                                                      width: double.infinity,
+                                                                                                                      height: 6.h,
+                                                                                                                      child: ElevatedButton(
+                                                                                                                        onPressed: () {},
+                                                                                                                        style: ElevatedButton.styleFrom(
+                                                                                                                            elevation: 0,
+                                                                                                                            /* minimumSize: const Size(0.0, 40), */
+                                                                                                                            // padding: EdgeInsets.symmetric(
+                                                                                                                            //     horizontal: 40.0, vertical: 20.0),
+                                                                                                                            backgroundColor: const Color(0xff0087FF),
+                                                                                                                            shape: RoundedRectangleBorder(borderRadius: const UploadImage().radius())),
+                                                                                                                        child: const Text(
+                                                                                                                          "Confirm",
+                                                                                                                          style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
+                                                                                                                        ),
+                                                                                                                      ),
+                                                                                                                    ),
+                                                                                                                    SizedBox(
+                                                                                                                      height: height * 0.1,
+                                                                                                                    ),
+                                                                                                                  ])),
+                                                                                                              Positioned.fill(
+                                                                                                                  top: -36,
+                                                                                                                  child: Align(
+                                                                                                                    alignment: Alignment.topCenter,
+                                                                                                                    child: InkWell(
+                                                                                                                      onTap: () {
+                                                                                                                        Navigator.pop(context);
+                                                                                                                      },
+                                                                                                                      child: Container(
+                                                                                                                        /*   width: 45,
                                     height: 45, */
-                                                                                                                  decoration: BoxDecoration(
-                                                                                                                    border: Border.all(color: Colors.white, width: 2),
-                                                                                                                    shape: BoxShape.circle,
-                                                                                                                  ),
-                                                                                                                  child: const Padding(
-                                                                                                                    padding: EdgeInsets.all(4.0),
-                                                                                                                    child: Icon(
-                                                                                                                      Icons.close,
-                                                                                                                      color: Colors.white,
+                                                                                                                        decoration: BoxDecoration(
+                                                                                                                          border: Border.all(color: Colors.white, width: 2),
+                                                                                                                          shape: BoxShape.circle,
+                                                                                                                        ),
+                                                                                                                        child: const Padding(
+                                                                                                                          padding: EdgeInsets.all(4.0),
+                                                                                                                          child: Icon(
+                                                                                                                            Icons.close,
+                                                                                                                            color: Colors.white,
+                                                                                                                          ),
+                                                                                                                        ),
+                                                                                                                      ),
                                                                                                                     ),
-                                                                                                                  ),
-                                                                                                                ),
-                                                                                                              ),
-                                                                                                            ))
-                                                                                                      ],
-                                                                                                    ),
-                                                                                                  );
-                                                                                                });
+                                                                                                                  ))
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        );
+                                                                                                      });
 
-                                                                                            /*   } else {
+                                                                                                  /*   } else {
                                                                           Fluttertoast.showToast(
                                                                               msg: "Wrong OTP",
                                                                               backgroundColor: Colors.black,
                                                                               textColor: Colors.white,
                                                                               fontSize: 16.0);
                                                                         } */
-                                                                                          },
-                                                                                          style: ElevatedButton.styleFrom(
-                                                                                              elevation: 0,
-                                                                                              /*      minimumSize: const Size(0.0, 40), */
-                                                                                              // padding: EdgeInsets.symmetric(
-                                                                                              //     horizontal: 40.0, vertical: 20.0),
-                                                                                              backgroundColor: const Color(0xff0087FF),
-                                                                                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7.0))),
-                                                                                          child: const Text(
-                                                                                            "Verify & Continue",
-                                                                                            style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                      SizedBox(
-                                                                                        height: height * 0.2,
-                                                                                      ),
-                                                                                    ]),
-                                                                                  ),
-                                                                                  Positioned.fill(
-                                                                                      top: -36,
-                                                                                      child: Align(
-                                                                                        alignment: Alignment.topCenter,
-                                                                                        child: InkWell(
-                                                                                          onTap: () {
-                                                                                            print('badsha');
-                                                                                            Navigator.pop(context);
-                                                                                          },
-                                                                                          child: Container(
-                                                                                            /*   width: 45,
-                                                                          height: 45, */
-                                                                                            decoration: BoxDecoration(
-                                                                                              border: Border.all(color: Colors.white, width: 2),
-                                                                                              shape: BoxShape.circle,
-                                                                                            ),
-                                                                                            child: const Padding(
-                                                                                              padding: EdgeInsets.all(4.0),
-                                                                                              child: Icon(
-                                                                                                Icons.close,
-                                                                                                color: Colors.white,
+                                                                                                },
+                                                                                                style: ElevatedButton.styleFrom(
+                                                                                                    elevation: 0,
+                                                                                                    /*      minimumSize: const Size(0.0, 40), */
+                                                                                                    // padding: EdgeInsets.symmetric(
+                                                                                                    //     horizontal: 40.0, vertical: 20.0),
+                                                                                                    backgroundColor: const Color(0xff0087FF),
+                                                                                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7.0))),
+                                                                                                child: const Text(
+                                                                                                  "Verify & Continue",
+                                                                                                  style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
+                                                                                                ),
                                                                                               ),
                                                                                             ),
-                                                                                          ),
+                                                                                            SizedBox(
+                                                                                              height: height * 0.1,
+                                                                                            ),
+                                                                                          ]),
                                                                                         ),
-                                                                                      )),
-                                                                                ],
-                                                                              ),
-                                                                            );
-                                                                            /*    }); */
-                                                                          });
-                                                                        });
+                                                                                        Positioned.fill(
+                                                                                            top: -36,
+                                                                                            child: Align(
+                                                                                              alignment: Alignment.topCenter,
+                                                                                              child: InkWell(
+                                                                                                onTap: () {
+                                                                                                  print('badsha');
+                                                                                                  Navigator.pop(context);
+                                                                                                },
+                                                                                                child: Container(
+                                                                                                  /*   width: 45,
+                                                                          height: 45, */
+                                                                                                  decoration: BoxDecoration(
+                                                                                                    border: Border.all(color: Colors.white, width: 2),
+                                                                                                    shape: BoxShape.circle,
+                                                                                                  ),
+                                                                                                  child: const Padding(
+                                                                                                    padding: EdgeInsets.all(4.0),
+                                                                                                    child: Icon(
+                                                                                                      Icons.close,
+                                                                                                      color: Colors.white,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            )),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                  /*    }); */
+                                                                                });
+                                                                              });
+                                                                        } else {
+                                                                          Fluttertoast.showToast(
+                                                                              msg: "Couldn’t find your username ",
+                                                                              backgroundColor: const Color(0xffED1B24),
+                                                                              textColor: Colors.white,
+                                                                              fontSize: 16.0);
+
+                                                                          return;
+                                                                        }
+                                                                      },
+                                                                    );
                                                                   }
                                                                 : null,
                                                         style: ElevatedButton.styleFrom(
@@ -887,7 +955,8 @@ class _LoginPageState extends State<LoginPage> {
                                           );
                                         });
                                       },
-                                    );
+                                    ).then((value) =>
+                                        {usernameForPassword.clear()});
                                   },
                                   child: Text(
                                     'forgot'.tr,

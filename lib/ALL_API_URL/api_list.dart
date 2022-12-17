@@ -20,6 +20,9 @@ class ApiUrl {
 
   static const userRegistration ="http://103.69.242.42:8080/TestAPI/login.svc/insertIntoSignup";
 
+  static const editpassword ="http://103.69.242.42:8080/TestAPI/login.svc/editPassword";
+
+
 
 
 

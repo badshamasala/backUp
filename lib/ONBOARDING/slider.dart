@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 
 import 'package:flutter_application_1/homepage/homepage.dart';
@@ -36,243 +37,250 @@ class _Slider1State extends State<Slider1> {
     double height = size.height, width = size.width;
 
     return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 5.h,
-              ),
-              CarouselSlider.builder(
-                  itemCount: urlImages.length,
-                  itemBuilder: (context, index, realIndex) {
-                    // final urlImage = urlImages[index];
-                    // return buildImage(urlImage, index);
-                    return SvgPicture.asset(urlImages[index]);
-                  },
-                  options: CarouselOptions(
-                    viewportFraction: 1,
-                    height: 35.h,
-                    onPageChanged: (index, reason) {
-                      setState(() {
-                        activeIndex = index;
-                      });
+      child: WillPopScope(
+        onWillPop: () {
+          SystemNavigator.pop();
+          return Future.value(true);
+        },
+        child: Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 5.h,
+                ),
+                CarouselSlider.builder(
+                    itemCount: urlImages.length,
+                    itemBuilder: (context, index, realIndex) {
+                      // final urlImage = urlImages[index];
+                      // return buildImage(urlImage, index);
+                      return SvgPicture.asset(urlImages[index]);
                     },
-                  )),
-              SizedBox(
-                height: 2.h,
-              ),
-              buildIndicator(),
-              SizedBox(
-                height: 2.h,
-              ),
-              Text(
-                "find".tr,
-                style: TextStyle(
-                    color: const Color(0xff0087FF),
-                    fontSize: 13.sp,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400),
-              ),
-              SizedBox(
-                height: height * 0.01,
-              ),
-              Text(
-                "welcome".tr,
-                style: TextStyle(
-                    color: const Color(0xff0087FF),
-                    fontSize: /* width * 0.05 */ 15.sp,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400),
-              ),
-              Text(
-                "myttube".tr,
-                style: TextStyle(
-                    color: const Color(0xff0087FF),
-                    fontSize: /* width * 0.05 */ 15.sp,
-                    fontFamily: 'Satisfy',
-                    fontWeight: FontWeight.w400),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      onPressed: () {
-                        selectlanguagemethod(context);
+                    options: CarouselOptions(
+                      viewportFraction: 1,
+                      height: 35.h,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          activeIndex = index;
+                        });
                       },
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/globemap.svg',
-                            height: 2.h,
-                            width: 2.w,
-                          ),
-                          const SizedBox(
-                            width: 3,
-                          ),
-                          const Text(
-                            'Select your language',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: Color(0xff515253),
-                                fontSize: 12),
-                          ),
-                        ],
-                      )),
-                ],
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              SizedBox(
-                width: double.infinity,
-                height: 6.h,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const GooglePage1()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                      elevation: 0,
+                    )),
+                SizedBox(
+                  height: 2.h,
+                ),
+                buildIndicator(),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Text(
+                  "find".tr,
+                  style: TextStyle(
+                      color: const Color(0xff0087FF),
+                      fontSize: 13.sp,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400),
+                ),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+                Text(
+                  "welcome".tr,
+                  style: TextStyle(
+                      color: const Color(0xff0087FF),
+                      fontSize: /* width * 0.05 */ 15.sp,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400),
+                ),
+                Text(
+                  "myttube".tr,
+                  style: TextStyle(
+                      color: const Color(0xff0087FF),
+                      fontSize: /* width * 0.05 */ 15.sp,
+                      fontFamily: 'Satisfy',
+                      fontWeight: FontWeight.w400),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        onPressed: () {
+                          selectlanguagemethod(context);
+                        },
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/globemap.svg',
+                              height: 2.h,
+                              width: 2.w,
+                            ),
+                            const SizedBox(
+                              width: 3,
+                            ),
+                            const Text(
+                              'Select your language',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xff515253),
+                                  fontSize: 12),
+                            ),
+                          ],
+                        )),
+                  ],
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 6.h,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const GooglePage1()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0,
 
-                      /*     minimumSize: const Size(0.0, 40), */
-                      // padding: EdgeInsets.symmetric(
-                      //     horizontal: 40.0, vertical: 20.0),
-                      backgroundColor: const Color(0xff0087FF),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: const UploadImage().radius())),
-                  child: Text(
-                    "login".tr,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.8),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              SizedBox(
-                height: 6.h,
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
-                  },
-                  style: OutlinedButton.styleFrom(
-                      elevation: 0,
-                      side: const BorderSide(
-                        color: Color(0xff0087FF),
-                      ),
-                      /*  padding: EdgeInsets.symmetric(
-                                      horizontal: 40.0, vertical: 20.0), */
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: const UploadImage().radius())),
-                  child: Text(
-                    "guest".tr,
-                    style: TextStyle(
-                        color: primaryColorOfApp,
-                        fontSize: 12.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.2),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 2.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    color: const Color(0xff515253),
-                    height: height * 0.001,
-                    width: width * 0.38,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8),
+                        /*     minimumSize: const Size(0.0, 40), */
+                        // padding: EdgeInsets.symmetric(
+                        //     horizontal: 40.0, vertical: 20.0),
+                        backgroundColor: const Color(0xff0087FF),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: const UploadImage().radius())),
                     child: Text(
-                      'or'.tr,
+                      "login".tr,
                       style: TextStyle(
-                          color: Color(0xff515253),
+                          color: Colors.white,
+                          fontSize: 12.sp,
                           fontFamily: 'Poppins',
-                          fontSize: 10.sp),
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.8),
                     ),
                   ),
-                  Container(
-                    color: const Color(0xff515253),
-                    height: height * 0.001,
-                    width: width * 0.38,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: width * 0.03),
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                SizedBox(
+                  height: 6.h,
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()),
+                      );
+                    },
+                    style: OutlinedButton.styleFrom(
+                        elevation: 0,
+                        side: const BorderSide(
+                          color: Color(0xff0087FF),
+                        ),
+                        /*  padding: EdgeInsets.symmetric(
+                                        horizontal: 40.0, vertical: 20.0), */
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: const UploadImage().radius())),
                     child: Text(
-                      "dont".tr,
+                      "guest".tr,
                       style: TextStyle(
-                          color: customTextColor,
+                          color: primaryColorOfApp,
+                          fontSize: 12.sp,
                           fontFamily: 'Poppins',
-                          fontSize: 10.sp,
-                          wordSpacing: 0),
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.2),
                     ),
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 6.h,
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const PhoneNumber()),
-                    );
-                  },
-                  style: OutlinedButton.styleFrom(
-                      elevation: 0,
-                      side: const BorderSide(
-                        color: Color(0xff0087FF),
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      color: const Color(0xff515253),
+                      height: height * 0.001,
+                      width: width * 0.38,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, right: 8),
+                      child: Text(
+                        'or'.tr,
+                        style: TextStyle(
+                            color: Color(0xff515253),
+                            fontFamily: 'Poppins',
+                            fontSize: 10.sp),
                       ),
-                      /*  padding: EdgeInsets.symmetric(
-                                  horizontal: 40.0, vertical: 20.0), */
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: const UploadImage().radius())),
-                  child: Text(
-                    "signup".tr,
-                    style: TextStyle(
-                        color: primaryColorOfApp,
-                        fontSize: 12.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.8),
+                    ),
+                    Container(
+                      color: const Color(0xff515253),
+                      height: height * 0.001,
+                      width: width * 0.38,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: width * 0.03),
+                      child: Text(
+                        "dont".tr,
+                        style: TextStyle(
+                            color: customTextColor,
+                            fontFamily: 'Poppins',
+                            fontSize: 10.sp,
+                            wordSpacing: 0),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 6.h,
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PhoneNumber()),
+                      );
+                    },
+                    style: OutlinedButton.styleFrom(
+                        elevation: 0,
+                        side: const BorderSide(
+                          color: Color(0xff0087FF),
+                        ),
+                        /*  padding: EdgeInsets.symmetric(
+                                    horizontal: 40.0, vertical: 20.0), */
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: const UploadImage().radius())),
+                    child: Text(
+                      "signup".tr,
+                      style: TextStyle(
+                          color: primaryColorOfApp,
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.8),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -340,8 +348,8 @@ selectlanguagemethod(context) {
                       decoration: BoxDecoration(
                           color: const Color(0xffE2E2E2),
                           borderRadius: BorderRadius.circular(8)),
-                      height: 5,
-                      width: 100,
+                      height: 0.5.h,
+                      width: 30.w,
                     ),
                   ],
                 ),
@@ -350,42 +358,53 @@ selectlanguagemethod(context) {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text('Choose Language',
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             color: primaryColorOfApp,
-                            fontSize: 15))
+                            fontSize: 12.sp))
                   ],
                 ),
                 const Divider(),
                 ListView.separated(
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        minVerticalPadding: 10,
-                        horizontalTitleGap: 0.0,
-                        visualDensity: const VisualDensity(vertical: -3),
-                        dense: true,
-                        leading: Text(
-                          locale[index]['language'].toString(),
-                          style: const TextStyle(fontFamily: 'Poppins'),
-                        ),
-                        trailing: Radio(
-                            value: locale[index]['locale'].toString(),
-                            groupValue: groupValue,
-                            onChanged: (value) {
-                              setState(() {
-                                groupValue = locale[index]['locale'].toString();
-                                updatmethod(locale[index]['locale'].toString());
-                                Navigator.pop(context);
-                              });
-                            }),
-                      );
+                      if (index == 9) {
+                        return SizedBox(
+                          height: 2.h,
+                        );
+                      } else {
+                        return ListTile(
+                          minVerticalPadding: 10,
+                          horizontalTitleGap: 0.0,
+                          visualDensity: const VisualDensity(vertical: -3),
+                          dense: true,
+                          leading: Text(
+                            locale[index]['language'].toString(),
+                            style: const TextStyle(fontFamily: 'Poppins'),
+                          ),
+                          trailing: Transform.scale(
+                            scale: 1.2.sp,
+                            child: Radio(
+                                value: locale[index]['locale'].toString(),
+                                groupValue: groupValue,
+                                onChanged: (value) {
+                                  setState(() {
+                                    groupValue =
+                                        locale[index]['locale'].toString();
+                                    updatmethod(
+                                        locale[index]['locale'].toString());
+                                    Navigator.pop(context);
+                                  });
+                                }),
+                          ),
+                        );
+                      }
                     },
                     separatorBuilder: (context, index) {
-                      return const Divider(
-                        height: 2,
+                      return SizedBox(
+                        height: 1.5.h,
                       );
                     },
                     itemCount: locale.length),

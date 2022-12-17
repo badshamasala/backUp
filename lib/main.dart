@@ -2,12 +2,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
+import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/NEW_FOLDER/archive_check.dart';
 
 import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
+import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
 import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/chat_screen1.dart';
@@ -96,7 +98,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: HomePage() /* LoginPage12() */
+                  home: Formfill(value1: true,) /* LoginPage12() */
                   /*  IntroScreen() */ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(

@@ -25,10 +25,10 @@ class Formfill extends StatefulWidget {
   final value;
   const Formfill({
     Key? key,
-    required this.value1,
-    required this.value2,
-    required this.value3,
-    required this.value,
+    this.value1,
+    this.value2,
+    this.value3,
+    this.value,
   }) : super(key: key);
 
   @override
@@ -208,11 +208,12 @@ class _FormfillState extends State<Formfill> {
                                     color: status ? Colors.green : Colors.red)),
                             suffixIcon: iconchupa
                                 ? status
-                                    ? const Padding(
-                                        padding: EdgeInsets.only(right: 8.0),
-                                        child: Icon(
-                                          Icons.check_circle_outline_outlined,
-                                          color: Colors.green,
+                                    ? Padding(
+                                        padding: EdgeInsets.only(right: 8.sp),
+                                        child: Iconify(
+                                          AntDesign.check_circle_outlined,
+                                          color: Color(0xff08A434),
+                                          size: 20.sp,
                                         ),
                                       )
                                     : const Padding(
@@ -304,9 +305,10 @@ class _FormfillState extends State<Formfill> {
                                 obscure
                                     ? Icons.visibility_off
                                     : Icons.visibility,
+                                size: 20.sp,
                                 color: obscure
-                                    ? Color(0xff515253)
-                                    : Color(0xffDADADA),
+                                    ? const Color(0xff515253)
+                                    : const Color(0xffDADADA),
                               ),
                               onTap: () {
                                 setState(() {
@@ -355,17 +357,20 @@ class _FormfillState extends State<Formfill> {
                                     fontSize: width * 0.03),
                               ),
                             ),
-                            Checkbox(
-                                activeColor: primaryColorOfApp,
-                                shape: const CircleBorder(),
-                                materialTapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap,
-                                value: emailshow,
-                                onChanged: ((value) {
-                                  setState(() {
-                                    emailshow = value!;
-                                  });
-                                }))
+                            Transform.scale(
+                              scale: 1.2.sp,
+                              child: Checkbox(
+                                  activeColor: primaryColorOfApp,
+                                  shape: CircleBorder(),
+                                  materialTapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  value: emailshow,
+                                  onChanged: ((value) {
+                                    setState(() {
+                                      emailshow = value!;
+                                    });
+                                  })),
+                            )
                           ],
                         ),
                       ),
@@ -413,101 +418,51 @@ class _FormfillState extends State<Formfill> {
     double height = size.height, width = size.width;
     return Column(
       children: [
-        TextFormField(
-          enabled: false,
-          initialValue: '+91 ${widget.value}',
-          decoration: InputDecoration(
-            isDense: true,
-            prefixStyle: TextStyle(
-                color: const Color(0xffe2e2e2),
-                fontFamily: 'Poppins',
-                fontSize: 18.sp),
-            prefix: Padding(
-              padding: EdgeInsets.only(
-                right: 5,
-              ),
-              child: Row(
-                children: [
-                  const Iconify(
-                    Bxs.lock_alt,
-                    color: Color(0xffE2E2E2),
-                  ),
-                  Text('+91 ${widget.value}')
-                ],
-              ),
-            ),
-            suffixIcon: Padding(
-              padding: EdgeInsets.only(right: 8.sp),
-              child: Iconify(
-                AntDesign.check_circle_outlined,
-                color: Color(0xff08A434),
-                size: 20.sp,
-              ),
-            ),
-            suffixIconConstraints: const BoxConstraints(),
-            prefixIconConstraints: const BoxConstraints(),
-            labelText: 'Your 10 digit Mobile number is verified',
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
-                borderSide:
-                    const BorderSide(color: Color(0xff333333), width: 0.5)),
-            labelStyle: const TextStyle(
-                color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 5,
-              horizontal: 10.0,
-            ),
-          ),
-        ),
-        /* SizedBox(
-          height: 48,
+        SizedBox(
+          height: 5.6.h,
           child: Stack(
             children: [
               Positioned(
-                top: 7,
-                left: 0,
-                height: 35,
-                width: 288,
+                top: 1.h,
+                height: 4.5.h,
+                width: 90.w,
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(
-                          width: 0.5, color: const Color(0xff515253)),
-                      borderRadius: BorderRadius.circular(5)),
-                  /*  width: 150,
-                height: 150, */
-                  /*  color: Colors.green[300], */
+                      border: Border.all(width: 0.5.sp, color: customTextColor),
+                      borderRadius: BorderRadius.circular(5.sp)),
                   child: Row(
+                    /*   mainAxisSize: MainAxisSize.max, */
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
                           SizedBox(
-                            width: width * 0.04,
+                            width: 5.w,
                           ),
-                          const Iconify(
+                          Iconify(
                             Bxs.lock_alt,
                             color: Color(0xffE2E2E2),
-                            size: 19,
+                            size: 19.sp,
                           ),
                           SizedBox(
-                            width: width * 0.02,
+                            width: 2.w,
                           ),
                           Text(
                             '+91 ${widget.value}',
                             style: TextStyle(
                                 color: const Color(0xffE2E2E2),
                                 fontFamily: 'Poppins',
-                                fontSize: width * 0.059),
+                                fontSize: 16.sp),
                           ),
                         ],
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(right: 5.0),
+                      Padding(
+                        padding: EdgeInsets.only(right: 2.w),
                         child: Iconify(
                           AntDesign.check_circle_outlined,
-                          color: Color(0xff08A434),
-                          size: 19,
+                          color: const Color(0xff08A434),
+                          size: 19.sp,
                         ),
                       )
                     ],
@@ -516,34 +471,31 @@ class _FormfillState extends State<Formfill> {
               ),
               Positioned(
                 top: 0,
-                left: 15,
-                width: 170,
-                height: 13,
+                left: 5.w,
+                height: 2.h,
                 child: Container(
-                  /*   width: 200,
-                height: 150, */
                   color: Colors.white,
-                  child: const Text(
+                  child: Text(
                     'Your 10 digit Mobile number is verified',
                     style: TextStyle(
-                        color: Color(0xff515253),
-                        fontSize: 10,
+                        color: customTextColor,
+                        fontSize: 8.5.sp,
                         fontFamily: 'Poppins'),
                   ),
                 ),
               ),
             ],
           ),
-        ), */
+        ),
         Padding(
-          padding: EdgeInsets.only(left: width * 0.05, top: 1.5.h),
+          padding: EdgeInsets.only(left: 3.w, top: 0.5.h),
           child: Row(
             children: [
               Text(
                 'This contact won\'t be shared anyone or anywhere',
                 style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 10.sp,
+                    fontSize: 8.sp,
                     color: customTextColor),
               ),
             ],
@@ -553,7 +505,7 @@ class _FormfillState extends State<Formfill> {
           height: height * 0.01,
         ),
         Padding(
-          padding: EdgeInsets.only(left: width * 0.05),
+          padding: EdgeInsets.only(left: 3.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -561,7 +513,7 @@ class _FormfillState extends State<Formfill> {
                   style: TextStyle(
                       color: customTextColor,
                       fontFamily: 'Poppins',
-                      fontSize: width * 0.03)),
+                      fontSize: 10.sp)),
               TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -570,14 +522,12 @@ class _FormfillState extends State<Formfill> {
                           builder: (context) => const PhoneNumber()),
                     );
                   },
-                  child: const Text(
+                  child: Text(
                     'Change?',
                     style: TextStyle(
-                        color: Color(
-                          0xff0087FF,
-                        ),
+                        color: primaryColorOfApp,
                         fontFamily: 'Poppins',
-                        fontSize: 15,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w600),
                   ))
             ],
@@ -587,22 +537,22 @@ class _FormfillState extends State<Formfill> {
             ? Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: width * 0.05),
+                    padding: EdgeInsets.only(left: 3.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           'Fill the details',
                           style: TextStyle(
                               fontFamily: 'Poppins',
-                              fontSize: 20,
+                              fontSize: 15.sp,
                               color: customTextColor),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: width * 0.05),
+                    padding: EdgeInsets.only(left: 3.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -610,7 +560,7 @@ class _FormfillState extends State<Formfill> {
                           'Enjoy the entertainment world \nGet the bonus points',
                           style: TextStyle(
                               fontFamily: 'Poppins',
-                              fontSize: width * 0.045,
+                              fontSize: 12.sp,
                               color: customTextColor),
                         ),
                       ],
@@ -622,22 +572,22 @@ class _FormfillState extends State<Formfill> {
                 ? Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: width * 0.05),
+                        padding: EdgeInsets.only(left: 3.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
-                              'fill the details',
+                              'Fill the details',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 20,
-                                  color: Color(0xff515253)),
+                                  fontSize: 15.sp,
+                                  color: customTextColor),
                             ),
                           ],
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: width * 0.05),
+                        padding: EdgeInsets.only(left: 3.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -645,7 +595,7 @@ class _FormfillState extends State<Formfill> {
                               'grow your business in the world',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: width * 0.045,
+                                  fontSize: 12.sp,
                                   color: const Color(0xff515253)),
                             ),
                           ],
@@ -656,22 +606,22 @@ class _FormfillState extends State<Formfill> {
                 : Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: width * 0.05),
+                        padding: EdgeInsets.only(left: 3.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
-                              'fill the details',
+                              'Fill the details',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 20,
+                                  fontSize: 15.sp,
                                   color: Color(0xff515253)),
                             ),
                           ],
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: width * 0.05),
+                        padding: EdgeInsets.only(left: 3.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -679,7 +629,7 @@ class _FormfillState extends State<Formfill> {
                               'grow your fame in the world',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: width * 0.045,
+                                  fontSize: 12.sp,
                                   color: const Color(0xff515253)),
                             ),
                           ],
@@ -784,27 +734,24 @@ class _FormfillState extends State<Formfill> {
             isloading = false;
           });
           if (widget.value1) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>  UploadImage(  value1: widget.value,
-                      value2: username,
-                      value3: password,
-                      value4: fullname,
-                      value5: email,)),
-                            );
-                          } else if (widget.value2) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const UploadBrand()));
-                          } else if (widget.value3) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const UploadPublic()));
-                          }
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => UploadImage(
+                        value1: widget.value,
+                        value2: username,
+                        value3: password,
+                        value4: fullname,
+                        value5: email,
+                      )),
+            );
+          } else if (widget.value2) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const UploadBrand()));
+          } else if (widget.value3) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const UploadPublic()));
+          }
           /* Navigator.push(
             context,
             MaterialPageRoute(

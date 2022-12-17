@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
@@ -42,102 +40,52 @@ class _AccountTypeState extends State<AccountType> {
               SizedBox(
                 height: height * 0.1,
               ),
-              TextFormField(
-                enabled: false,
-                initialValue: '+91 ${widget.value}',
-                decoration: InputDecoration(
-                  isDense: true,
-                  prefixStyle: TextStyle(
-                      color: const Color(0xffe2e2e2),
-                      fontFamily: 'Poppins',
-                      fontSize: 18.sp),
-                  prefix: Padding(
-                    padding: EdgeInsets.only(
-                      right: 5,
-                    ),
-                    child: Row(
-                      children: [
-                        const Iconify(
-                          Bxs.lock_alt,
-                          color: Color(0xffE2E2E2),
-                        ),
-                        Text('+91 ${widget.value}')
-                      ],
-                    ),
-                  ),
-                  suffixIcon: Padding(
-                    padding: EdgeInsets.only(right: 8.sp),
-                    child: Iconify(
-                      AntDesign.check_circle_outlined,
-                      color: Color(0xff08A434),
-                      size: 20.sp,
-                    ),
-                  ),
-                  suffixIconConstraints: const BoxConstraints(),
-                  prefixIconConstraints: const BoxConstraints(),
-                  labelText: 'Your 10 digit Mobile number is verified',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(
-                          color: Color(0xff333333), width: 0.5)),
-                  labelStyle: const TextStyle(
-                      color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 5,
-                    horizontal: 10.0,
-                  ),
-                ),
-              ),
-              /* Container(
-                color: Colors.red,
-                height: 48,
+              SizedBox(
+                height: 5.6.h,
                 child: Stack(
                   children: [
                     Positioned(
-                      top: 7,
-                      left: 0,
-                      height: 35,
-                      width: 288,
+                      top: 1.h,
+                      height: 4.5.h,
+                      width: 90.w,
                       child: Container(
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(
-                                width: 0.5, color: const Color(0xff515253)),
-                            borderRadius: BorderRadius.circular(5)),
-                        /*  width: 150,
-                height: 150, */
-                        /*  color: Colors.green[300], */
+                                width: 0.5.sp, color: customTextColor),
+                            borderRadius: BorderRadius.circular(5.sp)),
                         child: Row(
+                          /*   mainAxisSize: MainAxisSize.max, */
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
                                 SizedBox(
-                                  width: width * 0.04,
+                                  width: 5.w,
                                 ),
-                                const Iconify(
+                                Iconify(
                                   Bxs.lock_alt,
                                   color: Color(0xffE2E2E2),
-                                  size: 19,
+                                  size: 19.sp,
                                 ),
                                 SizedBox(
-                                  width: width * 0.02,
+                                  width: 2.w,
                                 ),
                                 Text(
                                   '+91 ${widget.value}',
                                   style: TextStyle(
                                       color: const Color(0xffE2E2E2),
                                       fontFamily: 'Poppins',
-                                      fontSize: width * 0.059),
+                                      fontSize: 16.sp),
                                 ),
                               ],
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(right: 5.0),
+                            Padding(
+                              padding: EdgeInsets.only(right: 2.w),
                               child: Iconify(
                                 AntDesign.check_circle_outlined,
-                                color: Color(0xff08A434),
-                                size: 19,
+                                color: const Color(0xff08A434),
+                                size: 19.sp,
                               ),
                             )
                           ],
@@ -146,60 +94,57 @@ class _AccountTypeState extends State<AccountType> {
                     ),
                     Positioned(
                       top: 0,
-                      left: 15,
-                      width: 170,
-                      height: 13,
+                      left: 5.w,
+                      height: 2.h,
                       child: Container(
-                        /*   width: 200,
-                height: 150, */
                         color: Colors.white,
-                        child: const Text(
+                        child: Text(
                           'Your 10 digit Mobile number is verified',
                           style: TextStyle(
-                              color: Color(0xff515253),
-                              fontSize: 10,
+                              color: customTextColor,
+                              fontSize: 8.5.sp,
                               fontFamily: 'Poppins'),
                         ),
                       ),
                     ),
                   ],
                 ),
-              ), */
+              ),
               Padding(
-                padding:
-                    EdgeInsets.only(left: width * 0.05, top: height * 0.01),
+                padding: EdgeInsets.only(left: 5.w, top: 0.5.h),
                 child: Row(
                   children: [
                     Text(
                       'This contact won\'t be shared anyone or anywhere',
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 10.sp,
-                          color: Color(0xff333333)),
+                          fontSize: 8.sp,
+                          color: customTextColor),
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: height * 0.04,
+                height: 3.h,
               ),
               Padding(
-                padding: EdgeInsets.only(left: width * 0.05),
+                padding: EdgeInsets.only(left: 5.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       'Select type of account',
                       style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                          color: customTextColor),
+                        fontFamily: 'Poppins',
+                        fontSize: 16.sp,
+                        color: customTextColor,
+                      ),
                     ),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: width * 0.05),
+                padding: EdgeInsets.only(left: 5.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -207,7 +152,7 @@ class _AccountTypeState extends State<AccountType> {
                       'You can change this anytime ',
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 13.sp,
+                          fontSize: 12.sp,
                           color: customTextColor),
                     ),
                   ],
@@ -223,7 +168,7 @@ class _AccountTypeState extends State<AccountType> {
                         color: value1 ? primaryColorOfApp : Colors.black),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.only(left: 5.w, bottom: 2.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -231,16 +176,21 @@ class _AccountTypeState extends State<AccountType> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'Viewer or private',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.bold,
-                                color: customTextColor,
-                                fontSize: 15.sp),
+                          Row(
+                            children: [
+                              Text(
+                                'Viewer or private',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                    color: customTextColor,
+                                    fontSize: 15.sp,
+                                    letterSpacing: 0.5),
+                              ),
+                            ],
                           ),
                           Transform.scale(
-                            scale: 1.3,
+                            scale: 1.2.sp,
                             child: Radio(
                               splashRadius: 0,
                               materialTapTargetSize:
@@ -262,19 +212,19 @@ class _AccountTypeState extends State<AccountType> {
                       Text(
                         '#content-excellent for Entertainment,',
                         style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
                       ),
                       Text(
                         'collect points, surprise gift and more',
                         style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
                       ),
                     ],
                   ),
                 ),
               ),
               SizedBox(
-                height: height * 0.01,
+                height: 1.2.h,
               ),
               Container(
                 decoration: BoxDecoration(
@@ -283,7 +233,7 @@ class _AccountTypeState extends State<AccountType> {
                         color: value2 ? primaryColorOfApp : Colors.black),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.only(left: 5.w, bottom: 2.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -300,7 +250,7 @@ class _AccountTypeState extends State<AccountType> {
                                 fontSize: 15.sp),
                           ),
                           Transform.scale(
-                            scale: 1.3,
+                            scale: 1.2.sp,
                             child: Radio(
                               splashRadius: 0,
                               materialTapTargetSize:
@@ -322,19 +272,19 @@ class _AccountTypeState extends State<AccountType> {
                       Text(
                         '#content-excellent for Entertainment,',
                         style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
                       ),
                       Text(
                         'collect points, surprise gift and more',
                         style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
                       ),
                     ],
                   ),
                 ),
               ),
               SizedBox(
-                height: height * 0.01,
+                height: 1.2.h,
               ),
               Container(
                 decoration: BoxDecoration(
@@ -343,7 +293,7 @@ class _AccountTypeState extends State<AccountType> {
                         color: value3 ? primaryColorOfApp : Colors.black),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
-                  padding: EdgeInsets.all(8.sp),
+                  padding: EdgeInsets.only(left: 5.w, bottom: 2.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -360,7 +310,7 @@ class _AccountTypeState extends State<AccountType> {
                                 fontSize: 15.sp),
                           ),
                           Transform.scale(
-                            scale: 1.3,
+                            scale: 1.2.sp,
                             child: Radio(
                               splashRadius: 0,
                               materialTapTargetSize:
@@ -382,29 +332,29 @@ class _AccountTypeState extends State<AccountType> {
                       Text(
                         '#content-excellent for Entertainment,',
                         style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
                       ),
                       Text(
                         'collect points, surprise gift and more',
                         style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 10.sp),
+                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
                       ),
                     ],
                   ),
                 ),
               ),
               SizedBox(
-                height: height * 0.01,
+                height: 2.h,
               ),
               Padding(
-                padding: EdgeInsets.only(left: width * 0.09),
+                padding: EdgeInsets.only(left: 5.w),
                 child: Row(
                   children: [
                     Text('You have an account?',
                         style: TextStyle(
                             color: Colors.black,
                             fontFamily: 'Poppins',
-                            fontSize: width * 0.04)),
+                            fontSize: 12.sp)),
                     TextButton(
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
@@ -417,24 +367,22 @@ class _AccountTypeState extends State<AccountType> {
                                 builder: (context) => const LoginPage()),
                           );
                         },
-                        child: const Text(
+                        child: Text(
                           'login',
                           style: TextStyle(
-                              color: Color(
-                                0xff0087FF,
-                              ),
+                              color: primaryColorOfApp,
                               fontFamily: 'Poppins',
-                              fontSize: 18,
+                              fontSize: 15.sp,
                               fontWeight: FontWeight.bold),
                         ))
                   ],
                 ),
               ),
               SizedBox(
-                height: height * 0.01,
+                height: 1.h,
               ),
               SizedBox(
-                height: 15,
+                height: 3.h,
                 child: Padding(
                   padding: EdgeInsets.only(left: width * 0.05),
                   child: Row(
@@ -443,8 +391,8 @@ class _AccountTypeState extends State<AccountType> {
                         'I accepted ',
                         style: TextStyle(
                             fontFamily: 'Poppins',
-                            color: const Color(0xff515253),
-                            fontSize: width * 0.03),
+                            color: customTextColor,
+                            fontSize: 10.sp),
                       ),
                       TextButton(
                         onPressed: () {},
@@ -453,10 +401,17 @@ class _AccountTypeState extends State<AccountType> {
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           foregroundColor: const Color(0xff0087FF),
                         ),
-                        child: const Text(
-                          'terms of services ',
-                          style: TextStyle(fontSize: 11),
+                        child: Text(
+                          'terms of services',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: primaryColorOfApp,
+                              fontSize: 10.sp,
+                              fontWeight: FontWeight.bold),
                         ),
+                      ),
+                      SizedBox(
+                        width: 1.w,
                       ),
                       const Text(
                         '|',
@@ -465,6 +420,9 @@ class _AccountTypeState extends State<AccountType> {
                           color: customTextColor,
                         ),
                       ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
                       TextButton(
                         onPressed: () {},
                         style: TextButton.styleFrom(
@@ -472,17 +430,23 @@ class _AccountTypeState extends State<AccountType> {
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           foregroundColor: const Color(0xff0087FF),
                         ),
-                        child: const Text('privacy policy',
-                            style: TextStyle(fontSize: 11)),
+                        child: Text(
+                          'privacy policy',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: primaryColorOfApp,
+                              fontSize: 10.sp,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 3.h,
                 child: Padding(
-                  padding: EdgeInsets.only(left: width * 0.05),
+                  padding: EdgeInsets.only(left: 5.w),
                   child: Row(
                     children: [
                       TextButton(
@@ -492,11 +456,20 @@ class _AccountTypeState extends State<AccountType> {
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           foregroundColor: const Color(0xff0087FF),
                         ),
-                        child: const Text('Licence agreement',
-                            style: TextStyle(fontSize: 11)),
+                        child: Text(
+                          'Licence agreement',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: primaryColorOfApp,
+                              fontSize: 10.sp,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 1.w,
                       ),
                       const Text(
-                        ' &',
+                        '&',
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           color: customTextColor,
@@ -509,15 +482,21 @@ class _AccountTypeState extends State<AccountType> {
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           foregroundColor: const Color(0xff0087FF),
                         ),
-                        child: const Text('read more',
-                            style: TextStyle(fontSize: 11)),
+                        child: Text(
+                          'read more',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: primaryColorOfApp,
+                              fontSize: 10.sp,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
               SizedBox(
-                height: height * 0.02,
+                height: 2.h,
               ),
               SizedBox(
                 width: double.infinity,
