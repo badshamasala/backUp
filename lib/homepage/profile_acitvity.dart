@@ -16,30 +16,26 @@ class ProfileAcitvity extends StatefulWidget {
 
 class _ProfileAcitvityState extends State<ProfileAcitvity> {
   var images = [
-    'https://static.toiimg.com/thumb/resizemode-4,msid-71159887,width-1200,height-900/71159887.jpg',
-    'https://yt3.ggpht.com/ytc/AMLnZu_xNZbk3wtqbaetbuoTt1kZ5DkGUp1HE6ITpcdXUBc=s900-c-k-c0x00ffffff-no-rj',
-    'https://cardinsider.com/wp-content/uploads/2022/02/HDFC-Spend-based-offer.png',
-    'https://www.cardexpert.in/wp-content/uploads/2022/01/hdfc-spend-linked-offer-jan-2022.jpg',
-    'https://i.pinimg.com/736x/57/9a/4b/579a4b888090718d347efc33cee594af.jpg',
-    'https://static.toiimg.com/thumb/resizemode-4,msid-71159887,width-1200,height-900/71159887.jpg',
-    'https://yt3.ggpht.com/ytc/AMLnZu_xNZbk3wtqbaetbuoTt1kZ5DkGUp1HE6ITpcdXUBc=s900-c-k-c0x00ffffff-no-rj',
-    'https://cardinsider.com/wp-content/uploads/2022/02/HDFC-Spend-based-offer.png',
-    'https://www.cardexpert.in/wp-content/uploads/2022/01/hdfc-spend-linked-offer-jan-2022.jpg',
-    'https://i.pinimg.com/736x/57/9a/4b/579a4b888090718d347efc33cee594af.jpg',
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+    'assets/image9.jpg',
   ];
   var photos = [
-    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp',
-    'https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80',
-    'https://media.istockphoto.com/id/1007763808/photo/portrait-of-handsome-latino-african-man.jpg?s=612x612&w=0&k=20&c=XPL1ukeC99OY8HBfNa_njDujOPf9Xz4yCEOo7O3evU0=',
-    'https://api.time.com/wp-content/uploads/2017/12/joey-degrandis-hsam-memory.jpg',
-    'https://img.freepik.com/free-photo/pleased-woman-with-light-brown-skin-posing-with-crossed-arms-smiling-while-people-her-working-indoor-portrait-tired-students-with-laptop-african-curly-girl_197531-3760.jpg?w=2000',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxv0P4qDS_KAn-lIeyKpOSVEM87pPKbIVIQ&usqp=CAU',
-    'https://i.gremicdn.pl/image/free/4104b01f2c33bd2758e86f296b92d03d/?t=crop:1313:814:nowe:0:37.075845974329,resize:fill:408:255,enlarge:1',
-    'https://media.istockphoto.com/id/1009749608/photo/young-woman-portrait-in-the-city.jpg?s=612x612&w=0&k=20&c=nBmdXrCkI6Zz-J1EkCGQAamaYlZeIOQAtKunC4WMT-U=',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejyWxg3_4iE9iSY9SuGG4Yhy2Hm3Tk_rxHg&usqp=CAU',
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80',
-    'https://cdn.pixabay.com/photo/2017/06/20/22/14/man-2425121__340.jpg',
-    'https://cdn.stocksnap.io/img-thumbs/280h/businessmeeting-people_QVIEE1UZSX.jpg',
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+    'assets/image9.jpg',
   ];
   @override
   Widget build(BuildContext context) {
@@ -244,7 +240,6 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                                   )),
                         );
                       },
-                      
                       child: Padding(
                         padding: const EdgeInsets.only(top: 5.0),
                         child: Column(
@@ -470,7 +465,7 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                       itemBuilder: ((context, index) {
                         return Padding(
                           padding: const EdgeInsets.only(top: 8.0),
-                          child: Image.network(
+                          child: Image.asset(
                             images[index],
                             height: 65,
                             width: 57,
@@ -603,7 +598,7 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                           padding: const EdgeInsets.only(top: 8.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(5),
-                            child: Image.network(
+                            child: Image.asset(
                               photos[index],
                               height: 65,
                               width: 57,

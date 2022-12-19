@@ -72,9 +72,7 @@ class _GiftCheckState extends State<GiftCheck> {
                                       ),
                                       Row(
                                         children: const [
-                                        
-                                         
-                             Text(
+                                          Text(
                                             'Gift send to',
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
@@ -82,7 +80,6 @@ class _GiftCheckState extends State<GiftCheck> {
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15),
                                           ),
-                                          
                                         ],
                                       ),
                                       const Divider(),
@@ -95,6 +92,7 @@ class _GiftCheckState extends State<GiftCheck> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Row(
+                                              
                                               children: [
                                                 SvgPicture.asset(
                                                   'assets/loginActivity.svg',
@@ -114,7 +112,7 @@ class _GiftCheckState extends State<GiftCheck> {
                                             const Iconify(
                                               Eva.arrow_right_fill,
                                               size: 15,
-                                              color: Color(0xff333333),
+                                              color: customTextColor,
                                             )
                                           ],
                                         ),

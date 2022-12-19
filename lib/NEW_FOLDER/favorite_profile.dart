@@ -24,7 +24,7 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
     'https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80',
     'https://media.istockphoto.com/id/1007763808/photo/portrait-of-handsome-latino-african-man.jpg?s=612x612&w=0&k=20&c=XPL1ukeC99OY8HBfNa_njDujOPf9Xz4yCEOo7O3evU0=',
     'https://api.time.com/wp-content/uploads/2017/12/joey-degrandis-hsam-memory.jpg',
-    'https://img.freepik.com/free-photo/pleased-woman-with-light-brown-skin-posing-with-crossed-arms-smiling-while-people-her-working-indoor-portrait-tired-students-with-laptop-african-curly-girl_197531-3760.jpg?w=2000',
+  
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxv0P4qDS_KAn-lIeyKpOSVEM87pPKbIVIQ&usqp=CAU',
     'https://i.gremicdn.pl/image/free/4104b01f2c33bd2758e86f296b92d03d/?t=crop:1313:814:nowe:0:37.075845974329,resize:fill:408:255,enlarge:1',
     'https://media.istockphoto.com/id/1009749608/photo/young-woman-portrait-in-the-city.jpg?s=612x612&w=0&k=20&c=nBmdXrCkI6Zz-J1EkCGQAamaYlZeIOQAtKunC4WMT-U=',
@@ -93,85 +93,81 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
             Expanded(
               child: TabBarView(children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: ListView.separated(
-                            separatorBuilder: (context, index) {
-                              return const Divider();
-                            },
-                            shrinkWrap: true,
-                            itemCount: photos.length,
-                            itemBuilder: (context, index) {
-                              return Column(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: ListView.separated(
+                      separatorBuilder: (context, index) {
+                        return const Divider();
+                      },
+                      shrinkWrap: true,
+                      itemCount: photos.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            CircleAvatar(
-                                                backgroundImage: NetworkImage(
-                                                    photos[index])),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 8.0),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: const [
-                                                  Text(
-                                                    '@abdcprofile',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            primaryColorOfApp,
-                                                        fontSize: 10),
-                                                  ),
-                                                  Text(
-                                                    'profile name',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        color: customTextColor,
-                                                        fontSize: 10),
-                                                  ),
-                                                
-                                                ],
-                                              ),
-                                            )
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                          backgroundImage:
+                                              NetworkImage(photos[index])),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 8.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: const [
+                                            Text(
+                                              '@abdcprofile',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  color: primaryColorOfApp,
+                                                  fontSize: 10),
+                                            ),
+                                            Text(
+                                              'profile name',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  color: customTextColor,
+                                                  fontSize: 10),
+                                            ),
                                           ],
                                         ),
-                                        ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                              elevation: 0,
-                                              minimumSize: const Size(80, 30),
-                                              // padding: EdgeInsets.symmetric(
-                                              //     horizontal: 40.0, vertical: 20.0),
-                                              backgroundColor:
-                                                  const Color(0xff0087FF),
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          5.0))),
-                                          child: const Text(
-                                            "Remove",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                /*       fontSize: 18, */
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                        ),
-                                      ],
+                                      )
+                                    ],
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                        elevation: 0,
+                                        minimumSize: const Size(80, 30),
+                                        // padding: EdgeInsets.symmetric(
+                                        //     horizontal: 40.0, vertical: 20.0),
+                                        backgroundColor:
+                                            const Color(0xff0087FF),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0))),
+                                    child: const Text(
+                                      "Remove",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          /*       fontSize: 18, */
+                                          fontFamily: 'Poppins'),
                                     ),
-                                  )
+                                  ),
                                 ],
-                              );
-                            }),
-                            ),
+                              ),
+                            )
+                          ],
+                        );
+                      }),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(

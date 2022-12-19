@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:provider/provider.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
+
 
 class Message {
   final String message;
@@ -47,9 +47,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late IO.Socket _socket;
+  /* late IO.Socket _socket; */
   final TextEditingController _messageInputController = TextEditingController();
-
+/* 
   _sendMessage() {
     print('badsha masala');
     _socket.emit('message', {
@@ -57,9 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
       'sender': widget.username
     });
     _messageInputController.clear();
-  }
+  } */
 
-  _connectSocket() {
+  /* _connectSocket() {
     _socket.onConnect((data) => print('Connection established'));
     _socket.onConnectError((data) => print('Connect Error: $data'));
     _socket.onDisconnect((data) => print('Socket.IO server disconnected'));
@@ -68,9 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
       (data) => Provider.of<HomeProvider>(context, listen: false)
           .addNewMessage(Message.fromJson(data)),
     );
-  }
+  } */
 
-  @override
+/*   @override
   void initState()  {
     super.initState();
     //Important: If your server is running on localhost and you are testing your app on Android then replace http://localhost:3000 with http://10.0.2.2:3000
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
           {'username': widget.username}).build(),
     );
      _connectSocket();
-  }
+  } */
 
   @override
   void dispose() {
@@ -160,9 +160,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   IconButton(
                     onPressed: () {
-                      if (_messageInputController.text.trim().isNotEmpty) {
+                      /* if (_messageInputController.text.trim().isNotEmpty) {
                         _sendMessage();
-                      }
+                      } */
                     },
                     icon: const Icon(Icons.send),
                   )

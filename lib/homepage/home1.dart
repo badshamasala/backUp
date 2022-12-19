@@ -14,7 +14,6 @@ import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/ooui.dart';
 import 'package:image_picker/image_picker.dart';
 
-
 class Home1 extends StatefulWidget {
   const Home1({super.key});
 
@@ -24,15 +23,15 @@ class Home1 extends StatefulWidget {
 
 class _Home1State extends State<Home1> {
   var images = [
-    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://plus.unsplash.com/premium_photo-1664551734578-fe47fea8cab8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1667487147031-476e357b2fc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://plus.unsplash.com/premium_photo-1664551734578-fe47fea8cab8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1667487147031-476e357b2fc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+    'assets/image9.jpg',
   ];
   var names = [
     "Rashid",
@@ -59,8 +58,7 @@ class _Home1State extends State<Home1> {
     await SharedPref.getmytubeGender().then((value) {
       /*   print(_isLoggedIn); */
       if (value != null) {
-        setState(() {
-        });
+        setState(() {});
       }
     });
   }
@@ -514,7 +512,7 @@ class _Home1State extends State<Home1> {
                         );
                       },
                       scrollDirection: Axis.horizontal,
-                      itemCount: 9,
+                      itemCount: images.length,
                       itemBuilder: (context, index) {
                         if (index == 0) {
                           return Column(
@@ -592,7 +590,7 @@ class _Home1State extends State<Home1> {
                                       padding: EdgeInsets.all(2.sp),
                                       child: CircleAvatar(
                                         radius: 23.sp,
-                                        backgroundImage: NetworkImage(
+                                        backgroundImage: AssetImage(
                                           images[index],
                                         ),
                                       ),
@@ -718,8 +716,8 @@ class _Home1State extends State<Home1> {
                                 child: Padding(
                                   padding:
                                       EdgeInsets.symmetric(horizontal: 1.w),
-                                  child: Image.network(
-                                    'https://cdn.zeebiz.com/sites/default/files/styles/zeebiz_850x478/public/2022/09/11/199737-bramhastra-tw.jpg?itok=nGR3gI8o ',
+                                  child: Image.asset(
+                                    'assets/bookshow.webp',
                                     height: 20.h,
                                     width: double.infinity,
                                     fit: BoxFit.cover,
@@ -867,7 +865,7 @@ class _Home1State extends State<Home1> {
                                                     child: CircleAvatar(
                                                       radius: 16.sp,
                                                       backgroundImage:
-                                                          NetworkImage(
+                                                          AssetImage(
                                                               userlist[index]
                                                                   .image),
                                                     ),
@@ -1045,7 +1043,7 @@ class _Home1State extends State<Home1> {
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             left: 4.0, right: 4),
-                                        child: Image.network(
+                                        child: Image.asset(
                                           userlist[index].image,
                                           width: double.infinity,
                                           fit: BoxFit.cover,
@@ -1394,8 +1392,8 @@ class _Home1State extends State<Home1> {
                                                 Text('Furniture',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
-                                                        color:
-                                                            const Color(0xff0A8794),
+                                                        color: const Color(
+                                                            0xff0A8794),
                                                         fontSize: 10.sp,
                                                         fontWeight:
                                                             FontWeight.w900)),
@@ -2006,7 +2004,7 @@ class _Home1State extends State<Home1> {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(5),
-                                                child: Image.network(
+                                                child: Image.asset(
                                                   userlist[index].image.isEmpty
                                                       ? 'text'
                                                       : userlist[index].image,
@@ -2028,7 +2026,7 @@ class _Home1State extends State<Home1> {
                                                     child: CircleAvatar(
                                                       radius: 20,
                                                       backgroundImage:
-                                                          NetworkImage(
+                                                          AssetImage(
                                                               userlist[index]
                                                                   .image),
                                                     ),
@@ -2101,7 +2099,7 @@ class _Home1State extends State<Home1> {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(5),
-                                                child: Image.network(
+                                                child: Image.asset(
                                                   userlist[index].image,
                                                   height: 170,
                                                   width: 100,
@@ -2121,7 +2119,7 @@ class _Home1State extends State<Home1> {
                                                     child: CircleAvatar(
                                                       radius: 20,
                                                       backgroundImage:
-                                                          NetworkImage(
+                                                          AssetImage(
                                                               userlist[index]
                                                                   .image),
                                                     ),
@@ -2243,7 +2241,7 @@ class _Home1State extends State<Home1> {
                                                     child: CircleAvatar(
                                                       radius: 16.sp,
                                                       backgroundImage:
-                                                          NetworkImage(
+                                                          AssetImage(
                                                               userlist[index]
                                                                   .image),
                                                     ),
@@ -2421,7 +2419,7 @@ class _Home1State extends State<Home1> {
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             right: 4.0, left: 4),
-                                        child: Image.network(
+                                        child: Image.asset(
                                           userlist[index].image,
                                           width: double.infinity,
                                           fit: BoxFit.cover,
@@ -2679,8 +2677,8 @@ class _Home1State extends State<Home1> {
                                     SizedBox(
                                       height: 20.h,
                                       width: 49.5.w,
-                                      child: Image.network(
-                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrOCwZkwuVGBWL0nU_CxxB2x2HtmxDAoeTfw&usqp=CAU',
+                                      child: Image.asset(
+                                        'assets/xiomiadd.webp',
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -2785,8 +2783,7 @@ final userlist = [
     location: 'mumbai',
     username: 'meenal mehta',
     des: 'Sponsered by https://myttube.com/',
-    image:
-        'https://images.unsplash.com/photo-1667382137349-0f5cb5818a7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE1fHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    image: 'assets/image1.webp',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2799,8 +2796,7 @@ final userlist = [
     location: 'mumbai',
     username: 'Akash',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://images.unsplash.com/photo-1667467931331-30c9783f8bf6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDY5fHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    image: 'assets/image2.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2813,8 +2809,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Pravin',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://images.unsplash.com/photo-1662795854059-547d94855285?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDY4fHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    image: 'assets/image3.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2827,8 +2822,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://img.freepik.com/free-photo/portrait-middle-age-man-videographer-studio_613910-11063.jpg?size=626&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    image: 'assets/image4.webp',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2841,8 +2835,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://images.news18.com/ibnlive/uploads/2022/09/virat-kohli-asia-cup-ap.jpg',
+    image: 'assets/image5.jpeg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2855,8 +2848,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://m.economictimes.com/thumb/msid-95167227,width-1200,height-900,resizemode-4,imgsize-54742/urvashi-rautela-to-romance-ram-pothineni.jpg',
+    image: 'assets/image6.webp',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2869,8 +2861,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://upload.wikimedia.org/wikipedia/commons/2/2e/Urvashi_Rautela%2C_2016.jpg',
+    image: 'assets/image7.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2883,8 +2874,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://assets.vogue.in/photos/636505edc50b613e5402602e/2:3/w_2560%2Cc_limit/Alia%2520Bhatt.jpg',
+    image: 'assets/image8.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2897,8 +2887,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Alia_Bhatt_at_Berlinale_2022_Ausschnitt.jpg/1200px-Alia_Bhatt_at_Berlinale_2022_Ausschnitt.jpg',
+    image: 'assets/image9.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2911,8 +2900,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://i.pinimg.com/564x/9b/79/31/9b793177878721edabbd51f6296b61f5--aamir-khan-prince.jpg',
+    image: 'assets/image1.webp',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2925,8 +2913,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://img.mensxp.com/media/content/2020/Mar/Bollywood-Blockbusters-Aamir-Khan-Declined-1200x900_5e6cd30229e73.jpeg',
+    image: 'assets/image2.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2939,8 +2926,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://www.koimoi.com/wp-content/new-galleries/2020/07/5-years-of-bajrangi-bhaijaan-one-of-the-most-respected-all-time-blockbusters-of-salman-khan-0001.jpg',
+    image: 'assets/image3.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2953,8 +2939,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://akm-img-a-in.tosshub.com/indiatoday/images/story/201508/bajrangi-bhaijaan-collectio_647_082615065533.jpg?VersionId=6KVftt4jFxT1217QcqGrKZzo7joD2MTI',
+    image: 'assets/image4.webp',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2967,8 +2952,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://m.economictimes.com/thumb/msid-93765979,width-1200,height-900,resizemode-4,imgsize-33664/ranbir-kapoor.jpg',
+    image: 'assets/image5.jpeg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2981,8 +2965,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://akm-img-a-in.tosshub.com/aajtak/images/photo_gallery/202111/2-10_1.jpg',
+    image: 'assets/image6.webp',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -2995,8 +2978,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://img.mensxp.com/media/content/2022/Nov/Header---Instagram_6360e9e1d1d64.jpeg?w=820&h=540&cc=1',
+    image: 'assets/image7.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -3009,8 +2991,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://www.rri.res.in/sites/default/files/2022-09/Abhisek%20Tamang.jpg',
+    image: 'assets/image8.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -3023,8 +3004,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp',
+    image: 'assets/image9.jpg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -3037,8 +3017,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80',
+    image: 'assets/image1.webp',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',
@@ -3051,8 +3030,7 @@ final userlist = [
     location: 'mumbai',
     username: '@Farhan',
     des: 'thahhja ahjshjas jasjhhjs',
-    image:
-        'https://i.insider.com/5cb8b133b8342c1b45130629?width=1136&format=jpeg',
+    image: 'assets/image5.jpeg',
     likecount: '67k',
     commentcount: '47k',
     sharecount: '10k',

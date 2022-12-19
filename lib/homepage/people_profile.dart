@@ -42,8 +42,8 @@ class _PeopleProfileState extends State<PeopleProfile> {
                   Container(
                     decoration: BoxDecoration(
                         color: const Color(0xffE2E2E2),
-                        border:
-                            Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
+                        border: Border.all(
+                            width: 0.5, color: const Color(0xffE2E2E2)),
                         borderRadius: BorderRadius.circular(10)),
                     height: 5,
                     width: 100,
@@ -227,29 +227,26 @@ class _PeopleProfileState extends State<PeopleProfile> {
   }
 
   var photos = [
-    'https://img.freepik.com/free-photo/green-world-with-tree-background_1048-1484.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/glittery-gold-butterfly-vintage-animal-illustration_53876-165454.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/vintage-victorian-style-engraving-set-original-from-british-library-digitally-enhanced-by-rawpixel_53876-165338.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/lovely-easter-bunny-garden-design-element-set_53876-153469.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/yellow-easter-bird-design-element-cute-watercolor-illustration_53876-145496.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/easter-bird-design-element-cute-watercolor-illustration_53876-104101.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/green-world-with-tree-background_1048-1484.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/glittery-gold-butterfly-vintage-animal-illustration_53876-165454.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/flower-robot-environment-cute-concept_53876-31814.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/lovely-easter-bunny-garden-design-element-set_53876-153469.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/yellow-easter-bird-design-element-cute-watercolor-illustration_53876-145496.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
-    'https://img.freepik.com/free-photo/fun-dog-3d-illustration_183364-81022.jpg?size=338&ext=jpg&ga=GA1.2.1282463038.1665663473',
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+    'assets/image9.jpg',
   ];
   var images = [
-    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://plus.unsplash.com/premium_photo-1664551734578-fe47fea8cab8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1667487147031-476e357b2fc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://plus.unsplash.com/premium_photo-1664551734578-fe47fea8cab8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1667481018546-278f7d97c0c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
-    'https://images.unsplash.com/photo-1667487147031-476e357b2fc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+    'assets/image9.jpg',
   ];
   var names = [
     "Rashid",
@@ -302,7 +299,8 @@ class _PeopleProfileState extends State<PeopleProfile> {
                     ], */
                     color: const Color(0xffE2E2E2),
                     shape: BoxShape.rectangle,
-                    border: Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
+                    border:
+                        Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(3.0),
@@ -410,7 +408,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                             ),
                             child: CircleAvatar(
                               radius: 20,
-                              backgroundImage: NetworkImage(
+                              backgroundImage: AssetImage(
                                 images[index],
                               ),
                             ),
@@ -454,7 +452,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                               color: Colors.red,
                               borderRadius: BorderRadius.circular(5),
                               image: DecorationImage(
-                                  image: NetworkImage(photos[i]),
+                                  image: AssetImage(photos[i]),
                                   fit: BoxFit.cover),
                             ),
                           );
@@ -483,7 +481,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
                                   image: DecorationImage(
-                                      image: NetworkImage(
+                                      image: AssetImage(
                                         photos[i],
                                       ),
                                       fit: BoxFit.cover),
@@ -491,10 +489,10 @@ class _PeopleProfileState extends State<PeopleProfile> {
                               ),
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
-                                constraints:
-                                    const BoxConstraints(minHeight: 45, minWidth: 45),
+                                constraints: const BoxConstraints(
+                                    minHeight: 45, minWidth: 45),
                                 onPressed: () {
-                                 /*  Navigator.push(
+                                  /*  Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => const VideoApp()),
@@ -548,10 +546,10 @@ class _PeopleProfileState extends State<PeopleProfile> {
                               ),
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
-                                constraints:
-                                    const BoxConstraints(minHeight: 45, minWidth: 45),
+                                constraints: const BoxConstraints(
+                                    minHeight: 45, minWidth: 45),
                                 onPressed: () {
-                             /*      Navigator.push(
+                                  /*      Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => const VideoApp()),
@@ -605,8 +603,8 @@ class _PeopleProfileState extends State<PeopleProfile> {
                               ),
                               RawMaterialButton(
                                 padding: EdgeInsets.zero,
-                                constraints:
-                                    const BoxConstraints(minHeight: 45, minWidth: 45),
+                                constraints: const BoxConstraints(
+                                    minHeight: 45, minWidth: 45),
                                 onPressed: () {
                                   /*   pickImage(ImageSource.camera);
                                   Navigator.of(context).pop();
@@ -756,7 +754,10 @@ class _PeopleProfileState extends State<PeopleProfile> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Peopleprofiletab(value: 2,)),
+                  MaterialPageRoute(
+                      builder: (context) => const Peopleprofiletab(
+                            value: 2,
+                          )),
                 );
               },
               style: OutlinedButton.styleFrom(
@@ -834,7 +835,10 @@ class _PeopleProfileState extends State<PeopleProfile> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Peopleprofiletab(value: 0,)),
+                    MaterialPageRoute(
+                        builder: (context) => const Peopleprofiletab(
+                              value: 0,
+                            )),
                   );
                 },
                 style: OutlinedButton.styleFrom(
@@ -845,7 +849,8 @@ class _PeopleProfileState extends State<PeopleProfile> {
                     side: const BorderSide(
                       color: Color(0xff0087FF),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 9.0, vertical: 0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 9.0, vertical: 0),
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0))),
@@ -869,7 +874,10 @@ class _PeopleProfileState extends State<PeopleProfile> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Peopleprofiletab(value: 1,)),
+                    MaterialPageRoute(
+                        builder: (context) => const Peopleprofiletab(
+                              value: 1,
+                            )),
                   );
                 },
                 style: OutlinedButton.styleFrom(
@@ -880,7 +888,8 @@ class _PeopleProfileState extends State<PeopleProfile> {
                     side: const BorderSide(
                       color: Color(0xff0087FF),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 0),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 9, vertical: 0),
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0))),

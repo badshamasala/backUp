@@ -27,7 +27,7 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
     'https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80',
     'https://media.istockphoto.com/id/1007763808/photo/portrait-of-handsome-latino-african-man.jpg?s=612x612&w=0&k=20&c=XPL1ukeC99OY8HBfNa_njDujOPf9Xz4yCEOo7O3evU0=',
     'https://api.time.com/wp-content/uploads/2017/12/joey-degrandis-hsam-memory.jpg',
-    'https://img.freepik.com/free-photo/pleased-woman-with-light-brown-skin-posing-with-crossed-arms-smiling-while-people-her-working-indoor-portrait-tired-students-with-laptop-african-curly-girl_197531-3760.jpg?w=2000',
+
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxv0P4qDS_KAn-lIeyKpOSVEM87pPKbIVIQ&usqp=CAU',
     'https://i.gremicdn.pl/image/free/4104b01f2c33bd2758e86f296b92d03d/?t=crop:1313:814:nowe:0:37.075845974329,resize:fill:408:255,enlarge:1',
     'https://media.istockphoto.com/id/1009749608/photo/young-woman-portrait-in-the-city.jpg?s=612x612&w=0&k=20&c=nBmdXrCkI6Zz-J1EkCGQAamaYlZeIOQAtKunC4WMT-U=',
@@ -97,74 +97,55 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
               child: TabBarView(children: [
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child:  ListView.separated(
-                            shrinkWrap: true,
-                            separatorBuilder: (context, index) => const Divider(
-                                  color: Colors.transparent,
-                                  height: 8,
-                                ),
-                            itemCount: photos.length,
-                            itemBuilder: ((context, index) {
-                              return GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ChatScreen(
-                                              value: photos[index],
-                                            )),
-                                  );
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5),
-                                      color: const Color(0xffF0F0F0),
-                                      shape: BoxShape.rectangle),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                    child: ListView.separated(
+                        shrinkWrap: true,
+                        separatorBuilder: (context, index) => const Divider(
+                              color: Colors.transparent,
+                              height: 8,
+                            ),
+                        itemCount: photos.length,
+                        itemBuilder: ((context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ChatScreen(
+                                          value: photos[index],
+                                        )),
+                              );
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: const Color(0xffF0F0F0),
+                                  shape: BoxShape.rectangle),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
                                           children: [
-                                            Row(
-                                              children: [
-                                                CircleAvatar(
-                                                  radius: 16,
-                                                  backgroundImage: NetworkImage(
-                                                      photos[index]),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 2.0),
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Row(
-                                                        children: const [
-                                                          Text(
-                                                            '@myttube',
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color:
-                                                                    customTextColor,
-                                                                fontSize: 12),
-                                                          ),
-                                                          Iconify(
-                                                            Bi.patch_check,
-                                                            size: 10,
-                                                            color:
-                                                                primaryColorOfApp,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      const Text(
-                                                        'hello, how are you?',
+                                            CircleAvatar(
+                                              radius: 16,
+                                              backgroundImage:
+                                                  NetworkImage(photos[index]),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 2.0),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: const [
+                                                      Text(
+                                                        '@myttube',
                                                         style: TextStyle(
                                                             fontFamily:
                                                                 'Poppins',
@@ -172,41 +153,55 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
                                                                 customTextColor,
                                                             fontSize: 12),
                                                       ),
+                                                      Iconify(
+                                                        Bi.patch_check,
+                                                        size: 10,
+                                                        color:
+                                                            primaryColorOfApp,
+                                                      ),
                                                     ],
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              height: 30,
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
                                                   const Text(
-                                                    '10:15 pm',
+                                                    'hello, how are you?',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
                                                         color: customTextColor,
-                                                        fontSize: 8),
-                                                  ),
-                                                  SvgPicture.asset(
-                                                    'assets/doubletick.svg',
-                                                    height: 10,
-                                                    width: 10,
+                                                        fontSize: 12),
                                                   ),
                                                 ],
                                               ),
                                             ),
                                           ],
                                         ),
-                                      ),
-                                    ],
+                                        SizedBox(
+                                          height: 30,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Text(
+                                                '10:15 pm',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    color: customTextColor,
+                                                    fontSize: 8),
+                                              ),
+                                              SvgPicture.asset(
+                                                'assets/doubletick.svg',
+                                                height: 10,
+                                                width: 10,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              );
-                            }))),
+                                ],
+                              ),
+                            ),
+                          );
+                        }))),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(

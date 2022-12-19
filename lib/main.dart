@@ -7,6 +7,7 @@ import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/chat_screen1.dart';
+import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/localestring.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
@@ -89,8 +90,8 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: Formfill(value1: true,) /* LoginPage12() */
-                  /*  IntroScreen() */ /* _isLoggedIn
+                  home: HomePage()/* LoginPage12() */
+                    /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(
                 future: _initialization,
