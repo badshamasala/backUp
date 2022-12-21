@@ -5,6 +5,7 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/cil.dart';
 import 'package:iconify_flutter/icons/ion.dart';
+import 'package:sizer/sizer.dart';
 
 class History1 extends StatefulWidget {
   const History1({Key? key}) : super(key: key);
@@ -26,29 +27,26 @@ class _History1State extends State<History1> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -10.sp,
           elevation: 0,
-          iconTheme: const IconThemeData(
-            color: primaryColorOfApp, // <-- SEE HERE
-          ),
           backgroundColor: Colors.transparent,
-          title: const Text(
-            'History',
-            style: TextStyle(
-                color: customTextColor, fontFamily: 'Poppins', fontSize: 15),
-          ),
-          leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: IconButton(
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: primaryColorOfApp,
-                )),
-          ),
+          title: Text('History',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: primaryColorOfApp,
+              )),
         ),
         body: Column(
           children: [
@@ -208,7 +206,7 @@ class _History1State extends State<History1> {
                                                         CircleAvatar(
                                                           radius: 17,
                                                           backgroundImage:
-                                                              NetworkImage(
+                                                              AssetImage(
                                                                   historylist[
                                                                           index]
                                                                       .profileImage),
@@ -306,7 +304,7 @@ class _History1State extends State<History1> {
                                           ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(10),
-                                            child: Image.network(
+                                            child: Image.asset(
                                               historylist[index].image,
                                               height: 80,
                                               width: 80,
@@ -383,7 +381,7 @@ class _History1State extends State<History1> {
                                                   left: 8.0),
                                               child: CircleAvatar(
                                                 radius: 17,
-                                                backgroundImage: NetworkImage(
+                                                backgroundImage: AssetImage(
                                                     historylist[index]
                                                         .profileImage),
                                               ),
@@ -468,34 +466,28 @@ class HistoryModal {
 List<HistoryModal> historylist = [
   HistoryModal(
     userId: "@abdcprofile",
-    profileImage:
-        "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp",
+    profileImage: "assets/image1.webp",
     createdAt: "09-September 2022  7:33PM",
     username: "profile name",
-    image:
-        "https://media.istockphoto.com/id/1007763808/photo/portrait-of-handsome-latino-african-man.jpg?s=612x612&w=0&k=20&c=XPL1ukeC99OY8HBfNa_njDujOPf9Xz4yCEOo7O3evU0=",
+    image: "assets/image2.jpg",
     viewcount: "You & 101M+ Views",
     checkValue: false,
   ),
   HistoryModal(
     userId: "@abdcprofile",
-    profileImage:
-        "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp",
+    profileImage: "assets/image3.jpg",
     createdAt: "09-September 2022  7:33PM",
     username: "profile name",
-    image:
-        "https://media.istockphoto.com/id/1007763808/photo/portrait-of-handsome-latino-african-man.jpg?s=612x612&w=0&k=20&c=XPL1ukeC99OY8HBfNa_njDujOPf9Xz4yCEOo7O3evU0=",
+    image: "assets/image4.webp",
     viewcount: "You & 101M+ Views",
     checkValue: false,
   ),
   HistoryModal(
     userId: "@abdcprofile",
-    profileImage:
-        "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp",
+    profileImage: "assets/image5.jpeg",
     createdAt: "09-September 2022  7:33PM",
     username: "profile name",
-    image:
-        "https://media.istockphoto.com/id/1007763808/photo/portrait-of-handsome-latino-african-man.jpg?s=612x612&w=0&k=20&c=XPL1ukeC99OY8HBfNa_njDujOPf9Xz4yCEOo7O3evU0=",
+    image: "assets/image6.webp",
     viewcount: "You & 101M+ Views",
     checkValue: false,
   ),

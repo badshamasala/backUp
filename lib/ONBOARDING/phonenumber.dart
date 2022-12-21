@@ -404,7 +404,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                     Padding(
                                                       padding:
                                                           EdgeInsets.symmetric(
-                                                              horizontal: 6.w),
+                                                              horizontal: 7.w),
                                                       child: PinCodeTextField(
                                                         autoFocus: true,
                                                         cursorHeight: 20,
@@ -443,7 +443,8 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                           fieldHeight: 40,
                                                           fieldWidth: 40,
                                                           activeFillColor:
-                                                              const Color(0xffDFEEFC),
+                                                              const Color(
+                                                                  0xffDFEEFC),
                                                         ),
                                                         animationDuration:
                                                             const Duration(

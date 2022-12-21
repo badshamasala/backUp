@@ -1,4 +1,7 @@
+// ignore_for_file: unnecessary_new
+
 import 'dart:io';
+import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -2011,8 +2014,7 @@ class _Home1State extends State<Home1> {
                                                   height: 170,
                                                   width: 100,
                                                   fit: BoxFit.cover,
-                                                  colorBlendMode:
-                                                      BlendMode.darken,
+                                                  /*   color: Colors.transparent, */
                                                 ),
                                               ),
                                               Positioned(

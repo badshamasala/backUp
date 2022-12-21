@@ -3,10 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/NEW_FOLDER/create_folder.dart';
 import 'package:flutter_application_1/homepage/chat_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
+import 'package:sizer/sizer.dart';
 
 class ArchiveCheck extends StatefulWidget {
   const ArchiveCheck({Key? key}) : super(key: key);
@@ -20,21 +23,36 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
     "User1": "HOSPITAL",
     "User2": "PATIENT",
   };
+  var mypost = [
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+  ];
+  var friends = [
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+  ];
+  var collection = [
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+  ];
 
   var dropdownkivalue;
   var photos = [
-    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp',
-    'https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80',
-    'https://media.istockphoto.com/id/1007763808/photo/portrait-of-handsome-latino-african-man.jpg?s=612x612&w=0&k=20&c=XPL1ukeC99OY8HBfNa_njDujOPf9Xz4yCEOo7O3evU0=',
-    'https://api.time.com/wp-content/uploads/2017/12/joey-degrandis-hsam-memory.jpg',
-
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxv0P4qDS_KAn-lIeyKpOSVEM87pPKbIVIQ&usqp=CAU',
-    'https://i.gremicdn.pl/image/free/4104b01f2c33bd2758e86f296b92d03d/?t=crop:1313:814:nowe:0:37.075845974329,resize:fill:408:255,enlarge:1',
-    'https://media.istockphoto.com/id/1009749608/photo/young-woman-portrait-in-the-city.jpg?s=612x612&w=0&k=20&c=nBmdXrCkI6Zz-J1EkCGQAamaYlZeIOQAtKunC4WMT-U=',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejyWxg3_4iE9iSY9SuGG4Yhy2Hm3Tk_rxHg&usqp=CAU',
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80',
-    'https://cdn.pixabay.com/photo/2017/06/20/22/14/man-2425121__340.jpg',
-    'https://cdn.stocksnap.io/img-thumbs/280h/businessmeeting-people_QVIEE1UZSX.jpg',
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+    'assets/image9.jpg',
   ];
   @override
   Widget build(BuildContext context) {
@@ -42,29 +60,26 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -10.sp,
           elevation: 0,
-          iconTheme: const IconThemeData(
-            color: primaryColorOfApp, // <-- SEE HERE
-          ),
           backgroundColor: Colors.transparent,
-          title: const Text(
-            'Archive',
-            style: TextStyle(
-                color: customTextColor, fontFamily: 'Poppins', fontSize: 15),
-          ),
-          leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: IconButton(
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: primaryColorOfApp,
-                )),
-          ),
+          title: Text('Archived',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: primaryColorOfApp,
+              )),
         ),
         body: Column(
           children: [
@@ -133,7 +148,7 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
                                             CircleAvatar(
                                               radius: 16,
                                               backgroundImage:
-                                                  NetworkImage(photos[index]),
+                                                  AssetImage(photos[index]),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(
@@ -203,54 +218,70 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
                           );
                         }))),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Column(
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: const UploadImage().radius(),
-                              border:
-                                  Border.all(color: Colors.black, width: 0.5),
+                              border: Border.all(
+                                  color: primaryColorOfApp, width: 0.5),
                             ),
                             child: Padding(
                               padding:
                                   const EdgeInsets.only(left: 8.0, right: 8),
-                              child: DropdownButton(
-                                  hint: const Padding(
-                                    padding: EdgeInsets.only(left: 8.0),
-                                    child: Text(
-                                      'select ',
+                              child: DropdownButtonHideUnderline(
+                                child: SizedBox(
+                                  height: 5.h,
+                                  width: 44.w,
+                                  child: DropdownButton(
+                                      iconEnabledColor: primaryColorOfApp,
+                                      focusColor: primaryColorOfApp,
+                                      borderRadius: BorderRadius.circular(5.sp),
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
-                                          fontSize: 12,
-                                          color: Color(0xffC4C4C4)),
-                                    ),
-                                  ),
-                                  value: dropdownkivalue,
-                                  items: myMap.entries
-                                      .map((e) => DropdownMenuItem(
-                                          value: e.value, child: Text(e.value)))
-                                      .toList(),
-                                  onChanged: (val) {
-                                    setState(() {
-                                      dropdownkivalue = val;
-                                    });
-                                  }),
+                                          fontSize: 12.sp,
+                                          color: primaryColorOfApp),
+                                      /*   isDense: true, */
+                                      elevation: 0,
+                                      hint: Text(
+                                        'Images',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 12.sp,
+                                            color: primaryColorOfApp),
+                                      ),
+                                      value: dropdownkivalue,
+                                      items: myMap.entries
+                                          .map((e) => DropdownMenuItem(
+                                              value: e.value,
+                                              child: Text(e.value)))
+                                          .toList(),
+                                      onChanged: (val) {
+                                        setState(() {
+                                          dropdownkivalue = val;
+                                        });
+                                      }),
+                                ),
+                              ),
                             ),
                           ),
                           ElevatedButton.icon(
                             icon: SvgPicture.asset(
                               'assets/c2c.svg',
                               /* width: 17,
-                              height: 17, */
+                          height: 17, */
                               color: Colors.white,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              crateFolder(context);
+                            },
                             style: ElevatedButton.styleFrom(
                                 elevation: 0,
-                                minimumSize: const Size(80, 30),
+                                minimumSize: Size(44.w, 5.h),
                                 // padding: EdgeInsets.symmetric(
                                 //     horizontal: 40.0, vertical: 20.0),
                                 backgroundColor: const Color(0xff0087FF),
@@ -265,10 +296,212 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
                             ),
                           ),
                         ],
-                      )
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            width: 45.w,
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(5.sp),
+                                      topRight: Radius.circular(5.sp)),
+                                  child: Container(
+                                    color: primaryColorOfApp,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'my post',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 12.sp,
+                                              color: Colors.white),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(5.sp),
+                                          bottomRight: Radius.circular(5.sp)),
+                                      border: Border.all(
+                                          width: 0.5, color: customTextColor)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(1.0),
+                                    child: GridView.builder(
+                                        padding: const EdgeInsets.all(0),
+                                        shrinkWrap: true,
+                                        gridDelegate:
+                                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                                /*    mainAxisExtent: 33, */
+                                                /*     childAspectRatio: 3.5, */
+                                                crossAxisSpacing: 2,
+                                                mainAxisSpacing: 2,
+                                                crossAxisCount: 2),
+                                        itemCount: mypost.length,
+                                        itemBuilder: (context, index) {
+                                          return ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(5.sp),
+                                            child: Image.asset(
+                                              mypost[index],
+                                              height: 5.h,
+                                              width: 10.w,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          );
+                                        }),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 45.w,
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(5.sp),
+                                      topRight: Radius.circular(5.sp)),
+                                  child: Container(
+                                    color: primaryColorOfApp,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Friends',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 12.sp,
+                                              color: Colors.white),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(5.sp),
+                                          bottomRight: Radius.circular(5.sp)),
+                                      border: Border.all(
+                                          width: 0.5, color: customTextColor)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: GridView.builder(
+                                        padding: const EdgeInsets.all(0),
+                                        shrinkWrap: true,
+                                        gridDelegate:
+                                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                                /*    mainAxisExtent: 33, */
+                                                /*     childAspectRatio: 3.5, */
+                                                crossAxisSpacing: 2,
+                                                mainAxisSpacing: 2,
+                                                crossAxisCount: 2),
+                                        itemCount: friends.length,
+                                        itemBuilder: (context, index) {
+                                          return ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(5.sp),
+                                            child: Image.asset(
+                                              friends[index],
+                                              height: 5.h,
+                                              width: 10.w,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          );
+                                        }),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            width: 45.w,
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(5.sp),
+                                      topRight: Radius.circular(5.sp)),
+                                  child: Container(
+                                    color: primaryColorOfApp,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Collections',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 12.sp,
+                                              color: Colors.white),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(5.sp),
+                                          bottomRight: Radius.circular(5.sp)),
+                                      border: Border.all(
+                                          width: 0.5, color: customTextColor)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: GridView.builder(
+                                        padding: const EdgeInsets.all(0),
+                                        shrinkWrap: true,
+                                        gridDelegate:
+                                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                                /*    mainAxisExtent: 33, */
+                                                /*     childAspectRatio: 3.5, */
+                                                crossAxisSpacing: 2,
+                                                mainAxisSpacing: 2,
+                                                crossAxisCount: 2),
+                                        itemCount: collection.length,
+                                        itemBuilder: (context, index) {
+                                          return ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(5.sp),
+                                            child: Image.asset(
+                                              collection[index],
+                                              height: 5.h,
+                                              width: 10.w,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          );
+                                        }),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
-                )
+                ),
               ]),
             ),
           ],

@@ -31,11 +31,10 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> screens = <Widget>[
     const Home1(),
     const Search(),
-    const Reels(),
     const Chatmytube(),
     ProfileSelf()
   ];
- /*  var _navBarsItems = [
+  /*  var _navBarsItems = [
     PersistentBottomNavBarItem(
       icon: SvgPicture.asset(
         'assets/hometabicon.svg',
@@ -76,10 +75,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black.withOpacity(0.9),
       body: screens.elementAt(currentIndex),
-      bottomSheet: SizedBox(
-        height: 45,
+      /* bottomSheet: SizedBox(
+        height: 6.5.h,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -167,64 +167,15 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-      ),
-      /* bottomNavigationBar: PersistentTabView(
-          context,
-          /*    controller: _controller, */
-          screens: screens,
-          items: _navBarsItems,
-          confineInSafeArea: true,
-          backgroundColor: Colors.white, // Default is Colors.white.
-          handleAndroidBackButtonPress: true, // Default is true.
-          resizeToAvoidBottomInset:
-              true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
-          stateManagement: true, // Default is true.
-          hideNavigationBarWhenKeyboardShows:
-              true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
-          decoration: NavBarDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            colorBehindNavBar: Colors.white,
-          ),
-          popAllScreensOnTapOfSelectedTab: true,
-          popActionScreens: PopActionScreensType.all,
-          itemAnimationProperties: ItemAnimationProperties(
-            // Navigation Bar's items animation properties.
-            duration: Duration(milliseconds: 200),
-            curve: Curves.ease,
-          ),
-          screenTransitionAnimation: ScreenTransitionAnimation(
-            // Screen transition animation on change of selected tab.
-            animateTabTransition: true,
-            curve: Curves.ease,
-            duration: Duration(milliseconds: 200),
-          ),
-          navBarStyle: NavBarStyle
-              .style1, // Choose the nav bar style with this property.
-        ) */
-      /*    bottomNavigationBar: CurvedNavigationBar(
-        height: 45,
-        backgroundColor: Colors.blueAccent,
-        items: <Widget>[
-          Icon(Icons.add, size: 30),
-          Icon(Icons.list, size: 30),
-          Icon(Icons.compare_arrows, size: 30),
-          Icon(Icons.compare_arrows, size: 30),
-        ],
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-
-          //Handle button tap
-        },
       ), */
-      /* bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
+
+      bottomNavigationBar: ClipRRect(
+        /*   borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
-        ),
+        ), */
         child: BottomNavigationBar(
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             onTap: (index) => setState(() => currentIndex = index),
@@ -282,8 +233,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   label: ''),
             ]),
-      ), */
-      /*  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(top: 30),
         child: FloatingActionButton(
@@ -301,7 +252,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-      ), */
+      ),
     );
   }
 }

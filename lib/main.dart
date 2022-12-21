@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/formfill.dart';
 import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/NEW_FOLDER/archive_check.dart';
+import 'package:flutter_application_1/NEW_FOLDER/create_folder.dart';
+import 'package:flutter_application_1/NEW_FOLDER/saved1.dart';
+import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/chat_screen1.dart';
+
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/localestring.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';

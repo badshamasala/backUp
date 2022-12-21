@@ -24,7 +24,7 @@ class _ChatScreenState extends State<ChatScreen> {
   bool istyping = false;
   var messagecontroller = TextEditingController();
 
-  @override
+  /* @override
   void initState() {
     super.initState();
     // ignore: todo
@@ -50,7 +50,7 @@ class _ChatScreenState extends State<ChatScreen> {
     super.dispose();
     messagecontroller.dispose();
   }
-
+ */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +62,7 @@ class _ChatScreenState extends State<ChatScreen> {
         title: Row(children: [
           CircleAvatar(
             radius: 25,
-            backgroundImage: NetworkImage(widget.value),
+            backgroundImage: AssetImage(widget.value),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 2.0),

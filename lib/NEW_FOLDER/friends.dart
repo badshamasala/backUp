@@ -10,14 +10,14 @@ import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
 
-class FavoriteProfile extends StatefulWidget {
-  const FavoriteProfile({Key? key}) : super(key: key);
+class Friends1 extends StatefulWidget {
+  const Friends1({Key? key}) : super(key: key);
 
   @override
-  State<FavoriteProfile> createState() => _FavoriteProfileState();
+  State<Friends1> createState() => _Friends1State();
 }
 
-class _FavoriteProfileState extends State<FavoriteProfile> {
+class _Friends1State extends State<Friends1> {
   Map myMap = {
     "User1": "HOSPITAL",
     "User2": "PATIENT",
@@ -38,7 +38,7 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
     }); */
   }
 
-  
+
   var photos = [
     'assets/image1.webp',
     'assets/image2.jpg',
@@ -61,7 +61,7 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
           titleSpacing: -10.sp,
           elevation: 0,
           backgroundColor: Colors.transparent,
-          title: Text('Favorites Profile',
+          title: Text('Friends',
               style: TextStyle(
                   fontFamily: 'Poppins',
                   color: customTextColor,
@@ -96,7 +96,7 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
                 unselectedLabelColor: Color(0xff333333),
                 tabs: [
                   Tab(
-                    text: 'Favorite',
+                    text: 'Friends',
                   ),
                   Tab(
                     text: 'Search',
@@ -191,13 +191,8 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
                       ),
                       TextFormField(
                         cursorColor: primaryColorOfApp,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        /* validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please Enter Name';
-                          }
-                          return null;
-                        }, */
+         
+                    
                         decoration: buildInputdecoration('e.g. Profile Name'),
                       ),
                       SizedBox(
@@ -281,15 +276,15 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
     );
   }
 
+
+}
   buildInputdecoration(String labeltext) {
     return InputDecoration(
         isDense: true,
         labelText: labeltext,
         errorStyle: const TextStyle(fontSize: 8, height: 0.2),
         labelStyle: TextStyle(
-            color: fullNamefocusNode.hasFocus
-                ? customTextColor
-                : const Color(0xffc4c4c4),
+            color: const Color(0xffc4c4c4),
             fontFamily: 'Poppins',
             fontSize: 12),
         focusedBorder: OutlineInputBorder(
@@ -304,4 +299,3 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
             borderSide: const BorderSide(color: Color(0xff0087FF), width: 0.5),
             borderRadius: BorderRadius.circular(5)));
   }
-}
