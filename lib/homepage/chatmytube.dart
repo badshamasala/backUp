@@ -32,6 +32,7 @@ class _ChatmytubeState extends State<Chatmytube> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,

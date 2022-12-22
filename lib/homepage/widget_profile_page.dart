@@ -1,4 +1,3 @@
-
 // ignore_for_file: must_be_immutable, unused_local_variable
 
 import 'package:flutter/material.dart';
@@ -27,8 +26,6 @@ class WidgetProfilePage extends StatefulWidget {
     'item3',
   ];
   String? value;
-
-
 
   buildStory(BuildContext context) {
     dynamic groupseenonline;
@@ -218,7 +215,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                            width: 83,
+                        /*     width: 83, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -349,7 +346,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                            width: 163,
+                          /*   width: 163, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -1122,7 +1119,7 @@ class WidgetProfilePage extends StatefulWidget {
                               Positioned(
                                 top: 13,
                                 left: 20,
-                                width: 130,
+                                /*  width: 130, */
                                 height: 10,
                                 child: Container(
                                   /*   width: 200,
@@ -1393,7 +1390,7 @@ class WidgetProfilePage extends StatefulWidget {
                               Positioned(
                                 top: 13,
                                 left: 20,
-                                width: 90,
+                             /*    width: 90, */
                                 height: 10,
                                 child: Container(
                                   /*   width: 200,
@@ -1664,7 +1661,7 @@ class WidgetProfilePage extends StatefulWidget {
                               Positioned(
                                 top: 13,
                                 left: 20,
-                                width: 90,
+                               /*  width: 90, */
                                 height: 12,
                                 child: Container(
                                   /*   width: 200,
@@ -1935,7 +1932,7 @@ class WidgetProfilePage extends StatefulWidget {
                               Positioned(
                                 top: 13,
                                 left: 20,
-                                width: 70,
+                              /*   width: 70, */
                                 height: 12,
                                 child: Container(
                                   /*   width: 200,
@@ -2206,7 +2203,7 @@ class WidgetProfilePage extends StatefulWidget {
                               Positioned(
                                 top: 13,
                                 left: 20,
-                                width: 90,
+                          /*       width: 90, */
                                 height: 12,
                                 child: Container(
                                   /*   width: 200,
@@ -2560,7 +2557,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                            width: 90,
+                        /*     width: 90, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -2725,7 +2722,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                            width: 120,
+                 /*            width: 120, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -2830,7 +2827,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                            width: 135,
+                          /*   width: 135, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -3093,7 +3090,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                            width: 135,
+                        /*     width: 135, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -3258,7 +3255,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                            width: 140,
+                         /*    width: 140, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -3330,7 +3327,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                            width: 85,
+                    /*         width: 85, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -3593,7 +3590,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                            width: 95,
+                          /*   width: 95, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -3758,7 +3755,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                            width: 80,
+                          /*   width: 80, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -4022,7 +4019,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                            width: 110,
+                          /*   width: 110, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -4183,7 +4180,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                            width: 100,
+                           /*  width: 100, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -4344,7 +4341,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                            width: 110,
+                        /*     width: 110, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -4607,7 +4604,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                            width: 105,
+                        /*     width: 105, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -4681,8 +4678,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                               IconButton(
                                                                   padding:
                                                                       const EdgeInsets
-                                                                          .all(
-                                                                              0),
+                                                                              .all(
+                                                                          0),
                                                                   constraints:
                                                                       const BoxConstraints(),
                                                                   onPressed:
@@ -4691,7 +4688,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                                             context)
                                                                         .pop();
                                                                   },
-                                                                  icon: const Icon(
+                                                                  icon:
+                                                                      const Icon(
                                                                     Icons
                                                                         .arrow_back,
                                                                     color:
@@ -4828,7 +4826,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
-                                                            child: const Padding(
+                                                            child:
+                                                                const Padding(
                                                               padding:
                                                                   EdgeInsets
                                                                       .all(4.0),
@@ -4910,8 +4909,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                               IconButton(
                                                                   padding:
                                                                       const EdgeInsets
-                                                                          .all(
-                                                                              0),
+                                                                              .all(
+                                                                          0),
                                                                   constraints:
                                                                       const BoxConstraints(),
                                                                   onPressed:
@@ -4920,7 +4919,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                                             context)
                                                                         .pop();
                                                                   },
-                                                                  icon: const Icon(
+                                                                  icon:
+                                                                      const Icon(
                                                                     Icons
                                                                         .arrow_back,
                                                                     color:
@@ -5057,7 +5057,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
-                                                            child: const Padding(
+                                                            child:
+                                                                const Padding(
                                                               padding:
                                                                   EdgeInsets
                                                                       .all(4.0),
@@ -5139,8 +5140,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                               IconButton(
                                                                   padding:
                                                                       const EdgeInsets
-                                                                          .all(
-                                                                              0),
+                                                                              .all(
+                                                                          0),
                                                                   constraints:
                                                                       const BoxConstraints(),
                                                                   onPressed:
@@ -5149,7 +5150,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                                             context)
                                                                         .pop();
                                                                   },
-                                                                  icon: const Icon(
+                                                                  icon:
+                                                                      const Icon(
                                                                     Icons
                                                                         .arrow_back,
                                                                     color:
@@ -5286,7 +5288,8 @@ class WidgetProfilePage extends StatefulWidget {
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
-                                                            child: const Padding(
+                                                            child:
+                                                                const Padding(
                                                               padding:
                                                                   EdgeInsets
                                                                       .all(4.0),
@@ -5338,7 +5341,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                            width: 103,
+                       /*      width: 103, */
                             height: 12,
                             child: Container(
                               /*   width: 200,

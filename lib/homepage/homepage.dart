@@ -1,3 +1,4 @@
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_application_1/homepage/profile_self.dart';
 import 'package:flutter_application_1/homepage/reels.dart';
 import 'package:flutter_application_1/homepage/search.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:sizer/sizer.dart';
 
@@ -18,7 +20,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  static const String svgIcon =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="currentColor" d="M33 19a1 1 0 0 1-.71-.29L18 4.41L3.71 18.71A1 1 0 0 1 2.3 17.3l15-15a1 1 0 0 1 1.41 0l15 15A1 1 0 0 1 33 19Z" class="clr-i-solid clr-i-solid-path-1"/><path fill="currentColor" d="M18 7.79L6 19.83V32a2 2 0 0 0 2 2h7V24h6v10h7a2 2 0 0 0 2-2V19.76Z" class="clr-i-solid clr-i-solid-path-2"/><path fill="none" d="M0 0h36v36H0z"/></svg>';
   late ScrollController controller;
+
   @override
   void initState() {
     // ignore: todo
@@ -31,228 +36,102 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> screens = <Widget>[
     const Home1(),
     const Search(),
+    Reels(),
     const Chatmytube(),
     ProfileSelf()
   ];
-  /*  var _navBarsItems = [
-    PersistentBottomNavBarItem(
-      icon: SvgPicture.asset(
-        'assets/hometabicon.svg',
-        height: 25,
-        width: 25,
-      ),
-    ),
-    PersistentBottomNavBarItem(
-      icon: SvgPicture.asset(
-        'assets/searchtab.svg',
-        height: 25,
-        width: 25,
-      ),
-    ),
-    PersistentBottomNavBarItem(
-      icon: SvgPicture.asset(
-        'assets/tabbaricon.svg',
-        height: 27,
-        width: 27,
-      ),
-    ),
-    PersistentBottomNavBarItem(
-        icon: CircleAvatar(
-      radius: 14,
-      backgroundColor: primaryColorOfApp,
-      child: CircleAvatar(
-          radius: 12,
-          backgroundColor: Colors.white,
-          child: CircleAvatar(
-            radius: 10,
-            backgroundColor: Colors.grey.shade800,
-            backgroundImage: const NetworkImage(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkuP4A26vUkEZwYJL4zGV8KRxUbBmcX11Mdw&usqp=CAU'),
-          )),
-    )),
-  ]; */
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    double height = size.height, width = size.width;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.black.withOpacity(0.9),
-      body: screens.elementAt(currentIndex),
-      /* bottomSheet: SizedBox(
-        height: 6.5.h,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            InkWell(
-              onTap: () {
-                setState(() {
-                  currentIndex = 0;
-                });
-              },
-              child: SvgPicture.asset(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.black.withOpacity(0.9),
+        body: screens.elementAt(currentIndex),
+        bottomNavigationBar: ConvexAppBar(
+          top: -15,
+          backgroundColor: Colors.white,
+          color: customTextColor,
+          activeColor: Color.fromARGB(255, 200, 226, 249),
+          items: [
+            TabItem(
+              activeIcon: Padding(
+                padding: EdgeInsets.all(13.sp),
+                child: SvgPicture.asset(
+                  'assets/hometabicon.svg',
+                ),
+              ),
+              icon: SvgPicture.asset(
                 'assets/hometabicon.svg',
-                height: 25,
-                width: 25,
               ),
             ),
-            SizedBox(
-              width: 1.w,
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  currentIndex = 1;
-                });
-              },
-              child: SvgPicture.asset(
+            TabItem(
+              /*  isIconBlend: true, */
+              activeIcon: Padding(
+                padding: EdgeInsets.all(13.sp),
+                child: SvgPicture.asset(
+                  'assets/searchtab.svg',
+                ),
+              ),
+              icon: SvgPicture.asset(
                 'assets/searchtab.svg',
-                height: 25,
-                width: 25,
               ),
             ),
-            SizedBox(
-              width: 1.w,
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  currentIndex = 2;
-                });
-              },
-              child: Image(
+            TabItem(
+              activeIcon: Padding(
+                padding: EdgeInsets.all(11.sp),
+                child: Image(
+                    image: const AssetImage(
+                      'assets/logo.png',
+                    ),
+                    height: 5.h,
+                    width: 5.w,
+                    fit: BoxFit.cover),
+              ),
+              icon: Image(
                   image: const AssetImage(
                     'assets/logo.png',
                   ),
-                  height: 4.h,
-                  width: 8.w,
-                  fit: BoxFit.fitHeight),
+                  height: 5.h,
+                  width: 5.w,
+                  fit: BoxFit.cover),
             ),
-            SizedBox(
-              width: 1.w,
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  currentIndex = 3;
-                });
-              },
-              child: SvgPicture.asset(
+            TabItem(
+              activeIcon: Padding(
+                padding: EdgeInsets.all(13.sp),
+                child: SvgPicture.asset(
+                  'assets/tabbaricon.svg',
+                ),
+              ),
+              icon: SvgPicture.asset(
                 'assets/tabbaricon.svg',
-                height: 27,
-                width: 27,
               ),
             ),
-            SizedBox(
-              width: 1.w,
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  currentIndex = 4;
-                });
-              },
-              child: CircleAvatar(
-                radius: 14,
-                backgroundColor: primaryColorOfApp,
+            TabItem(
+              activeIcon: Padding(
+                padding: EdgeInsets.all(10.sp),
                 child: CircleAvatar(
-                    radius: 12,
-                    backgroundColor: Colors.white,
-                    child: CircleAvatar(
-                      radius: 10,
-                      backgroundColor: Colors.grey.shade800,
-                      backgroundImage: const NetworkImage(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkuP4A26vUkEZwYJL4zGV8KRxUbBmcX11Mdw&usqp=CAU'),
-                    )),
+                  radius: 15.sp,
+                  backgroundColor: primaryColorOfApp,
+                  child: CircleAvatar(
+                      radius: 14.sp,
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                        radius: 13.sp,
+                        backgroundColor: Colors.grey.shade800,
+                        backgroundImage: const AssetImage('assets/image1.webp'),
+                      )),
+                ),
               ),
-            )
-          ],
-        ),
-      ), */
-
-      bottomNavigationBar: ClipRRect(
-        /*   borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(30.0),
-          topRight: Radius.circular(30.0),
-        ), */
-        child: BottomNavigationBar(
-            backgroundColor: Colors.white,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: currentIndex,
-            onTap: (index) => setState(() => currentIndex = index),
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            selectedItemColor: const Color(0xff0B1C3D),
-            items: [
-              BottomNavigationBarItem(
-                  backgroundColor: Colors.white,
-                  icon: Padding(
-                    padding: const EdgeInsets.only(right: 16.0),
-                    child: SvgPicture.asset(
-                      'assets/hometabicon.svg',
-                      height: 20,
-                      width: 25,
-                    ),
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  backgroundColor: Colors.red,
-                  icon: Padding(
-                    padding: const EdgeInsets.only(right: 30),
-                    child: SvgPicture.asset(
-                      'assets/searchtab.svg',
-                      height: 25,
-                      width: 25,
-                    ),
-                  ),
-                  label: ''),
-              BottomNavigationBarItem(
-                  backgroundColor: Colors.white,
-                  icon: Padding(
-                    padding: const EdgeInsets.only(left: 30.0),
-                    child: SvgPicture.asset(
-                      'assets/tabbaricon.svg',
-                      height: 27,
-                      width: 27,
-                    ),
-                  ),
-                  label: 'home'),
-              BottomNavigationBarItem(
-                  backgroundColor: Colors.white,
-                  icon: CircleAvatar(
-                    radius: 14,
-                    backgroundColor: primaryColorOfApp,
-                    child: CircleAvatar(
-                        radius: 12,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          radius: 10,
-                          backgroundColor: Colors.grey.shade800,
-                          backgroundImage: const NetworkImage(
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkuP4A26vUkEZwYJL4zGV8KRxUbBmcX11Mdw&usqp=CAU'),
-                        )),
-                  ),
-                  label: ''),
-            ]),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(top: 30),
-        child: FloatingActionButton(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          onPressed: () {
-            /* Overlay.of(context)?.insert(entry); */
-          },
-          child: const Padding(
-            padding: EdgeInsets.only(bottom: 8.0),
-            child: Image(
-              image: AssetImage('assets/logo.png'),
-              height: 40,
-              width: 40,
+              icon: CircleAvatar(
+                radius: 14.sp,
+                backgroundColor: Colors.grey.shade800,
+                backgroundImage: const AssetImage('assets/image3.jpg'),
+              ),
             ),
-          ),
-        ),
-      ),
-    );
+          ],
+          onTap: (index) => setState(() => currentIndex = index),
+        ));
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
+import 'package:flutter_application_1/NEW_FOLDER/gotodashboard.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
@@ -22,7 +23,6 @@ import 'package:iconify_flutter/icons/tabler.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
-
 
 var privacyList = [
   {"icon": 'assets/profileactivityicon.svg', "label": "Activity Status"},
@@ -1273,12 +1273,12 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       ),
                       /*  Spacer(), */
                       SizedBox(
-                        width: 1.w,
+                        width: 0.5.w,
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 2.w),
                         child: Material(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(5.sp),
                           elevation: 5,
                           child: Container(
                               height: 4.h,
@@ -1493,6 +1493,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     padding: EdgeInsets.only(left: 1.w),
                     child: Text(
                       'Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..',
+                      textAlign: TextAlign.justify,
                       style: TextStyle(
                           color: const Color(0xff03194B),
                           fontSize: 8.sp,
@@ -1621,7 +1622,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     height: 4.5.h,
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => Gotodashboard());
+                      },
                       style: OutlinedButton.styleFrom(
                           /*   minimumSize: Size(32, 30), */
                           elevation: 5,
@@ -1921,9 +1924,6 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             alignment: Alignment.center,
                             children: [
                               Container(
-                                /*      width: 200,
-                              height: 300, */
-
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
                                   image: DecorationImage(
@@ -1933,20 +1933,41 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       fit: BoxFit.cover),
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white.withOpacity(0.5)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: SvgPicture.asset(
-                                    'assets/playicon.svg',
-                                    height: 1.5.h,
-                                    width: 2.w,
-                                    fit: BoxFit.cover,
-                                    /*   height: 18,
-                                                  width: 18, */
-                                  ),
+                              Positioned(
+                                top: 5.5.h,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white.withOpacity(0.5)),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: SvgPicture.asset(
+                                          'assets/playicon.svg',
+                                          height: 1.5.h,
+                                          width: 2.w,
+                                          fit: BoxFit.cover,
+                                          /*height: 18,
+                                             width : 18,*/
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 3.h,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          '20-Aug-2020',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              fontSize: 10.sp),
+                                        )
+                                      ],
+                                    )
+                                  ],
                                 ),
                               ),
                             ],
@@ -1979,20 +2000,41 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       fit: BoxFit.cover),
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white.withOpacity(0.5)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: SvgPicture.asset(
-                                    'assets/playicon.svg',
-                                    height: 1.5.h,
-                                    width: 2.w,
-                                    fit: BoxFit.cover,
-                                    /*   height: 18,
-                                                  width: 18, */
-                                  ),
+                              Positioned(
+                                top: 5.5.h,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white.withOpacity(0.5)),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: SvgPicture.asset(
+                                          'assets/playicon.svg',
+                                          height: 1.5.h,
+                                          width: 2.w,
+                                          fit: BoxFit.cover,
+                                          /*height: 18,
+                                             width : 18,*/
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 3.h,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          '@arvind_khanna1',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              fontSize: 9.sp),
+                                        )
+                                      ],
+                                    )
+                                  ],
                                 ),
                               ),
                             ],

@@ -6,6 +6,7 @@ import 'package:flutter_application_1/GLOBALS/app_theme_widget.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/NEW_FOLDER/archive_check.dart';
 import 'package:flutter_application_1/NEW_FOLDER/create_folder.dart';
+import 'package:flutter_application_1/NEW_FOLDER/gotodashboard.dart';
 import 'package:flutter_application_1/NEW_FOLDER/saved1.dart';
 import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 
@@ -73,10 +74,8 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
           builder: (context, child) {
             final themeProvider = Provider.of<ThemeProvider>(context);
 
-            return Sizer(
-              builder: (context, orientation, deviceType) {
+            return Sizer(builder: (context, orientation, deviceType) {
               return GetMaterialApp(
-
                   themeMode: themeProvider.themeMode,
                   theme: AppTheme.lighttheme,
                   darkTheme: AppTheme.darktheme,
@@ -95,8 +94,8 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: HomePage()/* LoginPage12() */
-                    /*IntroScreen()*/ /* _isLoggedIn
+                  home: HomePage() /* LoginPage12() */
+                  /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(
                 future: _initialization,

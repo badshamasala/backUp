@@ -308,14 +308,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           border: Border.all(
                               width: 0.5, color: const Color(0xff515253)),
                           borderRadius: BorderRadius.circular(5)),
-                      child: SizedBox(
-                          height: 40,
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(left: 18.0, bottom: 3),
-                            child: Row(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: 3.w,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
                               children: [
                                 SizedBox(
+                                  /*  color: Colors.red, */
                                   width: 65.w,
                                   child: TextFormField(
                                       cursorColor: primaryColorOfApp,
@@ -325,50 +328,45 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                         border: InputBorder.none,
                                       )),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 10.w),
-                                  child: Container(
-                                    child: full1
-                                        ? IconButton(
-                                            padding: const EdgeInsets.all(0),
-                                            constraints: const BoxConstraints(),
-                                            onPressed: () {
-                                              setState(() {
-                                                fullname = false;
-                                                full1 = false;
-                                              });
-                                            },
-                                            icon: SvgPicture.asset(
-                                              'assets/pentosquare.svg',
-                                              height: 2.5.h,
-                                              width: 4.5.w,
-                                            ))
-                                        : IconButton(
-                                            padding: const EdgeInsets.all(0),
-                                            constraints: const BoxConstraints(),
-                                            onPressed: () {
-                                              setState(() {
-                                                fullname = true;
-                                                full1 = true;
-                                              });
-                                            },
-                                            icon: SvgPicture.asset(
-                                              'assets/pentosquare.svg',
-                                              height: 2.5.h,
-                                              width: 4.5.w,
-                                            )
-
-                                            /* const Iconify(
-                                              Bx.edit,
-                                              color: Color(0xff737373),
-                                              size: 20,
-                                            ) */
-                                            ),
-                                  ),
-                                ),
                               ],
                             ),
-                          )),
+                            Padding(
+                              padding: EdgeInsets.only(right: 1.w),
+                              child: Container(
+                                child: full1
+                                    ? IconButton(
+                                        padding: const EdgeInsets.all(0),
+                                        constraints: const BoxConstraints(),
+                                        onPressed: () {
+                                          setState(() {
+                                            fullname = false;
+                                            full1 = false;
+                                          });
+                                        },
+                                        icon: SvgPicture.asset(
+                                          'assets/pentosquare.svg',
+                                          height: 2.5.h,
+                                          width: 4.5.w,
+                                        ))
+                                    : IconButton(
+                                        padding: const EdgeInsets.all(0),
+                                        constraints: const BoxConstraints(),
+                                        onPressed: () {
+                                          setState(() {
+                                            fullname = true;
+                                            full1 = true;
+                                          });
+                                        },
+                                        icon: SvgPicture.asset(
+                                          'assets/pentosquare.svg',
+                                          height: 2.5.h,
+                                          width: 4.5.w,
+                                        )),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   Positioned(
@@ -404,15 +402,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           border: Border.all(
                               width: 0.5, color: const Color(0xff515253)),
                           borderRadius: BorderRadius.circular(5)),
-                      /*  width: 150,
-                    height: 150, */
-                      /*  color: Colors.green[300], */
-                      child: SizedBox(
-                          height: 40,
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(left: 18.0, bottom: 3),
-                            child: Row(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 3.w),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
                               children: [
                                 SizedBox(
                                   width: 65.w,
@@ -424,43 +419,45 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                         border: InputBorder.none,
                                       )),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 10.w),
-                                  child: Container(
-                                    child: bio1
-                                        ? IconButton(
-                                            padding: const EdgeInsets.all(0),
-                                            constraints: const BoxConstraints(),
-                                            onPressed: () {
-                                              setState(() {
-                                                bio = false;
-                                                bio1 = false;
-                                              });
-                                            },
-                                            icon: SvgPicture.asset(
-                                              'assets/pentosquare.svg',
-                                              height: 2.5.h,
-                                              width: 4.5.w,
-                                            ))
-                                        : IconButton(
-                                            padding: const EdgeInsets.all(0),
-                                            constraints: const BoxConstraints(),
-                                            onPressed: () {
-                                              setState(() {
-                                                bio = true;
-                                                bio1 = true;
-                                              });
-                                            },
-                                            icon: SvgPicture.asset(
-                                              'assets/pentosquare.svg',
-                                              height: 2.5.h,
-                                              width: 4.5.w,
-                                            )),
-                                  ),
-                                ),
                               ],
                             ),
-                          )),
+                            Padding(
+                              padding: EdgeInsets.only(right: 1.w),
+                              child: Container(
+                                child: bio1
+                                    ? IconButton(
+                                        padding: const EdgeInsets.all(0),
+                                        constraints: const BoxConstraints(),
+                                        onPressed: () {
+                                          setState(() {
+                                            bio = false;
+                                            bio1 = false;
+                                          });
+                                        },
+                                        icon: SvgPicture.asset(
+                                          'assets/pentosquare.svg',
+                                          height: 2.5.h,
+                                          width: 4.5.w,
+                                        ))
+                                    : IconButton(
+                                        padding: const EdgeInsets.all(0),
+                                        constraints: const BoxConstraints(),
+                                        onPressed: () {
+                                          setState(() {
+                                            bio = true;
+                                            bio1 = true;
+                                          });
+                                        },
+                                        icon: SvgPicture.asset(
+                                          'assets/pentosquare.svg',
+                                          height: 2.5.h,
+                                          width: 4.5.w,
+                                        )),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   Positioned(

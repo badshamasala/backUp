@@ -65,26 +65,23 @@ class _Interaction1State extends State<Interaction1> {
         ),
         body: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4.w),
+            Container(
+              height: 6.h,
+              color: const Color(0xffe2e2e2),
               child: ButtonsTabBar(
-                borderWidth: 1,
-                buttonMargin: EdgeInsets.all(7.sp),
-                borderColor: primaryColorOfApp,
-                unselectedBorderColor: primaryColorOfApp,
                 contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
-                radius: 20.sp,
-                backgroundColor: primaryColorOfApp,
-                unselectedBackgroundColor: const Color(0xffFFFFFF),
+                radius: 0,
+                backgroundColor: Color(0xffe2e2e2),
+                unselectedBackgroundColor: const Color(0xffe2e2e2),
                 unselectedLabelStyle: TextStyle(
-                  color: primaryColorOfApp,
+                  color: customTextColor,
                   fontFamily: 'Poppins',
-                  fontSize: 10.sp,
+                  fontSize: 12.sp,
                 ),
                 labelStyle: TextStyle(
-                    color: Colors.white,
+                    color: primaryColorOfApp,
                     fontFamily: 'Poppins',
-                    fontSize: 10.sp,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.bold),
                 tabs: const [
                   Tab(
@@ -160,8 +157,8 @@ class _Interaction1State extends State<Interaction1> {
                                                 backgroundColor: Colors.white,
                                                 child: CircleAvatar(
                                                   radius: 15.sp,
-                                                  backgroundImage: AssetImage(
-                                                      images[index]),
+                                                  backgroundImage:
+                                                      AssetImage(images[index]),
                                                 ),
                                               ),
                                             ),
@@ -388,7 +385,7 @@ class _Interaction1State extends State<Interaction1> {
                                             ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(5),
-                                              child: Image.network(
+                                              child: Image.asset(
                                                 images[index],
                                                 height: 40,
                                                 width: 40,
@@ -523,7 +520,7 @@ class _Interaction1State extends State<Interaction1> {
                                             ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(5),
-                                              child: Image.network(
+                                              child: Image.asset(
                                                 images[index],
                                                 height: 40,
                                                 width: 40,
@@ -619,7 +616,7 @@ class _Interaction1State extends State<Interaction1> {
                                             ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(5),
-                                              child: Image.network(
+                                              child: Image.asset(
                                                 images[index],
                                                 height: 40,
                                                 width: 40,
@@ -715,7 +712,7 @@ class _Interaction1State extends State<Interaction1> {
                                             ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(5),
-                                              child: Image.network(
+                                              child: Image.asset(
                                                 images[index],
                                                 height: 40,
                                                 width: 40,

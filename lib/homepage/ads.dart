@@ -134,7 +134,7 @@ class _AdsState extends State<Ads> {
                                             backgroundColor: Colors.white,
                                             child: CircleAvatar(
                                               radius: 20,
-                                              backgroundImage: NetworkImage(
+                                              backgroundImage: AssetImage(
                                                   userlist[index].image),
                                             ),
                                           ),
@@ -257,7 +257,7 @@ class _AdsState extends State<Ads> {
                               padding: const EdgeInsets.only(top: 2.0),
                               child: ClipRRect(
                                   borderRadius: BorderRadius.circular(5),
-                                  child: Image.network(
+                                  child: Image.asset(
                                     userlist[index].image,
                                     width: 305,
                                     fit: BoxFit.cover,
