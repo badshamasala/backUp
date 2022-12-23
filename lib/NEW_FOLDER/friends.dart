@@ -8,6 +8,7 @@ import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class Friends1 extends StatefulWidget {
@@ -52,6 +53,7 @@ class _Friends1State extends State<Friends1> {
   ];
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<GetCountImage>(context, listen: false);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -203,7 +205,7 @@ class _Friends1State extends State<Friends1> {
                             return const Divider();
                           },
                           shrinkWrap: true,
-                          itemCount: historylist.length,
+                          itemCount: provider.historylist.length,
                           itemBuilder: (context, index) {
                             return Column(
                               children: [
@@ -218,7 +220,7 @@ class _Friends1State extends State<Friends1> {
                                         children: [
                                           CircleAvatar(
                                               backgroundImage: AssetImage(
-                                                  historylist[index].image)),
+                                                  provider.historylist[index].image)),
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 8.0),
@@ -250,14 +252,14 @@ class _Friends1State extends State<Friends1> {
                                           shape: const CircleBorder(),
                                           materialTapTargetSize:
                                               MaterialTapTargetSize.shrinkWrap,
-                                          value: historylist[index].checkValue,
+                                          value: provider.historylist[index].checkValue,
                                           onChanged: (value) async {
                                             setState(() {
-                                              historylist[index].checkValue =
+                                              provider.historylist[index].checkValue =
                                                   value!;
                                             });
                                             print(
-                                                historylist[index].checkValue);
+                                                provider.historylist[index].checkValue);
                                           })
                                     ],
                                   ),

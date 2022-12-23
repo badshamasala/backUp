@@ -5,6 +5,7 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/cil.dart';
 import 'package:iconify_flutter/icons/ion.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class History1 extends StatefulWidget {
@@ -19,6 +20,7 @@ class _History1State extends State<History1> {
   bool checkKiValue = false;
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<GetCountImage>(context, listen: false);
     Size size;
     double height;
     size = MediaQuery.of(context).size;
@@ -87,26 +89,45 @@ class _History1State extends State<History1> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  TextButton.icon(
-                                      icon: const Icon(
-                                        Icons.delete,
-                                        color: Color(0xffED1B24),
-                                        size: 15,
-                                      ),
-                                      style: TextButton.styleFrom(
-                                        padding: EdgeInsets.zero,
-                                        tapTargetSize:
-                                            MaterialTapTargetSize.shrinkWrap,
-                                      ),
-                                      onPressed: () {},
-                                      label: const Text(
-                                        'Delete',
-                                        style: TextStyle(
-                                          color: Color(0xffED1B24),
-                                          fontFamily: 'Poppins',
-                                          fontSize: 12,
+                                  provider.tempList.isEmpty
+                                      ? Container()
+                                      : Row(
+                                          children: [
+                                            TextButton.icon(
+                                                icon: const Icon(
+                                                  Icons.delete,
+                                                  color: Color(0xffED1B24),
+                                                  size: 15,
+                                                ),
+                                                style: TextButton.styleFrom(
+                                                  padding: EdgeInsets.zero,
+                                                  tapTargetSize:
+                                                      MaterialTapTargetSize
+                                                          .shrinkWrap,
+                                                ),
+                                                onPressed: () {
+                                                  provider.deleteSelectItem();
+                                                  setState(() {
+                                                    checkicon = false;
+                                                  });
+                                                },
+                                                label: const Text(
+                                                  'Delete',
+                                                  style: TextStyle(
+                                                    color: Color(0xffED1B24),
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12,
+                                                  ),
+                                                )),
+                                            Text(
+                                              ' (${context.watch<GetCountImage>().count.toString()} Selected)',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 8.sp,
+                                                  color: customTextColor),
+                                            ),
+                                          ],
                                         ),
-                                      )),
                                   TextButton(
                                       style: TextButton.styleFrom(
                                         padding: EdgeInsets.zero,
@@ -169,9 +190,9 @@ class _History1State extends State<History1> {
                             separatorBuilder: (context, index) {
                               return const Divider();
                             },
-                            itemCount: historylist.length,
+                            itemCount: provider.historylist.length,
                             itemBuilder: (context, index) {
-                              return historylist.isEmpty
+                              return provider.historylist.isEmpty
                                   ? Container(
                                       height: 100,
                                       width: 100,
@@ -206,15 +227,17 @@ class _History1State extends State<History1> {
                                                         CircleAvatar(
                                                           radius: 17,
                                                           backgroundImage:
-                                                              AssetImage(
-                                                                  historylist[
-                                                                          index]
-                                                                      .profileImage),
+                                                              AssetImage(provider
+                                                                  .historylist[
+                                                                      index]
+                                                                  .profileImage),
                                                         ),
                                                         Column(
                                                           children: [
                                                             Text(
-                                                              historylist[index]
+                                                              provider
+                                                                  .historylist[
+                                                                      index]
                                                                   .userId,
                                                               style:
                                                                   const TextStyle(
@@ -226,7 +249,9 @@ class _History1State extends State<History1> {
                                                               ),
                                                             ),
                                                             Text(
-                                                              historylist[index]
+                                                              provider
+                                                                  .historylist[
+                                                                      index]
                                                                   .username,
                                                               style:
                                                                   const TextStyle(
@@ -248,17 +273,23 @@ class _History1State extends State<History1> {
                                                             materialTapTargetSize:
                                                                 MaterialTapTargetSize
                                                                     .shrinkWrap,
-                                                            value: historylist[
+                                                            value: provider
+                                                                .historylist[
                                                                     index]
                                                                 .checkValue,
                                                             onChanged:
                                                                 (value) async {
                                                               setState(() {
-                                                                historylist[index]
-                                                                        .checkValue =
-                                                                    value!;
+                                                                provider
+                                                                    .historylist[
+                                                                        index]
+                                                                    .checkValue = value!;
                                                               });
-                                                              print(historylist[
+                                                              provider
+                                                                  .getUpdate(
+                                                                      index);
+                                                              print(provider
+                                                                  .historylist[
                                                                       index]
                                                                   .checkValue);
                                                             })
@@ -280,7 +311,8 @@ class _History1State extends State<History1> {
                                                             .spaceBetween,
                                                     children: [
                                                       Text(
-                                                        historylist[index]
+                                                        provider
+                                                            .historylist[index]
                                                             .createdAt,
                                                         style: const TextStyle(
                                                           fontFamily: 'Poppins',
@@ -288,7 +320,8 @@ class _History1State extends State<History1> {
                                                         ),
                                                       ),
                                                       Text(
-                                                        historylist[index]
+                                                        provider
+                                                            .historylist[index]
                                                             .viewcount,
                                                         style: const TextStyle(
                                                           fontFamily: 'Poppins',
@@ -305,7 +338,7 @@ class _History1State extends State<History1> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             child: Image.asset(
-                                              historylist[index].image,
+                                              provider.historylist[index].image,
                                               height: 80,
                                               width: 80,
                                               fit: BoxFit.cover,
@@ -361,9 +394,9 @@ class _History1State extends State<History1> {
                             separatorBuilder: (context, index) {
                               return const Divider();
                             },
-                            itemCount: historylist.length,
+                            itemCount: provider.historylist.length,
                             itemBuilder: (context, index) {
-                              return historylist.isEmpty
+                              return provider.historylist.isEmpty
                                   ? Container(
                                       height: 100,
                                       width: 100,
@@ -382,7 +415,7 @@ class _History1State extends State<History1> {
                                               child: CircleAvatar(
                                                 radius: 17,
                                                 backgroundImage: AssetImage(
-                                                    historylist[index]
+                                                    provider.historylist[index]
                                                         .profileImage),
                                               ),
                                             ),
@@ -394,7 +427,8 @@ class _History1State extends State<History1> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    historylist[index].userId,
+                                                    provider.historylist[index]
+                                                        .userId,
                                                     style: const TextStyle(
                                                       color: primaryColorOfApp,
                                                       fontFamily: 'Poppins',
@@ -402,14 +436,15 @@ class _History1State extends State<History1> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    historylist[index].username,
+                                                    provider.historylist[index]
+                                                        .username,
                                                     style: const TextStyle(
                                                       fontFamily: 'Poppins',
                                                       fontSize: 12,
                                                     ),
                                                   ),
                                                   Text(
-                                                    historylist[index]
+                                                    provider.historylist[index]
                                                         .createdAt,
                                                     style: const TextStyle(
                                                       fontFamily: 'Poppins',
@@ -439,7 +474,8 @@ class _History1State extends State<History1> {
   }
 
   deletefunction() {
-    historylist.clear();
+    final provider = Provider.of<GetCountImage>(context, listen: false);
+    provider.historylist.clear();
   }
 }
 
@@ -463,32 +499,54 @@ class HistoryModal {
   });
 }
 
-List<HistoryModal> historylist = [
-  HistoryModal(
-    userId: "@abdcprofile",
-    profileImage: "assets/image1.webp",
-    createdAt: "09-September 2022  7:33PM",
-    username: "profile name",
-    image: "assets/image2.jpg",
-    viewcount: "You & 101M+ Views",
-    checkValue: false,
-  ),
-  HistoryModal(
-    userId: "@abdcprofile",
-    profileImage: "assets/image3.jpg",
-    createdAt: "09-September 2022  7:33PM",
-    username: "profile name",
-    image: "assets/image4.webp",
-    viewcount: "You & 101M+ Views",
-    checkValue: false,
-  ),
-  HistoryModal(
-    userId: "@abdcprofile",
-    profileImage: "assets/image5.jpeg",
-    createdAt: "09-September 2022  7:33PM",
-    username: "profile name",
-    image: "assets/image6.webp",
-    viewcount: "You & 101M+ Views",
-    checkValue: false,
-  ),
-];
+class GetCountImage extends ChangeNotifier {
+  List<HistoryModal> historylist = [
+    HistoryModal(
+      userId: "@abdcprofile",
+      profileImage: "assets/image1.webp",
+      createdAt: "09-September 2022  7:33PM",
+      username: "profile name",
+      image: "assets/image2.jpg",
+      viewcount: "You & 101M+ Views",
+      checkValue: false,
+    ),
+    HistoryModal(
+      userId: "@abdcprofile",
+      profileImage: "assets/image3.jpg",
+      createdAt: "09-September 2022  7:33PM",
+      username: "profile name",
+      image: "assets/image4.webp",
+      viewcount: "You & 101M+ Views",
+      checkValue: false,
+    ),
+    HistoryModal(
+      userId: "@abdcprofile",
+      profileImage: "assets/image5.jpeg",
+      createdAt: "09-September 2022  7:33PM",
+      username: "profile name",
+      image: "assets/image6.webp",
+      viewcount: "You & 101M+ Views",
+      checkValue: false,
+    ),
+  ];
+  List tempList = [];
+
+  int get count => tempList.length;
+  int get _count => historylist.length;
+
+  getUpdate(index) {
+    if (tempList.contains(historylist[index])) {
+      tempList.remove(historylist[index]);
+    } else {
+      tempList.add(historylist[index]);
+    }
+    print(tempList.length);
+    print(tempList);
+    notifyListeners();
+  }
+
+  deleteSelectItem() {
+    historylist.removeWhere((element) => element.checkValue == true);
+    notifyListeners();
+  }
+}

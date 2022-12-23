@@ -397,13 +397,13 @@ class _SelfProfileState extends State<SelfProfile> {
                       child: Container(
                         padding: EdgeInsets.zero,
                         margin: EdgeInsets.zero,
-                        width: 26.w,
+                        width: 29.w,
                         height: 5.h,
                         decoration: BoxDecoration(
                             color: male
                                 ? Colors.transparent
                                 : const Color.fromARGB(255, 200, 226, 249),
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: const UploadImage().radius(),
                             border: Border.all(
                                 width: 0.2.w,
                                 color: male
@@ -443,13 +443,13 @@ class _SelfProfileState extends State<SelfProfile> {
                         });
                       },
                       child: Container(
-                        width: 26.w,
+                        width: 29.w,
                         height: 5.h,
                         decoration: BoxDecoration(
                             color: female
                                 ? Colors.transparent
                                 : const Color.fromARGB(255, 247, 212, 214),
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: const UploadImage().radius(),
                             border: Border.all(
                                 width: 0.2.w,
                                 color: female
@@ -489,13 +489,13 @@ class _SelfProfileState extends State<SelfProfile> {
                         });
                       },
                       child: Container(
-                        width: 26.w,
+                        width: 29.w,
                         height: 5.h,
                         decoration: BoxDecoration(
                             color: other
                                 ? Colors.transparent
                                 : const Color.fromARGB(255, 232, 203, 246),
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: const UploadImage().radius(),
                             border: Border.all(
                                 width: 0.2.w,
                                 color: other
@@ -763,7 +763,7 @@ class _SelfProfileState extends State<SelfProfile> {
                     OutlinedButton(
                       onPressed: () {},
                       style: OutlinedButton.styleFrom(
-                          minimumSize: const Size(140, 35),
+                          minimumSize: Size(44.w, 5.h),
                           /*    minimumSize: Size(32, 30), */
                           elevation: 0,
                           /* padding: EdgeInsets.zero, */
@@ -776,15 +776,12 @@ class _SelfProfileState extends State<SelfProfile> {
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0))),
-                      child: const Padding(
-                        padding: EdgeInsets.all(1.0),
-                        child: Text(
-                          "Cancel",
-                          style: TextStyle(
-                              color: Color(0xff333333),
-                              fontSize: 12,
-                              fontFamily: 'Poppins'),
-                        ),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            color: customTextColor,
+                            fontSize: 12.sp,
+                            fontFamily: 'Poppins'),
                       ),
                     ),
                     /*  SizedBox(
@@ -793,7 +790,7 @@ class _SelfProfileState extends State<SelfProfile> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(135, 35),
+                          minimumSize: Size(44.w, 5.h),
                           /*  minimumSize: Size(32, 30), */
                           elevation: 0,
                           /* padding: EdgeInsets.zero, */
@@ -807,12 +804,10 @@ class _SelfProfileState extends State<SelfProfile> {
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0))),
-                      child: const Padding(
-                        padding: EdgeInsets.all(1.0),
-                        child: Text(
-                          "Save Changes",
-                          style: TextStyle(fontSize: 12, fontFamily: 'Poppins'),
-                        ),
+                      child: Text(
+                        "Save Changes",
+                        style:
+                            TextStyle(fontSize: 12.sp, fontFamily: 'Poppins'),
                       ),
                     ),
                   ],

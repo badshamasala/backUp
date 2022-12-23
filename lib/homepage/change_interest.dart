@@ -103,6 +103,9 @@ class _ChangeInterestState extends State<ChangeInterest> {
                   itemCount: changeinterest.length,
                   itemBuilder: (context, index) {
                     return InkWell(
+                      onDoubleTap: () {
+                        
+                      },
                       onTap: () {
                         setState(() {
                           if (templist.contains(changeinterest[index])) {
@@ -125,14 +128,28 @@ class _ChangeInterestState extends State<ChangeInterest> {
                           /*  width: 50, */
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              changeinterest[index],
-                              style: TextStyle(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  changeinterest[index],
+                                  style: TextStyle(
+                                      color: templist
+                                              .contains(changeinterest[index])
+                                          ? Colors.white
+                                          : primaryColorOfApp,
+                                      fontFamily: 'Poppins'),
+                                ),
+                                Icon(
+                                  templist.contains(changeinterest[index])
+                                      ? Icons.check
+                                      : Icons.add,
                                   color:
                                       templist.contains(changeinterest[index])
                                           ? Colors.white
                                           : primaryColorOfApp,
-                                  fontFamily: 'Poppins'),
+                                )
+                              ],
                             ),
                           )),
                     );
@@ -142,7 +159,7 @@ class _ChangeInterestState extends State<ChangeInterest> {
               ),
               SizedBox(
                 width: double.infinity,
-                 height: 6.h,
+                height: 6.h,
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(

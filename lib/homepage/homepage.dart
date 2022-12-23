@@ -1,5 +1,4 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/chatmytube.dart';
@@ -9,7 +8,6 @@ import 'package:flutter_application_1/homepage/reels.dart';
 import 'package:flutter_application_1/homepage/search.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:sizer/sizer.dart';
 
 class HomePage extends StatefulWidget {

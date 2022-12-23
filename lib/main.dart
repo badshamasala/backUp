@@ -7,11 +7,15 @@ import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/NEW_FOLDER/archive_check.dart';
 import 'package:flutter_application_1/NEW_FOLDER/create_folder.dart';
 import 'package:flutter_application_1/NEW_FOLDER/gotodashboard.dart';
+import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
 import 'package:flutter_application_1/NEW_FOLDER/saved1.dart';
 import 'package:flutter_application_1/ONBOARDING/start_page.dart';
+import 'package:flutter_application_1/POLL/createpoll.dart';
 
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/chat_screen1.dart';
+import 'package:flutter_application_1/homepage/change_interest.dart';
+import 'package:flutter_application_1/homepage/checkcount1.dart';
 
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/localestring.dart';
@@ -19,6 +23,8 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+
+import 'homepage/checkcount.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,6 +72,8 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
         ChangeNotifierProvider(create: (_) => Googleprovider()),
         ChangeNotifierProvider(create: (_) => TagFriendProvider()),
         ChangeNotifierProvider(create: (_) => HomeProvider()),
+        ChangeNotifierProvider(create: (_) => GetCountImage()),
+        ChangeNotifierProvider(create: (_) => CreatePollProvider()),
         /*      ChangeNotifierProvider(create: (_) => ThemeProvider()), */
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
       ],
@@ -94,7 +102,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: HomePage() /* LoginPage12() */
+                  home: Createpoll() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(
