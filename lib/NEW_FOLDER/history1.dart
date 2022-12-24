@@ -5,6 +5,7 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/cil.dart';
 import 'package:iconify_flutter/icons/ion.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -31,7 +32,7 @@ class _History1State extends State<History1> {
         appBar: AppBar(
           toolbarHeight: 7.h,
           automaticallyImplyLeading: false,
-          titleSpacing: -10.sp,
+          titleSpacing: -2.sp,
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Text('History',
@@ -45,8 +46,8 @@ class _History1State extends State<History1> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(
-                Icons.arrow_back,
+              icon: const Iconify(
+                Mdi.arrow_back,
                 color: primaryColorOfApp,
               )),
         ),

@@ -8,6 +8,8 @@ import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -60,7 +62,7 @@ class _Friends1State extends State<Friends1> {
         appBar:  AppBar(
           toolbarHeight: 7.h,
           automaticallyImplyLeading: false,
-          titleSpacing: -10.sp,
+          titleSpacing: -2.sp,
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Text('Friends',
@@ -74,8 +76,8 @@ class _Friends1State extends State<Friends1> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(
-                Icons.arrow_back,
+              icon: const Iconify(
+                Mdi.arrow_back,
                 color: primaryColorOfApp,
               )),
         ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -29,6 +31,7 @@ class _CreatepollState extends State<Createpoll> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     questionCont.addListener(() {
       if (questionCont.text.isEmpty) {
         setState(() {
@@ -84,6 +87,12 @@ class _CreatepollState extends State<Createpoll> {
         });
       }
     });
+    newMethod(0);
+  }
+
+  newMethod(index) {
+    Provider.of<CreatePollProvider>(context, listen: false)
+        .methodforSelection(index);
   }
 
   @override
@@ -91,27 +100,27 @@ class _CreatepollState extends State<Createpoll> {
     final provider = Provider.of<CreatePollProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 7.h,
-        automaticallyImplyLeading: false,
-        titleSpacing: -7.sp,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: Text('Create Poll',
-            style: TextStyle(
-                fontFamily: 'Poppins',
-                color: customTextColor,
-                fontSize: 15.sp)),
-        leading: IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: primaryColorOfApp,
-            )),
-      ),
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text('Create Poll',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Iconify(
+                Mdi.arrow_back,
+                color: primaryColorOfApp,
+              )),
+        ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -172,29 +181,24 @@ class _CreatepollState extends State<Createpoll> {
                     itemBuilder: (context, index) {
                       return ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            side: BorderSide(
-                                color: checkTextField
-                                    ? Color(0xffe2e2e2)
-                                    : primaryColorOfApp),
-                            backgroundColor: provider.emptyList
+                            side: BorderSide(color: primaryColorOfApp),
+                            backgroundColor: provider.newVariable2 ? primaryColorOfApp : provider.emptyList
                                     .contains(provider.buttonlist[index])
                                 ? primaryColorOfApp
                                 : Colors.white,
-                            foregroundColor: provider.emptyList
+                            foregroundColor: provider.newVariable2 ? Colors.white : provider.emptyList
                                     .contains(provider.buttonlist[index])
                                 ? Colors.white
                                 : primaryColorOfApp,
                             elevation: 0),
-                        onPressed: checkTextField
-                            ? null
-                            : () {
-                                provider.updateOptionMethod(index);
-                                /*  print(provider.emptyList); */
+                        onPressed: () {
+                          provider.updateOptionMethod(index);
+                          /*  print(provider.emptyList); */
 
-                                /*  provider.getCount(index); */
-                                /* var newVariable = provider.emptyList[index]["value"];
+                          /*  provider.getCount(index); */
+                          /* var newVariable = provider.emptyList[index]["value"];
                             print(newVariable); */
-                              },
+                        },
                         child: Text(
                           provider.buttonlist[index]["label"],
                           style:
@@ -256,240 +260,244 @@ class _CreatepollState extends State<Createpoll> {
                     });
               }),
               Consumer<CreatePollProvider>(builder: (context, value, child) {
-                return Visibility(
-                  visible: provider.visibility,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Survey Duration',
+                return Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Survey Duration',
+                          style: TextStyle(
+                              color: customTextColor,
+                              fontFamily: 'Poppins',
+                              fontSize: 12.sp),
+                        )
+                      ],
+                    ),
+                    Consumer<CreatePollProvider>(
+                        builder: (context, value, child) {
+                      return GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  mainAxisExtent: 33,
+                                  /*     childAspectRatio: 3.5, */
+                                  crossAxisSpacing: 5,
+                                  mainAxisSpacing: 2,
+                                  crossAxisCount: 3),
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                  side: BorderSide(
+                                      color: provider.tempoList.contains(
+                                              provider.durationlist[index])
+                                          ? Colors.white
+                                          : primaryColorOfApp),
+                                  backgroundColor: provider.tempoList.contains(
+                                          provider.durationlist[index])
+                                      ? primaryColorOfApp
+                                      : Colors.white,
+                                  foregroundColor: provider.tempoList.contains(
+                                          provider.durationlist[index])
+                                      ? Colors.white
+                                      : primaryColorOfApp,
+                                  elevation: 0),
+                              onPressed: () {
+                                provider.updateDurationMethod(index);
+                              },
+                              child: Text(
+                                provider.durationlist[index]["label"],
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 11.sp),
+                              ),
+                            );
+                          },
+                          itemCount: provider.durationlist.length);
+                    }),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Change',
+                          style: TextStyle(
+                            color: primaryColorOfApp,
+                            fontFamily: 'Poppins',
+                            fontSize: 12.sp,
+                          ),
+                        ),
+                        Text('Color',
                             style: TextStyle(
-                                color: customTextColor,
-                                fontFamily: 'Poppins',
-                                fontSize: 12.sp),
-                          )
-                        ],
-                      ),
-                      Consumer<CreatePollProvider>(
-                          builder: (context, value, child) {
-                        return GridView.builder(
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    mainAxisExtent: 33,
-                                    /*     childAspectRatio: 3.5, */
-                                    crossAxisSpacing: 5,
-                                    mainAxisSpacing: 2,
-                                    crossAxisCount: 3),
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) {
-                              return OutlinedButton(
-                                style: OutlinedButton.styleFrom(
-                                    side: BorderSide(
-                                        color: provider.tempoList.contains(
-                                                provider.durationlist[index])
-                                            ? Colors.white
-                                            : primaryColorOfApp),
-                                    backgroundColor: provider.tempoList
-                                            .contains(
-                                                provider.durationlist[index])
-                                        ? primaryColorOfApp
-                                        : Colors.white,
-                                    foregroundColor: provider.tempoList
-                                            .contains(
-                                                provider.durationlist[index])
-                                        ? Colors.white
-                                        : primaryColorOfApp,
-                                    elevation: 0),
-                                onPressed: () {
-                                  provider.updateDurationMethod(index);
-                                },
-                                child: Text(
-                                  provider.durationlist[index]["label"],
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins', fontSize: 11.sp),
-                                ),
-                              );
-                            },
-                            itemCount: provider.durationlist.length);
-                      }),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Change',
-                            style: TextStyle(
-                              color: primaryColorOfApp,
+                              color: Color(0xffED1B24),
                               fontFamily: 'Poppins',
                               fontSize: 12.sp,
-                            ),
+                            )),
+                        Text('Theme',
+                            style: TextStyle(
+                              color: Color(0xff037F26),
+                              fontFamily: 'Poppins',
+                              fontSize: 12.sp,
+                            )),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Text(
+                      '#content: Be careful, we don’t allow request for political opinion and other sensetive information data',
+                      maxLines: 2,
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(
+                        color: customTextColor,
+                        fontFamily: 'Poppins',
+                        fontSize: 10.sp,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3.h,
+                      child: Row(
+                        children: [
+                          Text(
+                            'I accepted ',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                fontSize: 10.sp),
                           ),
-                          Text('Color',
-                              style: TextStyle(
-                                color: Color(0xffED1B24),
-                                fontFamily: 'Poppins',
-                                fontSize: 12.sp,
-                              )),
-                          Text('Theme',
-                              style: TextStyle(
-                                color: Color(0xff037F26),
-                                fontFamily: 'Poppins',
-                                fontSize: 12.sp,
-                              )),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Text(
-                        '#content: Be careful, we don’t allow request for political opinion and other sensetive information data',
-                        maxLines: 2,
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          color: customTextColor,
-                          fontFamily: 'Poppins',
-                          fontSize: 10.sp,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 3.h,
-                        child: Row(
-                          children: [
-                            Text(
-                              'I accepted ',
+                          TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              foregroundColor: const Color(0xff0087FF),
+                            ),
+                            child: Text(
+                              'terms of services',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  color: customTextColor,
-                                  fontSize: 10.sp),
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                foregroundColor: const Color(0xff0087FF),
-                              ),
-                              child: Text(
-                                'terms of services',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: primaryColorOfApp,
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            const Text(
-                              '|',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: customTextColor,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                foregroundColor: const Color(0xff0087FF),
-                              ),
-                              child: Text(
-                                'privacy policy',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: primaryColorOfApp,
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 3.h,
-                        child: Row(
-                          children: [
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                foregroundColor: const Color(0xff0087FF),
-                              ),
-                              child: Text(
-                                'Licence agreement',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: primaryColorOfApp,
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 1.w,
-                            ),
-                            const Text(
-                              '&',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: customTextColor,
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                foregroundColor: const Color(0xff0087FF),
-                              ),
-                              child: Text(
-                                'read more',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: primaryColorOfApp,
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Consumer<CreatePollProvider>(
-                          builder: (context, value, child) {
-                        return SizedBox(
-                          height: 6.h,
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                backgroundColor: primaryColorOfApp,
-                                foregroundColor: Colors.white,
-                                elevation: 0),
-                            onPressed: (provider.visibility &&
-                                    provider.buttonCheck && provider.count == 2 ? 
-                                    option1bool && option2bool : provider.count ==3 ?  option1bool && option2bool && option3bool : option1bool && option2bool && option3bool && option4bool)
-                                ? () {}
-                                : null,
-                            child: Text(
-                              'Confirm',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins', fontSize: 15.sp),
+                                  color: primaryColorOfApp,
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
-                        );
-                      })
-                    ],
-                  ),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          const Text(
+                            '|',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: customTextColor,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              foregroundColor: const Color(0xff0087FF),
+                            ),
+                            child: Text(
+                              'privacy policy',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: primaryColorOfApp,
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3.h,
+                      child: Row(
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              foregroundColor: const Color(0xff0087FF),
+                            ),
+                            child: Text(
+                              'Licence agreement',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: primaryColorOfApp,
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          const Text(
+                            '&',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: customTextColor,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              foregroundColor: const Color(0xff0087FF),
+                            ),
+                            child: Text(
+                              'read more',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: primaryColorOfApp,
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Consumer<CreatePollProvider>(
+                        builder: (context, value, child) {
+                      return SizedBox(
+                        height: 6.h,
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              backgroundColor: primaryColorOfApp,
+                              foregroundColor: Colors.white,
+                              elevation: 0),
+                          onPressed: (provider.visibility &&
+                                      provider.buttonCheck &&
+                                      provider.count == 2
+                                  ? option1bool && option2bool
+                                  : provider.count == 3
+                                      ? option1bool &&
+                                          option2bool &&
+                                          option3bool
+                                      : option1bool &&
+                                          option2bool &&
+                                          option3bool &&
+                                          option4bool)
+                              ? () {}
+                              : null,
+                          child: Text(
+                            'Confirm',
+                            style: TextStyle(
+                                fontFamily: 'Poppins', fontSize: 15.sp),
+                          ),
+                        ),
+                      );
+                    })
+                  ],
                 );
               }),
             ],
@@ -502,9 +510,9 @@ class _CreatepollState extends State<Createpoll> {
 
 class CreatePollProvider extends ChangeNotifier {
   List buttonlist = [
-    {"label": "Option 2", "value": 2},
-    {"label": "Option 3", "value": 3},
-    {"label": "Option 4", "value": 4},
+    {"label": "Option 2", "value": 2, "isChecked": true},
+    {"label": "Option 3", "value": 3, "isChecked": false},
+    {"label": "Option 4", "value": 4, "isChecked": false},
   ];
   List emptyList = [];
   List durationlist = [
@@ -513,7 +521,8 @@ class CreatePollProvider extends ChangeNotifier {
     {"label": "1 Days", "value": 4},
   ];
   List tempoList = [];
-  int newVariable = 0;
+  int newVariable = 2;
+  bool newVariable2 = false;
   bool visibility = false;
   bool buttonCheck = false;
   var questionCont = TextEditingController();
@@ -527,9 +536,17 @@ class CreatePollProvider extends ChangeNotifier {
     }
     /*  print('Update----${buttonlist[index]["value"]}'); */
     newVariable = buttonlist[index]["value"];
-    visibility = true;
+     newVariable2 = false; 
     /*    print("GetCount-----$newVariable"); */
     notifyListeners();
+  }
+
+  methodforSelection(index) {
+    if (index == 0) {
+        newVariable2 = true;
+    }
+  
+    return newVariable2;
   }
 
   int get count => newVariable;

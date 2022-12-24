@@ -13,6 +13,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/eva.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
 import 'monetize_check.dart';
@@ -51,22 +52,22 @@ class _InsideSettingState extends State<InsideSetting> {
       appBar: AppBar(
         toolbarHeight: 7.h,
         automaticallyImplyLeading: false,
-        titleSpacing: -10.sp,
+        titleSpacing: -2.sp,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Text(
-          'Settings',
-          style: TextStyle(
-              fontFamily: 'Poppins', color: customTextColor, fontSize: 15.sp),
-        ),
+        title: Text('Settings',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
         leading: IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
-              Icons.arrow_back,
+            icon: const Iconify(
+              Mdi.arrow_back,
               color: primaryColorOfApp,
             )),
       ),
@@ -161,7 +162,7 @@ class _InsideSettingState extends State<InsideSetting> {
                       } else if (index == 4) {
                         selectlanguagemethod(context);
                       } else if (index == 5) {
-                        Get.to(() => Saved1());
+                        WidgetNotification().buildchatbox(context);
                       } else if (index == 6) {
                         Get.to(() => Ads());
                       } else if (index == 7) {
@@ -171,7 +172,7 @@ class _InsideSettingState extends State<InsideSetting> {
                       } else if (index == 9) {
                         buildsecurity(context);
                       } else if (index == 10) {
-                        Get.to(() => ProfileAcitvity());
+                        /*    Get.to(() => ProfileAcitvity()); */
                       }
                     },
                     child: Row(

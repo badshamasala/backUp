@@ -3,15 +3,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/bx.dart';
+import 'package:iconify_flutter/icons/carbon.dart';
+import 'package:iconify_flutter/icons/clarity.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/eva.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:sizer/sizer.dart';
 
 dynamic groupseenonline;
 
@@ -20,6 +25,29 @@ var followers = 'Followers';
 var following = 'Following';
 var off = 'Off';
 var sourceLocation = const LatLng(19.0715252, 72.8692906);
+List securityList = [
+  {
+    "label": "Login Activity",
+    "icon": "assets/loginActivity.svg",
+  },
+  {
+    "label": "Saved Password",
+    "icon": "assets/savePassword.svg",
+  },
+  {
+    "label": "Password",
+    "icon": "assets/securepass.svg",
+  },
+  {
+    "label": "Mobile",
+    "icon": "assets/mobile1.svg",
+  },
+  {
+    "label": "Email",
+    "icon": null,
+  }
+];
+
 buildsecurity(context) {
   Size size;
   double height, width;
@@ -42,25 +70,10 @@ buildsecurity(context) {
             clipBehavior: Clip.none,
             children: [
               Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
                   child: Column(mainAxisSize: MainAxisSize.min, children: [
                     SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              color: const Color(0xffE2E2E2),
-                              borderRadius: BorderRadius.circular(8)),
-                          height: 5,
-                          width: 100,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
+                      height: 2.h,
                     ),
                     Row(
                       children: [
@@ -70,223 +83,85 @@ buildsecurity(context) {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            icon: const Icon(
-                              Icons.arrow_back,
+                            icon: const Iconify(
+                              Mdi.arrow_back,
                               color: primaryColorOfApp,
                             )),
                         SizedBox(
-                          width: width * 0.01,
+                          width: 4.w,
                         ),
-                        const Text(
+                        Text(
                           'Security',
                           style: TextStyle(
                               fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
+                              color: Colors.black,
+                              fontSize: 13.sp),
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
                     const Divider(),
-                    InkWell(
-                      onTap: () {
-                        buildloginActivity(context);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
+                    ListView.separated(
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            if (index == 0) {
+                              buildloginActivity(context);
+                            } else if (index == 1) {
+                              buildSavePassword(context);
+                            } else if (index == 2) {
+                              buildPassword(context);
+                            } else if (index == 3) {
+                              buildMobile(context);
+                            } else if (index == 4) {
+                              buildEmail(context);
+                            }
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SvgPicture.asset(
-                                'assets/loginActivity.svg',
-                                height: 18,
-                                width: 18,
+                              Row(
+                                children: [
+                                  securityList[index]["icon"] == null
+                                      ? Iconify(Carbon.email)
+                                      : SvgPicture.asset(
+                                          securityList[index]["icon"],
+                                          height: 18,
+                                          width: 18,
+                                        ),
+                                  SizedBox(
+                                    width: 8.w,
+                                  ),
+                                  Text(
+                                    securityList[index]["label"],
+                                    style: ProfileSelf().buildtextstyle(),
+                                  ),
+                                ],
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Login Activity',
-                                style: ProfileSelf().buildtextstyle(),
-                              ),
+                              const Iconify(
+                                Eva.arrow_right_fill,
+                                size: 15,
+                                color: customTextColor,
+                              )
                             ],
                           ),
-                          const Iconify(
-                            Eva.arrow_right_fill,
-                            size: 15,
-                            color: Color(0xff333333),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        buildSavePassword(context);
+                        );
                       },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/savePassword.svg',
-                                height: 18,
-                                width: 18,
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Saved Password',
-                                style: ProfileSelf().buildtextstyle(),
-                              ),
-                            ],
-                          ),
-                          const Iconify(
-                            Eva.arrow_right_fill,
-                            size: 15,
-                            color: Color(0xff333333),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        buildPassword(context);
+                      separatorBuilder: (context, index) {
+                        return SizedBox(
+                          height: 4.h,
+                        );
                       },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/securepass.svg',
-                                height: 18,
-                                width: 18,
-                              ),
-                              const SizedBox(
-                                width: 13,
-                              ),
-                              Text(
-                                'Password',
-                                style: ProfileSelf().buildtextstyle(),
-                              ),
-                            ],
-                          ),
-                          const Iconify(
-                            Eva.arrow_right_fill,
-                            size: 15,
-                            color: Color(0xff333333),
-                          )
-                        ],
-                      ),
+                      itemCount: 5,
                     ),
                     SizedBox(
-                      height: height * 0.03,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        buildMobile(context);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 2.0),
-                                child: SvgPicture.asset(
-                                  'assets/mobile1.svg',
-                                  height: 18,
-                                  width: 18,
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              Text(
-                                'Mobile',
-                                style: ProfileSelf().buildtextstyle(),
-                              ),
-                            ],
-                          ),
-                          const Iconify(
-                            Eva.arrow_right_fill,
-                            size: 15,
-                            color: Color(0xff333333),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.03,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        buildEmail(context);
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/email.svg',
-                                height: 15,
-                                width: 15,
-                              ),
-                              const SizedBox(
-                                width: 9,
-                              ),
-                              Text(
-                                'Email',
-                                style: ProfileSelf().buildtextstyle(),
-                              ),
-                            ],
-                          ),
-                          const Iconify(
-                            Eva.arrow_right_fill,
-                            size: 15,
-                            color: Color(0xff333333),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.05,
+                      height: 5.h,
                     ),
                   ])),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        /*   width: 45,
-                                  height: 45, */
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
+              positionCross(context)
             ],
           );
         });
@@ -436,31 +311,7 @@ buildloginActivity(context) {
                       height: height * 0.1,
                     )
                   ])),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        /*   width: 45,
-                                  height: 45, */
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
+              positionCross(context)
             ],
           );
         });
@@ -668,7 +519,8 @@ buildSavePassword(context) {
                             style: TextButton.styleFrom(
                                 /* minimumSize: Size(100, 5), */
                                 elevation: 0,
-                                visualDensity: const VisualDensity(vertical: -4),
+                                visualDensity:
+                                    const VisualDensity(vertical: -4),
                                 padding: EdgeInsets.zero,
                                 tapTargetSize:
                                     MaterialTapTargetSize.shrinkWrap),
@@ -748,31 +600,7 @@ buildSavePassword(context) {
                         height: height * 0.1,
                       )
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                    height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             ),
           );
@@ -1110,31 +938,7 @@ buildPassword(context) {
                         height: height * 0.1,
                       )
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                    height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             ),
           );
@@ -1346,7 +1150,8 @@ buildMobile(context) {
                             style: TextButton.styleFrom(
                                 /* minimumSize: Size(100, 5), */
                                 elevation: 0,
-                                visualDensity: const VisualDensity(vertical: -4),
+                                visualDensity:
+                                    const VisualDensity(vertical: -4),
                                 padding: EdgeInsets.zero,
                                 tapTargetSize:
                                     MaterialTapTargetSize.shrinkWrap),
@@ -1378,7 +1183,8 @@ buildMobile(context) {
                             style: TextButton.styleFrom(
                                 /* minimumSize: Size(100, 5), */
                                 elevation: 0,
-                                visualDensity: const VisualDensity(vertical: -4),
+                                visualDensity:
+                                    const VisualDensity(vertical: -4),
                                 padding: EdgeInsets.zero,
                                 tapTargetSize:
                                     MaterialTapTargetSize.shrinkWrap),
@@ -1400,31 +1206,7 @@ buildMobile(context) {
                         height: height * 0.1,
                       )
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                    height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             ),
           );
@@ -1596,7 +1378,8 @@ buildEmail(context) {
                             style: TextButton.styleFrom(
                                 /* minimumSize: Size(100, 5), */
                                 elevation: 0,
-                                visualDensity: const VisualDensity(vertical: -4),
+                                visualDensity:
+                                    const VisualDensity(vertical: -4),
                                 padding: EdgeInsets.zero,
                                 tapTargetSize:
                                     MaterialTapTargetSize.shrinkWrap),
@@ -1615,31 +1398,7 @@ buildEmail(context) {
                         height: height * 0.1,
                       )
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                    height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             ),
           );
@@ -1821,31 +1580,7 @@ buildLoginHistory(context) {
                       height: height * 0.1,
                     ),
                   ])),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        /*   width: 45,
-                                  height: 45, */
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
+              positionCross(context)
             ],
           );
         });
@@ -2218,8 +1953,6 @@ aboutProfile(context) {
                                             Navigator.pop(context);
                                           },
                                           child: Container(
-                                            /*   width: 45,
-                                    height: 45, */
                                             decoration: BoxDecoration(
                                               border: Border.all(
                                                   color: Colors.white,
@@ -2568,33 +2301,7 @@ aboutProfile(context) {
                                           )
                                         ]),
                                   ),
-                                  Positioned.fill(
-                                      top: -36,
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            /*   width: 45,
-                                    height: 45, */
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: const Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ))
+                                  positionCross(context)
                                 ],
                               );
                             });
@@ -2984,33 +2691,7 @@ aboutProfile(context) {
                                           ),
                                         ]),
                                   ),
-                                  Positioned.fill(
-                                      top: -36,
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            /*   width: 45,
-                                    height: 45, */
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: const Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ))
+                                  positionCross(context)
                                 ],
                               );
                             });
@@ -3185,33 +2866,7 @@ aboutProfile(context) {
                                                   );
                                                 })),
                                           ])),
-                                  Positioned.fill(
-                                      top: -36,
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            /*   width: 45,
-                                    height: 45, */
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: const Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ))
+                                  positionCross(context)
                                 ],
                               );
                             });
@@ -3473,8 +3128,7 @@ aboutProfile(context) {
                                                         color:
                                                             primaryColorOfApp,
                                                       ),
-                                                      Text(
-                                                          'download QR code')
+                                                      Text('download QR code')
                                                     ],
                                                   ),
                                                   Column(
@@ -3497,33 +3151,7 @@ aboutProfile(context) {
                                               height: height * 0.2,
                                             )
                                           ])),
-                                  Positioned.fill(
-                                      top: -36,
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            /*   width: 45,
-                                    height: 45, */
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: const Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ))
+                                  positionCross(context)
                                 ],
                               );
                             });
@@ -3777,33 +3405,7 @@ aboutProfile(context) {
                                               height: height * 0.1,
                                             )
                                           ])),
-                                  Positioned.fill(
-                                      top: -36,
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            /*   width: 45,
-                                    height: 45, */
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: const Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ))
+                                  positionCross(context)
                                 ],
                               );
                             });
@@ -4100,33 +3702,7 @@ aboutProfile(context) {
                                               height: height * 0.1,
                                             )
                                           ])),
-                                  Positioned.fill(
-                                      top: -36,
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            /*   width: 45,
-                                    height: 45, */
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: const Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ))
+                                  positionCross(context)
                                 ],
                               );
                             });
@@ -4152,31 +3728,7 @@ aboutProfile(context) {
                   )
                 ],
               ),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        /*   width: 45,
-                                    height: 45, */
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
+              positionCross(context)
             ],
           );
         });

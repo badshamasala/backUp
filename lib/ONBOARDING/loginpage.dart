@@ -15,6 +15,8 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import '../homepage/widget_notification.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -246,8 +248,9 @@ class _LoginPageState extends State<LoginPage> {
                                             clipBehavior: Clip.none,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsets.symmetric(
-                                                    horizontal: 18.0),
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 18.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.min,
@@ -519,7 +522,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                         .then(
                                                                       (value) {
                                                                         if (value ==
-                                        true) {
+                                                                            true) {
                                                                           showModalBottomSheet(
                                                                               /*     isDismissible: false, */
                                                                               isScrollControlled: true,
@@ -784,31 +787,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                                                                       height: height * 0.1,
                                                                                                                     ),
                                                                                                                   ])),
-                                                                                                              Positioned.fill(
-                                                                                                                  top: -36,
-                                                                                                                  child: Align(
-                                                                                                                    alignment: Alignment.topCenter,
-                                                                                                                    child: InkWell(
-                                                                                                                      onTap: () {
-                                                                                                                        Navigator.pop(context);
-                                                                                                                      },
-                                                                                                                      child: Container(
-                                                                                                                        /*   width: 45,
-                                    height: 45, */
-                                                                                                                        decoration: BoxDecoration(
-                                                                                                                          border: Border.all(color: Colors.white, width: 2),
-                                                                                                                          shape: BoxShape.circle,
-                                                                                                                        ),
-                                                                                                                        child: const Padding(
-                                                                                                                          padding: EdgeInsets.all(4.0),
-                                                                                                                          child: Icon(
-                                                                                                                            Icons.close,
-                                                                                                                            color: Colors.white,
-                                                                                                                          ),
-                                                                                                                        ),
-                                                                                                                      ),
-                                                                                                                    ),
-                                                                                                                  ))
+                                                                                                              positionCross(context)
                                                                                                             ],
                                                                                                           ),
                                                                                                         );
@@ -840,32 +819,7 @@ class _LoginPageState extends State<LoginPage> {
                                                                                             ),
                                                                                           ]),
                                                                                         ),
-                                                                                        Positioned.fill(
-                                                                                            top: -36,
-                                                                                            child: Align(
-                                                                                              alignment: Alignment.topCenter,
-                                                                                              child: InkWell(
-                                                                                                onTap: () {
-                                                                                                  print('badsha');
-                                                                                                  Navigator.pop(context);
-                                                                                                },
-                                                                                                child: Container(
-                                                                                                  /*   width: 45,
-                                                                          height: 45, */
-                                                                                                  decoration: BoxDecoration(
-                                                                                                    border: Border.all(color: Colors.white, width: 2),
-                                                                                                    shape: BoxShape.circle,
-                                                                                                  ),
-                                                                                                  child: const Padding(
-                                                                                                    padding: EdgeInsets.all(4.0),
-                                                                                                    child: Icon(
-                                                                                                      Icons.close,
-                                                                                                      color: Colors.white,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            )),
+                                                                                        positionCross(context)
                                                                                       ],
                                                                                     ),
                                                                                   );
@@ -916,39 +870,7 @@ class _LoginPageState extends State<LoginPage> {
                                                   ],
                                                 ),
                                               ),
-                                              Positioned.fill(
-                                                  top: -36,
-                                                  child: Align(
-                                                    alignment:
-                                                        Alignment.topCenter,
-                                                    child: InkWell(
-                                                      onTap: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                      child: Container(
-                                                        /*   width: 45,
-                                    height: 45, */
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          border: Border.all(
-                                                              color:
-                                                                  Colors.white,
-                                                              width: 2),
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: const Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  4.0),
-                                                          child: Icon(
-                                                            Icons.close,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ))
+                                              positionCross(context)
                                             ],
                                           );
                                         });

@@ -3,8 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/eva.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:sizer/sizer.dart';
 
 class WidgetProfilePage extends StatefulWidget {
   WidgetProfilePage({Key? key}) : super(key: key);
@@ -215,7 +218,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                        /*     width: 83, */
+                            /*     width: 83, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -346,7 +349,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                          /*   width: 163, */
+                            /*   width: 163, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -367,31 +370,7 @@ class WidgetProfilePage extends StatefulWidget {
                         height: height * 0.03,
                       )
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -404,6 +383,25 @@ class WidgetProfilePage extends StatefulWidget {
   var followers = 'Followers';
   var following = 'Following';
   var off = 'Off';
+  dynamic groupValue1;
+  var allow1 = '1';
+  var notallow1 = '2';
+
+  dynamic groupValue2;
+  var allow2 = '1';
+  var notallow2 = '2';
+
+  dynamic groupValue3;
+  var allow3 = '1';
+  var notallow3 = '2';
+
+  dynamic groupValue4;
+  var allow4 = '1';
+  var notallow4 = '2';
+
+  dynamic groupValue5;
+  var allow5 = '1';
+  var notallow5 = '2';
 
   bool username = false;
   bool fullname = false;
@@ -470,25 +468,10 @@ class WidgetProfilePage extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                       SizedBox(
-                        height: height * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xffE2E2E2),
-                                borderRadius: BorderRadius.circular(8)),
-                            height: 5,
-                            width: 100,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
+                        height: 2.h,
                       ),
                       Row(
                         children: [
@@ -498,21 +481,24 @@ class WidgetProfilePage extends StatefulWidget {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: const Icon(
-                                Icons.arrow_back,
+                              icon: Iconify(
+                                Mdi.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
-                            width: width * 0.01,
+                            width: 4.w,
                           ),
-                          const Text(
+                          Text(
                             'Go to Set',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 color: customTextColor,
-                                fontSize: 12),
+                                fontSize: 13.sp),
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        height: 1.h,
                       ),
                       const Divider(),
                       Container(
@@ -526,23 +512,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Allow to message read & reply ",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: followers,
+                                    groupValue: groupValue1,
+                                    value: allow1,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = followers;
+                                        groupValue1 = allow1;
                                       });
                                     })
                               ],
@@ -554,23 +540,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Not allow to message read & reply",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: following,
+                                    groupValue: groupValue1,
+                                    value: notallow1,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = following;
+                                        groupValue1 = notallow1;
                                       });
                                     })
                               ],
@@ -592,23 +578,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Allow to Post-Photo, video & Story ",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: followers,
+                                    groupValue: groupValue2,
+                                    value: allow2,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = followers;
+                                        groupValue2 = allow2;
                                       });
                                     })
                               ],
@@ -620,23 +606,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Not allow to Post-Photo, video & story",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: following,
+                                    groupValue: groupValue2,
+                                    value: notallow2,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = following;
+                                        groupValue2 = notallow2;
                                       });
                                     })
                               ],
@@ -658,23 +644,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Allow to comments reply",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: followers,
+                                    groupValue: groupValue3,
+                                    value: allow3,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = followers;
+                                        groupValue3 = allow3;
                                       });
                                     })
                               ],
@@ -686,23 +672,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Not allow to comments reply ",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: following,
+                                    groupValue: groupValue3,
+                                    value: notallow3,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = following;
+                                        groupValue3 = notallow3;
                                       });
                                     })
                               ],
@@ -724,23 +710,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Allow to sharing other any post  ",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: followers,
+                                    groupValue: groupValue4,
+                                    value: allow4,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = followers;
+                                        groupValue4 = allow4;
                                       });
                                     })
                               ],
@@ -752,23 +738,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Not allow to sharing other any post",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: following,
+                                    groupValue: groupValue4,
+                                    value: notallow4,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = following;
+                                        groupValue4 = notallow4;
                                       });
                                     })
                               ],
@@ -790,23 +776,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Allow to live video ",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: followers,
+                                    groupValue: groupValue5,
+                                    value: allow5,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = followers;
+                                        groupValue5 = allow5;
                                       });
                                     })
                               ],
@@ -818,23 +804,23 @@ class WidgetProfilePage extends StatefulWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20.0),
+                                  padding: EdgeInsets.only(left: 5.w),
                                   child: Text(
                                     "Not allow to live video",
                                     style: TextStyle(
-                                        color: const Color(0xff515253),
+                                        color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: width * 0.03),
+                                        fontSize: 12.sp),
                                   ),
                                 ),
                                 Radio(
                                     materialTapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupseenonline,
-                                    value: following,
+                                    groupValue: groupValue5,
+                                    value: notallow5,
                                     onChanged: (val) {
                                       setState(() {
-                                        groupseenonline = following;
+                                        groupValue5 = notallow5;
                                       });
                                     })
                               ],
@@ -843,34 +829,10 @@ class WidgetProfilePage extends StatefulWidget {
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.02,
+                        height: 4.h,
                       ),
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -882,7 +844,7 @@ class WidgetProfilePage extends StatefulWidget {
       /*   errorText: validationService.fullName.error, */
       labelText: labeltext,
       labelStyle: const TextStyle(
-          color: Colors.black, fontFamily: 'Poppins', fontSize: 12),
+          color: Color(0xffc4c4c4), fontFamily: 'Poppins', fontSize: 12),
       enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(color: Color(0xff333333), width: 0.5)),
@@ -1137,31 +1099,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ]),
                           ),
                         ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -1390,7 +1328,7 @@ class WidgetProfilePage extends StatefulWidget {
                               Positioned(
                                 top: 13,
                                 left: 20,
-                             /*    width: 90, */
+                                /*    width: 90, */
                                 height: 10,
                                 child: Container(
                                   /*   width: 200,
@@ -1408,31 +1346,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ]),
                           ),
                         ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -1661,7 +1575,7 @@ class WidgetProfilePage extends StatefulWidget {
                               Positioned(
                                 top: 13,
                                 left: 20,
-                               /*  width: 90, */
+                                /*  width: 90, */
                                 height: 12,
                                 child: Container(
                                   /*   width: 200,
@@ -1679,31 +1593,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ]),
                           ),
                         ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -1932,7 +1822,7 @@ class WidgetProfilePage extends StatefulWidget {
                               Positioned(
                                 top: 13,
                                 left: 20,
-                              /*   width: 70, */
+                                /*   width: 70, */
                                 height: 12,
                                 child: Container(
                                   /*   width: 200,
@@ -1950,31 +1840,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ]),
                           ),
                         ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -2203,7 +2069,7 @@ class WidgetProfilePage extends StatefulWidget {
                               Positioned(
                                 top: 13,
                                 left: 20,
-                          /*       width: 90, */
+                                /*       width: 90, */
                                 height: 12,
                                 child: Container(
                                   /*   width: 200,
@@ -2315,31 +2181,7 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                         ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -2557,7 +2399,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                        /*     width: 90, */
+                            /*     width: 90, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -2722,7 +2564,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                 /*            width: 120, */
+                            /*            width: 120, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -2827,7 +2669,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                          /*   width: 135, */
+                            /*   width: 135, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -2848,31 +2690,7 @@ class WidgetProfilePage extends StatefulWidget {
                         height: height * 0.04,
                       ),
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -3090,7 +2908,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                        /*     width: 135, */
+                            /*     width: 135, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -3255,7 +3073,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                         /*    width: 140, */
+                            /*    width: 140, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -3327,7 +3145,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                    /*         width: 85, */
+                            /*         width: 85, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -3348,31 +3166,7 @@ class WidgetProfilePage extends StatefulWidget {
                         height: height * 0.04,
                       ),
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -3590,7 +3384,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                          /*   width: 95, */
+                            /*   width: 95, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -3755,7 +3549,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                          /*   width: 80, */
+                            /*   width: 80, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -3776,31 +3570,7 @@ class WidgetProfilePage extends StatefulWidget {
                         height: height * 0.01,
                       ),
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -4019,7 +3789,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                          /*   width: 110, */
+                            /*   width: 110, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -4180,7 +3950,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                           /*  width: 100, */
+                            /*  width: 100, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -4341,7 +4111,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 0,
                             left: 20,
-                        /*     width: 110, */
+                            /*     width: 110, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -4362,31 +4132,7 @@ class WidgetProfilePage extends StatefulWidget {
                         height: height * 0.01,
                       ),
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -4604,7 +4350,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                        /*     width: 105, */
+                            /*     width: 105, */
                             height: 10,
                             child: Container(
                               /*   width: 200,
@@ -4804,42 +4550,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                               }))
                                                         ]),
                                                   ),
-                                                  Positioned.fill(
-                                                      top: -36,
-                                                      child: Align(
-                                                        alignment:
-                                                            Alignment.topCenter,
-                                                        child: InkWell(
-                                                          onTap: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: Container(
-                                                            /*   width: 45,
-                                  height: 45, */
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              border: Border.all(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  width: 2),
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                const Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(4.0),
-                                                              child: Icon(
-                                                                Icons.close,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ))
+                                                  positionCross(context)
                                                 ],
                                               );
                                             });
@@ -5035,42 +4746,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                               }))
                                                         ]),
                                                   ),
-                                                  Positioned.fill(
-                                                      top: -36,
-                                                      child: Align(
-                                                        alignment:
-                                                            Alignment.topCenter,
-                                                        child: InkWell(
-                                                          onTap: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: Container(
-                                                            /*   width: 45,
-                                  height: 45, */
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              border: Border.all(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  width: 2),
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                const Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(4.0),
-                                                              child: Icon(
-                                                                Icons.close,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ))
+                                                  positionCross(context)
                                                 ],
                                               );
                                             });
@@ -5266,42 +4942,7 @@ class WidgetProfilePage extends StatefulWidget {
                                                               }))
                                                         ]),
                                                   ),
-                                                  Positioned.fill(
-                                                      top: -36,
-                                                      child: Align(
-                                                        alignment:
-                                                            Alignment.topCenter,
-                                                        child: InkWell(
-                                                          onTap: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: Container(
-                                                            /*   width: 45,
-                                  height: 45, */
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              border: Border.all(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  width: 2),
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                const Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(4.0),
-                                                              child: Icon(
-                                                                Icons.close,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ))
+                                                  positionCross(context)
                                                 ],
                                               );
                                             });
@@ -5341,7 +4982,7 @@ class WidgetProfilePage extends StatefulWidget {
                           Positioned(
                             top: 13,
                             left: 20,
-                       /*      width: 103, */
+                            /*      width: 103, */
                             height: 12,
                             child: Container(
                               /*   width: 200,
@@ -5362,31 +5003,7 @@ class WidgetProfilePage extends StatefulWidget {
                         height: height * 0.04,
                       ),
                     ])),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });

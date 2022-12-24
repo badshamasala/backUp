@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
@@ -258,35 +259,7 @@ class _UploadBrandState extends State<UploadBrand> {
                                               ),
                                             ],
                                           ),
-                                          Positioned.fill(
-                                              top: -36,
-                                              child: Align(
-                                                alignment: Alignment.topCenter,
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    /*   width: 45,
-                                  height: 45, */
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.white,
-                                                          width: 2),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: const Padding(
-                                                      padding:
-                                                          EdgeInsets.all(
-                                                              4.0),
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ))
+                                          positionCross(context)
                                         ]);
                                   });
                             },

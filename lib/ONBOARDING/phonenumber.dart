@@ -8,6 +8,7 @@ import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -663,36 +664,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                     ),
                                                   ]),
                                             ),
-                                            Positioned.fill(
-                                                top: -36,
-                                                child: Align(
-                                                  alignment:
-                                                      Alignment.topCenter,
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      print('badsha');
-                                                      Navigator.pop(context);
-                                                    },
-                                                    child: Container(
-                                                      /*   width: 45,
-                                                                        height: 45, */
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Colors.white,
-                                                            width: 2),
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: const Padding(
-                                                        padding:
-                                                            EdgeInsets.all(4.0),
-                                                        child: Icon(
-                                                          Icons.close,
-                                                          color: Colors.white,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                )),
+                                            positionCross(context)
                                           ],
                                         ),
                                       );

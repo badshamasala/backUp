@@ -9,6 +9,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/bx.dart';
 import 'package:iconify_flutter/icons/bxs.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'package:sizer/sizer.dart';
 
@@ -75,27 +76,27 @@ class _SelfProfileState extends State<SelfProfile> {
     width = size.width;
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 7.h,
-        automaticallyImplyLeading: false,
-        titleSpacing: -10.sp,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: Text(
-          'Profile',
-          style: TextStyle(
-              fontFamily: 'Poppins', color: customTextColor, fontSize: 15.sp),
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text('Profile',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Iconify(
+                Mdi.arrow_back,
+                color: primaryColorOfApp,
+              )),
         ),
-        leading: IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: primaryColorOfApp,
-            )),
-      ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
@@ -398,7 +399,7 @@ class _SelfProfileState extends State<SelfProfile> {
                         padding: EdgeInsets.zero,
                         margin: EdgeInsets.zero,
                         width: 29.w,
-                        height: 5.h,
+                        height: 4.5.h,
                         decoration: BoxDecoration(
                             color: male
                                 ? Colors.transparent
@@ -414,7 +415,7 @@ class _SelfProfileState extends State<SelfProfile> {
                           children: [
                             Iconify(
                               Ph.gender_male,
-                              size: 20.sp,
+                              size: 15.sp,
                               color: male
                                   ? const Color(0xff515253)
                                   : const Color(0xff0087FF),
@@ -423,7 +424,7 @@ class _SelfProfileState extends State<SelfProfile> {
                               'Male',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 15.sp,
+                                  fontSize: 12.sp,
                                   color: male
                                       ? const Color(0xff515253)
                                       : const Color(0xff0087FF)),
@@ -444,7 +445,7 @@ class _SelfProfileState extends State<SelfProfile> {
                       },
                       child: Container(
                         width: 29.w,
-                        height: 5.h,
+                        height: 4.5.h,
                         decoration: BoxDecoration(
                             color: female
                                 ? Colors.transparent
@@ -460,7 +461,7 @@ class _SelfProfileState extends State<SelfProfile> {
                           children: [
                             Iconify(
                               Ph.gender_female,
-                              size: 20.sp,
+                              size: 15.sp,
                               color: female
                                   ? const Color(0xff515253)
                                   : const Color(0xffF96A70),
@@ -469,7 +470,7 @@ class _SelfProfileState extends State<SelfProfile> {
                               'Female',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 15.sp,
+                                  fontSize: 12.sp,
                                   color: female
                                       ? const Color(0xff515253)
                                       : const Color(0xffF96A70)),
@@ -490,7 +491,7 @@ class _SelfProfileState extends State<SelfProfile> {
                       },
                       child: Container(
                         width: 29.w,
-                        height: 5.h,
+                        height: 4.5.h,
                         decoration: BoxDecoration(
                             color: other
                                 ? Colors.transparent
@@ -506,7 +507,7 @@ class _SelfProfileState extends State<SelfProfile> {
                           children: [
                             Iconify(
                               Ph.gender_intersex,
-                              size: 20.sp,
+                              size: 15.sp,
                               color: other
                                   ? const Color(0xff515253)
                                   : const Color(0xff56027D),
@@ -515,7 +516,7 @@ class _SelfProfileState extends State<SelfProfile> {
                               'Other',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 15.sp,
+                                  fontSize: 12.sp,
                                   color: other
                                       ? const Color(0xff515253)
                                       : const Color(0xff56027D)),
@@ -544,70 +545,65 @@ class _SelfProfileState extends State<SelfProfile> {
                               border: Border.all(
                                   width: 0.5, color: const Color(0xff515253)),
                               borderRadius: BorderRadius.circular(5)),
-                          child: SizedBox(
-                              height: 40,
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 18.0, bottom: 3),
-                                child: Row(
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: 3.w,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
                                   children: [
                                     SizedBox(
-                                      width: 210,
+                                      /*  color: Colors.red, */
+                                      width: 65.w,
                                       child: TextFormField(
+                                          cursorColor: primaryColorOfApp,
                                           enabled: fullname,
                                           decoration: const InputDecoration(
                                             labelText: '',
                                             border: InputBorder.none,
                                           )),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 10.w),
-                                      child: Container(
-                                        child: full1
-                                            ? IconButton(
-                                                padding:
-                                                    const EdgeInsets.all(0),
-                                                constraints:
-                                                    const BoxConstraints(),
-                                                onPressed: () {
-                                                  setState(() {
-                                                    fullname = false;
-                                                    full1 = false;
-                                                  });
-                                                },
-                                                icon: SvgPicture.asset(
-                                                  'assets/pentosquare.svg',
-                                                  height: 2.5.h,
-                                                  width: 4.5.w,
-                                                ))
-                                            : IconButton(
-                                                padding:
-                                                    const EdgeInsets.all(0),
-                                                constraints:
-                                                    const BoxConstraints(),
-                                                onPressed: () {
-                                                  setState(() {
-                                                    fullname = true;
-                                                    full1 = true;
-                                                  });
-                                                },
-                                                icon: SvgPicture.asset(
-                                                  'assets/pentosquare.svg',
-                                                  height: 2.5.h,
-                                                  width: 4.5.w,
-                                                )
-
-                                                /* const Iconify(
-                                              Bx.edit,
-                                              color: Color(0xff737373),
-                                              size: 20,
-                                            ) */
-                                                ),
-                                      ),
-                                    ),
                                   ],
                                 ),
-                              )),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 1.w),
+                                  child: Container(
+                                    child: full1
+                                        ? IconButton(
+                                            padding: const EdgeInsets.all(0),
+                                            constraints: const BoxConstraints(),
+                                            onPressed: () {
+                                              setState(() {
+                                                fullname = false;
+                                                full1 = false;
+                                              });
+                                            },
+                                            icon: SvgPicture.asset(
+                                              'assets/pentosquare.svg',
+                                              height: 2.5.h,
+                                              width: 4.5.w,
+                                            ))
+                                        : IconButton(
+                                            padding: const EdgeInsets.all(0),
+                                            constraints: const BoxConstraints(),
+                                            onPressed: () {
+                                              setState(() {
+                                                fullname = true;
+                                                full1 = true;
+                                              });
+                                            },
+                                            icon: SvgPicture.asset(
+                                              'assets/pentosquare.svg',
+                                              height: 2.5.h,
+                                              width: 4.5.w,
+                                            )),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                       Positioned(
@@ -617,7 +613,7 @@ class _SelfProfileState extends State<SelfProfile> {
                         child: Container(
                           color: Colors.white,
                           child: const Text(
-                            'Date Of Birth',
+                            'Date of Birth',
                             style: TextStyle(
                                 color: Color(0xff515253),
                                 fontSize: 10,
@@ -811,9 +807,6 @@ class _SelfProfileState extends State<SelfProfile> {
                       ),
                     ),
                   ],
-                ),
-                SizedBox(
-                  height: height * 0.05,
                 ),
               ],
             ),

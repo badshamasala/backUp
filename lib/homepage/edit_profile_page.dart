@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
+import 'package:flutter_application_1/homepage/self_profile.dart';
 import 'package:flutter_application_1/homepage/setting1.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -123,6 +125,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       Icons.arrow_back,
                       color: primaryColorOfApp,
                     )),
+                SizedBox(
+                  width: 2.w,
+                ),
                 Text('Edit Profile',
                     style: TextStyle(
                         fontFamily: 'Poppins',
@@ -750,45 +755,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                                                   ),
                                                                 ],
                                                               ),
-                                                              Positioned.fill(
-                                                                  top: -36,
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        Alignment
-                                                                            .topCenter,
-                                                                    child:
-                                                                        InkWell(
-                                                                      onTap:
-                                                                          () {
-                                                                        Navigator.pop(
-                                                                            context);
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        /*   width: 45,
-                                      height: 45, */
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          border: Border.all(
-                                                                              color: Colors.white,
-                                                                              width: 2),
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                        ),
-                                                                        child:
-                                                                            const Padding(
-                                                                          padding:
-                                                                              EdgeInsets.all(4.0),
-                                                                          child:
-                                                                              Icon(
-                                                                            Icons.close,
-                                                                            color:
-                                                                                Colors.white,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ))
+                                                              positionCross(
+                                                                  context)
                                                             ],
                                                           );
                                                         });
@@ -934,33 +902,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                       ],
                                     ),
                                   ),
-                                  Positioned.fill(
-                                      top: -36,
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        child: InkWell(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            /*   width: 45,
-                                    height: 45, */
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: const Padding(
-                                              padding: EdgeInsets.all(4.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ))
+                                  positionCross(context)
                                 ],
                               );
                             });
@@ -1120,35 +1062,33 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 )
               ],
             ),
-            SizedBox(
-              height: 2.h,
-              /*             color: Colors.red, */
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        /*     foregroundColor: const Color(0xff0087FF), */
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                    style: TextButton.styleFrom(
+                      /*           alignment: Alignment.topCenter, */
+                      padding: EdgeInsets.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      /*     foregroundColor: const Color(0xff0087FF), */
+                    ),
+                    onPressed: () {
+                      ProfileSelf().buildaddresspage(context);
+                    },
+                    child: Text(
+                      'Add/Change Address',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12.sp,
+                        color: primaryColorOfApp,
                       ),
-                      onPressed: () {
-                        ProfileSelf().buildaddresspage(context);
-                      },
-                      child: Text(
-                        'Add/Change Address',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 12.sp,
-                          color: primaryColorOfApp,
-                        ),
-                      )),
-                ],
-              ),
+                    )),
+              ],
             ),
-            SizedBox(
+            /*   SizedBox(
               height: 1.h,
-            ),
+            ), */
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
@@ -1164,6 +1104,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           ); */
                 },
                 style: OutlinedButton.styleFrom(
+                    elevation: 0,
                     side: const BorderSide(
                       color: Color(0xff0087FF),
                     ),
@@ -1172,12 +1113,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0))),
-                child: const Text(
+                child: Text(
                   "Change Interest",
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       color: primaryColorOfApp,
-                      /*  fontSize: 18, */
+                      fontSize: 12.sp,
                       fontFamily: 'Poppins'),
                 ),
               ),
@@ -1259,7 +1200,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap),
                     onPressed: () {
                       /*               Navigator.of(context).pop(); */
-                      Get.to(() => const Setting1());
+                      Get.to(() => const SelfProfile());
                     },
                     child: Text('Personal Information Settings',
                         style: TextStyle(

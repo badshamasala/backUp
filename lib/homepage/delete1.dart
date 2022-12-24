@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:sizer/sizer.dart';
 
 class Delete1 extends StatefulWidget {
   const Delete1({Key? key}) : super(key: key);
@@ -40,25 +43,27 @@ class _Delete1State extends State<Delete1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        titleSpacing: 0,
-        elevation: 0,
-        leading: IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: primaryColorOfApp,
-            )),
-        backgroundColor: Colors.white,
-        title: const Text(
-          'Delete',
-          style: TextStyle(
-              color: customTextColor, fontFamily: 'Poppins', fontSize: 15),
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text('Delete',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Iconify(
+                Mdi.arrow_back,
+                color: primaryColorOfApp,
+              )),
         ),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: GridView.builder(

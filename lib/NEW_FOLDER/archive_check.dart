@@ -9,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
 class ArchiveCheck extends StatefulWidget {
@@ -62,7 +63,7 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
         appBar: AppBar(
           toolbarHeight: 7.h,
           automaticallyImplyLeading: false,
-          titleSpacing: -10.sp,
+          titleSpacing: -2.sp,
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Text('Archived',
@@ -76,8 +77,8 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(
-                Icons.arrow_back,
+              icon: const Iconify(
+                Mdi.arrow_back,
                 color: primaryColorOfApp,
               )),
         ),

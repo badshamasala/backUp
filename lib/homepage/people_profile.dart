@@ -3,6 +3,7 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/homepage/peopleprofiletab.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -195,31 +196,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                     height: height * 0.03,
                   ),
                 ]),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                    height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });

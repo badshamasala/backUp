@@ -18,6 +18,7 @@ import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/checkcount1.dart';
 
 import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_application_1/interaction.dart';
 import 'package:flutter_application_1/localestring.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
@@ -29,8 +30,8 @@ import 'homepage/checkcount.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  Stripe.publishableKey =
-      'pk_test_51M9mJrSIrNH5UrZHRmyRLLHDVaQaI8pPKBmnq53pnCRxYQauwgEl0nDbyClMVVnBT9ehNfs10DV26QHGCShqwZ9P00orFyOx8b';
+  /* Stripe.publishableKey =
+      'pk_test_51M9mJrSIrNH5UrZHRmyRLLHDVaQaI8pPKBmnq53pnCRxYQauwgEl0nDbyClMVVnBT9ehNfs10DV26QHGCShqwZ9P00orFyOx8b'; */
   runApp(MyApp());
 }
 
@@ -84,6 +85,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
 
             return Sizer(builder: (context, orientation, deviceType) {
               return GetMaterialApp(
+                
                   themeMode: themeProvider.themeMode,
                   theme: AppTheme.lighttheme,
                   darkTheme: AppTheme.darktheme,
@@ -102,7 +104,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: Createpoll() /* LoginPage12() */
+                  home: HomePage() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(

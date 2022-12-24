@@ -3,6 +3,8 @@ import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/NEW_FOLDER/create_folder.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
 class Saved1 extends StatefulWidget {
@@ -42,27 +44,27 @@ class _Saved1State extends State<Saved1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 7.h,
-        automaticallyImplyLeading: false,
-        titleSpacing: -10.sp,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: Text('Saved',
-            style: TextStyle(
-                fontFamily: 'Poppins',
-                color: customTextColor,
-                fontSize: 15.sp)),
-        leading: IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: primaryColorOfApp,
-            )),
-      ),
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text('Saved',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Iconify(
+                Mdi.arrow_back,
+                color: primaryColorOfApp,
+              )),
+        ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(

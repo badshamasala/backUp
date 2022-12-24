@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
 class ChangeInterest extends StatefulWidget {
@@ -45,30 +47,27 @@ class _ChangeInterestState extends State<ChangeInterest> {
     height = size.height;
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        iconTheme: const IconThemeData(
-          color: primaryColorOfApp, // <-- SEE HERE
-        ),
-        backgroundColor: Colors.transparent,
-        title: const Text(
-          'Change Interest',
-          style: TextStyle(
-              color: customTextColor, fontFamily: 'Poppins', fontSize: 15),
-        ),
-        leading: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: IconButton(
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text('Change Interest',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
               padding: EdgeInsets.zero,
               constraints: const BoxConstraints(),
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(
-                Icons.arrow_back,
+              icon: const Iconify(
+                Mdi.arrow_back,
                 color: primaryColorOfApp,
               )),
         ),
-      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(

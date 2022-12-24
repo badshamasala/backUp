@@ -8,6 +8,8 @@ import 'package:flutter_application_1/NEW_FOLDER/gotodashboard.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
+import 'package:flutter_application_1/homepage/setting1.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
 import 'package:flutter_application_1/interaction.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,6 +25,7 @@ import 'package:iconify_flutter/icons/tabler.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 
 var privacyList = [
   {"icon": 'assets/profileactivityicon.svg', "label": "Activity Status"},
@@ -108,168 +111,52 @@ class ProfileSelf extends StatefulWidget {
                         SizedBox(
                           width: width * 0.03,
                         ),
-                        const Text(
-                          'add your address/location',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.bold),
+                        Text(
+                          'Add/Change Address',
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 12.sp),
                         ),
                       ],
                     ),
                     const Divider(),
                     SizedBox(
-                      height: height * 0.02,
+                      height: 2.h,
                     ),
-                    SizedBox(
-                        height: 40,
-                        child: TextFormField(
-                            decoration: InputDecoration(
-                          /*   errorText: validationService.fullName.error, */
-                          prefixIcon: const Icon(
-                            Icons.search,
-                            color: Color(0xffdadada),
-                          ),
-                          labelText: 'Search Location',
-                          labelStyle: const TextStyle(
-                              color: Color(0xffc4c4c4),
-                              fontFamily: 'Poppins',
-                              fontSize: 12),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(
-                                  color: Color(0xff333333), width: 0.5)),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: const BorderSide(
-                                  color: Color(0xff0087FF), width: 0.5)),
-                          hintStyle: const TextStyle(fontSize: 10),
-                          contentPadding: const EdgeInsets.all(15),
-                        ))),
-                    SizedBox(
-                      height: height * 0.02,
-                    ),
-                    SizedBox(
-                      /* color: Colors.red, */
-                      height: 48,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 40,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(5)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: SizedBox(
-                                  height: 40,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 18.0, bottom: 3),
-                                    child: TextFormField(
-                                        decoration: const InputDecoration(
-                                      labelText: '',
-                                      /*                     suffixIcon: Icon(Icons.check_circle), */
-                                      border: InputBorder.none,
-                                    )),
-                                  )),
+                    TextFormField(
+                        cursorColor: primaryColorOfApp,
+                        decoration: buildaddressDecotaion(
+                          'Search Location',
+                          Padding(
+                            padding: EdgeInsets.only(left: 2.w),
+                            child: Icon(
+                              Icons.search,
+                              color: Color(0xffe2e2e2),
                             ),
                           ),
-                          Positioned(
-                            top: 0,
-                            left: 10,
-                            width: 90,
-                            height: 10,
-                            child: Container(
-                              /*   width: 200,
-                  height: 150, */
-                              color: Colors.white,
-                              child: const Text(
-                                'Enter Street/Village',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                        )),
                     SizedBox(
-                      height: height * 0.02,
+                      height: 2.h,
                     ),
+                    TextFormField(
+                        cursorColor: primaryColorOfApp,
+                        decoration: buildaddressDecotaion(
+                            'Enter Street/Village', null)),
                     SizedBox(
-                      /* color: Colors.red, */
-                      height: 48,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 40,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(5)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: SizedBox(
-                                  height: 40,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 18.0, bottom: 3),
-                                    child: TextFormField(
-                                        decoration: const InputDecoration(
-                                      labelText: '',
-                                      /*                     suffixIcon: Icon(Icons.check_circle), */
-                                      border: InputBorder.none,
-                                    )),
-                                  )),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: 10,
-                            width: 100,
-                            height: 10,
-                            child: Container(
-                              /*   width: 200,
-                  height: 150, */
-                              color: Colors.white,
-                              child: const Text(
-                                'Enter Road/Landmark',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      height: 2.h,
                     ),
+                    TextFormField(
+                        cursorColor: primaryColorOfApp,
+                        decoration:
+                            buildaddressDecotaion('Enter Road/Landmark', null)),
                     SizedBox(
-                      height: height * 0.02,
+                      height: 2.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          width: 140,
-                          height: 30,
+                          width: 44.w,
+                          height: 4.h,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(color: Colors.black, width: 0.5),
@@ -300,8 +187,8 @@ class ProfileSelf extends StatefulWidget {
                           ),
                         ),
                         Container(
-                          width: 140,
-                          height: 30,
+                          width: 44.w,
+                          height: 4.h,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(color: Colors.black, width: 0.5),
@@ -334,14 +221,14 @@ class ProfileSelf extends StatefulWidget {
                       ],
                     ),
                     SizedBox(
-                      height: height * 0.02,
+                      height: 2.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          width: 140,
-                          height: 30,
+                          width: 44.w,
+                          height: 4.h,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(color: Colors.black, width: 0.5),
@@ -372,20 +259,21 @@ class ProfileSelf extends StatefulWidget {
                           ),
                         ),
                         SizedBox(
-                            width: 140,
-                            height: 30,
+                            width: 44.w,
+                            height: 4.h,
                             child: TextFormField(
+                                cursorColor: primaryColorOfApp,
                                 decoration:
                                     WidgetProfilePage().buildInputdecoration(
-                              null,
-                              'Pin Code',
-                              null,
-                              'Pin Code',
-                            ))),
+                                  null,
+                                  'Pin Code',
+                                  null,
+                                  'Pin Code',
+                                ))),
                       ],
                     ),
                     SizedBox(
-                      height: height * 0.03,
+                      height: 4.h,
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -393,7 +281,7 @@ class ProfileSelf extends StatefulWidget {
                           border: Border.all(
                               width: 0.5, color: const Color(0xff515253)),
                           borderRadius: BorderRadius.circular(10)),
-                      height: 100,
+                      height: 15.h,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: GoogleMap(
@@ -403,7 +291,7 @@ class ProfileSelf extends StatefulWidget {
                       ),
                     ),
                     SizedBox(
-                      height: height * 0.01,
+                      height: 5.h,
                     ),
                     SizedBox(
                       width: double.infinity,
@@ -423,12 +311,12 @@ class ProfileSelf extends StatefulWidget {
                             //     horizontal: 40.0, vertical: 20.0),
                             backgroundColor: const Color(0xff0087FF),
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0))),
-                        child: const Text(
+                                borderRadius: BorderRadius.circular(10.0))),
+                        child: Text(
                           "Save",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 18,
+                              fontSize: 15.sp,
                               fontFamily: 'Poppins'),
                         ),
                       ),
@@ -438,31 +326,7 @@ class ProfileSelf extends StatefulWidget {
                     ),
                   ]),
                 ),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                  height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           });
@@ -734,39 +598,7 @@ buildbutton(context) {
                                                   ),
                                                 ],
                                               ),
-                                              Positioned.fill(
-                                                  top: -36,
-                                                  child: Align(
-                                                    alignment:
-                                                        Alignment.topCenter,
-                                                    child: InkWell(
-                                                      onTap: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                      child: Container(
-                                                        /*   width: 45,
-                                    height: 45, */
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          border: Border.all(
-                                                              color:
-                                                                  Colors.white,
-                                                              width: 2),
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: const Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  4.0),
-                                                          child: Icon(
-                                                            Icons.close,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ))
+                                              positionCross(context)
                                             ],
                                           );
                                         });
@@ -894,31 +726,7 @@ buildbutton(context) {
                   ),
                 ],
               ),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        /*   width: 45,
-                                    height: 45, */
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
+              positionCross(context)
             ],
           );
         });
@@ -1277,23 +1085,28 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 2.w),
-                        child: Material(
-                          borderRadius: BorderRadius.circular(5.sp),
-                          elevation: 5,
-                          child: Container(
-                              height: 4.h,
-                              width: 8.w,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      width: 1, color: primaryColorOfApp),
-                                  borderRadius: BorderRadius.circular(5)),
-                              child: const Padding(
-                                padding: EdgeInsets.all(5.0),
-                                child: Iconify(
-                                  Tabler.grid_dots,
-                                ),
-                              )),
+                        child: InkWell(
+                          onTap: () {
+                            Get.to(() => const Setting1());
+                          },
+                          child: Material(
+                            borderRadius: BorderRadius.circular(5.sp),
+                            elevation: 5,
+                            child: Container(
+                                height: 4.h,
+                                width: 8.w,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                        width: 1, color: primaryColorOfApp),
+                                    borderRadius: BorderRadius.circular(5)),
+                                child: const Padding(
+                                  padding: EdgeInsets.all(5.0),
+                                  child: Iconify(
+                                    Tabler.grid_dots,
+                                  ),
+                                )),
+                          ),
                         ),
                       )
                     ],
@@ -1673,11 +1486,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset(
-                          'assets/tabphoto.svg',
-                          height: 2.5.h,
-                          width: 2.5.w,
-                          fit: BoxFit.cover,
+                        Icon(
+                          Icons.photo_library,
+                          size: 15.sp,
                         ),
                         Text(
                           'Photos',
@@ -1692,16 +1503,9 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset(
-                          'assets/playicon.svg',
-                          height: 2.h,
-                          width: 2.w,
-                          fit: BoxFit.cover,
-                          /*   height: 18,
-                                                width: 18, */
-                        ),
-                        SizedBox(
-                          width: 1.w,
+                        Icon(
+                          Icons.play_arrow_outlined,
+                          size: 20.sp,
                         ),
                         Text(
                           'Videos',
@@ -2378,31 +2182,7 @@ index3(context) {
                     ]),
                   ),
                 ]),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          /*   width: 45,
-                                        height: 45, */
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             );
           }),
@@ -2587,31 +2367,7 @@ settingPrivacy(context) {
                       },
                     ),
                   ])),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        /*   width: 45,
-                                  height: 45, */
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
+              positionCross(context)
             ],
           );
         });
@@ -2769,39 +2525,7 @@ blockProfile(context) {
                                                           ],
                                                         )
                                                       ])),
-                                              Positioned.fill(
-                                                  top: -36,
-                                                  child: Align(
-                                                    alignment:
-                                                        Alignment.topCenter,
-                                                    child: InkWell(
-                                                      onTap: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                      child: Container(
-                                                        /*   width: 45,
-                                  height: 45, */
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          border: Border.all(
-                                                              color:
-                                                                  Colors.white,
-                                                              width: 2),
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: const Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  4.0),
-                                                          child: Icon(
-                                                            Icons.close,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ))
+                                              positionCross(context)
                                             ],
                                           );
                                         });
@@ -2819,33 +2543,31 @@ blockProfile(context) {
                           }))
                     ]),
               ),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        /*   width: 45,
-                                  height: 45, */
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
+              positionCross(context)
             ],
           );
         });
       });
+}
+
+buildaddressDecotaion(labeltext, icon) {
+  return InputDecoration(
+      prefixIcon: icon,
+      prefixIconConstraints: BoxConstraints(),
+      isDense: true,
+      labelText: labeltext,
+      labelStyle: TextStyle(
+          color: Color(0xffc4c4c4), fontFamily: 'Poppins', fontSize: 10.sp),
+      focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: primaryColorOfApp, width: 0.5)),
+      enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: customTextColor, width: 0.5)),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      border: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: primaryColorOfApp,
+          ),
+          borderRadius: BorderRadius.circular(5)));
 }

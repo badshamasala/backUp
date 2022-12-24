@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 // ignore: unused_import
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:scratcher/scratcher.dart';
+import 'package:sizer/sizer.dart';
 
 class RewardsPoint extends StatefulWidget {
   const RewardsPoint({Key? key}) : super(key: key);
@@ -19,25 +22,27 @@ class _RewardsPointState extends State<RewardsPoint> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              size: 25,
-              color: primaryColorOfApp,
-            )),
-        title: const Text(
-          'Rewards Points',
-          style: TextStyle(
-              fontFamily: 'Poppins', color: customTextColor, fontSize: 14),
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text('Rewards points',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Iconify(
+                Mdi.arrow_back,
+                color: primaryColorOfApp,
+              )),
         ),
-      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/profile_acitvity.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
 class Gotodashboard extends StatefulWidget {
@@ -23,27 +25,27 @@ class _GotodashboardState extends State<Gotodashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 7.h,
-        automaticallyImplyLeading: false,
-        titleSpacing: -10.sp,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: Text('Go to Dashboard',
-            style: TextStyle(
-                fontFamily: 'Poppins',
-                color: customTextColor,
-                fontSize: 15.sp)),
-        leading: IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: primaryColorOfApp,
-            )),
-      ),
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text('Go to Dashboard',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Iconify(
+                Mdi.arrow_back,
+                color: primaryColorOfApp,
+              )),
+        ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 4.w),
         child: Column(

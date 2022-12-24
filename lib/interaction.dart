@@ -4,6 +4,7 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/eva.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
 class Interaction1 extends StatefulWidget {
@@ -44,7 +45,7 @@ class _Interaction1State extends State<Interaction1> {
         appBar: AppBar(
           toolbarHeight: 7.h,
           automaticallyImplyLeading: false,
-          titleSpacing: -10.sp,
+          titleSpacing: -2.sp,
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Text('Interactions',
@@ -58,8 +59,8 @@ class _Interaction1State extends State<Interaction1> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(
-                Icons.arrow_back,
+              icon: const Iconify(
+                Mdi.arrow_back,
                 color: primaryColorOfApp,
               )),
         ),
@@ -69,7 +70,7 @@ class _Interaction1State extends State<Interaction1> {
               height: 6.h,
               color: const Color(0xffe2e2e2),
               child: ButtonsTabBar(
-                contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+                contentPadding: EdgeInsets.symmetric(horizontal: 12.w),
                 radius: 0,
                 backgroundColor: Color(0xffe2e2e2),
                 unselectedBackgroundColor: const Color(0xffe2e2e2),
@@ -88,7 +89,7 @@ class _Interaction1State extends State<Interaction1> {
                     text: "Viewed me",
                   ),
                   Tab(
-                    text: "Public-Survey",
+                    text: "Public-Poll",
                   ),
                   Tab(
                     text: "Likes-Post",

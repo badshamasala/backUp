@@ -6,6 +6,9 @@ import 'package:flutter_application_1/homepage/groups_list.dart';
 import 'package:flutter_application_1/homepage/post_tab.dart';
 import 'package:flutter_application_1/homepage/visited.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:sizer/sizer.dart';
 
 class ProfileAcitvity extends StatefulWidget {
   const ProfileAcitvity({Key? key}) : super(key: key);
@@ -44,25 +47,27 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        titleSpacing: 0,
-        elevation: 0,
-        leading: IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: primaryColorOfApp,
-            )),
-        backgroundColor: Colors.white,
-        title: const Text(
-          'Profile Activity',
-          style: TextStyle(
-              color: customTextColor, fontFamily: 'Poppins', fontSize: 15),
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text('Profile Activity',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Iconify(
+                Mdi.arrow_back,
+                color: primaryColorOfApp,
+              )),
         ),
-      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Column(

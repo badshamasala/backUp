@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:sizer/sizer.dart';
 
 class Verification1 extends StatefulWidget {
   const Verification1({Key? key}) : super(key: key);
@@ -25,43 +29,64 @@ class _Verification1State extends State<Verification1> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: primaryColorOfApp,
-              )),
-        ),
-        backgroundColor: Colors.white,
+        toolbarHeight: 7.h,
+        automaticallyImplyLeading: false,
+        titleSpacing: -2.sp,
         elevation: 0,
-        title: const Text(
-          'Verification',
-          style: TextStyle(
-              fontSize: 15, fontFamily: 'Poppins', color: customTextColor),
-        ),
+        backgroundColor: Colors.transparent,
+        title: Text('Verification',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
+        leading: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Iconify(
+              Mdi.arrow_back,
+              color: primaryColorOfApp,
+            )),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '#Content-Request for verification your private profile',
-              style: TextStyle(
-                  fontSize: 10, fontFamily: 'Poppins', color: customTextColor),
+            Padding(
+              padding: EdgeInsets.only(left: 3.w),
+              child: Text(
+                '#Content-Request for verification your private profile',
+                style: TextStyle(
+                    fontSize: 10.sp,
+                    fontFamily: 'Poppins',
+                    color: customTextColor),
+              ),
             ),
             SizedBox(
-              height: height * 0.02,
+              height: 1.h,
             ),
-            const Text(
-              'For Your Private Profile Caiteria # Content',
-              style: TextStyle(
-                  fontSize: 10, fontFamily: 'Poppins', color: customTextColor),
+            const Center(
+              child: Iconify(
+                Bi.patch_check,
+                color: Color(0xff037F26),
+                size: 20,
+              ),
+            ),
+            SizedBox(
+              height: 1.h,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 3.w),
+              child: Text(
+                'For Your Private Profile Caiteria # Content',
+                style: TextStyle(
+                    fontSize: 10.sp,
+                    fontFamily: 'Poppins',
+                    color: customTextColor),
+              ),
             ),
             SizedBox(
               /* color: Colors.red, */

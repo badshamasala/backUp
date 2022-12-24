@@ -8,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ri.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/link.dart';
@@ -53,29 +54,26 @@ class _AdsState extends State<Ads> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
           elevation: 0,
-          iconTheme: const IconThemeData(
-            color: primaryColorOfApp, // <-- SEE HERE
-          ),
           backgroundColor: Colors.transparent,
-          title: const Text(
-            'Ads',
-            style: TextStyle(
-                color: customTextColor, fontFamily: 'Poppins', fontSize: 15),
-          ),
-          leading: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: IconButton(
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: primaryColorOfApp,
-                )),
-          ),
+          title: Text('Ads',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Iconify(
+                Mdi.arrow_back,
+                color: primaryColorOfApp,
+              )),
         ),
         body: Column(
           children: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/NEW_FOLDER/friends.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:sizer/sizer.dart';
 
 crateFolder(context) {
@@ -95,31 +96,7 @@ crateFolder(context) {
                           );
                         }),
                   ])),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        /*   width: 45,
-                                  height: 45, */
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
+              positionCross(context)
             ],
           );
         });
