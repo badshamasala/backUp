@@ -90,99 +90,100 @@ class _Setting1State extends State<Setting1> {
       ),
       body: Column(
         children: [
-          const Divider(),
+          Divider(height: 0.5.h),
+          SizedBox(
+            height: 2.h,
+          ),
           Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(children: [
-                ListView.separated(
-                  shrinkWrap: true,
-                  itemCount: 12,
-                  separatorBuilder: (context, index) {
-                    return SizedBox(
-                      height: 4.h,
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
+              child: ListView.separated(
+                shrinkWrap: true,
+                itemCount: 12,
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    height: 4.h,
+                  );
+                },
+                itemBuilder: (context, index) {
+                  if (index == 11) {
+                    return Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'version  3.6.9. (596) ',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 8.sp),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                      ],
                     );
-                  },
-                  itemBuilder: (context, index) {
-                    if (index == 11) {
-                      return Column(
+                  } else {
+                    return InkWell(
+                      onTap: () {
+                        if (index == 0) {
+                          Get.to(() => const InsideSetting());
+                        } else if (index == 1) {
+                          Get.to(() => const ProfileAcitvity());
+                        } else if (index == 2) {
+                          index3(context);
+                        } else if (index == 3) {
+                          Get.to(() => const History1());
+                        } else if (index == 4) {
+                          Get.to(() => const ArchiveCheck());
+                        } else if (index == 5) {
+                          Get.to(const Saved1());
+                        } else if (index == 6) {
+                          Get.to(() => const FavoriteProfile());
+                        } else if (index == 7) {
+                          Get.to(() => const Friends1());
+                        } else if (index == 8) {
+                          Get.to(() => const ProfileAcitvity());
+                        } else if (index == 9) {
+                          Get.to(() => const ProfileAcitvity());
+                        } else if (index == 10) {
+                          Get.to(() => const ProfileAcitvity());
+                        }
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: const [
+                            children: [
+                              SvgPicture.asset(
+                                settingList[index]["icon"].toString(),
+                                height: 15,
+                                width: 15,
+                                fit: BoxFit.cover,
+                              ),
+                              SizedBox(
+                                width: 2.w,
+                              ),
                               Text(
-                                'version  3.6.9. (596) ',
+                                settingList[index]["label"].toString(),
                                 style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 7),
+                                    color: customTextColor,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12.sp),
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
+                          Iconify(
+                            Eva.arrow_right_fill,
+                            size: 15.sp,
+                            color: customTextColor,
+                          )
                         ],
-                      );
-                    } else {
-                      return InkWell(
-                        onTap: () {
-                          if (index == 0) {
-                            Get.to(() => const InsideSetting());
-                          } else if (index == 1) {
-                            Get.to(() => const ProfileAcitvity());
-                          } else if (index == 2) {
-                            index3(context);
-                          } else if (index == 3) {
-                            Get.to(() => const History1());
-                          } else if (index == 4) {
-                            Get.to(() => const ArchiveCheck());
-                          } else if (index == 5) {
-                            Get.to(const Saved1());
-                          } else if (index == 6) {
-                            Get.to(() => const FavoriteProfile());
-                          } else if (index == 7) {
-                            Get.to(() => const Friends1());
-                          } else if (index == 8) {
-                            Get.to(() => const ProfileAcitvity());
-                          } else if (index == 9) {
-                            Get.to(() => const ProfileAcitvity());
-                          } else if (index == 10) {
-                            Get.to(() => const ProfileAcitvity());
-                          }
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                SvgPicture.asset(
-                                  settingList[index]["icon"].toString(),
-                                  height: 15,
-                                  width: 15,
-                                  fit: BoxFit.cover,
-                                ),
-                                SizedBox(
-                                  width: 2.w,
-                                ),
-                                Text(
-                                  settingList[index]["label"].toString(),
-                                  style: TextStyle(
-                                      color: customTextColor,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 12.sp),
-                                ),
-                              ],
-                            ),
-                            Iconify(
-                              Eva.arrow_right_fill,
-                              size: 15.sp,
-                              color: customTextColor,
-                            )
-                          ],
-                        ),
-                      );
-                    }
-                  },
-                ),
-              ])),
+                      ),
+                    );
+                  }
+                },
+              )),
         ],
       ),
     );

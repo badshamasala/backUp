@@ -46,7 +46,7 @@ class WidgetNotification extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                       SizedBox(
                         height: 2.h,
@@ -79,7 +79,6 @@ class WidgetNotification extends StatefulWidget {
                         height: 1.h,
                       ),
                       const Divider(),
-                      
                       SizedBox(
                         height: 21.h,
                         child: Stack(children: [
@@ -1354,9 +1353,7 @@ class WidgetNotification extends StatefulWidget {
               children: [
                 Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5.w),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min, 
-                      children: [
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
                       SizedBox(
                         height: 2.h,
                       ),

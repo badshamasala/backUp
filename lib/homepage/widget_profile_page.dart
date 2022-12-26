@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/homepage/blkcomntfrom.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -31,12 +32,23 @@ class WidgetProfilePage extends StatefulWidget {
   String? value;
 
   buildStory(BuildContext context) {
-    dynamic groupseenonline;
+    dynamic groupValue1;
 
-    var everyone = 'Everyone';
-    var followers = 'Followers';
-    var following = 'Following';
-    var off = 'Off';
+    var everyone1 = 'Everyone';
+    var followers1 = 'Followers';
+
+    var off1 = 'Off';
+    dynamic groupValue2;
+
+    var everyone2 = 'Everyone';
+    var followers2 = 'Followers';
+
+    var off2 = 'Off';
+    List storyList = [
+      'Followers & Following',
+      'Followers',
+      'Following',
+    ];
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -59,25 +71,10 @@ class WidgetProfilePage extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                       SizedBox(
-                        height: height * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xffE2E2E2),
-                                borderRadius: BorderRadius.circular(8)),
-                            height: 5,
-                            width: 100,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
+                        height: 2.h,
                       ),
                       Row(
                         children: [
@@ -87,148 +84,97 @@ class WidgetProfilePage extends StatefulWidget {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: const Icon(
-                                Icons.arrow_back,
+                              icon: const Iconify(
+                                Mdi.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
-                            width: width * 0.01,
+                            width: 4.w,
                           ),
-                          const Text(
+                          Text(
                             'Story',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
-                                color: customTextColor,
-                                fontSize: 12),
+                                color: Colors.black,
+                                fontSize: 13.sp),
                           ),
                         ],
                       ),
                       const Divider(),
                       SizedBox(
-                        height: 150,
+                        height: 21.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
-                            left: 0,
-                            height: 124,
-                            width: 288,
+                            top: 1.h,
+                            height: 20.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
+                                      width: 0.5, color: customTextColor),
                                   borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers & Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
+                              child: ListView.separated(
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    return Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            storyList[index],
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                        Radio(
+                                            materialTapTargetSize:
+                                                MaterialTapTargetSize
+                                                    .shrinkWrap,
+                                            groupValue: groupValue1,
+                                            value: index == 0
+                                                ? everyone1
+                                                : index == 1
+                                                    ? followers1
+                                                    : off1,
+                                            onChanged: (val) {
+                                              if (index == 0) {
+                                                setState(() {
+                                                  groupValue1 = everyone1;
+                                                });
+                                              } else if (index == 1) {
+                                                setState(() {
+                                                  groupValue1 = followers1;
+                                                });
+                                              } else if (index == 2) {
+                                                setState(() {
+                                                  groupValue1 = off1;
+                                                });
+                                              }
+                                            })
+                                      ],
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) {
+                                    return Divider(
+                                      height: 0.5.h,
+                                    );
+                                  },
+                                  itemCount: 3),
                             ),
                           ),
                           Positioned(
-                            top: 13,
-                            left: 20,
-                            /*     width: 83, */
-                            height: 12,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Showig Your Story',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 8.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -236,130 +182,82 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: 150,
+                        height: 2.h,
+                      ),
+                      SizedBox(
+                        height: 21.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
-                            left: 0,
-                            height: 124,
-                            width: 288,
+                            top: 1.h,
+                            height: 20.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
+                                      width: 0.5, color: customTextColor),
                                   borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers & Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
+                              child: ListView.separated(
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    return Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            storyList[index],
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                        Radio(
+                                            materialTapTargetSize:
+                                                MaterialTapTargetSize
+                                                    .shrinkWrap,
+                                            groupValue: groupValue2,
+                                            value: index == 0
+                                                ? everyone2
+                                                : index == 1
+                                                    ? followers2
+                                                    : off2,
+                                            onChanged: (val) {
+                                              if (index == 0) {
+                                                setState(() {
+                                                  groupValue2 = everyone2;
+                                                });
+                                              } else if (index == 1) {
+                                                setState(() {
+                                                  groupValue2 = followers2;
+                                                });
+                                              } else if (index == 2) {
+                                                setState(() {
+                                                  groupValue2 = off2;
+                                                });
+                                              }
+                                            })
+                                      ],
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) {
+                                    return Divider(
+                                      height: 0.5.h,
+                                    );
+                                  },
+                                  itemCount: 3),
                             ),
                           ),
                           Positioned(
-                            top: 13,
-                            left: 20,
-                            /*   width: 163, */
-                            height: 12,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Like, Comments & Share Your Story',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 8.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -367,8 +265,8 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: height * 0.03,
-                      )
+                        height: 6.h,
+                      ),
                     ])),
                 positionCross(context)
               ],
@@ -481,7 +379,7 @@ class WidgetProfilePage extends StatefulWidget {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: Iconify(
+                              icon: const Iconify(
                                 Mdi.arrow_back,
                                 color: primaryColorOfApp,
                               )),
@@ -859,7 +757,19 @@ class WidgetProfilePage extends StatefulWidget {
     );
   }
 
+  List activityList = [
+    "Everyone",
+    "Followers",
+    "Following",
+    "OFF",
+  ];
+
   buildActivityStatus(context) {
+    dynamic groupValue1;
+    var v1 = "1";
+    var v2 = "2";
+    var v3 = "3";
+    var v4 = "4";
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -882,27 +792,12 @@ class WidgetProfilePage extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Column(
                         /*  mainAxisSize: MainAxisSize.min, */
                         children: [
                           SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: const Color(0xffE2E2E2),
-                                    borderRadius: BorderRadius.circular(8)),
-                                height: 5,
-                                width: 100,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.01,
+                            height: 2.h,
                           ),
                           Row(
                             children: [
@@ -917,181 +812,99 @@ class WidgetProfilePage extends StatefulWidget {
                                     color: primaryColorOfApp,
                                   )),
                               SizedBox(
-                                width: width * 0.01,
+                                width: 4.w,
                               ),
-                              const Text(
+                              Text(
                                 'Activity Status',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    color: customTextColor),
+                                    color: Colors.black,
+                                    fontSize: 13.sp),
                               ),
                             ],
                           ),
                           const Divider(),
                           SizedBox(
-                            /* color: Colors.red, */
-                            height: 200,
+                            height: 27.h,
                             child: Stack(children: [
                               Positioned(
-                                top: 20,
-                                left: 0,
-                                height: 165,
-                                width: 288,
+                                top: 1.h,
+                                height: 26.h,
+                                width: 90.w,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      /* color: Colors.yellow, */
                                       border: Border.all(
-                                          width: 0.5,
-                                          color: const Color(0xff515253)),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  /*  width: 150,
-                  height: 150, */
-                                  /*  color: Colors.green[300], */
+                                          width: 0.5, color: customTextColor),
+                                      borderRadius:
+                                          BorderRadius.circular(10.sp)),
                                   child: Column(
                                     children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Everyone",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: everyone,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = everyone;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Followers",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: followers,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = followers;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Following",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: following,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = following;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "OFF",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: off,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = off;
-                                                });
-                                              })
-                                        ],
-                                      ),
+                                      ListView.separated(
+                                          shrinkWrap: true,
+                                          itemBuilder: ((context, index) {
+                                            return Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 6.w),
+                                                  child: Text(
+                                                    activityList[index],
+                                                    style: TextStyle(
+                                                        color: customTextColor,
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.sp),
+                                                  ),
+                                                ),
+                                                Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue1,
+                                                    value: index == 0
+                                                        ? v1
+                                                        : index == 1
+                                                            ? v2
+                                                            : index == 2
+                                                                ? v3
+                                                                : v4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue1 = v1;
+                                                        } else if (index == 1) {
+                                                          groupValue1 = v2;
+                                                        } else if (index == 2) {
+                                                          groupValue1 = v3;
+                                                        } else if (index == 3) {
+                                                          groupValue1 = v4;
+                                                        }
+                                                      });
+                                                    })
+                                              ],
+                                            );
+                                          }),
+                                          separatorBuilder: ((context, index) {
+                                            return Divider(
+                                              height: 0.5.h,
+                                            );
+                                          }),
+                                          itemCount: activityList.length)
                                     ],
                                   ),
                                 ),
                               ),
                               Positioned(
-                                top: 13,
-                                left: 20,
-                                /*  width: 130, */
-                                height: 10,
+                                left: 6.w,
                                 child: Container(
-                                  /*   width: 200,
-                  height: 150, */
                                   color: Colors.white,
-                                  child: const Text(
-                                    'Profile Active Seen & Online ',
+                                  child: Text(
+                                    'Profile Active Seen & Online',
                                     style: TextStyle(
-                                        color: Color(0xff515253),
-                                        fontSize: 10,
+                                        color: customTextColor,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Poppins'),
                                   ),
                                 ),
@@ -1107,6 +920,11 @@ class WidgetProfilePage extends StatefulWidget {
   }
 
   buildShowRewardpoint(context) {
+    dynamic groupValue1;
+    var v1 = "1";
+    var v2 = "2";
+    var v3 = "3";
+    var v4 = "4";
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -1129,27 +947,12 @@ class WidgetProfilePage extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Column(
                         /*  mainAxisSize: MainAxisSize.min, */
                         children: [
                           SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: const Color(0xffE2E2E2),
-                                    borderRadius: BorderRadius.circular(8)),
-                                height: 5,
-                                width: 100,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.01,
+                            height: 2.h,
                           ),
                           Row(
                             children: [
@@ -1164,181 +967,99 @@ class WidgetProfilePage extends StatefulWidget {
                                     color: primaryColorOfApp,
                                   )),
                               SizedBox(
-                                width: width * 0.01,
+                                width: 4.w,
                               ),
-                              const Text(
+                              Text(
                                 'Show Reward Points',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    color: customTextColor),
+                                    color: Colors.black,
+                                    fontSize: 13.sp),
                               ),
                             ],
                           ),
                           const Divider(),
                           SizedBox(
-                            /* color: Colors.red, */
-                            height: 200,
+                            height: 27.h,
                             child: Stack(children: [
                               Positioned(
-                                top: 20,
-                                left: 0,
-                                height: 165,
-                                width: 288,
+                                top: 1.h,
+                                height: 26.h,
+                                width: 90.w,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      /* color: Colors.yellow, */
                                       border: Border.all(
-                                          width: 0.5,
-                                          color: const Color(0xff515253)),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  /*  width: 150,
-                  height: 150, */
-                                  /*  color: Colors.green[300], */
+                                          width: 0.5, color: customTextColor),
+                                      borderRadius:
+                                          BorderRadius.circular(10.sp)),
                                   child: Column(
                                     children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Everyone",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: everyone,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = everyone;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Followers",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: followers,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = followers;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Following",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: following,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = following;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "OFF",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: off,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = off;
-                                                });
-                                              })
-                                        ],
-                                      ),
+                                      ListView.separated(
+                                          shrinkWrap: true,
+                                          itemBuilder: ((context, index) {
+                                            return Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 6.w),
+                                                  child: Text(
+                                                    activityList[index],
+                                                    style: TextStyle(
+                                                        color: customTextColor,
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.sp),
+                                                  ),
+                                                ),
+                                                Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue1,
+                                                    value: index == 0
+                                                        ? v1
+                                                        : index == 1
+                                                            ? v2
+                                                            : index == 2
+                                                                ? v3
+                                                                : v4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue1 = v1;
+                                                        } else if (index == 1) {
+                                                          groupValue1 = v2;
+                                                        } else if (index == 2) {
+                                                          groupValue1 = v3;
+                                                        } else if (index == 3) {
+                                                          groupValue1 = v4;
+                                                        }
+                                                      });
+                                                    })
+                                              ],
+                                            );
+                                          }),
+                                          separatorBuilder: ((context, index) {
+                                            return Divider(
+                                              height: 0.5.h,
+                                            );
+                                          }),
+                                          itemCount: activityList.length)
                                     ],
                                   ),
                                 ),
                               ),
                               Positioned(
-                                top: 13,
-                                left: 20,
-                                /*    width: 90, */
-                                height: 10,
+                                left: 6.w,
                                 child: Container(
-                                  /*   width: 200,
-                  height: 150, */
                                   color: Colors.white,
-                                  child: const Text(
-                                    'Show Reward Points',
+                                  child: Text(
+                                    'Show Points',
                                     style: TextStyle(
-                                        color: Color(0xff515253),
-                                        fontSize: 10,
+                                        color: customTextColor,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Poppins'),
                                   ),
                                 ),
@@ -1354,6 +1075,11 @@ class WidgetProfilePage extends StatefulWidget {
   }
 
   buildMention(context) {
+    dynamic groupValue2;
+    var x1 = "1";
+    var x2 = "2";
+    var x3 = "3";
+    var x4 = "4";
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -1376,27 +1102,12 @@ class WidgetProfilePage extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Column(
                         /*  mainAxisSize: MainAxisSize.min, */
                         children: [
                           SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: const Color(0xffE2E2E2),
-                                    borderRadius: BorderRadius.circular(8)),
-                                height: 5,
-                                width: 100,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.01,
+                            height: 2.h,
                           ),
                           Row(
                             children: [
@@ -1406,433 +1117,104 @@ class WidgetProfilePage extends StatefulWidget {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  icon: const Icon(
-                                    Icons.arrow_back,
+                                  icon: const Iconify(
+                                    Mdi.arrow_back,
                                     color: primaryColorOfApp,
                                   )),
                               SizedBox(
-                                width: width * 0.01,
+                                width: 4.w,
                               ),
-                              const Text(
+                              Text(
                                 '@Mension',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    color: customTextColor),
+                                    color: Colors.black,
+                                    fontSize: 13.sp),
                               ),
                             ],
                           ),
                           const Divider(),
                           SizedBox(
-                            /* color: Colors.red, */
-                            height: 200,
+                            height: 27.h,
                             child: Stack(children: [
                               Positioned(
-                                top: 20,
-                                left: 0,
-                                height: 165,
-                                width: 288,
+                                top: 1.h,
+                                height: 26.h,
+                                width: 90.w,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      /* color: Colors.yellow, */
                                       border: Border.all(
-                                          width: 0.5,
-                                          color: const Color(0xff515253)),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  /*  width: 150,
-                  height: 150, */
-                                  /*  color: Colors.green[300], */
+                                          width: 0.5, color: customTextColor),
+                                      borderRadius:
+                                          BorderRadius.circular(10.sp)),
                                   child: Column(
                                     children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Everyone",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: everyone,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = everyone;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Followers",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: followers,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = followers;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Following",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: following,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = following;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "OFF",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: off,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = off;
-                                                });
-                                              })
-                                        ],
-                                      ),
+                                      ListView.separated(
+                                          shrinkWrap: true,
+                                          itemBuilder: ((context, index) {
+                                            return Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 6.w),
+                                                  child: Text(
+                                                    activityList[index],
+                                                    style: TextStyle(
+                                                        color: customTextColor,
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.sp),
+                                                  ),
+                                                ),
+                                                Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue2,
+                                                    value: index == 0
+                                                        ? x1
+                                                        : index == 1
+                                                            ? x2
+                                                            : index == 2
+                                                                ? x3
+                                                                : x4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue2 = x1;
+                                                        } else if (index == 1) {
+                                                          groupValue2 = x2;
+                                                        } else if (index == 2) {
+                                                          groupValue2 = x3;
+                                                        } else if (index == 3) {
+                                                          groupValue2 = x4;
+                                                        }
+                                                      });
+                                                    })
+                                              ],
+                                            );
+                                          }),
+                                          separatorBuilder: ((context, index) {
+                                            return Divider(
+                                              height: 0.5.h,
+                                            );
+                                          }),
+                                          itemCount: activityList.length),
                                     ],
                                   ),
                                 ),
                               ),
                               Positioned(
-                                top: 13,
-                                left: 20,
-                                /*  width: 90, */
-                                height: 12,
+                                left: 6.w,
                                 child: Container(
-                                  /*   width: 200,
-                  height: 150, */
                                   color: Colors.white,
-                                  child: const Text(
+                                  child: Text(
                                     '@mention you from',
                                     style: TextStyle(
-                                        color: Color(0xff515253),
-                                        fontSize: 10,
-                                        fontFamily: 'Poppins'),
-                                  ),
-                                ),
-                              ),
-                            ]),
-                          ),
-                        ])),
-                positionCross(context)
-              ],
-            );
-          });
-        });
-  }
-
-  buildTag(context) {
-    Size size;
-    double height, width;
-    size = MediaQuery.of(context).size;
-    height = size.height;
-    width = size.width;
-    return showModalBottomSheet(
-        backgroundColor: Colors.white,
-        /*  isScrollControlled: true, */
-        shape: const RoundedRectangleBorder(
-          // <-- SEE HERE
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20.0),
-          ),
-        ),
-        context: context,
-        builder: (BuildContext context) {
-          return StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
-            return Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Column(
-                        /*  mainAxisSize: MainAxisSize.min, */
-                        children: [
-                          SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: const Color(0xffE2E2E2),
-                                    borderRadius: BorderRadius.circular(8)),
-                                height: 5,
-                                width: 100,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            children: [
-                              IconButton(
-                                  padding: const EdgeInsets.all(0),
-                                  constraints: const BoxConstraints(),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  icon: const Icon(
-                                    Icons.arrow_back,
-                                    color: primaryColorOfApp,
-                                  )),
-                              SizedBox(
-                                width: width * 0.01,
-                              ),
-                              const Text(
-                                'Tag',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: customTextColor),
-                              ),
-                            ],
-                          ),
-                          const Divider(),
-                          SizedBox(
-                            /* color: Colors.red, */
-                            height: 200,
-                            child: Stack(children: [
-                              Positioned(
-                                top: 20,
-                                left: 0,
-                                height: 165,
-                                width: 288,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      /* color: Colors.yellow, */
-                                      border: Border.all(
-                                          width: 0.5,
-                                          color: const Color(0xff515253)),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  /*  width: 150,
-                  height: 150, */
-                                  /*  color: Colors.green[300], */
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Everyone",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: everyone,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = everyone;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Followers",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: followers,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = followers;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Following",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: following,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = following;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "OFF",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: off,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = off;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                top: 13,
-                                left: 20,
-                                /*   width: 70, */
-                                height: 12,
-                                child: Container(
-                                  /*   width: 200,
-                  height: 150, */
-                                  color: Colors.white,
-                                  child: const Text(
-                                    '@Tag you from',
-                                    style: TextStyle(
-                                        color: Color(0xff515253),
-                                        fontSize: 10,
+                                        color: customTextColor,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Poppins'),
                                   ),
                                 ),
@@ -1848,6 +1230,11 @@ class WidgetProfilePage extends StatefulWidget {
   }
 
   buildSendmeGift(context) {
+    dynamic groupValue1;
+    var v1 = "1";
+    var v2 = "2";
+    var v3 = "3";
+    var v4 = "4";
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -1870,317 +1257,216 @@ class WidgetProfilePage extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Column(
-                        /*  mainAxisSize: MainAxisSize.min, */
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    child: Column(children: [
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Row(
                         children: [
+                          IconButton(
+                              padding: const EdgeInsets.all(0),
+                              constraints: const BoxConstraints(),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              icon: const Iconify(
+                                Mdi.arrow_back,
+                                color: primaryColorOfApp,
+                              )),
                           SizedBox(
-                            height: height * 0.01,
+                            width: 4.w,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: const Color(0xffE2E2E2),
-                                    borderRadius: BorderRadius.circular(8)),
-                                height: 5,
-                                width: 100,
+                          Text(
+                            'Send me GIFT',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 13.sp),
+                          ),
+                        ],
+                      ),
+                      const Divider(),
+                      SizedBox(
+                        height: 27.h,
+                        child: Stack(children: [
+                          Positioned(
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: Column(
+                                children: [
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? v1
+                                                    : index == 1
+                                                        ? v2
+                                                        : index == 2
+                                                            ? v3
+                                                            : v4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue1 = v1;
+                                                    } else if (index == 1) {
+                                                      groupValue1 = v2;
+                                                    } else if (index == 2) {
+                                                      groupValue1 = v3;
+                                                    } else if (index == 3) {
+                                                      groupValue1 = v4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
+                                ],
                               ),
-                            ],
+                            ),
                           ),
-                          SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            children: [
-                              IconButton(
-                                  padding: const EdgeInsets.all(0),
-                                  constraints: const BoxConstraints(),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  icon: const Icon(
-                                    Icons.arrow_back,
-                                    color: primaryColorOfApp,
-                                  )),
-                              SizedBox(
-                                width: width * 0.01,
+                          Positioned(
+                            left: 6.w,
+                            child: Container(
+                              color: Colors.white,
+                              child: Text(
+                                'Recieved Gift From',
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
+                                    fontFamily: 'Poppins'),
                               ),
-                              const Text(
-                                'Send me GIFT',
+                            ),
+                          ),
+                        ]),
+                      ),
+                      SizedBox(
+                        height: 15,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: width * 0.05),
+                          child: Row(
+                            children: [
+                              Text(
+                                'I accepted ',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    color: customTextColor),
+                                    color: const Color(0xff515253),
+                                    fontSize: width * 0.03),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  foregroundColor: const Color(0xff0087FF),
+                                ),
+                                child: const Text(
+                                  'terms of services ',
+                                  style: TextStyle(fontSize: 11),
+                                ),
+                              ),
+                              const Text(
+                                '& ',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xff515253),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  foregroundColor: const Color(0xff0087FF),
+                                ),
+                                child: const Text('privacy policy',
+                                    style: TextStyle(fontSize: 11)),
                               ),
                             ],
                           ),
-                          const Divider(),
-                          SizedBox(
-                            /* color: Colors.red, */
-                            height: 200,
-                            child: Stack(children: [
-                              Positioned(
-                                top: 20,
-                                left: 0,
-                                height: 165,
-                                width: 288,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      /* color: Colors.yellow, */
-                                      border: Border.all(
-                                          width: 0.5,
-                                          color: const Color(0xff515253)),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  /*  width: 150,
-                  height: 150, */
-                                  /*  color: Colors.green[300], */
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Everyone",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: everyone,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = everyone;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Followers",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: followers,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = followers;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Following",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: following,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = following;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                      const Divider(
-                                        height: 1,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "OFF",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          Radio(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              groupValue: groupseenonline,
-                                              value: off,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  groupseenonline = off;
-                                                });
-                                              })
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: width * 0.05),
+                          child: Row(
+                            children: [
+                              Text(
+                                'and ',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: const Color(0xff515253),
+                                    fontSize: width * 0.03),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  foregroundColor: const Color(0xff0087FF),
+                                ),
+                                child: const Text('license agreement',
+                                    style: TextStyle(fontSize: 11)),
+                              ),
+                              const Text(
+                                ' &',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xff515253),
                                 ),
                               ),
-                              Positioned(
-                                top: 13,
-                                left: 20,
-                                /*       width: 90, */
-                                height: 12,
-                                child: Container(
-                                  /*   width: 200,
-                  height: 150, */
-                                  color: Colors.white,
-                                  child: const Text(
-                                    'Recieved Gift From',
-                                    style: TextStyle(
-                                        color: Color(0xff515253),
-                                        fontSize: 10,
-                                        fontFamily: 'Poppins'),
-                                  ),
+                              TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  foregroundColor: const Color(0xff0087FF),
                                 ),
+                                child: const Text('read more',
+                                    style: TextStyle(fontSize: 11)),
                               ),
-                            ]),
+                            ],
                           ),
-                          SizedBox(
-                            height: 15,
-                            child: Padding(
-                              padding: EdgeInsets.only(left: width * 0.05),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'I accepted ',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        color: const Color(0xff515253),
-                                        fontSize: width * 0.03),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {},
-                                    style: TextButton.styleFrom(
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      foregroundColor: const Color(0xff0087FF),
-                                    ),
-                                    child: const Text(
-                                      'terms of services ',
-                                      style: TextStyle(fontSize: 11),
-                                    ),
-                                  ),
-                                  const Text(
-                                    '& ',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xff515253),
-                                    ),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {},
-                                    style: TextButton.styleFrom(
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      foregroundColor: const Color(0xff0087FF),
-                                    ),
-                                    child: const Text('privacy policy',
-                                        style: TextStyle(fontSize: 11)),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                            child: Padding(
-                              padding: EdgeInsets.only(left: width * 0.05),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'and ',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        color: const Color(0xff515253),
-                                        fontSize: width * 0.03),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {},
-                                    style: TextButton.styleFrom(
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      foregroundColor: const Color(0xff0087FF),
-                                    ),
-                                    child: const Text('license agreement',
-                                        style: TextStyle(fontSize: 11)),
-                                  ),
-                                  const Text(
-                                    ' &',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xff515253),
-                                    ),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {},
-                                    style: TextButton.styleFrom(
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      foregroundColor: const Color(0xff0087FF),
-                                    ),
-                                    child: const Text('read more',
-                                        style: TextStyle(fontSize: 11)),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ])),
+                        ),
+                      ),
+                    ])),
                 positionCross(context)
               ],
             );
@@ -2189,6 +1475,16 @@ class WidgetProfilePage extends StatefulWidget {
   }
 
   buildGroups(context) {
+    dynamic groupValue1;
+    var v1 = "1";
+    var v2 = "2";
+    var v3 = "3";
+    var v4 = "4";
+    dynamic groupValue2;
+    var x1 = "1";
+    var x2 = "2";
+    var x3 = "3";
+    var x4 = "4";
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -2214,22 +1510,7 @@ class WidgetProfilePage extends StatefulWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                       SizedBox(
-                        height: height * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xffE2E2E2),
-                                borderRadius: BorderRadius.circular(8)),
-                            height: 5,
-                            width: 100,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
+                        height: 2.h,
                       ),
                       Row(
                         children: [
@@ -2239,370 +1520,211 @@ class WidgetProfilePage extends StatefulWidget {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: const Icon(
-                                Icons.arrow_back,
+                              icon: const Iconify(
+                                Mdi.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
-                            width: width * 0.01,
+                            width: 4.w,
                           ),
-                          const Text(
+                          Text(
                             'Groups',
                             style: TextStyle(
-                                fontFamily: 'Poppins', color: customTextColor),
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 13.sp),
                           ),
                         ],
                       ),
                       const Divider(),
                       SizedBox(
-                        /*         color: Colors.red, */
-                        height: 180,
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? v1
+                                                    : index == 1
+                                                        ? v2
+                                                        : index == 2
+                                                            ? v3
+                                                            : v4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue1 = v1;
+                                                    } else if (index == 1) {
+                                                      groupValue1 = v2;
+                                                    } else if (index == 2) {
+                                                      groupValue1 = v3;
+                                                    } else if (index == 3) {
+                                                      groupValue1 = v4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 0,
-                            left: 20,
-                            /*     width: 90, */
-                            height: 10,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
-                                'Public Groups Show ',
+                              child: Text(
+                                'Public Groups Show',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
                           ),
                         ]),
                       ),
-                      /*   SizedBox(
-                        height: height * 0.01,
-                      ), */
                       SizedBox(
-                        /*  color: Colors.green, */
-                        height: 180,
+                        height: 2.h,
+                      ),
+                      SizedBox(
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue2,
+                                                value: index == 0
+                                                    ? x1
+                                                    : index == 1
+                                                        ? x2
+                                                        : index == 2
+                                                            ? x3
+                                                            : x4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue2 = x1;
+                                                    } else if (index == 1) {
+                                                      groupValue2 = x2;
+                                                    } else if (index == 2) {
+                                                      groupValue2 = x3;
+                                                    } else if (index == 3) {
+                                                      groupValue2 = x4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 0,
-                            left: 20,
-                            /*            width: 120, */
-                            height: 10,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
-                                'Public Groups Added You ',
+                              child: Text(
+                                'Public Groups Added You',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
                           ),
                         ]),
                       ),
-                      /*    SizedBox(
-                        height: height * 0.01,
-                      ), */
                       SizedBox(
-                        /*        color: Colors.green, */
-                        height: 100,
+                        height: 2.h,
+                      ),
+                      SizedBox(
+                        height: 14.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 84,
-                            width: 288,
+                            top: 1.h,
+                            height: 13.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
+                                      width: 0.5, color: customTextColor),
                                   borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
                               child: Column(
                                 children: [
                                   Row(
@@ -2610,14 +1732,13 @@ class WidgetProfilePage extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
+                                        padding: EdgeInsets.only(left: 6.w),
                                         child: Text(
                                           "Followers",
                                           style: TextStyle(
-                                              color: const Color(0xff515253),
+                                              color: customTextColor,
                                               fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
+                                              fontSize: 12.sp),
                                         ),
                                       ),
                                       Radio(
@@ -2640,14 +1761,13 @@ class WidgetProfilePage extends StatefulWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
+                                        padding: EdgeInsets.only(left: 6.w),
                                         child: Text(
                                           "OFF",
                                           style: TextStyle(
-                                              color: const Color(0xff515253),
+                                              color: customTextColor,
                                               fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
+                                              fontSize: 12.sp),
                                         ),
                                       ),
                                       Radio(
@@ -2667,19 +1787,14 @@ class WidgetProfilePage extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            top: 0,
-                            left: 20,
-                            /*   width: 135, */
-                            height: 12,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Public Groups Before Add You ',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -2687,7 +1802,7 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: height * 0.04,
+                        height: 6.h,
                       ),
                     ])),
                 positionCross(context)
@@ -2698,6 +1813,16 @@ class WidgetProfilePage extends StatefulWidget {
   }
 
   buildLivePrivacy(context) {
+    dynamic groupValue1;
+    var v1 = "1";
+    var v2 = "2";
+    var v3 = "3";
+    var v4 = "4";
+    dynamic groupValue2;
+    var x1 = "1";
+    var x2 = "2";
+    var x3 = "3";
+    var x4 = "4";
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -2764,161 +1889,84 @@ class WidgetProfilePage extends StatefulWidget {
                       ),
                       const Divider(),
                       SizedBox(
-                        /* color: Colors.red, */
-                        height: 180,
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? v1
+                                                    : index == 1
+                                                        ? v2
+                                                        : index == 2
+                                                            ? v3
+                                                            : v4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue1 = v1;
+                                                    } else if (index == 1) {
+                                                      groupValue1 = v2;
+                                                    } else if (index == 2) {
+                                                      groupValue1 = v3;
+                                                    } else if (index == 3) {
+                                                      groupValue1 = v4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 0,
-                            left: 20,
-                            /*     width: 135, */
-                            height: 10,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Live Video-Join Request from',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -2926,236 +1974,142 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: height * 0.01,
+                        height: 2.h,
                       ),
                       SizedBox(
-                        /* color: Colors.red, */
-                        height: 180,
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: 20,
-                            /*    width: 140, */
-                            height: 10,
-                            child: Container(
-                              /*   width: 200,
-                  height: 150, */
-                              color: Colors.white,
-                              child: const Text(
-                                'Live Video-Send Notification to ',
-                                style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ),
-                          ),
-                        ]),
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
-                      ),
-                      SizedBox(
-                        height: 90,
-                        child: Stack(children: [
-                          Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 47,
-                            width: 288,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
-                                  border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(15.0),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "People",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
                                             ),
-                                          ),
-                                          const Iconify(
-                                            Eva.arrow_right_fill,
-                                            size: 15,
-                                            color: Color(0xff333333),
-                                          )
-                                        ]),
-                                  ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue2,
+                                                value: index == 0
+                                                    ? x1
+                                                    : index == 1
+                                                        ? x2
+                                                        : index == 2
+                                                            ? x3
+                                                            : x4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue2 = x1;
+                                                    } else if (index == 1) {
+                                                      groupValue2 = x2;
+                                                    } else if (index == 2) {
+                                                      groupValue2 = x3;
+                                                    } else if (index == 3) {
+                                                      groupValue2 = x4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 0,
-                            left: 20,
-                            /*         width: 85, */
-                            height: 12,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
+                                'Live Video-Send Notification to',
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
+                                    fontFamily: 'Poppins'),
+                              ),
+                            ),
+                          ),
+                        ]),
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      SizedBox(
+                        height: 7.h,
+                        child: Stack(children: [
+                          Positioned(
+                            top: 1.h,
+                            height: 6.h,
+                            width: 90.w,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 6.w),
+                                      child: Text(
+                                        "People",
+                                        style: TextStyle(
+                                            color: customTextColor,
+                                            fontFamily: 'Poppins',
+                                            fontSize: 12.sp),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 5.w),
+                                      child: Iconify(
+                                        Eva.arrow_right_fill,
+                                        size: 15.sp,
+                                        color: customTextColor,
+                                      ),
+                                    )
+                                  ]),
+                            ),
+                          ),
+                          Positioned(
+                            left: 6.w,
+                            child: Container(
+                              color: Colors.white,
+                              child: Text(
                                 'Block People From ',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -3174,6 +2128,16 @@ class WidgetProfilePage extends StatefulWidget {
   }
 
   buildChatBoxPrivacy(context) {
+    dynamic groupValue1;
+    var v1 = "1";
+    var v2 = "2";
+    var v3 = "3";
+    var v4 = "4";
+    dynamic groupValue2;
+    var x1 = "1";
+    var x2 = "2";
+    var x3 = "3";
+    var x4 = "4";
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -3196,25 +2160,10 @@ class WidgetProfilePage extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                       SizedBox(
-                        height: height * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xffE2E2E2),
-                                borderRadius: BorderRadius.circular(8)),
-                            height: 5,
-                            width: 100,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
+                        height: 2.h,
                       ),
                       Row(
                         children: [
@@ -3224,177 +2173,102 @@ class WidgetProfilePage extends StatefulWidget {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: const Icon(
-                                Icons.arrow_back,
+                              icon: const Iconify(
+                                Mdi.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
-                            width: width * 0.01,
+                            width: 4.w,
                           ),
-                          const Text(
+                          Text(
                             'Chat-Box',
                             style: TextStyle(
-                                fontFamily: 'Poppins', color: customTextColor),
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 13.sp),
                           ),
                         ],
                       ),
                       const Divider(),
                       SizedBox(
-                        /* color: Colors.red, */
-                        height: 200,
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? v1
+                                                    : index == 1
+                                                        ? v2
+                                                        : index == 2
+                                                            ? v3
+                                                            : v4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue1 = v1;
+                                                    } else if (index == 1) {
+                                                      groupValue1 = v2;
+                                                    } else if (index == 2) {
+                                                      groupValue1 = v3;
+                                                    } else if (index == 3) {
+                                                      groupValue1 = v4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 13,
-                            left: 20,
-                            /*   width: 95, */
-                            height: 12,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Chat-Request from',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -3402,164 +2276,87 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: height * 0.01,
+                        height: 2.h,
                       ),
                       SizedBox(
-                        /* color: Colors.red, */
-                        height: 200,
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue2,
+                                                value: index == 0
+                                                    ? x1
+                                                    : index == 1
+                                                        ? x2
+                                                        : index == 2
+                                                            ? x3
+                                                            : x4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue2 = x1;
+                                                    } else if (index == 1) {
+                                                      groupValue2 = x2;
+                                                    } else if (index == 2) {
+                                                      groupValue2 = x3;
+                                                    } else if (index == 3) {
+                                                      groupValue2 = x4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length),
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 13,
-                            left: 20,
-                            /*   width: 80, */
-                            height: 12,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Add Group Chat',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -3567,7 +2364,7 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: height * 0.01,
+                        height: 6.h,
                       ),
                     ])),
                 positionCross(context)
@@ -3578,6 +2375,21 @@ class WidgetProfilePage extends StatefulWidget {
   }
 
   buildPostPhotoVideo(context) {
+    dynamic groupValue1;
+    var v1 = "1";
+    var v2 = "2";
+    var v3 = "3";
+    var v4 = "4";
+    dynamic groupValue2;
+    var x1 = "1";
+    var x2 = "2";
+    var x3 = "3";
+    var x4 = "4";
+    dynamic groupValue3;
+    var y1 = "1";
+    var y2 = "2";
+    var y3 = "3";
+    var y4 = "4";
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -3600,25 +2412,10 @@ class WidgetProfilePage extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                       SizedBox(
-                        height: height * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xffE2E2E2),
-                                borderRadius: BorderRadius.circular(8)),
-                            height: 5,
-                            width: 100,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
+                        height: 2.h,
                       ),
                       Row(
                         children: [
@@ -3628,178 +2425,102 @@ class WidgetProfilePage extends StatefulWidget {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: const Icon(
-                                Icons.arrow_back,
+                              icon: const Iconify(
+                                Mdi.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
-                            width: width * 0.01,
+                            width: 4.w,
                           ),
-                          const Text(
+                          Text(
                             'Post-Photo & Video',
                             style: TextStyle(
-                                fontFamily: 'Poppins', color: customTextColor),
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 13.sp),
                           ),
                         ],
                       ),
-                      const Divider(
-                        height: 1,
-                      ),
+                      const Divider(),
                       SizedBox(
-                        height: 180,
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? v1
+                                                    : index == 1
+                                                        ? v2
+                                                        : index == 2
+                                                            ? v3
+                                                            : v4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue1 = v1;
+                                                    } else if (index == 1) {
+                                                      groupValue1 = v2;
+                                                    } else if (index == 2) {
+                                                      groupValue1 = v3;
+                                                    } else if (index == 3) {
+                                                      groupValue1 = v4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 0,
-                            left: 20,
-                            /*   width: 110, */
-                            height: 10,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Show Your Post & Video',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -3807,160 +2528,84 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: 180,
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue2,
+                                                value: index == 0
+                                                    ? x1
+                                                    : index == 1
+                                                        ? x2
+                                                        : index == 2
+                                                            ? x3
+                                                            : x4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue2 = x1;
+                                                    } else if (index == 1) {
+                                                      groupValue2 = x2;
+                                                    } else if (index == 2) {
+                                                      groupValue2 = x3;
+                                                    } else if (index == 3) {
+                                                      groupValue2 = x4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 0,
-                            left: 20,
-                            /*  width: 100, */
-                            height: 10,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Like Your Post & Video',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -3968,160 +2613,84 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: 180,
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 7,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue3,
+                                                value: index == 0
+                                                    ? y1
+                                                    : index == 1
+                                                        ? y2
+                                                        : index == 2
+                                                            ? y3
+                                                            : y4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue3 = y1;
+                                                    } else if (index == 1) {
+                                                      groupValue3 = y2;
+                                                    } else if (index == 2) {
+                                                      groupValue3 = y3;
+                                                    } else if (index == 3) {
+                                                      groupValue3 = y4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 0,
-                            left: 20,
-                            /*     width: 110, */
-                            height: 10,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Share Your Post & Video',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -4140,6 +2709,16 @@ class WidgetProfilePage extends StatefulWidget {
   }
 
   buildComments(context) {
+    List cmtList = [
+      "People",
+      "Followers",
+      "Following",
+    ];
+    dynamic groupValue1;
+    var v1 = "1";
+    var v2 = "2";
+    var v3 = "3";
+    var v4 = "4";
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -4162,25 +2741,10 @@ class WidgetProfilePage extends StatefulWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                       SizedBox(
-                        height: height * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xffE2E2E2),
-                                borderRadius: BorderRadius.circular(8)),
-                            height: 5,
-                            width: 100,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
+                        height: 2.h,
                       ),
                       Row(
                         children: [
@@ -4190,177 +2754,102 @@ class WidgetProfilePage extends StatefulWidget {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              icon: const Icon(
-                                Icons.arrow_back,
+                              icon: const Iconify(
+                                Mdi.arrow_back,
                                 color: primaryColorOfApp,
                               )),
                           SizedBox(
-                            width: width * 0.01,
+                            width: 4.w,
                           ),
-                          const Text(
+                          Text(
                             'Comments',
                             style: TextStyle(
-                                fontFamily: 'Poppins', color: customTextColor),
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 13.sp),
                           ),
                         ],
                       ),
                       const Divider(),
                       SizedBox(
-                        /* color: Colors.red, */
-                        height: 200,
+                        height: 27.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
-                            left: 0,
-                            height: 165,
-                            width: 288,
+                            top: 1.h,
+                            height: 26.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Everyone",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: everyone,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = everyone;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: const Color(0xff515253),
-                                              fontFamily: 'Poppins',
-                                              fontSize: width * 0.03),
-                                        ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: off,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = off;
-                                            });
-                                          })
-                                    ],
-                                  ),
+                                  ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: ((context, index) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                activityList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
+                                            ),
+                                            Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? v1
+                                                    : index == 1
+                                                        ? v2
+                                                        : index == 2
+                                                            ? v3
+                                                            : v4,
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      groupValue1 = v1;
+                                                    } else if (index == 1) {
+                                                      groupValue1 = v2;
+                                                    } else if (index == 2) {
+                                                      groupValue1 = v3;
+                                                    } else if (index == 3) {
+                                                      groupValue1 = v4;
+                                                    }
+                                                  });
+                                                })
+                                          ],
+                                        );
+                                      }),
+                                      separatorBuilder: ((context, index) {
+                                        return Divider(
+                                          height: 0.5.h,
+                                        );
+                                      }),
+                                      itemCount: activityList.length)
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 13,
-                            left: 20,
-                            /*     width: 105, */
-                            height: 10,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Comments Allow From',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -4371,628 +2860,83 @@ class WidgetProfilePage extends StatefulWidget {
                         height: height * 0.01,
                       ),
                       SizedBox(
-                        height: 150,
+                        height: 19.h,
                         child: Stack(children: [
                           Positioned(
-                            top: 20,
-                            left: 0,
-                            height: 100,
-                            width: 288,
+                            top: 1.h,
+                            height: 18.h,
+                            width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  /* color: Colors.yellow, */
                                   border: Border.all(
-                                      width: 0.5,
-                                      color: const Color(0xff515253)),
-                                  borderRadius: BorderRadius.circular(10)),
-                              /*  width: 150,
-                  height: 150, */
-                              /*  color: Colors.green[300], */
-                              child: Column(
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      showModalBottomSheet(
-                                          /* isScrollControlled: true, */
-                                          shape: const RoundedRectangleBorder(
-                                            // <-- SEE HERE
-                                            borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(20.0),
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(10.sp)),
+                              child: ListView.separated(
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    return InkWell(
+                                      onTap: () {
+                                        if (index == 0) {
+                                          Blkcomntfrom(
+                                            value: "People",
+                                          ).function(context);
+                                        } else if (index == 1) {
+                                          Blkcomntfrom(
+                                            value: "Followers",
+                                          ).function(context);
+                                        } else if (index == 2) {
+                                          Blkcomntfrom(
+                                            value: "Following",
+                                          ).function(context);
+                                        }
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            top: index == 0 ? 15.sp : 5.sp),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 6.w),
+                                              child: Text(
+                                                cmtList[index],
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12.sp),
+                                              ),
                                             ),
-                                          ),
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return StatefulBuilder(builder:
-                                                (BuildContext context,
-                                                    StateSetter setState) {
-                                              return Stack(
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 15.0),
-                                                    child: Column(
-                                                        /* mainAxisSize: MainAxisSize.min, */
-                                                        children: [
-                                                          SizedBox(
-                                                            height:
-                                                                height * 0.03,
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              IconButton(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                              .all(
-                                                                          0),
-                                                                  constraints:
-                                                                      const BoxConstraints(),
-                                                                  onPressed:
-                                                                      () {
-                                                                    Navigator.of(
-                                                                            context)
-                                                                        .pop();
-                                                                  },
-                                                                  icon:
-                                                                      const Icon(
-                                                                    Icons
-                                                                        .arrow_back,
-                                                                    color:
-                                                                        primaryColorOfApp,
-                                                                  )),
-                                                              SizedBox(
-                                                                width: width *
-                                                                    0.01,
-                                                              ),
-                                                              const Text(
-                                                                'People',
-                                                                style: TextStyle(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color:
-                                                                        customTextColor,
-                                                                    fontSize:
-                                                                        15),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          const Divider(),
-                                                          TextFormField(
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                      isDense:
-                                                                          true, // Added this
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              8),
-                                                                      labelText:
-                                                                          'Search profile Name',
-                                                                      labelStyle: const TextStyle(
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              10),
-                                                                      enabledBorder: OutlineInputBorder(
-                                                                          borderRadius: BorderRadius.circular(
-                                                                              5),
-                                                                          borderSide: const BorderSide(
-                                                                              color: Color(
-                                                                                  0xff333333),
-                                                                              width:
-                                                                                  1)),
-                                                                      focusedBorder: OutlineInputBorder(
-                                                                          borderRadius: BorderRadius.circular(
-                                                                              5),
-                                                                          borderSide: const BorderSide(
-                                                                              color: Color(
-                                                                                  0xff0087FF),
-                                                                              width:
-                                                                                  1)),
-                                                                      /*    prefixIcon: Icon(Icons.search), */
-                                                                      hintText:
-                                                                          'Searh Username')),
-                                                          ListView.builder(
-                                                              shrinkWrap: true,
-                                                              itemCount: 4,
-                                                              itemBuilder:
-                                                                  ((context,
-                                                                      index) {
-                                                                return ListTile(
-                                                                  minVerticalPadding:
-                                                                      10,
-                                                                  horizontalTitleGap:
-                                                                      4,
-                                                                  visualDensity:
-                                                                      const VisualDensity(
-                                                                          vertical:
-                                                                              -3),
-                                                                  dense: true,
-                                                                  leading:
-                                                                      const CircleAvatar(
-                                                                    radius: 20,
-                                                                    backgroundImage:
-                                                                        NetworkImage(
-                                                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
-                                                                  ),
-                                                                  title: Text(
-                                                                    'Rajan Mistry-1 ',
-                                                                    style: ProfileSelf()
-                                                                        .buildtextstyle(),
-                                                                  ),
-                                                                  subtitle:
-                                                                      Text(
-                                                                    '@m.rajan02',
-                                                                    style: ProfileSelf()
-                                                                        .buildtextstyle(),
-                                                                  ),
-                                                                  trailing: OutlinedButton(
-                                                                      style: OutlinedButton.styleFrom(
-                                                                          elevation: 0,
-                                                                          minimumSize: const Size(80, 30),
-                                                                          // padding: EdgeInsets.symmetric(
-                                                                          //     horizontal: 40.0, vertical: 20.0),
-                                                                          backgroundColor: primaryColorOfApp,
-                                                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                      onPressed: () {},
-                                                                      child: const Text(
-                                                                        'Block',
-                                                                        style: TextStyle(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Colors.white,
-                                                                            fontSize: 10),
-                                                                      )),
-                                                                );
-                                                              }))
-                                                        ]),
-                                                  ),
-                                                  positionCross(context)
-                                                ],
-                                              );
-                                            });
-                                          });
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "People",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          const Iconify(
-                                            Eva.arrow_right_fill,
-                                            size: 15,
-                                            color: Color(0xff333333),
-                                          )
-                                        ],
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(right: 3.w),
+                                              child: Iconify(
+                                                Eva.arrow_right_fill,
+                                                size: 15.sp,
+                                                color: customTextColor,
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      showModalBottomSheet(
-                                          /* isScrollControlled: true, */
-                                          shape: const RoundedRectangleBorder(
-                                            // <-- SEE HERE
-                                            borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(20.0),
-                                            ),
-                                          ),
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return StatefulBuilder(builder:
-                                                (BuildContext context,
-                                                    StateSetter setState) {
-                                              return Stack(
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 15.0),
-                                                    child: Column(
-                                                        /* mainAxisSize: MainAxisSize.min, */
-                                                        children: [
-                                                          SizedBox(
-                                                            height:
-                                                                height * 0.03,
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              IconButton(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                              .all(
-                                                                          0),
-                                                                  constraints:
-                                                                      const BoxConstraints(),
-                                                                  onPressed:
-                                                                      () {
-                                                                    Navigator.of(
-                                                                            context)
-                                                                        .pop();
-                                                                  },
-                                                                  icon:
-                                                                      const Icon(
-                                                                    Icons
-                                                                        .arrow_back,
-                                                                    color:
-                                                                        primaryColorOfApp,
-                                                                  )),
-                                                              SizedBox(
-                                                                width: width *
-                                                                    0.01,
-                                                              ),
-                                                              const Text(
-                                                                'Followers',
-                                                                style: TextStyle(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color:
-                                                                        customTextColor,
-                                                                    fontSize:
-                                                                        15),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          const Divider(),
-                                                          TextFormField(
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                      isDense:
-                                                                          true, // Added this
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              8),
-                                                                      labelText:
-                                                                          'Search profile Name',
-                                                                      labelStyle: const TextStyle(
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              10),
-                                                                      enabledBorder: OutlineInputBorder(
-                                                                          borderRadius: BorderRadius.circular(
-                                                                              5),
-                                                                          borderSide: const BorderSide(
-                                                                              color: Color(
-                                                                                  0xff333333),
-                                                                              width:
-                                                                                  1)),
-                                                                      focusedBorder: OutlineInputBorder(
-                                                                          borderRadius: BorderRadius.circular(
-                                                                              5),
-                                                                          borderSide: const BorderSide(
-                                                                              color: Color(
-                                                                                  0xff0087FF),
-                                                                              width:
-                                                                                  1)),
-                                                                      /*    prefixIcon: Icon(Icons.search), */
-                                                                      hintText:
-                                                                          'Searh Username')),
-                                                          ListView.builder(
-                                                              shrinkWrap: true,
-                                                              itemCount: 3,
-                                                              itemBuilder:
-                                                                  ((context,
-                                                                      index) {
-                                                                return ListTile(
-                                                                  minVerticalPadding:
-                                                                      10,
-                                                                  horizontalTitleGap:
-                                                                      4,
-                                                                  visualDensity:
-                                                                      const VisualDensity(
-                                                                          vertical:
-                                                                              -3),
-                                                                  dense: true,
-                                                                  leading:
-                                                                      const CircleAvatar(
-                                                                    radius: 20,
-                                                                    backgroundImage:
-                                                                        NetworkImage(
-                                                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
-                                                                  ),
-                                                                  title: Text(
-                                                                    'Rajan Mistry-1 ',
-                                                                    style: ProfileSelf()
-                                                                        .buildtextstyle(),
-                                                                  ),
-                                                                  subtitle:
-                                                                      Text(
-                                                                    '@m.rajan02',
-                                                                    style: ProfileSelf()
-                                                                        .buildtextstyle(),
-                                                                  ),
-                                                                  trailing: OutlinedButton(
-                                                                      style: OutlinedButton.styleFrom(
-                                                                          elevation: 0,
-                                                                          minimumSize: const Size(80, 30),
-                                                                          // padding: EdgeInsets.symmetric(
-                                                                          //     horizontal: 40.0, vertical: 20.0),
-                                                                          backgroundColor: primaryColorOfApp,
-                                                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                      onPressed: () {},
-                                                                      child: const Text(
-                                                                        'Block',
-                                                                        style: TextStyle(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Colors.white,
-                                                                            fontSize: 10),
-                                                                      )),
-                                                                );
-                                                              }))
-                                                        ]),
-                                                  ),
-                                                  positionCross(context)
-                                                ],
-                                              );
-                                            });
-                                          });
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Followers",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          const Iconify(
-                                            Eva.arrow_right_fill,
-                                            size: 15,
-                                            color: Color(0xff333333),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  const Divider(
-                                    height: 1,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      showModalBottomSheet(
-                                          /* isScrollControlled: true, */
-                                          shape: const RoundedRectangleBorder(
-                                            // <-- SEE HERE
-                                            borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(20.0),
-                                            ),
-                                          ),
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return StatefulBuilder(builder:
-                                                (BuildContext context,
-                                                    StateSetter setState) {
-                                              return Stack(
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 15.0),
-                                                    child: Column(
-                                                        /* mainAxisSize: MainAxisSize.min, */
-                                                        children: [
-                                                          SizedBox(
-                                                            height:
-                                                                height * 0.03,
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              IconButton(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                              .all(
-                                                                          0),
-                                                                  constraints:
-                                                                      const BoxConstraints(),
-                                                                  onPressed:
-                                                                      () {
-                                                                    Navigator.of(
-                                                                            context)
-                                                                        .pop();
-                                                                  },
-                                                                  icon:
-                                                                      const Icon(
-                                                                    Icons
-                                                                        .arrow_back,
-                                                                    color:
-                                                                        primaryColorOfApp,
-                                                                  )),
-                                                              SizedBox(
-                                                                width: width *
-                                                                    0.01,
-                                                              ),
-                                                              const Text(
-                                                                'Following',
-                                                                style: TextStyle(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color:
-                                                                        customTextColor,
-                                                                    fontSize:
-                                                                        15),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          const Divider(),
-                                                          TextFormField(
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                      isDense:
-                                                                          true, // Added this
-                                                                      contentPadding:
-                                                                          const EdgeInsets.all(
-                                                                              8),
-                                                                      labelText:
-                                                                          'Search profile Name',
-                                                                      labelStyle: const TextStyle(
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              10),
-                                                                      enabledBorder: OutlineInputBorder(
-                                                                          borderRadius: BorderRadius.circular(
-                                                                              5),
-                                                                          borderSide: const BorderSide(
-                                                                              color: Color(
-                                                                                  0xff333333),
-                                                                              width:
-                                                                                  1)),
-                                                                      focusedBorder: OutlineInputBorder(
-                                                                          borderRadius: BorderRadius.circular(
-                                                                              5),
-                                                                          borderSide: const BorderSide(
-                                                                              color: Color(
-                                                                                  0xff0087FF),
-                                                                              width:
-                                                                                  1)),
-                                                                      /*    prefixIcon: Icon(Icons.search), */
-                                                                      hintText:
-                                                                          'Searh Username')),
-                                                          ListView.builder(
-                                                              shrinkWrap: true,
-                                                              itemCount: 3,
-                                                              itemBuilder:
-                                                                  ((context,
-                                                                      index) {
-                                                                return ListTile(
-                                                                  minVerticalPadding:
-                                                                      10,
-                                                                  horizontalTitleGap:
-                                                                      4,
-                                                                  visualDensity:
-                                                                      const VisualDensity(
-                                                                          vertical:
-                                                                              -3),
-                                                                  dense: true,
-                                                                  leading:
-                                                                      const CircleAvatar(
-                                                                    radius: 20,
-                                                                    backgroundImage:
-                                                                        NetworkImage(
-                                                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
-                                                                  ),
-                                                                  title: Text(
-                                                                    'Rajan Mistry-1 ',
-                                                                    style: ProfileSelf()
-                                                                        .buildtextstyle(),
-                                                                  ),
-                                                                  subtitle:
-                                                                      Text(
-                                                                    '@m.rajan02',
-                                                                    style: ProfileSelf()
-                                                                        .buildtextstyle(),
-                                                                  ),
-                                                                  trailing: OutlinedButton(
-                                                                      style: OutlinedButton.styleFrom(
-                                                                          elevation: 0,
-                                                                          minimumSize: const Size(80, 30),
-                                                                          // padding: EdgeInsets.symmetric(
-                                                                          //     horizontal: 40.0, vertical: 20.0),
-                                                                          backgroundColor: primaryColorOfApp,
-                                                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0))),
-                                                                      onPressed: () {},
-                                                                      child: const Text(
-                                                                        'Block',
-                                                                        style: TextStyle(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Colors.white,
-                                                                            fontSize: 10),
-                                                                      )),
-                                                                );
-                                                              }))
-                                                        ]),
-                                                  ),
-                                                  positionCross(context)
-                                                ],
-                                              );
-                                            });
-                                          });
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 20.0),
-                                            child: Text(
-                                              "Following",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xff515253),
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: width * 0.03),
-                                            ),
-                                          ),
-                                          const Iconify(
-                                            Eva.arrow_right_fill,
-                                            size: 15,
-                                            color: Color(0xff333333),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                    );
+                                  },
+                                  separatorBuilder: ((context, index) {
+                                    return Divider();
+                                  }),
+                                  itemCount: cmtList.length),
                             ),
                           ),
                           Positioned(
-                            top: 13,
-                            left: 20,
-                            /*      width: 103, */
-                            height: 12,
+                            left: 6.w,
                             child: Container(
-                              /*   width: 200,
-                  height: 150, */
                               color: Colors.white,
-                              child: const Text(
+                              child: Text(
                                 'Block Comments From ',
                                 style: TextStyle(
-                                    color: Color(0xff515253),
-                                    fontSize: 10,
+                                    color: customTextColor,
+                                    fontSize: 10.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -5000,7 +2944,7 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: height * 0.04,
+                        height: 6.h,
                       ),
                     ])),
                 positionCross(context)

@@ -5,6 +5,7 @@ import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/NEW_FOLDER/gotodashboard.dart';
+import 'package:flutter_application_1/homepage/blkcomntfrom.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
@@ -37,7 +38,6 @@ var privacyList = [
   {"icon": 'assets/liveicon.svg', "label": "Live"},
   {"icon": 'assets/setchat2.svg', "label": "Chat-Box"},
   {"icon": 'assets/@.svg', "label": "Mention"},
-  {"icon": 'assets/tagicon.svg', "label": "Tag"},
   {"icon": 'assets/gifticon1.svg', "label": "Send me GIFT"},
   {"icon": 'assets/blockicon.svg', "label": "Block Profile List"},
 ];
@@ -1586,11 +1586,14 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: Icon(
-                                      Icons.add,
-                                      color: const Color(0xffc4c4c4),
-                                      size: 38.sp,
+                                    padding: EdgeInsets.all(12.sp),
+                                    child: SvgPicture.asset(
+                                      'assets/addicon.svg',
+                                      height: 3.5.h,
+                                      width: 3.5.w,
+                                      fit: BoxFit.cover,
+                                      /*    height: 18,
+                                      width: 18, */
                                     ),
                                   )),
                               SizedBox(
@@ -2217,18 +2220,6 @@ settingPrivacy(context) {
                     SizedBox(
                       height: height * 0.01,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              color: const Color(0xffE2E2E2),
-                              borderRadius: BorderRadius.circular(8)),
-                          height: 5,
-                          width: 100,
-                        ),
-                      ],
-                    ),
                     SizedBox(
                       height: height * 0.01,
                     ),
@@ -2245,7 +2236,7 @@ settingPrivacy(context) {
                               color: primaryColorOfApp,
                             )),
                         SizedBox(
-                          width: width * 0.01,
+                          width: 4.w,
                         ),
                         Text(
                           'Privacy',
@@ -2288,14 +2279,14 @@ settingPrivacy(context) {
                     ),
                     ListView.separated(
                       shrinkWrap: true,
-                      itemCount: 13,
+                      itemCount: 12,
                       separatorBuilder: (context, index) {
                         return SizedBox(
                           height: 3.3.h,
                         );
                       },
                       itemBuilder: (context, index) {
-                        if (index == 12) {
+                        if (index == 11) {
                           return SizedBox(
                             height: 1.h,
                           );
@@ -2325,11 +2316,11 @@ settingPrivacy(context) {
                               } else if (index == 8) {
                                 WidgetProfilePage().buildMention(context);
                               } else if (index == 9) {
-                                WidgetProfilePage().buildTag(context);
-                              } else if (index == 10) {
                                 WidgetProfilePage().buildSendmeGift(context);
-                              } else if (index == 11) {
-                                blockProfile(context);
+                              } else if (index == 10) {
+                                Blkcomntfrom(
+                                  value: "Block Profile List",
+                                ).function(context);
                               }
                             },
                             child: Row(
@@ -2339,8 +2330,8 @@ settingPrivacy(context) {
                                   children: [
                                     SvgPicture.asset(
                                       privacyList[index]["icon"].toString(),
-                                      height: 15,
-                                      width: 15,
+                                      height: 2.5.h,
+                                      width: 2.5.w,
                                       fit: BoxFit.cover,
                                     ),
                                     SizedBox(
@@ -2367,182 +2358,6 @@ settingPrivacy(context) {
                       },
                     ),
                   ])),
-              positionCross(context)
-            ],
-          );
-        });
-      });
-}
-
-blockProfile(context) {
-  Size size;
-  double height, width;
-  size = MediaQuery.of(context).size;
-  height = size.height;
-  width = size.width;
-  return showModalBottomSheet(
-      /* isScrollControlled: true, */
-      shape: const RoundedRectangleBorder(
-        // <-- SEE HERE
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20.0),
-        ),
-      ),
-      context: context,
-      builder: (BuildContext context) {
-        return StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-          return Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Column(
-                    /* mainAxisSize: MainAxisSize.min, */
-                    children: [
-                      SizedBox(
-                        height: height * 0.03,
-                      ),
-                      Row(
-                        children: [
-                          IconButton(
-                              padding: const EdgeInsets.all(0),
-                              constraints: const BoxConstraints(),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              icon: const Icon(
-                                Icons.arrow_back,
-                                color: primaryColorOfApp,
-                              )),
-                          SizedBox(
-                            width: width * 0.01,
-                          ),
-                          const Text(
-                            'Block Profile List',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: customTextColor,
-                                fontSize: 15),
-                          ),
-                        ],
-                      ),
-                      const Divider(),
-                      TextFormField(
-                          decoration: InputDecoration(
-                              isDense: true, // Added this
-                              contentPadding: const EdgeInsets.all(8),
-                              labelText: 'Search profile Name',
-                              labelStyle: const TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                  borderSide: const BorderSide(
-                                      color: Color(0xff333333), width: 1)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                  borderSide: const BorderSide(
-                                      color: Color(0xff0087FF), width: 1)),
-                              /*    prefixIcon: Icon(Icons.search), */
-                              hintText: 'Searh Username')),
-                      ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: 3,
-                          itemBuilder: ((context, index) {
-                            return ListTile(
-                              minVerticalPadding: 10,
-                              horizontalTitleGap: 4,
-                              visualDensity: const VisualDensity(vertical: -3),
-                              dense: true,
-                              leading: const CircleAvatar(
-                                radius: 20,
-                                backgroundImage: NetworkImage(
-                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OT-crfLTx6zOkBzZBfYY2ijM6KdLwzoThA&usqp=CAU'),
-                              ),
-                              title: Text(
-                                'Rajan Mistry-1 ',
-                                style: ProfileSelf().buildtextstyle(),
-                              ),
-                              subtitle: Text(
-                                '@m.rajan02',
-                                style: ProfileSelf().buildtextstyle(),
-                              ),
-                              trailing: OutlinedButton(
-                                  style: OutlinedButton.styleFrom(
-                                      side: const BorderSide(
-                                          color: primaryColorOfApp, width: 1),
-                                      elevation: 0,
-                                      minimumSize: const Size(80, 30),
-                                      // padding: EdgeInsets.symmetric(
-                                      //     horizontal: 40.0, vertical: 20.0),
-                                      backgroundColor: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5.0))),
-                                  onPressed: () {
-                                    showModalBottomSheet(
-                                      /* isScrollControlled: true, */
-                                      shape: const RoundedRectangleBorder(
-                                        // <-- SEE HERE
-                                        borderRadius: BorderRadius.vertical(
-                                          top: Radius.circular(20.0),
-                                        ),
-                                      ),
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return StatefulBuilder(builder:
-                                            (BuildContext context,
-                                                StateSetter setState) {
-                                          return Stack(
-                                            clipBehavior: Clip.none,
-                                            children: [
-                                              Padding(
-                                                  padding: const EdgeInsets
-                                                          .symmetric(
-                                                      horizontal: 15.0),
-                                                  child: Column(
-                                                      /* mainAxisSize: MainAxisSize.min, */
-                                                      children: [
-                                                        SizedBox(
-                                                          height: height * 0.03,
-                                                        ),
-                                                        Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            SvgPicture.asset(
-                                                              'assets/blockicon.svg',
-                                                              height: 18,
-                                                              width: 18,
-                                                              color:
-                                                                  Colors.green,
-                                                            ),
-                                                            const Text(
-                                                                'Unblock this profile?')
-                                                          ],
-                                                        )
-                                                      ])),
-                                              positionCross(context)
-                                            ],
-                                          );
-                                        });
-                                      },
-                                    );
-                                  },
-                                  child: const Text(
-                                    'Unblock',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        color: primaryColorOfApp,
-                                        fontSize: 10),
-                                  )),
-                            );
-                          }))
-                    ]),
-              ),
               positionCross(context)
             ],
           );

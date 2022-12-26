@@ -16,13 +16,32 @@ class AccountType extends StatefulWidget {
   @override
   State<AccountType> createState() => _AccountTypeState();
 }
-
-class _AccountTypeState extends State<AccountType> {
-  bool value1 = false;
+bool value1 = false;
   bool value2 = false;
   bool value3 = false;
   dynamic groupvalues;
 
+  List acttypeList = [
+    {
+      "type": "Viewer Or Private",
+      "label1": "#content-excellent for Entertainment,",
+      "label2": "collect points, surprise gift and more"
+    },
+    {
+      "type": "Business Or Brand",
+      "label1": "#content-excellent for grow your",
+      "label2": "brand, business in the world and more"
+    },
+    {
+      "type": "Creator Or Public Figure",
+      "label1": "#content-excellent for collaboration,",
+      "label2": "earn money and many more"
+    },
+  ];
+
+
+class _AccountTypeState extends State<AccountType> {
+  
   @override
   Widget build(BuildContext context) {
     Size size;
@@ -31,15 +50,17 @@ class _AccountTypeState extends State<AccountType> {
     height = size.height;
     width = size.width;
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 6.h,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: const Color(0xffFFFFFF),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.05),
           child: Column(
             children: [
-              SizedBox(
-                height: height * 0.1,
-              ),
               SizedBox(
                 height: 5.6.h,
                 child: Stack(
@@ -159,190 +180,106 @@ class _AccountTypeState extends State<AccountType> {
                 ),
               ),
               SizedBox(
-                height: height * 0.04,
+                height: 1.h,
               ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 0.5,
-                        color: value1 ? primaryColorOfApp : Colors.black),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: EdgeInsets.only(left: 5.w, bottom: 2.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Viewer or private',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                    color: customTextColor,
-                                    fontSize: 15.sp,
-                                    letterSpacing: 0.5),
-                              ),
-                            ],
-                          ),
-                          Transform.scale(
-                            scale: 1.2.sp,
-                            child: Radio(
-                              splashRadius: 0,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              value: value1,
-                              groupValue: groupvalues,
-                              onChanged: (val) {
-                                setState(() {
-                                  value1 = true;
-                                  value2 = false;
-                                  value3 = false;
-                                  groupvalues = value1;
-                                });
-                              },
+              ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 0.5,
+                              color: index == 0 && value1
+                                  ? primaryColorOfApp
+                                  : index == 1 && value2
+                                      ? primaryColorOfApp
+                                      : index == 2 && value3
+                                          ? primaryColorOfApp
+                                          : customTextColor),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 5.w, bottom: 2.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      acttypeList[index]["type"],
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w600,
+                                          color: customTextColor,
+                                          fontSize: 15.sp,
+                                          letterSpacing: 0.5),
+                                    ),
+                                  ],
+                                ),
+                                Transform.scale(
+                                  scale: 1.2.sp,
+                                  child: Radio(
+                                    splashRadius: 0,
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                    value: index == 0
+                                        ? value1
+                                        : index == 1
+                                            ? value2
+                                            : value3,
+                                    groupValue: groupvalues,
+                                    onChanged: (val) {
+                                      if (index == 0) {
+                                        setState(() {
+                                          value1 = true;
+                                          value2 = false;
+                                          value3 = false;
+                                          groupvalues = value1;
+                                        });
+                                      } else if (index == 1) {
+                                        setState(() {
+                                          value1 = false;
+                                          value2 = true;
+                                          value3 = false;
+                                          groupvalues = value2;
+                                        });
+                                      } else if (index == 2) {
+                                        setState(() {
+                                          value1 = false;
+                                          value2 = false;
+                                          value3 = true;
+                                          groupvalues = value3;
+                                        });
+                                      }
+                                    },
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        '#content-excellent for Entertainment,',
-                        style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
-                      ),
-                      Text(
-                        'collect points, surprise gift and more',
-                        style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 1.2.h,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 0.5,
-                        color: value2 ? primaryColorOfApp : Colors.black),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: EdgeInsets.only(left: 5.w, bottom: 2.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Business or Brand',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.bold,
-                                color: customTextColor,
-                                fontSize: 15.sp),
-                          ),
-                          Transform.scale(
-                            scale: 1.2.sp,
-                            child: Radio(
-                              splashRadius: 0,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              value: value2,
-                              groupValue: groupvalues,
-                              onChanged: (val) {
-                                setState(() {
-                                  value1 = false;
-                                  value2 = true;
-                                  value3 = false;
-                                  groupvalues = value2;
-                                });
-                              },
+                            Text(
+                              acttypeList[index]["label1"],
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 11.sp),
                             ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        '#content-excellent for Entertainment,',
-                        style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
-                      ),
-                      Text(
-                        'collect points, surprise gift and more',
-                        style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 1.2.h,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 0.5,
-                        color: value3 ? primaryColorOfApp : Colors.black),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: EdgeInsets.only(left: 5.w, bottom: 2.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'creator or public figure',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.bold,
-                                color: customTextColor,
-                                fontSize: 15.sp),
-                          ),
-                          Transform.scale(
-                            scale: 1.2.sp,
-                            child: Radio(
-                              splashRadius: 0,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              value: value3,
-                              groupValue: groupvalues,
-                              onChanged: (val) {
-                                setState(() {
-                                  value1 = false;
-                                  value2 = false;
-                                  value3 = true;
-                                  groupvalues = value3;
-                                });
-                              },
+                            Text(
+                              acttypeList[index]["label2"],
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 11.sp),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                      Text(
-                        '#content-excellent for Entertainment,',
-                        style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
-                      ),
-                      Text(
-                        'collect points, surprise gift and more',
-                        style:
-                            TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      height: 1.h,
+                    );
+                  },
+                  itemCount: acttypeList.length),
               SizedBox(
                 height: 2.h,
               ),
@@ -515,55 +452,9 @@ class _AccountTypeState extends State<AccountType> {
                                       value: widget.value,
                                     )),
                           );
-                          /*  /* setState(() { */
-                    if (value1 == false || value2== false || value3 ==false) {
-                      Fluttertoast.showToast(
-                          msg: "Invalid Credentials",
-                          backgroundColor: Colors.red,
-                          textColor: Colors.white,
-                          fontSize: 16.0);
-                    } else {
-                    /* value1 == false ? null :  value2  == false ? null : */ Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Formfill(
-                                  value1: value1,
-                                  value2: value2,
-                                  value3: value3,
-                                )),
-                      );
-                    } */
-                          /* if (groupvalues == value1) {
-                        /* var value1 = 'Private'; */
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Formfill(
-                                    value1: value1,
-                                    value2: value2,
-                                    value3: value3,
-                                  )),
-                        );
-                      } */ /* else if (groupvalues == value2) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const FormfillBrand()),
-                        );
-                      } */ /*  else if (groupvalues == value3) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const FormfillPublic()),
-                        );
-                      } */
-                          /*     }); */
                         },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      /*     minimumSize: const Size(0.0, 40), */
-                      // padding: EdgeInsets.symmetric(
-                      //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(7.0))),
