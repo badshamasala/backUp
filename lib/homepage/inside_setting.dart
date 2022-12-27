@@ -6,6 +6,7 @@ import 'package:flutter_application_1/NEW_FOLDER/saved1.dart';
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
 import 'package:flutter_application_1/homepage/ads.dart';
 import 'package:flutter_application_1/homepage/permissionset.dart';
+import 'package:flutter_application_1/homepage/privacy.dart';
 import 'package:flutter_application_1/homepage/profile_acitvity.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
 import 'package:flutter_application_1/homepage/self_profile.dart';
@@ -15,8 +16,17 @@ import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/bx.dart';
+import 'package:iconify_flutter/icons/carbon.dart';
+import 'package:iconify_flutter/icons/ci.dart';
+import 'package:iconify_flutter/icons/ep.dart';
 import 'package:iconify_flutter/icons/eva.dart';
+import 'package:iconify_flutter/icons/gg.dart';
+import 'package:iconify_flutter/icons/ic.dart';
+import 'package:iconify_flutter/icons/iconoir.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:iconify_flutter/icons/octicon.dart';
+import 'package:iconify_flutter/icons/ph.dart';
+import 'package:iconify_flutter/icons/uil.dart';
 import 'package:sizer/sizer.dart';
 
 import 'monetize_check.dart';
@@ -30,27 +40,25 @@ class InsideSetting extends StatefulWidget {
 }
 
 class _InsideSettingState extends State<InsideSetting> {
-  bool value1 = false;
-  bool value2 = false;
-  bool value3 = false;
-  dynamic groupvalues;
-  var insideSettingList = [
-    {"icon": 'assets/setprofile.svg', "label": "Profile"},
-    {"icon": 'assets/setnotification.svg', "label": "Notifications"},
-    {"icon": 'assets/setfolo.svg', "label": "Monetize"},
-    {"icon": 'assets/setpermision.svg', "label": "Permission Set"},
-    {"icon": 'assets/setlang.svg', "label": "Language"},
-    {"icon": 'assets/setchat2.svg', "label": "Chat-Box(message)"},
-    {"icon": 'assets/hearticon.svg', "label": "Ads"},
-    {"icon": 'assets/certifyicon1.svg', "label": "@Verification"},
-    {"icon": 'assets/setprivacy.svg', "label": "Privacy"},
-    {"icon": 'assets/setsecurity.svg', "label": "Security"},
-    {"icon": 'assets/setabout.svg', "label": "About"},
-    {"icon": 'assets/sethelp.svg', "label": "Help"},
+  List<Map<String, dynamic>> insideSettingList = [
+    {"icon": Gg.profile, "label": "Profile"},
+    {"icon": Ci.notification_outline, "label": "Notifications"},
+    {"icon": Uil.arrow_growth, "label": "Monetize"},
+    {"icon": Octicon.shield_lock_24, "label": "Permission Set"},
+    {"icon": Uil.language, "label": "Language"},
+    {"icon": Ph.chat_centered_text_light, "label": "Chat-Box(message)"},
+    {"icon": Uil.megaphone, "label": "Ads"},
+    {"icon": Bi.patch_check, "label": "@Verification"},
+    {"icon": Octicon.shield_check_24, "label": "Privacy"},
+    {"icon": Mdi.lock_outline, "label": "Security"},
+    {"icon": Mdi.about_circle_outline, "label": "About"},
+    {"icon": Ic.sharp_help_outline, "label": "Help"},
   ];
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
+    print(MediaQuery.of(context).size.height);
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -86,7 +94,7 @@ class _InsideSettingState extends State<InsideSetting> {
               height: 0.5.h,
             ),
             SizedBox(
-              height: 2.h,
+              height: 1.h,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -95,7 +103,10 @@ class _InsideSettingState extends State<InsideSetting> {
                 itemCount: 13,
                 separatorBuilder: (context, index) {
                   return SizedBox(
-                    height: 3.2.h,
+                    height:
+                        MediaQuery.of(context).size.height > 666.9629629629629
+                            ? 2.6.h
+                            : 2.h,
                   );
                 },
                 itemBuilder: (context, index) {
@@ -105,13 +116,9 @@ class _InsideSettingState extends State<InsideSetting> {
                       children: [
                         Row(
                           children: [
-                            SvgPicture.asset(
-                              'assets/setswitch.svg',
-                              height: 2.5.h,
-                              width: 2.5.w,
-                            ),
+                            Iconify(Ep.i_switch),
                             SizedBox(
-                              width: 3.w,
+                              width: 2.w,
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
@@ -120,264 +127,14 @@ class _InsideSettingState extends State<InsideSetting> {
                                   tapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap),
                               onPressed: () {
-                                showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    shape: const RoundedRectangleBorder(
-                                      // <-- SEE HERE
-                                      borderRadius: BorderRadius.vertical(
-                                        top: Radius.circular(20.0),
-                                      ),
-                                    ),
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return StatefulBuilder(builder:
-                                          (BuildContext context,
-                                              StateSetter setState) {
-                                        return Stack(
-                                          clipBehavior: Clip.none,
-                                          children: [
-                                            Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 5.w),
-                                                    child: Column(children: [
-                                                      SizedBox(
-                                                        height: 2.h,
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          IconButton(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(0),
-                                                              constraints:
-                                                                  const BoxConstraints(),
-                                                              onPressed: () {
-                                                                Navigator.of(
-                                                                        context)
-                                                                    .pop();
-                                                              },
-                                                              icon:
-                                                                  const Iconify(
-                                                                Mdi.arrow_back,
-                                                                color:
-                                                                    primaryColorOfApp,
-                                                              )),
-                                                          SizedBox(
-                                                            width: 4.w,
-                                                          ),
-                                                          Text(
-                                                            'SWITCH PROFILE',
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color:
-                                                                    primaryColorOfApp,
-                                                                fontSize:
-                                                                    15.sp),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      SizedBox(
-                                                        height: 1.h,
-                                                      ),
-                                                    ])),
-                                                const Divider(),
-                                                Padding(
-                                                  padding:
-                                                      EdgeInsets.all(12.sp),
-                                                  child: ListView.separated(
-                                                      shrinkWrap: true,
-                                                      itemBuilder:
-                                                          (context, index) {
-                                                        return Container(
-                                                          decoration: BoxDecoration(
-                                                              border: Border.all(
-                                                                  width: 0.5,
-                                                                  color: index == 0 && value1
-                                                                      ? primaryColorOfApp
-                                                                      : index == 1 && value2
-                                                                          ? primaryColorOfApp
-                                                                          : index == 2 && value3
-                                                                              ? primaryColorOfApp
-                                                                              : customTextColor),
-                                                              borderRadius: BorderRadius.circular(10)),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsets.only(
-                                                                    left: 5.w,
-                                                                    bottom:
-                                                                        2.h),
-                                                            child: Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Row(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .center,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceBetween,
-                                                                  children: [
-                                                                    Row(
-                                                                      children: [
-                                                                        Text(
-                                                                          acttypeList[index]
-                                                                              [
-                                                                              "type"],
-                                                                          style: TextStyle(
-                                                                              fontFamily: 'Poppins',
-                                                                              fontWeight: FontWeight.w600,
-                                                                              color: customTextColor,
-                                                                              fontSize: 15.sp,
-                                                                              letterSpacing: 0.5),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                    Transform
-                                                                        .scale(
-                                                                      scale: 1.2
-                                                                          .sp,
-                                                                      child:
-                                                                          Radio(
-                                                                        splashRadius:
-                                                                            0,
-                                                                        materialTapTargetSize:
-                                                                            MaterialTapTargetSize.shrinkWrap,
-                                                                        value: index ==
-                                                                                0
-                                                                            ? value1
-                                                                            : index == 1
-                                                                                ? value2
-                                                                                : value3,
-                                                                        groupValue:
-                                                                            groupvalues,
-                                                                        onChanged:
-                                                                            (val) {
-                                                                          if (index ==
-                                                                              0) {
-                                                                            setState(() {
-                                                                              value1 = true;
-                                                                              value2 = false;
-                                                                              value3 = false;
-                                                                              groupvalues = value1;
-                                                                            });
-                                                                          } else if (index ==
-                                                                              1) {
-                                                                            setState(() {
-                                                                              value1 = false;
-                                                                              value2 = true;
-                                                                              value3 = false;
-                                                                              groupvalues = value2;
-                                                                            });
-                                                                          } else if (index ==
-                                                                              2) {
-                                                                            setState(() {
-                                                                              value1 = false;
-                                                                              value2 = false;
-                                                                              value3 = true;
-                                                                              groupvalues = value3;
-                                                                            });
-                                                                          }
-                                                                        },
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Text(
-                                                                  acttypeList[
-                                                                          index]
-                                                                      [
-                                                                      "label1"],
-                                                                  style: TextStyle(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          11.sp),
-                                                                ),
-                                                                Text(
-                                                                  acttypeList[
-                                                                          index]
-                                                                      [
-                                                                      "label2"],
-                                                                  style: TextStyle(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          11.sp),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        );
-                                                      },
-                                                      separatorBuilder:
-                                                          (context, index) {
-                                                        return SizedBox(
-                                                          height: 1.h,
-                                                        );
-                                                      },
-                                                      itemCount:
-                                                          acttypeList.length),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      EdgeInsets.all(12.sp),
-                                                  child: SizedBox(
-                                                    height: 6.h,
-                                                    width: double.infinity,
-                                                    child: ElevatedButton(
-                                                      onPressed: () {},
-                                                      style: ElevatedButton
-                                                          .styleFrom(
-                                                              elevation: 0,
-
-                                                              // padding: EdgeInsets.symmetric(
-                                                              //     horizontal: 40.0, vertical: 20.0),
-                                                              backgroundColor:
-                                                                  const Color(
-                                                                      0xff0087FF),
-                                                              shape: RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              5.0))),
-                                                      child: Text(
-                                                        "Confirm Switch",
-                                                        style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 12.sp,
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 6.h,
-                                                )
-                                              ],
-                                            ),
-                                            positionCross(context)
-                                          ],
-                                        );
-                                      });
-                                    });
+                                switchMethod(context);
                               },
                               child: Text(
                                 'SWITCH PROFILE',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     color: primaryColorOfApp,
-                                    fontSize: 13.sp,
+                                    fontSize: 12.sp,
                                     fontWeight: FontWeight.bold),
                               ),
                             )
@@ -391,7 +148,7 @@ class _InsideSettingState extends State<InsideSetting> {
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 color: customTextColor,
-                                fontSize: 13.sp,
+                                fontSize: 12.sp,
                               ),
                             ),
                             Switch.adaptive(
@@ -428,7 +185,7 @@ class _InsideSettingState extends State<InsideSetting> {
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     color: primaryColorOfApp,
-                                    fontSize: 12.sp,
+                                    fontSize: 10.sp,
                                     fontWeight: FontWeight.bold),
                               ),
                             )
@@ -456,7 +213,7 @@ class _InsideSettingState extends State<InsideSetting> {
                         } else if (index == 7) {
                           Get.to(() => Verification1());
                         } else if (index == 8) {
-                          settingPrivacy(context);
+                          Get.to(() => Privacy());
                         } else if (index == 9) {
                           buildsecurity(context);
                         } else if (index == 10) {
@@ -468,12 +225,7 @@ class _InsideSettingState extends State<InsideSetting> {
                         children: [
                           Row(
                             children: [
-                              SvgPicture.asset(
-                                insideSettingList[index]["icon"]!,
-                                height: 2.5.h,
-                                width: 2.5.w,
-                                fit: BoxFit.cover,
-                              ),
+                              Iconify(insideSettingList[index]["icon"]),
                               SizedBox(
                                 width: 2.w,
                               ),
@@ -485,11 +237,11 @@ class _InsideSettingState extends State<InsideSetting> {
                                           style: TextStyle(
                                               color: customTextColor,
                                               fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                              fontSize: 10.sp),
                                         ),
                                         Iconify(
                                           Bi.patch_check,
-                                          size: 15,
+                                          size: 15.sp,
                                           color: Color(0xff038026),
                                         ),
                                       ],
@@ -499,7 +251,7 @@ class _InsideSettingState extends State<InsideSetting> {
                                       style: TextStyle(
                                           color: customTextColor,
                                           fontFamily: 'Poppins',
-                                          fontSize: 12.sp),
+                                          fontSize: 10.sp),
                                     )
                             ],
                           ),
@@ -520,4 +272,203 @@ class _InsideSettingState extends State<InsideSetting> {
       ),
     );
   }
+}
+
+switchMethod(context) {
+  bool value1 = false;
+  bool value2 = false;
+  bool value3 = false;
+  dynamic groupvalues;
+  return showModalBottomSheet(
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        // <-- SEE HERE
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20.0),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+          return Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      child: Column(children: [
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Row(
+                          children: [
+                            IconButton(
+                                padding: const EdgeInsets.all(0),
+                                constraints: const BoxConstraints(),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: const Iconify(
+                                  Mdi.arrow_back,
+                                  color: primaryColorOfApp,
+                                )),
+                            SizedBox(
+                              width: 4.w,
+                            ),
+                            Text(
+                              'SWITCH PROFILE',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: primaryColorOfApp,
+                                  fontSize: 15.sp),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                      ])),
+                  const Divider(),
+                  Padding(
+                    padding: EdgeInsets.all(12.sp),
+                    child: ListView.separated(
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 0.5,
+                                    color: index == 0 && value1
+                                        ? primaryColorOfApp
+                                        : index == 1 && value2
+                                            ? primaryColorOfApp
+                                            : index == 2 && value3
+                                                ? primaryColorOfApp
+                                                : customTextColor),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 5.w, bottom: 2.h),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            acttypeList[index]["type"],
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w600,
+                                                color: customTextColor,
+                                                fontSize: 15.sp,
+                                                letterSpacing: 0.5),
+                                          ),
+                                        ],
+                                      ),
+                                      Transform.scale(
+                                        scale: 1.2.sp,
+                                        child: Radio(
+                                          splashRadius: 0,
+                                          materialTapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          value: index == 0
+                                              ? value1
+                                              : index == 1
+                                                  ? value2
+                                                  : value3,
+                                          groupValue: groupvalues,
+                                          onChanged: (val) {
+                                            if (index == 0) {
+                                              setState(() {
+                                                value1 = true;
+                                                value2 = false;
+                                                value3 = false;
+                                                groupvalues = value1;
+                                              });
+                                            } else if (index == 1) {
+                                              setState(() {
+                                                value1 = false;
+                                                value2 = true;
+                                                value3 = false;
+                                                groupvalues = value2;
+                                              });
+                                            } else if (index == 2) {
+                                              setState(() {
+                                                value1 = false;
+                                                value2 = false;
+                                                value3 = true;
+                                                groupvalues = value3;
+                                              });
+                                            }
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    acttypeList[index]["label1"],
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins', fontSize: 11.sp),
+                                  ),
+                                  Text(
+                                    acttypeList[index]["label2"],
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins', fontSize: 11.sp),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return SizedBox(
+                            height: 1.h,
+                          );
+                        },
+                        itemCount: acttypeList.length),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(12.sp),
+                    child: SizedBox(
+                      height: 6.h,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0,
+
+                            // padding: EdgeInsets.symmetric(
+                            //     horizontal: 40.0, vertical: 20.0),
+                            backgroundColor: const Color(0xff0087FF),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0))),
+                        child: Text(
+                          "Confirm Switch",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12.sp,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6.h,
+                  )
+                ],
+              ),
+              positionCross(context)
+            ],
+          );
+        });
+      });
 }

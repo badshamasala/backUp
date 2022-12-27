@@ -116,51 +116,72 @@ class WidgetProfilePage extends StatefulWidget {
                               child: ListView.separated(
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 6.w),
-                                          child: Text(
-                                            storyList[index],
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.sp),
+                                    return Padding(
+                                      padding: EdgeInsets.only(
+                                        top:
+                                            MediaQuery.of(context).size.height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 2.sp,
+                                        bottom:
+                                            MediaQuery.of(context).size.height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 2.sp,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 6.w),
+                                            child: Text(
+                                              storyList[index],
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 12.sp),
+                                            ),
                                           ),
-                                        ),
-                                        Radio(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            groupValue: groupValue1,
-                                            value: index == 0
-                                                ? everyone1
-                                                : index == 1
-                                                    ? followers1
-                                                    : off1,
-                                            onChanged: (val) {
-                                              if (index == 0) {
-                                                setState(() {
-                                                  groupValue1 = everyone1;
-                                                });
-                                              } else if (index == 1) {
-                                                setState(() {
-                                                  groupValue1 = followers1;
-                                                });
-                                              } else if (index == 2) {
-                                                setState(() {
-                                                  groupValue1 = off1;
-                                                });
-                                              }
-                                            })
-                                      ],
+                                          Transform.scale(
+                                            scale: 1.2.sp,
+                                            child: Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? everyone1
+                                                    : index == 1
+                                                        ? followers1
+                                                        : off1,
+                                                onChanged: (val) {
+                                                  if (index == 0) {
+                                                    setState(() {
+                                                      groupValue1 = everyone1;
+                                                    });
+                                                  } else if (index == 1) {
+                                                    setState(() {
+                                                      groupValue1 = followers1;
+                                                    });
+                                                  } else if (index == 2) {
+                                                    setState(() {
+                                                      groupValue1 = off1;
+                                                    });
+                                                  }
+                                                }),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
                                     return Divider(
-                                      height: 0.5.h,
+                                      height:
+                                          MediaQuery.of(context).size.height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                     );
                                   },
                                   itemCount: 3),
@@ -199,51 +220,72 @@ class WidgetProfilePage extends StatefulWidget {
                               child: ListView.separated(
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 6.w),
-                                          child: Text(
-                                            storyList[index],
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.sp),
+                                    return Padding(
+                                      padding: EdgeInsets.only(
+                                        top:
+                                            MediaQuery.of(context).size.height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 2.sp,
+                                        bottom:
+                                            MediaQuery.of(context).size.height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 2.sp,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 6.w),
+                                            child: Text(
+                                              storyList[index],
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 12.sp),
+                                            ),
                                           ),
-                                        ),
-                                        Radio(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            groupValue: groupValue2,
-                                            value: index == 0
-                                                ? everyone2
-                                                : index == 1
-                                                    ? followers2
-                                                    : off2,
-                                            onChanged: (val) {
-                                              if (index == 0) {
-                                                setState(() {
-                                                  groupValue2 = everyone2;
-                                                });
-                                              } else if (index == 1) {
-                                                setState(() {
-                                                  groupValue2 = followers2;
-                                                });
-                                              } else if (index == 2) {
-                                                setState(() {
-                                                  groupValue2 = off2;
-                                                });
-                                              }
-                                            })
-                                      ],
+                                          Transform.scale(
+                                            scale: 1.2.sp,
+                                            child: Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue2,
+                                                value: index == 0
+                                                    ? everyone2
+                                                    : index == 1
+                                                        ? followers2
+                                                        : off2,
+                                                onChanged: (val) {
+                                                  if (index == 0) {
+                                                    setState(() {
+                                                      groupValue2 = everyone2;
+                                                    });
+                                                  } else if (index == 1) {
+                                                    setState(() {
+                                                      groupValue2 = followers2;
+                                                    });
+                                                  } else if (index == 2) {
+                                                    setState(() {
+                                                      groupValue2 = off2;
+                                                    });
+                                                  }
+                                                }),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
                                     return Divider(
-                                      height: 0.5.h,
+                                      height:
+                                          MediaQuery.of(context).size.height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                     );
                                   },
                                   itemCount: 3),
@@ -807,8 +849,8 @@ class WidgetProfilePage extends StatefulWidget {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  icon: const Icon(
-                                    Icons.arrow_back,
+                                  icon: const Iconify(
+                                    Mdi.arrow_back,
                                     color: primaryColorOfApp,
                                   )),
                               SizedBox(
@@ -825,11 +867,10 @@ class WidgetProfilePage extends StatefulWidget {
                           ),
                           const Divider(),
                           SizedBox(
-                            height: 27.h,
+                            height: 32.h,
                             child: Stack(children: [
                               Positioned(
                                 top: 1.h,
-                                height: 26.h,
                                 width: 90.w,
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -842,48 +883,71 @@ class WidgetProfilePage extends StatefulWidget {
                                       ListView.separated(
                                           shrinkWrap: true,
                                           itemBuilder: ((context, index) {
-                                            return Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      left: 6.w),
-                                                  child: Text(
-                                                    activityList[index],
-                                                    style: TextStyle(
-                                                        color: customTextColor,
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 12.sp),
+                                            return Padding(
+                                              padding: EdgeInsets.only(
+                                                top: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        666.9629629629629
+                                                    ? 5.sp
+                                                    : 3.sp,
+                                                bottom: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        666.9629629629629
+                                                    ? 5.sp
+                                                    : 3.sp,
+                                              ),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 6.w),
+                                                    child: Text(
+                                                      activityList[index],
+                                                      style: TextStyle(
+                                                          color:
+                                                              customTextColor,
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.sp),
+                                                    ),
                                                   ),
-                                                ),
-                                                Radio(
-                                                    materialTapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap,
-                                                    groupValue: groupValue1,
-                                                    value: index == 0
-                                                        ? v1
-                                                        : index == 1
-                                                            ? v2
-                                                            : index == 2
-                                                                ? v3
-                                                                : v4,
-                                                    onChanged: (val) {
-                                                      setState(() {
-                                                        if (index == 0) {
-                                                          groupValue1 = v1;
-                                                        } else if (index == 1) {
-                                                          groupValue1 = v2;
-                                                        } else if (index == 2) {
-                                                          groupValue1 = v3;
-                                                        } else if (index == 3) {
-                                                          groupValue1 = v4;
-                                                        }
-                                                      });
-                                                    })
-                                              ],
+                                                  Transform.scale(
+                                                    scale: 1.2.sp,
+                                                    child: Radio(
+                                                        materialTapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        groupValue: groupValue1,
+                                                        value: index == 0
+                                                            ? v1
+                                                            : index == 1
+                                                                ? v2
+                                                                : index == 2
+                                                                    ? v3
+                                                                    : v4,
+                                                        onChanged: (val) {
+                                                          setState(() {
+                                                            if (index == 0) {
+                                                              groupValue1 = v1;
+                                                            } else if (index ==
+                                                                1) {
+                                                              groupValue1 = v2;
+                                                            } else if (index ==
+                                                                2) {
+                                                              groupValue1 = v3;
+                                                            } else if (index ==
+                                                                3) {
+                                                              groupValue1 = v4;
+                                                            }
+                                                          });
+                                                        }),
+                                                  )
+                                                ],
+                                              ),
                                             );
                                           }),
                                           separatorBuilder: ((context, index) {
@@ -980,11 +1044,11 @@ class WidgetProfilePage extends StatefulWidget {
                           ),
                           const Divider(),
                           SizedBox(
-                            height: 27.h,
+                            height: 32.h,
                             child: Stack(children: [
                               Positioned(
                                 top: 1.h,
-                                height: 26.h,
+                                /*         height: 26.h, */
                                 width: 90.w,
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -997,48 +1061,71 @@ class WidgetProfilePage extends StatefulWidget {
                                       ListView.separated(
                                           shrinkWrap: true,
                                           itemBuilder: ((context, index) {
-                                            return Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      left: 6.w),
-                                                  child: Text(
-                                                    activityList[index],
-                                                    style: TextStyle(
-                                                        color: customTextColor,
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 12.sp),
+                                            return Padding(
+                                              padding: EdgeInsets.only(
+                                                top: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        666.9629629629629
+                                                    ? 5.sp
+                                                    : 3.sp,
+                                                bottom: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        666.9629629629629
+                                                    ? 5.sp
+                                                    : 3.sp,
+                                              ),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 6.w),
+                                                    child: Text(
+                                                      activityList[index],
+                                                      style: TextStyle(
+                                                          color:
+                                                              customTextColor,
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.sp),
+                                                    ),
                                                   ),
-                                                ),
-                                                Radio(
-                                                    materialTapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap,
-                                                    groupValue: groupValue1,
-                                                    value: index == 0
-                                                        ? v1
-                                                        : index == 1
-                                                            ? v2
-                                                            : index == 2
-                                                                ? v3
-                                                                : v4,
-                                                    onChanged: (val) {
-                                                      setState(() {
-                                                        if (index == 0) {
-                                                          groupValue1 = v1;
-                                                        } else if (index == 1) {
-                                                          groupValue1 = v2;
-                                                        } else if (index == 2) {
-                                                          groupValue1 = v3;
-                                                        } else if (index == 3) {
-                                                          groupValue1 = v4;
-                                                        }
-                                                      });
-                                                    })
-                                              ],
+                                                  Transform.scale(
+                                                    scale: 1.2.sp,
+                                                    child: Radio(
+                                                        materialTapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        groupValue: groupValue1,
+                                                        value: index == 0
+                                                            ? v1
+                                                            : index == 1
+                                                                ? v2
+                                                                : index == 2
+                                                                    ? v3
+                                                                    : v4,
+                                                        onChanged: (val) {
+                                                          setState(() {
+                                                            if (index == 0) {
+                                                              groupValue1 = v1;
+                                                            } else if (index ==
+                                                                1) {
+                                                              groupValue1 = v2;
+                                                            } else if (index ==
+                                                                2) {
+                                                              groupValue1 = v3;
+                                                            } else if (index ==
+                                                                3) {
+                                                              groupValue1 = v4;
+                                                            }
+                                                          });
+                                                        }),
+                                                  )
+                                                ],
+                                              ),
                                             );
                                           }),
                                           separatorBuilder: ((context, index) {
@@ -1135,11 +1222,10 @@ class WidgetProfilePage extends StatefulWidget {
                           ),
                           const Divider(),
                           SizedBox(
-                            height: 27.h,
+                            height: 28.h,
                             child: Stack(children: [
                               Positioned(
                                 top: 1.h,
-                                height: 26.h,
                                 width: 90.w,
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -1152,53 +1238,81 @@ class WidgetProfilePage extends StatefulWidget {
                                       ListView.separated(
                                           shrinkWrap: true,
                                           itemBuilder: ((context, index) {
-                                            return Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      left: 6.w),
-                                                  child: Text(
-                                                    activityList[index],
-                                                    style: TextStyle(
-                                                        color: customTextColor,
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 12.sp),
+                                            return Padding(
+                                              padding: EdgeInsets.only(
+                                                top: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        666.9629629629629
+                                                    ? 3.sp
+                                                    : 2.sp,
+                                                bottom: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        666.9629629629629
+                                                    ? 3.sp
+                                                    : 2.sp,
+                                              ),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 6.w),
+                                                    child: Text(
+                                                      activityList[index],
+                                                      style: TextStyle(
+                                                          color:
+                                                              customTextColor,
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.sp),
+                                                    ),
                                                   ),
-                                                ),
-                                                Radio(
-                                                    materialTapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap,
-                                                    groupValue: groupValue2,
-                                                    value: index == 0
-                                                        ? x1
-                                                        : index == 1
-                                                            ? x2
-                                                            : index == 2
-                                                                ? x3
-                                                                : x4,
-                                                    onChanged: (val) {
-                                                      setState(() {
-                                                        if (index == 0) {
-                                                          groupValue2 = x1;
-                                                        } else if (index == 1) {
-                                                          groupValue2 = x2;
-                                                        } else if (index == 2) {
-                                                          groupValue2 = x3;
-                                                        } else if (index == 3) {
-                                                          groupValue2 = x4;
-                                                        }
-                                                      });
-                                                    })
-                                              ],
+                                                  Transform.scale(
+                                                    scale: 1.2.sp,
+                                                    child: Radio(
+                                                        materialTapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        groupValue: groupValue2,
+                                                        value: index == 0
+                                                            ? x1
+                                                            : index == 1
+                                                                ? x2
+                                                                : index == 2
+                                                                    ? x3
+                                                                    : x4,
+                                                        onChanged: (val) {
+                                                          setState(() {
+                                                            if (index == 0) {
+                                                              groupValue2 = x1;
+                                                            } else if (index ==
+                                                                1) {
+                                                              groupValue2 = x2;
+                                                            } else if (index ==
+                                                                2) {
+                                                              groupValue2 = x3;
+                                                            } else if (index ==
+                                                                3) {
+                                                              groupValue2 = x4;
+                                                            }
+                                                          });
+                                                        }),
+                                                  )
+                                                ],
+                                              ),
                                             );
                                           }),
                                           separatorBuilder: ((context, index) {
                                             return Divider(
-                                              height: 0.5.h,
+                                              height: MediaQuery.of(context)
+                                                          .size
+                                                          .height >
+                                                      666.9629629629629
+                                                  ? 0.5.h
+                                                  : 0.1.h,
                                             );
                                           }),
                                           itemCount: activityList.length),
@@ -1288,11 +1402,10 @@ class WidgetProfilePage extends StatefulWidget {
                       ),
                       const Divider(),
                       SizedBox(
-                        height: 27.h,
+                        height: 28.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1304,52 +1417,76 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 2.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 2.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue1,
-                                                value: index == 0
-                                                    ? v1
-                                                    : index == 1
-                                                        ? v2
-                                                        : index == 2
-                                                            ? v3
-                                                            : v4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue1 = v1;
-                                                    } else if (index == 1) {
-                                                      groupValue1 = v2;
-                                                    } else if (index == 2) {
-                                                      groupValue1 = v3;
-                                                    } else if (index == 3) {
-                                                      groupValue1 = v4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue1,
+                                                    value: index == 0
+                                                        ? v1
+                                                        : index == 1
+                                                            ? v2
+                                                            : index == 2
+                                                                ? v3
+                                                                : v4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue1 = v1;
+                                                        } else if (index == 1) {
+                                                          groupValue1 = v2;
+                                                        } else if (index == 2) {
+                                                          groupValue1 = v3;
+                                                        } else if (index == 3) {
+                                                          groupValue1 = v4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
                                         return Divider(
-                                          height: 0.5.h,
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                         );
                                       }),
                                       itemCount: activityList.length)
@@ -1538,11 +1675,10 @@ class WidgetProfilePage extends StatefulWidget {
                       ),
                       const Divider(),
                       SizedBox(
-                        height: 27.h,
+                        height: 28.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1554,47 +1690,66 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 1.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 1.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue1,
-                                                value: index == 0
-                                                    ? v1
-                                                    : index == 1
-                                                        ? v2
-                                                        : index == 2
-                                                            ? v3
-                                                            : v4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue1 = v1;
-                                                    } else if (index == 1) {
-                                                      groupValue1 = v2;
-                                                    } else if (index == 2) {
-                                                      groupValue1 = v3;
-                                                    } else if (index == 3) {
-                                                      groupValue1 = v4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue1,
+                                                    value: index == 0
+                                                        ? v1
+                                                        : index == 1
+                                                            ? v2
+                                                            : index == 2
+                                                                ? v3
+                                                                : v4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue1 = v1;
+                                                        } else if (index == 1) {
+                                                          groupValue1 = v2;
+                                                        } else if (index == 2) {
+                                                          groupValue1 = v3;
+                                                        } else if (index == 3) {
+                                                          groupValue1 = v4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
@@ -1623,14 +1778,13 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: 2.h,
+                        height: 1.h,
                       ),
                       SizedBox(
-                        height: 27.h,
+                        height: 28.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1642,47 +1796,66 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 1.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 3.sp
+                                                : 1.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue2,
-                                                value: index == 0
-                                                    ? x1
-                                                    : index == 1
-                                                        ? x2
-                                                        : index == 2
-                                                            ? x3
-                                                            : x4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue2 = x1;
-                                                    } else if (index == 1) {
-                                                      groupValue2 = x2;
-                                                    } else if (index == 2) {
-                                                      groupValue2 = x3;
-                                                    } else if (index == 3) {
-                                                      groupValue2 = x4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue2,
+                                                    value: index == 0
+                                                        ? x1
+                                                        : index == 1
+                                                            ? x2
+                                                            : index == 2
+                                                                ? x3
+                                                                : x4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue2 = x1;
+                                                        } else if (index == 1) {
+                                                          groupValue2 = x2;
+                                                        } else if (index == 2) {
+                                                          groupValue2 = x3;
+                                                        } else if (index == 3) {
+                                                          groupValue2 = x4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
@@ -1711,14 +1884,13 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: 2.h,
+                        height: 1.h,
                       ),
                       SizedBox(
-                        height: 14.h,
+                        height: 16.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 13.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1727,60 +1899,94 @@ class WidgetProfilePage extends StatefulWidget {
                                   borderRadius: BorderRadius.circular(10)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.w),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      top: MediaQuery.of(context).size.height >
+                                              666.9629629629629
+                                          ? 5.sp
+                                          : 3.sp,
+                                      bottom:
+                                          MediaQuery.of(context).size.height >
+                                                  666.9629629629629
+                                              ? 5.sp
+                                              : 3.sp,
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            "Followers",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: followers,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = followers;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.2.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupseenonline,
+                                              value: followers,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupseenonline = followers;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                   const Divider(
                                     height: 1,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.w),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      top: MediaQuery.of(context).size.height >
+                                              666.9629629629629
+                                          ? 5.sp
+                                          : 3.sp,
+                                      bottom:
+                                          MediaQuery.of(context).size.height >
+                                                  666.9629629629629
+                                              ? 5.sp
+                                              : 3.sp,
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            "OFF",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupseenonline,
-                                          value: following,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupseenonline = following;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.2.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupseenonline,
+                                              value: following,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupseenonline = following;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -1880,20 +2086,21 @@ class WidgetProfilePage extends StatefulWidget {
                           SizedBox(
                             width: width * 0.01,
                           ),
-                          const Text(
+                          Text(
                             'Live',
                             style: TextStyle(
-                                fontFamily: 'Poppins', color: customTextColor),
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 15.sp),
                           ),
                         ],
                       ),
                       const Divider(),
                       SizedBox(
-                        height: 27.h,
+                        height: 26.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1905,52 +2112,76 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue1,
-                                                value: index == 0
-                                                    ? v1
-                                                    : index == 1
-                                                        ? v2
-                                                        : index == 2
-                                                            ? v3
-                                                            : v4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue1 = v1;
-                                                    } else if (index == 1) {
-                                                      groupValue1 = v2;
-                                                    } else if (index == 2) {
-                                                      groupValue1 = v3;
-                                                    } else if (index == 3) {
-                                                      groupValue1 = v4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue1,
+                                                    value: index == 0
+                                                        ? v1
+                                                        : index == 1
+                                                            ? v2
+                                                            : index == 2
+                                                                ? v3
+                                                                : v4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue1 = v1;
+                                                        } else if (index == 1) {
+                                                          groupValue1 = v2;
+                                                        } else if (index == 2) {
+                                                          groupValue1 = v3;
+                                                        } else if (index == 3) {
+                                                          groupValue1 = v4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
                                         return Divider(
-                                          height: 0.5.h,
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                         );
                                       }),
                                       itemCount: activityList.length)
@@ -1977,11 +2208,10 @@ class WidgetProfilePage extends StatefulWidget {
                         height: 2.h,
                       ),
                       SizedBox(
-                        height: 27.h,
+                        height: 26.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1993,52 +2223,76 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue2,
-                                                value: index == 0
-                                                    ? x1
-                                                    : index == 1
-                                                        ? x2
-                                                        : index == 2
-                                                            ? x3
-                                                            : x4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue2 = x1;
-                                                    } else if (index == 1) {
-                                                      groupValue2 = x2;
-                                                    } else if (index == 2) {
-                                                      groupValue2 = x3;
-                                                    } else if (index == 3) {
-                                                      groupValue2 = x4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue2,
+                                                    value: index == 0
+                                                        ? x1
+                                                        : index == 1
+                                                            ? x2
+                                                            : index == 2
+                                                                ? x3
+                                                                : x4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue2 = x1;
+                                                        } else if (index == 1) {
+                                                          groupValue2 = x2;
+                                                        } else if (index == 2) {
+                                                          groupValue2 = x3;
+                                                        } else if (index == 3) {
+                                                          groupValue2 = x4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
                                         return Divider(
-                                          height: 0.5.h,
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                         );
                                       }),
                                       itemCount: activityList.length)
@@ -2191,11 +2445,10 @@ class WidgetProfilePage extends StatefulWidget {
                       ),
                       const Divider(),
                       SizedBox(
-                        height: 27.h,
+                        height: 26.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -2207,52 +2460,76 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue1,
-                                                value: index == 0
-                                                    ? v1
-                                                    : index == 1
-                                                        ? v2
-                                                        : index == 2
-                                                            ? v3
-                                                            : v4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue1 = v1;
-                                                    } else if (index == 1) {
-                                                      groupValue1 = v2;
-                                                    } else if (index == 2) {
-                                                      groupValue1 = v3;
-                                                    } else if (index == 3) {
-                                                      groupValue1 = v4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue1,
+                                                    value: index == 0
+                                                        ? v1
+                                                        : index == 1
+                                                            ? v2
+                                                            : index == 2
+                                                                ? v3
+                                                                : v4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue1 = v1;
+                                                        } else if (index == 1) {
+                                                          groupValue1 = v2;
+                                                        } else if (index == 2) {
+                                                          groupValue1 = v3;
+                                                        } else if (index == 3) {
+                                                          groupValue1 = v4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
                                         return Divider(
-                                          height: 0.5.h,
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                         );
                                       }),
                                       itemCount: activityList.length)
@@ -2279,11 +2556,10 @@ class WidgetProfilePage extends StatefulWidget {
                         height: 2.h,
                       ),
                       SizedBox(
-                        height: 27.h,
+                        height: 26.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -2295,52 +2571,76 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue2,
-                                                value: index == 0
-                                                    ? x1
-                                                    : index == 1
-                                                        ? x2
-                                                        : index == 2
-                                                            ? x3
-                                                            : x4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue2 = x1;
-                                                    } else if (index == 1) {
-                                                      groupValue2 = x2;
-                                                    } else if (index == 2) {
-                                                      groupValue2 = x3;
-                                                    } else if (index == 3) {
-                                                      groupValue2 = x4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue2,
+                                                    value: index == 0
+                                                        ? x1
+                                                        : index == 1
+                                                            ? x2
+                                                            : index == 2
+                                                                ? x3
+                                                                : x4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue2 = x1;
+                                                        } else if (index == 1) {
+                                                          groupValue2 = x2;
+                                                        } else if (index == 2) {
+                                                          groupValue2 = x3;
+                                                        } else if (index == 3) {
+                                                          groupValue2 = x4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
                                         return Divider(
-                                          height: 0.5.h,
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                         );
                                       }),
                                       itemCount: activityList.length),
@@ -2443,11 +2743,10 @@ class WidgetProfilePage extends StatefulWidget {
                       ),
                       const Divider(),
                       SizedBox(
-                        height: 27.h,
+                        height: 26.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -2459,52 +2758,76 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue1,
-                                                value: index == 0
-                                                    ? v1
-                                                    : index == 1
-                                                        ? v2
-                                                        : index == 2
-                                                            ? v3
-                                                            : v4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue1 = v1;
-                                                    } else if (index == 1) {
-                                                      groupValue1 = v2;
-                                                    } else if (index == 2) {
-                                                      groupValue1 = v3;
-                                                    } else if (index == 3) {
-                                                      groupValue1 = v4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue1,
+                                                    value: index == 0
+                                                        ? v1
+                                                        : index == 1
+                                                            ? v2
+                                                            : index == 2
+                                                                ? v3
+                                                                : v4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue1 = v1;
+                                                        } else if (index == 1) {
+                                                          groupValue1 = v2;
+                                                        } else if (index == 2) {
+                                                          groupValue1 = v3;
+                                                        } else if (index == 3) {
+                                                          groupValue1 = v4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
                                         return Divider(
-                                          height: 0.5.h,
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                         );
                                       }),
                                       itemCount: activityList.length)
@@ -2528,11 +2851,10 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: 27.h,
+                        height: 26.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -2544,52 +2866,76 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue2,
-                                                value: index == 0
-                                                    ? x1
-                                                    : index == 1
-                                                        ? x2
-                                                        : index == 2
-                                                            ? x3
-                                                            : x4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue2 = x1;
-                                                    } else if (index == 1) {
-                                                      groupValue2 = x2;
-                                                    } else if (index == 2) {
-                                                      groupValue2 = x3;
-                                                    } else if (index == 3) {
-                                                      groupValue2 = x4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue2,
+                                                    value: index == 0
+                                                        ? x1
+                                                        : index == 1
+                                                            ? x2
+                                                            : index == 2
+                                                                ? x3
+                                                                : x4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue2 = x1;
+                                                        } else if (index == 1) {
+                                                          groupValue2 = x2;
+                                                        } else if (index == 2) {
+                                                          groupValue2 = x3;
+                                                        } else if (index == 3) {
+                                                          groupValue2 = x4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
                                         return Divider(
-                                          height: 0.5.h,
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                         );
                                       }),
                                       itemCount: activityList.length)
@@ -2613,11 +2959,10 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: 27.h,
+                        height: 26.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -2629,52 +2974,76 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 1.sp
+                                                : 0.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue3,
-                                                value: index == 0
-                                                    ? y1
-                                                    : index == 1
-                                                        ? y2
-                                                        : index == 2
-                                                            ? y3
-                                                            : y4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue3 = y1;
-                                                    } else if (index == 1) {
-                                                      groupValue3 = y2;
-                                                    } else if (index == 2) {
-                                                      groupValue3 = y3;
-                                                    } else if (index == 3) {
-                                                      groupValue3 = y4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue3,
+                                                    value: index == 0
+                                                        ? y1
+                                                        : index == 1
+                                                            ? y2
+                                                            : index == 2
+                                                                ? y3
+                                                                : y4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue3 = y1;
+                                                        } else if (index == 1) {
+                                                          groupValue3 = y2;
+                                                        } else if (index == 2) {
+                                                          groupValue3 = y3;
+                                                        } else if (index == 3) {
+                                                          groupValue3 = y4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {
                                         return Divider(
-                                          height: 0.5.h,
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  666.9629629629629
+                                              ? 0.5.h
+                                              : 0.1.h,
                                         );
                                       }),
                                       itemCount: activityList.length)
@@ -2698,8 +3067,8 @@ class WidgetProfilePage extends StatefulWidget {
                         ]),
                       ),
                       SizedBox(
-                        height: height * 0.01,
-                      ),
+                        height: 2.h,
+                      )
                     ])),
                 positionCross(context)
               ],
@@ -2772,11 +3141,10 @@ class WidgetProfilePage extends StatefulWidget {
                       ),
                       const Divider(),
                       SizedBox(
-                        height: 27.h,
+                        height: 32.h,
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 26.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -2788,47 +3156,66 @@ class WidgetProfilePage extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: ((context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                activityList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            top: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 5.sp
+                                                : 3.sp,
+                                            bottom: MediaQuery.of(context)
+                                                        .size
+                                                        .height >
+                                                    666.9629629629629
+                                                ? 5.sp
+                                                : 3.sp,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  activityList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue1,
-                                                value: index == 0
-                                                    ? v1
-                                                    : index == 1
-                                                        ? v2
-                                                        : index == 2
-                                                            ? v3
-                                                            : v4,
-                                                onChanged: (val) {
-                                                  setState(() {
-                                                    if (index == 0) {
-                                                      groupValue1 = v1;
-                                                    } else if (index == 1) {
-                                                      groupValue1 = v2;
-                                                    } else if (index == 2) {
-                                                      groupValue1 = v3;
-                                                    } else if (index == 3) {
-                                                      groupValue1 = v4;
-                                                    }
-                                                  });
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.2.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue1,
+                                                    value: index == 0
+                                                        ? v1
+                                                        : index == 1
+                                                            ? v2
+                                                            : index == 2
+                                                                ? v3
+                                                                : v4,
+                                                    onChanged: (val) {
+                                                      setState(() {
+                                                        if (index == 0) {
+                                                          groupValue1 = v1;
+                                                        } else if (index == 1) {
+                                                          groupValue1 = v2;
+                                                        } else if (index == 2) {
+                                                          groupValue1 = v3;
+                                                        } else if (index == 3) {
+                                                          groupValue1 = v4;
+                                                        }
+                                                      });
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       }),
                                       separatorBuilder: ((context, index) {

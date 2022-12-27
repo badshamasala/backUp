@@ -89,7 +89,13 @@ class Blkcomntfrom {
                                       color: Color(0xff0087FF), width: 1)),
                               /*    prefixIcon: Icon(Icons.search), */
                               hintText: 'Searh Username')),
-                      ListView.builder(
+                      ListView.separated(
+                          separatorBuilder: (context, index) {
+                            return Divider(
+                              height: 0.5.h,
+                              color: Colors.transparent,
+                            );
+                          },
                           shrinkWrap: true,
                           itemCount: 10,
                           itemBuilder: ((context, index) {

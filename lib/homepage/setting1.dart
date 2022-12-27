@@ -12,7 +12,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/bytesize.dart';
+import 'package:iconify_flutter/icons/carbon.dart';
+import 'package:iconify_flutter/icons/codicon.dart';
 import 'package:iconify_flutter/icons/eva.dart';
+import 'package:iconify_flutter/icons/fa6_regular.dart';
+import 'package:iconify_flutter/icons/gg.dart';
+import 'package:iconify_flutter/icons/ic.dart';
+import 'package:iconify_flutter/icons/icon_park_outline.dart';
+import 'package:iconify_flutter/icons/ion.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:iconify_flutter/icons/ph.dart';
+import 'package:iconify_flutter/icons/uiw.dart';
 import 'package:sizer/sizer.dart';
 
 class Setting1 extends StatefulWidget {
@@ -23,27 +35,27 @@ class Setting1 extends StatefulWidget {
 }
 
 class _Setting1State extends State<Setting1> {
-  var settingList = [
-    {"icon": 'assets/settingicon.svg', "label": "Setting"},
-    {"icon": 'assets/profileactivityicon.svg', "label": "Profile Activity"},
-    {"icon": 'assets/digitalicon.svg', "label": "Digital Collection"},
-    {"icon": 'assets/historyicon.svg', "label": "History"},
-    {"icon": 'assets/archiveicon.svg', "label": "Archive"},
-    {"icon": 'assets/savedicon.svg', "label": "Saved"},
-    {"icon": 'assets/hearticon.svg', "label": "Favourites Profile"},
-    {"icon": 'assets/friendicon.svg', "label": "Friends"},
-    {"icon": 'assets/qrcodeicon.svg', "label": "QR Code"},
-    {"icon": 'assets/discovericon1.svg', "label": "Discover"},
-    {"icon": 'assets/settingshare.svg', "label": "Share"},
+  List<Map<String, dynamic>> settingList = [
+    {"icon": Uiw.setting_o, "label": "Setting"},
+    {"icon": Gg.edit_highlight, "label": "Profile Activity"},
+    {"icon": Ic.baseline_card_giftcard, "label": "Digital Collection"},
+    {"icon": Ic.round_history, "label": "History"},
+    {"icon": Ion.archive, "label": "Archive"},
+    {"icon": Bi.bookmark_star, "label": "Saved"},
+    {"icon": Ph.heart, "label": "Favourites Profile"},
+    {"icon": Carbon.friendship, "label": "Friends"},
+    {"icon": MaterialSymbols.qr_code_scanner_rounded, "label": "QR Code"},
+    {"icon": Mdi.account_multiple_plus_outline, "label": "Discover"},
+    {"icon": Codicon.live_share, "label": "Share"},
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 10.h,
+        toolbarHeight: 7.h,
         automaticallyImplyLeading: false,
-        titleSpacing: -10.sp,
+        titleSpacing: -2.sp,
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Column(
@@ -83,16 +95,18 @@ class _Setting1State extends State<Setting1> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
-              Icons.arrow_back,
+            icon: const Iconify(
+              Mdi.arrow_back,
               color: primaryColorOfApp,
             )),
       ),
       body: Column(
         children: [
-          Divider(height: 0.5.h),
+          Divider(
+            height: 0.5.h,
+          ),
           SizedBox(
-            height: 2.h,
+            height: 1.h,
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -100,8 +114,12 @@ class _Setting1State extends State<Setting1> {
                 shrinkWrap: true,
                 itemCount: 12,
                 separatorBuilder: (context, index) {
-                  return SizedBox(
-                    height: 4.h,
+                  return Divider(
+                    height:
+                        MediaQuery.of(context).size.height > 666.9629629629629
+                            ? 3.5.h
+                            : 3.h,
+                    color: Colors.transparent,
                   );
                 },
                 itemBuilder: (context, index) {
@@ -117,9 +135,6 @@ class _Setting1State extends State<Setting1> {
                                   fontFamily: 'Poppins', fontSize: 8.sp),
                             ),
                           ],
-                        ),
-                        SizedBox(
-                          height: 2.h,
                         ),
                       ],
                     );
@@ -155,12 +170,7 @@ class _Setting1State extends State<Setting1> {
                         children: [
                           Row(
                             children: [
-                              SvgPicture.asset(
-                                settingList[index]["icon"].toString(),
-                                height: 15,
-                                width: 15,
-                                fit: BoxFit.cover,
-                              ),
+                              Iconify(settingList[index]["icon"]),
                               SizedBox(
                                 width: 2.w,
                               ),
@@ -169,7 +179,7 @@ class _Setting1State extends State<Setting1> {
                                 style: TextStyle(
                                     color: customTextColor,
                                     fontFamily: 'Poppins',
-                                    fontSize: 12.sp),
+                                    fontSize: 10.sp),
                               ),
                             ],
                           ),

@@ -18,29 +18,22 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/akar_icons.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
+import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/eva.dart';
+import 'package:iconify_flutter/icons/gg.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
+import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
+import 'package:iconify_flutter/icons/ooui.dart';
+import 'package:iconify_flutter/icons/ph.dart';
 import 'package:iconify_flutter/icons/tabler.dart';
+import 'package:iconify_flutter/icons/uil.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
-
-var privacyList = [
-  {"icon": 'assets/profileactivityicon.svg', "label": "Activity Status"},
-  {"icon": 'assets/digitalicon.svg', "label": "Show Reward Points"},
-  {"icon": 'assets/privacygroup.svg', "label": "Groups"},
-  {"icon": 'assets/commenticon.svg', "label": "Comments"},
-  {"icon": 'assets/privacypost.svg', "label": "Post-Photo & Video"},
-  {"icon": 'assets/historyicon.svg', "label": "Story"},
-  {"icon": 'assets/liveicon.svg', "label": "Live"},
-  {"icon": 'assets/setchat2.svg', "label": "Chat-Box"},
-  {"icon": 'assets/@.svg', "label": "Mention"},
-  {"icon": 'assets/gifticon1.svg', "label": "Send me GIFT"},
-  {"icon": 'assets/blockicon.svg', "label": "Block Profile List"},
-];
 
 class ProfileSelf extends StatefulWidget {
   ProfileSelf({super.key});
@@ -334,8 +327,8 @@ class ProfileSelf extends StatefulWidget {
   }
 
   buildtextstyle() {
-    return const TextStyle(
-        color: customTextColor, fontFamily: 'Poppins', fontSize: 11);
+    return TextStyle(
+        color: customTextColor, fontFamily: 'Poppins', fontSize: 11.sp);
   }
 
   popmethod(context) {
@@ -1586,7 +1579,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsets.all(12.sp),
+                                    padding: EdgeInsets.all(11.5.sp),
                                     child: SvgPicture.asset(
                                       'assets/addicon.svg',
                                       height: 3.5.h,
@@ -1604,7 +1597,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 style: TextStyle(
                                     color: customTextColor,
                                     fontFamily: 'Poppins',
-                                    fontSize: 10.sp),
+                                    fontSize: 9.sp),
                               )
                             ],
                           ),
@@ -1620,7 +1613,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 shape: BoxShape.circle,
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(2.0),
+                                padding: EdgeInsets.all(2.sp),
                                 child: CircleAvatar(
                                   radius: 22.sp,
                                   backgroundImage: AssetImage(
@@ -1629,15 +1622,13 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 2,
-                            ),
+                            SizedBox(height: 0.1.h),
                             Text(
                               names[index],
-                              style: const TextStyle(
+                              style: TextStyle(
                                   color: customTextColor,
                                   fontFamily: 'Poppins',
-                                  fontSize: 10),
+                                  fontSize: 9.sp),
                             )
                           ],
                         );
@@ -2190,178 +2181,6 @@ index3(context) {
             );
           }),
         );
-      });
-}
-
-settingPrivacy(context) {
-  Size size;
-  double height, width;
-  size = MediaQuery.of(context).size;
-  height = size.height;
-  width = size.width;
-  return showModalBottomSheet(
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        // <-- SEE HERE
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20.0),
-        ),
-      ),
-      context: context,
-      builder: (BuildContext context) {
-        return StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-          return Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                            padding: const EdgeInsets.all(0),
-                            constraints: const BoxConstraints(),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: const Icon(
-                              Icons.arrow_back,
-                              color: primaryColorOfApp,
-                            )),
-                        SizedBox(
-                          width: 4.w,
-                        ),
-                        Text(
-                          'Privacy',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontSize: 14.sp),
-                        ),
-                      ],
-                    ),
-                    const Divider(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            SvgPicture.asset('assets/setprofile.svg',
-                                height: 18, width: 18),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Text('Private Profile',
-                                style: ProfileSelf().buildtextstyle()),
-                          ],
-                        ),
-                        Switch.adaptive(
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            activeColor: primaryColorOfApp,
-                            value: valueofswitch,
-                            onChanged: (valueofswitch) {
-                              setState(() {
-                                valueofswitch = valueofswitch;
-                              });
-                            })
-                      ],
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    ListView.separated(
-                      shrinkWrap: true,
-                      itemCount: 12,
-                      separatorBuilder: (context, index) {
-                        return SizedBox(
-                          height: 3.3.h,
-                        );
-                      },
-                      itemBuilder: (context, index) {
-                        if (index == 11) {
-                          return SizedBox(
-                            height: 1.h,
-                          );
-                        } else {
-                          return InkWell(
-                            onTap: () {
-                              if (index == 0) {
-                                WidgetProfilePage()
-                                    .buildActivityStatus(context);
-                              } else if (index == 1) {
-                                WidgetProfilePage()
-                                    .buildShowRewardpoint(context);
-                              } else if (index == 2) {
-                                WidgetProfilePage().buildGroups(context);
-                              } else if (index == 3) {
-                                WidgetProfilePage().buildComments(context);
-                              } else if (index == 4) {
-                                WidgetProfilePage()
-                                    .buildPostPhotoVideo(context);
-                              } else if (index == 5) {
-                                WidgetProfilePage().buildStory(context);
-                              } else if (index == 6) {
-                                WidgetProfilePage().buildLivePrivacy(context);
-                              } else if (index == 7) {
-                                WidgetProfilePage()
-                                    .buildChatBoxPrivacy(context);
-                              } else if (index == 8) {
-                                WidgetProfilePage().buildMention(context);
-                              } else if (index == 9) {
-                                WidgetProfilePage().buildSendmeGift(context);
-                              } else if (index == 10) {
-                                Blkcomntfrom(
-                                  value: "Block Profile List",
-                                ).function(context);
-                              }
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      privacyList[index]["icon"].toString(),
-                                      height: 2.5.h,
-                                      width: 2.5.w,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    SizedBox(
-                                      width: 2.w,
-                                    ),
-                                    Text(
-                                      privacyList[index]["label"].toString(),
-                                      style: TextStyle(
-                                          color: customTextColor,
-                                          fontFamily: 'Poppins',
-                                          fontSize: 12.sp),
-                                    ),
-                                  ],
-                                ),
-                                Iconify(
-                                  Eva.arrow_right_fill,
-                                  size: 15.sp,
-                                  color: customTextColor,
-                                )
-                              ],
-                            ),
-                          );
-                        }
-                      },
-                    ),
-                  ])),
-              positionCross(context)
-            ],
-          );
-        });
       });
 }
 

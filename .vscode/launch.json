@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "myttube_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "RMX3231 (mobile)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "0001C18R1100086F"
+        },
+        {
+            "name": "RMX3031 (mobile)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "LVDYZT65HY6TNNXS"
+        },
+       
+    ],
+    "compounds": [
+        {
+            "name": "All Devices",
+            "configurations": ["RMX3231 (mobile)","RMX3031 (mobile)"]
+        }
+    ]
+}
