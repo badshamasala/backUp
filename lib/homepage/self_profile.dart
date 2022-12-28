@@ -76,27 +76,27 @@ class _SelfProfileState extends State<SelfProfile> {
     width = size.width;
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 7.h,
-          automaticallyImplyLeading: false,
-          titleSpacing: -2.sp,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text('Profile',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: customTextColor,
-                  fontSize: 15.sp)),
-          leading: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Iconify(
-                Mdi.arrow_back,
-                color: primaryColorOfApp,
-              )),
-        ),
+        /*  toolbarHeight: 7.h, */
+        automaticallyImplyLeading: false,
+        titleSpacing: -2.sp,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text('Profile',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
+        leading: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Iconify(
+              Mdi.arrow_back,
+              color: primaryColorOfApp,
+            )),
+      ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
@@ -173,28 +173,25 @@ class _SelfProfileState extends State<SelfProfile> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 2.5.h,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        style: TextButton.styleFrom(
-                            alignment: Alignment.centerRight,
-                            /* minimumSize: Size(100, 5), */
-                            elevation: 0,
-                            visualDensity: const VisualDensity(vertical: -4),
-                            padding: EdgeInsets.zero,
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                        onPressed: () {},
-                        child: Text('Change',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: primaryColorOfApp,
-                                fontSize: 12.sp)),
-                      ),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                          alignment: Alignment.centerRight,
+                          /* minimumSize: Size(100, 5), */
+                          elevation: 0,
+                          visualDensity: const VisualDensity(vertical: -4),
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                      onPressed: () {},
+                      child: Text('Change',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: primaryColorOfApp,
+                              fontSize: 12.sp)),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 1.5.h,
@@ -270,28 +267,25 @@ class _SelfProfileState extends State<SelfProfile> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 2.5.h,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        style: TextButton.styleFrom(
-                            alignment: Alignment.centerRight,
-                            /* minimumSize: Size(100, 5), */
-                            elevation: 0,
-                            visualDensity: const VisualDensity(vertical: -4),
-                            padding: EdgeInsets.zero,
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                        onPressed: () {},
-                        child: Text('Change',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: primaryColorOfApp,
-                                fontSize: 12.sp)),
-                      ),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                          alignment: Alignment.centerRight,
+                          /* minimumSize: Size(100, 5), */
+                          elevation: 0,
+                          visualDensity: const VisualDensity(vertical: -4),
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                      onPressed: () {},
+                      child: Text('Change',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: primaryColorOfApp,
+                              fontSize: 12.sp)),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 1.5.h,
@@ -358,28 +352,25 @@ class _SelfProfileState extends State<SelfProfile> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 2.5.h,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        style: TextButton.styleFrom(
-                            alignment: Alignment.centerRight,
-                            /* minimumSize: Size(100, 5), */
-                            elevation: 0,
-                            visualDensity: const VisualDensity(vertical: -4),
-                            padding: EdgeInsets.zero,
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                        onPressed: () {},
-                        child: Text('Change',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: primaryColorOfApp,
-                                fontSize: 12.sp)),
-                      ),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                          alignment: Alignment.centerRight,
+                          /* minimumSize: Size(100, 5), */
+                          elevation: 0,
+                          visualDensity: const VisualDensity(vertical: -4),
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                      onPressed: () {},
+                      child: Text('Change',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: primaryColorOfApp,
+                              fontSize: 12.sp)),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 1.5.h,
@@ -725,7 +716,7 @@ class _SelfProfileState extends State<SelfProfile> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ChangeInterest()),
+                            builder: (context) =>  ChangeInterest(value: true,)),
                       );
                       /*   Navigator.push(
                           context,
@@ -757,7 +748,9 @@ class _SelfProfileState extends State<SelfProfile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       style: OutlinedButton.styleFrom(
                           minimumSize: Size(44.w, 5.h),
                           /*    minimumSize: Size(32, 30), */

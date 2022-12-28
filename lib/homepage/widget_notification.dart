@@ -84,7 +84,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 20.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -94,46 +93,62 @@ class WidgetNotification extends StatefulWidget {
                               child: ListView.separated(
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 6.w),
-                                          child: Text(
-                                            mainList[index],
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.sp),
+                                    return Padding(
+                                      padding: EdgeInsets.all(
+                                          MediaQuery.of(context).size.height >
+                                                  667
+                                              ? 2.sp
+                                              : 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 6.w),
+                                            child: Text(
+                                              mainList[index],
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                                  .size
+                                                                  .height >
+                                                              667
+                                                          ? 10.sp
+                                                          : 12.sp),
+                                            ),
                                           ),
-                                        ),
-                                        Radio(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            groupValue: groupValue1,
-                                            value: index == 0
-                                                ? everyone1
-                                                : index == 1
-                                                    ? followers1
-                                                    : off1,
-                                            onChanged: (val) {
-                                              if (index == 0) {
-                                                setState(() {
-                                                  groupValue1 = everyone1;
-                                                });
-                                              } else if (index == 1) {
-                                                setState(() {
-                                                  groupValue1 = followers1;
-                                                });
-                                              } else if (index == 2) {
-                                                setState(() {
-                                                  groupValue1 = off1;
-                                                });
-                                              }
-                                            })
-                                      ],
+                                          Transform.scale(
+                                            scale: 1.1.sp,
+                                            child: Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? everyone1
+                                                    : index == 1
+                                                        ? followers1
+                                                        : off1,
+                                                onChanged: (val) {
+                                                  if (index == 0) {
+                                                    setState(() {
+                                                      groupValue1 = everyone1;
+                                                    });
+                                                  } else if (index == 1) {
+                                                    setState(() {
+                                                      groupValue1 = followers1;
+                                                    });
+                                                  } else if (index == 2) {
+                                                    setState(() {
+                                                      groupValue1 = off1;
+                                                    });
+                                                  }
+                                                }),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
@@ -145,7 +160,9 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -251,7 +268,10 @@ class WidgetNotification extends StatefulWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: 6.w),
+                              padding: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.height > 667
+                                      ? 7.w
+                                      : 6.w),
                               child: Text(
                                 'All OFF',
                                 style: buildtextstyle(),
@@ -277,7 +297,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 20.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -287,46 +306,62 @@ class WidgetNotification extends StatefulWidget {
                               child: ListView.separated(
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 6.w),
-                                          child: Text(
-                                            mainList[index],
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.sp),
+                                    return Padding(
+                                      padding: EdgeInsets.all(
+                                          MediaQuery.of(context).size.height >
+                                                  667
+                                              ? 2.sp
+                                              : 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 6.w),
+                                            child: Text(
+                                              mainList[index],
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                                  .size
+                                                                  .height >
+                                                              667
+                                                          ? 10.sp
+                                                          : 12.sp),
+                                            ),
                                           ),
-                                        ),
-                                        Radio(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            groupValue: groupValue1,
-                                            value: index == 0
-                                                ? everyone1
-                                                : index == 1
-                                                    ? followers1
-                                                    : off1,
-                                            onChanged: (val) {
-                                              if (index == 0) {
-                                                setState(() {
-                                                  groupValue1 = everyone1;
-                                                });
-                                              } else if (index == 1) {
-                                                setState(() {
-                                                  groupValue1 = followers1;
-                                                });
-                                              } else if (index == 2) {
-                                                setState(() {
-                                                  groupValue1 = off1;
-                                                });
-                                              }
-                                            })
-                                      ],
+                                          Transform.scale(
+                                            scale: 1.1.sp,
+                                            child: Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? everyone1
+                                                    : index == 1
+                                                        ? followers1
+                                                        : off1,
+                                                onChanged: (val) {
+                                                  if (index == 0) {
+                                                    setState(() {
+                                                      groupValue1 = everyone1;
+                                                    });
+                                                  } else if (index == 1) {
+                                                    setState(() {
+                                                      groupValue1 = followers1;
+                                                    });
+                                                  } else if (index == 2) {
+                                                    setState(() {
+                                                      groupValue1 = off1;
+                                                    });
+                                                  }
+                                                }),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
@@ -338,7 +373,9 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -360,7 +397,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 13.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -369,68 +405,100 @@ class WidgetNotification extends StatefulWidget {
                                   borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.w),
-                                        child: Text(
-                                          "ON",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            "ON",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        667
+                                                    ? 10.sp
+                                                    : 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue2,
-                                          value: on2,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue2 = on2;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue2,
+                                              value: on2,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue2 = on2;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  const Divider(
-                                    height: 1,
+                                  Divider(
+                                    height: 0.5.h,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 20.0),
+                                          child: Text(
+                                            "OFF",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        667
+                                                    ? 10.sp
+                                                    : 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue2,
-                                          value: off2,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue2 = off2;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue2,
+                                              value: off2,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue2 = off2;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -452,7 +520,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 13.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -461,68 +528,99 @@ class WidgetNotification extends StatefulWidget {
                                   borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.w),
-                                        child: Text(
-                                          "ON",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            "ON",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        667
+                                                    ? 10.sp
+                                                    : 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue3,
-                                          value: on3,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue3 = on3;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue3,
+                                              value: on3,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue3 = on3;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  const Divider(
-                                    height: 1,
+                                  Divider(
+                                    height: 0.5.h,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            "OFF",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        667
+                                                    ? 10.sp
+                                                    : 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue3,
-                                          value: off3,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue3 = off3;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue3,
+                                              value: off3,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue3 = off3;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -544,7 +642,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 13.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -553,68 +650,100 @@ class WidgetNotification extends StatefulWidget {
                                   borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.w),
-                                        child: Text(
-                                          "ON",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            "ON",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        667
+                                                    ? 10.sp
+                                                    : 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue4,
-                                          value: on4,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue4 = on4;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue4,
+                                              value: on4,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue4 = on4;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  const Divider(
-                                    height: 1,
+                                  Divider(
+                                    height: 0.5.h,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 20.0),
+                                          child: Text(
+                                            "OFF",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        667
+                                                    ? 10.sp
+                                                    : 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue4,
-                                          value: off4,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue4 = off4;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue4,
+                                              value: off4,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue4 = off4;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -675,25 +804,15 @@ class WidgetNotification extends StatefulWidget {
             return Stack(
               clipBehavior: Clip.none,
               children: [
-                Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w),
-                    child: Column(mainAxisSize: MainAxisSize.min, children: [
-                      /*  Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xffE2E2E2),
-                                borderRadius: BorderRadius.circular(8)),
-                            height: 5,
-                            width: 100,
-                          ),
-                        ],
-                      ), */
-                      SizedBox(
-                        height: 2.5.h,
-                      ),
-                      Row(
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      height: 2.5.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      child: Row(
                         children: [
                           IconButton(
                               padding: const EdgeInsets.all(0),
@@ -717,87 +836,95 @@ class WidgetNotification extends StatefulWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      const Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'All Notifications',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 12.sp,
-                                color: customTextColor),
-                          ),
-                          Switch.adaptive(
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              value: notification,
-                              onChanged: (value1) {
-                                setState(() {
-                                  notification = value1;
-                                });
-                              })
-                        ],
-                      ),
-                      SizedBox(
-                        height: 3.h,
-                      ),
-                      ListView.separated(
-                        shrinkWrap: true,
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            height: 4.h,
-                          );
-                        },
-                        itemCount: 7,
-                        itemBuilder: (context, index) {
-                          if (index == 6) {
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    const Divider(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 7.w),
+                      child: Column(children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'All Notifications',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 12.sp,
+                                  color: customTextColor),
+                            ),
+                            Switch.adaptive(
+                                materialTapTargetSize:
+                                    MaterialTapTargetSize.shrinkWrap,
+                                value: notification,
+                                onChanged: (value1) {
+                                  setState(() {
+                                    notification = value1;
+                                  });
+                                })
+                          ],
+                        ),
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        ListView.separated(
+                          shrinkWrap: true,
+                          separatorBuilder: (context, index) {
                             return SizedBox(
-                              height: 6.h,
+                              height: 4.h,
                             );
-                          } else {
-                            return InkWell(
-                              onTap: () {
-                                if (index == 0) {
-                                  buildlikecommentshare(context);
-                                } else if (index == 1) {
-                                  buildlive(context);
-                                } else if (index == 2) {
-                                  buildchatbox(context);
-                                } else if (index == 3) {
-                                  buildgiftpage(context);
-                                } else if (index == 4) {
-                                  WidgetNotification()
-                                      .buildconnectemail(context);
-                                } else if (index == 5) {
-                                  WidgetNotification().buildnewfollow(context);
-                                }
-                              },
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    notificationList[index],
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 11.sp,
-                                        color: customTextColor),
-                                  ),
-                                  Iconify(
-                                    Eva.arrow_right_fill,
-                                    size: 15.sp,
-                                  )
-                                ],
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                    ])),
+                          },
+                          itemCount: 7,
+                          itemBuilder: (context, index) {
+                            if (index == 6) {
+                              return SizedBox(
+                                height: 6.h,
+                              );
+                            } else {
+                              return InkWell(
+                                onTap: () {
+                                  if (index == 0) {
+                                    buildlikecommentshare(context);
+                                  } else if (index == 1) {
+                                    buildlive(context);
+                                  } else if (index == 2) {
+                                    buildchatbox(context);
+                                  } else if (index == 3) {
+                                    buildgiftpage(context);
+                                  } else if (index == 4) {
+                                    WidgetNotification()
+                                        .buildconnectemail(context);
+                                  } else if (index == 5) {
+                                    WidgetNotification()
+                                        .buildnewfollow(context);
+                                  }
+                                },
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      notificationList[index],
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 11.sp,
+                                          color: customTextColor),
+                                    ),
+                                    Iconify(
+                                      Eva.arrow_right_fill,
+                                      size: 15.sp,
+                                    )
+                                  ],
+                                ),
+                              );
+                            }
+                          },
+                        ),
+                      ]),
+                    ),
+                  ],
+                ),
                 positionCross(context)
               ],
             );
@@ -881,7 +1008,10 @@ class WidgetNotification extends StatefulWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: 6.w),
+                              padding: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.height > 667
+                                      ? 7.w
+                                      : 6.w),
                               child: Text(
                                 'All OFF',
                                 style: buildtextstyle(),
@@ -907,7 +1037,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 20.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -918,46 +1047,62 @@ class WidgetNotification extends StatefulWidget {
                               child: ListView.separated(
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 6.w),
-                                          child: Text(
-                                            mainList[index],
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.sp),
+                                    return Padding(
+                                      padding: EdgeInsets.all(
+                                          MediaQuery.of(context).size.height >
+                                                  667
+                                              ? 2.sp
+                                              : 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 6.w),
+                                            child: Text(
+                                              mainList[index],
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                                  .size
+                                                                  .height >
+                                                              667
+                                                          ? 10.sp
+                                                          : 12.sp),
+                                            ),
                                           ),
-                                        ),
-                                        Radio(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            groupValue: groupValue1,
-                                            value: index == 0
-                                                ? everyone1
-                                                : index == 1
-                                                    ? followers1
-                                                    : off1,
-                                            onChanged: (val) {
-                                              if (index == 0) {
-                                                setState(() {
-                                                  groupValue1 = everyone1;
-                                                });
-                                              } else if (index == 1) {
-                                                setState(() {
-                                                  groupValue1 = followers1;
-                                                });
-                                              } else if (index == 2) {
-                                                setState(() {
-                                                  groupValue1 = off1;
-                                                });
-                                              }
-                                            })
-                                      ],
+                                          Transform.scale(
+                                            scale: 1.1.sp,
+                                            child: Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? everyone1
+                                                    : index == 1
+                                                        ? followers1
+                                                        : off1,
+                                                onChanged: (val) {
+                                                  if (index == 0) {
+                                                    setState(() {
+                                                      groupValue1 = everyone1;
+                                                    });
+                                                  } else if (index == 1) {
+                                                    setState(() {
+                                                      groupValue1 = followers1;
+                                                    });
+                                                  } else if (index == 2) {
+                                                    setState(() {
+                                                      groupValue1 = off1;
+                                                    });
+                                                  }
+                                                }),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
@@ -969,7 +1114,9 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -991,7 +1138,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 20.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1001,46 +1147,62 @@ class WidgetNotification extends StatefulWidget {
                               child: ListView.separated(
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 6.w),
-                                          child: Text(
-                                            mainList[index],
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.sp),
+                                    return Padding(
+                                      padding: EdgeInsets.all(
+                                          MediaQuery.of(context).size.height >
+                                                  667
+                                              ? 2.sp
+                                              : 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 6.w),
+                                            child: Text(
+                                              mainList[index],
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                                  .size
+                                                                  .height >
+                                                              667
+                                                          ? 10.sp
+                                                          : 12.sp),
+                                            ),
                                           ),
-                                        ),
-                                        Radio(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            groupValue: groupValue2,
-                                            value: index == 0
-                                                ? everyone2
-                                                : index == 1
-                                                    ? followers2
-                                                    : off2,
-                                            onChanged: (val) {
-                                              if (index == 0) {
-                                                setState(() {
-                                                  groupValue2 = everyone2;
-                                                });
-                                              } else if (index == 1) {
-                                                setState(() {
-                                                  groupValue2 = followers2;
-                                                });
-                                              } else if (index == 2) {
-                                                setState(() {
-                                                  groupValue2 = off2;
-                                                });
-                                              }
-                                            })
-                                      ],
+                                          Transform.scale(
+                                            scale: 1.1.sp,
+                                            child: Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue2,
+                                                value: index == 0
+                                                    ? everyone2
+                                                    : index == 1
+                                                        ? followers2
+                                                        : off2,
+                                                onChanged: (val) {
+                                                  if (index == 0) {
+                                                    setState(() {
+                                                      groupValue2 = everyone2;
+                                                    });
+                                                  } else if (index == 1) {
+                                                    setState(() {
+                                                      groupValue2 = followers2;
+                                                    });
+                                                  } else if (index == 2) {
+                                                    setState(() {
+                                                      groupValue2 = off2;
+                                                    });
+                                                  }
+                                                }),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
@@ -1052,7 +1214,9 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -1074,7 +1238,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 20.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1084,46 +1247,62 @@ class WidgetNotification extends StatefulWidget {
                               child: ListView.separated(
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 6.w),
-                                          child: Text(
-                                            mainList[index],
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.sp),
+                                    return Padding(
+                                      padding: EdgeInsets.all(
+                                          MediaQuery.of(context).size.height >
+                                                  667
+                                              ? 2.sp
+                                              : 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 6.w),
+                                            child: Text(
+                                              mainList[index],
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                                  .size
+                                                                  .height >
+                                                              667
+                                                          ? 10.sp
+                                                          : 12.sp),
+                                            ),
                                           ),
-                                        ),
-                                        Radio(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            groupValue: groupValue3,
-                                            value: index == 0
-                                                ? everyone3
-                                                : index == 1
-                                                    ? followers3
-                                                    : off3,
-                                            onChanged: (val) {
-                                              if (index == 0) {
-                                                setState(() {
-                                                  groupValue3 = everyone3;
-                                                });
-                                              } else if (index == 1) {
-                                                setState(() {
-                                                  groupValue3 = followers3;
-                                                });
-                                              } else if (index == 2) {
-                                                setState(() {
-                                                  groupValue3 = off3;
-                                                });
-                                              }
-                                            })
-                                      ],
+                                          Transform.scale(
+                                            scale: 1.1.sp,
+                                            child: Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue3,
+                                                value: index == 0
+                                                    ? everyone3
+                                                    : index == 1
+                                                        ? followers3
+                                                        : off3,
+                                                onChanged: (val) {
+                                                  if (index == 0) {
+                                                    setState(() {
+                                                      groupValue3 = everyone3;
+                                                    });
+                                                  } else if (index == 1) {
+                                                    setState(() {
+                                                      groupValue3 = followers3;
+                                                    });
+                                                  } else if (index == 2) {
+                                                    setState(() {
+                                                      groupValue3 = off3;
+                                                    });
+                                                  }
+                                                }),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
@@ -1135,7 +1314,9 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -1225,7 +1406,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 20.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1235,46 +1415,62 @@ class WidgetNotification extends StatefulWidget {
                               child: ListView.separated(
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 6.w),
-                                          child: Text(
-                                            mainList[index],
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.sp),
+                                    return Padding(
+                                      padding: EdgeInsets.all(
+                                          MediaQuery.of(context).size.height >
+                                                  667
+                                              ? 2.sp
+                                              : 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 6.w),
+                                            child: Text(
+                                              mainList[index],
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                                  .size
+                                                                  .height >
+                                                              667
+                                                          ? 10.sp
+                                                          : 12.sp),
+                                            ),
                                           ),
-                                        ),
-                                        Radio(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            groupValue: groupValue1,
-                                            value: index == 0
-                                                ? everyone1
-                                                : index == 1
-                                                    ? followers1
-                                                    : off1,
-                                            onChanged: (val) {
-                                              if (index == 0) {
-                                                setState(() {
-                                                  groupValue1 = everyone1;
-                                                });
-                                              } else if (index == 1) {
-                                                setState(() {
-                                                  groupValue1 = followers1;
-                                                });
-                                              } else if (index == 2) {
-                                                setState(() {
-                                                  groupValue1 = off1;
-                                                });
-                                              }
-                                            })
-                                      ],
+                                          Transform.scale(
+                                            scale: 1.1.sp,
+                                            child: Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? everyone1
+                                                    : index == 1
+                                                        ? followers1
+                                                        : off1,
+                                                onChanged: (val) {
+                                                  if (index == 0) {
+                                                    setState(() {
+                                                      groupValue1 = everyone1;
+                                                    });
+                                                  } else if (index == 1) {
+                                                    setState(() {
+                                                      groupValue1 = followers1;
+                                                    });
+                                                  } else if (index == 2) {
+                                                    setState(() {
+                                                      groupValue1 = off1;
+                                                    });
+                                                  }
+                                                }),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
@@ -1286,7 +1482,9 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -1393,7 +1591,11 @@ class WidgetNotification extends StatefulWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: 6.w),
+                              padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.height > 667
+                                    ? 7.w
+                                    : 6.w,
+                              ),
                               child: Text(
                                 'All OFF',
                                 style: buildtextstyle(),
@@ -1419,7 +1621,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 20.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1429,46 +1630,62 @@ class WidgetNotification extends StatefulWidget {
                               child: ListView.separated(
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 6.w),
-                                          child: Text(
-                                            mainList[index],
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.sp),
+                                    return Padding(
+                                      padding: EdgeInsets.all(
+                                          MediaQuery.of(context).size.height >
+                                                  667
+                                              ? 2.sp
+                                              : 0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(left: 6.w),
+                                            child: Text(
+                                              mainList[index],
+                                              style: TextStyle(
+                                                  color: customTextColor,
+                                                  fontFamily: 'Poppins',
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                                  .size
+                                                                  .height >
+                                                              667
+                                                          ? 10.sp
+                                                          : 12.sp),
+                                            ),
                                           ),
-                                        ),
-                                        Radio(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            groupValue: groupValue1,
-                                            value: index == 0
-                                                ? everyone1
-                                                : index == 1
-                                                    ? followers1
-                                                    : off1,
-                                            onChanged: (val) {
-                                              if (index == 0) {
-                                                setState(() {
-                                                  groupValue1 = everyone1;
-                                                });
-                                              } else if (index == 1) {
-                                                setState(() {
-                                                  groupValue1 = followers1;
-                                                });
-                                              } else if (index == 2) {
-                                                setState(() {
-                                                  groupValue1 = off1;
-                                                });
-                                              }
-                                            })
-                                      ],
+                                          Transform.scale(
+                                            scale: 1.1.sp,
+                                            child: Radio(
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                groupValue: groupValue1,
+                                                value: index == 0
+                                                    ? everyone1
+                                                    : index == 1
+                                                        ? followers1
+                                                        : off1,
+                                                onChanged: (val) {
+                                                  if (index == 0) {
+                                                    setState(() {
+                                                      groupValue1 = everyone1;
+                                                    });
+                                                  } else if (index == 1) {
+                                                    setState(() {
+                                                      groupValue1 = followers1;
+                                                    });
+                                                  } else if (index == 2) {
+                                                    setState(() {
+                                                      groupValue1 = off1;
+                                                    });
+                                                  }
+                                                }),
+                                          )
+                                        ],
+                                      ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
@@ -1480,7 +1697,9 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -1502,7 +1721,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 20.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1515,47 +1733,67 @@ class WidgetNotification extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: (context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                mainList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.all(
+                                              MediaQuery.of(context)
+                                                          .size
+                                                          .height >
+                                                      667
+                                                  ? 2.sp
+                                                  : 0),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  mainList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize:
+                                                          MediaQuery.of(context)
+                                                                      .size
+                                                                      .height >
+                                                                  667
+                                                              ? 10.sp
+                                                              : 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue2,
-                                                value: index == 0
-                                                    ? everyone2
-                                                    : index == 1
-                                                        ? followers2
-                                                        : off2,
-                                                onChanged: (val) {
-                                                  if (index == 0) {
-                                                    setState(() {
-                                                      groupValue2 = everyone2;
-                                                    });
-                                                  } else if (index == 1) {
-                                                    setState(() {
-                                                      groupValue2 = followers2;
-                                                    });
-                                                  } else if (index == 2) {
-                                                    setState(() {
-                                                      groupValue2 = off2;
-                                                    });
-                                                  }
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.1.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue2,
+                                                    value: index == 0
+                                                        ? everyone2
+                                                        : index == 1
+                                                            ? followers2
+                                                            : off2,
+                                                    onChanged: (val) {
+                                                      if (index == 0) {
+                                                        setState(() {
+                                                          groupValue2 =
+                                                              everyone2;
+                                                        });
+                                                      } else if (index == 1) {
+                                                        setState(() {
+                                                          groupValue2 =
+                                                              followers2;
+                                                        });
+                                                      } else if (index == 2) {
+                                                        setState(() {
+                                                          groupValue2 = off2;
+                                                        });
+                                                      }
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       },
                                       separatorBuilder: (context, index) {
@@ -1569,7 +1807,9 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -1591,7 +1831,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 20.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1604,47 +1843,67 @@ class WidgetNotification extends StatefulWidget {
                                   ListView.separated(
                                       shrinkWrap: true,
                                       itemBuilder: (context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 6.w),
-                                              child: Text(
-                                                mainList[index],
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12.sp),
+                                        return Padding(
+                                          padding: EdgeInsets.all(
+                                              MediaQuery.of(context)
+                                                          .size
+                                                          .height >
+                                                      667
+                                                  ? 2.sp
+                                                  : 0),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 6.w),
+                                                child: Text(
+                                                  mainList[index],
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: 'Poppins',
+                                                      fontSize:
+                                                          MediaQuery.of(context)
+                                                                      .size
+                                                                      .height >
+                                                                  667
+                                                              ? 10.sp
+                                                              : 12.sp),
+                                                ),
                                               ),
-                                            ),
-                                            Radio(
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                groupValue: groupValue3,
-                                                value: index == 0
-                                                    ? everyone3
-                                                    : index == 1
-                                                        ? followers3
-                                                        : off3,
-                                                onChanged: (val) {
-                                                  if (index == 0) {
-                                                    setState(() {
-                                                      groupValue3 = everyone3;
-                                                    });
-                                                  } else if (index == 1) {
-                                                    setState(() {
-                                                      groupValue3 = followers3;
-                                                    });
-                                                  } else if (index == 2) {
-                                                    setState(() {
-                                                      groupValue3 = off3;
-                                                    });
-                                                  }
-                                                })
-                                          ],
+                                              Transform.scale(
+                                                scale: 1.1.sp,
+                                                child: Radio(
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    groupValue: groupValue3,
+                                                    value: index == 0
+                                                        ? everyone3
+                                                        : index == 1
+                                                            ? followers3
+                                                            : off3,
+                                                    onChanged: (val) {
+                                                      if (index == 0) {
+                                                        setState(() {
+                                                          groupValue3 =
+                                                              everyone3;
+                                                        });
+                                                      } else if (index == 1) {
+                                                        setState(() {
+                                                          groupValue3 =
+                                                              followers3;
+                                                        });
+                                                      } else if (index == 2) {
+                                                        setState(() {
+                                                          groupValue3 = off3;
+                                                        });
+                                                      }
+                                                    }),
+                                              )
+                                            ],
+                                          ),
                                         );
                                       },
                                       separatorBuilder: (context, index) {
@@ -1658,14 +1917,19 @@ class WidgetNotification extends StatefulWidget {
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
                                 'Share/Repost Your Post: Photo, Video, Story and Your Profile',
                                 style: TextStyle(
                                     color: customTextColor,
-                                    fontSize: 8.sp,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 7.5.sp
+                                            : 8.sp,
                                     fontFamily: 'Poppins'),
                               ),
                             ),
@@ -1753,7 +2017,11 @@ class WidgetNotification extends StatefulWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: 6.w),
+                              padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.height > 667
+                                    ? 7.w
+                                    : 6.w,
+                              ),
                               child: Text(
                                 'All OFF',
                                 style: buildtextstyle(),
@@ -1779,7 +2047,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 13.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1788,68 +2055,95 @@ class WidgetNotification extends StatefulWidget {
                                   borderRadius: BorderRadius.circular(10.sp)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.w),
-                                        child: Text(
-                                          "Followers",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            "Followers",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: MediaQuery.of(context)
+                                                            .size
+                                                            .height >
+                                                        667
+                                                    ? 10.sp
+                                                    : 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue1,
-                                          value: followers1,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue1 = followers1;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue1,
+                                              value: followers1,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue1 = followers1;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  const Divider(
-                                    height: 1,
+                                  Divider(
+                                    height: 0.5.h,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20.0),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 20.0),
+                                          child: Text(
+                                            "OFF",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue1,
-                                          value: off1,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue1 = off1;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue1,
+                                              value: off1,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue1 = off1;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(
@@ -1871,7 +2165,6 @@ class WidgetNotification extends StatefulWidget {
                         child: Stack(children: [
                           Positioned(
                             top: 1.h,
-                            height: 13.h,
                             width: 90.w,
                             child: Container(
                               decoration: BoxDecoration(
@@ -1881,67 +2174,89 @@ class WidgetNotification extends StatefulWidget {
                                   borderRadius: BorderRadius.circular(10)),
                               child: Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.w),
-                                        child: Text(
-                                          "Following",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            "Following",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue2,
-                                          value: followers2,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue2 = followers2;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue2,
+                                              value: followers2,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue2 = followers2;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  const Divider(
-                                    height: 1,
+                                  Divider(
+                                    height: 0.5.h,
                                   ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.w),
-                                        child: Text(
-                                          "OFF",
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.sp),
+                                  Padding(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 2.sp
+                                            : 0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 6.w),
+                                          child: Text(
+                                            "OFF",
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12.sp),
+                                          ),
                                         ),
-                                      ),
-                                      Radio(
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: groupValue2,
-                                          value: off2,
-                                          onChanged: (val) {
-                                            setState(() {
-                                              groupValue2 = off2;
-                                            });
-                                          })
-                                    ],
+                                        Transform.scale(
+                                          scale: 1.1.sp,
+                                          child: Radio(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              groupValue: groupValue2,
+                                              value: off2,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  groupValue2 = off2;
+                                                });
+                                              }),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            left: 6.w,
+                            left: MediaQuery.of(context).size.height > 667
+                                ? 7.w
+                                : 6.w,
                             child: Container(
                               color: Colors.white,
                               child: Text(

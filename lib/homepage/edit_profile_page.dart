@@ -1096,7 +1096,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ChangeInterest()),
+                        builder: (context) =>  ChangeInterest(value: true,)),
                   );
                   /*   Navigator.push(
                             context,

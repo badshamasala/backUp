@@ -8,7 +8,8 @@ import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
 class ChangeInterest extends StatefulWidget {
-  const ChangeInterest({Key? key}) : super(key: key);
+  final bool value;
+  const ChangeInterest({Key? key, required this.value}) : super(key: key);
 
   @override
   State<ChangeInterest> createState() => _ChangeInterestState();
@@ -46,28 +47,28 @@ class _ChangeInterestState extends State<ChangeInterest> {
     size = MediaQuery.of(context).size;
     height = size.height;
     return Scaffold(
-      appBar: AppBar(
-          toolbarHeight: 7.h,
-          automaticallyImplyLeading: false,
-          titleSpacing: -2.sp,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text('Change Interest',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: customTextColor,
-                  fontSize: 15.sp)),
-          leading: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Iconify(
-                Mdi.arrow_back,
-                color: primaryColorOfApp,
-              )),
-        ),
+      appBar: widget.value ? AppBar(
+        toolbarHeight: 7.h,
+        automaticallyImplyLeading: false,
+        titleSpacing: -2.sp,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text('Change Interest',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
+        leading: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Iconify(
+              Mdi.arrow_back,
+              color: primaryColorOfApp,
+            )),
+      ) : null,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -102,9 +103,7 @@ class _ChangeInterestState extends State<ChangeInterest> {
                   itemCount: changeinterest.length,
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onDoubleTap: () {
-                        
-                      },
+                      onDoubleTap: () {},
                       onTap: () {
                         setState(() {
                           if (templist.contains(changeinterest[index])) {

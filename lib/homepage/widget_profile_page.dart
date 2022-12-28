@@ -448,58 +448,88 @@ class WidgetProfilePage extends StatefulWidget {
                             borderRadius: BorderRadius.circular(10)),
                         child: Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Text(
-                                    "Allow to message read & reply ",
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                            Padding(
+                              padding: EdgeInsets.all(
+                                  MediaQuery.of(context).size.height > 667
+                                      ? 2.sp
+                                      : 0.sp),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Text(
+                                      "Allow to message read & reply ",
+                                      style: TextStyle(
+                                          color: customTextColor,
+                                          fontFamily: 'Poppins',
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  667
+                                              ? 10.sp
+                                              : 12.sp),
+                                    ),
                                   ),
-                                ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue1,
-                                    value: allow1,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue1 = allow1;
-                                      });
-                                    })
-                              ],
+                                  Transform.scale(
+                                    scale: 1.1.sp,
+                                    child: Radio(
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupValue1,
+                                        value: allow1,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupValue1 = allow1;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              ),
                             ),
-                            const Divider(
-                              height: 1,
+                            Divider(
+                              height: 0.5.h,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Text(
-                                    "Not allow to message read & reply",
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                            Padding(
+                              padding: EdgeInsets.all(
+                                  MediaQuery.of(context).size.height > 667
+                                      ? 2.sp
+                                      : 0.sp),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Text(
+                                      "Not allow to message read & reply",
+                                      style: TextStyle(
+                                          color: customTextColor,
+                                          fontFamily: 'Poppins',
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  667
+                                              ? 10.sp
+                                              : 12.sp),
+                                    ),
                                   ),
-                                ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue1,
-                                    value: notallow1,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue1 = notallow1;
-                                      });
-                                    })
-                              ],
+                                  Transform.scale(
+                                    scale: 1.1.sp,
+                                    child: Radio(
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupValue1,
+                                        value: notallow1,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupValue1 = notallow1;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -512,62 +542,86 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(
                                 width: 0.5, color: const Color(0xff515253)),
                             borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Text(
-                                    "Allow to Post-Photo, video & Story ",
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                        child: Padding(
+                          padding: EdgeInsets.all(
+                              MediaQuery.of(context).size.height > 667
+                                  ? 2.sp
+                                  : 0.sp),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Text(
+                                      "Allow to Post-Photo, video & Story ",
+                                      style: TextStyle(
+                                          color: customTextColor,
+                                          fontFamily: 'Poppins',
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  667
+                                              ? 10.sp
+                                              : 12.sp),
+                                    ),
                                   ),
-                                ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue2,
-                                    value: allow2,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue2 = allow2;
-                                      });
-                                    })
-                              ],
-                            ),
-                            const Divider(
-                              height: 1,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Text(
-                                    "Not allow to Post-Photo, video & story",
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                                  Transform.scale(
+                                    scale: 1.1.sp,
+                                    child: Radio(
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupValue2,
+                                        value: allow2,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupValue2 = allow2;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              ),
+                              const Divider(
+                                height: 1,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Text(
+                                      "Not allow to Post-Photo, video & story",
+                                      style: TextStyle(
+                                          color: customTextColor,
+                                          fontFamily: 'Poppins',
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  667
+                                              ? 10.sp
+                                              : 12.sp),
+                                    ),
                                   ),
-                                ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue2,
-                                    value: notallow2,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue2 = notallow2;
-                                      });
-                                    })
-                              ],
-                            ),
-                          ],
+                                  Transform.scale(
+                                    scale: 1.1.sp,
+                                    child: Radio(
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupValue2,
+                                        value: notallow2,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupValue2 = notallow2;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -590,19 +644,26 @@ class WidgetProfilePage extends StatefulWidget {
                                     style: TextStyle(
                                         color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                                        fontSize:
+                                            MediaQuery.of(context).size.height >
+                                                    667
+                                                ? 10.sp
+                                                : 12.sp),
                                   ),
                                 ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue3,
-                                    value: allow3,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue3 = allow3;
-                                      });
-                                    })
+                                Transform.scale(
+                                  scale: 1.1.sp,
+                                  child: Radio(
+                                      materialTapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      groupValue: groupValue3,
+                                      value: allow3,
+                                      onChanged: (val) {
+                                        setState(() {
+                                          groupValue3 = allow3;
+                                        });
+                                      }),
+                                )
                               ],
                             ),
                             const Divider(
@@ -618,19 +679,26 @@ class WidgetProfilePage extends StatefulWidget {
                                     style: TextStyle(
                                         color: customTextColor,
                                         fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                                        fontSize:
+                                            MediaQuery.of(context).size.height >
+                                                    667
+                                                ? 10.sp
+                                                : 12.sp),
                                   ),
                                 ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue3,
-                                    value: notallow3,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue3 = notallow3;
-                                      });
-                                    })
+                                Transform.scale(
+                                  scale: 1.1.sp,
+                                  child: Radio(
+                                      materialTapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      groupValue: groupValue3,
+                                      value: notallow3,
+                                      onChanged: (val) {
+                                        setState(() {
+                                          groupValue3 = notallow3;
+                                        });
+                                      }),
+                                )
                               ],
                             ),
                           ],
@@ -644,62 +712,86 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(
                                 width: 0.5, color: const Color(0xff515253)),
                             borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Text(
-                                    "Allow to sharing other any post  ",
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                        child: Padding(
+                          padding: EdgeInsets.all(
+                              MediaQuery.of(context).size.height > 667
+                                  ? 2.sp
+                                  : 0.sp),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Text(
+                                      "Allow to sharing other any post  ",
+                                      style: TextStyle(
+                                          color: customTextColor,
+                                          fontFamily: 'Poppins',
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  667
+                                              ? 10.sp
+                                              : 12.sp),
+                                    ),
                                   ),
-                                ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue4,
-                                    value: allow4,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue4 = allow4;
-                                      });
-                                    })
-                              ],
-                            ),
-                            const Divider(
-                              height: 1,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Text(
-                                    "Not allow to sharing other any post",
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                                  Transform.scale(
+                                    scale: 1.1.sp,
+                                    child: Radio(
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupValue4,
+                                        value: allow4,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupValue4 = allow4;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              ),
+                              Divider(
+                                height: 0.5.h,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Text(
+                                      "Not allow to sharing other any post",
+                                      style: TextStyle(
+                                          color: customTextColor,
+                                          fontFamily: 'Poppins',
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  667
+                                              ? 10.sp
+                                              : 12.sp),
+                                    ),
                                   ),
-                                ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue4,
-                                    value: notallow4,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue4 = notallow4;
-                                      });
-                                    })
-                              ],
-                            ),
-                          ],
+                                  Transform.scale(
+                                    scale: 1.1.sp,
+                                    child: Radio(
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupValue4,
+                                        value: notallow4,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupValue4 = notallow4;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -710,62 +802,86 @@ class WidgetProfilePage extends StatefulWidget {
                             border: Border.all(
                                 width: 0.5, color: const Color(0xff515253)),
                             borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Text(
-                                    "Allow to live video ",
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                        child: Padding(
+                          padding: EdgeInsets.all(
+                              MediaQuery.of(context).size.height > 667
+                                  ? 2.sp
+                                  : 0.sp),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Text(
+                                      "Allow to live video ",
+                                      style: TextStyle(
+                                          color: customTextColor,
+                                          fontFamily: 'Poppins',
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  667
+                                              ? 10.sp
+                                              : 12.sp),
+                                    ),
                                   ),
-                                ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue5,
-                                    value: allow5,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue5 = allow5;
-                                      });
-                                    })
-                              ],
-                            ),
-                            const Divider(
-                              height: 1,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Text(
-                                    "Not allow to live video",
-                                    style: TextStyle(
-                                        color: customTextColor,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 12.sp),
+                                  Transform.scale(
+                                    scale: 1.1.sp,
+                                    child: Radio(
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupValue5,
+                                        value: allow5,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupValue5 = allow5;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              ),
+                              Divider(
+                                height: 0.5.h,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Text(
+                                      "Not allow to live video",
+                                      style: TextStyle(
+                                          color: customTextColor,
+                                          fontFamily: 'Poppins',
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height >
+                                                  667
+                                              ? 10.sp
+                                              : 12.sp),
+                                    ),
                                   ),
-                                ),
-                                Radio(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    groupValue: groupValue5,
-                                    value: notallow5,
-                                    onChanged: (val) {
-                                      setState(() {
-                                        groupValue5 = notallow5;
-                                      });
-                                    })
-                              ],
-                            ),
-                          ],
+                                  Transform.scale(
+                                    scale: 1.1.sp,
+                                    child: Radio(
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupValue5,
+                                        value: notallow5,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupValue5 = notallow5;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(

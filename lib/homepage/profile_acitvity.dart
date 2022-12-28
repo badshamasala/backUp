@@ -7,6 +7,9 @@ import 'package:flutter_application_1/homepage/post_tab.dart';
 import 'package:flutter_application_1/homepage/visited.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/gg.dart';
+import 'package:iconify_flutter/icons/heroicons.dart';
+import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
@@ -44,46 +47,54 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double height = size.height, width = size.width;
+
+    List<Map<String,dynamic>> postList = [
+      {"icon": Ic.twotone_photo_library, "label": "Post", "count": "130"},
+      {"icon": Ic.round_history, "label": "Story", "count": "130"},
+      {"icon": Icons.play_arrow_outlined, "label": "Video", "count": "130"},
+      {"icon": Gg.edit_highlight, "label": "High", "count": "130"},
+      {"icon": Heroicons.user_group_solid, "label": "Live", "count": "130"},
+    ];
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          toolbarHeight: 7.h,
-          automaticallyImplyLeading: false,
-          titleSpacing: -2.sp,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text('Profile Activity',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: customTextColor,
-                  fontSize: 15.sp)),
-          leading: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Iconify(
-                Mdi.arrow_back,
-                color: primaryColorOfApp,
-              )),
-        ),
+        toolbarHeight: 7.h,
+        automaticallyImplyLeading: false,
+        titleSpacing: -2.sp,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text('Profile Activity',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
+        leading: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Iconify(
+              Mdi.arrow_back,
+              color: primaryColorOfApp,
+            )),
+      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
         child: Column(
           children: [
-            const Divider(
-              height: 1,
+            Divider(
+              height: 0.5.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'Post',
                   style: TextStyle(
                       color: customTextColor,
                       fontFamily: 'Poppins',
-                      fontSize: 15),
+                      fontSize: 13.sp),
                 ),
                 IconButton(
                   padding: EdgeInsets.zero,
@@ -91,13 +102,56 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                   onPressed: () {},
                   icon: SvgPicture.asset(
                     'assets/arrowicon.svg',
-                    height: 10,
+                    height: 10.sp,
                   ),
                 )
               ],
             ),
+            SizedBox(
+              height: 12.h,
+              child: GridView.builder(
+                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                   /*    mainAxisExtent: 35, */
+                      /*     childAspectRatio: 3.5, */
+                      crossAxisSpacing: 1,
+                      mainAxisSpacing: 1,
+                      crossAxisCount: postList.length),
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PostTab(
+                                    value: 0,
+                                  )),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Iconify(postList[index]["icon"].toString()),
+                          Text(
+                            postList[index]["label"],
+                            style: TextStyle(
+                                color: customTextColor,
+                                fontFamily: 'Poppins',
+                                fontSize: 10.sp),
+                          ),
+                          Text(
+                            postList[index]["count"],
+                            style: TextStyle(
+                                color: customTextColor,
+                                fontFamily: 'Poppins',
+                                fontSize: 10.sp),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: postList.length),
+            ),
             Container(
-              height: 82,
+              height: 12.h,
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   border: Border.all(width: 0.5, color: customTextColor),
@@ -132,19 +186,19 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                                 ),
                               ),
                             ),
-                            const Text(
+                            Text(
                               'Post',
                               style: TextStyle(
                                   color: customTextColor,
                                   fontFamily: 'Poppins',
-                                  fontSize: 10),
+                                  fontSize: 10.sp),
                             ),
-                            const Text(
+                            Text(
                               '130',
                               style: TextStyle(
                                   color: customTextColor,
                                   fontFamily: 'Poppins',
-                                  fontSize: 10),
+                                  fontSize: 10.sp),
                             ),
                           ],
                         ),

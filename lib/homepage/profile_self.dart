@@ -841,6 +841,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
     return SafeArea(
       top: false,
       child: DefaultTabController(
+        
         length: 4,
         child: Scaffold(
             body: ListView(
@@ -1361,11 +1362,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                       ), */
                       OutlinedButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ChangeInterest()),
-                          );
+                    
                         },
                         style: OutlinedButton.styleFrom(
                             minimumSize: Size(31.w, 4.h),

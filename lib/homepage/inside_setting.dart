@@ -41,17 +41,17 @@ class InsideSetting extends StatefulWidget {
 
 class _InsideSettingState extends State<InsideSetting> {
   List<Map<String, dynamic>> insideSettingList = [
-    {"icon": Gg.profile, "label": "Profile"},
-    {"icon": Ci.notification_outline, "label": "Notifications"},
+    {"icon": Ic.round_person, "label": "Profile"},
+    {"icon": Ci.notification, "label": "Notifications"},
     {"icon": Uil.arrow_growth, "label": "Monetize"},
     {"icon": Octicon.shield_lock_24, "label": "Permission Set"},
     {"icon": Uil.language, "label": "Language"},
     {"icon": Ph.chat_centered_text_light, "label": "Chat-Box(message)"},
     {"icon": Uil.megaphone, "label": "Ads"},
-    {"icon": Bi.patch_check, "label": "@Verification"},
+    {"icon": Bi.patch_check, "label": "Verification"},
     {"icon": Octicon.shield_check_24, "label": "Privacy"},
-    {"icon": Mdi.lock_outline, "label": "Security"},
-    {"icon": Mdi.about_circle_outline, "label": "About"},
+    {"icon": Mdi.shield_lock, "label": "Security"},
+    {"icon": Mdi.about_circle, "label": "About"},
     {"icon": Ic.sharp_help_outline, "label": "Help"},
   ];
 
@@ -116,9 +116,9 @@ class _InsideSettingState extends State<InsideSetting> {
                       children: [
                         Row(
                           children: [
-                            Iconify(Ep.i_switch),
+                            const Iconify(Ep.i_switch),
                             SizedBox(
-                              width: 2.w,
+                              width: 4.w,
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
@@ -197,11 +197,11 @@ class _InsideSettingState extends State<InsideSetting> {
                     return InkWell(
                       onTap: () {
                         if (index == 0) {
-                          Get.to(() => SelfProfile());
+                          Get.to(() => const SelfProfile());
                         } else if (index == 1) {
                           WidgetNotification().buildnotificationpage(context);
                         } else if (index == 2) {
-                          Get.to(() => MonetizeCheck());
+                          Get.to(() => const MonetizeCheck());
                         } else if (index == 3) {
                           permissionmethod(context);
                         } else if (index == 4) {
@@ -209,11 +209,11 @@ class _InsideSettingState extends State<InsideSetting> {
                         } else if (index == 5) {
                           WidgetNotification().buildchatbox(context);
                         } else if (index == 6) {
-                          Get.to(() => Ads());
+                          Get.to(() => const Ads());
                         } else if (index == 7) {
-                          Get.to(() => Verification1());
+                          Get.to(() => const Verification1());
                         } else if (index == 8) {
-                          Get.to(() => Privacy());
+                          Get.to(() => const Privacy());
                         } else if (index == 9) {
                           buildsecurity(context);
                         } else if (index == 10) {
@@ -227,11 +227,18 @@ class _InsideSettingState extends State<InsideSetting> {
                             children: [
                               Iconify(insideSettingList[index]["icon"]),
                               SizedBox(
-                                width: 2.w,
+                                width: 4.w,
                               ),
                               index == 7
                                   ? Row(
                                       children: [
+                                        Text(
+                                          "@",
+                                          style: TextStyle(
+                                              color: primaryColorOfApp,
+                                              fontFamily: 'Poppins',
+                                              fontSize: 10.sp),
+                                        ),
                                         Text(
                                           insideSettingList[index]["label"]!,
                                           style: TextStyle(
@@ -242,7 +249,7 @@ class _InsideSettingState extends State<InsideSetting> {
                                         Iconify(
                                           Bi.patch_check,
                                           size: 15.sp,
-                                          color: Color(0xff038026),
+                                          color: const Color(0xff038026),
                                         ),
                                       ],
                                     )

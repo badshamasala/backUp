@@ -25,27 +25,27 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
     double height = size.height;
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 7.h,
-          automaticallyImplyLeading: false,
-          titleSpacing: -2.sp,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text('Monetize',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: customTextColor,
-                  fontSize: 15.sp)),
-          leading: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Iconify(
-                Mdi.arrow_back,
-                color: primaryColorOfApp,
-              )),
-        ),
+        toolbarHeight: 7.h,
+        automaticallyImplyLeading: false,
+        titleSpacing: -2.sp,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text('Monetize',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
+        leading: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Iconify(
+              Mdi.arrow_back,
+              color: primaryColorOfApp,
+            )),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Column(
@@ -238,7 +238,9 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                     style: TextStyle(
                         fontFamily: 'Poppins',
                         color: primaryColorOfApp,
-                        fontSize: 12.sp,
+                        fontSize: MediaQuery.of(context).size.height > 667
+                            ? 10.sp
+                            : 12.sp,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -261,7 +263,9 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                     style: TextStyle(
                         fontFamily: 'Poppins',
                         color: primaryColorOfApp,
-                        fontSize: 12.sp,
+                        fontSize: MediaQuery.of(context).size.height > 667
+                            ? 10.sp
+                            : 12.sp,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -271,7 +275,9 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                       fontFamily: 'Poppins',
                       color: customTextColor,
                       fontWeight: FontWeight.bold,
-                      fontSize: 12.sp),
+                      fontSize: MediaQuery.of(context).size.height > 667
+                          ? 10.sp
+                          : 12.sp),
                 ),
               ],
             ),
@@ -291,7 +297,9 @@ class _MonetizeCheckState extends State<MonetizeCheck> {
                           fontFamily: 'Poppins',
                           color: primaryColorOfApp,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12.sp),
+                          fontSize: MediaQuery.of(context).size.height > 667
+                              ? 10.sp
+                              : 12.sp),
                     ),
                   ),
                 ),

@@ -44,92 +44,52 @@ class _HomePageState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
     double height = size.height, width = size.width;
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.black.withOpacity(0.9),
+        extendBody: true,
+        backgroundColor: Colors.white,
         body: screens.elementAt(currentIndex),
-        bottomNavigationBar: ConvexAppBar(
-          top: -15,
-          backgroundColor: Colors.white,
-          color: customTextColor,
-          activeColor: Color.fromARGB(255, 200, 226, 249),
-          items: [
-            TabItem(
-              activeIcon: Padding(
-                padding: EdgeInsets.all(13.sp),
-                child: SvgPicture.asset(
+        bottomNavigationBar: ClipRRect(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+          child: ConvexAppBar(
+            style: TabStyle.flip,
+            /* top: -15, */
+            backgroundColor: Colors.white,
+            color: Colors.white,
+            activeColor: Colors.white,
+            items: [
+              TabItem(
+                icon: SvgPicture.asset(
                   'assets/hometabicon.svg',
                 ),
               ),
-              icon: SvgPicture.asset(
-                'assets/hometabicon.svg',
-              ),
-            ),
-            TabItem(
-              /*  isIconBlend: true, */
-              activeIcon: Padding(
-                padding: EdgeInsets.all(13.sp),
-                child: SvgPicture.asset(
+              TabItem(
+                icon: SvgPicture.asset(
                   'assets/searchtab.svg',
                 ),
               ),
-              icon: SvgPicture.asset(
-                'assets/searchtab.svg',
+              TabItem(
+                icon: Image.asset(
+                  'assets/logo.png',
+                  height: 3.h,
+                  width: 3.w,
+                ),
+                /* fit: BoxFit.cover */
               ),
-            ),
-            TabItem(
-              activeIcon: Padding(
-                padding: EdgeInsets.all(11.sp),
-                child: Image(
-                    image: const AssetImage(
-                      'assets/logo.png',
-                    ),
-                    height: 5.h,
-                    width: 5.w,
-                    fit: BoxFit.cover),
-              ),
-              icon: Image(
-                  image: const AssetImage(
-                    'assets/logo.png',
-                  ),
-                  height: 5.h,
-                  width: 5.w,
-                  fit: BoxFit.cover),
-            ),
-            TabItem(
-              activeIcon: Padding(
-                padding: EdgeInsets.all(13.sp),
-                child: SvgPicture.asset(
+              TabItem(
+                icon: SvgPicture.asset(
                   'assets/tabbaricon.svg',
                 ),
               ),
-              icon: SvgPicture.asset(
-                'assets/tabbaricon.svg',
-              ),
-            ),
-            TabItem(
-              activeIcon: Padding(
-                padding: EdgeInsets.all(10.sp),
-                child: CircleAvatar(
-                  radius: 15.sp,
-                  backgroundColor: primaryColorOfApp,
-                  child: CircleAvatar(
-                      radius: 14.sp,
-                      backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        radius: 13.sp,
-                        backgroundColor: Colors.grey.shade800,
-                        backgroundImage: const AssetImage('assets/image1.webp'),
-                      )),
+              TabItem(
+                icon: CircleAvatar(
+                  radius: 14.sp,
+                  backgroundColor: Colors.grey.shade800,
+                  backgroundImage: const AssetImage('assets/image3.jpg'),
                 ),
               ),
-              icon: CircleAvatar(
-                radius: 14.sp,
-                backgroundColor: Colors.grey.shade800,
-                backgroundImage: const AssetImage('assets/image3.jpg'),
-              ),
-            ),
-          ],
-          onTap: (index) => setState(() => currentIndex = index),
+            ],
+            onTap: (index) => setState(() => currentIndex = index),
+          ),
         ));
   }
 }

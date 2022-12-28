@@ -585,7 +585,10 @@ buildSavePassword(context) {
                                     fontFamily: 'Poppins',
                                     color: customTextColor,
                                     /*       fontWeight: FontWeight.bold, */
-                                    fontSize: 12.sp),
+                                    fontSize:
+                                        MediaQuery.of(context).size.height > 667
+                                            ? 10.sp
+                                            : 12.sp),
                               ),
                             ],
                           ),
