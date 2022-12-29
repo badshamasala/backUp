@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/bx.dart';
+import 'package:iconify_flutter/icons/gg.dart';
+import 'package:iconify_flutter/icons/ic.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
@@ -18,30 +23,35 @@ class PostTab extends StatefulWidget {
 
 class _PostTabState extends State<PostTab> with TickerProviderStateMixin {
   var photos = [
-    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp',
-    'https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80',
-    'https://media.istockphoto.com/id/1007763808/photo/portrait-of-handsome-latino-african-man.jpg?s=612x612&w=0&k=20&c=XPL1ukeC99OY8HBfNa_njDujOPf9Xz4yCEOo7O3evU0=',
-    'https://api.time.com/wp-content/uploads/2017/12/joey-degrandis-hsam-memory.jpg',
-  
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxv0P4qDS_KAn-lIeyKpOSVEM87pPKbIVIQ&usqp=CAU',
-    'https://i.gremicdn.pl/image/free/4104b01f2c33bd2758e86f296b92d03d/?t=crop:1313:814:nowe:0:37.075845974329,resize:fill:408:255,enlarge:1',
-    'https://media.istockphoto.com/id/1009749608/photo/young-woman-portrait-in-the-city.jpg?s=612x612&w=0&k=20&c=nBmdXrCkI6Zz-J1EkCGQAamaYlZeIOQAtKunC4WMT-U=',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejyWxg3_4iE9iSY9SuGG4Yhy2Hm3Tk_rxHg&usqp=CAU',
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80',
-    'https://cdn.pixabay.com/photo/2017/06/20/22/14/man-2425121__340.jpg',
-    'https://cdn.stocksnap.io/img-thumbs/280h/businessmeeting-people_QVIEE1UZSX.jpg',
-    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp',
-    'https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80',
-    'https://media.istockphoto.com/id/1007763808/photo/portrait-of-handsome-latino-african-man.jpg?s=612x612&w=0&k=20&c=XPL1ukeC99OY8HBfNa_njDujOPf9Xz4yCEOo7O3evU0=',
-    'https://api.time.com/wp-content/uploads/2017/12/joey-degrandis-hsam-memory.jpg',
-    '',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxv0P4qDS_KAn-lIeyKpOSVEM87pPKbIVIQ&usqp=CAU',
-    'https://i.gremicdn.pl/image/free/4104b01f2c33bd2758e86f296b92d03d/?t=crop:1313:814:nowe:0:37.075845974329,resize:fill:408:255,enlarge:1',
-    'https://media.istockphoto.com/id/1009749608/photo/young-woman-portrait-in-the-city.jpg?s=612x612&w=0&k=20&c=nBmdXrCkI6Zz-J1EkCGQAamaYlZeIOQAtKunC4WMT-U=',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejyWxg3_4iE9iSY9SuGG4Yhy2Hm3Tk_rxHg&usqp=CAU',
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80',
-    'https://cdn.pixabay.com/photo/2017/06/20/22/14/man-2425121__340.jpg',
-    'https://cdn.stocksnap.io/img-thumbs/280h/businessmeeting-people_QVIEE1UZSX.jpg',
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+    'assets/image9.jpg',
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+    'assets/image9.jpg',
+  ];
+  List<Map<String, dynamic>> postList = [
+    {"icon": Bx.photo_album, "label": "Post", "count": "130"},
+    {"icon": Ic.round_history, "label": "Story", "count": "130"},
+    {
+      "icon": MaterialSymbols.play_arrow_outline_rounded,
+      "label": "Video",
+      "count": "130"
+    },
+    {"icon": Gg.edit_highlight, "label": "High", "count": "130"},
+    {"icon": Bi.people, "label": "Live", "count": "130"},
   ];
   TabController? tabController;
 
@@ -62,29 +72,29 @@ class _PostTabState extends State<PostTab> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 7.h,
-          automaticallyImplyLeading: false,
-          titleSpacing: -2.sp,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text('Post',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: customTextColor,
-                  fontSize: 15.sp)),
-          leading: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Iconify(
-                Mdi.arrow_back,
-                color: primaryColorOfApp,
-              )),
-        ),
+        toolbarHeight: 7.h,
+        automaticallyImplyLeading: false,
+        titleSpacing: -2.sp,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text('Post',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
+        leading: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Iconify(
+              Mdi.arrow_back,
+              color: primaryColorOfApp,
+            )),
+      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
         child: Column(
           children: [
             Container(
@@ -92,182 +102,220 @@ class _PostTabState extends State<PostTab> with TickerProviderStateMixin {
               decoration: BoxDecoration(
                   /*         color: Colors.red, */
                   shape: BoxShape.rectangle,
-                  border: Border.all(width: 0.5, color: customTextColor),
+                  border: Border.all(width: 0.1, color: customTextColor),
                   borderRadius: BorderRadius.circular(5)),
               child: ButtonsTabBar(
-                  radius: 7,
+                  radius: 5,
                   labelSpacing: 0,
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 4.5),
-                  buttonMargin: const EdgeInsets.all(4),
-                  unselectedBorderColor: Colors.white,
+                  contentPadding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.height > 667
+                          ? 2.9.w
+                          : 2.5.w),
+                  buttonMargin: const EdgeInsets.all(0),
+                  unselectedBorderColor: Colors.black,
                   borderColor: Colors.black,
-                  borderWidth: 0,
-                  height: 76,
+                  borderWidth: 0.1,
+                  height: 13.h,
                   unselectedBackgroundColor: Colors.white,
                   backgroundColor: const Color(0xffe2e2e2),
-                  /* overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.hovered))
-                        return Colors.amberAccent; //<-- SEE HERE
-                      return null;
-                    },
-                  ), */
-                  /*   labelColor: primaryColorOfApp,
-                  unselectedLabelColor: customTextColor,
-                  padding: EdgeInsets.zero,
-                  indicatorWeight: 0.1,
-                  indicatorColor: primaryColorOfApp,
-                  indicatorSize: TabBarIndicatorSize.label, */
                   controller: tabController,
                   tabs: [
                     Tab(
-                      iconMargin: EdgeInsets.zero,
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 2.0),
-                            child: CircleAvatar(
-                              backgroundColor: primaryColorOfApp,
-                              child: SvgPicture.asset(
-                                'assets/posticon.svg',
-                                height: 18,
-                                width: 18,
-                                color: Colors.white,
-                              ),
-                            ),
+                          Container(
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: primaryColorOfApp),
+                              child: Padding(
+                                padding: EdgeInsets.all(8.sp),
+                                child: Iconify(
+                                  postList[0]["icon"],
+                                  color: Colors.white,
+                                  /*      size: index == 2 ? 27.sp : 20.sp, */
+                                ),
+                              )),
+                          SizedBox(
+                            height: 0.5.h,
                           ),
-                          const Text(
-                            'Post',
+                          Text(
+                            postList[0]["label"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
-                          const Text(
-                            '130',
+                          SizedBox(
+                            height: 0.5.h,
+                          ),
+                          Text(
+                            postList[0]["count"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
                         ],
                       ),
                     ),
                     Tab(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CircleAvatar(
-                            backgroundColor: primaryColorOfApp,
-                            child: SvgPicture.asset(
-                              'assets/historyicon.svg',
-                              height: 18,
-                              width: 18,
-                              color: Colors.white,
-                            ),
+                          Container(
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: primaryColorOfApp),
+                              child: Padding(
+                                padding: EdgeInsets.all(8.sp),
+                                child: Iconify(
+                                  postList[1]["icon"],
+                                  color: Colors.white,
+                                  /*      size: index == 2 ? 27.sp : 20.sp, */
+                                ),
+                              )),
+                          SizedBox(
+                            height: 0.5.h,
                           ),
-                          const Text(
-                            'Story',
+                          Text(
+                            postList[1]["label"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
-                          const Text(
-                            '130',
+                          SizedBox(
+                            height: 0.5.h,
+                          ),
+                          Text(
+                            postList[1]["count"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
                         ],
                       ),
                     ),
                     Tab(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CircleAvatar(
-                            backgroundColor: primaryColorOfApp,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 4.0),
-                              child: SvgPicture.asset(
-                                'assets/videoicon.svg',
-                                height: 18,
-                                width: 18,
-                                color: Colors.white,
-                              ),
-                            ),
+                          Container(
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: primaryColorOfApp),
+                              child: Padding(
+                                padding: EdgeInsets.all(8.sp),
+                                child: Iconify(
+                                  postList[2]["icon"],
+                                  color: Colors.white,
+                                  /*      size: index == 2 ? 27.sp : 20.sp, */
+                                ),
+                              )),
+                          SizedBox(
+                            height: 0.5.h,
                           ),
-                          const Text(
-                            'video',
+                          Text(
+                            postList[2]["label"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
-                          const Text(
-                            '130',
+                          SizedBox(
+                            height: 0.5.h,
+                          ),
+                          Text(
+                            postList[2]["count"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
                         ],
                       ),
                     ),
                     Tab(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CircleAvatar(
-                            backgroundColor: primaryColorOfApp,
-                            child: SvgPicture.asset(
-                              'assets/highlights.svg',
-                              height: 18,
-                              width: 18,
-                              color: Colors.white,
-                            ),
+                          Container(
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: primaryColorOfApp),
+                              child: Padding(
+                                padding: EdgeInsets.all(8.sp),
+                                child: Iconify(
+                                  postList[3]["icon"],
+                                  color: Colors.white,
+                                  /*      size: index == 2 ? 27.sp : 20.sp, */
+                                ),
+                              )),
+                          SizedBox(
+                            height: 0.5.h,
                           ),
-                          const Text(
-                            'High',
+                          Text(
+                            postList[3]["label"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
-                          const Text(
-                            '130',
+                          SizedBox(
+                            height: 0.5.h,
+                          ),
+                          Text(
+                            postList[3]["count"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
                         ],
                       ),
                     ),
                     Tab(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CircleAvatar(
-                            backgroundColor: primaryColorOfApp,
-                            child: SvgPicture.asset(
-                              'assets/privacygroup.svg',
-                              height: 18,
-                              width: 18,
-                              color: Colors.white,
-                            ),
+                          Container(
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: primaryColorOfApp),
+                              child: Padding(
+                                padding: EdgeInsets.all(8.sp),
+                                child: Iconify(
+                                  postList[4]["icon"],
+                                  color: Colors.white,
+                                  /*      size: index == 2 ? 27.sp : 20.sp, */
+                                ),
+                              )),
+                          SizedBox(
+                            height: 0.5.h,
                           ),
-                          const Text(
-                            'Live',
+                          Text(
+                            postList[4]["label"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
-                          const Text(
-                            '130',
+                          SizedBox(
+                            height: 0.5.h,
+                          ),
+                          Text(
+                            postList[4]["count"],
                             style: TextStyle(
                                 color: customTextColor,
                                 fontFamily: 'Poppins',
-                                fontSize: 10),
+                                fontSize: 10.sp),
                           ),
                         ],
                       ),
@@ -287,16 +335,49 @@ class _PostTabState extends State<PostTab> with TickerProviderStateMixin {
                       scrollDirection: Axis.vertical,
                       itemCount: photos.length,
                       itemBuilder: (_, i) {
-                        return Container(
-                          /*       width: 200, */
-                          height: 300,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(5),
-                            image: DecorationImage(
-                                image: NetworkImage(photos[i]),
-                                fit: BoxFit.cover),
-                          ),
+                        return Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      photos[i],
+                                    ),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Positioned(
+                              top: 5.5.h,
+                              child: Column(
+                                children: [
+                                  Iconify(
+                                    i.isEven
+                                        ? MaterialSymbols
+                                            .play_arrow_outline_rounded
+                                        : Bx.photo_album,
+                                    color: Colors.white,
+                                    size: i.isEven ? 25.sp : 20.sp,
+                                  ),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        '20-Aug-2020',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                            fontSize: 10.sp),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         );
                       }),
                 ),
@@ -311,16 +392,49 @@ class _PostTabState extends State<PostTab> with TickerProviderStateMixin {
                       scrollDirection: Axis.vertical,
                       itemCount: photos.length,
                       itemBuilder: (_, i) {
-                        return Container(
-                          /*       width: 200, */
-                          height: 300,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(5),
-                            image: DecorationImage(
-                                image: NetworkImage(photos[i]),
-                                fit: BoxFit.cover),
-                          ),
+                        return Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      photos[i],
+                                    ),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Positioned(
+                              top: 5.5.h,
+                              child: Column(
+                                children: [
+                                  Iconify(
+                                    i.isEven
+                                        ? MaterialSymbols
+                                            .play_arrow_outline_rounded
+                                        : Bx.photo_album,
+                                    color: Colors.white,
+                                    size: i.isEven ? 25.sp : 20.sp,
+                                  ),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        '20-Aug-2020',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                            fontSize: 10.sp),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         );
                       }),
                 ),
@@ -335,16 +449,49 @@ class _PostTabState extends State<PostTab> with TickerProviderStateMixin {
                       scrollDirection: Axis.vertical,
                       itemCount: photos.length,
                       itemBuilder: (_, i) {
-                        return Container(
-                          /*       width: 200, */
-                          height: 300,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(5),
-                            image: DecorationImage(
-                                image: NetworkImage(photos[i]),
-                                fit: BoxFit.cover),
-                          ),
+                        return Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      photos[i],
+                                    ),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Positioned(
+                              top: 5.5.h,
+                              child: Column(
+                                children: [
+                                  Iconify(
+                                    i.isEven
+                                        ? MaterialSymbols
+                                            .play_arrow_outline_rounded
+                                        : Bx.photo_album,
+                                    color: Colors.white,
+                                    size: i.isEven ? 25.sp : 20.sp,
+                                  ),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        '20-Aug-2020',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                            fontSize: 10.sp),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         );
                       }),
                 ),
@@ -359,16 +506,49 @@ class _PostTabState extends State<PostTab> with TickerProviderStateMixin {
                       scrollDirection: Axis.vertical,
                       itemCount: photos.length,
                       itemBuilder: (_, i) {
-                        return Container(
-                          /*       width: 200, */
-                          height: 300,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(5),
-                            image: DecorationImage(
-                                image: NetworkImage(photos[i]),
-                                fit: BoxFit.cover),
-                          ),
+                        return Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      photos[i],
+                                    ),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Positioned(
+                              top: 5.5.h,
+                              child: Column(
+                                children: [
+                                  Iconify(
+                                    i.isEven
+                                        ? MaterialSymbols
+                                            .play_arrow_outline_rounded
+                                        : Bx.photo_album,
+                                    color: Colors.white,
+                                    size: i.isEven ? 25.sp : 20.sp,
+                                  ),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        '20-Aug-2020',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                            fontSize: 10.sp),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         );
                       }),
                 ),
@@ -383,16 +563,40 @@ class _PostTabState extends State<PostTab> with TickerProviderStateMixin {
                       scrollDirection: Axis.vertical,
                       itemCount: photos.length,
                       itemBuilder: (_, i) {
-                        return Container(
-                          /*       width: 200, */
-                          height: 300,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(5),
-                            image: DecorationImage(
-                                image: NetworkImage(photos[i]),
-                                fit: BoxFit.cover),
-                          ),
+                        return Stack(
+                          alignment: Alignment.topLeft,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      photos[i],
+                                    ),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Video Ended',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 8.sp),
+                                ),
+                                Text(
+                                  '25-January-2022',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 7.sp),
+                                ),
+                              ],
+                            ),
+                          ],
                         );
                       }),
                 ),

@@ -32,6 +32,10 @@ class _CreatepollState extends State<Createpoll> {
     // TODO: implement initState
     super.initState();
 
+    Provider.of<CreatePollProvider>(context, listen: false)
+        .methodforSelection();
+
+    /*    newMethod(); */
     questionCont.addListener(() {
       if (questionCont.text.isEmpty) {
         setState(() {
@@ -87,40 +91,39 @@ class _CreatepollState extends State<Createpoll> {
         });
       }
     });
-    newMethod(0);
   }
 
-  newMethod(index) {
+  /*  newMethod() {
     Provider.of<CreatePollProvider>(context, listen: false)
-        .methodforSelection(index);
-  }
+        .methodforSelection();
+  } */
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<CreatePollProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 7.h,
-          automaticallyImplyLeading: false,
-          titleSpacing: -2.sp,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text('Create Poll',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: customTextColor,
-                  fontSize: 15.sp)),
-          leading: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Iconify(
-                Mdi.arrow_back,
-                color: primaryColorOfApp,
-              )),
-        ),
+        toolbarHeight: 7.h,
+        automaticallyImplyLeading: false,
+        titleSpacing: -2.sp,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text('Create Poll',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
+        leading: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Iconify(
+              Mdi.arrow_back,
+              color: primaryColorOfApp,
+            )),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -181,23 +184,29 @@ class _CreatepollState extends State<Createpoll> {
                     itemBuilder: (context, index) {
                       return ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            side: BorderSide(color: primaryColorOfApp),
-                            backgroundColor: provider.newVariable2 ? primaryColorOfApp : provider.emptyList
-                                    .contains(provider.buttonlist[index])
+                            side: const BorderSide(color: primaryColorOfApp),
+                            backgroundColor: /*  provider.newVariable2
                                 ? primaryColorOfApp
-                                : Colors.white,
-                            foregroundColor: provider.newVariable2 ? Colors.white : provider.emptyList
-                                    .contains(provider.buttonlist[index])
+                                :  */
+                                provider.emptyList
+                                        .contains(provider.buttonlist[index])
+                                    ? primaryColorOfApp
+                                    : Colors.white,
+                            foregroundColor: /* provider.newVariable2
                                 ? Colors.white
-                                : primaryColorOfApp,
+                                : */
+                                provider.emptyList
+                                        .contains(provider.buttonlist[index])
+                                    ? Colors.white
+                                    : primaryColorOfApp,
                             elevation: 0),
                         onPressed: () {
                           provider.updateOptionMethod(index);
-                          /*  print(provider.emptyList); */
+                          /*print(provider.emptyList);*/
 
-                          /*  provider.getCount(index); */
-                          /* var newVariable = provider.emptyList[index]["value"];
-                            print(newVariable); */
+                          /*provider.getCount(index);*/
+                          /*var newVariable = provider.emptyList[index]["value"];
+                            print(newVariable);*/
                         },
                         child: Text(
                           provider.buttonlist[index]["label"],
@@ -522,7 +531,7 @@ class CreatePollProvider extends ChangeNotifier {
   ];
   List tempoList = [];
   int newVariable = 2;
-  bool newVariable2 = false;
+
   bool visibility = false;
   bool buttonCheck = false;
   var questionCont = TextEditingController();
@@ -536,17 +545,17 @@ class CreatePollProvider extends ChangeNotifier {
     }
     /*  print('Update----${buttonlist[index]["value"]}'); */
     newVariable = buttonlist[index]["value"];
-     newVariable2 = false; 
+  
     /*    print("GetCount-----$newVariable"); */
     notifyListeners();
   }
 
-  methodforSelection(index) {
-    if (index == 0) {
-        newVariable2 = true;
+  methodforSelection() {
+    if (emptyList.isEmpty) {
+      emptyList.add(buttonlist[0]);
+      tempoList.add(durationlist[0]);
     }
-  
-    return newVariable2;
+   
   }
 
   int get count => newVariable;

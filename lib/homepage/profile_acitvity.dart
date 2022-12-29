@@ -7,9 +7,12 @@ import 'package:flutter_application_1/homepage/post_tab.dart';
 import 'package:flutter_application_1/homepage/visited.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/bi.dart';
+import 'package:iconify_flutter/icons/bx.dart';
+import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/gg.dart';
-import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/ic.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
@@ -43,18 +46,22 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
     'assets/image8.jpg',
     'assets/image9.jpg',
   ];
+  List<Map<String, dynamic>> postList = [
+    {"icon": Bx.photo_album, "label": "Post", "count": "130"},
+    {"icon": Ic.round_history, "label": "Story", "count": "130"},
+    {
+      "icon": MaterialSymbols.play_arrow_outline_rounded,
+      "label": "Video",
+      "count": "130"
+    },
+    {"icon": Gg.edit_highlight, "label": "High", "count": "130"},
+    {"icon": Bi.people, "label": "Live", "count": "130"},
+  ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double height = size.height, width = size.width;
 
-    List<Map<String,dynamic>> postList = [
-      {"icon": Ic.twotone_photo_library, "label": "Post", "count": "130"},
-      {"icon": Ic.round_history, "label": "Story", "count": "130"},
-      {"icon": Icons.play_arrow_outlined, "label": "Video", "count": "130"},
-      {"icon": Gg.edit_highlight, "label": "High", "count": "130"},
-      {"icon": Heroicons.user_group_solid, "label": "Live", "count": "130"},
-    ];
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -108,325 +115,136 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
               ],
             ),
             SizedBox(
-              height: 12.h,
-              child: GridView.builder(
-                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                   /*    mainAxisExtent: 35, */
-                      /*     childAspectRatio: 3.5, */
-                      crossAxisSpacing: 1,
-                      mainAxisSpacing: 1,
-                      crossAxisCount: postList.length),
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PostTab(
-                                    value: 0,
-                                  )),
-                        );
-                      },
-                      child: Column(
-                        children: [
-                          Iconify(postList[index]["icon"].toString()),
-                          Text(
-                            postList[index]["label"],
-                            style: TextStyle(
-                                color: customTextColor,
-                                fontFamily: 'Poppins',
-                                fontSize: 10.sp),
-                          ),
-                          Text(
-                            postList[index]["count"],
-                            style: TextStyle(
-                                color: customTextColor,
-                                fontFamily: 'Poppins',
-                                fontSize: 10.sp),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                  itemCount: postList.length),
-            ),
-            Container(
-              height: 12.h,
-              decoration: BoxDecoration(
+              height: 13.h,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.sp),
                   shape: BoxShape.rectangle,
-                  border: Border.all(width: 0.5, color: customTextColor),
-                  borderRadius: BorderRadius.circular(5)),
-              child: IntrinsicHeight(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PostTab(
-                                    value: 0,
-                                  )),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 5.0),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: primaryColorOfApp,
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 3.0),
-                                child: SvgPicture.asset(
-                                  'assets/posticon.svg',
-                                  height: 18,
-                                  width: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'Post',
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10.sp),
-                            ),
-                            Text(
-                              '130',
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10.sp),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    verticalDivider(),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PostTab(
-                                    value: 1,
-                                  )),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 5.0),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: primaryColorOfApp,
-                              child: SvgPicture.asset(
-                                'assets/historyicon.svg',
-                                height: 18,
-                                width: 18,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const Text(
-                              'Story',
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10),
-                            ),
-                            const Text(
-                              '130',
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    verticalDivider(),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PostTab(
-                                    value: 2,
-                                  )),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 5.0),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: primaryColorOfApp,
-                              child: SvgPicture.asset(
-                                'assets/videoicon.svg',
-                                height: 18,
-                                width: 18,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const Text(
-                              'video',
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10),
-                            ),
-                            const Text(
-                              '130',
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    verticalDivider(),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PostTab(
-                                    value: 3,
-                                  )),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 5.0),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: primaryColorOfApp,
-                              child: SvgPicture.asset(
-                                'assets/highlights.svg',
-                                height: 18,
-                                width: 18,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(top: 1.0),
-                              child: Text(
-                                'High',
-                                style: TextStyle(
-                                    color: customTextColor,
-                                    fontFamily: 'Poppins',
-                                    fontSize: 10),
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(top: 1.0),
-                              child: Text(
-                                '130',
-                                style: TextStyle(
-                                    color: customTextColor,
-                                    fontFamily: 'Poppins',
-                                    fontSize: 10),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    verticalDivider(),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PostTab(
-                                    value: 4,
-                                  )),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 5.0),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: primaryColorOfApp,
-                              child: SvgPicture.asset(
-                                'assets/privacygroup.svg',
-                                /*    height: 18,
-                                width: 18, */
-                                color: Colors.white,
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(top: 1.0),
-                              child: Text(
-                                'Live',
-                                style: TextStyle(
-                                    color: customTextColor,
-                                    fontFamily: 'Poppins',
-                                    fontSize: 10),
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(top: 1.0, bottom: 2),
-                              child: Text(
-                                '130',
-                                style: TextStyle(
-                                    color: customTextColor,
-                                    fontFamily: 'Poppins',
-                                    fontSize: 10),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                  border: Border.all(color: customTextColor, width: 0.5),
                 ),
+                child: ListView.separated(
+padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    separatorBuilder: (context, index) {
+                      return const VerticalDivider(
+                        color: Colors.black,
+                      );
+                    },
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PostTab(
+                                      value: index == 0
+                                          ? 0
+                                          : index == 1
+                                              ? 1
+                                              : index == 2
+                                                  ? 2
+                                                  : index == 3
+                                                      ? 3
+                                                      : 4,
+                                    )),
+                          );
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 1.w),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                  decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: primaryColorOfApp),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(index == 2
+                                        ? 5.sp
+                                        : index == 1
+                                            ? 5.sp
+                                            : 8.sp),
+                                    child: Iconify(
+                                      postList[index]["icon"],
+                                      color: Colors.white,
+                                      size: index == 2
+                                          ? 27.sp
+                                          : index == 1
+                                              ? 26.sp
+                                              : 20.sp,
+                                    ),
+                                  )),
+                              SizedBox(
+                                height: 0.5.h,
+                              ),
+                              Text(
+                                postList[index]["label"],
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 10.sp),
+                              ),
+                              SizedBox(
+                                height: 0.5.h,
+                              ),
+                              Text(
+                                postList[index]["count"],
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 10.sp),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: postList.length),
               ),
             ),
             SizedBox(
               height: height * 0.01,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   'Time',
                   style: TextStyle(
                       color: customTextColor,
                       fontFamily: 'Poppins',
-                      fontSize: 15),
+                      fontSize: 13.sp),
                 ),
                 SizedBox(
-                  width: width * 0.01,
+                  width: 1.w,
                 ),
-                const Text(
+                Text(
                   'Friday',
                   style: TextStyle(
-                      color: Color(0xff037F26),
+                      color: const Color(0xff037F26),
                       fontFamily: 'Poppins',
-                      fontSize: 12),
+                      fontSize: 12.sp),
                 ),
                 SizedBox(
-                  width: width * 0.01,
+                  width: 1.w,
                 ),
-                const Text(
+                Text(
                   '22-January-2022',
                   style: TextStyle(
                       color: customTextColor,
                       fontFamily: 'Poppins',
-                      fontSize: 12),
+                      fontSize: 10.sp),
                 ),
               ],
             ),
             SizedBox(
-              height: height * 0.01,
+              height: 1.h,
             ),
             SizedBox(
-              height: 100,
+              height: 15.h,
               child: BarChart(
                 BarChartData(
                     gridData: FlGridData(show: false),
@@ -457,14 +275,16 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                     alignment: BarChartAlignment.center,
                     maxY: 2,
                     minY: 0,
-                    groupsSpace: 28,
+                    groupsSpace: MediaQuery.of(context).size.height > 667
+                        ? 27.sp
+                        : 25.sp,
                     barTouchData: BarTouchData(enabled: true),
                     barGroups: BarData.barData
                         .map((data) => BarChartGroupData(x: data.id, barRods: [
                               BarChartRodData(
                                   toY: data.y,
                                   color: data.color,
-                                  width: 17,
+                                  width: 5.w,
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(10),
                                       topRight: Radius.circular(10)))
@@ -473,18 +293,21 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                     backgroundColor: Colors.white),
               ),
             ),
+            SizedBox(
+              height: 1.h,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       'Visited Site',
                       style: TextStyle(
                           color: customTextColor,
                           fontFamily: 'Poppins',
-                          fontSize: 12),
+                          fontSize: 13.sp),
                     ),
                     IconButton(
                         padding: EdgeInsets.zero,
@@ -498,19 +321,19 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                         },
                         icon: SvgPicture.asset(
                           'assets/arrowicon.svg',
-                          height: 10,
+                          height: 10.sp,
                         )),
                   ],
                 ),
-                const Text(
+                Text(
                   'recently visited site',
                   style: TextStyle(
                       color: customTextColor,
                       fontFamily: 'Poppins',
-                      fontSize: 10),
+                      fontSize: 10.sp),
                 ),
                 SizedBox(
-                  height: 65,
+                  height: 10.h,
                   child: ListView.separated(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -526,8 +349,8 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                           padding: const EdgeInsets.only(top: 8.0),
                           child: Image.asset(
                             images[index],
-                            height: 65,
-                            width: 57,
+                            height: 10.h,
+                            width: 20.w,
                             fit: BoxFit.cover,
                           ),
                         );
@@ -540,12 +363,12 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     'Groups',
                     style: TextStyle(
                         color: customTextColor,
                         fontFamily: 'Poppins',
-                        fontSize: 12),
+                        fontSize: 13.sp),
                   ),
                   IconButton(
                     padding: EdgeInsets.zero,
@@ -559,47 +382,50 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                     },
                     icon: SvgPicture.asset(
                       'assets/arrowicon.svg',
-                      height: 10,
+                      height: 10.sp,
                     ),
                   )
                 ],
               ),
             ),
             SizedBox(
-              height: 73,
+              height: 11.h,
               child: ListView.separated(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   separatorBuilder: (context, index) {
-                    return const VerticalDivider(
-                      width: 5,
+                    return VerticalDivider(
+                      width: 3.w,
                       color: Colors.transparent,
                     );
                   },
                   itemCount: images.length,
                   itemBuilder: ((context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Column(
-                        children: [
-                          SvgPicture.asset(
-                            'assets/chatgroup.svg',
-                            height: 44,
-                            width: 44,
-                            /*       color: primaryColorOfApp, */
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(top: 5.0),
-                            child: Text(
-                              'Public-A',
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10),
-                            ),
-                          )
-                        ],
-                      ),
+                    return Column(
+                      children: [
+                        Container(
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                    width: 1, color: primaryColorOfApp)),
+                            child: Padding(
+                              padding: EdgeInsets.all(10.sp),
+                              child: const Iconify(
+                                Eva.people_outline,
+                                color: primaryColorOfApp,
+                              ),
+                            )),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Text(
+                          'Public-A',
+                          style: TextStyle(
+                              color: customTextColor,
+                              fontFamily: 'Poppins',
+                              fontSize: 8.sp),
+                        )
+                      ],
                     );
                   })),
             ),
@@ -609,12 +435,12 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       'Delete',
                       style: TextStyle(
-                          color: Color(0xffED1B24),
+                          color: const Color(0xffED1B24),
                           fontFamily: 'Poppins',
-                          fontSize: 12),
+                          fontSize: 13.sp),
                     ),
                     IconButton(
                       padding: EdgeInsets.zero,
@@ -628,20 +454,20 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                       },
                       icon: SvgPicture.asset(
                         'assets/arrowicon.svg',
-                        height: 10,
+                        height: 10.sp,
                       ),
                     ),
                   ],
                 ),
-                const Text(
+                Text(
                   'recently visited site',
                   style: TextStyle(
                       color: customTextColor,
                       fontFamily: 'Poppins',
-                      fontSize: 10),
+                      fontSize: 10.sp),
                 ),
                 SizedBox(
-                  height: 65,
+                  height: 10.h,
                   child: ListView.separated(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -654,13 +480,13 @@ class _ProfileAcitvityState extends State<ProfileAcitvity> {
                       itemCount: photos.length,
                       itemBuilder: ((context, index) {
                         return Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
+                          padding: EdgeInsets.only(top: 8.sp),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(5.sp),
                             child: Image.asset(
                               photos[index],
-                              height: 65,
-                              width: 57,
+                              height: 10.h,
+                              width: 20.w,
                               fit: BoxFit.cover,
                             ),
                           ),

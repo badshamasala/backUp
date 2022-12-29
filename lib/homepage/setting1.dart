@@ -61,7 +61,7 @@ class _Setting1State extends State<Setting1> {
       appBar: AppBar(
         toolbarHeight: 10.h,
         automaticallyImplyLeading: false,
-        titleSpacing: -2.sp,
+        titleSpacing: 3.sp,
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: SizedBox(

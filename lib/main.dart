@@ -12,6 +12,7 @@ import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
 import 'package:flutter_application_1/NEW_FOLDER/saved1.dart';
 import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 import 'package:flutter_application_1/POLL/createpoll.dart';
+import 'package:flutter_application_1/POLL/createpoll2.dart';
 
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/chat_screen1.dart';
@@ -105,7 +106,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: HomePage() /* LoginPage12() */
+                  home: Createpoll2() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(
