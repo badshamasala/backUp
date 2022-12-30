@@ -44,7 +44,7 @@ class _Setting1State extends State<Setting1> {
   List<Map<String, dynamic>> settingList = [
     {"icon": Eva.settings_2_outline, "label": "Setting"},
     {"icon": Gg.edit_highlight, "label": "Profile Activity"},
-    {"icon": Bi.gift, "label": "Digital Collection"},
+    {"icon": Bi.gift, "label": "Reward Collection"},
     {"icon": Octicon.history_16, "label": "History"},
     {"icon": Mdi.archive_arrow_down_outline, "label": "Archive"},
     {"icon": Bi.bookmark_star, "label": "Saved"},
@@ -166,11 +166,11 @@ class _Setting1State extends State<Setting1> {
                         } else if (index == 7) {
                           Get.to(() => const Friends1());
                         } else if (index == 8) {
-                          Get.to(() => const ProfileAcitvity());
+                          /*  Get.to(() => const ProfileAcitvity()); */
                         } else if (index == 9) {
-                          Get.to(() => const ProfileAcitvity());
+                          /*  Get.to(() => const ProfileAcitvity()); */
                         } else if (index == 10) {
-                          Get.to(() => const ProfileAcitvity());
+                          /*  Get.to(() => const ProfileAcitvity()); */
                         }
                       },
                       child: Row(

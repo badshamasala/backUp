@@ -7,7 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/POLL/createpoll.dart';
 import 'package:flutter_application_1/homepage/people_profile.dart';
+import 'package:iconify_flutter/icons/ic.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
+import 'package:iconify_flutter/icons/mingcute.dart';
 import 'package:iconify_flutter/icons/ri.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/link.dart';
@@ -95,6 +99,15 @@ class _Home1State extends State<Home1> {
       floatchupa = true;
     });
   }
+
+  List creatPostList = [
+    {"icon": Mingcute.pen_2_line, "label": "Something Write"},
+    {"icon": Ic.outline_add_photo_alternate, "label": "Add Photo"},
+    {"icon": MaterialSymbols.video_call_rounded, "label": "Add Video"},
+    {"icon": Ic.outline_poll, "label": "Create Poll"},
+    {"icon": MaterialSymbols.record_voice_over, "label": "Podcast"},
+    {"icon": Ic.baseline_live_tv, "label": "Live"},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -208,14 +221,14 @@ class _Home1State extends State<Home1> {
             ),
           ],
         ),
-        /*  floatingActionButtonLocation:
+        floatingActionButtonLocation:
             FloatingActionButtonLocation.miniEndDocked,
         floatingActionButton: Visibility(
           visible: floatchupa,
           child: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+            padding: EdgeInsets.only(bottom: 8.h),
             child: FloatingActionButton(
-              mini: true,
+              /*  mini: true, */
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               elevation: 0,
               backgroundColor: primaryColorOfApp,
@@ -223,279 +236,348 @@ class _Home1State extends State<Home1> {
                 showDialog(
                     context: context,
                     builder: (context) {
-                      return AlertDialog(
-                        insetPadding: EdgeInsets.zero,
-                        contentPadding: EdgeInsets.zero,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30)),
-                        backgroundColor: Colors.white.withOpacity(0.8),
-                        content: Padding(
-                          padding:
-                              const EdgeInsets.symmetric(horizontal: 15.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.center,
-                                children: [
-                                  Divider(
-                                    height: 15,
-                                    color: Colors.transparent,
-                                  ),
-                                  InkWell(
-                                    onDoubleTap: () {
-                                      Navigator.pop(context);
-                                      setState(() {
-                                        floatchupa = true;
-                                      });
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.grey,
-                                              blurRadius: 0.5,
-                                              spreadRadius: 0.5,
-                                              offset: Offset(
-                                                2,
-                                                3,
-                                              ),
+                      return Padding(
+                        padding: EdgeInsets.only(bottom: 8.h),
+                        child: Dialog(
+                          alignment: Alignment.bottomCenter,
+                          insetPadding: EdgeInsets.zero,
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30)),
+                          backgroundColor: Colors.white.withOpacity(0.8),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 5.w),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Divider(
+                                  height: 1.h,
+                                  color: Colors.transparent,
+                                ),
+                                InkWell(
+                                  onDoubleTap: () {
+                                    Navigator.pop(context);
+                                    setState(() {
+                                      floatchupa = true;
+                                    });
+                                  },
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey,
+                                            blurRadius: 0.5,
+                                            spreadRadius: 0.5,
+                                            offset: Offset(
+                                              2,
+                                              3,
                                             ),
-                                          ],
-                                          shape: BoxShape.circle,
-                                          color: primaryColorOfApp),
-                                      child: Padding(
-                                          padding:
-                                              const EdgeInsets.all(15.0),
-                                          child: SvgPicture.asset(
-                                            'assets/penicon.svg',
-                                            height: 38,
-                                            width: 20,
-                                          )),
-                                    ),
+                                          ),
+                                        ],
+                                        shape: BoxShape.circle,
+                                        color: primaryColorOfApp),
+                                    child: Padding(
+                                        padding: const EdgeInsets.all(15.0),
+                                        child: SvgPicture.asset(
+                                          'assets/penicon.svg',
+                                        )),
                                   ),
-                                  Text(
-                                    'CREATE POST-CHOOSE ONE',
-                                    style: TextStyle(
-                                        color: primaryColorOfApp,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w600,
-                                        letterSpacing: 0.2),
-                                  ),
-                                ],
-                              ),
-                              Divider(
-                                height: 15,
-                                color: Colors.transparent,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Material(
-                                    elevation: 10,
-                                    borderRadius: BorderRadius.circular(25),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(13.0),
-                                        child: Iconify(
-                                          Ic.outline_add_photo_alternate,
-                                          color: primaryColorOfApp,
+                                ),
+                                Text(
+                                  'CREATE POST-PROMOTE BRAND',
+                                  style: TextStyle(
+                                      color: primaryColorOfApp,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: 0.2,
+                                      fontSize: 13.sp),
+                                ),
+                                Divider(
+                                  height: 3.h,
+                                  color: Colors.transparent,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 5.w),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Material(
+                                        elevation: 10,
+                                        borderRadius:
+                                            BorderRadius.circular(25.sp),
+                                        child: Container(
+                                          decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.white),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(13.sp),
+                                            child: Iconify(Ri.ball_pen_fill,
+                                                color: primaryColorOfApp),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 10.0),
+                                        child: Text(
+                                          'Something Write',
+                                          style: TextStyle(
+                                              color: primaryColorOfApp,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 0.2,
+                                              fontSize: 12.sp),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 10.0),
-                                    child: Text(
-                                      'Add Photo',
-                                      style: TextStyle(
-                                          color: primaryColorOfApp,
-                                          fontFamily: 'Poppins',
-                                          /* fontWeight: FontWeight.w600, */
-                                          letterSpacing: 0.2),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Divider(
-                                height: 15,
-                                color: Colors.transparent,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Material(
-                                    elevation: 10,
-                                    borderRadius: BorderRadius.circular(25),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(13.0),
-                                        child: Iconify(
-                                            MaterialSymbols
-                                                .video_call_rounded,
-                                            color: primaryColorOfApp),
+                                ),
+                                Divider(
+                                  height: 2.2.h,
+                                  color: Colors.transparent,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 5.w),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Material(
+                                        elevation: 10,
+                                        borderRadius:
+                                            BorderRadius.circular(25.sp),
+                                        child: Container(
+                                          decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.white),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(13.sp),
+                                            child: Iconify(
+                                                Ic.outline_add_photo_alternate,
+                                                color: primaryColorOfApp),
+                                          ),
+                                        ),
                                       ),
-                                    ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 10.0),
+                                        child: Text(
+                                          'Add Photo',
+                                          style: TextStyle(
+                                              color: primaryColorOfApp,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 0.2,
+                                              fontSize: 12.sp),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 10.0),
-                                    child: Text(
-                                      'Add Video',
-                                      style: TextStyle(
-                                          color: primaryColorOfApp,
-                                          fontFamily: 'Poppins',
-                                          /*     fontWeight: FontWeight.w600, */
-                                          letterSpacing: 0.2),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Divider(
-                                height: 15,
-                                color: Colors.transparent,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Material(
-                                    elevation: 10,
-                                    borderRadius: BorderRadius.circular(25),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(13.0),
-                                        child: Iconify(Ic.outline_poll,
-                                            color: primaryColorOfApp),
+                                ),
+                                Divider(
+                                  height: 2.2.h,
+                                  color: Colors.transparent,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 5.w),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Material(
+                                        elevation: 10,
+                                        borderRadius:
+                                            BorderRadius.circular(25.sp),
+                                        child: Container(
+                                          decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.white),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(13.sp),
+                                            child: Iconify(
+                                                MaterialSymbols
+                                                    .video_call_rounded,
+                                                color: primaryColorOfApp),
+                                          ),
+                                        ),
                                       ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 10.0),
+                                        child: Text(
+                                          'Add Video',
+                                          style: TextStyle(
+                                              color: primaryColorOfApp,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 0.2,
+                                              fontSize: 12.sp),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Divider(
+                                  height: 2.2.h,
+                                  color: Colors.transparent,
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    setState(() {
+                                      floatchupa = true;
+                                    });
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Createpoll()),
+                                    );
+                                    /* 
+                                   */
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Material(
+                                          elevation: 10,
+                                          borderRadius:
+                                              BorderRadius.circular(25.sp),
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.white),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(13.sp),
+                                              child: Iconify(Ic.outline_poll,
+                                                  color: primaryColorOfApp),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            'Create Poll',
+                                            style: TextStyle(
+                                                color: primaryColorOfApp,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w600,
+                                                letterSpacing: 0.2,
+                                                fontSize: 12.sp),
+                                          ),
+                                        )
+                                      ],
                                     ),
                                   ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 10.0),
-                                    child: Text(
-                                      'Create Poll',
-                                      style: TextStyle(
-                                          color: primaryColorOfApp,
-                                          fontFamily: 'Poppins',
-                                          /* fontWeight: FontWeight.w600, */
-                                          letterSpacing: 0.2),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Divider(
-                                height: 15,
-                                color: Colors.transparent,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Material(
-                                    elevation: 10,
-                                    borderRadius: BorderRadius.circular(25),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(13.0),
-                                        child: Iconify(
-                                            MaterialSymbols
-                                                .record_voice_over,
-                                            color: primaryColorOfApp),
+                                ),
+                                Divider(
+                                  height: 2.2.h,
+                                  color: Colors.transparent,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 5.w),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Material(
+                                        elevation: 10,
+                                        borderRadius:
+                                            BorderRadius.circular(25.sp),
+                                        child: Container(
+                                          decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.white),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(13.sp),
+                                            child: Iconify(
+                                                MaterialSymbols
+                                                    .record_voice_over,
+                                                color: primaryColorOfApp),
+                                          ),
+                                        ),
                                       ),
-                                    ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 10.0),
+                                        child: Text(
+                                          'Live Podcast',
+                                          style: TextStyle(
+                                              color: primaryColorOfApp,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 0.2,
+                                              fontSize: 12.sp),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 10.0),
-                                    child: Text(
-                                      'Live Podcast',
-                                      style: TextStyle(
-                                          color: primaryColorOfApp,
-                                          fontFamily: 'Poppins',
-                                          /*      fontWeight: FontWeight.w600, */
-                                          letterSpacing: 0.2),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Divider(
-                                height: 15,
-                                color: Colors.transparent,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Material(
-                                    borderRadius: BorderRadius.circular(25),
-                                    elevation: 10,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(13.0),
-                                        child: Iconify(Ic.baseline_live_tv,
-                                            color: primaryColorOfApp),
+                                ),
+                                Divider(
+                                  height: 2.2.h,
+                                  color: Colors.transparent,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 5.w),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Material(
+                                        borderRadius:
+                                            BorderRadius.circular(25.sp),
+                                        elevation: 10,
+                                        child: Container(
+                                          decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.white),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(13.sp),
+                                            child: Iconify(Ic.baseline_live_tv,
+                                                color: primaryColorOfApp),
+                                          ),
+                                        ),
                                       ),
-                                    ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 10.0),
+                                        child: Text(
+                                          'Live',
+                                          style: TextStyle(
+                                              color: primaryColorOfApp,
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w600,
+                                              letterSpacing: 0.2,
+                                              fontSize: 12.sp),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 10.0),
-                                    child: Text(
-                                      'Live',
-                                      style: TextStyle(
-                                          color: primaryColorOfApp,
-                                          fontFamily: 'Poppins',
-                                          /* fontWeight: FontWeight.w600, */
-                                          letterSpacing: 0.2),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Divider(
-                                height: 25,
-                                color: Colors.transparent,
-                              ),
-                            ],
+                                ),
+                                Divider(
+                                  height: 5.h,
+                                  color: Colors.transparent,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       );
                     }).then((_) {
-              /*     print('dekhjte----------'); */
+                  /*     print('dekhjte----------'); */
                   setState(() {
                     floatchupa = true;
                   });
                 });
-              /*   print('sssssssssss'); */
+                /*   print('sssssssssss'); */
                 setState(() {
-        /*           print('12345677'); */
+                  /*           print('12345677'); */
                   floatchupa = false;
                 });
               },
               child: SvgPicture.asset(
                 'assets/c2c.svg',
-                width: 17,
-                height: 17,
+                width: 4.w,
+                height: 3.h,
                 color: Colors.white,
               ),
             ),
           ),
-        ), */
+        ),
         body: SingleChildScrollView(
           /*     controller: controller, */
           child: Column(

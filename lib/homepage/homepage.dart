@@ -44,10 +44,10 @@ class _HomePageState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
     double height = size.height, width = size.width;
     return Scaffold(
-        extendBody: true,
-        backgroundColor: Colors.white,
-        body: screens.elementAt(currentIndex),
-        bottomNavigationBar: ClipRRect(
+      extendBody: true,
+      backgroundColor: Colors.white,
+      body: screens.elementAt(currentIndex),
+      bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20)),
           child: ConvexAppBar(
@@ -90,6 +90,7 @@ class _HomePageState extends State<HomePage> {
             ],
             onTap: (index) => setState(() => currentIndex = index),
           ),
-        ));
+        )
+    );
   }
 }

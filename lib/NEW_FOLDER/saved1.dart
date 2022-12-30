@@ -44,27 +44,27 @@ class _Saved1State extends State<Saved1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 7.h,
-          automaticallyImplyLeading: false,
-          titleSpacing: -2.sp,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text('Saved',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: customTextColor,
-                  fontSize: 15.sp)),
-          leading: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Iconify(
-                Mdi.arrow_back,
-                color: primaryColorOfApp,
-              )),
-        ),
+        toolbarHeight: 7.h,
+        automaticallyImplyLeading: false,
+        titleSpacing: -2.sp,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text('Saved',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
+        leading: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Iconify(
+              Mdi.arrow_back,
+              color: primaryColorOfApp,
+            )),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: Column(
@@ -82,7 +82,7 @@ class _Saved1State extends State<Saved1> {
                     child: DropdownButtonHideUnderline(
                       child: SizedBox(
                         height: 5.h,
-                        width: 44.w,
+                        width: 41.w,
                         child: DropdownButton(
                             iconEnabledColor: primaryColorOfApp,
                             focusColor: primaryColorOfApp,
@@ -126,7 +126,7 @@ class _Saved1State extends State<Saved1> {
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      minimumSize: Size(44.w, 5.h),
+                      minimumSize: Size(46.w, 5.h),
                       // padding: EdgeInsets.symmetric(
                       //     horizontal: 40.0, vertical: 20.0),
                       backgroundColor: const Color(0xff0087FF),
@@ -146,7 +146,7 @@ class _Saved1State extends State<Saved1> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 45.w,
+                  width: 46.w,
                   child: Column(
                     children: [
                       ClipRRect(
@@ -207,7 +207,7 @@ class _Saved1State extends State<Saved1> {
                   ),
                 ),
                 SizedBox(
-                  width: 45.w,
+                  width: 46.w,
                   child: Column(
                     children: [
                       ClipRRect(
@@ -276,7 +276,7 @@ class _Saved1State extends State<Saved1> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 45.w,
+                  width: 46.w,
                   child: Column(
                     children: [
                       ClipRRect(

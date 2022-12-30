@@ -54,6 +54,15 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
     'assets/image7.jpg',
     'assets/image8.jpg',
     'assets/image9.jpg',
+    'assets/image1.webp',
+    'assets/image2.jpg',
+    'assets/image3.jpg',
+    'assets/image4.webp',
+    'assets/image5.jpeg',
+    'assets/image6.webp',
+    'assets/image7.jpg',
+    'assets/image8.jpg',
+    'assets/image9.jpg',
   ];
   @override
   Widget build(BuildContext context) {
@@ -85,6 +94,7 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
         body: Column(
           children: [
             Container(
+              height: 5.h,
               decoration: BoxDecoration(
                   color: const Color(0xffE2E2E2),
                   shape: BoxShape.rectangle,
@@ -92,7 +102,9 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
                       Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                   borderRadius: BorderRadius.circular(10)),
               child: const TabBar(
+                labelStyle: TextStyle(fontFamily: 'Poppins'),
                 indicatorWeight: 0.1,
+                indicatorColor: Colors.transparent,
                 automaticIndicatorColorAdjustment: false,
                 /* isScrollable: true, */
                 indicatorSize: TabBarIndicatorSize.label,
@@ -112,7 +124,8 @@ class _ArchiveCheckState extends State<ArchiveCheck> {
             Expanded(
               child: TabBarView(children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 10.sp),
                     child: ListView.separated(
                         shrinkWrap: true,
                         separatorBuilder: (context, index) => const Divider(

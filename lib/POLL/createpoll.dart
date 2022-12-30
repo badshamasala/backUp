@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
+import 'package:flutter_application_1/POLL/createpoll2.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,7 @@ class Createpoll extends StatefulWidget {
 }
 
 class _CreatepollState extends State<Createpoll> {
-  bool checkTextField = true;
+  bool checkTextField = false;
   bool option1bool = false;
   bool option2bool = false;
   bool option3bool = false;
@@ -37,7 +38,7 @@ class _CreatepollState extends State<Createpoll> {
 
     /*    newMethod(); */
     questionCont.addListener(() {
-      if (questionCont.text.isEmpty) {
+      if (questionCont.text.isNotEmpty) {
         setState(() {
           checkTextField = true;
         });
@@ -93,423 +94,448 @@ class _CreatepollState extends State<Createpoll> {
     });
   }
 
-  /*  newMethod() {
-    Provider.of<CreatePollProvider>(context, listen: false)
-        .methodforSelection();
-  } */
+  badsha() {
+    setState(() {
+      Provider.of<CreatePollProvider>(context, listen: false).newVariable = 2;
+    });
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<CreatePollProvider>(context, listen: false);
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 7.h,
-        automaticallyImplyLeading: false,
-        titleSpacing: -2.sp,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: Text('Create Poll',
-            style: TextStyle(
-                fontFamily: 'Poppins',
-                color: customTextColor,
-                fontSize: 15.sp)),
-        leading: IconButton(
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Iconify(
-              Mdi.arrow_back,
-              color: primaryColorOfApp,
-            )),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 3.w),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 0.5.h,
-              ),
-              TextFormField(
-                controller: questionCont,
-                cursorColor: primaryColorOfApp,
-                maxLines: 3,
-                decoration: InputDecoration(
-                    hintText: 'e.g Your Favotite Food',
-                    hintStyle: TextStyle(
-                        color: customTextColor,
-                        fontFamily: 'Poppins',
-                        fontSize: 10.sp),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: customTextColor, width: 0.5.sp),
-                        borderRadius: BorderRadius.circular(5)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: primaryColorOfApp, width: 0.5.sp),
-                        borderRadius: BorderRadius.circular(5)),
-                    labelText: 'Add Your Question',
-                    labelStyle: TextStyle(
-                        color: customTextColor,
-                        fontFamily: 'Poppins',
-                        fontSize: 10.sp)),
-              ),
-              SizedBox(
-                height: 0.5.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Select Option',
-                    style: TextStyle(
-                        color: customTextColor,
-                        fontFamily: 'Poppins',
-                        fontSize: 12.sp),
-                  )
-                ],
-              ),
-              Consumer<CreatePollProvider>(builder: (context, value, child) {
-                return GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            mainAxisExtent: 33,
-                            /*     childAspectRatio: 3.5, */
-                            crossAxisSpacing: 5,
-                            mainAxisSpacing: 2,
-                            crossAxisCount: 3),
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            side: const BorderSide(color: primaryColorOfApp),
-                            backgroundColor: /*  provider.newVariable2
-                                ? primaryColorOfApp
-                                :  */
-                                provider.emptyList
-                                        .contains(provider.buttonlist[index])
-                                    ? primaryColorOfApp
-                                    : Colors.white,
-                            foregroundColor: /* provider.newVariable2
-                                ? Colors.white
-                                : */
-                                provider.emptyList
-                                        .contains(provider.buttonlist[index])
-                                    ? Colors.white
-                                    : primaryColorOfApp,
-                            elevation: 0),
-                        onPressed: () {
-                          provider.updateOptionMethod(index);
-                          /*print(provider.emptyList);*/
-
-                          /*provider.getCount(index);*/
-                          /*var newVariable = provider.emptyList[index]["value"];
-                            print(newVariable);*/
-                        },
-                        child: Text(
-                          provider.buttonlist[index]["label"],
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 11.sp),
-                        ),
-                      );
-                    },
-                    itemCount: provider.buttonlist.length);
-              }),
-              SizedBox(
-                height: 3.h,
-              ),
-              Consumer<CreatePollProvider>(builder: (context, value, child) {
-                return ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: provider.count,
-                    itemBuilder: (context, index) {
-                      return TextFormField(
-                        controller: index == 0
-                            ? option1
-                            : index == 1
-                                ? option2
-                                : index == 2
-                                    ? option3
-                                    : option4,
-                        onChanged: (value) {},
-                        maxLength: 50,
-                        cursorColor: primaryColorOfApp,
-                        decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 8, horizontal: 10),
-                            constraints: BoxConstraints(),
-                            isDense: true,
-                            hintText: 'e.g Your Favotite Food',
-                            hintStyle: TextStyle(
-                                color: customTextColor,
-                                fontFamily: 'Poppins',
-                                fontSize: 10.sp),
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: customTextColor, width: 0.5.sp),
-                                borderRadius: BorderRadius.circular(5)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: primaryColorOfApp, width: 0.5.sp),
-                                borderRadius: BorderRadius.circular(5)),
-                            labelText: index == 0
-                                ? 'Add Your Option 1'
-                                : index == 1
-                                    ? "Add Your Option 2"
-                                    : index == 2
-                                        ? "Add Your Option 3"
-                                        : "Add Your Option 4",
-                            labelStyle: TextStyle(
-                                color: customTextColor,
-                                fontFamily: 'Poppins',
-                                fontSize: 10.sp)),
-                      );
-                    });
-              }),
-              Consumer<CreatePollProvider>(builder: (context, value, child) {
-                return Column(
+    return WillPopScope(
+      onWillPop: () => badsha(),
+      child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 7.h,
+          automaticallyImplyLeading: false,
+          titleSpacing: -2.sp,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text('Create Poll',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: customTextColor,
+                  fontSize: 15.sp)),
+          leading: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+                provider.methodforSelection();
+                setState(() {
+                  provider.newVariable = 2;
+                });
+              },
+              icon: const Iconify(
+                Mdi.arrow_back,
+                color: primaryColorOfApp,
+              )),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 3.w),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 0.5.h,
+                ),
+                TextFormField(
+                  controller: questionCont,
+                  cursorColor: primaryColorOfApp,
+                  maxLines: 3,
+                  decoration: InputDecoration(
+                      hintText: 'e.g Your Favotite Food',
+                      hintStyle: TextStyle(
+                          color: customTextColor,
+                          fontFamily: 'Poppins',
+                          fontSize: 10.sp),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: customTextColor, width: 0.5.sp),
+                          borderRadius: BorderRadius.circular(5)),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: primaryColorOfApp, width: 0.5.sp),
+                          borderRadius: BorderRadius.circular(5)),
+                      labelText: 'Add Your Question',
+                      labelStyle: TextStyle(
+                          color: customTextColor,
+                          fontFamily: 'Poppins',
+                          fontSize: 10.sp)),
+                ),
+                SizedBox(
+                  height: 0.5.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Survey Duration',
-                          style: TextStyle(
-                              color: customTextColor,
-                              fontFamily: 'Poppins',
-                              fontSize: 12.sp),
-                        )
-                      ],
-                    ),
-                    Consumer<CreatePollProvider>(
-                        builder: (context, value, child) {
-                      return GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  mainAxisExtent: 33,
-                                  /*     childAspectRatio: 3.5, */
-                                  crossAxisSpacing: 5,
-                                  mainAxisSpacing: 2,
-                                  crossAxisCount: 3),
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                  side: BorderSide(
-                                      color: provider.tempoList.contains(
-                                              provider.durationlist[index])
-                                          ? Colors.white
-                                          : primaryColorOfApp),
-                                  backgroundColor: provider.tempoList.contains(
-                                          provider.durationlist[index])
+                    Text(
+                      'Select Option',
+                      style: TextStyle(
+                          color: customTextColor,
+                          fontFamily: 'Poppins',
+                          fontSize: 12.sp),
+                    )
+                  ],
+                ),
+                Consumer<CreatePollProvider>(builder: (context, value, child) {
+                  return GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisExtent: 33,
+                              /*     childAspectRatio: 3.5, */
+                              crossAxisSpacing: 5,
+                              mainAxisSpacing: 2,
+                              crossAxisCount: 3),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              side: const BorderSide(color: primaryColorOfApp),
+                              backgroundColor: /*  provider.newVariable2
+                                  ? primaryColorOfApp
+                                  :  */
+                                  provider.emptyList
+                                          .contains(provider.buttonlist[index])
                                       ? primaryColorOfApp
                                       : Colors.white,
-                                  foregroundColor: provider.tempoList.contains(
-                                          provider.durationlist[index])
+                              foregroundColor: /* provider.newVariable2
+                                  ? Colors.white
+                                  : */
+                                  provider.emptyList
+                                          .contains(provider.buttonlist[index])
                                       ? Colors.white
                                       : primaryColorOfApp,
-                                  elevation: 0),
-                              onPressed: () {
-                                provider.updateDurationMethod(index);
-                              },
-                              child: Text(
-                                provider.durationlist[index]["label"],
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 11.sp),
-                              ),
-                            );
+                              elevation: 0),
+                          onPressed: () {
+                            provider.updateOptionMethod(index);
+                            /*print(provider.emptyList);*/
+
+                            /*provider.getCount(index);*/
+                            /*var newVariable = provider.emptyList[index]["value"];
+                              print(newVariable);*/
                           },
-                          itemCount: provider.durationlist.length);
-                    }),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Change',
-                          style: TextStyle(
-                            color: primaryColorOfApp,
-                            fontFamily: 'Poppins',
-                            fontSize: 12.sp,
+                          child: Text(
+                            provider.buttonlist[index]["label"],
+                            style: TextStyle(
+                                fontFamily: 'Poppins', fontSize: 11.sp),
                           ),
-                        ),
-                        Text('Color',
-                            style: TextStyle(
-                              color: Color(0xffED1B24),
-                              fontFamily: 'Poppins',
-                              fontSize: 12.sp,
-                            )),
-                        Text('Theme',
-                            style: TextStyle(
-                              color: Color(0xff037F26),
-                              fontFamily: 'Poppins',
-                              fontSize: 12.sp,
-                            )),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                    Text(
-                      '#content: Be careful, we don’t allow request for political opinion and other sensetive information data',
-                      maxLines: 2,
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                        color: customTextColor,
-                        fontFamily: 'Poppins',
-                        fontSize: 10.sp,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 3.h,
-                      child: Row(
+                        );
+                      },
+                      itemCount: provider.buttonlist.length);
+                }),
+                SizedBox(
+                  height: 3.h,
+                ),
+                Consumer<CreatePollProvider>(builder: (context, value, child) {
+                  return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: provider.count,
+                      itemBuilder: (context, index) {
+                        return TextFormField(
+                          controller: index == 0
+                              ? option1
+                              : index == 1
+                                  ? option2
+                                  : index == 2
+                                      ? option3
+                                      : option4,
+                          onChanged: (value) {},
+                          maxLength: 50,
+                          cursorColor: primaryColorOfApp,
+                          decoration: InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 8, horizontal: 10),
+                              constraints: BoxConstraints(),
+                              isDense: true,
+                              hintText: 'e.g Your Favotite Food',
+                              hintStyle: TextStyle(
+                                  color: customTextColor,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10.sp),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: customTextColor, width: 0.5.sp),
+                                  borderRadius: BorderRadius.circular(5)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: primaryColorOfApp, width: 0.5.sp),
+                                  borderRadius: BorderRadius.circular(5)),
+                              labelText: index == 0
+                                  ? 'Add Your Option 1'
+                                  : index == 1
+                                      ? "Add Your Option 2"
+                                      : index == 2
+                                          ? "Add Your Option 3"
+                                          : "Add Your Option 4",
+                              labelStyle: TextStyle(
+                                  color: customTextColor,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10.sp)),
+                        );
+                      });
+                }),
+                Consumer<CreatePollProvider>(builder: (context, value, child) {
+                  return Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            'I accepted ',
+                            'Survey Duration',
                             style: TextStyle(
+                                color: customTextColor,
+                                fontFamily: 'Poppins',
+                                fontSize: 12.sp),
+                          )
+                        ],
+                      ),
+                      Consumer<CreatePollProvider>(
+                          builder: (context, value, child) {
+                        return GridView.builder(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    mainAxisExtent: 33,
+                                    /*     childAspectRatio: 3.5, */
+                                    crossAxisSpacing: 5,
+                                    mainAxisSpacing: 2,
+                                    crossAxisCount: 3),
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                    side: BorderSide(
+                                        color: provider.tempoList.contains(
+                                                provider.durationlist[index])
+                                            ? Colors.white
+                                            : primaryColorOfApp),
+                                    backgroundColor: provider.tempoList
+                                            .contains(
+                                                provider.durationlist[index])
+                                        ? primaryColorOfApp
+                                        : Colors.white,
+                                    foregroundColor: provider.tempoList
+                                            .contains(
+                                                provider.durationlist[index])
+                                        ? Colors.white
+                                        : primaryColorOfApp,
+                                    elevation: 0),
+                                onPressed: () {
+                                  provider.updateDurationMethod(index);
+                                },
+                                child: Text(
+                                  provider.durationlist[index]["label"],
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins', fontSize: 11.sp),
+                                ),
+                              );
+                            },
+                            itemCount: provider.durationlist.length);
+                      }),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Change',
+                            style: TextStyle(
+                              color: primaryColorOfApp,
+                              fontFamily: 'Poppins',
+                              fontSize: 12.sp,
+                            ),
+                          ),
+                          Text('Color',
+                              style: TextStyle(
+                                color: Color(0xffED1B24),
+                                fontFamily: 'Poppins',
+                                fontSize: 12.sp,
+                              )),
+                          Text('Theme',
+                              style: TextStyle(
+                                color: Color(0xff037F26),
+                                fontFamily: 'Poppins',
+                                fontSize: 12.sp,
+                              )),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      Text(
+                        '#content: Be careful, we don’t allow request for political opinion and other sensetive information data',
+                        maxLines: 2,
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                          color: customTextColor,
+                          fontFamily: 'Poppins',
+                          fontSize: 10.sp,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 3.h,
+                        child: Row(
+                          children: [
+                            Text(
+                              'I accepted ',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: customTextColor,
+                                  fontSize: 10.sp),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                foregroundColor: const Color(0xff0087FF),
+                              ),
+                              child: Text(
+                                'terms of services',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: primaryColorOfApp,
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 1.w,
+                            ),
+                            const Text(
+                              '|',
+                              style: TextStyle(
                                 fontFamily: 'Poppins',
                                 color: customTextColor,
-                                fontSize: 10.sp),
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              foregroundColor: const Color(0xff0087FF),
+                              ),
                             ),
-                            child: Text(
-                              'terms of services',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: primaryColorOfApp,
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.bold),
+                            SizedBox(
+                              width: 1.w,
                             ),
-                          ),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          const Text(
-                            '|',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
+                            TextButton(
+                              onPressed: () {},
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                foregroundColor: const Color(0xff0087FF),
+                              ),
+                              child: Text(
+                                'privacy policy',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: primaryColorOfApp,
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              foregroundColor: const Color(0xff0087FF),
-                            ),
-                            child: Text(
-                              'privacy policy',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: primaryColorOfApp,
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 3.h,
-                      child: Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              foregroundColor: const Color(0xff0087FF),
-                            ),
-                            child: Text(
-                              'Licence agreement',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: primaryColorOfApp,
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          const Text(
-                            '&',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              foregroundColor: const Color(0xff0087FF),
-                            ),
-                            child: Text(
-                              'read more',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: primaryColorOfApp,
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Consumer<CreatePollProvider>(
-                        builder: (context, value, child) {
-                      return SizedBox(
-                        height: 6.h,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              backgroundColor: primaryColorOfApp,
-                              foregroundColor: Colors.white,
-                              elevation: 0),
-                          onPressed: (provider.visibility &&
-                                      provider.buttonCheck &&
-                                      provider.count == 2
-                                  ? option1bool && option2bool
-                                  : provider.count == 3
-                                      ? option1bool &&
-                                          option2bool &&
-                                          option3bool
-                                      : option1bool &&
-                                          option2bool &&
-                                          option3bool &&
-                                          option4bool)
-                              ? () {}
-                              : null,
-                          child: Text(
-                            'Confirm',
-                            style: TextStyle(
-                                fontFamily: 'Poppins', fontSize: 15.sp),
-                          ),
+                          ],
                         ),
-                      );
-                    })
-                  ],
-                );
-              }),
-            ],
+                      ),
+                      SizedBox(
+                        height: 3.h,
+                        child: Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                foregroundColor: const Color(0xff0087FF),
+                              ),
+                              child: Text(
+                                'Licence agreement',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: primaryColorOfApp,
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 1.w,
+                            ),
+                            const Text(
+                              '&',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                foregroundColor: const Color(0xff0087FF),
+                              ),
+                              child: Text(
+                                'read more',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: primaryColorOfApp,
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Consumer<CreatePollProvider>(
+                          builder: (context, value, child) {
+                        return SizedBox(
+                          height: 6.h,
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                backgroundColor: primaryColorOfApp,
+                                foregroundColor: Colors.white,
+                                elevation: 0),
+                            onPressed: (provider.count == 2
+                                    ? checkTextField &&
+                                        option1bool &&
+                                        option2bool
+                                    : provider.count == 3
+                                        ? checkTextField &&
+                                            option1bool &&
+                                            option2bool &&
+                                            option3bool
+                                        : checkTextField &&
+                                            option1bool &&
+                                            option2bool &&
+                                            option3bool &&
+                                            option4bool)
+                                ? () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Createpoll2(
+                                                value1: provider.count,
+                                                option1: option1.text,
+                                                option2: option2.text,
+                                                option3: option3.text,
+                                                option4: option4.text,
+                                              )),
+                                    );
+                                  }
+                                : null,
+                            child: Text(
+                              'Confirm',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins', fontSize: 15.sp),
+                            ),
+                          ),
+                        );
+                      })
+                    ],
+                  );
+                }),
+              ],
+            ),
           ),
         ),
       ),
@@ -532,7 +558,6 @@ class CreatePollProvider extends ChangeNotifier {
   List tempoList = [];
   int newVariable = 2;
 
-  bool visibility = false;
   bool buttonCheck = false;
   var questionCont = TextEditingController();
 
@@ -545,7 +570,7 @@ class CreatePollProvider extends ChangeNotifier {
     }
     /*  print('Update----${buttonlist[index]["value"]}'); */
     newVariable = buttonlist[index]["value"];
-  
+
     /*    print("GetCount-----$newVariable"); */
     notifyListeners();
   }
@@ -553,9 +578,13 @@ class CreatePollProvider extends ChangeNotifier {
   methodforSelection() {
     if (emptyList.isEmpty) {
       emptyList.add(buttonlist[0]);
-      tempoList.add(durationlist[0]);
+      tempoList.add(durationlist[2]);
+    } else if (emptyList.isNotEmpty) {
+      emptyList.removeLast();
+      emptyList.add(buttonlist[0]);
+      tempoList.removeLast();
+      tempoList.add(durationlist[2]);
     }
-   
   }
 
   int get count => newVariable;
@@ -567,7 +596,7 @@ class CreatePollProvider extends ChangeNotifier {
       tempoList.removeLast();
       tempoList.add(durationlist[index]);
     }
-    buttonCheck = true;
+
 /*     print('Update----${durationlist[index]["value"]}');
     newVariable = durationlist[index]["value"];
     print("GetCount-----$newVariable"); */

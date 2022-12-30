@@ -14,6 +14,7 @@ import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/bx.dart';
 import 'package:iconify_flutter/icons/bxs.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 
@@ -121,17 +122,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(
-                      Icons.arrow_back,
+                    icon: const Iconify(
+                      Mdi.arrow_back,
                       color: primaryColorOfApp,
                     )),
                 SizedBox(
-                  width: 2.w,
+                  width: 3.w,
                 ),
                 Text('Edit Profile',
                     style: TextStyle(
                         fontFamily: 'Poppins',
-                        color: customTextColor,
+                        color: Colors.black,
                         fontSize: 12.sp)),
                 Column(
                   mainAxisSize: MainAxisSize.min,
@@ -189,14 +190,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                       'upload profile image',
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
-                                          fontSize: width * 0.04,
+                                          fontSize: 10.sp,
                                           color: const Color(0xff0087FF)),
                                     )
                                   : Text(
                                       'change profile image',
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
-                                          fontSize: width * 0.04,
+                                          fontSize: 10.sp,
                                           color: const Color(0xff0087FF)),
                                     ))
                         ],
@@ -931,36 +932,29 @@ class _EditProfilePageState extends State<EditProfilePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: 44.w,
+                SizedBox(
                   height: 5.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: Colors.black, width: 0.5),
-                  ),
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton(
-                        hint: const Padding(
-                          padding: EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            'select city',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 12,
-                                color: Color(0xffC4C4C4)),
-                          ),
-                        ),
-                        /*  isExpanded: true, */
-                        value: value,
-                        items: items
-                            .map((item) => DropdownMenuItem(
-                                value: item, child: Text(item)))
-                            .toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            this.value = value as String?;
-                          });
-                        }),
+                  width: 44.w,
+                  child: TextField(
+                    cursorColor: primaryColorOfApp,
+                    decoration: InputDecoration(
+                        labelStyle: TextStyle(
+                            color: Color(0xffc4c4c4),
+                            fontFamily: 'Poppins',
+                            fontSize: 12.sp),
+                        labelText: 'Select City',
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: primaryColorOfApp, width: 0.5),
+                            borderRadius: BorderRadius.circular(5)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: customTextColor, width: 0.5),
+                            borderRadius: BorderRadius.circular(5)),
+                        border: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: customTextColor, width: 0.5),
+                            borderRadius: BorderRadius.circular(5))),
                   ),
                 ),
                 Container(
@@ -1096,7 +1090,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>  ChangeInterest(value: true,)),
+                        builder: (context) => ChangeInterest(
+                              value: true,
+                            )),
                   );
                   /*   Navigator.push(
                             context,

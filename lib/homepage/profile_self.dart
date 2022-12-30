@@ -1,14 +1,8 @@
 // ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables, avoid_print
-
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/NEW_FOLDER/gotodashboard.dart';
-import 'package:flutter_application_1/homepage/blkcomntfrom.dart';
-import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_application_1/homepage/setting1.dart';
@@ -20,21 +14,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/akar_icons.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
-import 'package:iconify_flutter/icons/arcticons.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/ei.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/eva.dart';
-import 'package:iconify_flutter/icons/gg.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
-import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
-import 'package:iconify_flutter/icons/ooui.dart';
-import 'package:iconify_flutter/icons/ph.dart';
 import 'package:iconify_flutter/icons/tabler.dart';
-import 'package:iconify_flutter/icons/uil.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
@@ -409,46 +396,38 @@ buildbutton(context) {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(
-                    height: height * 0.01,
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Container(
-                      color: const Color(0xffE2E2E2),
-                      height: 5,
-                      width: 70,
-                    ),
-                  ),
-                  SizedBox(
-                    height: height * 0.02,
+                    height: 2.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 28.0),
+                    padding: EdgeInsets.only(left: 6.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         IconButton(
-                            padding: const EdgeInsets.all(0),
+                            padding: EdgeInsets.zero,
                             constraints: const BoxConstraints(),
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            icon: const Icon(
-                              Icons.arrow_back,
+                            icon: const Iconify(
+                              Mdi.arrow_back,
                               color: primaryColorOfApp,
                             )),
                         SizedBox(
-                          width: width * 0.01,
+                          width: 4.w,
                         ),
-                        const Text(
+                        Text(
                           'Profile Photo',
                           style: TextStyle(
-                              color: Color(0xff333333),
-                              fontSize: 15,
+                              color: Colors.black,
+                              fontSize: 13.sp,
                               fontFamily: 'Poppins'),
                         ),
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 1.h,
                   ),
                   const Divider(),
                   Column(
@@ -603,19 +582,19 @@ buildbutton(context) {
                                       });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.only(right: 5.0),
+                                  padding: EdgeInsets.only(right: 2.w),
                                   child: Row(
-                                    children: const [
+                                    children: [
                                       Icon(
                                         Icons.delete,
-                                        color: Color(0xffED1B24),
-                                        size: 13,
+                                        color: const Color(0xffED1B24),
+                                        size: 10.sp,
                                       ),
                                       Text(
                                         'Remove',
                                         style: TextStyle(
                                             color: Color(0xffED1B24),
-                                            fontSize: 13,
+                                            fontSize: 10.sp,
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w600),
                                       ),
@@ -630,90 +609,78 @@ buildbutton(context) {
                   const Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       Padding(
                         padding: EdgeInsets.only(left: 60.0),
                         child: Text(
                           'Change Your Profile Photo',
                           style: TextStyle(
-                              color: Color(0xff333333),
-                              fontSize: 12,
+                              color: customTextColor,
+                              fontSize: 12.sp,
                               fontFamily: 'Poppins'),
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: height * 0.01,
-                  ),
-                  SizedBox(
-                    height: height * 0.03,
+                    height: 3.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(
                         children: [
-                          RawMaterialButton(
-                            padding: EdgeInsets.zero,
-                            constraints: const BoxConstraints(
-                                minHeight: 45, minWidth: 45),
-                            onPressed: () {
-                              getkar.pickforprofile(ImageSource.camera);
-                              Navigator.of(context).pop();
-                              setState(() {});
-                            },
-                            elevation: 0,
-                            fillColor: const Color(0xffDADADA),
-                            shape: const CircleBorder(
-                                /* side: BorderSide(
-                                                                width: 1,
-                                                                color: Color(0xff0087FF)) */
+                          Container(
+                              decoration: const BoxDecoration(
+                                color: Color(0xffDADADA),
+                                shape: BoxShape.circle,
+                              ),
+                              child: IconButton(
+                                onPressed: () {
+                                  getkar.pickforprofile(ImageSource.camera);
+                                  Navigator.of(context).pop();
+                                  setState(() {});
+                                },
+                                icon: Iconify(
+                                  AntDesign.camera_filled,
+                                  color: primaryColorOfApp,
+                                  size: 35.sp,
                                 ),
-                            child: const Iconify(
-                              AntDesign.camera_filled,
-                              color: Color(0xff0087FF),
-                              size: 25,
-                            ),
-                          ),
-                          const Text(
+                              )),
+                          Text(
                             'camera',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
-                                color: Color(0xff333333)),
+                                color: customTextColor,
+                                fontSize: 10.sp),
                           )
                         ],
                       ),
                       Column(
                         children: [
-                          RawMaterialButton(
-                            padding: EdgeInsets.zero,
-                            constraints: const BoxConstraints(
-                                minHeight: 45, minWidth: 45),
-                            onPressed: () {
-                              getkar.pickforprofile(ImageSource.gallery);
-                              Navigator.of(context).pop();
-                              setState(() {});
-                            },
-                            elevation: 0,
-                            fillColor: const Color(0xffDADADA),
-                            /*  padding: EdgeInsets.all(15.0), */
-                            shape: const CircleBorder(
-                                /* side: BorderSide(
-                                                                width: 1,
-                                                                color: Color(0xff0087FF)) */
+                          Container(
+                              decoration: const BoxDecoration(
+                                color: Color(0xffDADADA),
+                                shape: BoxShape.circle,
+                              ),
+                              child: IconButton(
+                                onPressed: () {
+                                  getkar.pickforprofile(ImageSource.gallery);
+                                  Navigator.of(context).pop();
+                                  setState(() {});
+                                },
+                                icon: Iconify(
+                                  Heroicons.photo_20_solid,
+                                  color: primaryColorOfApp,
+                                  size: 35.sp,
                                 ),
-                            child: const Iconify(
-                              Heroicons.photo_20_solid,
-                              color: Color(0xff0087FF),
-                              size: 25,
-                            ),
-                          ),
-                          const Text(
+                              )),
+                          Text(
                             'gallery',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
-                                color: Color(0xff333333)),
+                                color: customTextColor,
+                                fontSize: 10.sp),
                           )
                         ],
                       ),
@@ -1881,294 +1848,7 @@ index3(context) {
             return Stack(
               clipBehavior: Clip.none,
               children: [
-                Column(mainAxisSize: MainAxisSize.min, children: [
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w),
-                    child: Row(
-                      children: [
-                        IconButton(
-                            padding: const EdgeInsets.all(0),
-                            constraints: const BoxConstraints(),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: const Iconify(
-                              Mdi.arrow_back,
-                              color: primaryColorOfApp,
-                            )),
-                        SizedBox(
-                          width: 4.w,
-                        ),
-                        Text(
-                          'Reward Collections',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              /*     fontWeight:
-                                                              FontWeight.bold, */
-                              fontSize: 13.sp),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 1.5.h,
-                  ),
-                  Container(
-                    height: 5.h,
-                    decoration: BoxDecoration(
-                        color: const Color(0xffE2E2E2),
-                        shape: BoxShape.rectangle,
-                        border: Border.all(
-                            width: 0.5, color: const Color(0xffE2E2E2)),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const TabBar(
-                      labelStyle: TextStyle(fontFamily: 'Poppins'),
-                      indicatorWeight: 0.1,
-                      indicatorColor: Colors.transparent,
-                      automaticIndicatorColorAdjustment: false,
-                      /* isScrollable: true, */
-                      indicatorSize: TabBarIndicatorSize.label,
-                      indicatorPadding: EdgeInsets.zero,
-                      labelColor: primaryColorOfApp,
-                      unselectedLabelColor: Color(0xff333333),
-                      tabs: [
-                        Tab(
-                          text: 'Received',
-                        ),
-                        Tab(
-                          text: 'Sent',
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 60.h,
-                    child: TabBarView(children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.w),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                showScratchCard(context);
-                              },
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Iconify(
-                                        Ei.trophy,
-                                        color: primaryColorOfApp,
-                                        size: 25.sp,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            'Rewards from',
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10.sp),
-                                          ),
-                                          SizedBox(
-                                            width: 1.w,
-                                          ),
-                                          Text('myttube’s',
-                                              style: TextStyle(
-                                                  color: primaryColorOfApp,
-                                                  fontFamily: 'Satisfy',
-                                                  fontSize: 10.sp)),
-                                          SizedBox(
-                                            width: 1.w,
-                                          ),
-                                          Text('Sponshored partners',
-                                              style: TextStyle(
-                                                  color: customTextColor,
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 10.sp)),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Iconify(
-                                    Eva.arrow_right_fill,
-                                    size: 15.sp,
-                                    color: customTextColor,
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 3.h,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                showRecievedGift(context);
-                              },
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 0.5.w,
-                                      ),
-                                      const Iconify(
-                                        EmojioneMonotone.wrapped_gift,
-                                        color: primaryColorOfApp,
-                                      ),
-                                      SizedBox(
-                                        width: 1.w,
-                                      ),
-                                      Text(
-                                        'Received Gift from Fans/Followers',
-                                        style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            color: customTextColor,
-                                            fontSize: 10.sp),
-                                      ),
-                                    ],
-                                  ),
-                                  Iconify(
-                                    Eva.arrow_right_fill,
-                                    size: 15.sp,
-                                    color: customTextColor,
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 3.h,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                showCollectedPoints(context);
-                              },
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 0.5.w,
-                                      ),
-                                      Iconify(
-                                        Bi.gift,
-                                        color: primaryColorOfApp,
-                                        size: 18.sp,
-                                      ),
-                                      SizedBox(
-                                        width: 1.5.w,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text('Collect Points from',
-                                              style: TextStyle(
-                                                  color: customTextColor,
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 10.sp)),
-                                          SizedBox(
-                                            width: 1.w,
-                                          ),
-                                          Text('myttube’s',
-                                              style: TextStyle(
-                                                color: primaryColorOfApp,
-                                                fontSize: 10.sp,
-                                                fontFamily: 'Satisfy',
-                                              )),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Iconify(
-                                    Eva.arrow_right_fill,
-                                    size: 15.sp,
-                                    color: customTextColor,
-                                  )
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: height * 0.05,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                const Text(
-                                  'Invite your friends\n Win surprise gift',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xff333333),
-                                      /*     fontWeight:
-                                                                                                    FontWeight.bold, */
-                                      fontSize: 10),
-                                ),
-                                OutlinedButton.icon(
-                                  icon: SvgPicture.asset(
-                                    'assets/inviteicon.svg',
-                                    /*     height: 18,
-                                                                                                  width: 18, */
-                                  ),
-                                  onPressed: () {},
-                                  style: OutlinedButton.styleFrom(
-                                      minimumSize: const Size(140, 35),
-                                      /*    minimumSize: Size(32, 30), */
-                                      elevation: 0,
-                                      /* padding: EdgeInsets.zero, */
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      side: const BorderSide(
-                                        color: Color(0xff0087FF),
-                                      ),
-                                      /*  padding:
-                                                                    EdgeInsets.symmetric(horizontal: 9.0, vertical: 0), */
-                                      foregroundColor: primaryColorOfApp,
-                                      backgroundColor: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5.0))),
-                                  label: const Padding(
-                                    padding: EdgeInsets.all(1.0),
-                                    child: Text(
-                                      "Invite",
-                                      style: TextStyle(
-                                          fontSize: 12, fontFamily: 'Poppins'),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SvgPicture.asset(
-                              'assets/multidigi.svg',
-                            ),
-                          ],
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/awardicon.svg',
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ]),
-                  ),
-                ]),
+               
                 positionCross(context)
               ],
             );

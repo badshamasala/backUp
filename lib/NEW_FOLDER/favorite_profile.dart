@@ -41,7 +41,6 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
     }); */
   }
 
-  
   var photos = [
     'assets/image1.webp',
     'assets/image2.jpg',
@@ -59,7 +58,7 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar:  AppBar(
+        appBar: AppBar(
           toolbarHeight: 7.h,
           automaticallyImplyLeading: false,
           titleSpacing: -2.sp,
@@ -69,7 +68,7 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
               style: TextStyle(
                   fontFamily: 'Poppins',
                   color: customTextColor,
-                  fontSize: 15.sp)),
+                  fontSize: 13.sp)),
           leading: IconButton(
               padding: EdgeInsets.zero,
               constraints: const BoxConstraints(),
@@ -84,6 +83,7 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
         body: Column(
           children: [
             Container(
+              height: 5.h,
               decoration: BoxDecoration(
                   color: const Color(0xffE2E2E2),
                   shape: BoxShape.rectangle,
@@ -91,7 +91,9 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
                       Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                   borderRadius: BorderRadius.circular(10)),
               child: const TabBar(
+                labelStyle: TextStyle(fontFamily: 'Poppins'),
                 indicatorWeight: 0.1,
+                indicatorColor: Colors.transparent,
                 automaticIndicatorColorAdjustment: false,
                 /* isScrollable: true, */
                 indicatorSize: TabBarIndicatorSize.label,
@@ -114,75 +116,90 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: ListView.separated(
                       separatorBuilder: (context, index) {
-                        return const Divider();
+                        return const Divider(
+                          color: Colors.transparent,
+                        );
                       },
                       shrinkWrap: true,
                       itemCount: photos.length,
                       itemBuilder: (context, index) {
-                        return Column(
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      CircleAvatar(
-                                          backgroundImage:
-                                              AssetImage(photos[index])),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: const [
-                                            Text(
-                                              '@abdcprofile',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  color: primaryColorOfApp,
-                                                  fontSize: 10),
-                                            ),
-                                            Text(
-                                              'profile name',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  color: customTextColor,
-                                                  fontSize: 10),
-                                            ),
-                                          ],
+                        return Padding(
+                          padding: EdgeInsets.only(top: 2.sp),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        CircleAvatar(
+                                          backgroundColor: Colors.black,
+                                          radius: 18.sp,
+                                          child: CircleAvatar(
+                                            backgroundColor: Colors.white,
+                                            radius: 17.sp,
+                                            child: CircleAvatar(
+                                                radius: 16.sp,
+                                                backgroundImage:
+                                                    AssetImage(photos[index])),
+                                          ),
                                         ),
-                                      )
-                                    ],
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                        elevation: 0,
-                                        minimumSize: const Size(80, 30),
-                                        // padding: EdgeInsets.symmetric(
-                                        //     horizontal: 40.0, vertical: 20.0),
-                                        backgroundColor:
-                                            const Color(0xff0087FF),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(5.0))),
-                                    child: const Text(
-                                      "Remove",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          /*       fontSize: 18, */
-                                          fontFamily: 'Poppins'),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 1.w),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                '@abdcprofile',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    color: primaryColorOfApp,
+                                                    fontSize: 11.sp),
+                                              ),
+                                              Text(
+                                                'profile name',
+                                                style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    color: customTextColor,
+                                                    fontSize: 11.sp),
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
+                                    ElevatedButton(
+                                      onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                          elevation: 0,
+                                          minimumSize: Size(30.w, 5.h),
+                                          // padding: EdgeInsets.symmetric(
+                                          //     horizontal: 40.0, vertical: 20.0),
+                                          backgroundColor:
+                                              const Color(0xff0087FF),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0))),
+                                      child: Text(
+                                        "Remove",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            /*       fontSize: 18, */
+                                            fontFamily: 'Poppins',
+                                            fontSize: 12.sp),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
                         );
                       }),
                 ),
@@ -227,7 +244,8 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
                                         children: [
                                           CircleAvatar(
                                               backgroundImage: AssetImage(
-                                                  provider.historylist[index].image)),
+                                                  provider.historylist[index]
+                                                      .image)),
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 8.0),
@@ -259,14 +277,15 @@ class _FavoriteProfileState extends State<FavoriteProfile> {
                                           shape: const CircleBorder(),
                                           materialTapTargetSize:
                                               MaterialTapTargetSize.shrinkWrap,
-                                          value: provider.historylist[index].checkValue,
+                                          value: provider
+                                              .historylist[index].checkValue,
                                           onChanged: (value) async {
                                             setState(() {
-                                              provider.historylist[index].checkValue =
-                                                  value!;
+                                              provider.historylist[index]
+                                                  .checkValue = value!;
                                             });
-                                            print(
-                                                provider.historylist[index].checkValue);
+                                            print(provider
+                                                .historylist[index].checkValue);
                                           })
                                     ],
                                   ),

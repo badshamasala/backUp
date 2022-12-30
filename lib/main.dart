@@ -9,6 +9,7 @@ import 'package:flutter_application_1/NEW_FOLDER/archive_check.dart';
 import 'package:flutter_application_1/NEW_FOLDER/create_folder.dart';
 import 'package:flutter_application_1/NEW_FOLDER/gotodashboard.dart';
 import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
+import 'package:flutter_application_1/NEW_FOLDER/rewardcollection.dart';
 import 'package:flutter_application_1/NEW_FOLDER/saved1.dart';
 import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 import 'package:flutter_application_1/POLL/createpoll.dart';
@@ -106,7 +107,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: Createpoll2() /* LoginPage12() */
+                  home: HomePage() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(

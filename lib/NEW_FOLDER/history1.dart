@@ -54,15 +54,17 @@ class _History1State extends State<History1> {
         body: Column(
           children: [
             Container(
-              height: 40,
+              height: 5.h,
               decoration: BoxDecoration(
                   color: const Color(0xffE2E2E2),
                   shape: BoxShape.rectangle,
                   border:
                       Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
-                  borderRadius: BorderRadius.circular(5)),
+                  borderRadius: BorderRadius.circular(10)),
               child: const TabBar(
+                labelStyle: TextStyle(fontFamily: 'Poppins'),
                 indicatorWeight: 0.1,
+                indicatorColor: Colors.transparent,
                 automaticIndicatorColorAdjustment: false,
                 /* isScrollable: true, */
                 indicatorSize: TabBarIndicatorSize.label,
