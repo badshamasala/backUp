@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/eva.dart';
 
-import 'homepage/profile_self.dart';
+import '../homepage/profile_self.dart';
 
 class GiftCheck extends StatefulWidget {
   const GiftCheck({Key? key}) : super(key: key);

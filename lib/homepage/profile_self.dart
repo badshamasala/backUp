@@ -8,7 +8,7 @@ import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_application_1/homepage/setting1.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
-import 'package:flutter_application_1/interaction.dart';
+import 'package:flutter_application_1/SHARE/interaction.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';

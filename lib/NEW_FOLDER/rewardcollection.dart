@@ -1,7 +1,10 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/NEW_FOLDER/rewardSponsored.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/ei.dart';
@@ -54,12 +57,15 @@ class _RewardcollectionState extends State<Rewardcollection> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                'Today 21-January 2023 02:32 PM',
-                style: TextStyle(
-                    color: customTextColor,
-                    fontFamily: 'Poppins',
-                    fontSize: 10.sp),
+              Padding(
+                padding: EdgeInsets.only(right: 8.w),
+                child: Text(
+                  'Today 21-January 2023 02:32 PM',
+                  style: TextStyle(
+                      color: customTextColor,
+                      fontFamily: 'Poppins',
+                      fontSize: 8.sp),
+                ),
               )
             ],
           ),
@@ -74,39 +80,95 @@ class _RewardcollectionState extends State<Rewardcollection> {
                 style: TextStyle(
                     color: customTextColor,
                     fontFamily: 'Poppins',
-                    fontSize: 10.sp),
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.bold),
               ),
               Text(
                 'Views',
                 style: TextStyle(
                     color: customTextColor,
                     fontFamily: 'Poppins',
-                    fontSize: 10.sp),
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.bold),
               )
             ],
           ),
           SizedBox(
             height: 1.5.h,
           ),
-          ListView.separated(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              itemBuilder: ((context, index) {
-                return Container(
-                  height: 0.1.h,
-                  width: 2.w,
-                  decoration: BoxDecoration(
-                      color: primaryColorOfApp,
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(width: 0.5, color: primaryColorOfApp)),
-                );
-              }),
-              separatorBuilder: ((context, index) {
-                return SizedBox(
-                  width: 0.5.w,
-                );
-              }),
-              itemCount: 10),
+          SizedBox(
+            height: 0.2.h,
+            child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return Container(
+                    height: 0.1.h,
+                    width: 2.w,
+                    decoration: BoxDecoration(
+                        color: primaryColorOfApp,
+                        borderRadius: BorderRadius.circular(5),
+                        border:
+                            Border.all(width: 0.5, color: primaryColorOfApp)),
+                  );
+                },
+                separatorBuilder: ((context, index) {
+                  return SizedBox(
+                    width: 1.w,
+                  );
+                }),
+                itemCount: 25),
+          ),
+          SizedBox(
+            height: 1.5.h,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Material(
+                elevation: 5,
+                borderRadius: BorderRadius.circular(5.sp),
+                child: Padding(
+                  padding: EdgeInsets.all(8.sp),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(5.sp)),
+                    child: Text(
+                      '10065',
+                      style: TextStyle(
+                          color: customTextColor,
+                          letterSpacing: 1,
+                          fontFamily: 'Poppins',
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+              Material(
+                elevation: 5,
+                borderRadius: BorderRadius.circular(5.sp),
+                child: Padding(
+                  padding: EdgeInsets.all(8.sp),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(5.sp)),
+                    child: Text(
+                      '0002365',
+                      style: TextStyle(
+                          color: customTextColor,
+                          letterSpacing: 1,
+                          fontFamily: 'Poppins',
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           SizedBox(
             height: 1.5.h,
           ),
@@ -149,7 +211,11 @@ class _RewardcollectionState extends State<Rewardcollection> {
                     ),
                     InkWell(
                       onTap: () {
-                        showScratchCard(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const RewardSponsored()),
+                        );
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/POLL/createpoll.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/carbon.dart';
+import 'package:iconify_flutter/icons/eos_icons.dart';
 import 'package:iconify_flutter/icons/gala.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/teenyicons.dart';
 import 'package:iconify_flutter/icons/uil.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -40,10 +44,10 @@ class _Createpoll2State extends State<Createpoll2> {
     'item2',
     'item3',
   ];
-  dynamic groupseenonline;
+  int _groupseenonline = 1;
 
-  var everyone = 'Everyone';
-  var followers = 'Followers';
+  bool everyone = false;
+  bool followers = true;
   var following = 'Following';
   var off = 'Off';
 
@@ -612,12 +616,372 @@ class _Createpoll2State extends State<Createpoll2> {
                               visualDensity: VisualDensity.compact,
                               materialTapTargetSize:
                                   MaterialTapTargetSize.shrinkWrap,
-                              groupValue: groupseenonline,
-                              value: everyone,
-                              onChanged: (val) {
+                              groupValue: _groupseenonline,
+                              value: 0,
+                              onChanged: (value) {
                                 setState(() {
-                                  groupseenonline = everyone;
+                                  _groupseenonline = 0;
                                 });
+                                showModalBottomSheet(
+                                    /*     isScrollControlled: true, */
+                                    shape: const RoundedRectangleBorder(
+                                      // <-- SEE HERE
+                                      borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(20.0),
+                                      ),
+                                    ),
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return StatefulBuilder(builder:
+                                          (BuildContext context, setState) {
+                                        return Stack(
+                                          clipBehavior: Clip.none,
+                                          children: [
+                                            Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 5.w),
+                                                child: Column(
+                                                    /* mainAxisSize: MainAxisSize.min, */ children: [
+                                                      SizedBox(
+                                                        height: 2.h,
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          IconButton(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(0),
+                                                              constraints:
+                                                                  const BoxConstraints(),
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              icon:
+                                                                  const Iconify(
+                                                                Mdi.arrow_back,
+                                                                color:
+                                                                    primaryColorOfApp,
+                                                              )),
+                                                          SizedBox(
+                                                            width: 4.w,
+                                                          ),
+                                                          Text(
+                                                            'POST FOR LATER',
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .black,
+                                                                fontSize:
+                                                                    15.sp),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      SizedBox(
+                                                        height: 3.h,
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            'DATE',
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color:
+                                                                    customTextColor,
+                                                                fontSize:
+                                                                    12.sp),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      InkWell(
+                                                        onTap: () {
+                                                          provider.pickedDate(
+                                                              context);
+                                                        },
+                                                        child: Consumer<
+                                                                CreatePollProvider>(
+                                                            builder: (context,
+                                                                value, child) {
+                                                          return Container(
+                                                            decoration: BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5),
+                                                                shape: BoxShape
+                                                                    .rectangle,
+                                                                border: Border.all(
+                                                                    color:
+                                                                        customTextColor,
+                                                                    width:
+                                                                        0.5)),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Row(
+                                                                  children: [
+                                                                    Container(
+                                                                      decoration: BoxDecoration(
+                                                                          color:
+                                                                              primaryColorOfApp,
+                                                                          borderRadius: BorderRadius.only(
+                                                                              topLeft: Radius.circular(5),
+                                                                              bottomLeft: Radius.circular(5))),
+                                                                      height:
+                                                                          5.h,
+                                                                      width:
+                                                                          5.w,
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsets.only(
+                                                                          left:
+                                                                              8.w),
+                                                                      child:
+                                                                          Text(
+                                                                        provider.newDate ==
+                                                                                null
+                                                                            ? "Select Date"
+                                                                            : DateFormat("dd/MM/yyyy").format(provider.newDate),
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                primaryColorOfApp,
+                                                                            fontSize:
+                                                                                15.sp),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          right:
+                                                                              5.w),
+                                                                  child:
+                                                                      SvgPicture
+                                                                          .asset(
+                                                                    'assets/date.svg',
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            ),
+                                                          );
+                                                        }),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 2.h,
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            'TIME',
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color:
+                                                                    customTextColor,
+                                                                fontSize:
+                                                                    12.sp),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      InkWell(
+                                                        onTap: () {
+                                                          provider.pickedTime(
+                                                              context);
+                                                        },
+                                                        child: Consumer<
+                                                                CreatePollProvider>(
+                                                            builder: (context,
+                                                                value, child) {
+                                                          return Container(
+                                                            decoration: BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5),
+                                                                shape: BoxShape
+                                                                    .rectangle,
+                                                                border: Border.all(
+                                                                    color:
+                                                                        customTextColor,
+                                                                    width:
+                                                                        0.5)),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Row(
+                                                                  children: [
+                                                                    Container(
+                                                                      decoration: BoxDecoration(
+                                                                          color:
+                                                                              primaryColorOfApp,
+                                                                          borderRadius: BorderRadius.only(
+                                                                              topLeft: Radius.circular(5),
+                                                                              bottomLeft: Radius.circular(5))),
+                                                                      height:
+                                                                          5.h,
+                                                                      width:
+                                                                          5.w,
+                                                                    ),
+                                                                    Padding(
+                                                                        padding: EdgeInsets.only(
+                                                                            left: 8
+                                                                                .w),
+                                                                        child:
+                                                                            Text(
+                                                                          provider.newTime == null
+                                                                              ? 'Select Time'
+                                                                              : provider.newTime!,
+                                                                          style: TextStyle(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: primaryColorOfApp,
+                                                                              fontSize: 15.sp),
+                                                                        )),
+                                                                  ],
+                                                                ),
+                                                                Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        right: 5
+                                                                            .w),
+                                                                    child:
+                                                                        Iconify(
+                                                                      MaterialSymbols
+                                                                          .nest_clock_farsight_analog_outline_rounded,
+                                                                      color: Color.fromARGB(
+                                                                          255,
+                                                                          96,
+                                                                          175,
+                                                                          239),
+                                                                      size:
+                                                                          30.sp,
+                                                                    ))
+                                                              ],
+                                                            ),
+                                                          );
+                                                        }),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 4.h,
+                                                      ),
+                                                      Consumer<
+                                                              CreatePollProvider>(
+                                                          builder: (context,
+                                                              value, child) {
+                                                        return Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding: EdgeInsets
+                                                                  .only(
+                                                                      left:
+                                                                          8.w),
+                                                              child: Text(
+                                                                'Your Post will be automatically POSTED',
+                                                                style: TextStyle(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color:
+                                                                        customTextColor,
+                                                                    fontSize:
+                                                                        8.sp),
+                                                              ),
+                                                            ),
+                                                            SizedBox(
+                                                              width: 1.w,
+                                                            ),
+                                                            provider.newDate ==
+                                                                    null
+                                                                ? Container()
+                                                                : Row(
+                                                                    children: [
+                                                                      Text(
+                                                                        DateFormat("dd/MM/yyyy")
+                                                                            .format(provider.newDate),
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                customTextColor,
+                                                                            fontSize:
+                                                                                8.sp),
+                                                                      ),
+                                                                      SizedBox(
+                                                                        width:
+                                                                            1.w,
+                                                                      ),
+                                                                      Text(
+                                                                        provider.newTime ==
+                                                                                null
+                                                                            ? ''
+                                                                            : provider.newTime!.padLeft(0),
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                customTextColor,
+                                                                            fontSize:
+                                                                                8.sp),
+                                                                      ),
+                                                                    ],
+                                                                  )
+                                                          ],
+                                                        );
+                                                      }),
+                                                      SizedBox(
+                                                        height: 1.h,
+                                                      ),
+                                                      SizedBox(
+                                                        height: 6.h,
+                                                        width: double.infinity,
+                                                        child: ElevatedButton(
+                                                          style: ElevatedButton.styleFrom(
+                                                              shape: RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10)),
+                                                              backgroundColor:
+                                                                  primaryColorOfApp,
+                                                              foregroundColor:
+                                                                  Colors.white,
+                                                              elevation: 0),
+                                                          onPressed: () {},
+                                                          child: Text(
+                                                            'Confirm & post',
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize:
+                                                                    15.sp),
+                                                          ),
+                                                        ),
+                                                      )
+                                                    ])),
+                                            positionCross(context)
+                                          ],
+                                        );
+                                      });
+                                    });
                               }),
                         )
                       ],
@@ -652,11 +1016,11 @@ class _Createpoll2State extends State<Createpoll2> {
                               visualDensity: VisualDensity.compact,
                               materialTapTargetSize:
                                   MaterialTapTargetSize.shrinkWrap,
-                              groupValue: groupseenonline,
-                              value: followers,
+                              groupValue: _groupseenonline,
+                              value: 1,
                               onChanged: (val) {
                                 setState(() {
-                                  groupseenonline = followers;
+                                  _groupseenonline = 1;
                                 });
                               }),
                         )

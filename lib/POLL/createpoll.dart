@@ -28,10 +28,13 @@ class _CreatepollState extends State<Createpoll> {
   var option3 = TextEditingController();
   var option4 = TextEditingController();
 
+  FocusNode? quesfocusNode;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    quesfocusNode = FocusNode();
 
     Provider.of<CreatePollProvider>(context, listen: false)
         .methodforSelection();
@@ -142,10 +145,12 @@ class _CreatepollState extends State<Createpoll> {
                   height: 0.5.h,
                 ),
                 TextFormField(
+                  /*           focusNode: quesfocusNode, */
                   controller: questionCont,
                   cursorColor: primaryColorOfApp,
                   maxLines: 3,
                   decoration: InputDecoration(
+                      alignLabelWithHint: true,
                       hintText: 'e.g Your Favotite Food',
                       hintStyle: TextStyle(
                           color: customTextColor,
@@ -304,13 +309,9 @@ class _CreatepollState extends State<Createpoll> {
                                     crossAxisCount: 3),
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              return OutlinedButton(
-                                style: OutlinedButton.styleFrom(
-                                    side: BorderSide(
-                                        color: provider.tempoList.contains(
-                                                provider.durationlist[index])
-                                            ? Colors.white
-                                            : primaryColorOfApp),
+                              return ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    side: BorderSide(color: primaryColorOfApp),
                                     backgroundColor: provider.tempoList
                                             .contains(
                                                 provider.durationlist[index])
@@ -597,9 +598,70 @@ class CreatePollProvider extends ChangeNotifier {
       tempoList.add(durationlist[index]);
     }
 
-/*     print('Update----${durationlist[index]["value"]}');
-    newVariable = durationlist[index]["value"];
-    print("GetCount-----$newVariable"); */
+    notifyListeners();
+  }
+
+  var newDate;
+  String? newTime;
+
+  var date = DateTime.now();
+
+  Future pickedDate(context) async {
+    final selectedDate = await showDatePicker(
+      context: context,
+      initialDate: date,
+      firstDate: DateTime.now(),
+      lastDate: DateTime(date.year, date.month + 1, date.day),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: ColorScheme.light(
+                primary: primaryColorOfApp, // <-- SEE HERE
+                onPrimary: Colors.white, // <-- SEE HERE
+                onSurface: Colors.black // <-- SEE HERE
+                ),
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(
+                foregroundColor: primaryColorOfApp, // button text color
+              ),
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+    /*  if (newDate == null) return; */
+
+    newDate = selectedDate!;
+    notifyListeners();
+  }
+
+  Future pickedTime(context) async {
+    final selectedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: ColorScheme.light(
+                primary: primaryColorOfApp, // <-- SEE HERE
+                onPrimary: Colors.white, // <-- SEE HERE
+                onSurface: Colors.black // <-- SEE HERE
+                ),
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(
+                foregroundColor: primaryColorOfApp, // button text color
+              ),
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+    if (selectedTime != null) {
+      newTime = selectedTime.format(context);
+    }
+
     notifyListeners();
   }
 }

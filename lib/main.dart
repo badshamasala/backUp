@@ -14,15 +14,16 @@ import 'package:flutter_application_1/NEW_FOLDER/saved1.dart';
 import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 import 'package:flutter_application_1/POLL/createpoll.dart';
 import 'package:flutter_application_1/POLL/createpoll2.dart';
+import 'package:flutter_application_1/POLL/dswdswd.dart';
 
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
-import 'package:flutter_application_1/chat_screen1.dart';
+import 'package:flutter_application_1/SHARE/chat_screen1.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/checkcount1.dart';
 
 import 'package:flutter_application_1/homepage/homepage.dart';
-import 'package:flutter_application_1/interaction.dart';
-import 'package:flutter_application_1/localestring.dart';
+import 'package:flutter_application_1/SHARE/interaction.dart';
+import 'package:flutter_application_1/SHARE/localestring.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';

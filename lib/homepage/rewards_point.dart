@@ -22,49 +22,36 @@ class _RewardsPointState extends State<RewardsPoint> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 7.h,
-          automaticallyImplyLeading: false,
-          titleSpacing: -2.sp,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text('Rewards points',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: customTextColor,
-                  fontSize: 15.sp)),
-          leading: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Iconify(
-                Mdi.arrow_back,
-                color: primaryColorOfApp,
-              )),
-        ),
+        toolbarHeight: 7.h,
+        automaticallyImplyLeading: false,
+        titleSpacing: -2.sp,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text('Rewards points',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                color: customTextColor,
+                fontSize: 15.sp)),
+        leading: IconButton(
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Iconify(
+              Mdi.arrow_back,
+              color: primaryColorOfApp,
+            )),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            Scratcher(
-              onScratchEnd: () {},
-              image: Image.asset(
-                'assets/scratchcard.png',
-              ),
-              brushSize: 30,
-              threshold: 50,
-              color: primaryColorOfApp,
-              onChange: (value) => debugPrint("Scratch progress: $value%"),
-              onThreshold: () => log("Threshold reached, you won!"),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Container(
-                  height: 250,
-                  width: 275,
-                  color: Colors.white,
-                ),
-              ),
+            Image.asset(
+              'assets/uber.jpg',
+              height: 30.h,
+              width: 90.w,
+              fit: BoxFit.cover,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
