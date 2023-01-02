@@ -1825,37 +1825,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
   }
 }
 
-index3(context) {
-  Size size;
-  double height, width;
-  size = MediaQuery.of(context).size;
-  height = size.height;
-  width = size.width;
-  return showModalBottomSheet(
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        // <-- SEE HERE
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20.0),
-        ),
-      ),
-      context: context,
-      builder: (BuildContext context) {
-        return DefaultTabController(
-          length: 2,
-          child: StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
-            return Stack(
-              clipBehavior: Clip.none,
-              children: [
-               
-                positionCross(context)
-              ],
-            );
-          }),
-        );
-      });
-}
+
 
 buildaddressDecotaion(labeltext, icon) {
   return InputDecoration(

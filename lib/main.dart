@@ -18,12 +18,14 @@ import 'package:flutter_application_1/POLL/dswdswd.dart';
 
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/SHARE/chat_screen1.dart';
+import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/checkcount1.dart';
 
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/SHARE/interaction.dart';
 import 'package:flutter_application_1/SHARE/localestring.dart';
+import 'package:flutter_application_1/homepage/rewards_point.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -79,6 +81,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
         ChangeNotifierProvider(create: (_) => HomeProvider()),
         ChangeNotifierProvider(create: (_) => GetCountImage()),
         ChangeNotifierProvider(create: (_) => CreatePollProvider()),
+        ChangeNotifierProvider(create: (_) => ChangeColorProvider()),
         /*      ChangeNotifierProvider(create: (_) => ThemeProvider()), */
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
       ],
@@ -89,7 +92,6 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
 
             return Sizer(builder: (context, orientation, deviceType) {
               return GetMaterialApp(
-                
                   themeMode: themeProvider.themeMode,
                   theme: AppTheme.lighttheme,
                   darkTheme: AppTheme.darktheme,

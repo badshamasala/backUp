@@ -33,6 +33,8 @@ import 'package:iconify_flutter/icons/tabler.dart';
 import 'package:iconify_flutter/icons/uiw.dart';
 import 'package:sizer/sizer.dart';
 
+import '../NEW_FOLDER/rewardcollection.dart';
+
 class Setting1 extends StatefulWidget {
   const Setting1({Key? key}) : super(key: key);
 
@@ -154,7 +156,7 @@ class _Setting1State extends State<Setting1> {
                         } else if (index == 1) {
                           Get.to(() => const ProfileAcitvity());
                         } else if (index == 2) {
-                          index3(context);
+                          Get.to(() => const Rewardcollection());
                         } else if (index == 3) {
                           Get.to(() => const History1());
                         } else if (index == 4) {

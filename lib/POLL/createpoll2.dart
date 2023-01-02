@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/POLL/createpoll.dart';
+import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -22,14 +23,16 @@ class Createpoll2 extends StatefulWidget {
   final option2;
   final option3;
   final option4;
+  final text;
 
   const Createpoll2({
     Key? key,
-    required this.value1,
-    required this.option1,
-    required this.option2,
-    required this.option3,
-    required this.option4,
+    this.value1,
+    this.option1,
+    this.option2,
+    this.option3,
+    this.option4,
+    this.text,
   }) : super(key: key);
 
   @override
@@ -54,6 +57,7 @@ class _Createpoll2State extends State<Createpoll2> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<CreatePollProvider>(context, listen: false);
+    final provider1 = Provider.of<ChangeColorProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 7.h,
@@ -216,229 +220,282 @@ class _Createpoll2State extends State<Createpoll2> {
               SizedBox(
                 height: 2.h,
               ),
-              widget.value1 == 3
-                  ? ListView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: ((context, index) {
-                        return Stack(
-                          clipBehavior: Clip.none,
-                          alignment: Alignment.centerLeft,
-                          children: [
-                            Positioned(
-                              left: index == 0 ? 12.5.w : 13.w,
-                              child: Container(
-                                height: 5.5.h,
-                                width: 77.w,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                        width: 1.w,
-                                        color: index == 0
-                                            ? const Color(0xff26A6C3)
-                                            : index == 1
-                                                ? customTextColor
-                                                : const Color(0xffF78602))),
-                                child: index == 0
-                                    ? Center(
-                                        child: Text(
-                                        widget.option1,
-                                        style: TextStyle(
-                                            color: customTextColor,
-                                            fontFamily: 'Poppins',
-                                            fontSize: 10.sp),
-                                      ))
-                                    : index == 1
+              widget.text == ""
+                  ? widget.value1 == 3
+                      ? ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          shrinkWrap: true,
+                          itemBuilder: ((context, index) {
+                            return Stack(
+                              clipBehavior: Clip.none,
+                              alignment: Alignment.centerLeft,
+                              children: [
+                                Positioned(
+                                  left: index == 0 ? 12.5.w : 13.w,
+                                  child: Container(
+                                    height: 5.5.h,
+                                    width: 77.w,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                            width: 1.w,
+                                            color: index == 0
+                                                ? const Color(0xff26A6C3)
+                                                : index == 1
+                                                    ? customTextColor
+                                                    : const Color(0xffF78602))),
+                                    child: index == 0
                                         ? Center(
-                                            child: Text(widget.option2,
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 10.sp)),
-                                          )
-                                        : Center(
-                                            child: Text(widget.option3,
-                                                style: TextStyle(
-                                                    color: customTextColor,
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 10.sp)),
-                                          ),
-                              ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                      width: 1.w,
-                                      color: index == 0
-                                          ? const Color(0xff26A6C3)
-                                          : index == 1
-                                              ? customTextColor
-                                              : const Color(0xffF78602))),
-                              child: Padding(
-                                  padding: EdgeInsets.all(17.sp),
-                                  child: index == 0
-                                      ? Text(
-                                          "1",
-                                          style: TextStyle(
-                                              color: const Color(0xff26A6C3),
-                                              fontFamily: "Poppins",
-                                              fontSize: 10.sp,
-                                              fontWeight: FontWeight.bold),
-                                        )
-                                      : index == 1
+                                            child: Text(
+                                            widget.option1,
+                                            style: TextStyle(
+                                                color: customTextColor,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 10.sp),
+                                          ))
+                                        : index == 1
+                                            ? Center(
+                                                child: Text(widget.option2,
+                                                    style: TextStyle(
+                                                        color: customTextColor,
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 10.sp)),
+                                              )
+                                            : Center(
+                                                child: Text(widget.option3,
+                                                    style: TextStyle(
+                                                        color: customTextColor,
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 10.sp)),
+                                              ),
+                                  ),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          width: 1.w,
+                                          color: index == 0
+                                              ? const Color(0xff26A6C3)
+                                              : index == 1
+                                                  ? customTextColor
+                                                  : const Color(0xffF78602))),
+                                  child: Padding(
+                                      padding: EdgeInsets.all(17.sp),
+                                      child: index == 0
                                           ? Text(
-                                              "2",
+                                              "1",
                                               style: TextStyle(
-                                                  color: customTextColor,
+                                                  color:
+                                                      const Color(0xff26A6C3),
                                                   fontFamily: "Poppins",
                                                   fontSize: 10.sp,
                                                   fontWeight: FontWeight.bold),
                                             )
-                                          : Text(
-                                              "3",
-                                              style: TextStyle(
-                                                  color:
-                                                      const Color(0xffF78602),
-                                                  fontFamily: "Poppins",
-                                                  fontSize: 10.sp,
-                                                  fontWeight: FontWeight.bold),
-                                            )),
-                            ),
-                          ],
-                        );
-                      }),
-                      itemCount: 3)
-                  : GridView.builder(
-                      itemCount: provider.count,
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          mainAxisExtent: 19.5.h,
-                          crossAxisSpacing: 4,
-                          mainAxisSpacing: 0,
-                          crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return Stack(
-                          clipBehavior: Clip.none,
-                          alignment: Alignment.topCenter,
-                          children: [
-                            Container(
-                              height: 18.h,
-                              width: 44.w,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                      width: 10.sp,
-                                      color: index == 0
-                                          ? primaryColorOfApp
                                           : index == 1
-                                              ? provider.count == 2
-                                                  ? Color(0xff0B1C3D)
-                                                  : const Color(0xffF78602)
-                                              : index == 2
-                                                  ? const Color(0xff037F26)
-                                                  : const Color(0xff0B1C3D))),
-                              child: index == 0
-                                  ? Center(
-                                      child: Text(widget.option1,
-                                          style: TextStyle(
-                                              color: customTextColor,
-                                              fontFamily: 'Poppins',
-                                              fontSize: 10.sp)),
-                                    )
-                                  : index == 1
+                                              ? Text(
+                                                  "2",
+                                                  style: TextStyle(
+                                                      color: customTextColor,
+                                                      fontFamily: "Poppins",
+                                                      fontSize: 10.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                )
+                                              : Text(
+                                                  "3",
+                                                  style: TextStyle(
+                                                      color: const Color(
+                                                          0xffF78602),
+                                                      fontFamily: "Poppins",
+                                                      fontSize: 10.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                )),
+                                ),
+                              ],
+                            );
+                          }),
+                          itemCount: 3)
+                      : GridView.builder(
+                          itemCount: provider.count,
+                          shrinkWrap: true,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  mainAxisExtent: 19.5.h,
+                                  crossAxisSpacing: 4,
+                                  mainAxisSpacing: 0,
+                                  crossAxisCount: 2),
+                          itemBuilder: (context, index) {
+                            return Stack(
+                              clipBehavior: Clip.none,
+                              alignment: Alignment.topCenter,
+                              children: [
+                                Container(
+                                  height: 18.h,
+                                  width: 44.w,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(
+                                          width: 10.sp,
+                                          color: index == 0
+                                              ? primaryColorOfApp
+                                              : index == 1
+                                                  ? provider.count == 2
+                                                      ? Color(0xff0B1C3D)
+                                                      : const Color(0xffF78602)
+                                                  : index == 2
+                                                      ? const Color(0xff037F26)
+                                                      : const Color(
+                                                          0xff0B1C3D))),
+                                  child: index == 0
                                       ? Center(
-                                          child: Text(widget.option2,
+                                          child: Text(widget.option1,
                                               style: TextStyle(
                                                   color: customTextColor,
                                                   fontFamily: 'Poppins',
                                                   fontSize: 10.sp)),
                                         )
-                                      : index == 2
+                                      : index == 1
                                           ? Center(
-                                              child: Text(widget.option3,
+                                              child: Text(widget.option2,
                                                   style: TextStyle(
                                                       color: customTextColor,
                                                       fontFamily: 'Poppins',
                                                       fontSize: 10.sp)),
                                             )
-                                          : Center(
-                                              child: Text(widget.option4,
-                                                  style: TextStyle(
-                                                      color: customTextColor,
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 10.sp)),
-                                            ),
-                            ),
-                            Positioned(
-                              top: -19,
-                              child: Container(
-                                /*    height: 6.h, */
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: index == 0
-                                        ? primaryColorOfApp
-                                        : index == 1
-                                            ? provider.count == 2
-                                                ? Color(0xff0B1C3D)
-                                                : Color(0xffF78602)
-                                            : index == 2
-                                                ? const Color(0xff037F26)
-                                                : const Color(0xff0B1C3D)),
-                                child: Padding(
-                                  padding: EdgeInsets.all(
-                                      index == 0 ? 17.sp : 16.sp),
-                                  child: index == 0
-                                      ? const Text(
-                                          '1',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontFamily: "Poppins"),
-                                        )
-                                      : index == 1
+                                          : index == 2
+                                              ? Center(
+                                                  child: Text(widget.option3,
+                                                      style: TextStyle(
+                                                          color:
+                                                              customTextColor,
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 10.sp)),
+                                                )
+                                              : Center(
+                                                  child: Text(widget.option4,
+                                                      style: TextStyle(
+                                                          color:
+                                                              customTextColor,
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 10.sp)),
+                                                ),
+                                ),
+                                Positioned(
+                                  top: -19,
+                                  child: Container(
+                                    /*    height: 6.h, */
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: index == 0
+                                            ? primaryColorOfApp
+                                            : index == 1
+                                                ? provider.count == 2
+                                                    ? Color(0xff0B1C3D)
+                                                    : Color(0xffF78602)
+                                                : index == 2
+                                                    ? const Color(0xff037F26)
+                                                    : const Color(0xff0B1C3D)),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(
+                                          index == 0 ? 17.sp : 16.sp),
+                                      child: index == 0
                                           ? const Text(
-                                              '2',
+                                              '1',
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontFamily: "Poppins"),
                                             )
-                                          : index == 2
+                                          : index == 1
                                               ? const Text(
-                                                  '3',
+                                                  '2',
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontFamily: "Poppins"),
                                                 )
-                                              : const Text(
-                                                  '4',
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontFamily: "Poppins"),
-                                                ),
+                                              : index == 2
+                                                  ? const Text(
+                                                      '3',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontFamily:
+                                                              "Poppins"),
+                                                    )
+                                                  : const Text(
+                                                      '4',
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontFamily:
+                                                              "Poppins"),
+                                                    ),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                          ],
-                        );
-                      }),
+                              ],
+                            );
+                          })
+                  : Consumer<ChangeColorProvider>(
+                      builder: (context, value, child) {
+                      return TextFormField(
+                        /*           focusNode: quesfocusNode, */
+                        cursorColor: primaryColorOfApp,
+                        maxLines: 5,
+                        initialValue: widget.text,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: provider1.newColor == null
+                              ? Colors.white
+                              : provider1.newColor,
+                          alignLabelWithHint: true,
+                          hintText: 'e.g Your Favotite Food',
+                          hintStyle: TextStyle(
+                              color: customTextColor,
+                              fontFamily: 'Poppins',
+                              fontSize: 10.sp),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: customTextColor, width: 0.5.sp),
+                              borderRadius: BorderRadius.circular(5)),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: primaryColorOfApp, width: 0.5.sp),
+                              borderRadius: BorderRadius.circular(5)),
+                        ),
+                      );
+                    }),
+              Divider(
+                height: 2.5.h,
+                color: Colors.transparent,
+              ),
               ListView.separated(
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: ((context, index) {
                     return TextFormField(
                       cursorColor: primaryColorOfApp,
-                      maxLines: index == 0 ? 3 : 1,
+                      maxLines: widget.text != ""
+                          ? 1
+                          : index == 0
+                              ? 3
+                              : 1,
                       decoration: InputDecoration(
-                          labelText: index == 0
-                              ? null
-                              : index == 1
+                          labelText: widget.text != ""
+                              ? index == 0
                                   ? "@mention"
-                                  : index == 2
-                                      ? "Add Explore*"
-                                      : "Add Location",
+                                  : index == 1
+                                      ? "Add Explore"
+                                      : "Add Location"
+                              : index == 0
+                                  ? null
+                                  : index == 1
+                                      ? "@mention"
+                                      : index == 2
+                                          ? "Add Explore*"
+                                          : "Add Location",
                           prefixIconConstraints: const BoxConstraints(),
                           suffixIconConstraints: const BoxConstraints(),
                           suffixIcon: index == 0
@@ -453,11 +510,8 @@ class _Createpoll2State extends State<Createpoll2> {
                                         color: const Color(0xffDADADA),
                                       ),
                                     ),
-                          prefixIcon: index == 0
-                              ? SizedBox(
-                                  width: 3.w,
-                                )
-                              : index == 1
+                          prefixIcon: widget.text != ""
+                              ? index == 0
                                   ? Padding(
                                       padding: EdgeInsets.only(left: 2.w),
                                       child: Text(
@@ -468,7 +522,7 @@ class _Createpoll2State extends State<Createpoll2> {
                                             fontSize: 19.sp),
                                       ),
                                     )
-                                  : index == 2
+                                  : index == 1
                                       ? Padding(
                                           padding: EdgeInsets.only(left: 2.w),
                                           child: Text(
@@ -486,7 +540,43 @@ class _Createpoll2State extends State<Createpoll2> {
                                             color: primaryColorOfApp,
                                             size: 20.sp,
                                           ),
-                                        ),
+                                        )
+                              : index == 0
+                                  ? SizedBox(
+                                      width: 3.w,
+                                    )
+                                  : index == 1
+                                      ? Padding(
+                                          padding: EdgeInsets.only(left: 2.w),
+                                          child: Text(
+                                            "@",
+                                            style: TextStyle(
+                                                color: primaryColorOfApp,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 19.sp),
+                                          ),
+                                        )
+                                      : index == 2
+                                          ? Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 2.w),
+                                              child: Text(
+                                                "#",
+                                                style: TextStyle(
+                                                    color: primaryColorOfApp,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 20.sp),
+                                              ),
+                                            )
+                                          : Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 1.w),
+                                              child: Iconify(
+                                                MaterialSymbols.location_on,
+                                                color: primaryColorOfApp,
+                                                size: 20.sp,
+                                              ),
+                                            ),
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 3.w, vertical: 9),
                           isDense: true,
@@ -515,7 +605,7 @@ class _Createpoll2State extends State<Createpoll2> {
                       color: Colors.transparent,
                     );
                   }),
-                  itemCount: 4),
+                  itemCount: widget.text != "" ? 3 : 4),
               Divider(
                 height: 2.5.h,
                 color: Colors.transparent,

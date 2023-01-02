@@ -8,6 +8,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/POLL/createpoll.dart';
+import 'package:flutter_application_1/TEXT%20POST/podcast.dart';
+import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
 import 'package:flutter_application_1/homepage/people_profile.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
@@ -296,39 +298,54 @@ class _Home1State extends State<Home1> {
                                   height: 3.h,
                                   color: Colors.transparent,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Material(
-                                        elevation: 10,
-                                        borderRadius:
-                                            BorderRadius.circular(25.sp),
-                                        child: Container(
-                                          decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.white),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(13.sp),
-                                            child: Iconify(Ri.ball_pen_fill,
-                                                color: primaryColorOfApp),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    setState(() {
+                                      floatchupa = true;
+                                    });
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const PostText()),
+                                    );
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Material(
+                                          elevation: 10,
+                                          borderRadius:
+                                              BorderRadius.circular(25.sp),
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.white),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(13.sp),
+                                              child: Iconify(Ri.ball_pen_fill,
+                                                  color: primaryColorOfApp),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          'Something Write',
-                                          style: TextStyle(
-                                              color: primaryColorOfApp,
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w600,
-                                              letterSpacing: 0.2,
-                                              fontSize: 12.sp),
-                                        ),
-                                      )
-                                    ],
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            'Something Write',
+                                            style: TextStyle(
+                                                color: primaryColorOfApp,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w600,
+                                                letterSpacing: 0.2,
+                                                fontSize: 12.sp),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 Divider(
@@ -428,8 +445,6 @@ class _Home1State extends State<Home1> {
                                           builder: (context) =>
                                               const Createpoll()),
                                     );
-                                    /* 
-                                   */
                                   },
                                   child: Padding(
                                     padding: EdgeInsets.only(left: 5.w),
@@ -472,41 +487,56 @@ class _Home1State extends State<Home1> {
                                   height: 2.2.h,
                                   color: Colors.transparent,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Material(
-                                        elevation: 10,
-                                        borderRadius:
-                                            BorderRadius.circular(25.sp),
-                                        child: Container(
-                                          decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.white),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(13.sp),
-                                            child: Iconify(
-                                                MaterialSymbols
-                                                    .record_voice_over,
-                                                color: primaryColorOfApp),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    setState(() {
+                                      floatchupa = true;
+                                    });
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Podcast()),
+                                    );
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Material(
+                                          elevation: 10,
+                                          borderRadius:
+                                              BorderRadius.circular(25.sp),
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.white),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(13.sp),
+                                              child: Iconify(
+                                                  MaterialSymbols
+                                                      .record_voice_over,
+                                                  color: primaryColorOfApp),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          'Live Podcast',
-                                          style: TextStyle(
-                                              color: primaryColorOfApp,
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w600,
-                                              letterSpacing: 0.2,
-                                              fontSize: 12.sp),
-                                        ),
-                                      )
-                                    ],
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            'Live Podcast',
+                                            style: TextStyle(
+                                                color: primaryColorOfApp,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w600,
+                                                letterSpacing: 0.2,
+                                                fontSize: 12.sp),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 Divider(
@@ -752,7 +782,7 @@ class _Home1State extends State<Home1> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const PeopleProfile()),
+                                                PeopleProfile()),
                                       );
                                     },
                                     child: Text('@SPIDER-MAN',

@@ -520,6 +520,7 @@ class _CreatepollState extends State<Createpoll> {
                                                 option2: option2.text,
                                                 option3: option3.text,
                                                 option4: option4.text,
+                                          text: "",
                                               )),
                                     );
                                   }
@@ -569,10 +570,11 @@ class CreatePollProvider extends ChangeNotifier {
       emptyList.removeLast();
       emptyList.add(buttonlist[index]);
     }
-    /*  print('Update----${buttonlist[index]["value"]}'); */
+    print(emptyList);
+    print('Update----${buttonlist[index]["value"]}');
     newVariable = buttonlist[index]["value"];
 
-    /*    print("GetCount-----$newVariable"); */
+    print("GetCount-----$newVariable");
     notifyListeners();
   }
 
