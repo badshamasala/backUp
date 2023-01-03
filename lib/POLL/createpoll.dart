@@ -547,9 +547,9 @@ class _CreatepollState extends State<Createpoll> {
 
 class CreatePollProvider extends ChangeNotifier {
   List buttonlist = [
-    {"label": "Option 2", "value": 2, "isChecked": true},
-    {"label": "Option 3", "value": 3, "isChecked": false},
-    {"label": "Option 4", "value": 4, "isChecked": false},
+    {"label": "Option 2", "value": 2,},
+    {"label": "Option 3", "value": 3,},
+    {"label": "Option 4", "value": 4,},
   ];
   List emptyList = [];
   List durationlist = [

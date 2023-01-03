@@ -15,6 +15,8 @@ import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 import 'package:flutter_application_1/POLL/createpoll.dart';
 import 'package:flutter_application_1/POLL/createpoll2.dart';
 import 'package:flutter_application_1/POLL/dswdswd.dart';
+import 'package:flutter_application_1/PROMOTE/promote.dart';
+import 'package:flutter_application_1/PROMOTE/promote2.dart';
 
 import 'package:flutter_application_1/SHARE/tag_friend.dart';
 import 'package:flutter_application_1/SHARE/chat_screen1.dart';
@@ -82,6 +84,8 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
         ChangeNotifierProvider(create: (_) => GetCountImage()),
         ChangeNotifierProvider(create: (_) => CreatePollProvider()),
         ChangeNotifierProvider(create: (_) => ChangeColorProvider()),
+        ChangeNotifierProvider(create: (_) => PromoteProvider()),
+        ChangeNotifierProvider(create: (_) => RadioProvider()),
         /*      ChangeNotifierProvider(create: (_) => ThemeProvider()), */
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
       ],

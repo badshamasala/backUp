@@ -59,7 +59,7 @@ class _PostTextState extends State<PostText> {
                 backgroundColor: Colors.white,
                 radius: 16.sp,
                 child: CircleAvatar(
-                  backgroundImage: AssetImage("assets/image1.webp"),
+                  backgroundImage: const AssetImage("assets/image1.webp"),
                   radius: 15.sp,
                 ),
               ),
@@ -127,7 +127,9 @@ class _PostTextState extends State<PostText> {
         leading: IconButton(
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: const Iconify(
               Mdi.arrow_back,
               color: primaryColorOfApp,
@@ -146,7 +148,8 @@ class _PostTextState extends State<PostText> {
                 controller: postController,
                 cursorColor: primaryColorOfApp,
                 maxLines: 5,
-                style: TextStyle(fontFamily: provider.newFont),
+                style: TextStyle(
+                    fontFamily: provider.newFont, color: provider.newFontColor),
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: provider.newColor == null
@@ -155,7 +158,7 @@ class _PostTextState extends State<PostText> {
                   alignLabelWithHint: true,
                   hintText: 'e.g Your Favotite Food',
                   hintStyle: TextStyle(
-                      color: customTextColor,
+                      color: provider.newFontColor,
                       fontFamily: 'Poppins',
                       fontSize: 10.sp),
                   enabledBorder: OutlineInputBorder(
@@ -206,23 +209,22 @@ class _PostTextState extends State<PostText> {
                   },
                   itemCount: provider.colorlist.length),
             ),
-            Spacer(),
+            const Spacer(),
             SizedBox(
+              height: 6.h,
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: checkbool
-                    ? 
-                    () {
-                
-                   Navigator.push(
+                    ? () {
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => Createpoll2(
                                     text: postController.text,
                                   )),
                         );
-                }
-                      : null,
+                      }
+                    : null,
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
 
@@ -253,36 +255,52 @@ class _PostTextState extends State<PostText> {
 
 class ChangeColorProvider extends ChangeNotifier {
   List colorlist = [
-    Color(0xff6882BD),
-    Color(0xff537C78),
-    Color(0xffCC222B),
-    Color(0xff0087FF),
-    Color(0xff008755),
-    Color(0xff192CD2),
-    Color(0xffF29724),
-    Color(0xffB80D48),
-    Color(0xffED1B24),
-    Color(0xffFFD45B),
+    const Color(0xff6882BD),
+    const Color(0xff537C78),
+    const Color(0xff192CD2),
+    const Color(0xff008755),
+    const Color(0xffB80D48),
+    const Color(0xffCC222B),
+    const Color(0xff0087FF),
+    const Color(0xffF29724),
+    const Color(0xffED1B24),
+    const Color(0xffFFD45B),
   ];
   List fontList = [
+    "Imprima",
     "Poppins",
+    "Roboto",
     "Satisfy",
-    "Satisf",
-    "Satis",
+  ];
+  List fontColor = [
+    Color(0xffffffff),
+    Color(0xff000000),
   ];
 
   dynamic newColor;
   dynamic newFont;
+  dynamic newFontColor;
 
   changeColor(index) {
+    if (index > 4) {
+      newFontColor = fontColor[1];
+    } else {
+      newFontColor = fontColor[0];
+    }
     newColor = colorlist[index];
 
     notifyListeners();
   }
 
-  changeFont(index) {
-    newFont = fontList[index] ;
- 
+  int index = 0;
+  changeFont() {
+    if (index == fontList.length - 1) {
+      index = 0;
+    } else {
+      index++;
+    }
+    newFont = fontList[index];
+    print(newFont);
     notifyListeners();
   }
 }
