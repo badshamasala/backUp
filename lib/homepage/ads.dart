@@ -603,7 +603,7 @@ class _AdsState extends State<Ads> {
                     }),
                 Expanded(child: ChangeInterest(value: false)),
               ]),
-            )
+            ),
           ],
         ),
       ),

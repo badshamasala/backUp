@@ -76,6 +76,9 @@ class GetUpdateSeconds extends GetxController {
 class GetImage extends GetxController {
   File? image;
   File? image1;
+  File? image2;
+  File? image3;
+  File? image4;
 
   pickforprofile(ImageSource source) async {
     try {
@@ -117,6 +120,48 @@ class GetImage extends GetxController {
       final imageTemporary = File(image1.path);
 
       this.image1 = imageTemporary;
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print('Failed to pick image: $e');
+      }
+    }
+    update();
+  }
+  pickforAds(ImageSource source) async {
+    try {
+      final image2 = await ImagePicker().pickImage(source: source);
+      if (image2 == null) return;
+      final imageTemporary = File(image2.path);
+
+      this.image2 = imageTemporary;
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print('Failed to pick image: $e');
+      }
+    }
+    update();
+  }
+  pickfordoubleAds1(ImageSource source) async {
+    try {
+      final image3 = await ImagePicker().pickImage(source: source);
+      if (image3 == null) return;
+      final imageTemporary = File(image3.path);
+
+      this.image3 = imageTemporary;
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print('Failed to pick image: $e');
+      }
+    }
+    update();
+  }
+  pickfordoubleAds2(ImageSource source) async {
+    try {
+      final image4 = await ImagePicker().pickImage(source: source);
+      if (image4 == null) return;
+      final imageTemporary = File(image4.path);
+
+      this.image4 = imageTemporary;
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print('Failed to pick image: $e');

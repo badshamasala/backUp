@@ -4,8 +4,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/PROMOTE/createmyown.dart';
+import 'package:flutter_application_1/PROMOTE/editChangeUrl.dart';
+import 'package:flutter_application_1/PROMOTE/promote3.dart';
+import 'package:flutter_application_1/PROMOTE/reviewAds.dart';
 import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
+import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
@@ -14,13 +20,15 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class Promote2 extends StatefulWidget {
-  const Promote2({Key? key}) : super(key: key);
+  final value;
+  const Promote2({Key? key, required this.value}) : super(key: key);
 
   @override
   State<Promote2> createState() => _Promote2State();
 }
 
 class _Promote2State extends State<Promote2> {
+  final GetImage getkar = Get.put(GetImage());
   List items = [
     'Order Now',
     'Download Now',
@@ -30,24 +38,7 @@ class _Promote2State extends State<Promote2> {
 
   int _groupseenonline = 1;
   int groupseenonline = 2;
-
-  bool everyone = false;
-  bool followers = true;
-  var following = 'Following';
-  var off = 'Off';
-  File? image;
-  Future pickImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: source);
-      if (image == null) return;
-      final imageTemporary = File(image.path);
-      setState(() => this.image = imageTemporary);
-    } on PlatformException catch (e) {
-      if (kDebugMode) {
-        print('Failed to pick image: $e');
-      }
-    }
-  }
+  int groupValue = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -81,100 +72,604 @@ class _Promote2State extends State<Promote2> {
           padding: EdgeInsets.symmetric(horizontal: 5.w),
           child: Column(
             children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Color(0xffD9D9D9),
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(5)),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 1.h,
+              widget.value == 2
+                  ? GetBuilder<GetImage>(builder: (controller) {
+                      return Container(
+                        child: getkar.image2 != null
+                            ? Stack(
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        borderRadius: BorderRadius.circular(5),
+                                        border: Border.all(
+                                            color: Colors.black, width: 0.1),
+                                      ),
+                                      height: 17.h,
+                                      width: double.infinity,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(5),
+                                        child: Image.file(
+                                          getkar.image2!,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      )),
+                                  Positioned(
+                                    top: 0,
+                                    child: Container(
+                                      width: 90.w,
+                                      decoration: BoxDecoration(
+                                          color: Colors.black.withOpacity(0.3),
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(5),
+                                              topRight: Radius.circular(5))),
+                                      child: TextButton(
+                                          style: TextButton.styleFrom(
+                                              padding: EdgeInsets.zero,
+                                              tapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap),
+                                          onPressed: () {
+                                            getkar.pickforAds(
+                                                ImageSource.gallery);
+                                          },
+                                          child: Text(
+                                            "Change Image",
+                                            style: TextStyle(
+                                                color: primaryColorOfApp,
+                                                fontFamily: "Poppins",
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 10.sp),
+                                          )),
+                                    ),
+                                  ),
+                                  groupseenonline == 1
+                                      ? SizedBox()
+                                      : Consumer<ChangeColorProvider>(
+                                          builder: (context, value, child) {
+                                          return SizedBox(
+                                            height: 5.h,
+                                            width: double.infinity,
+                                            child: ElevatedButton(
+                                              onPressed: () {},
+                                              style: ElevatedButton.styleFrom(
+                                                  elevation: 0,
+                                                  tapTargetSize:
+                                                      MaterialTapTargetSize
+                                                          .shrinkWrap,
+                                                  backgroundColor:
+                                                      provider.newColor == null
+                                                          ? Colors.black
+                                                          : provider.newColor,
+                                                  foregroundColor: Colors.white,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5.0))),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    "Shop Now",
+                                                    style: TextStyle(
+                                                        fontSize: 12.sp,
+                                                        fontFamily: 'Poppins'),
+                                                  ),
+                                                  Icon(
+                                                    Icons.arrow_right,
+                                                    color: Colors.white,
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          );
+                                        }),
+                                ],
+                              )
+                            // Image. file
+                            : Container(
+                                height: 17.h,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffD9D9D9),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                width: double.infinity,
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 1.h,
+                                    ),
+                                    Container(
+                                        decoration: const BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: IconButton(
+                                          onPressed: () {
+                                            getkar.pickforAds(
+                                                ImageSource.gallery);
+                                          },
+                                          icon: Iconify(
+                                            Heroicons.photo_20_solid,
+                                            color: primaryColorOfApp,
+                                            size: 30.sp,
+                                          ),
+                                        )),
+                                    Text(
+                                      'gallery',
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          color: customTextColor,
+                                          fontSize: 12.sp),
+                                    ),
+                                    SizedBox(
+                                      height: 3.h,
+                                    ),
+                                    Text(
+                                      'Image Size 390 X 170 Pixels',
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          color: customTextColor,
+                                          fontSize: 10.sp),
+                                    ),
+                                    SizedBox(
+                                      height: 1.h,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                      );
+                    })
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GetBuilder<GetImage>(builder: (controller) {
+                          return Container(
+                            child: getkar.image3 != null
+                                ? Stack(
+                                    alignment: Alignment.bottomCenter,
+                                    children: [
+                                      Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.transparent,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            border: Border.all(
+                                                color: Colors.black,
+                                                width: 0.1),
+                                          ),
+                                          height: 17.h,
+                                          width: 44.5.w,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: Image.file(
+                                              getkar.image3!,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          )),
+                                      Positioned(
+                                        top: 0,
+                                        child: Container(
+                                          width: 44.5.w,
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.black.withOpacity(0.3),
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(5),
+                                                  topRight:
+                                                      Radius.circular(5))),
+                                          child: TextButton(
+                                              style: TextButton.styleFrom(
+                                                  padding: EdgeInsets.zero,
+                                                  tapTargetSize:
+                                                      MaterialTapTargetSize
+                                                          .shrinkWrap),
+                                              onPressed: () {
+                                                getkar.pickfordoubleAds1(
+                                                    ImageSource.gallery);
+                                              },
+                                              child: Text(
+                                                "Change Image",
+                                                style: TextStyle(
+                                                    color: primaryColorOfApp,
+                                                    fontFamily: "Poppins",
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 10.sp),
+                                              )),
+                                        ),
+                                      ),
+                                      groupValue == 2
+                                          ? SizedBox()
+                                          : groupValue == 1
+                                              ? Consumer<ChangeColorProvider>(
+                                                  builder:
+                                                      (context, value, child) {
+                                                  return SizedBox(
+                                                    height: 5.h,
+                                                    width: 44.5.w,
+                                                    child: ElevatedButton(
+                                                      onPressed: () {},
+                                                      style: ElevatedButton.styleFrom(
+                                                          elevation: 0,
+                                                          tapTargetSize:
+                                                              MaterialTapTargetSize
+                                                                  .shrinkWrap,
+                                                          backgroundColor:
+                                                              provider.newColor ==
+                                                                      null
+                                                                  ? Colors.black
+                                                                  : provider
+                                                                      .newColor,
+                                                          foregroundColor:
+                                                              Colors.white,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5.0))),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Text(
+                                                            "Shop Now",
+                                                            style: TextStyle(
+                                                                fontSize: 12.sp,
+                                                                fontFamily:
+                                                                    'Poppins'),
+                                                          ),
+                                                          Icon(
+                                                            Icons.arrow_right,
+                                                            color: Colors.white,
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  );
+                                                })
+                                              : SizedBox()
+                                    ],
+                                  )
+                                // Image. file
+                                : Container(
+                                    height: 17.h,
+                                    width: 44.5.w,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xffD9D9D9),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Container(
+                                            decoration: const BoxDecoration(
+                                              color: Colors.white,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: IconButton(
+                                              onPressed: () {
+                                                getkar.pickfordoubleAds1(
+                                                    ImageSource.gallery);
+                                              },
+                                              icon: Iconify(
+                                                Heroicons.photo_20_solid,
+                                                color: primaryColorOfApp,
+                                                size: 30.sp,
+                                              ),
+                                            )),
+                                        Text(
+                                          'gallery',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: customTextColor,
+                                              fontSize: 12.sp),
+                                        ),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        Text(
+                                          'Image Size 390 X 170 Pixels',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: customTextColor,
+                                              fontSize: 10.sp),
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                          );
+                        }),
+                        GetBuilder<GetImage>(builder: (controller) {
+                          return Container(
+                            child: getkar.image4 != null
+                                ? Stack(
+                                    alignment: Alignment.bottomCenter,
+                                    children: [
+                                      Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.transparent,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            border: Border.all(
+                                                color: Colors.black,
+                                                width: 0.1),
+                                          ),
+                                          height: 17.h,
+                                          width: 44.5.w,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: Image.file(
+                                              getkar.image4!,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          )),
+                                      Positioned(
+                                        top: 0,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Colors.black.withOpacity(0.3),
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(5),
+                                                  topRight:
+                                                      Radius.circular(5))),
+                                          width: 44.5.w,
+                                          child: TextButton(
+                                              style: TextButton.styleFrom(
+                                                  padding: EdgeInsets.zero,
+                                                  tapTargetSize:
+                                                      MaterialTapTargetSize
+                                                          .shrinkWrap),
+                                              onPressed: () {
+                                                getkar.pickfordoubleAds2(
+                                                    ImageSource.gallery);
+                                              },
+                                              child: Text(
+                                                "Change Image",
+                                                style: TextStyle(
+                                                    color: primaryColorOfApp,
+                                                    fontFamily: "Poppins",
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 10.sp),
+                                              )),
+                                        ),
+                                      ),
+                                      groupValue == 2
+                                          ? SizedBox()
+                                          : groupValue == 1
+                                              ? SizedBox()
+                                              : Consumer<ChangeColorProvider>(
+                                                  builder:
+                                                      (context, value, child) {
+                                                  return SizedBox(
+                                                    height: 5.h,
+                                                    width: 44.5.w,
+                                                    child: ElevatedButton(
+                                                      onPressed: () {},
+                                                      style: ElevatedButton.styleFrom(
+                                                          elevation: 0,
+                                                          tapTargetSize:
+                                                              MaterialTapTargetSize
+                                                                  .shrinkWrap,
+                                                          backgroundColor:
+                                                              provider.newColor ==
+                                                                      null
+                                                                  ? Colors.black
+                                                                  : provider
+                                                                      .newColor,
+                                                          foregroundColor:
+                                                              Colors.white,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5.0))),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Text(
+                                                            "Shop Now",
+                                                            style: TextStyle(
+                                                                fontSize: 12.sp,
+                                                                fontFamily:
+                                                                    'Poppins'),
+                                                          ),
+                                                          Icon(
+                                                            Icons.arrow_right,
+                                                            color: Colors.white,
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  );
+                                                }),
+                                    ],
+                                  )
+                                // Image. file
+                                : Container(
+                                    height: 17.h,
+                                    width: 44.5.w,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xffD9D9D9),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        Container(
+                                            decoration: const BoxDecoration(
+                                              color: Colors.white,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: IconButton(
+                                              onPressed: () {
+                                                getkar.pickfordoubleAds2(
+                                                    ImageSource.gallery);
+                                              },
+                                              icon: Iconify(
+                                                Heroicons.photo_20_solid,
+                                                color: primaryColorOfApp,
+                                                size: 30.sp,
+                                              ),
+                                            )),
+                                        Text(
+                                          'gallery',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: customTextColor,
+                                              fontSize: 12.sp),
+                                        ),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        Text(
+                                          'Image Size 390 X 170 Pixels',
+                                          style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: customTextColor,
+                                              fontSize: 10.sp),
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                          );
+                        }),
+                      ],
                     ),
-                    Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
+              widget.value == 2
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Button Not Required",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: customTextColor,
+                              fontSize: 10.sp),
                         ),
-                        child: IconButton(
-                          onPressed: () {
-                            pickImage(ImageSource.gallery);
-                          },
-                          icon: Iconify(
-                            Heroicons.photo_20_solid,
-                            color: primaryColorOfApp,
-                            size: 30.sp,
-                          ),
-                        )),
-                    Text(
-                      'gallery',
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: customTextColor,
-                          fontSize: 12.sp),
+                        Transform.scale(
+                          scale: 1.1.sp,
+                          child: Radio(
+                              visualDensity: VisualDensity.compact,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              groupValue: groupseenonline,
+                              value: 1,
+                              onChanged: (val) {
+                                setState(() {
+                                  groupseenonline = 1;
+                                });
+                              }),
+                        ),
+                        Text(
+                          "Button Required",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: customTextColor,
+                              fontSize: 10.sp),
+                        ),
+                        Transform.scale(
+                          scale: 1.1.sp,
+                          child: Radio(
+                              visualDensity: VisualDensity.compact,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              groupValue: groupseenonline,
+                              value: 2,
+                              onChanged: (val) {
+                                setState(() {
+                                  groupseenonline = 2;
+                                });
+                              }),
+                        ),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Button Left",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: customTextColor,
+                              fontSize: 10.sp),
+                        ),
+                        Transform.scale(
+                          scale: 1.1.sp,
+                          child: Radio(
+                              visualDensity: VisualDensity.compact,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              groupValue: groupValue,
+                              value: 1,
+                              onChanged: (val) {
+                                setState(() {
+                                  groupValue = 1;
+                                });
+                              }),
+                        ),
+                        Text(
+                          "Not Required",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: customTextColor,
+                              fontSize: 10.sp),
+                        ),
+                        Transform.scale(
+                          scale: 1.1.sp,
+                          child: Radio(
+                              visualDensity: VisualDensity.compact,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              groupValue: groupValue,
+                              value: 2,
+                              onChanged: (val) {
+                                setState(() {
+                                  groupValue = 2;
+                                });
+                              }),
+                        ),
+                        Text(
+                          "Button Right",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: customTextColor,
+                              fontSize: 10.sp),
+                        ),
+                        Transform.scale(
+                          scale: 1.1.sp,
+                          child: Radio(
+                              visualDensity: VisualDensity.compact,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              groupValue: groupValue,
+                              value: 3,
+                              onChanged: (val) {
+                                setState(() {
+                                  groupValue = 3;
+                                });
+                              }),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: 3.h,
-                    ),
-                    Text(
-                      'Image Size 390 X 170 Pixels',
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: customTextColor,
-                          fontSize: 10.sp),
-                    ),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Button Not Required",
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: customTextColor,
-                        fontSize: 10.sp),
-                  ),
-                  Transform.scale(
-                    scale: 1.1.sp,
-                    child: Radio(
-                        visualDensity: VisualDensity.compact,
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        groupValue: groupseenonline,
-                        value: 1,
-                        onChanged: (val) {
-                          setState(() {
-                            groupseenonline = 1;
-                          });
-                        }),
-                  ),
-                  Text(
-                    "Button Required",
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: customTextColor,
-                        fontSize: 10.sp),
-                  ),
-                  Transform.scale(
-                    scale: 1.1.sp,
-                    child: Radio(
-                        visualDensity: VisualDensity.compact,
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        groupValue: groupseenonline,
-                        value: 2,
-                        onChanged: (val) {
-                          setState(() {
-                            groupseenonline = 2;
-                          });
-                        }),
-                  ),
-                ],
-              ),
               Row(
                 children: [
                   Padding(
@@ -197,7 +692,7 @@ class _Promote2State extends State<Promote2> {
                     itemBuilder: (context, i) {
                       return InkWell(
                         onTap: () {
-                          /*  provider.changeColor(i); */
+                          provider.changeColor(i);
                         },
                         child: CircleAvatar(
                           backgroundColor: provider.colorlist[i],
@@ -212,29 +707,47 @@ class _Promote2State extends State<Promote2> {
                     },
                     itemCount: provider.colorlist.length),
               ),
-              SizedBox(
-                height: 4.5.h,
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: () {},
-                  style: OutlinedButton.styleFrom(
-                      elevation: 0,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      side: const BorderSide(
-                        color: Color(0xff0087FF),
-                      ),
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
-                  child: Text(
-                    "Review Ads",
-                    style: TextStyle(
-                        color: primaryColorOfApp,
-                        fontSize: 12.sp,
-                        fontFamily: 'Poppins'),
+              GetBuilder<GetImage>(builder: (controller) {
+                return SizedBox(
+                  height: 4.5.h,
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: widget.value == 2 ? getkar.image2 !=null ? () {
+                            Get.to(() => ReviewAds(
+                                  value: widget.value,
+                                  groupValue: groupValue,
+                                  groupseenonline: groupseenonline,
+                                ));
+                          } : null :
+                    
+                    getkar.image3 != null && getkar.image4 != null
+                        ? () {
+                            Get.to(() => ReviewAds(
+                                  value: widget.value,
+                                  groupValue: groupValue,
+                                  groupseenonline: groupseenonline,
+                                ));
+                          }
+                        : null,
+                    style: OutlinedButton.styleFrom(
+                        elevation: 0,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        side: BorderSide(
+                          color: getkar.image4 != null
+                              ? Color(0xff0087FF)
+                              : Color(0xffd9d9d9),
+                        ),
+                        foregroundColor: primaryColorOfApp,
+                        backgroundColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0))),
+                    child: Text(
+                      "Review Ads",
+                      style: TextStyle(fontSize: 12.sp, fontFamily: 'Poppins'),
+                    ),
                   ),
-                ),
-              ),
+                );
+              }),
               SizedBox(
                 height: 1.h,
               ),
@@ -334,7 +847,9 @@ class _Promote2State extends State<Promote2> {
                                       padding: EdgeInsets.zero,
                                       tapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.to(() => EditChangeUrl());
+                                  },
                                   child: Text(
                                     "Edit/Change URL",
                                     style: TextStyle(
@@ -411,31 +926,36 @@ class _Promote2State extends State<Promote2> {
               SizedBox(
                 height: 2.5.h,
               ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(width: 0.5, color: primaryColorOfApp),
-                    borderRadius: BorderRadius.circular(5),
-                    shape: BoxShape.rectangle),
-                child: Padding(
-                  padding: EdgeInsets.all(4.5.sp),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 3.w),
-                        child: Text(
-                          "Create my own ",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontSize: 11.sp),
+              InkWell(
+                onTap: () {
+                  Get.to(() => Createmyown());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 0.5, color: primaryColorOfApp),
+                      borderRadius: BorderRadius.circular(5),
+                      shape: BoxShape.rectangle),
+                  child: Padding(
+                    padding: EdgeInsets.all(4.5.sp),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 3.w),
+                          child: Text(
+                            "Create my own ",
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: customTextColor,
+                                fontSize: 11.sp),
+                          ),
                         ),
-                      ),
-                      Icon(
-                        Icons.arrow_right,
-                        color: primaryColorOfApp,
-                      )
-                    ],
+                        Icon(
+                          Icons.arrow_right,
+                          color: primaryColorOfApp,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -446,7 +966,13 @@ class _Promote2State extends State<Promote2> {
                 height: 6.h,
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => Promote3(
+                               value: widget.value,
+                                  groupValue: groupValue,
+                                  groupseenonline: groupseenonline,
+                    ));
+                  },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
