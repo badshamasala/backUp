@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/PROMOTE/promote2.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/ion.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:iconify_flutter/icons/ph.dart';
 import 'package:iconify_flutter/icons/tabler.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Promote extends StatefulWidget {
   const Promote({Key? key}) : super(key: key);
@@ -25,9 +29,11 @@ class _PromoteState extends State<Promote> {
     Provider.of<PromoteProvider>(context, listen: false).methodforSelection();
   }
 
-  var newVar;
+  /*  bool isPremium = false; */
+
   @override
   Widget build(BuildContext context) {
+    print("badsha masala ------------------1");
     final provider = Provider.of<PromoteProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
@@ -134,7 +140,7 @@ class _PromoteState extends State<Promote> {
             Consumer<PromoteProvider>(builder: (context, value, child) {
               return GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 12.h,
+                      mainAxisExtent: 11.5.h,
                       /*     childAspectRatio: 3.5, */
                       crossAxisSpacing: 0,
                       mainAxisSpacing: 0,
@@ -143,43 +149,42 @@ class _PromoteState extends State<Promote> {
                   itemBuilder: (context, index) {
                     return Container(
                       decoration: BoxDecoration(
-                          color: Color(0xffe2e2e2),
+                          color: const Color(0xffe2e2e2),
                           borderRadius: index == 1
-                              ? BorderRadius.only(
+                              ? const BorderRadius.only(
                                   topRight: Radius.circular(10),
                                   bottomRight: Radius.circular(10))
-                              : BorderRadius.only(
+                              : const BorderRadius.only(
                                   topLeft: Radius.circular(10),
                                   bottomLeft: Radius.circular(10))),
-                      child: SizedBox(
-                        height: 12.h,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              animationDuration: Duration(seconds: 0),
-                              alignment: Alignment.topCenter,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              backgroundColor: provider.emptyList
-                                      .contains(provider.optionList[index])
-                                  ? primaryColorOfApp
-                                  : Color(0xffe2e2e2),
-                              foregroundColor: provider.emptyList
-                                      .contains(provider.optionList[index])
-                                  ? Colors.white
-                                  : Colors.black,
-                              elevation: 0),
-                          onPressed: () {
-                            provider.updateMethod(index);
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 20.sp),
-                            child: Text(
-                              provider.optionList[index]["label"],
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize:
-                                    15.sp, /*   fontWeight: FontWeight.bold */
-                              ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            animationDuration: const Duration(seconds: 0),
+                            alignment: Alignment.topCenter,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            backgroundColor: provider.emptyList
+                                    .contains(provider.optionList[index])
+                                ? index == 1
+                                    ? const Color(0xff47123E)
+                                    : primaryColorOfApp
+                                : const Color(0xffe2e2e2),
+                            foregroundColor: provider.emptyList
+                                    .contains(provider.optionList[index])
+                                ? Colors.white
+                                : Colors.black,
+                            elevation: 0),
+                        onPressed: () {
+                          provider.regularPremiun(index);
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 20.sp),
+                          child: Text(
+                            provider.optionList[index]["label"],
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize:
+                                  15.sp, /*   fontWeight: FontWeight.bold */
                             ),
                           ),
                         ),
@@ -192,99 +197,194 @@ class _PromoteState extends State<Promote> {
               height: 1.h,
             ),
             Consumer<PromoteProvider>(builder: (context, value, child) {
-              return GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 14.h,
-                      /*     childAspectRatio: 3.5, */
-                      crossAxisSpacing: 5,
-                      mainAxisSpacing: 5,
-                      crossAxisCount: 1),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        provider.updateAds(index);
-                        setState(() {
-                          newVar = provider.addOptionList[index]["value"];
-                        });
-
-                        /*   provider.listColor(index); */
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: provider.emptyAdd
-                                    .contains(provider.addOptionList[index])
-                                ? primaryColorOfApp
-                                : Color(0xffe2e2e2),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(8.sp),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+              return provider.isPremium
+                  ? GridView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisExtent: 12.h,
+                          /*     childAspectRatio: 3.5, */
+                          crossAxisSpacing: 0,
+                          mainAxisSpacing: 2.w,
+                          crossAxisCount: 1),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Material(
+                          borderRadius: BorderRadius.circular(10),
+                          elevation: 2,
+                          child: InkWell(
+                            onTap: () {
+                              provider.updatePremiumAds(index);
+                              print("asassa");
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: provider.emptyPremium
+                                          .contains(provider.premiumAdd[index])
+                                      ? const Color(0xff47123E)
+                                      : const Color(0xffe2e2e2),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Column(
                                 children: [
                                   Padding(
-                                    padding: EdgeInsets.only(left: 5.w),
-                                    child: Text(
-                                      provider.addOptionList[index]["label"],
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        color: provider.emptyAdd.contains(
-                                                provider.addOptionList[index])
-                                            ? Colors.white
-                                            : Colors.black,
-                                        fontSize: 12
-                                            .sp, /*   fontWeight: FontWeight.bold */
-                                      ),
+                                    padding: EdgeInsets.all(8.sp),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 5.w),
+                                          child: Text(
+                                            provider.premiumAdd[index]["label"],
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: provider.emptyPremium
+                                                      .contains(provider
+                                                          .premiumAdd[index])
+                                                  ? Colors.white
+                                                  : Colors.black,
+                                              fontSize: 12
+                                                  .sp, /*   fontWeight: FontWeight.bold */
+                                            ),
+                                          ),
+                                        ),
+                                        provider.emptyPremium.contains(
+                                                provider.premiumAdd[index])
+                                            ? Iconify(
+                                                AntDesign.check_circle_outlined,
+                                                color: provider.emptyPremium
+                                                        .contains(provider
+                                                            .premiumAdd[index])
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                                size: 22.sp,
+                                              )
+                                            : Iconify(
+                                                Ion.ios_circle_outline,
+                                                color: provider.emptyPremium
+                                                        .contains(provider
+                                                            .premiumAdd[index])
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                                size: 23.sp,
+                                              )
+                                      ],
                                     ),
                                   ),
-                                  provider.emptyAdd.contains(
-                                          provider.addOptionList[index])
-                                      ? Iconify(
-                                          AntDesign.check_circle_outlined,
-                                          color: provider.emptyAdd.contains(
-                                                  provider.addOptionList[index])
-                                              ? Colors.white
-                                              : Colors.black,
-                                          size: 22.sp,
-                                        )
-                                      : Iconify(
-                                          Ion.ios_circle_outline,
-                                          color: provider.emptyAdd.contains(
-                                                  provider.addOptionList[index])
-                                              ? Colors.white
-                                              : Colors.black,
-                                          size: 23.sp,
-                                        )
+                                  splitline(
+                                    provider.emptyPremium.contains(
+                                            provider.premiumAdd[index])
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
                                 ],
                               ),
                             ),
-                            splitline(
-                              provider.emptyAdd
-                                      .contains(provider.addOptionList[index])
-                                  ? Colors.white
-                                  : Colors.black,
-                            ),
-                            index == 1
-                                ? verticalsplitline(
+                          ),
+                        );
+                      },
+                      itemCount: provider.premiumAdd.length)
+                  : GridView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisExtent: 14.h,
+                          /*     childAspectRatio: 3.5, */
+                          crossAxisSpacing: 5,
+                          mainAxisSpacing: 5,
+                          crossAxisCount: 1),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Material(
+                          borderRadius: BorderRadius.circular(10),
+                          elevation: 2,
+                          child: InkWell(
+                            onTap: () {
+                              provider.singleDouble(index);
+                              print("d---------------");
+                              print(provider.newVar);
+                              print(provider.premiumAds);
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: provider.emptyAdd.contains(
+                                          provider.addOptionList[index])
+                                      ? primaryColorOfApp
+                                      : const Color(0xffe2e2e2),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.all(8.sp),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 5.w),
+                                          child: Text(
+                                            provider.addOptionList[index]
+                                                ["label"],
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              color: provider.emptyAdd.contains(
+                                                      provider
+                                                          .addOptionList[index])
+                                                  ? Colors.white
+                                                  : Colors.black,
+                                              fontSize: 12
+                                                  .sp, /*   fontWeight: FontWeight.bold */
+                                            ),
+                                          ),
+                                        ),
+                                        provider.emptyAdd.contains(
+                                                provider.addOptionList[index])
+                                            ? Iconify(
+                                                AntDesign.check_circle_outlined,
+                                                color: provider.emptyAdd
+                                                        .contains(provider
+                                                                .addOptionList[
+                                                            index])
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                                size: 22.sp,
+                                              )
+                                            : Iconify(
+                                                Ion.ios_circle_outline,
+                                                color: provider.emptyAdd
+                                                        .contains(provider
+                                                                .addOptionList[
+                                                            index])
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                                size: 23.sp,
+                                              )
+                                      ],
+                                    ),
+                                  ),
+                                  splitline(
                                     provider.emptyAdd.contains(
                                             provider.addOptionList[index])
                                         ? Colors.white
                                         : Colors.black,
-                                  )
-                                : Container()
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  itemCount: provider.optionList.length);
+                                  ),
+                                  index == 1
+                                      ? verticalsplitline(
+                                          provider.emptyAdd.contains(
+                                                  provider.addOptionList[index])
+                                              ? Colors.white
+                                              : Colors.black,
+                                        )
+                                      : Container()
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                      itemCount: provider.optionList.length);
             }),
-            SizedBox(
-              height: 2.h,
-            ),
+            Consumer<PromoteProvider>(builder: (context, value, child) {
+              return SizedBox(height: provider.isPremium ? 2.h : 3.h);
+            }),
             Padding(
               padding: EdgeInsets.only(left: 5.w),
               child: Row(
@@ -305,15 +405,25 @@ class _PromoteState extends State<Promote> {
               padding: EdgeInsets.only(left: 5.w),
               child: Row(
                 children: [
-                  Text(
-                    "+91-9876543210 ",
-                    style: TextStyle(
-                        color: primaryColorOfApp,
-                        fontFamily: "Poppins",
-                        fontSize: MediaQuery.of(context).size.height > 667
-                            ? 8.sp
-                            : 10.sp),
-                  ),
+                  TextButton(
+                      style: TextButton.styleFrom(
+                          elevation: 0,
+                          visualDensity: const VisualDensity(vertical: -4),
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                      onPressed: () async {
+                        await FlutterPhoneDirectCaller.callNumber(
+                            "+919876543210");
+                      },
+                      child: Text(
+                        "+91-9876543210 ",
+                        style: TextStyle(
+                            color: primaryColorOfApp,
+                            fontFamily: "Poppins",
+                            fontSize: MediaQuery.of(context).size.height > 667
+                                ? 8.sp
+                                : 10.sp),
+                      )),
                   SizedBox(
                     width: 1.w,
                   ),
@@ -329,19 +439,45 @@ class _PromoteState extends State<Promote> {
                   SizedBox(
                     width: 1.w,
                   ),
-                  Text(
-                    "connect@myttube.com",
-                    style: TextStyle(
-                        color: primaryColorOfApp,
-                        fontFamily: "Poppins",
-                        fontSize: MediaQuery.of(context).size.height > 667
-                            ? 8.sp
-                            : 10.sp),
-                  ),
+                  TextButton(
+                      style: TextButton.styleFrom(
+                          elevation: 0,
+                          visualDensity: const VisualDensity(vertical: -4),
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+                      onPressed: () async {
+                        String? encodeQueryParameters(
+                            Map<String, String> params) {
+                          return params.entries
+                              .map((MapEntry<String, String> e) =>
+                                  '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                              .join('&');
+                        }
+
+// ···
+                        final Uri emailLaunchUri = Uri(
+                          scheme: 'mailto',
+                          path: 'connect@myttube.com',
+                          query: encodeQueryParameters(<String, String>{
+                            'subject': '',
+                          }),
+                        );
+
+                        launchUrl(emailLaunchUri);
+                      },
+                      child: Text(
+                        "connect@myttube.com",
+                        style: TextStyle(
+                            color: primaryColorOfApp,
+                            fontFamily: "Poppins",
+                            fontSize: MediaQuery.of(context).size.height > 667
+                                ? 8.sp
+                                : 10.sp),
+                      )),
                 ],
               ),
             ),
-            Spacer(),
+            const Spacer(),
             SizedBox(
               height: 6.h,
               width: double.infinity,
@@ -351,7 +487,8 @@ class _PromoteState extends State<Promote> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => Promote2(
-                              value: newVar ?? 2,
+                              value: provider.newVar ?? 2,
+                              value2: provider.premiumAds,
                             )),
                   );
                 },
@@ -363,7 +500,7 @@ class _PromoteState extends State<Promote> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0))),
                 child: Padding(
-                  padding: EdgeInsets.all(1.0),
+                  padding: const EdgeInsets.all(1.0),
                   child: Text(
                     "Confirm & Next",
                     style: TextStyle(fontSize: 12.sp, fontFamily: 'Poppins'),
@@ -372,7 +509,7 @@ class _PromoteState extends State<Promote> {
               ),
             ),
             SizedBox(
-              height: 6.h,
+              height: 4.h,
             )
           ],
         ),
@@ -382,6 +519,7 @@ class _PromoteState extends State<Promote> {
 }
 
 class PromoteProvider extends ChangeNotifier {
+  var newVar;
   List optionList = [
     {
       "label": "Regular",
@@ -392,6 +530,21 @@ class PromoteProvider extends ChangeNotifier {
       "value": 3,
     },
   ];
+  List premiumAdd = [
+    {
+      "label": "Premium Topper",
+      "value": 2,
+    },
+    {
+      "label": "Premium Business",
+      "value": 3,
+    },
+    {
+      "label": "Premium Business Groups",
+      "value": 4,
+    },
+  ];
+  List emptyPremium = [];
   List planList = [
     {
       "label": "One Time",
@@ -428,12 +581,19 @@ class PromoteProvider extends ChangeNotifier {
       "value": 3,
     },
   ];
+  List genderList = [
+    {"icon": Ph.gender_male, "label": "Male"},
+    {"icon": Ph.gender_female, "label": "Female"}
+  ];
+
   List emptyList = [];
   List emptyAdd = [];
   List emptyplan = [];
   List emptyplanviews = [];
+  List emptygender = [];
   var newColor;
-  updateMethod(index) {
+  bool isPremium = false;
+  regularPremiun(index) {
     if (emptyList.isEmpty) {
       emptyList.add(optionList[index]);
     } else {
@@ -441,16 +601,39 @@ class PromoteProvider extends ChangeNotifier {
       emptyList.add(optionList[index]);
     }
 
+    if (index == 1) {
+      premiumAds = 2;
+      isPremium = true;
+    } else {
+      premiumAds = null;
+      isPremium = false;
+    }
+    print(premiumAds);
     notifyListeners();
   }
 
-  updateAds(index) {
+  singleDouble(index) {
     if (emptyAdd.isEmpty) {
       emptyAdd.add(addOptionList[index]);
     } else {
       emptyAdd.removeLast();
       emptyAdd.add(addOptionList[index]);
     }
+    newVar = addOptionList[index]["value"];
+    premiumAds = null;
+    notifyListeners();
+  }
+
+  var premiumAds;
+  updatePremiumAds(index) {
+    if (emptyPremium.isEmpty) {
+      emptyPremium.add(premiumAdd[index]);
+    } else {
+      emptyPremium.removeLast();
+      emptyPremium.add(premiumAdd[index]);
+    }
+    premiumAds = premiumAdd[index]["value"];
+    print(premiumAds);
     notifyListeners();
   }
 
@@ -474,21 +657,29 @@ class PromoteProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  updatgender(index) {
+    if (emptygender.contains(genderList[index])) {
+      emptygender.remove(genderList[index]);
+    } else {
+      emptygender.add(genderList[index]);
+    }
+    notifyListeners();
+  }
+
   methodforSelection() {
     if (emptyList.isEmpty) {
       emptyList.add(optionList[0]);
       emptyAdd.add(addOptionList[0]);
       emptyplan.add(planList[0]);
       emptyplanviews.add(planviewsList[1]);
-    } else if (emptyList.isNotEmpty) {
-      emptyList.removeLast();
-      emptyList.add(optionList[0]);
-      emptyAdd.removeLast();
-      emptyAdd.add(addOptionList[0]);
-      emptyplan.removeLast();
-      emptyplan.add(planList[0]);
-      emptyplanviews.removeLast();
-      emptyplanviews.add(planviewsList[1]);
+      emptyPremium.add(premiumAdd[0]);
+    }
+  }
+
+  slectfirstTwogender() {
+    if (emptygender.isEmpty) {
+      emptygender.add(genderList[0]);
+      emptygender.add(genderList[1]);
     }
   }
 }

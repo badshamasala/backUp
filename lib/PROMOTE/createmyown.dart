@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
 import 'package:flutter_application_1/PROMOTE/explore1.dart';
+import 'package:flutter_application_1/PROMOTE/promote.dart';
+import 'package:flutter_application_1/PROMOTE/promote3.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
@@ -10,18 +12,34 @@ import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'package:iconify_flutter/icons/uil.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import '../GLOBALS/colors.dart';
 
 class Createmyown extends StatefulWidget {
-  const Createmyown({Key? key}) : super(key: key);
+  final value;
+  final groupValue;
+  final groupseenonline;
+  const Createmyown(
+      {Key? key,
+      required this.value,
+      required this.groupValue,
+      required this.groupseenonline})
+      : super(key: key);
 
   @override
   State<Createmyown> createState() => _CreatemyownState();
 }
 
 class _CreatemyownState extends State<Createmyown> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Provider.of<PromoteProvider>(context, listen: false).slectfirstTwogender();
+  }
+
   bool male = true;
   bool female = true;
   bool other = true;
@@ -36,6 +54,7 @@ class _CreatemyownState extends State<Createmyown> {
   RangeValues _currentRangeValues = const RangeValues(20, 35);
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<PromoteProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 7.h,
@@ -148,6 +167,7 @@ class _CreatemyownState extends State<Createmyown> {
               ],
             ),
             RangeSlider(
+              min: 1.0,
               activeColor: primaryColorOfApp,
               inactiveColor: Color(0xffe2e2e2),
               values: _currentRangeValues,
@@ -166,7 +186,68 @@ class _CreatemyownState extends State<Createmyown> {
             SizedBox(
               height: 5.h,
             ),
-            Row(
+            Consumer<PromoteProvider>(builder: (context, value, child) {
+              return GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 5.h,
+                      crossAxisSpacing: 5,
+                      mainAxisSpacing: 2,
+                      crossAxisCount: 2),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          side: BorderSide(
+                              color: provider.emptygender
+                                      .contains(provider.genderList[index])
+                                  ? index == 0
+                                      ? primaryColorOfApp
+                                      : Color(0xffF96A70)
+                                  : Color(0xffE2E2E2)),
+                          backgroundColor: provider.emptygender
+                                  .contains(provider.genderList[index])
+                              ? index == 0
+                                  ? Color(0xffDFEEFC)
+                                  : Color(0xffFFEBEB)
+                              : Color(0xffE2E2E2),
+                          foregroundColor: provider.emptygender
+                                  .contains(provider.genderList[index])
+                              ? index == 0
+                                  ? primaryColorOfApp
+                                  : Color(0xffF96A70)
+                              : Colors.white,
+                          elevation: 0),
+                      onPressed: () {
+                        provider.updatgender(index);
+                        print(provider.genderList[index]);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Iconify(
+                            provider.genderList[index]["icon"],
+                            color: provider.emptygender
+                                    .contains(provider.genderList[index])
+                                ? index == 0
+                                    ? primaryColorOfApp
+                                    : Color(0xffF96A70)
+                                : Colors.white,
+                          ),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          Text(
+                            provider.genderList[index]["label"],
+                            style: TextStyle(
+                                fontFamily: 'Poppins', fontSize: 10.sp),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: provider.genderList.length);
+            }),
+            /* Row(
               children: [
                 GestureDetector(
                   onTap: () {
@@ -262,7 +343,7 @@ class _CreatemyownState extends State<Createmyown> {
                   ),
                 ),
               ],
-            ),
+            ), */
             SizedBox(
               height: 4.h,
             ),
@@ -336,10 +417,15 @@ class _CreatemyownState extends State<Createmyown> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  /*   Navigator.push(
+                  Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Promote2()),
-                  ); */
+                    MaterialPageRoute(
+                        builder: (context) => Promote3(
+                              value: widget.value,
+                              groupValue: widget.groupValue,
+                              groupseenonline: widget.groupseenonline,
+                            )),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                     elevation: 0,

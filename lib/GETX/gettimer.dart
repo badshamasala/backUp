@@ -79,6 +79,9 @@ class GetImage extends GetxController {
   File? image2;
   File? image3;
   File? image4;
+  File? image5;
+  File? image6;
+  File? image7;
 
   pickforprofile(ImageSource source) async {
     try {
@@ -162,6 +165,48 @@ class GetImage extends GetxController {
       final imageTemporary = File(image4.path);
 
       this.image4 = imageTemporary;
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print('Failed to pick image: $e');
+      }
+    }
+    update();
+  }
+  pickpretopper(ImageSource source) async {
+    try {
+      final image5 = await ImagePicker().pickImage(source: source);
+      if (image5 == null) return;
+      final imageTemporary = File(image5.path);
+
+      this.image5 = imageTemporary;
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print('Failed to pick image: $e');
+      }
+    }
+    update();
+  }
+  pickpreBusiness(ImageSource source) async {
+    try {
+      final image6 = await ImagePicker().pickImage(source: source);
+      if (image6 == null) return;
+      final imageTemporary = File(image6.path);
+
+      this.image6 = imageTemporary;
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print('Failed to pick image: $e');
+      }
+    }
+    update();
+  }
+  pickpreBusinessGroup(ImageSource source) async {
+    try {
+      final image7 = await ImagePicker().pickImage(source: source);
+      if (image7 == null) return;
+      final imageTemporary = File(image7.path);
+
+      this.image7 = imageTemporary;
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print('Failed to pick image: $e');
