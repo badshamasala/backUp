@@ -324,8 +324,8 @@ class _Createpoll2State extends State<Createpoll2> {
                           shrinkWrap: true,
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
-                                  mainAxisExtent: 19.5.h,
-                                  crossAxisSpacing: 4,
+                                  mainAxisExtent: 18.5.h,
+                                  crossAxisSpacing: 2,
                                   mainAxisSpacing: 0,
                                   crossAxisCount: 2),
                           itemBuilder: (context, index) {
@@ -334,13 +334,15 @@ class _Createpoll2State extends State<Createpoll2> {
                               alignment: Alignment.topCenter,
                               children: [
                                 Container(
-                                  height: 18.h,
-                                  width: 44.w,
+                                  clipBehavior: Clip.hardEdge,
+                                  height: 16.h,
+                                  width: 42.w,
                                   decoration: BoxDecoration(
+                                      /*   color: Colors.red, */
                                       borderRadius: BorderRadius.circular(10),
                                       shape: BoxShape.rectangle,
                                       border: Border.all(
-                                          width: 10.sp,
+                                          width: 7.sp,
                                           color: index == 0
                                               ? primaryColorOfApp
                                               : index == 1
@@ -352,12 +354,20 @@ class _Createpoll2State extends State<Createpoll2> {
                                                       : const Color(
                                                           0xff0B1C3D))),
                                   child: index == 0
-                                      ? Center(
-                                          child: Text(widget.option1,
-                                              style: TextStyle(
-                                                  color: customTextColor,
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 10.sp)),
+                                      ? Container(
+                                          decoration: BoxDecoration(
+
+
+                                            
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Center(
+                                            child: Text(widget.option1,
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 10.sp)),
+                                          ),
                                         )
                                       : index == 1
                                           ? Center(
@@ -402,7 +412,7 @@ class _Createpoll2State extends State<Createpoll2> {
                                                     : const Color(0xff0B1C3D)),
                                     child: Padding(
                                       padding: EdgeInsets.all(
-                                          index == 0 ? 17.sp : 16.sp),
+                                          index == 0 ? 13.5.sp : 12.sp),
                                       child: index == 0
                                           ? const Text(
                                               '1',
@@ -441,7 +451,6 @@ class _Createpoll2State extends State<Createpoll2> {
                   : Consumer<ChangeColorProvider>(
                       builder: (context, value, child) {
                       return TextFormField(
-                        /*           focusNode: quesfocusNode, */
                         cursorColor: primaryColorOfApp,
                         maxLines: 5,
                         initialValue: widget.text,
@@ -467,10 +476,6 @@ class _Createpoll2State extends State<Createpoll2> {
                         ),
                       );
                     }),
-              Divider(
-                height: 2.5.h,
-                color: Colors.transparent,
-              ),
               ListView.separated(
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,

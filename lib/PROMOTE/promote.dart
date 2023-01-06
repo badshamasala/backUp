@@ -412,11 +412,11 @@ class _PromoteState extends State<Promote> {
                           padding: EdgeInsets.zero,
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap),
                       onPressed: () async {
-                        await FlutterPhoneDirectCaller.callNumber(
-                            "+919876543210");
+                        /*      await FlutterPhoneDirectCaller.callNumber(
+                            "+91123456789"); */
                       },
                       child: Text(
-                        "+91-9876543210 ",
+                        "+91-1234567890 ",
                         style: TextStyle(
                             color: primaryColorOfApp,
                             fontFamily: "Poppins",
@@ -488,7 +488,7 @@ class _PromoteState extends State<Promote> {
                     MaterialPageRoute(
                         builder: (context) => Promote2(
                               value: provider.newVar ?? 2,
-                              value2: provider.premiumAds,
+                              value2: provider.premiumAds /* ?? 2 */,
                             )),
                   );
                 },
@@ -602,6 +602,7 @@ class PromoteProvider extends ChangeNotifier {
     }
 
     if (index == 1) {
+      newVar = 2;
       premiumAds = 2;
       isPremium = true;
     } else {
@@ -621,6 +622,7 @@ class PromoteProvider extends ChangeNotifier {
     }
     newVar = addOptionList[index]["value"];
     premiumAds = null;
+    print(newVar);
     notifyListeners();
   }
 

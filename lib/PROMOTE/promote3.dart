@@ -14,13 +14,15 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class Promote3 extends StatefulWidget {
-    final value;
+  final value;
   final groupValue;
   final groupseenonline;
-  const Promote3({Key? key,
+  const Promote3(
+      {Key? key,
       required this.value,
       required this.groupValue,
-      required this.groupseenonline}) : super(key: key);
+      required this.groupseenonline})
+      : super(key: key);
 
   @override
   State<Promote3> createState() => _Promote3State();
@@ -105,11 +107,10 @@ class _Promote3State extends State<Promote3> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => Promote4(
-                                 value: widget.value,
-                                  groupValue: widget.groupValue,
-                                  groupseenonline: widget.groupseenonline,
-                              value1: ekVariable ?? "100 THOUSAND"
-                            )),
+                            value: widget.value,
+                            groupValue: widget.groupValue,
+                            groupseenonline: widget.groupseenonline,
+                            value1: ekVariable ?? "100 THOUSAND")),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -175,15 +176,22 @@ class _Promote3State extends State<Promote3> {
                             minimumSize: Size(0, 6.h),
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             padding: EdgeInsets.zero,
-                            side: const BorderSide(color: primaryColorOfApp),
+                            side: BorderSide(
+                                color: provider.isPremium
+                                    ? Color(0xff47123E)
+                                    : primaryColorOfApp),
                             backgroundColor: provider.emptyplan
                                     .contains(provider.planList[index])
-                                ? primaryColorOfApp
+                                ? provider.isPremium
+                                    ? Color(0xff47123E)
+                                    : primaryColorOfApp
                                 : Colors.white,
                             foregroundColor: provider.emptyplan
                                     .contains(provider.planList[index])
                                 ? Colors.white
-                                : primaryColorOfApp,
+                                : provider.isPremium
+                                    ? Color(0xff47123E)
+                                    : primaryColorOfApp,
                             elevation: 0),
                         onPressed: () {
                           provider.updatePlan(index);

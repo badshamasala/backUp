@@ -5,9 +5,12 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
+import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:get/get.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 class GetUpdateSeconds extends GetxController {
@@ -89,8 +92,8 @@ class GetImage extends GetxController {
 
       if (image == null) return;
 
-      final imageTemporary = File(image.path);
-
+      File? imageTemporary = File(image.path);
+      imageTemporary = await cropImage(imageTemporary);
       this.image = imageTemporary;
 
       final bytes = File(image.path).readAsBytesSync();
@@ -120,8 +123,9 @@ class GetImage extends GetxController {
     try {
       final image1 = await ImagePicker().pickImage(source: source);
       if (image1 == null) return;
-      final imageTemporary = File(image1.path);
 
+      File? imageTemporary = File(image1.path);
+      imageTemporary = await cropImage(imageTemporary);
       this.image1 = imageTemporary;
     } on PlatformException catch (e) {
       if (kDebugMode) {
@@ -130,12 +134,39 @@ class GetImage extends GetxController {
     }
     update();
   }
+
+  Future<File?> cropImage(File imageFile) async {
+    CroppedFile? croppedFile = await ImageCropper().cropImage(
+      sourcePath: imageFile.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio3x2,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.ratio16x9
+      ],
+      uiSettings: [
+        AndroidUiSettings(
+            toolbarTitle: 'Cropper',
+            toolbarColor: primaryColorOfApp,
+            toolbarWidgetColor: Colors.white,
+            initAspectRatio: CropAspectRatioPreset.original,
+            lockAspectRatio: false),
+        IOSUiSettings(
+          title: 'Cropper',
+        ),
+      ],
+    );
+    if (croppedFile == null) return null;
+    return File(croppedFile.path);
+  }
+
   pickforAds(ImageSource source) async {
     try {
       final image2 = await ImagePicker().pickImage(source: source);
       if (image2 == null) return;
-      final imageTemporary = File(image2.path);
-
+      File? imageTemporary = File(image2.path);
+      imageTemporary = await cropImage(imageTemporary);
       this.image2 = imageTemporary;
     } on PlatformException catch (e) {
       if (kDebugMode) {
@@ -144,12 +175,13 @@ class GetImage extends GetxController {
     }
     update();
   }
+
   pickfordoubleAds1(ImageSource source) async {
     try {
       final image3 = await ImagePicker().pickImage(source: source);
       if (image3 == null) return;
-      final imageTemporary = File(image3.path);
-
+      File? imageTemporary = File(image3.path);
+      imageTemporary = await cropImage(imageTemporary);
       this.image3 = imageTemporary;
     } on PlatformException catch (e) {
       if (kDebugMode) {
@@ -158,12 +190,13 @@ class GetImage extends GetxController {
     }
     update();
   }
+
   pickfordoubleAds2(ImageSource source) async {
     try {
       final image4 = await ImagePicker().pickImage(source: source);
       if (image4 == null) return;
-      final imageTemporary = File(image4.path);
-
+      File? imageTemporary = File(image4.path);
+      imageTemporary = await cropImage(imageTemporary);
       this.image4 = imageTemporary;
     } on PlatformException catch (e) {
       if (kDebugMode) {
@@ -172,26 +205,30 @@ class GetImage extends GetxController {
     }
     update();
   }
+
   pickpretopper(ImageSource source) async {
     try {
       final image5 = await ImagePicker().pickImage(source: source);
       if (image5 == null) return;
-      final imageTemporary = File(image5.path);
-
+      File? imageTemporary = File(image5.path);
+      imageTemporary = await cropImage(imageTemporary);
       this.image5 = imageTemporary;
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print('Failed to pick image: $e');
       }
     }
+
+    print("------------------------$image5");
     update();
   }
+
   pickpreBusiness(ImageSource source) async {
     try {
       final image6 = await ImagePicker().pickImage(source: source);
       if (image6 == null) return;
-      final imageTemporary = File(image6.path);
-
+      File? imageTemporary = File(image6.path);
+      imageTemporary = await cropImage(imageTemporary);
       this.image6 = imageTemporary;
     } on PlatformException catch (e) {
       if (kDebugMode) {
@@ -200,12 +237,13 @@ class GetImage extends GetxController {
     }
     update();
   }
+
   pickpreBusinessGroup(ImageSource source) async {
     try {
       final image7 = await ImagePicker().pickImage(source: source);
       if (image7 == null) return;
-      final imageTemporary = File(image7.path);
-
+      File? imageTemporary = File(image7.path);
+      imageTemporary = await cropImage(imageTemporary);
       this.image7 = imageTemporary;
     } on PlatformException catch (e) {
       if (kDebugMode) {

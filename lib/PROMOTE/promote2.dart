@@ -8,6 +8,7 @@ import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/PROMOTE/createmyown.dart';
 import 'package:flutter_application_1/PROMOTE/editChangeUrl.dart';
+import 'package:flutter_application_1/PROMOTE/promote.dart';
 import 'package:flutter_application_1/PROMOTE/promote3.dart';
 import 'package:flutter_application_1/PROMOTE/reviewAds.dart';
 import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
@@ -48,6 +49,7 @@ class _Promote2State extends State<Promote2> {
     print("badshamasala------------2");
     final provider = Provider.of<ChangeColorProvider>(context, listen: false);
     final provider1 = Provider.of<RadioProvider>(context, listen: false);
+    final provider2 = Provider.of<PromoteProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 7.h,
@@ -229,9 +231,6 @@ class _Promote2State extends State<Promote2> {
                                               fontFamily: 'Poppins',
                                               color: customTextColor,
                                               fontSize: 8.sp),
-                                        ),
-                                        SizedBox(
-                                          height: 1.h,
                                         ),
                                       ],
                                     ),
@@ -691,9 +690,6 @@ class _Promote2State extends State<Promote2> {
                                               fontFamily: 'Poppins',
                                               color: customTextColor,
                                               fontSize: 8.sp),
-                                        ),
-                                        SizedBox(
-                                          height: 1.h,
                                         ),
                                       ],
                                     ),
@@ -1199,32 +1195,59 @@ class _Promote2State extends State<Promote2> {
                   height: 4.5.h,
                   width: double.infinity,
                   child: OutlinedButton(
-                    onPressed: widget.value == 2
-                        ? getkar.image2 != null
+                    onPressed: provider2.isPremium
+                        ? widget.value2 == 2 && getkar.image5 != null
                             ? () {
                                 Get.to(() => ReviewAds(
-                                      value: widget.value,
+                                      value: widget.value2,
                                       groupValue: groupValue,
                                       groupseenonline: groupseenonline,
                                     ));
                               }
-                            : null
-                        : getkar.image3 != null && getkar.image4 != null
-                            ? () {
+                            : widget.value2 == 3 && getkar.image6 !=null ?
+                            () {
                                 Get.to(() => ReviewAds(
-                                      value: widget.value,
+                                      value: widget.value2,
                                       groupValue: groupValue,
                                       groupseenonline: groupseenonline,
                                     ));
-                              }
-                            : null,
+                              } : null
+                        : widget.value == 2
+                            ? getkar.image2 != null
+                                ? () {
+                                    Get.to(() => ReviewAds(
+                                          value: widget.value,
+                                          groupValue: groupValue,
+                                          groupseenonline: groupseenonline,
+                                        ));
+                                  }
+                                : null
+                            : getkar.image3 != null && getkar.image4 != null
+                                ? () {
+                                    Get.to(() => ReviewAds(
+                                          value: widget.value,
+                                          groupValue: groupValue,
+                                          groupseenonline: groupseenonline,
+                                        ));
+                                  }
+                                : widget.value2 == 2
+                                    ? getkar.image5 != null
+                                        ? () {
+                                            Get.to(() => ReviewAds(
+                                                  value: widget.value,
+                                                  groupValue: groupValue,
+                                                  groupseenonline:
+                                                      groupseenonline,
+                                                ));
+                                          }
+                                        : null
+                                    : null,
                     style: OutlinedButton.styleFrom(
                         elevation: 0,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         side: BorderSide(
-                          color: getkar.image4 != null
-                              ? Color(0xff0087FF)
-                              : Color(0xffd9d9d9),
+                          width: 0.5,
+                          color: customTextColor,
                         ),
                         foregroundColor: primaryColorOfApp,
                         backgroundColor: Colors.transparent,
