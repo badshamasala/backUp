@@ -34,19 +34,13 @@ class Promote2 extends StatefulWidget {
 
 class _Promote2State extends State<Promote2> {
   final GetImage getkar = Get.put(GetImage());
-  List items = [
-    'Order Now',
-    'Download Now',
-    'Visit Website',
-  ];
-  String? value;
 
-  int groupseenonline = 2;
-  int groupValue = 1;
+/*   int groupseenonline = 2;
+  int groupValue = 1; */
 
   @override
   Widget build(BuildContext context) {
-    print("badshamasala------------2");
+    print("build call hua--------------");
     final provider = Provider.of<ChangeColorProvider>(context, listen: false);
     final provider1 = Provider.of<RadioProvider>(context, listen: false);
     final provider2 = Provider.of<PromoteProvider>(context, listen: false);
@@ -112,10 +106,12 @@ class _Promote2State extends State<Promote2> {
                                           decoration: BoxDecoration(
                                               color:
                                                   Colors.black.withOpacity(0.3),
-                                              borderRadius: BorderRadius.only(
-                                                  topLeft: Radius.circular(5),
-                                                  topRight:
-                                                      Radius.circular(5))),
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(5),
+                                                      topRight:
+                                                          Radius.circular(5))),
                                           child: TextButton(
                                               style: TextButton.styleFrom(
                                                   padding: EdgeInsets.zero,
@@ -129,68 +125,81 @@ class _Promote2State extends State<Promote2> {
                                               child: Text(
                                                 "Change Image",
                                                 style: TextStyle(
-                                                    color: primaryColorOfApp,
+                                                    color: Colors.white,
                                                     fontFamily: "Poppins",
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 10.sp),
                                               )),
                                         ),
                                       ),
-                                      groupseenonline == 1
-                                          ? SizedBox()
-                                          : Consumer<ChangeColorProvider>(
+                                      Consumer<ChangeColorProvider>(
+                                          builder: (context, value, child) {
+                                        return SizedBox(
+                                          height: 5.h,
+                                          width: double.infinity,
+                                          child: Consumer<RadioProvider>(
                                               builder: (context, value, child) {
-                                              return SizedBox(
-                                                height: 5.h,
-                                                width: double.infinity,
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  style: ElevatedButton.styleFrom(
-                                                      elevation: 0,
-                                                      tapTargetSize:
-                                                          MaterialTapTargetSize
-                                                              .shrinkWrap,
-                                                      backgroundColor: provider
-                                                                  .newColor ==
-                                                              null
-                                                          ? Colors.black
-                                                          : provider.newColor,
-                                                      foregroundColor:
-                                                          Colors.white,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5.0))),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        "Shop Now",
-                                                        style: TextStyle(
-                                                            fontSize: 12.sp,
-                                                            fontFamily:
-                                                                'Poppins'),
-                                                      ),
-                                                      Icon(
-                                                        Icons.arrow_right,
-                                                        color: Colors.white,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              );
-                                            }),
+                                            return provider1.groupValue0 == 1
+                                                ? SizedBox()
+                                                : ElevatedButton(
+                                                    onPressed: () {},
+                                                    style: ElevatedButton.styleFrom(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                left: 3.w,
+                                                                right: 2.w),
+                                                        elevation: 0,
+                                                        tapTargetSize:
+                                                            MaterialTapTargetSize
+                                                                .shrinkWrap,
+                                                        backgroundColor:
+                                                            provider.newColor ??
+                                                                Colors.black,
+                                                        foregroundColor:
+                                                            Colors.white,
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5.0))),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Consumer<RadioProvider>(
+                                                            builder: (context,
+                                                                value, child) {
+                                                          return Text(
+                                                            provider1
+                                                                    .newDropValue ??
+                                                                "Shop Now",
+                                                            style: TextStyle(
+                                                                fontSize: 12.sp,
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          );
+                                                        }),
+                                                        const Icon(
+                                                          Icons.arrow_right,
+                                                          color: Colors.white,
+                                                        )
+                                                      ],
+                                                    ),
+                                                  );
+                                          }),
+                                        );
+                                      }),
                                     ],
                                   )
                                 // Image. file
                                 : Container(
                                     height: 15.h,
                                     decoration: BoxDecoration(
-                                      color: Color(0xffD9D9D9),
+                                      color: const Color(0xffD9D9D9),
                                       borderRadius: BorderRadius.circular(5),
                                     ),
                                     width: double.infinity,
@@ -273,9 +282,10 @@ class _Promote2State extends State<Promote2> {
                                                   color: Colors.black
                                                       .withOpacity(0.3),
                                                   borderRadius:
-                                                      BorderRadius.only(
-                                                          topLeft: Radius
-                                                              .circular(5),
+                                                      const BorderRadius.only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  5),
                                                           topRight:
                                                               Radius.circular(
                                                                   5))),
@@ -292,8 +302,7 @@ class _Promote2State extends State<Promote2> {
                                                   child: Text(
                                                     "Change Image",
                                                     style: TextStyle(
-                                                        color:
-                                                            primaryColorOfApp,
+                                                        color: Colors.white,
                                                         fontFamily: "Poppins",
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -301,62 +310,78 @@ class _Promote2State extends State<Promote2> {
                                                   )),
                                             ),
                                           ),
-                                          groupValue == 2
-                                              ? SizedBox()
-                                              : groupValue == 1
-                                                  ? Consumer<
-                                                          ChangeColorProvider>(
-                                                      builder: (context, value,
-                                                          child) {
-                                                      return SizedBox(
-                                                        height: 5.h,
-                                                        width: 44.5.w,
-                                                        child: ElevatedButton(
-                                                          onPressed: () {},
-                                                          style: ElevatedButton.styleFrom(
-                                                              elevation: 0,
-                                                              tapTargetSize:
-                                                                  MaterialTapTargetSize
-                                                                      .shrinkWrap,
-                                                              backgroundColor:
-                                                                  provider.newColor ==
-                                                                          null
-                                                                      ? Colors
-                                                                          .black
-                                                                      : provider
-                                                                          .newColor,
-                                                              foregroundColor:
-                                                                  Colors.white,
-                                                              shape: RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              5.0))),
-                                                          child: Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Text(
-                                                                "Shop Now",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        12.sp,
-                                                                    fontFamily:
-                                                                        'Poppins'),
-                                                              ),
-                                                              Icon(
-                                                                Icons
-                                                                    .arrow_right,
-                                                                color: Colors
-                                                                    .white,
-                                                              )
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      );
-                                                    })
-                                                  : SizedBox()
+                                          Consumer<ChangeColorProvider>(
+                                              builder: (context, value, child) {
+                                            return SizedBox(
+                                              height: 5.h,
+                                              width: 44.5.w,
+                                              child: Consumer<RadioProvider>(
+                                                  builder:
+                                                      (context, value, child) {
+                                                return provider1.groupValue1 ==
+                                                        2
+                                                    ? const SizedBox()
+                                                    : provider1.groupValue1 == 1
+                                                        ? ElevatedButton(
+                                                            onPressed: () {},
+                                                            style: ElevatedButton
+                                                                .styleFrom(
+                                                                    padding:
+                                                                        EdgeInsets
+                                                                            .only(
+                                                                      left: 2.w,
+                                                                    ),
+                                                                    elevation:
+                                                                        0,
+                                                                    tapTargetSize:
+                                                                        MaterialTapTargetSize
+                                                                            .shrinkWrap,
+                                                                    backgroundColor: provider
+                                                                            .newColor ??
+                                                                        Colors
+                                                                            .black,
+                                                                    foregroundColor:
+                                                                        Colors
+                                                                            .white,
+                                                                    shape: RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(5.0))),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Consumer<
+                                                                        RadioProvider>(
+                                                                    builder: (context,
+                                                                        value,
+                                                                        child) {
+                                                                  return Text(
+                                                                    provider1
+                                                                            .newDropValue ??
+                                                                        "Shop Now",
+                                                                    style: TextStyle(
+                                                                        fontSize: 11
+                                                                            .sp,
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontWeight:
+                                                                            FontWeight.bold),
+                                                                  );
+                                                                }),
+                                                                const Icon(
+                                                                  Icons
+                                                                      .arrow_right,
+                                                                  color: Colors
+                                                                      .white,
+                                                                )
+                                                              ],
+                                                            ),
+                                                          )
+                                                        : const SizedBox();
+                                              }),
+                                            );
+                                          })
                                         ],
                                       )
                                     // Image. file
@@ -364,7 +389,7 @@ class _Promote2State extends State<Promote2> {
                                         height: 17.h,
                                         width: 44.5.w,
                                         decoration: BoxDecoration(
-                                          color: Color(0xffD9D9D9),
+                                          color: const Color(0xffD9D9D9),
                                           borderRadius:
                                               BorderRadius.circular(5),
                                         ),
@@ -446,9 +471,10 @@ class _Promote2State extends State<Promote2> {
                                                   color: Colors.black
                                                       .withOpacity(0.3),
                                                   borderRadius:
-                                                      BorderRadius.only(
-                                                          topLeft: Radius
-                                                              .circular(5),
+                                                      const BorderRadius.only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  5),
                                                           topRight:
                                                               Radius.circular(
                                                                   5))),
@@ -466,8 +492,7 @@ class _Promote2State extends State<Promote2> {
                                                   child: Text(
                                                     "Change Image",
                                                     style: TextStyle(
-                                                        color:
-                                                            primaryColorOfApp,
+                                                        color: Colors.white,
                                                         fontFamily: "Poppins",
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -475,62 +500,79 @@ class _Promote2State extends State<Promote2> {
                                                   )),
                                             ),
                                           ),
-                                          groupValue == 2
-                                              ? SizedBox()
-                                              : groupValue == 1
-                                                  ? SizedBox()
-                                                  : Consumer<
-                                                          ChangeColorProvider>(
-                                                      builder: (context, value,
-                                                          child) {
-                                                      return SizedBox(
-                                                        height: 5.h,
-                                                        width: 44.5.w,
-                                                        child: ElevatedButton(
-                                                          onPressed: () {},
-                                                          style: ElevatedButton.styleFrom(
-                                                              elevation: 0,
-                                                              tapTargetSize:
-                                                                  MaterialTapTargetSize
-                                                                      .shrinkWrap,
-                                                              backgroundColor:
-                                                                  provider.newColor ==
-                                                                          null
-                                                                      ? Colors
-                                                                          .black
-                                                                      : provider
-                                                                          .newColor,
-                                                              foregroundColor:
-                                                                  Colors.white,
-                                                              shape: RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              5.0))),
-                                                          child: Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Text(
-                                                                "Shop Now",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        12.sp,
-                                                                    fontFamily:
-                                                                        'Poppins'),
-                                                              ),
-                                                              Icon(
-                                                                Icons
-                                                                    .arrow_right,
-                                                                color: Colors
-                                                                    .white,
-                                                              )
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      );
-                                                    }),
+                                          Consumer<ChangeColorProvider>(
+                                              builder: (context, value, child) {
+                                            return SizedBox(
+                                              height: 5.h,
+                                              width: 44.5.w,
+                                              child: Consumer<RadioProvider>(
+                                                  builder:
+                                                      (context, value, child) {
+                                                return provider1.groupValue1 ==
+                                                        2
+                                                    ? const SizedBox()
+                                                    : provider1.groupValue1 == 1
+                                                        ? const SizedBox()
+                                                        : ElevatedButton(
+                                                            onPressed: () {},
+                                                            style: ElevatedButton
+                                                                .styleFrom(
+                                                                    elevation:
+                                                                        0,
+                                                                    padding:
+                                                                        EdgeInsets
+                                                                            .only(
+                                                                      left: 2.w,
+                                                                    ),
+                                                                    tapTargetSize:
+                                                                        MaterialTapTargetSize
+                                                                            .shrinkWrap,
+                                                                    backgroundColor: provider
+                                                                            .newColor ??
+                                                                        Colors
+                                                                            .black,
+                                                                    foregroundColor:
+                                                                        Colors
+                                                                            .white,
+                                                                    shape: RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(5.0))),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Consumer<
+                                                                        RadioProvider>(
+                                                                    builder: (context,
+                                                                        value,
+                                                                        child) {
+                                                                  return Text(
+                                                                    provider1
+                                                                            .newDropValue ??
+                                                                        "Show Now",
+                                                                    style: TextStyle(
+                                                                        fontSize: 11
+                                                                            .sp,
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontFamily:
+                                                                            'Poppins'),
+                                                                  );
+                                                                }),
+                                                                const Icon(
+                                                                  Icons
+                                                                      .arrow_right,
+                                                                  color: Colors
+                                                                      .white,
+                                                                )
+                                                              ],
+                                                            ),
+                                                          );
+                                              }),
+                                            );
+                                          }),
                                         ],
                                       )
                                     // Image. file
@@ -538,7 +580,7 @@ class _Promote2State extends State<Promote2> {
                                         height: 17.h,
                                         width: 44.5.w,
                                         decoration: BoxDecoration(
-                                          color: Color(0xffD9D9D9),
+                                          color: const Color(0xffD9D9D9),
                                           borderRadius:
                                               BorderRadius.circular(5),
                                         ),
@@ -621,9 +663,11 @@ class _Promote2State extends State<Promote2> {
                                         decoration: BoxDecoration(
                                             color:
                                                 Colors.black.withOpacity(0.3),
-                                            borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(5),
-                                                topRight: Radius.circular(5))),
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                                    topLeft: Radius.circular(5),
+                                                    topRight:
+                                                        Radius.circular(5))),
                                         child: TextButton(
                                             style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
@@ -649,7 +693,7 @@ class _Promote2State extends State<Promote2> {
                                 : Container(
                                     height: 15.h,
                                     decoration: BoxDecoration(
-                                      color: Color(0xffD9D9D9),
+                                      color: const Color(0xffD9D9D9),
                                       borderRadius: BorderRadius.circular(5),
                                     ),
                                     width: double.infinity,
@@ -731,9 +775,10 @@ class _Promote2State extends State<Promote2> {
                                                     color: Colors.black
                                                         .withOpacity(0.3),
                                                     borderRadius:
-                                                        BorderRadius.only(
-                                                            topLeft: Radius
-                                                                .circular(5),
+                                                        const BorderRadius.only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    5),
                                                             topRight:
                                                                 Radius.circular(
                                                                     5))),
@@ -766,7 +811,7 @@ class _Promote2State extends State<Promote2> {
                                             height: 11.5.h,
                                             width: 26.w,
                                             decoration: BoxDecoration(
-                                              color: Color(0xffD9D9D9),
+                                              color: const Color(0xffD9D9D9),
                                               borderRadius:
                                                   BorderRadius.circular(5),
                                             ),
@@ -788,7 +833,7 @@ class _Promote2State extends State<Promote2> {
                                                         padding:
                                                             EdgeInsets.zero,
                                                         constraints:
-                                                            BoxConstraints(),
+                                                            const BoxConstraints(),
                                                         onPressed: () {
                                                           getkar
                                                               .pickpreBusiness(
@@ -838,7 +883,7 @@ class _Promote2State extends State<Promote2> {
                                                 horizontal: 10, vertical: 9),
                                         isDense: true,
                                         hintStyle: TextStyle(
-                                            color: Color(0xffe2e2e2),
+                                            color: const Color(0xffe2e2e2),
                                             fontFamily: 'Poppins',
                                             fontSize: 10.sp),
                                         enabledBorder: OutlineInputBorder(
@@ -866,7 +911,7 @@ class _Promote2State extends State<Promote2> {
                               children: [
                                 GetBuilder<GetImage>(builder: (controller) {
                                   return Container(
-                                    child: getkar.image7 != null
+                                    child: getkar.imageList.isNotEmpty
                                         ? Stack(
                                             alignment: Alignment.bottomCenter,
                                             children: [
@@ -887,7 +932,10 @@ class _Promote2State extends State<Promote2> {
                                                         BorderRadius.circular(
                                                             5),
                                                     child: Image.file(
-                                                      getkar.image7!,
+                                                      File(
+                                                        getkar
+                                                            .imageList[0].path,
+                                                      ),
                                                       fit: BoxFit.cover,
                                                     ),
                                                   )),
@@ -896,9 +944,10 @@ class _Promote2State extends State<Promote2> {
                                                     color: Colors.black
                                                         .withOpacity(0.3),
                                                     borderRadius:
-                                                        BorderRadius.only(
-                                                            topLeft: Radius
-                                                                .circular(5),
+                                                        const BorderRadius.only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    5),
                                                             topRight:
                                                                 Radius.circular(
                                                                     5))),
@@ -912,9 +961,7 @@ class _Promote2State extends State<Promote2> {
                                                                 .shrinkWrap),
                                                     onPressed: () {
                                                       getkar
-                                                          .pickpreBusinessGroup(
-                                                              ImageSource
-                                                                  .gallery);
+                                                          .pickpreBusinessGroup();
                                                     },
                                                     child: Text(
                                                       "Change",
@@ -933,7 +980,7 @@ class _Promote2State extends State<Promote2> {
                                             height: 11.5.h,
                                             width: 26.w,
                                             decoration: BoxDecoration(
-                                              color: Color(0xffD9D9D9),
+                                              color: const Color(0xffD9D9D9),
                                               borderRadius:
                                                   BorderRadius.circular(5),
                                             ),
@@ -955,12 +1002,10 @@ class _Promote2State extends State<Promote2> {
                                                         padding:
                                                             EdgeInsets.zero,
                                                         constraints:
-                                                            BoxConstraints(),
+                                                            const BoxConstraints(),
                                                         onPressed: () {
                                                           getkar
-                                                              .pickfordoubleAds2(
-                                                                  ImageSource
-                                                                      .gallery);
+                                                              .pickpreBusinessGroup();
                                                         },
                                                         icon: Iconify(
                                                           Heroicons
@@ -1005,7 +1050,7 @@ class _Promote2State extends State<Promote2> {
                                                 horizontal: 10, vertical: 9),
                                         isDense: true,
                                         hintStyle: TextStyle(
-                                            color: Color(0xffe2e2e2),
+                                            color: const Color(0xffe2e2e2),
                                             fontFamily: 'Poppins',
                                             fontSize: 10.sp),
                                         enabledBorder: OutlineInputBorder(
@@ -1030,54 +1075,99 @@ class _Promote2State extends State<Promote2> {
                               ],
                             ),
               widget.value == 2
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Button Not Required",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontSize: 10.sp),
-                        ),
-                        Transform.scale(
-                          scale: 1.1.sp,
-                          child: Radio(
-                              visualDensity: VisualDensity.compact,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              groupValue: groupseenonline,
-                              value: 1,
-                              onChanged: (val) {
-                                setState(() {
-                                  groupseenonline = 1;
-                                });
-                              }),
-                        ),
-                        Text(
-                          "Button Required",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontSize: 10.sp),
-                        ),
-                        Transform.scale(
-                          scale: 1.1.sp,
-                          child: Radio(
-                              visualDensity: VisualDensity.compact,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              groupValue: groupseenonline,
-                              value: 2,
-                              onChanged: (val) {
-                                setState(() {
-                                  groupseenonline = 2;
-                                });
-                              }),
-                        ),
-                      ],
-                    )
-                  : Row(
+                  ? Consumer<RadioProvider>(builder: (context, value, child) {
+                      return SizedBox(
+                        height: 5.h,
+                        child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return Consumer<RadioProvider>(
+                                  builder: (context, value, child) {
+                                return Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      provider1.radio0[index],
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          color: customTextColor,
+                                          fontSize: 10.sp),
+                                    ),
+                                    Transform.scale(
+                                      scale: 1.1.sp,
+                                      child: Radio(
+                                          visualDensity: VisualDensity.compact,
+                                          materialTapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          groupValue: provider1.groupValue0,
+                                          value: index == 0 ? 1 : 2,
+                                          onChanged: (val) {
+                                            provider1.updateRadio0(index);
+                                          }),
+                                    )
+                                  ],
+                                );
+                              });
+                            },
+                            separatorBuilder: (context, index) {
+                              return SizedBox(
+                                width: 12.w,
+                              );
+                            },
+                            itemCount: provider1.radio0.length),
+                      );
+                    })
+                  : Consumer<RadioProvider>(builder: (context, value, child) {
+                      return SizedBox(
+                        height: 5.h,
+                        child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return Consumer<RadioProvider>(
+                                  builder: (context, value, child) {
+                                return Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      provider1.radio1[index],
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          color: customTextColor,
+                                          fontSize: 10.sp),
+                                    ),
+                                    Transform.scale(
+                                      scale: 1.1.sp,
+                                      child: Radio(
+                                          visualDensity: VisualDensity.compact,
+                                          materialTapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          groupValue: provider1.groupValue1,
+                                          value: index == 0
+                                              ? 1
+                                              : index == 1
+                                                  ? 2
+                                                  : 3,
+                                          onChanged: (val) {
+                                            provider1.updateRadio1(index);
+                                          }),
+                                    )
+                                  ],
+                                );
+                              });
+                            },
+                            separatorBuilder: (context, index) {
+                              return SizedBox(
+                                width: 2.w,
+                              );
+                            },
+                            itemCount: provider1.radio1.length),
+                      );
+                    }),
+              /* Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -1144,7 +1234,7 @@ class _Promote2State extends State<Promote2> {
                               }),
                         ),
                       ],
-                    ),
+                    ), */
               widget.value2 == 2
                   ? SizedBox(
                       height: 2.h,
@@ -1200,25 +1290,32 @@ class _Promote2State extends State<Promote2> {
                             ? () {
                                 Get.to(() => ReviewAds(
                                       value: widget.value2,
-                                      groupValue: groupValue,
-                                      groupseenonline: groupseenonline,
+                                      groupValue0: provider1.groupValue0,
                                     ));
                               }
-                            : widget.value2 == 3 && getkar.image6 !=null ?
-                            () {
-                                Get.to(() => ReviewAds(
-                                      value: widget.value2,
-                                      groupValue: groupValue,
-                                      groupseenonline: groupseenonline,
-                                    ));
-                              } : null
+                            : widget.value2 == 3 && getkar.image6 != null
+                                ? () {
+                                    Get.to(() => ReviewAds(
+                                          value: widget.value2,
+                                          groupValue0: provider1.groupValue0,
+                                        ));
+                                  }
+                                : widget.value2 == 4 &&
+                                        getkar.imageList.isNotEmpty
+                                    ? () {
+                                        Get.to(() => ReviewAds(
+                                              value: widget.value2,
+                                              groupValue0:
+                                                  provider1.groupValue0,
+                                            ));
+                                      }
+                                    : null
                         : widget.value == 2
                             ? getkar.image2 != null
                                 ? () {
                                     Get.to(() => ReviewAds(
                                           value: widget.value,
-                                          groupValue: groupValue,
-                                          groupseenonline: groupseenonline,
+                                          groupValue0: provider1.groupValue0,
                                         ));
                                   }
                                 : null
@@ -1226,26 +1323,14 @@ class _Promote2State extends State<Promote2> {
                                 ? () {
                                     Get.to(() => ReviewAds(
                                           value: widget.value,
-                                          groupValue: groupValue,
-                                          groupseenonline: groupseenonline,
+                                          groupValue1: provider1.groupValue1,
                                         ));
                                   }
-                                : widget.value2 == 2
-                                    ? getkar.image5 != null
-                                        ? () {
-                                            Get.to(() => ReviewAds(
-                                                  value: widget.value,
-                                                  groupValue: groupValue,
-                                                  groupseenonline:
-                                                      groupseenonline,
-                                                ));
-                                          }
-                                        : null
-                                    : null,
+                                : null,
                     style: OutlinedButton.styleFrom(
                         elevation: 0,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        side: BorderSide(
+                        side: const BorderSide(
                           width: 0.5,
                           color: customTextColor,
                         ),
@@ -1305,39 +1390,48 @@ class _Promote2State extends State<Promote2> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0, right: 8),
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton(
-                        /*    iconSize: 28.sp, */
-                        iconEnabledColor: primaryColorOfApp,
-                        hint: Padding(
-                          padding: EdgeInsets.only(left: 5.0),
-                          child: Text(
-                            'Shop Now',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 10.sp,
-                                color: customTextColor),
-                          ),
-                        ),
-                        isExpanded: true,
-                        value: value,
-                        items: items
-                            .map((item) => DropdownMenuItem(
-                                value: item,
-                                child: Text(
-                                  item,
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: customTextColor,
-                                      fontSize: 12.sp),
-                                )))
-                            .toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            this.value = value as String?;
-                          });
-                        }),
-                  ),
+                  child:
+                      Consumer<RadioProvider>(builder: (context, value, child) {
+                    return DropdownButtonHideUnderline(
+                        child: DropdownButton(
+
+                            /*    iconSize: 28.sp, */
+                            iconEnabledColor: primaryColorOfApp,
+                            hint: Padding(
+                              padding: const EdgeInsets.only(left: 5.0),
+                              child: Text(
+                                'Shop Now',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 10.sp,
+                                    color: customTextColor),
+                              ),
+                            ),
+                            isExpanded: true,
+                            value: provider1.newDropValue,
+                            items: provider1.items
+                                .map((item) => DropdownMenuItem(
+                                    value: item,
+                                    child: Text(
+                                      item,
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          color: customTextColor,
+                                          fontSize: 12.sp),
+                                    )))
+                                .toList(),
+                            onChanged: widget.value == 2
+                                ? provider1.groupValue0 == 1
+                                    ? null
+                                    : (value) {
+                                        provider1.dropDownUpdate(value);
+                                      }
+                                : provider1.groupValue1 == 2
+                                    ? null
+                                    : (value) {
+                                        provider1.dropDownUpdate(value);
+                                      }));
+                  }),
                 ),
               ),
               SizedBox(
@@ -1348,7 +1442,7 @@ class _Promote2State extends State<Promote2> {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       if (index == 1) {
-                        return provider1.groupValue == 1
+                        return provider1.groupValue2 == 1
                             ? Row(
                                 children: [
                                   Padding(
@@ -1365,7 +1459,7 @@ class _Promote2State extends State<Promote2> {
                                                   MaterialTapTargetSize
                                                       .shrinkWrap),
                                           onPressed: () {
-                                            Get.to(() => EditChangeUrl());
+                                            Get.to(() => const EditChangeUrl());
                                           },
                                           child: Text(
                                             "Edit/Change URL",
@@ -1386,45 +1480,50 @@ class _Promote2State extends State<Promote2> {
                       } else {
                         return Consumer<RadioProvider>(
                             builder: (context, value, child) {
-                          return Container(
-                            decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                border: Border.all(
-                                    width: 0.5, color: customTextColor),
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Padding(
-                              padding: EdgeInsets.all(2.sp),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 3.w),
-                                    child: Text(
-                                      provider1.radioList[index],
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          color: customTextColor,
-                                          fontSize: 10.sp),
+                          return GestureDetector(
+                            onTap: () {
+                              provider1.updateRadio2(index);
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  border: Border.all(
+                                      width: 0.5, color: customTextColor),
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Padding(
+                                padding: EdgeInsets.all(2.sp),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 3.w),
+                                      child: Text(
+                                        provider1.radio2[index],
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            color: customTextColor,
+                                            fontSize: 10.sp),
+                                      ),
                                     ),
-                                  ),
-                                  Transform.scale(
-                                    scale: 1.1.sp,
-                                    child: Radio(
-                                        visualDensity: VisualDensity.compact,
-                                        materialTapTargetSize:
-                                            MaterialTapTargetSize.shrinkWrap,
-                                        groupValue: provider1.groupValue,
-                                        value: index == 0
-                                            ? 1
-                                            : index == 2
-                                                ? 2
-                                                : 3,
-                                        onChanged: (val) {
-                                          provider1.updateRadio(index);
-                                        }),
-                                  )
-                                ],
+                                    Transform.scale(
+                                      scale: 1.1.sp,
+                                      child: Radio(
+                                          visualDensity: VisualDensity.compact,
+                                          materialTapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          groupValue: provider1.groupValue2,
+                                          value: index == 0
+                                              ? 1
+                                              : index == 2
+                                                  ? 2
+                                                  : 3,
+                                          onChanged: (val) {
+                                            provider1.updateRadio2(index);
+                                          }),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           );
@@ -1441,7 +1540,7 @@ class _Promote2State extends State<Promote2> {
                         color: Colors.transparent,
                       );
                     },
-                    itemCount: provider1.radioList.length);
+                    itemCount: provider1.radio2.length);
               }),
               SizedBox(
                 height: 2.5.h,
@@ -1450,8 +1549,9 @@ class _Promote2State extends State<Promote2> {
                 onTap: () {
                   Get.to(() => Createmyown(
                         value: widget.value,
-                        groupValue: groupValue,
-                        groupseenonline: groupseenonline,
+                        value2: widget.value2,
+                        groupValue0: provider1.groupValue0,
+                        groupValue1: provider1.groupValue1,
                       ));
                 },
                 child: Container(
@@ -1476,7 +1576,7 @@ class _Promote2State extends State<Promote2> {
                         ),
                         Transform.scale(
                           scale: 1.2,
-                          child: Icon(
+                          child: const Icon(
                             Icons.arrow_right,
                             color: primaryColorOfApp,
                           ),
@@ -1496,8 +1596,9 @@ class _Promote2State extends State<Promote2> {
                   onPressed: () {
                     Get.to(() => Promote3(
                           value: widget.value,
-                          groupValue: groupValue,
-                          groupseenonline: groupseenonline,
+                          value2: widget.value2,
+                          groupValue0: provider1.groupValue0,
+                          groupValue1: provider1.groupValue1,
                         ));
                   },
                   style: ElevatedButton.styleFrom(
@@ -1508,7 +1609,7 @@ class _Promote2State extends State<Promote2> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0))),
                   child: Padding(
-                    padding: EdgeInsets.all(1.0),
+                    padding: const EdgeInsets.all(1.0),
                     child: Text(
                       "Confirm & Next",
                       style: TextStyle(fontSize: 12.sp, fontFamily: 'Poppins'),
@@ -1525,25 +1626,60 @@ class _Promote2State extends State<Promote2> {
 }
 
 class RadioProvider extends ChangeNotifier {
-  List radioList = [
+  List radio2 = [
     "Maximum website Or URL Visits",
     "",
     "Maximum Profile Visits",
     "Maximum Message Or Connect",
   ];
+  List radio1 = [
+    "Button Left",
+    "Not Required",
+    "Button Right",
+  ];
+  List radio0 = [
+    "Button Not Required",
+    "Button Required",
+  ];
 
-  int groupValue = 1;
+  List items = [
+    'Order Now',
+    'Download Now',
+    'Visit Website',
+  ];
 
-  updateRadio(index) {
-    groupValue = index == 0
+  dynamic newDropValue;
+  dropDownUpdate(value) {
+    newDropValue = value;
+    notifyListeners();
+  }
+
+  int groupValue0 = 2;
+
+  int groupValue1 = 1;
+  int groupValue2 = 1;
+
+  updateRadio2(index) {
+    groupValue2 = index == 0
         ? 1
         : index == 2
+            ? 2
+            : 3;
+    print("--------vvvvv----------");
+    notifyListeners();
+  }
+
+  updateRadio1(index) {
+    groupValue1 = index == 0
+        ? 1
+        : index == 1
             ? 2
             : 3;
     notifyListeners();
   }
 
-  bool value1 = false;
-  bool value2 = false;
-  bool value3 = false;
+  updateRadio0(index) {
+    groupValue0 = index == 0 ? 1 : 2;
+    notifyListeners();
+  }
 }

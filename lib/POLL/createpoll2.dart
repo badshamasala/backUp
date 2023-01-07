@@ -356,9 +356,6 @@ class _Createpoll2State extends State<Createpoll2> {
                                   child: index == 0
                                       ? Container(
                                           decoration: BoxDecoration(
-
-
-                                            
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           child: Center(

@@ -84,7 +84,7 @@ class GetImage extends GetxController {
   File? image4;
   File? image5;
   File? image6;
-  File? image7;
+  List<XFile> imageList = [];
 
   pickforprofile(ImageSource source) async {
     try {
@@ -238,13 +238,14 @@ class GetImage extends GetxController {
     update();
   }
 
-  pickpreBusinessGroup(ImageSource source) async {
+  pickpreBusinessGroup() async {
     try {
-      final image7 = await ImagePicker().pickImage(source: source);
-      if (image7 == null) return;
-      File? imageTemporary = File(image7.path);
-      imageTemporary = await cropImage(imageTemporary);
-      this.image7 = imageTemporary;
+      final List<XFile> selectedImage = await ImagePicker().pickMultiImage();
+      if (selectedImage == null) return;
+      if (selectedImage.isNotEmpty) {
+        imageList.addAll(selectedImage);
+      }
+      print("----------------------------------${imageList.length}");
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print('Failed to pick image: $e');

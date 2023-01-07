@@ -15,6 +15,7 @@ import 'package:flutter_application_1/ONBOARDING/start_page.dart';
 import 'package:flutter_application_1/POLL/createpoll.dart';
 import 'package:flutter_application_1/POLL/createpoll2.dart';
 import 'package:flutter_application_1/POLL/dswdswd.dart';
+import 'package:flutter_application_1/PROMOTE/newCheck.dart';
 import 'package:flutter_application_1/PROMOTE/promote.dart';
 import 'package:flutter_application_1/PROMOTE/promote2.dart';
 

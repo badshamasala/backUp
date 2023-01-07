@@ -147,10 +147,15 @@ class _PostTextState extends State<PostText> {
                 /*           focusNode: quesfocusNode, */
                 controller: postController,
                 cursorColor: primaryColorOfApp,
-                maxLines: 5,
+                maxLines: 7,
                 style: TextStyle(
                     fontFamily: provider.newFont, color: provider.newFontColor),
                 decoration: InputDecoration(
+                  
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.5.w),
+                  constraints: BoxConstraints(),
+                  isDense: true,
                   filled: true,
                   fillColor: provider.newColor == null
                       ? Colors.white

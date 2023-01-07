@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/PROMOTE/promote.dart';
+import 'package:flutter_application_1/PROMOTE/promote2.dart';
 import 'package:flutter_application_1/PROMOTE/reviewAds.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -9,25 +12,34 @@ import 'package:iconify_flutter/icons/la.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/mingcute.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class Promote4 extends StatefulWidget {
   final value1;
   final value;
-  final groupValue;
-  final groupseenonline;
-  const Promote4({Key? key, required this.value1,
+  final value2;
+  final groupValue0;
+  final groupValue1;
+  const Promote4(
+      {Key? key,
+      required this.value1,
       required this.value,
-      required this.groupValue,
-      required this.groupseenonline}) : super(key: key);
+      required this.value2,
+      required this.groupValue0,
+      required this.groupValue1})
+      : super(key: key);
 
   @override
   State<Promote4> createState() => _Promote4State();
 }
 
 class _Promote4State extends State<Promote4> {
+  final GetImage getkar = Get.put(GetImage());
   @override
   Widget build(BuildContext context) {
+    final provider1 = Provider.of<RadioProvider>(context, listen: false);
+    final provider2 = Provider.of<PromoteProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 7.h,
@@ -56,31 +68,63 @@ class _Promote4State extends State<Promote4> {
         child: Column(
           children: [
             SizedBox(
-              height: 6.h,
+              height: 5.h,
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {
-                  Get.to(() => ReviewAds(
-                                  value: widget.value,
-                                  groupValue: widget.groupValue,
-                                  groupseenonline: widget.groupseenonline,
+                onPressed: provider2.isPremium
+                    ? widget.value2 == 2 && getkar.image5 != null
+                        ? () {
+                            Get.to(() => ReviewAds(
+                                  value: widget.value2,
+                                  groupValue0: provider1.groupValue0,
                                 ));
-                },
+                          }
+                        : widget.value2 == 3 && getkar.image6 != null
+                            ? () {
+                                Get.to(() => ReviewAds(
+                                      value: widget.value2,
+                                      groupValue0: provider1.groupValue0,
+                                    ));
+                              }
+                            : widget.value2 == 4 && getkar.imageList.isNotEmpty
+                                ? () {
+                                    Get.to(() => ReviewAds(
+                                          value: widget.value2,
+                                          groupValue0: provider1.groupValue0,
+                                        ));
+                                  }
+                                : null
+                    : widget.value == 2
+                        ? getkar.image2 != null
+                            ? () {
+                                Get.to(() => ReviewAds(
+                                      value: widget.value,
+                                      groupValue0: provider1.groupValue0,
+                                    ));
+                              }
+                            : null
+                        : getkar.image3 != null && getkar.image4 != null
+                            ? () {
+                                Get.to(() => ReviewAds(
+                                      value: widget.value,
+                                      groupValue1: provider1.groupValue1,
+                                    ));
+                              }
+                            : null,
                 style: OutlinedButton.styleFrom(
                     elevation: 0,
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     side: const BorderSide(
-                      color: Color(0xff0087FF),
+                      width: 0.5,
+                      color: customTextColor,
                     ),
-                    backgroundColor: Colors.white,
+                    foregroundColor: primaryColorOfApp,
+                    backgroundColor: Colors.transparent,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0))),
                 child: Text(
                   "Review Ads",
-                  style: TextStyle(
-                      color: primaryColorOfApp,
-                      fontSize: 12.sp,
-                      fontFamily: 'Poppins'),
+                  style: TextStyle(fontSize: 12.sp, fontFamily: 'Poppins'),
                 ),
               ),
             ),

@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/PROMOTE/promote.dart';
+import 'package:flutter_application_1/PROMOTE/promote2.dart';
 import 'package:flutter_application_1/PROMOTE/promote3.dart';
+import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -19,13 +23,11 @@ import '../GETX/gettimer.dart';
 
 class ReviewAds extends StatefulWidget {
   final value;
-  final groupValue;
-  final groupseenonline;
+  final value2;
+  final groupValue1;
+  final groupValue0;
   const ReviewAds(
-      {Key? key,
-      required this.value,
-      required this.groupValue,
-      required this.groupseenonline})
+      {Key? key, this.value, this.value2, this.groupValue1, this.groupValue0})
       : super(key: key);
 
   @override
@@ -52,6 +54,8 @@ class _ReviewAdsState extends State<ReviewAds> {
   @override
   Widget build(BuildContext context) {
     final provider2 = Provider.of<PromoteProvider>(context, listen: false);
+    final provider = Provider.of<ChangeColorProvider>(context, listen: false);
+    final provider1 = Provider.of<RadioProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 7.h,
@@ -340,258 +344,549 @@ class _ReviewAdsState extends State<ReviewAds> {
                                   ),
                                 ),
                                 const Spacer(),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 2.w),
-                                  child: OutlinedButton(
-                                    onPressed: () {},
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(30.w, 5.h),
-                                        elevation: 0,
-                                        padding: EdgeInsets.zero,
-                                        tapTargetSize:
-                                            MaterialTapTargetSize.shrinkWrap,
-                                        side: const BorderSide(
-                                          color: Color(0xff0087FF),
+                                widget.groupValue0 == 1
+                                    ? SizedBox()
+                                    : Padding(
+                                        padding: EdgeInsets.only(right: 2.w),
+                                        child: OutlinedButton(
+                                          onPressed: () {},
+                                          style: OutlinedButton.styleFrom(
+                                              minimumSize: Size(30.w, 5.h),
+                                              elevation: 0,
+                                              padding: EdgeInsets.zero,
+                                              tapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              side: const BorderSide(
+                                                color: Color(0xff0087FF),
+                                              ),
+                                              backgroundColor: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          5.sp))),
+                                          child: Consumer<RadioProvider>(
+                                              builder: (context, value, child) {
+                                            return Text(
+                                              provider1.newDropValue ??
+                                                  "Book Now",
+                                              style: TextStyle(
+                                                  color: primaryColorOfApp,
+                                                  fontSize: 10.sp,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w600),
+                                            );
+                                          }),
                                         ),
-                                        backgroundColor: Colors.white,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(5.sp))),
-                                    child: Text(
-                                      "Book Now",
-                                      style: TextStyle(
-                                          color: primaryColorOfApp,
-                                          fontSize: 12.sp,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-                                ),
+                                      ),
                               ],
                             )
                           ],
                         ),
                       )
-                    : Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    : widget.value == 3 && getkar.image6 != null
+                        ? Column(
                             children: [
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  CircleAvatar(
-                                    backgroundColor: Colors.black,
-                                    radius: 18.sp,
-                                    child: CircleAvatar(
-                                      backgroundColor: Colors.white,
-                                      radius: 17.sp,
-                                      child: CircleAvatar(
-                                        radius: 16.sp,
-                                        backgroundImage: const AssetImage(
-                                            "assets/image1.webp"),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 2.w,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                  Row(
                                     children: [
-                                      Row(
+                                      CircleAvatar(
+                                        backgroundColor: Colors.black,
+                                        radius: 18.sp,
+                                        child: CircleAvatar(
+                                          backgroundColor: Colors.white,
+                                          radius: 17.sp,
+                                          child: CircleAvatar(
+                                            radius: 16.sp,
+                                            backgroundImage: const AssetImage(
+                                                "assets/image1.webp"),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 2.w,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            "BRAND",
-                                            style: TextStyle(
-                                                color: Color(0xff47123E),
-                                                fontFamily: "Poppins",
-                                                fontSize: 12.sp,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            "@Profile.Username",
-                                            style: TextStyle(
+                                          Row(
+                                            children: [
+                                              Text(
+                                                "BRAND",
+                                                style: TextStyle(
+                                                    color: Color(0xff47123E),
+                                                    fontFamily: "Poppins",
+                                                    fontSize: 12.sp,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Text(
+                                                "@Profile.Username",
+                                                style: TextStyle(
+                                                    color: primaryColorOfApp,
+                                                    fontFamily: "Poppins",
+                                                    fontSize: 12.sp),
+                                              ),
+                                              Iconify(
+                                                Bi.patch_check,
                                                 color: primaryColorOfApp,
-                                                fontFamily: "Poppins",
-                                                fontSize: 12.sp),
+                                                size: 18.sp,
+                                              )
+                                            ],
                                           ),
-                                          Iconify(
-                                            Bi.patch_check,
-                                            color: primaryColorOfApp,
-                                            size: 18.sp,
+                                          Row(
+                                            children: [
+                                              Text(
+                                                "Sponsered",
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: "Poppins",
+                                                    fontSize: 10.sp),
+                                              ),
+                                            ],
                                           )
                                         ],
                                       ),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "Sponsered",
-                                            style: TextStyle(
-                                                color: customTextColor,
-                                                fontFamily: "Poppins",
-                                                fontSize: 10.sp),
-                                          ),
-                                        ],
-                                      )
                                     ],
                                   ),
-                                ],
-                              ),
-                              Icon(
-                                Icons.more_vert,
-                                size: 18.sp,
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Avail up to 50% additional discount on best foods in the nea",
-                                style: TextStyle(
-                                    color: customTextColor,
-                                    fontFamily: "Poppins",
-                                    fontSize:
-                                        MediaQuery.of(context).size.height > 667
-                                            ? 8.sp
-                                            : 10.sp),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
-                            child: Image.file(
-                              getkar.image6!,
-                              fit: BoxFit.cover,
-                              height: 45.h,
-                              width: double.infinity,
-                            ),
-                          ),
-                          SizedBox(
-                            width: double.infinity,
-                            height: 6.h,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  backgroundColor: Colors.red,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(5.0))),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "Order Now",
-                                    style: TextStyle(
-                                        fontSize: 12.sp, fontFamily: 'Poppins'),
-                                  ),
                                   Icon(
-                                    Icons.arrow_right,
-                                    color: Colors.white,
+                                    Icons.more_vert,
+                                    size: 18.sp,
                                   )
                                 ],
                               ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Column(
+                              SizedBox(
+                                height: 2.h,
+                              ),
+                              Row(
                                 children: [
-                                  const Icon(
-                                    FluentIcons.thumb_like_24_filled,
-                                    color: primaryColorOfApp,
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
                                   Text(
-                                    'Like 67k',
+                                    "Avail up to 50% additional discount on best foods in the nea",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 8.sp),
+                                        color: customTextColor,
+                                        fontFamily: "Poppins",
+                                        fontSize:
+                                            MediaQuery.of(context).size.height >
+                                                    667
+                                                ? 8.sp
+                                                : 10.sp),
                                   ),
                                 ],
                               ),
-                              /*       const Spacer(), */
-                              Column(
-                                children: [
-                                  const Icon(
-                                    FluentIcons.share_24_filled,
-                                    color: Color(0xff0B1C3D),
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  Text(
-                                    'Share 10k',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 8.sp),
-                                  ),
-                                ],
+                              SizedBox(
+                                height: 1.h,
                               ),
-                              Column(
-                                children: [
-                                  const Icon(
-                                    FluentIcons.comment_edit_24_regular,
-                                    color: Color(0xff0B1C3D),
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  Text(
-                                    'Comment',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 8.sp),
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                "100M+",
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "Views",
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12.sp,
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child: Image.file(
+                                  getkar.image6!,
+                                  fit: BoxFit.cover,
+                                  height: 45.h,
+                                  width: double.infinity,
                                 ),
                               ),
-                              Column(
+                              widget.groupValue0 == 1
+                                  ? const SizedBox()
+                                  : Consumer<ChangeColorProvider>(
+                                      builder: (context, value, child) {
+                                      return SizedBox(
+                                        width: double.infinity,
+                                        height: 6.h,
+                                        child: ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                              elevation: 0,
+                                              tapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                              backgroundColor:
+                                                  provider.newColor ??
+                                                      Colors.black,
+                                              foregroundColor: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          5.0))),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                provider1.newDropValue ??
+                                                    "Shop Now",
+                                                style: TextStyle(
+                                                    fontSize: 12.sp,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Icon(
+                                                Icons.arrow_right,
+                                                color: Colors.white,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                              SizedBox(
+                                height: 2.h,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Icon(
-                                    FluentIcons.bookmark_24_regular,
-                                    color: Color(0xff0B1C3D),
+                                  Column(
+                                    children: [
+                                      const Icon(
+                                        FluentIcons.thumb_like_24_filled,
+                                        color: primaryColorOfApp,
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      Text(
+                                        'Like 67k',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 8.sp),
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 1.h,
+                                  /*       const Spacer(), */
+                                  Column(
+                                    children: [
+                                      const Icon(
+                                        FluentIcons.share_24_filled,
+                                        color: Color(0xff0B1C3D),
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      Text(
+                                        'Share 10k',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 8.sp),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      const Icon(
+                                        FluentIcons.comment_edit_24_regular,
+                                        color: Color(0xff0B1C3D),
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      Text(
+                                        'Comment',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 8.sp),
+                                      ),
+                                    ],
                                   ),
                                   Text(
-                                    'Save',
+                                    "100M+",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins', fontSize: 8.sp),
+                                        fontFamily: 'Poppins',
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "Views",
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 12.sp,
+                                    ),
+                                  ),
+                                  Column(
+                                    children: [
+                                      Icon(
+                                        FluentIcons.bookmark_24_regular,
+                                        color: Color(0xff0B1C3D),
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      Text(
+                                        'Save',
+                                        style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 8.sp),
+                                      ),
+                                    ],
                                   ),
                                 ],
-                              ),
+                              )
                             ],
                           )
-                        ],
-                      )
+                        : GetBuilder<GetImage>(builder: (controller) {
+                            return Column(
+                              children: [
+                                SizedBox(
+                                  height: 13.h,
+                                ),
+                                Container(
+                                  color: const Color(0xffF5F5F5),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(2.sp),
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 3.w),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  CircleAvatar(
+                                                    backgroundColor:
+                                                        Colors.black,
+                                                    radius: 18.sp,
+                                                    child: CircleAvatar(
+                                                      backgroundColor:
+                                                          Colors.white,
+                                                      radius: 17.sp,
+                                                      child: CircleAvatar(
+                                                        radius: 16.sp,
+                                                        backgroundImage:
+                                                            const AssetImage(
+                                                                "assets/image1.webp"),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 2.w,
+                                                  ),
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          Text(
+                                                            "@Profile.Username",
+                                                            style: TextStyle(
+                                                                color:
+                                                                    primaryColorOfApp,
+                                                                fontFamily:
+                                                                    "Poppins",
+                                                                fontSize:
+                                                                    10.sp),
+                                                          ),
+                                                          Iconify(
+                                                            Bi.patch_check,
+                                                            color:
+                                                                primaryColorOfApp,
+                                                            size: 18.sp,
+                                                          ),
+                                                          Text(
+                                                            "BRAND NAME",
+                                                            style: TextStyle(
+                                                                color: const Color(
+                                                                    0xff47123E),
+                                                                fontFamily:
+                                                                    "Poppins",
+                                                                fontSize: 10.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          Text(
+                                                            "Sponsered",
+                                                            style: TextStyle(
+                                                                color:
+                                                                    customTextColor,
+                                                                fontFamily:
+                                                                    "Poppins",
+                                                                fontSize:
+                                                                    10.sp),
+                                                          ),
+                                                        ],
+                                                      )
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              Icon(
+                                                Icons.more_vert,
+                                                size: 18.sp,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 2.h,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 3.w),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                "Avail up to 50% additional discount on best foods ",
+                                                style: TextStyle(
+                                                    color: customTextColor,
+                                                    fontFamily: "Poppins",
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                    .size
+                                                                    .height >
+                                                                667
+                                                            ? 8.sp
+                                                            : 10.sp),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        SizedBox(
+                                          height: 30.h,
+                                          child: ListView.separated(
+                                              padding:
+                                                  EdgeInsets.only(left: 2.w),
+                                              separatorBuilder:
+                                                  (context, index) {
+                                                return SizedBox(
+                                                  width: 2.w,
+                                                );
+                                              },
+                                              shrinkWrap: true,
+                                              physics:
+                                                  const BouncingScrollPhysics(),
+                                              itemCount:
+                                                  getkar.imageList.length,
+                                              scrollDirection: Axis.horizontal,
+                                              itemBuilder: ((context, index) {
+                                                return Container(
+                                                  decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          width: 0.7,
+                                                          color: const Color(
+                                                              0xffc4c4c4)),
+                                                      shape:
+                                                          BoxShape.rectangle),
+                                                  child: Column(
+                                                    children: [
+                                                      Padding(
+                                                        padding: EdgeInsets.all(
+                                                            2.sp),
+                                                        child: Image.file(
+                                                          File(getkar
+                                                              .imageList[index]
+                                                              .path),
+                                                          height: 23.h,
+                                                          width: 48.w,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Column(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text('Boats',
+                                                                  style: TextStyle(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          8.sp)),
+                                                              Text(
+                                                                  'Order only on ',
+                                                                  style: TextStyle(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          8.sp)),
+                                                              Text(
+                                                                  'Flipkart App',
+                                                                  style: TextStyle(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          8.sp)),
+                                                            ],
+                                                          ),
+                                                          SizedBox(
+                                                            width: 4.w,
+                                                          ),
+                                                          widget.groupValue0 ==
+                                                                  1
+                                                              ? SizedBox()
+                                                              : OutlinedButton(
+                                                                  style: OutlinedButton.styleFrom(
+                                                                      side: const BorderSide(
+                                                                          color:
+                                                                              primaryColorOfApp),
+                                                                      padding:
+                                                                          EdgeInsets
+                                                                              .zero,
+                                                                      tapTargetSize:
+                                                                          MaterialTapTargetSize
+                                                                              .shrinkWrap,
+                                                                      elevation:
+                                                                          0,
+                                                                      minimumSize: Size(
+                                                                          25.w,
+                                                                          5.h),
+                                                                      foregroundColor:
+                                                                          Colors
+                                                                              .white,
+                                                                      backgroundColor:
+                                                                          primaryColorOfApp,
+                                                                      shape: RoundedRectangleBorder(
+                                                                          borderRadius: BorderRadius.circular(
+                                                                              5.0))),
+                                                                  onPressed:
+                                                                      () {},
+                                                                  child: Text(
+                                                                    provider1
+                                                                            .newDropValue ??
+                                                                        "Shop Now",
+                                                                    style: TextStyle(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize: 8
+                                                                            .sp,
+                                                                        fontWeight:
+                                                                            FontWeight.bold),
+                                                                  )),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              })),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          })
                 : Column(
                     children: [
                       Row(
@@ -719,47 +1014,71 @@ class _ReviewAdsState extends State<ReviewAds> {
                                                     fit: BoxFit.cover,
                                                   ),
                                                 )),
-                                            widget.groupseenonline == 1
+                                            widget.groupValue0 == 1
                                                 ? const SizedBox()
-                                                : SizedBox(
-                                                    height: 5.h,
-                                                    width: double.infinity,
-                                                    child: ElevatedButton(
-                                                      onPressed: () {},
-                                                      style: ElevatedButton.styleFrom(
-                                                          elevation: 0,
-                                                          tapTargetSize:
-                                                              MaterialTapTargetSize
-                                                                  .shrinkWrap,
-                                                          backgroundColor:
-                                                              Colors.black,
-                                                          foregroundColor:
-                                                              Colors.white,
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          5.0))),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "Shop Now",
-                                                            style: TextStyle(
-                                                                fontSize: 12.sp,
-                                                                fontFamily:
-                                                                    'Poppins'),
-                                                          ),
-                                                          const Icon(
-                                                            Icons.arrow_right,
-                                                            color: Colors.white,
-                                                          )
-                                                        ],
+                                                : Consumer<ChangeColorProvider>(
+                                                    builder: (context, value,
+                                                        child) {
+                                                    return SizedBox(
+                                                      height: 5.h,
+                                                      width: double.infinity,
+                                                      child: ElevatedButton(
+                                                        onPressed: () {},
+                                                        style: ElevatedButton.styleFrom(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    left: 3.w,
+                                                                    right: 2.w),
+                                                            elevation: 0,
+                                                            tapTargetSize:
+                                                                MaterialTapTargetSize
+                                                                    .shrinkWrap,
+                                                            backgroundColor:
+                                                                provider.newColor ??
+                                                                    Colors
+                                                                        .black,
+                                                            foregroundColor:
+                                                                Colors.white,
+                                                            shape: RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5.0))),
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Consumer<
+                                                                    RadioProvider>(
+                                                                builder:
+                                                                    (context,
+                                                                        value,
+                                                                        child) {
+                                                              return Text(
+                                                                provider1
+                                                                        .newDropValue ??
+                                                                    "Show Now",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        12.sp,
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              );
+                                                            }),
+                                                            const Icon(
+                                                              Icons.arrow_right,
+                                                              color:
+                                                                  Colors.white,
+                                                            )
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  )
+                                                    );
+                                                  })
                                           ],
                                         )
                                       : Text("One image"));
@@ -794,52 +1113,77 @@ class _ReviewAdsState extends State<ReviewAds> {
                                                         fit: BoxFit.cover,
                                                       ),
                                                     )),
-                                                widget.groupValue == 2
+                                                widget.groupValue1 == 2
                                                     ? const SizedBox()
-                                                    : widget.groupValue == 1
+                                                    : widget.groupValue1 == 1
                                                         ? SizedBox(
                                                             height: 5.h,
                                                             width: 39.5.w,
-                                                            child:
-                                                                ElevatedButton(
-                                                              onPressed: () {},
-                                                              style: ElevatedButton.styleFrom(
-                                                                  elevation: 0,
-                                                                  tapTargetSize:
-                                                                      MaterialTapTargetSize
-                                                                          .shrinkWrap,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .black,
-                                                                  foregroundColor:
-                                                                      Colors
+                                                            child: Consumer<
+                                                                    ChangeColorProvider>(
+                                                                builder:
+                                                                    (context,
+                                                                        value,
+                                                                        child) {
+                                                              return ElevatedButton(
+                                                                onPressed:
+                                                                    () {},
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                        padding:
+                                                                            EdgeInsets
+                                                                                .only(
+                                                                          left:
+                                                                              2.w,
+                                                                        ),
+                                                                        elevation:
+                                                                            0,
+                                                                        tapTargetSize:
+                                                                            MaterialTapTargetSize
+                                                                                .shrinkWrap,
+                                                                        backgroundColor: provider
+                                                                                .newColor ??
+                                                                            Colors
+                                                                                .black,
+                                                                        foregroundColor:
+                                                                            Colors
+                                                                                .white,
+                                                                        shape: RoundedRectangleBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(5.0))),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Consumer<RadioProvider>(builder:
+                                                                        (context,
+                                                                            value,
+                                                                            child) {
+                                                                      print(
+                                                                          "----------RadioPRovider");
+                                                                      return Text(
+                                                                        provider1.newDropValue ??
+                                                                            "Shop Now",
+                                                                        style: TextStyle(
+                                                                            fontSize: 10
+                                                                                .sp,
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            fontWeight:
+                                                                                FontWeight.bold),
+                                                                      );
+                                                                    }),
+                                                                    const Icon(
+                                                                      Icons
+                                                                          .arrow_right,
+                                                                      color: Colors
                                                                           .white,
-                                                                  shape: RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              5.0))),
-                                                              child: Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Text(
-                                                                    "Shop Now",
-                                                                    style: TextStyle(
-                                                                        fontSize: 12
-                                                                            .sp,
-                                                                        fontFamily:
-                                                                            'Poppins'),
-                                                                  ),
-                                                                  const Icon(
-                                                                    Icons
-                                                                        .arrow_right,
-                                                                    color: Colors
-                                                                        .white,
-                                                                  )
-                                                                ],
-                                                              ),
-                                                            ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            }),
                                                           )
                                                         : const SizedBox()
                                               ],
@@ -874,54 +1218,76 @@ class _ReviewAdsState extends State<ReviewAds> {
                                                         fit: BoxFit.cover,
                                                       ),
                                                     )),
-                                                widget.groupValue == 2
+                                                widget.groupValue1 == 2
                                                     ? const SizedBox()
-                                                    : widget.groupValue == 1
+                                                    : widget.groupValue1 == 1
                                                         ? const SizedBox()
-                                                        : SizedBox(
-                                                            height: 5.h,
-                                                            width: 39.5.w,
-                                                            child:
-                                                                ElevatedButton(
-                                                              onPressed: () {},
-                                                              style: ElevatedButton.styleFrom(
-                                                                  elevation: 0,
-                                                                  tapTargetSize:
-                                                                      MaterialTapTargetSize
-                                                                          .shrinkWrap,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .black,
-                                                                  foregroundColor:
-                                                                      Colors
+                                                        : Consumer<
+                                                                ChangeColorProvider>(
+                                                            builder: (context,
+                                                                value, child) {
+                                                            return SizedBox(
+                                                              height: 5.h,
+                                                              width: 39.5.w,
+                                                              child:
+                                                                  ElevatedButton(
+                                                                onPressed:
+                                                                    () {},
+                                                                style: ElevatedButton
+                                                                    .styleFrom(
+                                                                        padding:
+                                                                            EdgeInsets
+                                                                                .only(
+                                                                          left:
+                                                                              2.w,
+                                                                        ),
+                                                                        elevation:
+                                                                            0,
+                                                                        tapTargetSize:
+                                                                            MaterialTapTargetSize
+                                                                                .shrinkWrap,
+                                                                        backgroundColor: provider
+                                                                                .newColor ??
+                                                                            Colors
+                                                                                .black,
+                                                                        foregroundColor:
+                                                                            Colors
+                                                                                .white,
+                                                                        shape: RoundedRectangleBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(5.0))),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Consumer<RadioProvider>(builder:
+                                                                        (context,
+                                                                            value,
+                                                                            child) {
+                                                                      return Text(
+                                                                        provider1.newDropValue ??
+                                                                            "Show Now",
+                                                                        style: TextStyle(
+                                                                            fontSize: 10
+                                                                                .sp,
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            fontWeight:
+                                                                                FontWeight.bold),
+                                                                      );
+                                                                    }),
+                                                                    const Icon(
+                                                                      Icons
+                                                                          .arrow_right,
+                                                                      color: Colors
                                                                           .white,
-                                                                  shape: RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              5.0))),
-                                                              child: Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Text(
-                                                                    "Shop Now",
-                                                                    style: TextStyle(
-                                                                        fontSize: 12
-                                                                            .sp,
-                                                                        fontFamily:
-                                                                            'Poppins'),
-                                                                  ),
-                                                                  const Icon(
-                                                                    Icons
-                                                                        .arrow_right,
-                                                                    color: Colors
-                                                                        .white,
-                                                                  )
-                                                                ],
+                                                                    )
+                                                                  ],
+                                                                ),
                                                               ),
-                                                            ),
-                                                          )
+                                                            );
+                                                          })
                                               ],
                                             )
                                           // Image. file
@@ -982,8 +1348,9 @@ class _ReviewAdsState extends State<ReviewAds> {
                       MaterialPageRoute(
                           builder: (context) => Promote3(
                                 value: widget.value,
-                                groupValue: widget.groupValue,
-                                groupseenonline: widget.groupseenonline,
+                                value2: widget.value2,
+                                groupValue0: widget.groupValue0,
+                                groupValue1: widget.groupValue1,
                               )),
                     );
                   },

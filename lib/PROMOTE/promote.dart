@@ -24,12 +24,11 @@ class Promote extends StatefulWidget {
 class _PromoteState extends State<Promote> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Provider.of<PromoteProvider>(context, listen: false).methodforSelection();
   }
 
-  /*  bool isPremium = false; */
+
 
   @override
   Widget build(BuildContext context) {
@@ -591,7 +590,7 @@ class PromoteProvider extends ChangeNotifier {
   List emptyplan = [];
   List emptyplanviews = [];
   List emptygender = [];
-  var newColor;
+/*   var newColor; */
   bool isPremium = false;
   regularPremiun(index) {
     if (emptyList.isEmpty) {
@@ -648,7 +647,7 @@ class PromoteProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
-
+  var ekVariable;
   updateviewsPlan(index) {
     if (emptyplanviews.isEmpty) {
       emptyplanviews.add(planviewsList[index]);
@@ -656,6 +655,7 @@ class PromoteProvider extends ChangeNotifier {
       emptyplanviews.removeLast();
       emptyplanviews.add(planviewsList[index]);
     }
+     ekVariable = planviewsList[index]["views"];
     notifyListeners();
   }
 

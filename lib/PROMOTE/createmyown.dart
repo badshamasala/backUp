@@ -19,13 +19,15 @@ import '../GLOBALS/colors.dart';
 
 class Createmyown extends StatefulWidget {
   final value;
-  final groupValue;
-  final groupseenonline;
+  final value2;
+  final groupValue0;
+  final groupValue1;
   const Createmyown(
       {Key? key,
-      required this.value,
-      required this.groupValue,
-      required this.groupseenonline})
+       this.value,
+       this.value2,
+       this.groupValue0,
+       this.groupValue1})
       : super(key: key);
 
   @override
@@ -422,8 +424,9 @@ class _CreatemyownState extends State<Createmyown> {
                     MaterialPageRoute(
                         builder: (context) => Promote3(
                               value: widget.value,
-                              groupValue: widget.groupValue,
-                              groupseenonline: widget.groupseenonline,
+                              value2: widget.value2,
+                              groupValue0: widget.groupValue0,
+                              groupValue1: widget.groupValue0,
                             )),
                   );
                 },

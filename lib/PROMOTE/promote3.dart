@@ -15,13 +15,10 @@ import 'package:sizer/sizer.dart';
 
 class Promote3 extends StatefulWidget {
   final value;
-  final groupValue;
-  final groupseenonline;
-  const Promote3(
-      {Key? key,
-      required this.value,
-      required this.groupValue,
-      required this.groupseenonline})
+  final value2;
+  final groupValue0;
+  final groupValue1;
+  const Promote3({Key? key, this.value,this.value2, this.groupValue0, this.groupValue1})
       : super(key: key);
 
   @override
@@ -29,9 +26,9 @@ class Promote3 extends StatefulWidget {
 }
 
 class _Promote3State extends State<Promote3> {
-  var ekVariable;
   @override
   Widget build(BuildContext context) {
+    print("---------build call hua Promote3 Page");
     final provider = Provider.of<PromoteProvider>(context, listen: false);
     return Scaffold(
       bottomSheet: Padding(
@@ -108,9 +105,10 @@ class _Promote3State extends State<Promote3> {
                     MaterialPageRoute(
                         builder: (context) => Promote4(
                             value: widget.value,
-                            groupValue: widget.groupValue,
-                            groupseenonline: widget.groupseenonline,
-                            value1: ekVariable ?? "100 THOUSAND")),
+                            value2: widget.value2,
+                            groupValue0: widget.groupValue0,
+                            groupValue1: widget.groupValue1,
+                            value1: provider.ekVariable ?? "100 THOUSAND")),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -223,11 +221,6 @@ class _Promote3State extends State<Promote3> {
                         onTap: () {
                           provider.updateviewsPlan(index);
                           print(provider.planviewsList[index]["views"]);
-                          setState(() {
-                            ekVariable = provider.planviewsList[index]["views"];
-                          });
-
-                          /*   provider.listColor(index); */
                         },
                         child: Material(
                           borderRadius: BorderRadius.circular(10),
@@ -238,13 +231,6 @@ class _Promote3State extends State<Promote3> {
                                         .contains(provider.planviewsList[index])
                                     ? Color(0xff47123E)
                                     : Color(0xffffffff),
-                                /* border: Border.all(
-                                  width: 0.5,
-                                  color: provider.emptyplanviews.contains(
-                                          provider.planviewsList[index])
-                                      ? Color(0xff47123E)
-                                      : Color(0xff000000),
-                                ), */
                                 borderRadius: BorderRadius.circular(10)),
                             child: Column(
                               children: [
