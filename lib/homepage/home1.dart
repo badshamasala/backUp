@@ -11,7 +11,7 @@ import 'package:flutter_application_1/POLL/createpoll.dart';
 import 'package:flutter_application_1/PROMOTE/promote.dart';
 import 'package:flutter_application_1/TEXT%20POST/podcast.dart';
 import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
-import 'package:flutter_application_1/homepage/people_profile.dart';
+import 'package:flutter_application_1/SAMNE_WALE_KI_PROFILE/people_profile.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mingcute.dart';

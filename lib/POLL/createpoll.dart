@@ -148,8 +148,11 @@ class _CreatepollState extends State<Createpoll> {
                   /*           focusNode: quesfocusNode, */
                   controller: questionCont,
                   cursorColor: primaryColorOfApp,
-                  maxLines: 3,
+                  maxLines: 7,
                   decoration: InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 1.h),
+                      isDense: true,
                       alignLabelWithHint: true,
                       hintText: 'e.g Your Favotite Food',
                       hintStyle: TextStyle(
@@ -520,7 +523,7 @@ class _CreatepollState extends State<Createpoll> {
                                                 option2: option2.text,
                                                 option3: option3.text,
                                                 option4: option4.text,
-                                          text: "",
+                                                text: "",
                                               )),
                                     );
                                   }
@@ -547,9 +550,18 @@ class _CreatepollState extends State<Createpoll> {
 
 class CreatePollProvider extends ChangeNotifier {
   List buttonlist = [
-    {"label": "Option 2", "value": 2,},
-    {"label": "Option 3", "value": 3,},
-    {"label": "Option 4", "value": 4,},
+    {
+      "label": "Option 2",
+      "value": 2,
+    },
+    {
+      "label": "Option 3",
+      "value": 3,
+    },
+    {
+      "label": "Option 4",
+      "value": 4,
+    },
   ];
   List emptyList = [];
   List durationlist = [

@@ -21,6 +21,7 @@ class _PostTextState extends State<PostText> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     postController.addListener(() {
       setState(() {
         if (postController.text.isEmpty) {
@@ -29,6 +30,7 @@ class _PostTextState extends State<PostText> {
           checkbool = true;
         }
       });
+      print("---------build is call text-post");
     });
   }
 
@@ -42,6 +44,7 @@ class _PostTextState extends State<PostText> {
   var postController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    print("---------build is call text-post");
     final provider = Provider.of<ChangeColorProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
@@ -144,14 +147,15 @@ class _PostTextState extends State<PostText> {
             ),
             Consumer<ChangeColorProvider>(builder: (context, value, child) {
               return TextFormField(
-                /*           focusNode: quesfocusNode, */
+                /*   onChanged: (value) {
+                  provider.checkEmptyText();
+                }, */
                 controller: postController,
                 cursorColor: primaryColorOfApp,
                 maxLines: 7,
                 style: TextStyle(
                     fontFamily: provider.newFont, color: provider.newFontColor),
                 decoration: InputDecoration(
-                  
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.5.w),
                   constraints: BoxConstraints(),

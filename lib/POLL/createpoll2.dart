@@ -448,6 +448,8 @@ class _Createpoll2State extends State<Createpoll2> {
                   : Consumer<ChangeColorProvider>(
                       builder: (context, value, child) {
                       return TextFormField(
+                        /* enabled: false, */
+
                         cursorColor: primaryColorOfApp,
                         maxLines: 5,
                         initialValue: widget.text,
@@ -473,6 +475,9 @@ class _Createpoll2State extends State<Createpoll2> {
                         ),
                       );
                     }),
+              SizedBox(
+                height: widget.text == "" ? 0 : 2.h,
+              ),
               ListView.separated(
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,

@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GETX/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/NEW_FOLDER/gotodashboard.dart';
+import 'package:flutter_application_1/SAMNE_WALE_KI_PROFILE/about_profile.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_application_1/homepage/setting1.dart';
@@ -1054,7 +1056,8 @@ class _PeopleProfileState extends State<PeopleProfile> {
                         padding: EdgeInsets.only(right: 2.w),
                         child: InkWell(
                           onTap: () {
-                            /*   Get.to(() => const Setting1()); */
+                            /*     aboutProfile(context); */
+                            Get.to(() => const AboutProfile());
                           },
                           child: Material(
                             borderRadius: BorderRadius.circular(5.sp),
@@ -1095,149 +1098,139 @@ class _PeopleProfileState extends State<PeopleProfile> {
                         ],
                       ),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    '@Nanncyjain23',
-                                    style: TextStyle(
-                                        fontSize: 11.sp,
-                                        fontFamily: 'Poppins',
-                                        color: primaryColorOfApp),
-                                  ),
-                                  /* IconButton(
-                                    padding: EdgeInsets.zero,
-                                    constraints: const BoxConstraints(),
-                                    onPressed: () {
-                                      showModalBottomSheet(
-                                          /*    isScrollControlled: true, */
-                                          shape: const RoundedRectangleBorder(
-                                            // <-- SEE HERE
-                                            borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(20.0),
-                                            ),
-                                          ),
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return StatefulBuilder(builder:
-                                                (BuildContext context,
-                                                    StateSetter setState) {
-                                              return Stack(
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  Padding(
-                                                      padding: const EdgeInsets
-                                                              .symmetric(
-                                                          horizontal: 16.0),
-                                                      child: Column(
-                                                          /*    mainAxisSize:
-                                                              MainAxisSize.min, */
+                              Text(
+                                '@Nanncyjain23',
+                                style: TextStyle(
+                                    fontSize: 11.sp,
+                                    fontFamily: 'Poppins',
+                                    color: primaryColorOfApp),
+                              ),
+                              IconButton(
+                                alignment: Alignment.topCenter,
+                                visualDensity: VisualDensity(vertical: -4),
+                                padding: EdgeInsets.zero,
+                                constraints: const BoxConstraints(),
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                      /*    isScrollControlled: true, */
+                                      shape: const RoundedRectangleBorder(
+                                        // <-- SEE HERE
+                                        borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(20.0),
+                                        ),
+                                      ),
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return StatefulBuilder(builder:
+                                            (BuildContext context,
+                                                StateSetter setState) {
+                                          return Stack(
+                                            clipBehavior: Clip.none,
+                                            children: [
+                                              Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 16.0),
+                                                  child: Column(
+                                                      /*    mainAxisSize:
+                                                          MainAxisSize.min, */
+                                                      children: [
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
                                                           children: [
-                                                            Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Iconify(
-                                                                  Bi.patch_check,
-                                                                  color: const Color(
+                                                            Iconify(
+                                                              Bi.patch_check,
+                                                              color: const Color(
+                                                                  0xff037F26),
+                                                              size: 20.sp,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: const [
+                                                            Text(
+                                                              'Verified',
+                                                              style: TextStyle(
+                                                                  color: Color(
                                                                       0xff037F26),
-                                                                  size: 20.sp,
-                                                                ),
-                                                              ],
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 15),
                                                             ),
-                                                            Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: const [
-                                                                Text(
-                                                                  'Verified',
-                                                                  style: TextStyle(
-                                                                      color: Color(
-                                                                          0xff037F26),
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          15),
-                                                                ),
-                                                              ],
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: const [
+                                                            Text(
+                                                              'This is a private viewer’s profile,#continue.....content',
+                                                              style: TextStyle(
+                                                                  color:
+                                                                      customTextColor,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 10),
                                                             ),
-                                                            Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: const [
-                                                                Text(
-                                                                  'This is a private viewer’s profile,#continue.....content',
-                                                                  style: TextStyle(
-                                                                      color:
-                                                                          customTextColor,
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          10),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ])),
-                                                  Positioned.fill(
-                                                      top: -36,
-                                                      child: Align(
-                                                        alignment:
-                                                            Alignment.topCenter,
-                                                        child: InkWell(
-                                                          onTap: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: Container(
-                                                            /*   width: 45,
-                                height: 45, */
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              border: Border.all(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  width: 2),
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                const Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(4.0),
-                                                              child: Icon(
-                                                                Icons.close,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                            ),
+                                                          ],
+                                                        ),
+                                                      ])),
+                                              Positioned.fill(
+                                                  top: -36,
+                                                  child: Align(
+                                                    alignment:
+                                                        Alignment.topCenter,
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        /*   width: 45,
+                            height: 45, */
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          border: Border.all(
+                                                              color:
+                                                                  Colors.white,
+                                                              width: 2),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: const Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  4.0),
+                                                          child: Icon(
+                                                            Icons.close,
+                                                            color: Colors.white,
                                                           ),
                                                         ),
-                                                      ))
-                                                ],
-                                              );
-                                            });
-                                          });
-                                    },
-                                    icon: Iconify(
-                                      Bi.patch_check,
-                                      size: 15.sp,
-                                      color: primaryColorOfApp,
-                                    ),
-                                  ), */
-                                ],
+                                                      ),
+                                                    ),
+                                                  ))
+                                            ],
+                                          );
+                                        });
+                                      });
+                                },
+                                icon: Iconify(
+                                  Bi.patch_check,
+                                  size: 15.sp,
+                                  color: Color(0xff038026),
+                                ),
                               ),
-                              /*   SizedBox(
-                                width: width * 0.05,
-                              ), */
                             ],
                           ),
                           SizedBox(
@@ -1863,7 +1856,9 @@ buildaddressDecotaion(labeltext, icon) {
       isDense: true,
       labelText: labeltext,
       labelStyle: TextStyle(
-          color: const Color(0xffc4c4c4), fontFamily: 'Poppins', fontSize: 10.sp),
+          color: const Color(0xffc4c4c4),
+          fontFamily: 'Poppins',
+          fontSize: 10.sp),
       focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(color: primaryColorOfApp, width: 0.5)),
