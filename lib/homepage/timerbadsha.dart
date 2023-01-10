@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GETX/gettimer.dart';
+import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:get/get.dart';
 
 class Timerbadsha extends StatefulWidget {

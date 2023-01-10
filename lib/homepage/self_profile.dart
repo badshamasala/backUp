@@ -13,7 +13,7 @@ import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'package:sizer/sizer.dart';
 
-import '../ACCOUNT_TYPE/uploadimage.dart';
+import '../account_type/uploadimage.dart';
 
 class SelfProfile extends StatefulWidget {
   const SelfProfile({Key? key}) : super(key: key);

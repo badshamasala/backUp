@@ -1,13 +1,14 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/upload_brand.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/upload_public.dart';
+import 'package:flutter_application_1/account_type/upload_brand.dart';
+import 'package:flutter_application_1/account_type/upload_public.dart';
 
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/account_type/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+
 import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
+import 'package:flutter_application_1/google_login/googleprovider.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';

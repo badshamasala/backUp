@@ -2,11 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
-import 'package:flutter_application_1/GETX/gettimer.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
-import 'package:flutter_application_1/ONBOARDING/phonenumber.dart';
+import 'package:flutter_application_1/account_type/uploadimage.dart';
+import 'package:flutter_application_1/getx/gettimer.dart';
+import 'package:flutter_application_1/globals/colors.dart';
+
+import 'package:flutter_application_1/onboarding/phonenumber.dart';
+import 'package:flutter_application_1/google_login/googleprovider.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';

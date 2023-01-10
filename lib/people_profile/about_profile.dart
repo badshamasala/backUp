@@ -1,24 +1,34 @@
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter/foundation.dart' as foundation;
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
+import 'package:flutter_application_1/globals/colors.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/akar_icons.dart';
+import 'package:iconify_flutter/icons/ant_design.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/carbon.dart';
+import 'package:iconify_flutter/icons/clarity.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
+import 'package:iconify_flutter/icons/ep.dart';
 import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/icon_park_solid.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ooui.dart';
+import 'package:iconify_flutter/icons/ph.dart';
+import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sizer/sizer.dart';
 
 import '../homepage/widget_notification.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 class AboutProfile extends StatefulWidget {
   const AboutProfile({Key? key}) : super(key: key);
@@ -28,6 +38,27 @@ class AboutProfile extends StatefulWidget {
 }
 
 class _AboutProfileState extends State<AboutProfile> {
+  final controller = TextEditingController();
+  bool isEmojiVisible = false;
+  bool isKeyboardVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+/* 
+    KeyboardVisibility.onChange.listen((bool isKeyboardVisible) {
+      setState(() {
+        this.isKeyboardVisible = isKeyboardVisible;
+      });
+
+      if (isKeyboardVisible && isEmojiVisible) {
+        setState(() {
+          isEmojiVisible = false;
+        });
+      }
+    }); */
+  }
+
   bool valueofswitch = true;
 
   bool emailid = false;
@@ -67,10 +98,11 @@ class _AboutProfileState extends State<AboutProfile> {
     Size size = MediaQuery.of(context).size;
     double height = size.height, width = size.width;
     return Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(
           toolbarHeight: 9.h,
           automaticallyImplyLeading: false,
-          titleSpacing: -2.sp,
+          titleSpacing: -1.sp,
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Row(
@@ -89,7 +121,7 @@ class _AboutProfileState extends State<AboutProfile> {
               Iconify(
                 Bi.patch_check,
                 size: 18.sp,
-                color: Color(0xff038026),
+                color: const Color(0xff038026),
               ),
             ],
           ),
@@ -107,7 +139,7 @@ class _AboutProfileState extends State<AboutProfile> {
         ),
         body: Column(
           children: [
-            Divider(
+            const Divider(
               height: 0,
             ),
             ListView.separated(
@@ -137,28 +169,27 @@ class _AboutProfileState extends State<AboutProfile> {
                     title: Text(
                       aboutProfileList[index]["label"],
                       style: TextStyle(
-                          color:  customTextColor,
+                          color: customTextColor,
                           fontFamily: "Poppins",
                           fontSize: 10.sp),
                     ),
                     leading: aboutProfileList[index]["icon"] == null
-                        ? Icon(
+                        ? const Icon(
                             FluentIcons.share_24_filled,
                             color: customTextColor,
                           )
                         : Iconify(
-                          
                             aboutProfileList[index]["icon"],
                             size: 20.sp,
                             color: index == 1 && value1
-                              ? primaryColorOfApp
-                              : index == 2 && value2
-                                  ? primaryColorOfApp
-                                  : customTextColor,
+                                ? primaryColorOfApp
+                                : index == 2 && value2
+                                    ? primaryColorOfApp
+                                    : customTextColor,
                           ),
                     trailing: index == 1
                         ? Checkbox(
-                            shape: CircleBorder(),
+                            shape: const CircleBorder(),
                             visualDensity: VisualDensity.compact,
                             materialTapTargetSize:
                                 MaterialTapTargetSize.shrinkWrap,
@@ -170,7 +201,7 @@ class _AboutProfileState extends State<AboutProfile> {
                             })
                         : index == 2
                             ? Checkbox(
-                                shape: CircleBorder(),
+                                shape: const CircleBorder(),
                                 visualDensity: VisualDensity.compact,
                                 materialTapTargetSize:
                                     MaterialTapTargetSize.shrinkWrap,
@@ -183,7 +214,7 @@ class _AboutProfileState extends State<AboutProfile> {
                             : index == 6
                                 ? null
                                 : Padding(
-                                    padding: EdgeInsets.only(right: 3.w),
+                                    padding: EdgeInsets.only(right: 2.w),
                                     child: Iconify(
                                       Eva.arrow_right_fill,
                                       size: 15.sp,
@@ -194,7 +225,7 @@ class _AboutProfileState extends State<AboutProfile> {
                 },
                 separatorBuilder: (context, index) {
                   return Divider(
-                    height: 1.h,
+                    height: 1.5.h,
                     color: Colors.transparent,
                   );
                 },
@@ -203,6 +234,17 @@ class _AboutProfileState extends State<AboutProfile> {
         ));
   }
 }
+
+List textList = [
+  "Information about this profile",
+  "This is viewer’s private profile",
+  "This profile created in 24-july-2018",
+  "This profile created in india",
+  "This profile is verified",
+  "This profile current rating is",
+  "This profile Phone number verified ",
+  "How much would you like to ratings this profile?",
+];
 
 aboutprofile(context) {
   Size size = MediaQuery.of(context).size;
@@ -227,7 +269,7 @@ aboutprofile(context) {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(
-                    height: 3.h,
+                    height: 1.5.h,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
@@ -235,18 +277,19 @@ aboutprofile(context) {
                       children: [
                         CircleAvatar(
                           backgroundColor: primaryColorOfApp,
-                          radius: 19.sp,
+                          radius: 17.sp,
                           child: CircleAvatar(
                             backgroundColor: Colors.white,
-                            radius: 18.sp,
+                            radius: 16.sp,
                             child: CircleAvatar(
-                              radius: 17.sp,
-                              backgroundImage: AssetImage('assets/image1.webp'),
+                              radius: 15.sp,
+                              backgroundImage:
+                                  const AssetImage('assets/image1.webp'),
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: 2.w,
+                          width: 1.w,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -257,18 +300,22 @@ aboutprofile(context) {
                                   '@Nanncyjain23 ',
                                   style: TextStyle(
                                       color: primaryColorOfApp,
-                                      fontFamily: 'Poppins'),
+                                      fontFamily: 'Poppins',
+                                      fontSize: 11.sp),
                                 ),
                                 Iconify(
                                   Bi.patch_check,
-                                  size: 18.sp,
-                                  color: Color(0xff038026),
+                                  size: 16.sp,
+                                  color: const Color(0xff038026),
                                 ),
                               ],
                             ),
                             Text(
-                              '@m.rajan02',
-                              style: ProfileSelf().buildtextstyle(),
+                              'Nanncy jain',
+                              style: TextStyle(
+                                  color: customTextColor,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10.sp),
                             ),
                           ],
                         )
@@ -282,164 +329,148 @@ aboutprofile(context) {
                       SizedBox(
                         height: 2.h,
                       ),
-                      Column(
+                      ListView.separated(
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return Row(
+                            children: [
+                              Text(
+                                textList[index],
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: index == 0
+                                        ? FontWeight.bold
+                                        : index == 7
+                                            ? FontWeight.bold
+                                            : null,
+                                    fontSize: index == 0
+                                        ? 12.sp
+                                        : index == 7
+                                            ? 10.sp
+                                            : 9.sp),
+                              ),
+                              index == 4
+                                  ? Iconify(
+                                      Bi.patch_check,
+                                      size: 15.sp,
+                                      color: const Color(0xff038026),
+                                    )
+                                  : index == 5
+                                      ? Row(
+                                          children: [
+                                            Icon(
+                                              Icons.star,
+                                              color: const Color(0xff08A434),
+                                              size: 15.sp,
+                                            ),
+                                            const Text(
+                                              '4.8',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
+                                        )
+                                      : index == 6
+                                          ? Iconify(
+                                              AntDesign.check_circle_outline,
+                                              size: 18.sp,
+                                              color: const Color(0xff0087FF),
+                                            )
+                                          : const SizedBox()
+                            ],
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return SizedBox(
+                            height: index == 0
+                                ? 3.h
+                                : index == 6
+                                    ? 3.h
+                                    : 1.5.h,
+                          );
+                        },
+                        itemCount: textList.length,
+                      ),
+                      SizedBox(
+                        height: 0.5.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Row(
-                            children: const [
-                              Text(
-                                'Information about this profile',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 3.h,
-                          ),
-                          Row(
-                            children: const [
-                              Text(
-                                'this is viewer’s private profile ',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 12),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            children: const [
-                              Text(
-                                'this profile created in 24-july-2018 ',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 12),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            children: const [
-                              Text(
-                                'this profile created in india ',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 12),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            children: const [
-                              Text(
-                                'this profile is verified  ',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 12),
-                              ),
-                              Iconify(
-                                Bi.patch_check,
-                                size: 15,
-                                color: primaryColorOfApp,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            children: const [
-                              Text(
-                                'this profile current rating is',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', fontSize: 12),
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.green,
-                                size: 17,
-                              ),
-                              Text(
-                                '4.8',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.04,
-                          ),
-                          Row(
-                            children: const [
-                              Text(
-                                'how much would you like to ratings this profile?',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.01,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              RatingBar.builder(
-                                itemSize: 20,
-                                initialRating: 3,
-                                minRating: 1,
-                                direction: Axis.horizontal,
-                                allowHalfRating: false,
-                                itemCount: 5,
-                                itemPadding:
-                                    const EdgeInsets.symmetric(horizontal: 4.0),
-                                itemBuilder: (context, _) => const Icon(
-                                  Icons.star,
-                                  color: Colors.green,
-                                ),
-                                onRatingUpdate: (rating) {
-                                  print(rating);
-                                },
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                    elevation: 0,
-                                    minimumSize: const Size(120, 35),
-                                    // padding: EdgeInsets.symmetric(
-                                    //     horizontal: 40.0, vertical: 20.0),
-                                    backgroundColor: const Color(0xff0087FF),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0))),
-                                child: Text(
-                                  "Submit",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: width * 0.045,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: height * 0.2,
+                          RatingBar.builder(
+                            unratedColor: customTextColor,
+                            itemSize: 20.sp,
+                            initialRating: 0,
+                            minRating: 1,
+                            direction: Axis.horizontal,
+                            allowHalfRating: false,
+                            itemCount: 5,
+                            itemPadding:
+                                EdgeInsets.symmetric(horizontal: 0.8.w),
+                            itemBuilder: (context, _) => const Iconify(
+                              Ph.star,
+                              color: Color(0xff038026),
+                            ),
+                            onRatingUpdate: (rating) {
+                              print(rating);
+                            },
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                elevation: 0,
+                                minimumSize: Size(40.w, 4.3.h),
+                                backgroundColor: primaryColorOfApp,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5.0))),
+                            child: Text(
+                              "Submit",
+                              style: TextStyle(
+                                  fontSize: 10.sp,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 3.h,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          sendFeedback(context);
+                        },
+                        child: Row(
+                          children: [
+                            Text(
+                              "Send feedback",
+                              style: TextStyle(
+                                  color: customTextColor,
+                                  fontFamily: "Poppins",
+                                  fontSize: 10.sp),
+                            ),
+                            Iconify(
+                              Ep.edit,
+                              size: 15.sp,
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.15,
                       ),
                     ]),
                   ),
@@ -469,6 +500,285 @@ aboutprofile(context) {
                     ),
                   ))
             ],
+          );
+        });
+      });
+}
+
+final TextFieldGetx getkar = Get.put(TextFieldGetx());
+sendFeedback(context) {
+  Size size = MediaQuery.of(context).size;
+  double height = size.height, width = size.width;
+  return showModalBottomSheet(
+      backgroundColor: Colors.white,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        // <-- SEE HERE
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20.0),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      height: 1.5.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 6.w),
+                      child: Row(
+                        children: [
+                          IconButton(
+                            padding: EdgeInsets.zero,
+                            constraints: BoxConstraints(),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Iconify(
+                              Mdi.arrow_back,
+                              color: primaryColorOfApp,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'Send feedback',
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 13.sp),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    const Divider(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 6.w),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: primaryColorOfApp,
+                            radius: 17.sp,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 16.sp,
+                              child: CircleAvatar(
+                                radius: 15.sp,
+                                backgroundImage:
+                                    const AssetImage('assets/image1.webp'),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    '@Nanncyjain23 ',
+                                    style: TextStyle(
+                                        color: primaryColorOfApp,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 11.sp),
+                                  ),
+                                  Iconify(
+                                    Bi.patch_check,
+                                    size: 16.sp,
+                                    color: const Color(0xff038026),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                'Nanncy jain',
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 10.sp),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 6.w),
+                      child: TextFormField(
+                        focusNode: getkar.focusNode,
+                        maxLines: 7,
+                        cursorColor: primaryColorOfApp,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        controller: getkar.textEditingController,
+                        decoration: InputDecoration(
+                          alignLabelWithHint: true,
+                          isDense: true,
+                          suffixIconConstraints: BoxConstraints(),
+                          suffix: IconButton(
+                            padding: EdgeInsets.zero,
+                            constraints: BoxConstraints(),
+                            onPressed: () {
+                              getkar.isEmojiVisible.value =
+                                  !getkar.isEmojiVisible.value;
+                              getkar.focusNode.unfocus();
+                              getkar.focusNode.canRequestFocus = true;
+                            },
+                            icon: const Icon(
+                              Icons.emoji_emotions,
+                              color: primaryColorOfApp,
+                            ),
+                          ),
+                          labelText: 'Type Your feedback',
+                          labelStyle: TextStyle(
+                              color: customTextColor,
+                              fontFamily: 'Poppins',
+                              fontSize: 10.sp),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(
+                                  color: Theme.of(context).bottomAppBarColor,
+                                  width: 0.5.sp)),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: const BorderSide(
+                                  color: customTextColor, width: 0.5)),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: const BorderSide(
+                                  color: Color(0xffED1B24), width: 0.5)),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: const BorderSide(
+                                  color: Color(0xff0087FF), width: 0.5)),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 1.5.w, horizontal: 3.w),
+                        ),
+                        onChanged: (value) {
+                          // do something
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(6.w),
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: 6.h,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              backgroundColor: const Color(0xff0087FF),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(7.0))),
+                          child: Text(
+                            "Submit",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15.sp,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Obx(() => Offstage(
+                          offstage: !getkar.isEmojiVisible.value,
+                          child: SizedBox(
+                            height: 250,
+                            child: EmojiPicker(
+                              onEmojiSelected: (category, emoji) {
+                                getkar.textEditingController.text =
+                                    getkar.textEditingController.text +
+                                        emoji.emoji;
+                              },
+                              onBackspacePressed: () {},
+                              config: Config(
+                                columns: 7,
+                                emojiSizeMax: 32 *
+                                    (foundation.defaultTargetPlatform ==
+                                            TargetPlatform.iOS
+                                        ? 1.30
+                                        : 1.0), // Issue: https://github.com/flutter/flutter/issues/28894
+                                verticalSpacing: 0,
+                                horizontalSpacing: 0,
+                                gridPadding: EdgeInsets.zero,
+                                initCategory: Category.RECENT,
+                                bgColor: Color(0xFFF2F2F2),
+                                indicatorColor: Colors.blue,
+                                iconColor: Colors.grey,
+                                iconColorSelected: Colors.blue,
+                                backspaceColor: Colors.blue,
+                                skinToneDialogBgColor: Colors.white,
+                                skinToneIndicatorColor: Colors.grey,
+                                enableSkinTones: true,
+                                showRecentsTab: true,
+                                recentsLimit: 28,
+                                noRecents: const Text(
+                                  'No Recents',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.black26),
+                                  textAlign: TextAlign.center,
+                                ), // Needs to be const Widget
+                                loadingIndicator: const SizedBox
+                                    .shrink(), // Needs to be const Widget
+                                tabIndicatorAnimDuration: kTabScrollDuration,
+                                categoryIcons: const CategoryIcons(),
+                                buttonMode: ButtonMode.MATERIAL,
+                              ),
+                            ),
+                          ),
+                        ))
+                    /*     SizedBox(
+                      height: 10.h,
+                    ) */
+                  ],
+                ),
+                Positioned.fill(
+                    top: -36,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+              ],
+            ),
           );
         });
       });
@@ -1743,4 +2053,36 @@ blockProfile(context) {
           );
         });
       });
+}
+
+class TextFieldGetx extends GetxController {
+  var isEmojiVisible = false.obs;
+  FocusNode focusNode = FocusNode();
+  TextEditingController textEditingController = TextEditingController();
+
+  @override
+  void onInit() {
+    super.onInit();
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+        isEmojiVisible.value = false;
+      }
+    });
+  }
+
+  @override
+  void onReady() {
+
+
+
+
+
+    
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    textEditingController.dispose();
+  }
 }

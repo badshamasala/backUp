@@ -1,16 +1,16 @@
 // ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables, avoid_print
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GETX/gettimer.dart';
+import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
-import 'package:flutter_application_1/NEW_FOLDER/gotodashboard.dart';
-import 'package:flutter_application_1/SAMNE_WALE_KI_PROFILE/about_profile.dart';
+import 'package:flutter_application_1/new_folder/gotodashboard.dart';
+import 'package:flutter_application_1/people_profile/about_profile.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_application_1/homepage/setting1.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
-import 'package:flutter_application_1/SHARE/interaction.dart';
+import 'package:flutter_application_1/share/interaction.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';

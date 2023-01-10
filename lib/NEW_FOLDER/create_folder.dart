@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/NEW_FOLDER/friends.dart';
+import 'package:flutter_application_1/globals/colors.dart';
+import 'package:flutter_application_1/new_folder/friends.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:sizer/sizer.dart';
 

@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/account_type/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/NEW_FOLDER/create_folder.dart';
+import 'package:flutter_application_1/new_folder/create_folder.dart';
 import 'package:flutter_application_1/homepage/chat_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

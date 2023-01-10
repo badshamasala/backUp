@@ -87,6 +87,8 @@ dependencies:
   flutter_phone_direct_caller: ^2.1.1
   image_cropper: ^3.0.1
   flutter_contacts: ^1.1.5+1
+  emoji_picker_flutter: ^1.5.1
+  flutter_keyboard_visibility: ^5.4.0
 
   
   

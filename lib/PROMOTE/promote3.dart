@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/PROMOTE/promote.dart';
-import 'package:flutter_application_1/PROMOTE/promote4.dart';
+import 'package:flutter_application_1/globals/colors.dart';
+import 'package:flutter_application_1/promote/promote.dart';
+import 'package:flutter_application_1/promote/promote4.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';

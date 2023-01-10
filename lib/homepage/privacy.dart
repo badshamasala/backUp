@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/globals/colors.dart';
 import 'package:flutter_application_1/homepage/blkcomntfrom.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';

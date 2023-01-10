@@ -3,10 +3,11 @@ import 'dart:io';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/PROMOTE/promote.dart';
-import 'package:flutter_application_1/PROMOTE/promote2.dart';
-import 'package:flutter_application_1/PROMOTE/promote3.dart';
-import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
+import 'package:flutter_application_1/promote/promote.dart';
+import 'package:flutter_application_1/promote/promote2.dart';
+import 'package:flutter_application_1/promote/promote3.dart';
+import 'package:flutter_application_1/text_post/post_text.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -19,7 +20,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-import '../GETX/gettimer.dart';
+import '../getx/gettimer.dart';
 
 class ReviewAds extends StatefulWidget {
   final value;

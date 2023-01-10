@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/POLL/createpoll2.dart';
+import 'package:flutter_application_1/globals/colors.dart';
+import 'package:flutter_application_1/poll/createpoll2.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';

@@ -1,8 +1,5 @@
-library my_prj.globals;
+import 'package:flutter/material.dart';
 
-import 'dart:ui';
-//IMPORT THIS WHEREVER YOU USE GLOBAL VARIABLES : import 'globals.dart' as globals;
-//EXAMPLE : globals.myVariable
 
 const Color primaryColorOfApp = Color(0xff0087FF);
 const Color secondaryColorOfApp = Color(0xff0857DE);

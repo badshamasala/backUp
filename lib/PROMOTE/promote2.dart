@@ -1,22 +1,17 @@
 import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
-import 'package:flutter_application_1/GETX/gettimer.dart';
+import 'package:flutter_application_1/account_type/uploadimage.dart';
+import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/PROMOTE/createmyown.dart';
-import 'package:flutter_application_1/PROMOTE/editChangeUrl.dart';
-import 'package:flutter_application_1/PROMOTE/promote.dart';
-import 'package:flutter_application_1/PROMOTE/promote3.dart';
-import 'package:flutter_application_1/PROMOTE/reviewAds.dart';
-import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
+import 'package:flutter_application_1/promote/createmyown.dart';
+import 'package:flutter_application_1/promote/editChangeUrl.dart';
+import 'package:flutter_application_1/promote/promote.dart';
+import 'package:flutter_application_1/promote/promote3.dart';
+import 'package:flutter_application_1/promote/reviewAds.dart';
+import 'package:flutter_application_1/text_post/post_text.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/el.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
-import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -66,6 +61,76 @@ class _Promote2State extends State<Promote2> {
               Mdi.arrow_back,
               color: primaryColorOfApp,
             )),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 5.w, top: 1.5.h, bottom: 1.5.h),
+            child: GetBuilder<GetImage>(builder: (controller) {
+              return SizedBox(
+                height: 4.h,
+                width: 25.w,
+                child: ElevatedButton(
+                  onPressed: provider2.isPremium
+                      ? widget.value2 == 2 && getkar.image5 != null
+                          ? () {
+                              Get.to(() => ReviewAds(
+                                    value: widget.value2,
+                                    groupValue0: provider1.groupValue0,
+                                  ));
+                            }
+                          : widget.value2 == 3 && getkar.image6 != null
+                              ? () {
+                                  Get.to(() => ReviewAds(
+                                        value: widget.value2,
+                                        groupValue0: provider1.groupValue0,
+                                      ));
+                                }
+                              : widget.value2 == 4 &&
+                                      getkar.imageList.isNotEmpty
+                                  ? () {
+                                      Get.to(() => ReviewAds(
+                                            value: widget.value2,
+                                            groupValue0: provider1.groupValue0,
+                                          ));
+                                    }
+                                  : null
+                      : widget.value == 2
+                          ? getkar.image2 != null
+                              ? () {
+                                  Get.to(() => ReviewAds(
+                                        value: widget.value,
+                                        groupValue0: provider1.groupValue0,
+                                      ));
+                                }
+                              : null
+                          : getkar.image3 != null && getkar.image4 != null
+                              ? () {
+                                  Get.to(() => ReviewAds(
+                                        value: widget.value,
+                                        groupValue1: provider1.groupValue1,
+                                      ));
+                                }
+                              : null,
+                  style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      elevation: 0,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      /* side: const BorderSide(
+                        width: 0.5,
+                        color: customTextColor,
+                      ), */
+                      foregroundColor: Colors.white,
+                      backgroundColor: primaryColorOfApp,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0))),
+                  child: Text(
+                    "Review Ads",
+                    style: TextStyle(fontSize: 11.sp, fontFamily: 'Poppins'),
+                  ),
+                ),
+              );
+            }),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -1167,74 +1232,6 @@ class _Promote2State extends State<Promote2> {
                             itemCount: provider1.radio1.length),
                       );
                     }),
-              /* Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Button Left",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontSize: 10.sp),
-                        ),
-                        Transform.scale(
-                          scale: 1.1.sp,
-                          child: Radio(
-                              visualDensity: VisualDensity.compact,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              groupValue: groupValue,
-                              value: 1,
-                              onChanged: (val) {
-                                setState(() {
-                                  groupValue = 1;
-                                });
-                              }),
-                        ),
-                        Text(
-                          "Not Required",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontSize: 10.sp),
-                        ),
-                        Transform.scale(
-                          scale: 1.1.sp,
-                          child: Radio(
-                              visualDensity: VisualDensity.compact,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              groupValue: groupValue,
-                              value: 2,
-                              onChanged: (val) {
-                                setState(() {
-                                  groupValue = 2;
-                                });
-                              }),
-                        ),
-                        Text(
-                          "Button Right",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: customTextColor,
-                              fontSize: 10.sp),
-                        ),
-                        Transform.scale(
-                          scale: 1.1.sp,
-                          child: Radio(
-                              visualDensity: VisualDensity.compact,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              groupValue: groupValue,
-                              value: 3,
-                              onChanged: (val) {
-                                setState(() {
-                                  groupValue = 3;
-                                });
-                              }),
-                        ),
-                      ],
-                    ), */
               widget.value2 == 2
                   ? SizedBox(
                       height: 2.h,
@@ -1243,20 +1240,17 @@ class _Promote2State extends State<Promote2> {
                       children: [
                         Row(
                           children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 4.w),
-                              child: Text(
-                                "Select Button Color",
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: customTextColor,
-                                    fontSize: 10.sp),
-                              ),
+                            Text(
+                              "Select Button Color",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: customTextColor,
+                                  fontSize: 10.sp),
                             ),
                           ],
                         ),
                         SizedBox(
-                          height: 6.h,
+                          height: 4.5.h,
                           child: ListView.separated(
                               scrollDirection: Axis.horizontal,
                               shrinkWrap: true,
@@ -1280,116 +1274,41 @@ class _Promote2State extends State<Promote2> {
                         ),
                       ],
                     ),
-              GetBuilder<GetImage>(builder: (controller) {
-                return SizedBox(
-                  height: 4.5.h,
-                  width: double.infinity,
-                  child: OutlinedButton(
-                    onPressed: provider2.isPremium
-                        ? widget.value2 == 2 && getkar.image5 != null
-                            ? () {
-                                Get.to(() => ReviewAds(
-                                      value: widget.value2,
-                                      groupValue0: provider1.groupValue0,
-                                    ));
-                              }
-                            : widget.value2 == 3 && getkar.image6 != null
-                                ? () {
-                                    Get.to(() => ReviewAds(
-                                          value: widget.value2,
-                                          groupValue0: provider1.groupValue0,
-                                        ));
-                                  }
-                                : widget.value2 == 4 &&
-                                        getkar.imageList.isNotEmpty
-                                    ? () {
-                                        Get.to(() => ReviewAds(
-                                              value: widget.value2,
-                                              groupValue0:
-                                                  provider1.groupValue0,
-                                            ));
-                                      }
-                                    : null
-                        : widget.value == 2
-                            ? getkar.image2 != null
-                                ? () {
-                                    Get.to(() => ReviewAds(
-                                          value: widget.value,
-                                          groupValue0: provider1.groupValue0,
-                                        ));
-                                  }
-                                : null
-                            : getkar.image3 != null && getkar.image4 != null
-                                ? () {
-                                    Get.to(() => ReviewAds(
-                                          value: widget.value,
-                                          groupValue1: provider1.groupValue1,
-                                        ));
-                                  }
-                                : null,
-                    style: OutlinedButton.styleFrom(
-                        elevation: 0,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        side: const BorderSide(
-                          width: 0.5,
-                          color: customTextColor,
-                        ),
-                        foregroundColor: primaryColorOfApp,
-                        backgroundColor: Colors.transparent,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0))),
-                    child: Text(
-                      "Review Ads",
-                      style: TextStyle(fontSize: 12.sp, fontFamily: 'Poppins'),
-                    ),
-                  ),
-                );
-              }),
-              SizedBox(
-                height: 1.h,
-              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4.w),
-                    child: Text(
-                      "Audience Impressions",
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: customTextColor,
-                          fontSize: 12.sp),
-                    ),
+                  Text(
+                    "Audience Impressions",
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: customTextColor,
+                        fontSize: 11.sp),
                   ),
                 ],
               ),
-              SizedBox(
-                height: 1.h,
-              ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4.w),
+                    padding: EdgeInsets.symmetric(horizontal: 3.w),
                     child: Text(
-                      "Select Results",
+                      "Category",
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           color: customTextColor,
-                          fontSize: 10.sp),
+                          fontSize: 9.sp),
                     ),
                   ),
                 ],
-              ),
-              SizedBox(
-                height: 1.h,
               ),
               Container(
                 height: 5.h,
                 decoration: BoxDecoration(
-                  borderRadius: const UploadImage().radius(),
+                  borderRadius: BorderRadius.circular(5),
                   border: Border.all(color: primaryColorOfApp, width: 0.5),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 8),
+                  padding: EdgeInsets.only(left: 3.w, right: 1.w),
                   child:
                       Consumer<RadioProvider>(builder: (context, value, child) {
                     return DropdownButtonHideUnderline(
@@ -1397,15 +1316,12 @@ class _Promote2State extends State<Promote2> {
 
                             /*    iconSize: 28.sp, */
                             iconEnabledColor: primaryColorOfApp,
-                            hint: Padding(
-                              padding: const EdgeInsets.only(left: 5.0),
-                              child: Text(
-                                'Shop Now',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 10.sp,
-                                    color: customTextColor),
-                              ),
+                            hint: Text(
+                              'Shop Now',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10.sp,
+                                  color: customTextColor),
                             ),
                             isExpanded: true,
                             value: provider1.newDropValue,
@@ -1417,7 +1333,71 @@ class _Promote2State extends State<Promote2> {
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
                                           color: customTextColor,
-                                          fontSize: 12.sp),
+                                          fontSize: 10.sp),
+                                    )))
+                                .toList(),
+                            onChanged: widget.value == 2
+                                ? provider1.groupValue0 == 1
+                                    ? null
+                                    : (value) {
+                                        provider1.dropDownUpdate(value);
+                                      }
+                                : provider1.groupValue1 == 2
+                                    ? null
+                                    : (value) {
+                                        provider1.dropDownUpdate(value);
+                                      }));
+                  }),
+                ),
+              ),
+              SizedBox(
+                height: 1.h,
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 3.w),
+                    child: Text(
+                      "Select Results",
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: customTextColor,
+                          fontSize: 9.sp),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                height: 5.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(color: primaryColorOfApp, width: 0.5),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.only(left: 3.w, right: 1.w),
+                  child:
+                      Consumer<RadioProvider>(builder: (context, value, child) {
+                    return DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                            iconEnabledColor: primaryColorOfApp,
+                            hint: Text(
+                              'Shop Now',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 10.sp,
+                                  color: customTextColor),
+                            ),
+                            isExpanded: true,
+                            value: provider1.newDropValue,
+                            items: provider1.items
+                                .map((item) => DropdownMenuItem(
+                                    value: item,
+                                    child: Text(
+                                      item,
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          color: customTextColor,
+                                          fontSize: 10.sp),
                                     )))
                                 .toList(),
                             onChanged: widget.value == 2
@@ -1439,6 +1419,7 @@ class _Promote2State extends State<Promote2> {
               ),
               Consumer<RadioProvider>(builder: (context, value, child) {
                 return ListView.separated(
+                    physics: BouncingScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       if (index == 1) {
@@ -1447,30 +1428,28 @@ class _Promote2State extends State<Promote2> {
                                 children: [
                                   Padding(
                                     padding:
-                                        EdgeInsets.symmetric(horizontal: 4.w),
-                                    child: SizedBox(
-                                      height: 4.h,
-                                      child: TextButton(
-                                          style: TextButton.styleFrom(
-                                              elevation: 0,
-                                              alignment: Alignment.topCenter,
-                                              padding: EdgeInsets.zero,
-                                              tapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap),
-                                          onPressed: () {
-                                            Get.to(() => const EditChangeUrl());
-                                          },
-                                          child: Text(
-                                            "Edit/Change URL",
-                                            style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              color: primaryColorOfApp,
-                                              fontSize: 10
-                                                  .sp, /*  fontWeight: FontWeight.bold */
-                                            ),
-                                          )),
-                                    ),
+                                        EdgeInsets.symmetric(horizontal: 3.w),
+                                    child: TextButton(
+                                        style: TextButton.styleFrom(
+                                            visualDensity:
+                                                VisualDensity(vertical: -4),
+                                            elevation: 0,
+                                            alignment: Alignment.topCenter,
+                                            padding: EdgeInsets.zero,
+                                            tapTargetSize: MaterialTapTargetSize
+                                                .shrinkWrap),
+                                        onPressed: () {
+                                          Get.to(() => const EditChangeUrl());
+                                        },
+                                        child: Text(
+                                          "Edit/Change URL",
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            color: primaryColorOfApp,
+                                            fontSize: 10
+                                                .sp, /*  fontWeight: FontWeight.bold */
+                                          ),
+                                        )),
                                   )
                                 ],
                               )
@@ -1485,45 +1464,43 @@ class _Promote2State extends State<Promote2> {
                               provider1.updateRadio2(index);
                             },
                             child: Container(
+                              height: 5.h,
                               decoration: BoxDecoration(
                                   shape: BoxShape.rectangle,
                                   border: Border.all(
                                       width: 0.5, color: customTextColor),
                                   borderRadius: BorderRadius.circular(5)),
-                              child: Padding(
-                                padding: EdgeInsets.all(2.sp),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 3.w),
-                                      child: Text(
-                                        provider1.radio2[index],
-                                        style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            color: customTextColor,
-                                            fontSize: 10.sp),
-                                      ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 3.w),
+                                    child: Text(
+                                      provider1.radio2[index],
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          color: customTextColor,
+                                          fontSize: 10.sp),
                                     ),
-                                    Transform.scale(
-                                      scale: 1.1.sp,
-                                      child: Radio(
-                                          visualDensity: VisualDensity.compact,
-                                          materialTapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          groupValue: provider1.groupValue2,
-                                          value: index == 0
-                                              ? 1
-                                              : index == 2
-                                                  ? 2
-                                                  : 3,
-                                          onChanged: (val) {
-                                            provider1.updateRadio2(index);
-                                          }),
-                                    )
-                                  ],
-                                ),
+                                  ),
+                                  Transform.scale(
+                                    scale: 1.1.sp,
+                                    child: Radio(
+                                        visualDensity: VisualDensity.compact,
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: provider1.groupValue2,
+                                        value: index == 0
+                                            ? 1
+                                            : index == 2
+                                                ? 2
+                                                : 3,
+                                        onChanged: (val) {
+                                          provider1.updateRadio2(index);
+                                        }),
+                                  )
+                                ],
                               ),
                             ),
                           );
@@ -1555,24 +1532,22 @@ class _Promote2State extends State<Promote2> {
                       ));
                 },
                 child: Container(
+                  height: 5.h,
                   decoration: BoxDecoration(
                       border: Border.all(width: 0.5, color: primaryColorOfApp),
                       borderRadius: BorderRadius.circular(5),
                       shape: BoxShape.rectangle),
                   child: Padding(
-                    padding: EdgeInsets.all(4.5.sp),
+                    padding: EdgeInsets.only(left: 3.w, right: 1.5.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 2.w),
-                          child: Text(
-                            "Create my own ",
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: customTextColor,
-                                fontSize: 10.sp),
-                          ),
+                        Text(
+                          "Create my own",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: customTextColor,
+                              fontSize: 10.sp),
                         ),
                         Transform.scale(
                           scale: 1.2,
@@ -1587,7 +1562,7 @@ class _Promote2State extends State<Promote2> {
                 ),
               ),
               SizedBox(
-                height: 2.h,
+                height: 3.h,
               ),
               SizedBox(
                 height: 6.h,
@@ -1617,6 +1592,9 @@ class _Promote2State extends State<Promote2> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 6.h,
+              )
             ],
           ),
         ),

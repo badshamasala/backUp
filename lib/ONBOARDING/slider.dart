@@ -13,8 +13,8 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../ACCOUNT_TYPE/uploadimage.dart';
-import '../GOOGLE LOGIN/googlenewpage.dart';
+import '../account_type/uploadimage.dart';
+import '../google_login/googlenewpage.dart';
 
 class Slider1 extends StatefulWidget {
   const Slider1({super.key});

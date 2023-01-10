@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GLOBALS/securityfile.dart';
+import 'package:flutter_application_1/globals/colors.dart';
+import 'package:flutter_application_1/globals/securityfile.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';

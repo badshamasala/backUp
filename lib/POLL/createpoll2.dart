@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/POLL/createpoll.dart';
-import 'package:flutter_application_1/TEXT%20POST/post_text.dart';
+import 'package:flutter_application_1/globals/colors.dart';
+import 'package:flutter_application_1/poll/createpoll.dart';
+
 import 'package:flutter_application_1/homepage/widget_notification.dart';
+import 'package:flutter_application_1/text_post/post_text.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/carbon.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
-import 'package:flutter_application_1/PROMOTE/explore1.dart';
-import 'package:flutter_application_1/PROMOTE/promote.dart';
-import 'package:flutter_application_1/PROMOTE/promote3.dart';
+import 'package:flutter_application_1/account_type/uploadimage.dart';
+import 'package:flutter_application_1/promote/explore1.dart';
+import 'package:flutter_application_1/promote/promote.dart';
+import 'package:flutter_application_1/promote/promote3.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';

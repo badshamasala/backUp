@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
+import 'package:flutter_application_1/account_type/accounttype.dart';
+import 'package:flutter_application_1/account_type/uploadimage.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/NEW_FOLDER/friends.dart';
+import 'package:flutter_application_1/new_folder/friends.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -11,7 +11,7 @@ import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:sizer/sizer.dart';
 
-import '../ACCOUNT_TYPE/accounttype.dart';
+import '../account_type/accounttype.dart';
 
 class Verification1 extends StatefulWidget {
   const Verification1({Key? key}) : super(key: key);

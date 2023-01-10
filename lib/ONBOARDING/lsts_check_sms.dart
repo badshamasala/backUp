@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
-import 'package:flutter_application_1/GETX/smsautofill.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/account_type/accounttype.dart';
+import 'package:flutter_application_1/account_type/uploadimage.dart';
+import 'package:flutter_application_1/getx/smsautofill.dart';
+import 'package:flutter_application_1/globals/colors.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';

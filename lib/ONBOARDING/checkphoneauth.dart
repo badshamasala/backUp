@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/uploadimage.dart';
-import 'package:flutter_application_1/GETX/smsautofill.dart';
+import 'package:flutter_application_1/account_type/uploadimage.dart';
+import 'package:flutter_application_1/getx/smsautofill.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/google_login/googleprovider.dart';
+
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sms_autofill/sms_autofill.dart';

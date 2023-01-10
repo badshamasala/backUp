@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/globals/colors.dart';
 import 'package:flutter_application_1/homepage/home1.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_svg/flutter_svg.dart';

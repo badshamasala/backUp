@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ACCOUNT_TYPE/accounttype.dart';
+import 'package:flutter_application_1/account_type/accounttype.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/NEW_FOLDER/saved1.dart';

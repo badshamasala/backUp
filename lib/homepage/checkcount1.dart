@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+import 'package:flutter_application_1/google_login/googleprovider.dart';
 import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
 import 'package:provider/provider.dart';
 

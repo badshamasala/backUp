@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/NEW_FOLDER/archive_check.dart';
-import 'package:flutter_application_1/NEW_FOLDER/favorite_profile.dart';
-import 'package:flutter_application_1/NEW_FOLDER/friends.dart';
-import 'package:flutter_application_1/NEW_FOLDER/history1.dart';
-import 'package:flutter_application_1/NEW_FOLDER/saved1.dart';
+import 'package:flutter_application_1/globals/colors.dart';
+import 'package:flutter_application_1/new_folder/archive_check.dart';
+import 'package:flutter_application_1/new_folder/favorite_profile.dart';
+import 'package:flutter_application_1/new_folder/friends.dart';
+import 'package:flutter_application_1/new_folder/history1.dart';
+import 'package:flutter_application_1/new_folder/saved1.dart';
 import 'package:flutter_application_1/homepage/inside_setting.dart';
 import 'package:flutter_application_1/homepage/profile_acitvity.dart';
 import 'package:flutter_application_1/homepage/profile_self.dart';
@@ -33,7 +33,7 @@ import 'package:iconify_flutter/icons/tabler.dart';
 import 'package:iconify_flutter/icons/uiw.dart';
 import 'package:sizer/sizer.dart';
 
-import '../NEW_FOLDER/rewardcollection.dart';
+import '../new_folder/rewardcollection.dart';
 
 class Setting1 extends StatefulWidget {
   const Setting1({Key? key}) : super(key: key);

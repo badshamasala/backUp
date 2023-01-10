@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/GOOGLE%20LOGIN/googleprovider.dart';
+
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:flutter_application_1/google_login/googleprovider.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
