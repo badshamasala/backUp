@@ -7,11 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/homepage/giftsend.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/promote/promote.dart';
 import 'package:flutter_application_1/text_post/podcast.dart';
 import 'package:flutter_application_1/text_post/post_text.dart';
 import 'package:flutter_application_1/people_profile/people_profile.dart';
+import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mingcute.dart';
@@ -111,6 +113,11 @@ class _Home1State extends State<Home1> {
     {"icon": MaterialSymbols.record_voice_over, "label": "Podcast"},
     {"icon": Ic.baseline_live_tv, "label": "Live"},
   ];
+  List appBaricon = [
+    Bi.qr_code_scan,
+    Ooui.bell,
+    EmojioneMonotone.wrapped_gift,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -156,72 +163,35 @@ class _Home1State extends State<Home1> {
             ),
           ),
           actions: [
-            Container(
-                margin: const EdgeInsets.all(0),
-                padding: const EdgeInsets.all(3),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-
-                    /*   borderRadius: BorderRadius.circular(40), */
-                    border: Border.all(width: 1, color: primaryColorOfApp)),
-                child: IconButton(
-                    padding: const EdgeInsets.all(0),
-                    constraints: const BoxConstraints(),
-                    onPressed: () {
-                      /*   final provider =
-                          Provider.of<Googleprovider>(context, listen: false);
-                      provider.logout(); */
-                    },
-                    icon: const Iconify(
-                      Bi.qr_code_scan,
-                      size: 17,
-                      color: iconColor,
-                    ))),
-            SizedBox(
-              width: width * 0.015,
+            ListView.separated(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: appBaricon.length,
+              separatorBuilder: (context, index) {
+                return SizedBox(width: 1.w);
+              },
+              itemBuilder: (context, index) {
+                return Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(width: 1, color: primaryColorOfApp)),
+                    child: Padding(
+                      padding: EdgeInsets.all(3.sp),
+                      child: IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                          onPressed: () {},
+                          icon: Iconify(
+                            appBaricon[index],
+                            size: index == 0 ? 16.sp : 20.sp,
+                            color: iconColor,
+                          )),
+                    ));
+              },
             ),
-            Container(
-                margin: const EdgeInsets.all(0),
-                padding: const EdgeInsets.all(3),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-
-                    /*   borderRadius: BorderRadius.circular(40), */
-                    border: Border.all(width: 1, color: primaryColorOfApp)),
-                child: IconButton(
-                    padding: const EdgeInsets.all(0),
-                    constraints: const BoxConstraints(),
-                    onPressed: () {},
-                    icon: const Iconify(
-                      Ooui.bell,
-                      size: 19,
-                      color: iconColor,
-                    ))),
             SizedBox(
-              width: width * 0.015,
-            ),
-            Container(
-                margin: const EdgeInsets.all(0),
-                padding: const EdgeInsets.all(3),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-
-                    /*   borderRadius: BorderRadius.circular(40), */
-                    border: Border.all(width: 1, color: primaryColorOfApp)),
-                child: IconButton(
-                  padding: const EdgeInsets.all(0),
-                  constraints: const BoxConstraints(),
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/gifticon1.svg',
-                    height: 3.h,
-                    width: 3.w,
-                    color: customTextColor,
-                  ),
-                )),
-            SizedBox(
-              width: width * 0.03,
-            ),
+              width: 3.w,
+            )
           ],
         ),
         floatingActionButtonLocation:
@@ -328,13 +298,15 @@ class _Home1State extends State<Home1> {
                                                 color: Colors.white),
                                             child: Padding(
                                               padding: EdgeInsets.all(13.sp),
-                                              child: Iconify(Ri.ball_pen_fill,
+                                              child: const Iconify(
+                                                  Ri.ball_pen_fill,
                                                   color: primaryColorOfApp),
                                             ),
                                           ),
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(left: 10.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
                                           child: Text(
                                             'Something Write',
                                             style: TextStyle(
@@ -355,7 +327,7 @@ class _Home1State extends State<Home1> {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                       Navigator.pop(context);
+                                    Navigator.pop(context);
                                     setState(() {
                                       floatchupa = true;
                                     });
@@ -369,7 +341,8 @@ class _Home1State extends State<Home1> {
                                   child: Padding(
                                     padding: EdgeInsets.only(left: 5.w),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
                                         Material(
                                           elevation: 10,
@@ -381,14 +354,15 @@ class _Home1State extends State<Home1> {
                                                 color: Colors.white),
                                             child: Padding(
                                               padding: EdgeInsets.all(13.sp),
-                                              child: Iconify(
+                                              child: const Iconify(
                                                   Ic.outline_add_photo_alternate,
                                                   color: primaryColorOfApp),
                                             ),
                                           ),
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(left: 10.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
                                           child: Text(
                                             'Add Photo',
                                             style: TextStyle(
@@ -422,7 +396,7 @@ class _Home1State extends State<Home1> {
                                               color: Colors.white),
                                           child: Padding(
                                             padding: EdgeInsets.all(13.sp),
-                                            child: Iconify(
+                                            child: const Iconify(
                                                 MaterialSymbols
                                                     .video_call_rounded,
                                                 color: primaryColorOfApp),
@@ -430,7 +404,8 @@ class _Home1State extends State<Home1> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.only(left: 10.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 10.0),
                                         child: Text(
                                           'Add Video',
                                           style: TextStyle(
@@ -477,13 +452,15 @@ class _Home1State extends State<Home1> {
                                                 color: Colors.white),
                                             child: Padding(
                                               padding: EdgeInsets.all(13.sp),
-                                              child: Iconify(Ic.outline_poll,
+                                              child: const Iconify(
+                                                  Ic.outline_poll,
                                                   color: primaryColorOfApp),
                                             ),
                                           ),
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(left: 10.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
                                           child: Text(
                                             'Create Poll',
                                             style: TextStyle(
@@ -531,7 +508,7 @@ class _Home1State extends State<Home1> {
                                                 color: Colors.white),
                                             child: Padding(
                                               padding: EdgeInsets.all(13.sp),
-                                              child: Iconify(
+                                              child: const Iconify(
                                                   MaterialSymbols
                                                       .record_voice_over,
                                                   color: primaryColorOfApp),
@@ -539,7 +516,8 @@ class _Home1State extends State<Home1> {
                                           ),
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(left: 10.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
                                           child: Text(
                                             'Live Podcast',
                                             style: TextStyle(
@@ -573,13 +551,15 @@ class _Home1State extends State<Home1> {
                                               color: Colors.white),
                                           child: Padding(
                                             padding: EdgeInsets.all(13.sp),
-                                            child: Iconify(Ic.baseline_live_tv,
+                                            child: const Iconify(
+                                                Ic.baseline_live_tv,
                                                 color: primaryColorOfApp),
                                           ),
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.only(left: 10.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 10.0),
                                         child: Text(
                                           'Live',
                                           style: TextStyle(
@@ -2648,30 +2628,37 @@ class _Home1State extends State<Home1> {
                                       ),
                                     ),
                                     /*    sizedbox(context), */
-                                    Column(
-                                      children: [
-                                        SvgPicture.asset(
-                                          'assets/gifticon1.svg',
-                                          height: 3.h,
-                                          width: 3.w,
-                                          color: primaryColorOfApp,
-                                        ),
-                                        SizedBox(
-                                          height: 1.3.h,
-                                        ),
-                                        Text(
-                                          'GIFT',
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 8.sp),
-                                        ),
-                                        Text(
-                                          userlist[index].giftcount.toString(),
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 8.sp),
-                                        ),
-                                      ],
+                                    GestureDetector(
+                                      onTap: () {
+                                        buildsendGift(context);
+                                      },
+                                      child: Column(
+                                        children: [
+                                          SvgPicture.asset(
+                                            'assets/gifticon1.svg',
+                                            height: 3.h,
+                                            width: 3.w,
+                                            color: primaryColorOfApp,
+                                          ),
+                                          SizedBox(
+                                            height: 1.3.h,
+                                          ),
+                                          Text(
+                                            'GIFT',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 8.sp),
+                                          ),
+                                          Text(
+                                            userlist[index]
+                                                .giftcount
+                                                .toString(),
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 8.sp),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                     /* sizedbox(context), */
                                     Text(

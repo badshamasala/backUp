@@ -1,23 +1,22 @@
-// ignore_for_file: library_private_types_in_public_api, prefer_typing_uninitialized_variables
-
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:video_player/video_player.dart';
 
 /// Stateful widget to fetch and then display video content.
 ///
 ///
 ///
-class VideoApp extends StatefulWidget {
+class VideoApp1 extends StatefulWidget {
   final value;
 
-  const VideoApp({Key? key, required this.value}) : super(key: key);
+  const VideoApp1({Key? key, required this.value}) : super(key: key);
 
   @override
-  _VideoAppState createState() => _VideoAppState();
+  _VideoApp1State createState() => _VideoApp1State();
 }
 
-class _VideoAppState extends State<VideoApp> {
+class _VideoApp1State extends State<VideoApp1> {
   VideoPlayerController? _controller;
   ChewieController? chewieController;
   @override
@@ -35,17 +34,16 @@ class _VideoAppState extends State<VideoApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+        /*     width: double.infinity,
+        height: 50.h, */
+        /*        alignment: Alignment.topCenter, */
         child:
             chewieController?.videoPlayerController.value.isInitialized ?? false
                 ? AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: SizedBox(
-                      width: 200,
-                      height: 200,
-                      child: Chewie(
-                        controller: chewieController!,
-                      ),
+                    aspectRatio: _controller!.value.aspectRatio,
+                    child: Chewie(
+                      controller: chewieController!,
                     ),
                   )
                 : const SizedBox());
@@ -55,8 +53,11 @@ class _VideoAppState extends State<VideoApp> {
     _controller = VideoPlayerController.network(widget.value);
     await Future.wait([_controller!.initialize()]);
     chewieController = ChewieController(
+      showControls: false,
+      showOptions: false,
+      fullScreenByDefault: true,
       videoPlayerController: _controller!,
-      autoPlay: true,
+      autoPlay: false,
       looping: true,
     );
 

@@ -5,11 +5,8 @@ import 'package:flutter_application_1/promote/promote4.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
-import 'package:iconify_flutter/icons/ci.dart';
 import 'package:iconify_flutter/icons/ion.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
-import 'package:iconify_flutter/icons/tabler.dart';
-import 'package:iconify_flutter/icons/teenyicons.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -119,7 +116,7 @@ class _Promote3State extends State<Promote3> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0))),
                 child: Padding(
-                  padding: EdgeInsets.all(1.0),
+                  padding: const EdgeInsets.all(1.0),
                   child: Text(
                     "Confirm & Next",
                     style: TextStyle(fontSize: 12.sp, fontFamily: 'Poppins'),
@@ -176,19 +173,19 @@ class _Promote3State extends State<Promote3> {
                             padding: EdgeInsets.zero,
                             side: BorderSide(
                                 color: provider.isPremium
-                                    ? Color(0xff47123E)
+                                    ? const Color(0xff47123E)
                                     : primaryColorOfApp),
                             backgroundColor: provider.emptyplan
                                     .contains(provider.planList[index])
                                 ? provider.isPremium
-                                    ? Color(0xff47123E)
+                                    ? const Color(0xff47123E)
                                     : primaryColorOfApp
                                 : Colors.white,
                             foregroundColor: provider.emptyplan
                                     .contains(provider.planList[index])
                                 ? Colors.white
                                 : provider.isPremium
-                                    ? Color(0xff47123E)
+                                    ? const Color(0xff47123E)
                                     : primaryColorOfApp,
                             elevation: 0),
                         onPressed: () {
@@ -208,7 +205,7 @@ class _Promote3State extends State<Promote3> {
               ),
               Consumer<PromoteProvider>(builder: (context, value, child) {
                 return GridView.builder(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         mainAxisExtent: 15.h,
                         /*     childAspectRatio: 3.5, */
@@ -229,8 +226,8 @@ class _Promote3State extends State<Promote3> {
                             decoration: BoxDecoration(
                                 color: provider.emptyplanviews
                                         .contains(provider.planviewsList[index])
-                                    ? Color(0xff47123E)
-                                    : Color(0xffffffff),
+                                    ? const Color(0xff47123E)
+                                    : const Color(0xffffffff),
                                 borderRadius: BorderRadius.circular(10)),
                             child: Column(
                               children: [
@@ -250,8 +247,8 @@ class _Promote3State extends State<Promote3> {
                                             color: provider.emptyplanviews
                                                     .contains(provider
                                                         .planviewsList[index])
-                                                ? Color(0xffffffff)
-                                                : Color(0xff47123E),
+                                                ? const Color(0xffffffff)
+                                                : const Color(0xff47123E),
                                             fontSize: 13
                                                 .sp, /*   fontWeight: FontWeight.bold */
                                           ),
@@ -284,9 +281,9 @@ class _Promote3State extends State<Promote3> {
                                   provider.emptyplanviews.contains(
                                           provider.planviewsList[index])
                                       ? Colors.white
-                                      : Color(0xff47123E),
+                                      : const Color(0xff47123E),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment:
@@ -301,8 +298,8 @@ class _Promote3State extends State<Promote3> {
                                           color: provider.emptyplanviews
                                                   .contains(provider
                                                       .planviewsList[index])
-                                              ? Color(0xffffffff)
-                                              : Color(0xff47123E),
+                                              ? const Color(0xffffffff)
+                                              : const Color(0xff47123E),
                                           fontWeight: FontWeight.bold,
                                           fontSize: 13
                                               .sp, /*   fontWeight: FontWeight.bold */
@@ -311,13 +308,13 @@ class _Promote3State extends State<Promote3> {
                                     ),
                                     Container(
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
+                                        borderRadius: const BorderRadius.only(
                                             bottomRight: Radius.circular(10),
                                             topLeft: Radius.circular(10)),
                                         color: provider.emptyplanviews.contains(
                                                 provider.planviewsList[index])
-                                            ? Color(0xffBB9858)
-                                            : Color(0xff47123E),
+                                            ? const Color(0xffBB9858)
+                                            : const Color(0xff47123E),
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -330,8 +327,8 @@ class _Promote3State extends State<Promote3> {
                                               color: provider.emptyplanviews
                                                       .contains(provider
                                                           .planviewsList[index])
-                                                  ? Color(0xff47123E)
-                                                  : Color(0xffBB9858),
+                                                  ? const Color(0xff47123E)
+                                                  : const Color(0xffBB9858),
                                             ),
                                             SizedBox(
                                               width: 2.w,
@@ -344,8 +341,8 @@ class _Promote3State extends State<Promote3> {
                                                         .contains(provider
                                                                 .planviewsList[
                                                             index])
-                                                    ? Color(0xff47123E)
-                                                    : Color(0xffffffff),
+                                                    ? const Color(0xff47123E)
+                                                    : const Color(0xffffffff),
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 12
                                                     .sp, /*   fontWeight: FontWeight.bold */

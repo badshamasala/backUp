@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/new_folder/gotodashboard.dart';
+import 'package:flutter_application_1/image_click_profile/image_click.dart';
+import 'package:flutter_application_1/archive_post/gotodashboard.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_application_1/homepage/setting1.dart';
@@ -1606,26 +1607,32 @@ class _ProfileSelfState extends State<ProfileSelf> {
               height: 33.5.h,
               child: TabBarView(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w),
-                    child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisSpacing: 1.w,
-                            mainAxisSpacing: 1.w,
-                            crossAxisCount: 3),
-                        scrollDirection: Axis.vertical,
-                        itemCount: photos.length,
-                        itemBuilder: (_, i) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(5),
-                              image: DecorationImage(
-                                  image: AssetImage(photos[i]),
-                                  fit: BoxFit.cover),
-                            ),
-                          );
-                        }),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => ImageClick());
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      child: GridView.builder(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisSpacing: 1.w,
+                                  mainAxisSpacing: 1.w,
+                                  crossAxisCount: 3),
+                          scrollDirection: Axis.vertical,
+                          itemCount: photos.length,
+                          itemBuilder: (_, i) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(5),
+                                image: DecorationImage(
+                                    image: AssetImage(photos[i]),
+                                    fit: BoxFit.cover),
+                              ),
+                            );
+                          }),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -1824,8 +1831,6 @@ class _ProfileSelfState extends State<ProfileSelf> {
     );
   }
 }
-
-
 
 buildaddressDecotaion(labeltext, icon) {
   return InputDecoration(

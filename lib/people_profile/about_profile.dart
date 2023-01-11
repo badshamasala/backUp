@@ -20,6 +20,7 @@ import 'package:iconify_flutter/icons/ep.dart';
 import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/icon_park_solid.dart';
+import 'package:iconify_flutter/icons/ion.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ooui.dart';
 import 'package:iconify_flutter/icons/ph.dart';
@@ -180,7 +181,13 @@ class _AboutProfileState extends State<AboutProfile> {
                           )
                         : Iconify(
                             aboutProfileList[index]["icon"],
-                            size: 20.sp,
+                            size: index == 0
+                                ? 22.sp
+                                : index == 7
+                                    ? 17.sp
+                                    : index == 8
+                                        ? 17.sp
+                                        : 20.sp,
                             color: index == 1 && value1
                                 ? primaryColorOfApp
                                 : index == 2 && value2
@@ -188,29 +195,57 @@ class _AboutProfileState extends State<AboutProfile> {
                                     : customTextColor,
                           ),
                     trailing: index == 1
-                        ? Checkbox(
-                            shape: const CircleBorder(),
-                            visualDensity: VisualDensity.compact,
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            value: value1,
-                            onChanged: (value) {
-                              setState(() {
-                                value1 = value!;
-                              });
-                            })
+                        ? Padding(
+                            padding: EdgeInsets.only(right: 0.8.w),
+                            child: IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                onPressed: () {
+                                  if (value1 == true) {
+                                    setState(() {
+                                      value1 = false;
+                                    });
+                                  } else {
+                                    setState(() {
+                                      value1 = true;
+                                    });
+                                  }
+                                },
+                                icon: Iconify(
+                                  value1
+                                      ? AntDesign.check_circle_outlined
+                                      : Ion.ios_circle_outline,
+                                  color: value1
+                                      ? primaryColorOfApp
+                                      : customTextColor,
+                                )),
+                          )
                         : index == 2
-                            ? Checkbox(
-                                shape: const CircleBorder(),
-                                visualDensity: VisualDensity.compact,
-                                materialTapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap,
-                                value: value2,
-                                onChanged: (value) {
-                                  setState(() {
-                                    value2 = value!;
-                                  });
-                                })
+                            ? Padding(
+                                padding: EdgeInsets.only(right: 0.8.w),
+                                child: IconButton(
+                                    padding: EdgeInsets.zero,
+                                    constraints: BoxConstraints(),
+                                    onPressed: () {
+                                      if (value2 == true) {
+                                        setState(() {
+                                          value2 = false;
+                                        });
+                                      } else {
+                                        setState(() {
+                                          value2 = true;
+                                        });
+                                      }
+                                    },
+                                    icon: Iconify(
+                                      value2
+                                          ? AntDesign.check_circle_outlined
+                                          : Ion.ios_circle_outline,
+                                      color: value2
+                                          ? primaryColorOfApp
+                                          : customTextColor,
+                                    )),
+                              )
                             : index == 6
                                 ? null
                                 : Padding(
@@ -539,11 +574,11 @@ sendFeedback(context) {
                         children: [
                           IconButton(
                             padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
+                            constraints: const BoxConstraints(),
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            icon: Iconify(
+                            icon: const Iconify(
                               Mdi.arrow_back,
                               color: primaryColorOfApp,
                             ),
@@ -631,10 +666,10 @@ sendFeedback(context) {
                         decoration: InputDecoration(
                           alignLabelWithHint: true,
                           isDense: true,
-                          suffixIconConstraints: BoxConstraints(),
+                          suffixIconConstraints: const BoxConstraints(),
                           suffix: IconButton(
                             padding: EdgeInsets.zero,
-                            constraints: BoxConstraints(),
+                            constraints: const BoxConstraints(),
                             onPressed: () {
                               getkar.isEmojiVisible.value =
                                   !getkar.isEmojiVisible.value;
@@ -724,7 +759,7 @@ sendFeedback(context) {
                                 horizontalSpacing: 0,
                                 gridPadding: EdgeInsets.zero,
                                 initCategory: Category.RECENT,
-                                bgColor: Color(0xFFF2F2F2),
+                                bgColor: const Color(0xFFF2F2F2),
                                 indicatorColor: Colors.blue,
                                 iconColor: Colors.grey,
                                 iconColorSelected: Colors.blue,
@@ -2072,12 +2107,6 @@ class TextFieldGetx extends GetxController {
 
   @override
   void onReady() {
-
-
-
-
-
-    
     super.onReady();
   }
 
