@@ -9,7 +9,10 @@ import 'package:iconify_flutter/icons/ri.dart';
 
 class Peopleprofiletab extends StatefulWidget {
   final value;
-  const Peopleprofiletab({Key? key ,  required this.value,}) : super(key: key);
+  const Peopleprofiletab({
+    Key? key,
+    required this.value,
+  }) : super(key: key);
 
   @override
   State<Peopleprofiletab> createState() => _PeopleprofiletabState();
@@ -18,11 +21,13 @@ class Peopleprofiletab extends StatefulWidget {
 class _PeopleprofiletabState extends State<Peopleprofiletab>
     with TickerProviderStateMixin {
   TabController? tabController;
-  
+
   @override
   void initState() {
     super.initState();
-    tabController = TabController(vsync: this, length: 3, initialIndex: widget.value);
+    tabController =
+        TabController(vsync: this, length: 3, initialIndex: widget.value);
+  
   }
 
   @override
@@ -97,7 +102,8 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                 decoration: BoxDecoration(
                     color: const Color(0xffE2E2E2),
                     shape: BoxShape.rectangle,
-                    border: Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
+                    border:
+                        Border.all(width: 0.5, color: const Color(0xffE2E2E2)),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -165,8 +171,8 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                                     fontFamily: 'Poppins',
                                     fontSize: 12),
                                 border: OutlineInputBorder(
-                                    borderSide:
-                                        const BorderSide(color: Color(0xff737373)),
+                                    borderSide: const BorderSide(
+                                        color: Color(0xff737373)),
                                     borderRadius: BorderRadius.circular(5)),
                               ),
                             ),
@@ -264,8 +270,8 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                                     fontFamily: 'Poppins',
                                     fontSize: 12),
                                 border: OutlineInputBorder(
-                                    borderSide:
-                                        const BorderSide(color: Color(0xff737373)),
+                                    borderSide: const BorderSide(
+                                        color: Color(0xff737373)),
                                     borderRadius: BorderRadius.circular(5)),
                               ),
                             ),
@@ -363,8 +369,8 @@ class _PeopleprofiletabState extends State<Peopleprofiletab>
                                     fontFamily: 'Poppins',
                                     fontSize: 12),
                                 border: OutlineInputBorder(
-                                    borderSide:
-                                        const BorderSide(color: Color(0xff737373)),
+                                    borderSide: const BorderSide(
+                                        color: Color(0xff737373)),
                                     borderRadius: BorderRadius.circular(5)),
                               ),
                             ),

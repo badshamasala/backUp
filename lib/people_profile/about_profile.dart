@@ -21,12 +21,14 @@ import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/icon_park_solid.dart';
 import 'package:iconify_flutter/icons/ion.dart';
+import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:iconify_flutter/icons/ooui.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/link.dart';
 
 import '../homepage/widget_notification.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -199,7 +201,7 @@ class _AboutProfileState extends State<AboutProfile> {
                             padding: EdgeInsets.only(right: 0.8.w),
                             child: IconButton(
                                 padding: EdgeInsets.zero,
-                                constraints: BoxConstraints(),
+                                constraints: const BoxConstraints(),
                                 onPressed: () {
                                   if (value1 == true) {
                                     setState(() {
@@ -225,7 +227,7 @@ class _AboutProfileState extends State<AboutProfile> {
                                 padding: EdgeInsets.only(right: 0.8.w),
                                 child: IconButton(
                                     padding: EdgeInsets.zero,
-                                    constraints: BoxConstraints(),
+                                    constraints: const BoxConstraints(),
                                     onPressed: () {
                                       if (value2 == true) {
                                         setState(() {
@@ -435,49 +437,22 @@ aboutprofile(context) {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           RatingBar.builder(
-                            unratedColor: customTextColor,
+                            unratedColor: const Color(0xffe2e2e2),
                             itemSize: 20.sp,
                             initialRating: 0,
-                            minRating: 1,
+                            minRating: 0,
                             direction: Axis.horizontal,
                             allowHalfRating: false,
                             itemCount: 5,
                             itemPadding:
                                 EdgeInsets.symmetric(horizontal: 0.8.w),
                             itemBuilder: (context, _) => const Iconify(
-                              Ph.star,
+                              Ph.star_duotone,
                               color: Color(0xff038026),
                             ),
                             onRatingUpdate: (rating) {
                               print(rating);
                             },
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                elevation: 0,
-                                minimumSize: Size(40.w, 4.3.h),
-                                backgroundColor: primaryColorOfApp,
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0))),
-                            child: Text(
-                              "Submit",
-                              style: TextStyle(
-                                  fontSize: 10.sp,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w600),
-                            ),
                           ),
                         ],
                       ),
@@ -502,6 +477,32 @@ aboutprofile(context) {
                               size: 15.sp,
                             )
                           ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 6.h,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              elevation: 0,
+                              /*       minimumSize: Size(40.w, 4.3.h), */
+                              backgroundColor: primaryColorOfApp,
+                              foregroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0))),
+                          child: Text(
+                            "Submit",
+                            style: TextStyle(
+                                fontSize: 13.sp,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -1497,109 +1498,123 @@ qrCode(context) {
             clipBehavior: Clip.none,
             children: [
               Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  padding: EdgeInsets.symmetric(horizontal: 9.w),
                   child: Column(mainAxisSize: MainAxisSize.min, children: [
                     SizedBox(
-                      height: height * 0.01,
+                      height: 5.h,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: const Color(0xffE2E2E2),
-                          border: Border.all(
-                              width: 0.5, color: const Color(0xffE2E2E2)),
-                          borderRadius: BorderRadius.circular(10)),
-                      height: 5,
-                      width: 100,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Image(
+                                image: const AssetImage(
+                                  'assets/logo.png',
+                                ),
+                                height: 4.h,
+                                width: 9.w,
+                                fit: BoxFit.fill),
+                            Text(
+                              'myttube',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: primaryColorOfApp,
+                                fontFamily: 'Satisfy',
+                                fontSize: 25.sp,
+                                shadows: const [
+                                  Shadow(
+                                    blurRadius: 5.0,
+                                    color: Color(0xff000000),
+                                    /* offset: Offset(
+                                                                                    1.0,
+                                                                                    1.0), */
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: 30.w,
+                          height: 5.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: <Color>[
+                                  primaryColorOfApp,
+                                  Color(0xff03194B)
+                                ],
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey[500]!,
+                                  offset: const Offset(0.0, 1.5),
+                                  blurRadius: 1.5,
+                                ),
+                              ]),
+                          child: Material(
+                            borderRadius: BorderRadius.circular(7),
+                            color: Colors.transparent,
+                            child: InkWell(
+                                onTap: () {},
+                                child: Center(
+                                  child: Text(
+                                    'Follow me',
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        fontSize: 13.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Image(
-                                  image: const AssetImage(
-                                    'assets/logo.png',
-                                  ),
-                                  height: height * 0.055,
-                                  width: width * 0.12,
-                                  fit: BoxFit.fitHeight),
-                              Text(
-                                'myttube',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: const Color(0xff0087FF),
-                                  fontFamily: 'Satisfy',
-                                  fontSize: width * 0.08,
-                                  shadows: const [
-                                    Shadow(
-                                      blurRadius: 5.0,
-                                      color: Color(0xff000000),
-                                      /* offset: Offset(
-                                                                                      1.0,
-                                                                                      1.0), */
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                  elevation: 0,
-                                  side: const BorderSide(
-                                      width: 0.5, color: primaryColorOfApp),
-                                  minimumSize: const Size(80, 30),
-                                  // padding: EdgeInsets.symmetric(
-                                  //     horizontal: 40.0, vertical: 20.0),
-                                  backgroundColor: Colors.transparent,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(5.0))),
-                              onPressed: () {},
-                              child: const Text(
-                                'follow',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: primaryColorOfApp,
-                                    fontSize: 10),
-                              )),
-                        ],
-                      ),
+                      height: 1.h,
                     ),
                     Container(
-                      width: 250,
+                      width: double.infinity,
                       decoration: BoxDecoration(
-                          border:
-                              Border.all(color: primaryColorOfApp, width: 0.5),
-                          borderRadius: BorderRadius.circular(8),
+                          gradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: <Color>[
+                              primaryColorOfApp,
+                              Color(0xff03194B)
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                           shape: BoxShape.rectangle),
                       child: Padding(
-                        padding: const EdgeInsets.all(30.0),
+                        padding: EdgeInsets.all(30.sp),
                         child: Container(
+                            width: 30.w,
                             decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: primaryColorOfApp, width: 0.5),
-                                borderRadius: BorderRadius.circular(8),
-                                shape: BoxShape.rectangle),
+                              border: Border.all(color: Colors.white, width: 1),
+                              borderRadius: BorderRadius.circular(
+                                  10), /*   shape: BoxShape.rectangle */
+                            ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(2.sp),
                               child: Column(
-                                children: const [
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
                                   Iconify(
                                     Bi.qr_code,
-                                    size: 140,
+                                    color: Colors.white,
+                                    size: 170.sp,
                                   ),
                                   Text(
                                     '@Nanncyjain23',
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
-                                        color: primaryColorOfApp,
-                                        fontSize: 20),
+                                        color: Colors.white,
+                                        fontSize: 24.sp),
                                   )
                                 ],
                               ),
@@ -1607,60 +1622,84 @@ qrCode(context) {
                       ),
                     ),
                     SizedBox(
-                      height: height * 0.01,
+                      height: 1.h,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 28.0),
-                      child: Row(
-                        children: const [
-                          Text(
-                            'LOGIN:',
-                            style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 15),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'LOGIN:',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 12.sp,
+                              color: customTextColor),
+                        ),
+                        Link(
+                          target: LinkTarget.self,
+                          uri: Uri.parse(
+                            'https://myttube.com/',
                           ),
-                          Text(
-                            'https://myttube.com',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: primaryColorOfApp,
-                                fontSize: 15),
-                          ),
-                        ],
-                      ),
+                          builder: (context, followLink) {
+                            return TextButton(
+                              style: TextButton.styleFrom(
+                                visualDensity: VisualDensity(vertical: -4),
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                foregroundColor: const Color(0xff0087FF),
+                              ),
+                              onPressed: followLink,
+                              child: Text(
+                                'https://myttube.com',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins', fontSize: 12.sp),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                     SizedBox(
-                      height: height * 0.01,
+                      height: 1.h,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 28.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: const [
-                              Icon(
-                                Icons.download,
-                                color: primaryColorOfApp,
-                              ),
-                              Text('download QR code')
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/shareicon.svg',
-                                height: 18,
-                                width: 18,
-                                color: primaryColorOfApp,
-                              ),
-                              const Text('share QR code')
-                            ],
-                          ),
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Iconify(
+                              MaterialSymbols.download_rounded,
+                              color: primaryColorOfApp,
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            Text('Download QR code',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: customTextColor,
+                                    fontSize: 12.sp))
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(
+                              FluentIcons.share_24_filled,
+                              color: primaryColorOfApp,
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            Text('Share QR code',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: customTextColor,
+                                    fontSize: 12.sp))
+                          ],
+                        ),
+                      ],
                     ),
                     SizedBox(
-                      height: height * 0.2,
+                      height: height * 0.1,
                     )
                   ])),
               positionCross(context)
@@ -1670,6 +1709,12 @@ qrCode(context) {
       });
 }
 
+List reportList = [
+  "Report Post, Message, Comments",
+  "Copyrights",
+  "intellectual property defamation",
+  "#content-#content",
+];
 reportProfile(context) {
   Size size = MediaQuery.of(context).size;
   double height = size.height, width = size.width;
@@ -1689,182 +1734,156 @@ reportProfile(context) {
           return Stack(
             clipBehavior: Clip.none,
             children: [
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: const Color(0xffE2E2E2),
-                          border: Border.all(
-                              width: 0.5, color: const Color(0xffE2E2E2)),
-                          borderRadius: BorderRadius.circular(10)),
-                      height: 5,
-                      width: 100,
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Row(
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 6.w),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           '@Nanncyjain23',
                           style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 13.sp,
                               fontFamily: 'Poppins',
                               color: Color(0xff0087FF)),
                         ),
                         Iconify(
                           Bi.patch_check,
-                          size: 15,
-                          color: primaryColorOfApp,
+                          size: 18.sp,
+                          color: Color(0xff038026),
                         ),
                       ],
                     ),
-                    const Divider(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'report this profile ',
-                          style: buildTextDesign(null, null, FontWeight.bold),
+                  ),
+                  const Divider(),
+                  Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 6.w),
+                      child: Column(children: [
+                        SizedBox(
+                          height: 3.h,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 11.0),
-                          child: SvgPicture.asset(
-                            'assets/blockicon.svg',
-                            height: 18,
-                            width: 18,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'report this profile ',
+                              style:
+                                  buildTextDesign(null, null, FontWeight.bold),
+                            ),
+                            Iconify(IconParkSolid.caution),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 1.5.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'what do you want to do?',
+                              style: buildTextDesign(11.0, null, null),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        ListView.separated(
+                            shrinkWrap: true,
+                            itemBuilder: ((context, index) {
+                              return Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    reportList[index],
+                                    style: buildTextDesign(10.0, null, null),
+                                  ),
+                                  Transform.scale(
+                                    scale: 1.2.sp,
+                                    child: Radio(
+                                        visualDensity: VisualDensity.compact,
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupseenonline,
+                                        value: index == 0
+                                            ? 1
+                                            : index == 1
+                                                ? 2
+                                                : index == 2
+                                                    ? 3
+                                                    : 4,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupseenonline = index == 0
+                                                ? 1
+                                                : index == 1
+                                                    ? 2
+                                                    : index == 2
+                                                        ? 3
+                                                        : 4;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              );
+                            }),
+                            separatorBuilder: ((context, index) {
+                              return Divider(
+                                height: 1.5.h,
+                                color: Colors.transparent,
+                              );
+                            }),
+                            itemCount: reportList.length),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        SizedBox(
+                          height: 6.h,
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                                side: const BorderSide(
+                                  color: primaryColorOfApp,
+                                ),
+                                backgroundColor: primaryColorOfApp,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0))),
+                            child: Text(
+                              "Report",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                  fontSize: 15.sp,
+                                  fontFamily: 'Poppins'),
+                            ),
                           ),
                         ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'what do you want to do?',
-                          style: buildTextDesign(11.0, null, null),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'harassment message',
-                          style: buildTextDesign(10.0, null, null),
-                        ),
-                        Radio(
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            groupValue: groupseenonline,
-                            value: everyone,
-                            onChanged: (val) {
-                              setState(() {
-                                groupseenonline = everyone;
-                              });
-                            })
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Report Post, Message, Comments',
-                          style: buildTextDesign(10.0, null, null),
-                        ),
-                        Radio(
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            groupValue: groupseenonline,
-                            value: everyone,
-                            onChanged: (val) {
-                              setState(() {
-                                groupseenonline = everyone;
-                              });
-                            })
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Copyrights',
-                          style: buildTextDesign(10.0, null, null),
-                        ),
-                        Radio(
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            groupValue: groupseenonline,
-                            value: everyone,
-                            onChanged: (val) {
-                              setState(() {
-                                groupseenonline = everyone;
-                              });
-                            })
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'intellectual property defamation',
-                          style: buildTextDesign(10.0, null, null),
-                        ),
-                        Radio(
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            groupValue: groupseenonline,
-                            value: everyone,
-                            onChanged: (val) {
-                              setState(() {
-                                groupseenonline = everyone;
-                              });
-                            })
-                      ],
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          /*   Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
-                      ); */
-                        },
-                        style: OutlinedButton.styleFrom(
-                            side: const BorderSide(
-                              color: Color(0xff0087FF),
-                            ),
-                            /*  padding: EdgeInsets.symmetric(
-                                            horizontal: 40.0, vertical: 20.0), */
-                            backgroundColor: primaryColorOfApp,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0))),
-                        child: const Text(
-                          "report",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                              /*  fontSize: 18, */
-                              fontFamily: 'Poppins'),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * 0.1,
-                    )
-                  ])),
+                        SizedBox(
+                          height: height * 0.1,
+                        )
+                      ])),
+                ],
+              ),
               positionCross(context)
             ],
           );
         });
       });
 }
+
+List blockList = [
+  "harassment message",
+  "hateful speech",
+  "adult content",
+  "fake account",
+];
 
 blockProfile(context) {
   Size size = MediaQuery.of(context).size;
@@ -1885,204 +1904,172 @@ blockProfile(context) {
           return Stack(
             clipBehavior: Clip.none,
             children: [
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: const Color(0xffE2E2E2),
-                          border: Border.all(
-                              width: 0.5, color: const Color(0xffE2E2E2)),
-                          borderRadius: BorderRadius.circular(10)),
-                      height: 5,
-                      width: 100,
-                    ),
-                    SizedBox(
-                      height: height * 0.01,
-                    ),
-                    Row(
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 6.w),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           '@Nanncyjain23',
                           style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 13.sp,
                               fontFamily: 'Poppins',
                               color: Color(0xff0087FF)),
                         ),
                         Iconify(
                           Bi.patch_check,
-                          size: 15,
-                          color: primaryColorOfApp,
+                          size: 18.sp,
+                          color: Color(0xff038026),
                         ),
                       ],
                     ),
-                    const Divider(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'are you sure block this profile?',
-                          style: buildTextDesign(null, null, FontWeight.bold),
+                  ),
+                  const Divider(),
+                  Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 6.w),
+                      child: Column(children: [
+                        SizedBox(
+                          height: 3.h,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 11.0),
-                          child: SvgPicture.asset(
-                            'assets/blockicon.svg',
-                            height: 18,
-                            width: 18,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'are you sure block this profile?',
+                              style:
+                                  buildTextDesign(null, null, FontWeight.bold),
+                            ),
+                            Iconify(Ooui.block),
+                          ],
                         ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'why you blocking this profile?',
-                          style: buildTextDesign(11.0, null, null),
+                        SizedBox(
+                          height: 1.5.h,
                         ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'harassment message',
-                          style: buildTextDesign(10.0, null, null),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'why you blocking this profile?',
+                              style: buildTextDesign(11.0, null, null),
+                            ),
+                          ],
                         ),
-                        Radio(
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            groupValue: groupseenonline,
-                            value: everyone,
-                            onChanged: (val) {
-                              setState(() {
-                                groupseenonline = everyone;
-                              });
-                            })
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'hateful speech',
-                          style: buildTextDesign(10.0, null, null),
+                        SizedBox(
+                          height: 3.h,
                         ),
-                        Radio(
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            groupValue: groupseenonline,
-                            value: everyone,
-                            onChanged: (val) {
-                              setState(() {
-                                groupseenonline = everyone;
-                              });
-                            })
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'adult content',
-                          style: buildTextDesign(10.0, null, null),
+                        ListView.separated(
+                            shrinkWrap: true,
+                            itemBuilder: ((context, index) {
+                              return Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    blockList[index],
+                                    style: buildTextDesign(10.0, null, null),
+                                  ),
+                                  Transform.scale(
+                                    scale: 1.2.sp,
+                                    child: Radio(
+                                        visualDensity: VisualDensity.compact,
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        groupValue: groupseenonline,
+                                        value: index == 0
+                                            ? 1
+                                            : index == 1
+                                                ? 2
+                                                : index == 2
+                                                    ? 3
+                                                    : 4,
+                                        onChanged: (val) {
+                                          setState(() {
+                                            groupseenonline = index == 0
+                                                ? 1
+                                                : index == 1
+                                                    ? 2
+                                                    : index == 2
+                                                        ? 3
+                                                        : 4;
+                                          });
+                                        }),
+                                  )
+                                ],
+                              );
+                            }),
+                            separatorBuilder: ((context, index) {
+                              return Divider(
+                                height: 1.5.h,
+                                color: Colors.transparent,
+                              );
+                            }),
+                            itemCount: blockList.length),
+                        SizedBox(
+                          height: 2.h,
                         ),
-                        Radio(
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            groupValue: groupseenonline,
-                            value: everyone,
-                            onChanged: (val) {
-                              setState(() {
-                                groupseenonline = everyone;
-                              });
-                            })
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'fake account',
-                          style: buildTextDesign(10.0, null, null),
-                        ),
-                        Radio(
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            groupValue: groupseenonline,
-                            value: everyone,
-                            onChanged: (val) {
-                              setState(() {
-                                groupseenonline = everyone;
-                              });
-                            })
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        OutlinedButton(
-                          onPressed: () {
-                            /*   Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
-                      ); */
-                          },
-                          style: OutlinedButton.styleFrom(
-                              minimumSize: const Size(120, 37),
-                              side: const BorderSide(
-                                color: Color(0xff0087FF),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            OutlinedButton(
+                              onPressed: () {},
+                              style: OutlinedButton.styleFrom(
+                                  minimumSize: Size(41.w, 5.h),
+                                  side: const BorderSide(
+                                    color: primaryColorOfApp,
+                                  ),
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  backgroundColor: primaryColorOfApp,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(5.0))),
+                              child: Text(
+                                "Block",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                    fontSize: 12.sp,
+                                    fontFamily: 'Poppins'),
                               ),
-                              /*  padding: EdgeInsets.symmetric(
-                                            horizontal: 40.0, vertical: 20.0), */
-                              backgroundColor: primaryColorOfApp,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                          child: const Text(
-                            "Block",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                                /*  fontSize: 18, */
-                                fontFamily: 'Poppins'),
-                          ),
-                        ),
-                        OutlinedButton(
-                          onPressed: () {
-                            /*   Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
-                      ); */
-                          },
-                          style: OutlinedButton.styleFrom(
-                              side: const BorderSide(
-                                color: Color(0xff0087FF),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              style: OutlinedButton.styleFrom(
+                                  minimumSize: Size(41.w, 5.h),
+                                  side: const BorderSide(
+                                    color: primaryColorOfApp,
+                                  ),
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  backgroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(5.0))),
+                              child: Text(
+                                "Block & report",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: primaryColorOfApp,
+                                    fontSize: 12.sp,
+                                    fontFamily: 'Poppins'),
                               ),
-                              /*  padding: EdgeInsets.symmetric(
-                                            horizontal: 40.0, vertical: 20.0), */
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                          child: const Text(
-                            "Block & report",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: primaryColorOfApp,
-                                /*  fontSize: 18, */
-                                fontFamily: 'Poppins'),
-                          ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.1,
-                    )
-                  ])),
+                        SizedBox(
+                          height: height * 0.1,
+                        )
+                      ])),
+                ],
+              ),
               positionCross(context)
             ],
           );

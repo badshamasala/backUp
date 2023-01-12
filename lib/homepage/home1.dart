@@ -1,12 +1,13 @@
 // ignore_for_file: unnecessary_new
 
 import 'dart:io';
-import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
+
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/chat_app/shared_preference.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/promote/promote.dart';
@@ -18,6 +19,7 @@ import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mingcute.dart';
 import 'package:iconify_flutter/icons/ri.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -180,7 +182,11 @@ class _Home1State extends State<Home1> {
                       child: IconButton(
                           padding: EdgeInsets.zero,
                           constraints: const BoxConstraints(),
-                          onPressed: () {},
+                          onPressed: () async {
+                            var token = await SharedPref.getToken();
+
+                            print(token);
+                          },
                           icon: Iconify(
                             appBaricon[index],
                             size: index == 0 ? 16.sp : 20.sp,

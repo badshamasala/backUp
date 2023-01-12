@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/all_api_url/api_list.dart';
+import 'package:flutter_application_1/chat_app/shared_preference.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
@@ -48,19 +49,21 @@ class Googleprovider extends ChangeNotifier {
           'Content-Type': 'application/json; charset=UTF-8',
         },
         body: jsonEncode({
-          "api_key": "myttube123456",
-          "user_id": value1,
+          /*      "api_key": "myttube123456", */
+          "username": value1,
           "password": value2
         }),
       );
       var jsondata = jsonDecode(response.body);
       print(response.body);
 
-      var status = jsondata[0]["status"];
+      var status = jsondata["id"];
+      var token = jsondata["token"];
+      await SharedPref.saveToken(token);
       print(status);
 
-      if (status == true) {
-        return status;
+      if (response.statusCode == 200) {
+        return true;
       } else {
         Fluttertoast.showToast(
             msg: 'Check Your username and Password',
@@ -84,7 +87,6 @@ class Googleprovider extends ChangeNotifier {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
-      
         body: jsonEncode({
           "api_key": "myttube123456",
           "mobile_no": mobileno,
@@ -116,8 +118,6 @@ class Googleprovider extends ChangeNotifier {
     }
   }
 
-  
-
   Future checkUsername(dynamic username) async {
     try {
       final response = await http.post(
@@ -147,6 +147,7 @@ class Googleprovider extends ChangeNotifier {
           fontSize: 16.0);
     }
   }
+
   Future checkMobileno(dynamic mobile) async {
     try {
       final response = await http.post(
@@ -167,7 +168,7 @@ class Googleprovider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         return status;
-      } 
+      }
     } catch (e) {
       Fluttertoast.showToast(
           msg: e.toString(),
@@ -176,6 +177,7 @@ class Googleprovider extends ChangeNotifier {
           fontSize: 16.0);
     }
   }
+
   Future checkEmailId(dynamic email) async {
     try {
       final response = await http.post(
@@ -185,7 +187,7 @@ class Googleprovider extends ChangeNotifier {
         },
         body: jsonEncode({
           "api_key": "myttube123456",
-          "email"  : email,
+          "email": email,
         }),
       );
       var jsondata = jsonDecode(response.body);
@@ -196,7 +198,7 @@ class Googleprovider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         return status;
-      } 
+      }
     } catch (e) {
       Fluttertoast.showToast(
           msg: e.toString(),
@@ -205,7 +207,8 @@ class Googleprovider extends ChangeNotifier {
           fontSize: 16.0);
     }
   }
-  Future editPassword(username ,password) async {
+
+  Future editPassword(username, password) async {
     try {
       final response = await http.post(
         Uri.parse(ApiUrl.editpassword),
@@ -214,8 +217,8 @@ class Googleprovider extends ChangeNotifier {
         },
         body: jsonEncode({
           "api_key": "myttube123456",
-          "user_id"  : username,
-          "password"  : password,
+          "user_id": username,
+          "password": password,
         }),
       );
       var jsondata = jsonDecode(response.body);
@@ -226,7 +229,7 @@ class Googleprovider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         return status;
-      } 
+      }
     } catch (e) {
       Fluttertoast.showToast(
           msg: e.toString(),
@@ -239,7 +242,7 @@ class Googleprovider extends ChangeNotifier {
   Future registerUser(mobileno, username, password, fullname, email) async {
     try {
       final response = await http.post(
-        Uri.parse( ApiUrl.userRegistration),
+        Uri.parse(ApiUrl.userRegistration),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -251,7 +254,7 @@ class Googleprovider extends ChangeNotifier {
           "password": password,
           "full_name": fullname,
           "email": email,
-          "show_all" : true
+          "show_all": true
         }),
       );
       var jsondata = jsonDecode(response.body);

@@ -8,7 +8,7 @@ class ApiUrl {
   
   
   
-  static const loginApi ="http://103.69.242.42:8080/TestAPI/login.svc/authenticateUser";
+  static const loginApi ="https://api.myttube.com/api/User/authenticate";
   
   static const sendOtp ="http://103.69.242.42:8080/TestAPI/message.svc/sendOTP";
   
