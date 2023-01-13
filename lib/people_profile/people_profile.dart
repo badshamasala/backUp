@@ -1187,39 +1187,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                                                           ],
                                                         ),
                                                       ])),
-                                              Positioned.fill(
-                                                  top: -36,
-                                                  child: Align(
-                                                    alignment:
-                                                        Alignment.topCenter,
-                                                    child: InkWell(
-                                                      onTap: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                      child: Container(
-                                                        /*   width: 45,
-                            height: 45, */
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          border: Border.all(
-                                                              color:
-                                                                  Colors.white,
-                                                              width: 2),
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: const Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  4.0),
-                                                          child: Icon(
-                                                            Icons.close,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ))
+                                              positionCross(context)
                                             ],
                                           );
                                         });

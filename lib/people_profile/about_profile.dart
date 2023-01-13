@@ -199,54 +199,60 @@ class _AboutProfileState extends State<AboutProfile> {
                     trailing: index == 1
                         ? Padding(
                             padding: EdgeInsets.only(right: 0.8.w),
-                            child: IconButton(
-                                padding: EdgeInsets.zero,
-                                constraints: const BoxConstraints(),
-                                onPressed: () {
-                                  if (value1 == true) {
-                                    setState(() {
-                                      value1 = false;
-                                    });
-                                  } else {
-                                    setState(() {
-                                      value1 = true;
-                                    });
-                                  }
-                                },
-                                icon: Iconify(
-                                  value1
-                                      ? AntDesign.check_circle_outlined
-                                      : Ion.ios_circle_outline,
-                                  color: value1
-                                      ? primaryColorOfApp
-                                      : customTextColor,
-                                )),
+                            child: Transform.scale(
+                              scale: 1.sp,
+                              child: IconButton(
+                                  padding: EdgeInsets.zero,
+                                  constraints: const BoxConstraints(),
+                                  onPressed: () {
+                                    if (value1 == true) {
+                                      setState(() {
+                                        value1 = false;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        value1 = true;
+                                      });
+                                    }
+                                  },
+                                  icon: Iconify(
+                                    value1
+                                        ? AntDesign.check_circle_outlined
+                                        : Ion.ios_circle_outline,
+                                    color: value1
+                                        ? primaryColorOfApp
+                                        : customTextColor,
+                                  )),
+                            ),
                           )
                         : index == 2
                             ? Padding(
                                 padding: EdgeInsets.only(right: 0.8.w),
-                                child: IconButton(
-                                    padding: EdgeInsets.zero,
-                                    constraints: const BoxConstraints(),
-                                    onPressed: () {
-                                      if (value2 == true) {
-                                        setState(() {
-                                          value2 = false;
-                                        });
-                                      } else {
-                                        setState(() {
-                                          value2 = true;
-                                        });
-                                      }
-                                    },
-                                    icon: Iconify(
-                                      value2
-                                          ? AntDesign.check_circle_outlined
-                                          : Ion.ios_circle_outline,
-                                      color: value2
-                                          ? primaryColorOfApp
-                                          : customTextColor,
-                                    )),
+                                child: Transform.scale(
+                                  scale: 1.sp,
+                                  child: IconButton(
+                                      padding: EdgeInsets.zero,
+                                      constraints: const BoxConstraints(),
+                                      onPressed: () {
+                                        if (value2 == true) {
+                                          setState(() {
+                                            value2 = false;
+                                          });
+                                        } else {
+                                          setState(() {
+                                            value2 = true;
+                                          });
+                                        }
+                                      },
+                                      icon: Iconify(
+                                        value2
+                                            ? AntDesign.check_circle_outlined
+                                            : Ion.ios_circle_outline,
+                                        color: value2
+                                            ? primaryColorOfApp
+                                            : customTextColor,
+                                      )),
+                                ),
                               )
                             : index == 6
                                 ? null
@@ -512,29 +518,7 @@ aboutprofile(context) {
                   ),
                 ],
               ),
-              Positioned.fill(
-                  top: -36,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ))
+              positionCross(context)
             ],
           );
         });
@@ -790,29 +774,7 @@ sendFeedback(context) {
                     ) */
                   ],
                 ),
-                Positioned.fill(
-                    top: -36,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ))
+                positionCross(context)
               ],
             ),
           );
@@ -1018,7 +980,7 @@ rewardPoints(context) {
   double height = size.height, width = size.width;
   return showModalBottomSheet(
       backgroundColor: Colors.white,
-      /*  isScrollControlled: true, */
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         // <-- SEE HERE
         borderRadius: BorderRadius.vertical(
@@ -1032,115 +994,106 @@ rewardPoints(context) {
           return Stack(
             clipBehavior: Clip.none,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                child: Column(
-                    /*    mainAxisSize:
-                                                                    MainAxisSize.min, */
-                    children: [
-                      SizedBox(
-                        height: height * 0.01,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: const Color(0xffE2E2E2),
-                            border: Border.all(
-                                width: 0.5, color: const Color(0xffE2E2E2)),
-                            borderRadius: BorderRadius.circular(10)),
-                        height: 5,
-                        width: 100,
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            'Notifications',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: 'Poppins',
-                                color: Color(0xff0087FF)),
-                          ),
-                          Iconify(
-                            Bi.patch_check,
-                            size: 15,
-                            color: primaryColorOfApp,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        /* color: Colors.red, */
-                        height: 48,
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 6.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          '@Nanncyjain23',
+                          style: TextStyle(
+                              fontSize: 13.sp,
+                              fontFamily: 'Poppins',
+                              color: Color(0xff0087FF)),
+                        ),
+                        Iconify(
+                          Bi.patch_check,
+                          size: 18.sp,
+                          color: Color(0xff038026),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  const Divider(),
+                  Column(children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      child: SizedBox(
+                        height: 7.h,
                         child: Stack(
                           children: [
                             Positioned(
-                              top: 7,
-                              left: 0,
-                              height: 40,
-                              width: 280,
+                              top: 1.h,
+                              height: 6.h,
+                              width: 90.w,
                               child: Container(
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     border: Border.all(
-                                        width: 0.5,
-                                        color: const Color(0xff515253)),
-                                    borderRadius: BorderRadius.circular(10)),
-                                /*  width: 150,
-                height: 150, */
-                                /*  color: Colors.green[300], */
+                                        width: 0.5, color: customTextColor),
+                                    borderRadius: BorderRadius.circular(7)),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(left: 8.0),
+                                      padding: EdgeInsets.only(left: 6.w),
                                       child: Row(
-                                        children: const [
+                                        children: [
                                           Text(
-                                            '26548 rank ',
+                                            '265',
                                             style: TextStyle(
                                                 color: primaryColorOfApp,
-                                                fontFamily: 'Poppins'),
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(
+                                            width: 5.w,
                                           ),
                                           Text(
-                                            '489659984 ',
+                                            'Gift card received',
                                             style: TextStyle(
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                          Text(
-                                            'Points',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins'),
+                                                fontFamily: 'Poppins',
+                                                color: customTextColor,
+                                                fontSize: 10.sp),
                                           ),
                                         ],
                                       ),
                                     ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(right: 8.0),
-                                      child:
-                                          Image.asset('assets/earnpoints.png'),
+                                      padding: EdgeInsets.only(right: 4.w),
+                                      child: Transform.scale(
+                                        scale: 1.sp,
+                                        child: Icon(
+                                          FluentIcons
+                                              .gift_card_multiple_24_regular,
+                                          color: primaryColorOfApp,
+                                        ),
+                                      ),
                                     )
                                   ],
                                 ),
                               ),
                             ),
                             Positioned(
-                              top: 0,
-                              left: 30,
-                              width: 70,
-                              height: 10,
+                              left: 5.w,
                               child: Container(
-                                /*   width: 200,
-                height: 150, */
                                 color: Colors.white,
-                                child: const Text(
-                                  'Earn Points This Profile ',
+                                child: Text(
+                                  'Received Gift Card This Profile',
                                   style: TextStyle(
-                                      color: Color(0xff515253),
-                                      fontSize: 10,
+                                      color: customTextColor,
+                                      fontSize: 8.sp,
                                       fontFamily: 'Poppins'),
                                 ),
                               ),
@@ -1148,186 +1101,103 @@ rewardPoints(context) {
                           ],
                         ),
                       ),
-                      Row(
+                    ),
+                    Divider(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      child: Row(
                         children: [
-                          const Text(
+                          Text(
                             'Today',
                             style: TextStyle(
                                 color: primaryColorOfApp,
-                                fontFamily: 'Poppins'),
+                                fontFamily: 'Poppins',
+                                fontSize: 12.sp),
                           ),
                           SizedBox(
-                            width: width * 0.03,
+                            width: 3.w,
                           ),
-                          const Text(
+                          Text(
                             '13 Dec 2020',
-                            style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 8),
+                            style: TextStyle(
+                                fontFamily: 'Poppins', fontSize: 8.sp),
                           )
                         ],
                       ),
-                      const Divider(),
-                      SizedBox(
-                        /* color: Colors.red, */
-                        height: 160,
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: 7,
-                              left: 0,
-                              height: 140,
-                              width: 280,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(
-                                        width: 0.5,
-                                        color: const Color(0xff515253)),
-                                    borderRadius: BorderRadius.circular(10)),
-                                /*  width: 150,
-                height: 150, */
-                                /*  color: Colors.green[300], */
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: const [
-                                          Text(
-                                            'No. 1 rank',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                          Text(
-                                            '2565489659984',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                          Text(
-                                            '@abcprofile',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                color: primaryColorOfApp),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    const Divider(),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: const [
-                                          Text(
-                                            'No. 1 rank',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                          Text(
-                                            '2565489659984',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                          Text(
-                                            '@abcprofile',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                color: primaryColorOfApp),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    const Divider(),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: const [
-                                          Text(
-                                            'No. 1 rank',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                          Text(
-                                            '2565489659984',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                          Text(
-                                            '@abcprofile',
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                color: primaryColorOfApp),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: 0,
-                              left: 210,
-                              width: 55,
-                              height: 12,
-                              child: Container(
-                                /*   width: 200,
-                height: 150, */
-                                color: Colors.white,
-                                child: const Text(
-                                  '@profile-ID',
-                                  style: TextStyle(
-                                      color: Color(0xff515253),
-                                      fontSize: 10,
-                                      fontFamily: 'Poppins'),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: 0,
-                              left: 115,
-                              width: 30,
-                              height: 10,
-                              child: Container(
-                                /*   width: 200,
-                height: 150, */
-                                color: Colors.white,
-                                child: const Text(
-                                  'Points ',
-                                  style: TextStyle(
-                                      color: Color(0xff515253),
-                                      fontSize: 10,
-                                      fontFamily: 'Poppins'),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: 0,
-                              left: 20,
-                              width: 25,
-                              height: 10,
-                              child: Container(
-                                /*   width: 200,
-                height: 150, */
-                                color: Colors.white,
-                                child: const Text(
-                                  'Rank',
-                                  style: TextStyle(
-                                      color: Color(0xff515253),
-                                      fontSize: 10,
-                                      fontFamily: 'Poppins'),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                    ),
+                    const Divider(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "This Profile Gift cards received",
+                            style: TextStyle(
+                                color: customTextColor,
+                                fontFamily: "Poppins",
+                                fontSize:
+                                    MediaQuery.of(context).size.height > 667
+                                        ? 10.sp
+                                        : 12.sp),
+                          ),
+                          Text("Last 6 months",
+                              style: TextStyle(
+                                  color: customTextColor,
+                                  fontFamily: "Poppins",
+                                  fontSize:
+                                      MediaQuery.of(context).size.height > 667
+                                          ? 10.sp
+                                          : 12.sp)),
+                        ],
                       ),
-                    ]),
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      child: ListView.separated(
+                          shrinkWrap: true,
+                          itemBuilder: ((context, index) {
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "#This Profile 3520 cards received",
+                                  style: TextStyle(
+                                      color: customTextColor,
+                                      fontFamily: "Poppins",
+                                      fontSize:
+                                          MediaQuery.of(context).size.height >
+                                                  667
+                                              ? 8.sp
+                                              : 9.sp),
+                                ),
+                                Text("December 2021",
+                                    style: TextStyle(
+                                        color: customTextColor,
+                                        fontFamily: "Poppins",
+                                        fontSize:
+                                            MediaQuery.of(context).size.height >
+                                                    667
+                                                ? 8.sp
+                                                : 9.sp)),
+                              ],
+                            );
+                          }),
+                          separatorBuilder: ((context, index) {
+                            return Divider(
+                              color: Colors.transparent,
+                            );
+                          }),
+                          itemCount: 7),
+                    ),
+                  ]),
+                  SizedBox(
+                    height: 5.h,
+                  )
+                ],
               ),
               positionCross(context)
             ],
@@ -1525,10 +1395,7 @@ qrCode(context) {
                                 shadows: const [
                                   Shadow(
                                     blurRadius: 5.0,
-                                    color: Color(0xff000000),
-                                    /* offset: Offset(
-                                                                                    1.0,
-                                                                                    1.0), */
+                                    color: customTextColor,
                                   ),
                                 ],
                               ),
@@ -1614,7 +1481,7 @@ qrCode(context) {
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
-                                        fontSize: 24.sp),
+                                        fontSize: 23.sp),
                                   )
                                 ],
                               ),

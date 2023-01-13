@@ -2,8 +2,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
+import 'package:flutter_application_1/chat_app/registerpage.dart';
 import 'package:flutter_application_1/globals/app_theme_widget.dart';
 import 'package:flutter_application_1/archive_post/history1.dart';
+import 'package:flutter_application_1/google_login/login_check.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
@@ -58,7 +60,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
     });
   } */
 
-  /* final Future<FirebaseApp> _initialization = Firebase.initializeApp(); */
+/*   final Future<FirebaseApp> _initialization = Firebase.initializeApp(); */
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -101,7 +103,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: LoginPage() /* LoginPage12() */
+                  home: LoginCheck() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(
@@ -111,7 +113,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                     print('Error');
                   }
                   if (snapshot.connectionState == ConnectionState.done) {
-                    return RegisterPage();
+                    return LoginCheck();
                   } else {
                     return Center(child: CircularProgressIndicator());
                   }

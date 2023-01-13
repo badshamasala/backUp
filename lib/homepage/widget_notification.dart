@@ -2291,7 +2291,7 @@ class _WidgetNotificationState extends State<WidgetNotification> {
 
 positionCross(context) {
   return Positioned.fill(
-      top: -32,
+      top: -30.sp,
       child: Align(
         alignment: Alignment.topCenter,
         child: InkWell(
@@ -2300,11 +2300,11 @@ positionCross(context) {
           },
           child: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 2),
+              border: Border.all(color: Colors.white, width: 0.5.w),
               shape: BoxShape.circle,
             ),
             child: Padding(
-              padding: const EdgeInsets.all(4.0),
+              padding: EdgeInsets.all(4.sp),
               child: Iconify(
                 Charm.cross,
                 color: Colors.white,

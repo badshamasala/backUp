@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                             width: 20.w,
                           )),
                           SizedBox(
-                            height: height * 0.03,
+                            height: 3.h,
                           ),
                           TextFormField(
                             cursorColor: primaryColorOfApp,
@@ -128,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                             decoration: InputDecoration(
                               isDense: true,
                               errorStyle:
-                                  const TextStyle(fontSize: 8, height: 0.2),
+                               TextStyle(fontSize: 8.sp, height: 0.2),
                               labelText: 'username'.tr,
                               labelStyle: TextStyle(
                                   color: customTextColor,
@@ -152,8 +152,8 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: const UploadImage().radius(),
                                   borderSide: const BorderSide(
                                       color: Color(0xff0087FF), width: 0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 10.0),
+                              contentPadding:  EdgeInsets.symmetric(
+                                  vertical: 10.sp, horizontal: 10.sp),
                             ),
                             onChanged: (value) {
                               // do something

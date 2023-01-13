@@ -13,10 +13,9 @@ class AuthService {
   Future registerUser(fullname, email, password) async {
     try {
       User user = (await firebaseAuth.createUserWithEmailAndPassword(
-              email: email, password: password))
+                   email: email, password: password))
           .user!;
-      final list =
-          await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
+      final list = await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
 
       if (user != null) {
         await DatabaseService(uid: user.uid)
