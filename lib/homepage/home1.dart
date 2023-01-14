@@ -8,12 +8,14 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/chat_app/shared_preference.dart';
+import 'package:flutter_application_1/comment/comments.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/promote/promote.dart';
 import 'package:flutter_application_1/text_post/podcast.dart';
 import 'package:flutter_application_1/text_post/post_text.dart';
 import 'package:flutter_application_1/people_profile/people_profile.dart';
+import 'package:get/get.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
@@ -2575,32 +2577,37 @@ class _Home1State extends State<Home1> {
                                       ],
                                     ),
                                     /*  sizedbox(context), */
-                                    Column(
-                                      children: [
-                                        SvgPicture.asset(
-                                          'assets/commenticon.svg',
-                                          height: 3.h,
-                                          width: 3.w,
-                                          color: iconColor,
-                                        ),
-                                        SizedBox(
-                                          height: 1.3.h,
-                                        ),
-                                        Text(
-                                          'Comments',
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 8.sp),
-                                        ),
-                                        Text(
-                                          userlist[index]
-                                              .commentcount
-                                              .toString(),
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 8.sp),
-                                        ),
-                                      ],
+                                    GestureDetector(
+                                      onTap: () {
+                                        Get.to(() => const Comments());
+                                      },
+                                      child: Column(
+                                        children: [
+                                          SvgPicture.asset(
+                                            'assets/commenticon.svg',
+                                            height: 3.h,
+                                            width: 3.w,
+                                            color: iconColor,
+                                          ),
+                                          SizedBox(
+                                            height: 1.3.h,
+                                          ),
+                                          Text(
+                                            'Comments',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 8.sp),
+                                          ),
+                                          Text(
+                                            userlist[index]
+                                                .commentcount
+                                                .toString(),
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 8.sp),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                     /*    sizedbox(context), */
                                     Padding(

@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+/* import 'package:cloud_firestore/cloud_firestore.dart';
 /* import 'package:firebase_chat/common/entities/user.dart'; */
 
 import 'package:get/get.dart';
@@ -21,4 +21,4 @@ class SignInController extends GetxController {
       }
     } catch (e) {}
   }
-}
+} */

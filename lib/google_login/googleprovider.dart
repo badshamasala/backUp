@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/all_api_url/api_list.dart';
 import 'package:flutter_application_1/chat_app/shared_preference.dart';
-import 'package:flutter_application_1/google_login/homechat.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -25,8 +24,14 @@ class Googleprovider extends ChangeNotifier {
   Future googlelogin() async {
     try {
       final user = await googlesignin.signIn();
+      if (user == null) return;
+      _user = user;
+      final googleauth = await user.authentication;
+      final credential = GoogleAuthProvider.credential(
+          accessToken: googleauth.accessToken, idToken: googleauth.idToken);
 
-      if (user != null) {
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      /* if (user != null) {
         print("---------------------------");
         final googleauth = await user.authentication;
 
@@ -35,7 +40,7 @@ class Googleprovider extends ChangeNotifier {
 
         await FirebaseAuth.instance.signInWithCredential(credential);
 
-        String displayName = user.displayName ?? user.email;
+       /*  String displayName = user.displayName ?? user.email;
         String email = user.email;
         String id = user.id;
         String photoUrl = user.photoUrl ?? "";
@@ -75,13 +80,12 @@ class Googleprovider extends ChangeNotifier {
               .add(data);
         }
         Fluttertoast.showToast(msg: 'login Success');
-        Get.to(() => Homechat());
-      }
-    } on PlatformException catch (e) {
+        Get.to(() => Homechat()); */
+      } */
+    } catch (e) {
       Fluttertoast.showToast(msg: 'Something went wrong');
 
       print('Error --- ${e.toString()}');
-      return false;
     }
 
     notifyListeners();
@@ -113,6 +117,52 @@ class Googleprovider extends ChangeNotifier {
       } else {
         Fluttertoast.showToast(
             msg: 'Check Your username and Password',
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      }
+    } catch (e) {
+      Fluttertoast.showToast(
+          msg: e.toString(),
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  }
+
+  Future addPost() async {
+    try {
+      final response = await http.post(
+        Uri.parse(ApiUrl.addPost),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          "api_key": "myttube123456",
+          "signup_master_id": "1",
+          "post_type": "image",
+          "short_description": "test",
+          "long_description": "test",
+          "has_tag": "flutter",
+          "mention_profile": "saifs377",
+          "url_link": "https://localhost:44328/api/Post/add-post",
+          "url_music": "https://localhost:44328/api/Post/add-post",
+          "location": "Mumbai",
+          "schedule_date": "10-08-2023",
+          "partner_id": "1",
+          "restricted_mode": true,
+          "multiple_files": "image",
+          "single_file": "image",
+        }),
+      );
+      var jsondata = jsonDecode(response.body);
+      print(response.body);
+
+      if (response.statusCode == 200) {
+        return true;
+      } else {
+        Fluttertoast.showToast(
+            msg: 'Something Went Wrong',
             backgroundColor: Colors.black,
             textColor: Colors.white,
             fontSize: 16.0);

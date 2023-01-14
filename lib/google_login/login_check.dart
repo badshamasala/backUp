@@ -12,7 +12,6 @@ class LoginCheck extends StatefulWidget {
 class _LoginCheckState extends State<LoginCheck> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<Googleprovider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: const Text(''),
@@ -22,6 +21,8 @@ class _LoginCheckState extends State<LoginCheck> {
           Center(
             child: ElevatedButton(
                 onPressed: () async {
+                  final provider =
+                      Provider.of<Googleprovider>(context, listen: false);
                   print("----------------------------------");
                   await provider.googlelogin();
                 },
@@ -29,6 +30,8 @@ class _LoginCheckState extends State<LoginCheck> {
           ),
           ElevatedButton(
               onPressed: () async {
+                final provider =
+                    Provider.of<Googleprovider>(context, listen: false);
                 print(
                     "asbjasbjasbjjasjbasbjasjbasjbasbjasjbasbj--------------------");
                 await provider.logout();
