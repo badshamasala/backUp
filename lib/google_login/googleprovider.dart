@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'dart:convert';
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -129,17 +130,55 @@ class Googleprovider extends ChangeNotifier {
           fontSize: 16.0);
     }
   }
+  newmethod(pick) async {
+    var headers = {
+  'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYmYiOjE2NzM4NDU4MTYsImV4cCI6MTY3NDQ1MDYxNiwiaWF0IjoxNjczODQ1ODE2fQ.tnP8Cj1xDNUKvmXYotw4DAGodOt4cNVZFq1tnCHpNW4'
+};
+var request = http.MultipartRequest('POST', Uri.parse('https://api.myttube.com/api/Post/add-post'));
+request.fields.addAll({
+  'api_key': 'myttube123456',
+  'signup_master_id': '2',
+  'post_type': 'image',
+  'short_description': 'test',
+  'long_description': 'test',
+  'has_tag': 'flutter',
+  'mention_profile': 'saifs377',
+  'url_link': 'https://localhost:44328/api/Post/add-post',
+  'url_music': 'https://localhost:44328/api/Post/add-post',
+  'location': 'Mumbai',
+  'schedule_date': '10-08-2023',
+  'partner_id': '1',
+  'restricted_mode': 'true',
+  'single_file': ''
+});
+request.files.add(await http.MultipartFile.fromPath('multiple_files', pick.toString()));
+/* request.files.add(await http.MultipartFile.fromPath('multiple_files', '/C:/Users/ADMIN/Pictures/Screenshots/Screenshot (6).png')); */
+request.headers.addAll(headers);
 
-  Future addPost() async {
+http.StreamedResponse response = await request.send();
+
+if (response.statusCode == 200) {
+  print(await response.stream.bytesToString());
+}
+else {
+  print(response.reasonPhrase);
+}
+
+  }
+
+  Future addPost( pickedImages) async {
     try {
+      var token =
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYmYiOjE2NzM4NDU4MTYsImV4cCI6MTY3NDQ1MDYxNiwiaWF0IjoxNjczODQ1ODE2fQ.tnP8Cj1xDNUKvmXYotw4DAGodOt4cNVZFq1tnCHpNW4";
       final response = await http.post(
         Uri.parse(ApiUrl.addPost),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
+          /*     'Content-Type': 'multipart/form-data', */
+          'Authorization': 'Bearer $token'
         },
-        body: jsonEncode({
+        body: /* jsonEncode( */ {
           "api_key": "myttube123456",
-          "signup_master_id": "1",
+          "signup_master_id": "2",
           "post_type": "image",
           "short_description": "test",
           "long_description": "test",
@@ -150,13 +189,15 @@ class Googleprovider extends ChangeNotifier {
           "location": "Mumbai",
           "schedule_date": "10-08-2023",
           "partner_id": "1",
-          "restricted_mode": true,
-          "multiple_files": "image",
+          "restricted_mode": "true",
+          "multiple_files": pickedImages,
           "single_file": "image",
-        }),
+        } /* ) */,
       );
+
       var jsondata = jsonDecode(response.body);
-      print(response.body);
+      /*      print(response.body); */
+      print(jsondata);
 
       if (response.statusCode == 200) {
         return true;

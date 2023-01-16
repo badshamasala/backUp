@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/CHAT_APP/shared_preference.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -84,7 +85,9 @@ class GetImage extends GetxController {
   File? image4;
   File? image5;
   File? image6;
+  File? imagePost;
   List<XFile> imageList = [];
+  List<XFile> imagePostList = [];
 
   pickforprofile(ImageSource source) async {
     try {
@@ -246,6 +249,34 @@ class GetImage extends GetxController {
         imageList.addAll(selectedImage);
       }
       print("----------------------------------${imageList.length}");
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print('Failed to pick image: $e');
+      }
+    }
+    update();
+  }
+
+  pickforImagePost() async {
+    try {
+      final List<XFile> imagePost = await ImagePicker().pickMultiImage();
+   /*    final imageBytes = File(imagePost.path).readAsBytesSync(); */
+      if (imagePost.length >= 5) {
+        Fluttertoast.showToast(
+            msg: 'Maxium 5 images at a time',
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+            fontSize: 16.0);
+        for (var i = 0; i < 5; i++) {
+          imagePostList.add(imagePost[i]);
+        }
+      } else if (imagePostList.length < 5) {
+        imagePostList.addAll(imagePost);
+      }
+
+      print("----------------------------------${imagePostList.length}");
+      print("IMAGE1----------------------------------$imagePostList");
+      print("IMAGE2----------------------------------$imagePost");
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print('Failed to pick image: $e');
