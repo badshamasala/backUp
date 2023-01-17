@@ -260,17 +260,19 @@ class GetImage extends GetxController {
   pickforImagePost() async {
     try {
       final List<XFile> imagePost = await ImagePicker().pickMultiImage();
-   /*    final imageBytes = File(imagePost.path).readAsBytesSync(); */
+      /*    final imageBytes = File(imagePost.path).readAsBytesSync(); */
       if (imagePost.length >= 5) {
         Fluttertoast.showToast(
             msg: 'Maxium 5 images at a time',
             backgroundColor: Colors.black,
             textColor: Colors.white,
             fontSize: 16.0);
+        imagePostList.clear();
         for (var i = 0; i < 5; i++) {
           imagePostList.add(imagePost[i]);
         }
       } else if (imagePostList.length < 5) {
+         imagePostList.clear();
         imagePostList.addAll(imagePost);
       }
 

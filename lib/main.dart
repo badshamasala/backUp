@@ -1,20 +1,14 @@
 // ignore_for_file: unused_field
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ONBOARDING/loginpage.dart';
-import 'package:flutter_application_1/add_post/add_post.dart';
-import 'package:flutter_application_1/chat_app/registerpage.dart';
-import 'package:flutter_application_1/comment/comments.dart';
+import 'package:flutter_application_1/add_post/addphoto1.dart';
 import 'package:flutter_application_1/globals/app_theme_widget.dart';
 import 'package:flutter_application_1/archive_post/history1.dart';
-import 'package:flutter_application_1/google_login/googlenewpage.dart';
-import 'package:flutter_application_1/google_login/login_check.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/promote/promote.dart';
 import 'package:flutter_application_1/promote/promote2.dart';
-import 'package:flutter_application_1/reels/reels.dart';
 import 'package:flutter_application_1/share/tag_friend.dart';
 import 'package:flutter_application_1/share/chat_screen1.dart';
 import 'package:flutter_application_1/text_post/post_text.dart';
@@ -76,6 +70,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
         ChangeNotifierProvider(create: (_) => PromoteProvider()),
         ChangeNotifierProvider(create: (_) => RadioProvider()),
         ChangeNotifierProvider(create: (_) => GiftProvider()),
+        ChangeNotifierProvider(create: (_) => Filterprovider()),
 
         /*      ChangeNotifierProvider(create: (_) => ThemeProvider()), */
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
@@ -105,7 +100,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: AddPost() /* LoginPage12() */
+                  home: HomePage() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(

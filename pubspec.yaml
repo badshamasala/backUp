@@ -90,6 +90,7 @@ dependencies:
   emoji_picker_flutter: ^1.5.1
   flutter_keyboard_visibility: ^5.4.0
   translator: ^0.1.7
+  audioplayers: ^2.0.0
 
   
   

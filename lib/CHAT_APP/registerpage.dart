@@ -122,8 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
         isloading = true;
       });
 
-      await authService
-          .registerUser(fullname, email, password)
+      await authService.registerUser(fullname, email, password)
           .then((value) async {
         if (value == true) {
             await SharedPref.saveUserLoggedInStatus(true);

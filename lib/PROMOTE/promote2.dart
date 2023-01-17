@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/account_type/uploadimage.dart';
 import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/promote/createmyown.dart';
@@ -114,10 +113,6 @@ class _Promote2State extends State<Promote2> {
                       padding: EdgeInsets.zero,
                       elevation: 0,
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      /* side: const BorderSide(
-                        width: 0.5,
-                        color: customTextColor,
-                      ), */
                       foregroundColor: Colors.white,
                       backgroundColor: primaryColorOfApp,
                       shape: RoundedRectangleBorder(

@@ -191,7 +191,6 @@ class _CreatepollState extends State<Createpoll> {
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                               mainAxisExtent: 33,
-                              /*     childAspectRatio: 3.5, */
                               crossAxisSpacing: 5,
                               mainAxisSpacing: 2,
                               crossAxisCount: 3),
@@ -200,28 +199,17 @@ class _CreatepollState extends State<Createpoll> {
                         return ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               side: const BorderSide(color: primaryColorOfApp),
-                              backgroundColor: /*  provider.newVariable2
+                              backgroundColor: provider.emptyList
+                                      .contains(provider.buttonlist[index])
                                   ? primaryColorOfApp
-                                  :  */
-                                  provider.emptyList
-                                          .contains(provider.buttonlist[index])
-                                      ? primaryColorOfApp
-                                      : Colors.white,
-                              foregroundColor: /* provider.newVariable2
+                                  : Colors.white,
+                              foregroundColor: provider.emptyList
+                                      .contains(provider.buttonlist[index])
                                   ? Colors.white
-                                  : */
-                                  provider.emptyList
-                                          .contains(provider.buttonlist[index])
-                                      ? Colors.white
-                                      : primaryColorOfApp,
+                                  : primaryColorOfApp,
                               elevation: 0),
                           onPressed: () {
                             provider.updateOptionMethod(index);
-                            /*print(provider.emptyList);*/
-
-                            /*provider.getCount(index);*/
-                            /*var newVariable = provider.emptyList[index]["value"];
-                              print(newVariable);*/
                           },
                           child: Text(
                             provider.buttonlist[index]["label"],

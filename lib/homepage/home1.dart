@@ -1,12 +1,11 @@
 // ignore_for_file: unnecessary_new
 
 import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter_application_1/GLOBALS/colors.dart';
+import 'package:flutter_application_1/add_post/addphoto1.dart';
 import 'package:flutter_application_1/chat_app/shared_preference.dart';
 import 'package:flutter_application_1/comment/comments.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
@@ -21,7 +20,6 @@ import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mingcute.dart';
 import 'package:iconify_flutter/icons/ri.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -35,6 +33,11 @@ class Home1 extends StatefulWidget {
 
   @override
   State<Home1> createState() => _Home1State();
+}
+
+badsha(context) async {
+  await getkar.pickforImagePost();
+   Get.to(() => const Addphoto1());
 }
 
 class _Home1State extends State<Home1> {
@@ -336,15 +339,10 @@ class _Home1State extends State<Home1> {
                                 InkWell(
                                   onTap: () {
                                     Navigator.pop(context);
-                                    setState(() {
+                                    /*  setState(() {
                                       floatchupa = true;
-                                    });
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Promote()),
-                                    );
+                                    }); */
+                                    badsha(context);
                                   },
                                   child: Padding(
                                     padding: EdgeInsets.only(left: 5.w),
@@ -389,42 +387,57 @@ class _Home1State extends State<Home1> {
                                   height: 2.2.h,
                                   color: Colors.transparent,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Material(
-                                        elevation: 10,
-                                        borderRadius:
-                                            BorderRadius.circular(25.sp),
-                                        child: Container(
-                                          decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.white),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(13.sp),
-                                            child: const Iconify(
-                                                MaterialSymbols
-                                                    .video_call_rounded,
-                                                color: primaryColorOfApp),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    setState(() {
+                                      floatchupa = true;
+                                    });
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Promote()),
+                                    );
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Material(
+                                          elevation: 10,
+                                          borderRadius:
+                                              BorderRadius.circular(25.sp),
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.white),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(13.sp),
+                                              child: const Iconify(
+                                                  MaterialSymbols
+                                                      .video_call_rounded,
+                                                  color: primaryColorOfApp),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          'Add Video',
-                                          style: TextStyle(
-                                              color: primaryColorOfApp,
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w600,
-                                              letterSpacing: 0.2,
-                                              fontSize: 12.sp),
-                                        ),
-                                      )
-                                    ],
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            'Add Video',
+                                            style: TextStyle(
+                                                color: primaryColorOfApp,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w600,
+                                                letterSpacing: 0.2,
+                                                fontSize: 12.sp),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 Divider(
