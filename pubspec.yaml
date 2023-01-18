@@ -91,6 +91,7 @@ dependencies:
   flutter_keyboard_visibility: ^5.4.0
   translator: ^0.1.7
   audioplayers: ^2.0.0
+  textfield_tags: ^2.0.2
 
   
   

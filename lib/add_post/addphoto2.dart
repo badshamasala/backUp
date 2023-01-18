@@ -1,16 +1,21 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/add_post/hashTag.dart';
 import 'package:flutter_application_1/globals/colors.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/carbon.dart';
+import 'package:iconify_flutter/icons/fa6_solid.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
+import 'package:iconify_flutter/icons/mingcute.dart';
+import 'package:iconify_flutter/icons/ph.dart';
 import 'package:iconify_flutter/icons/uil.dart';
+import 'package:iconify_flutter/icons/zondicons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +33,8 @@ class Addphoto2 extends StatefulWidget {
 
 class _Addphoto2State extends State<Addphoto2> {
   final GetImage getkar = Get.put(GetImage());
+
+  var hashController = TextEditingController();
 
   bool valueofswitch = false;
   String? value;
@@ -209,62 +216,81 @@ class _Addphoto2State extends State<Addphoto2> {
                   }),
                 ],
               ),
+              SizedBox(
+                height: 3.h,
+              ),
               ListView.separated(
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: ((context, index) {
                     return TextFormField(
+                      controller: index == 1 ? hashController : null,
                       cursorColor: primaryColorOfApp,
                       decoration: InputDecoration(
                           labelText: index == 0
-                              ? null
+                              ? "@mention"
                               : index == 1
-                                  ? "@mention"
+                                  ? "Add Explore"
                                   : index == 2
-                                      ? "Add Explore*"
+                                      ? "Add URL"
                                       : "Add Location",
                           prefixIconConstraints: const BoxConstraints(),
                           suffixIconConstraints: const BoxConstraints(),
-                          suffixIcon: index == 0
-                              ? null
-                              : index == 1
-                                  ? null
-                                  : Padding(
+                          suffixIcon: index == 1
+                              ? GestureDetector(
+                                  onTap: () {
+                                    Get.to(() => HashTag());
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.only(right: 2.w),
+                                    child: Iconify(
+                                      Uil.search,
+                                      size: 20.sp,
+                                      color: const Color(0xffDADADA),
+                                    ),
+                                  ),
+                                )
+                              : index == 3
+                                  ? Padding(
                                       padding: EdgeInsets.only(right: 2.w),
                                       child: Iconify(
                                         Uil.search,
                                         size: 20.sp,
                                         color: const Color(0xffDADADA),
                                       ),
-                                    ),
+                                    )
+                                  : null,
                           prefixIcon: index == 0
-                              ? SizedBox(
-                                  width: 3.w,
+                              ? Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 2.w, right: 1.w),
+                                  child: Iconify(
+                                    Zondicons.at_symbol,
+                                    color: primaryColorOfApp,
+                                    size: 18.sp,
+                                  ),
                                 )
                               : index == 1
                                   ? Padding(
-                                      padding: EdgeInsets.only(left: 2.w),
-                                      child: Text(
-                                        "@",
-                                        style: TextStyle(
-                                            color: primaryColorOfApp,
-                                            fontFamily: 'Poppins',
-                                            fontSize: 19.sp),
-                                      ),
-                                    )
+                                      padding: EdgeInsets.only(
+                                          left: 2.w, right: 1.w),
+                                      child: Iconify(
+                                        Fa6Solid.hashtag,
+                                        color: primaryColorOfApp,
+                                        size: 18.sp,
+                                      ))
                                   : index == 2
                                       ? Padding(
-                                          padding: EdgeInsets.only(left: 2.w),
-                                          child: Text(
-                                            "#",
-                                            style: TextStyle(
-                                                color: primaryColorOfApp,
-                                                fontFamily: 'Poppins',
-                                                fontSize: 20.sp),
-                                          ),
-                                        )
+                                          padding: EdgeInsets.only(
+                                              left: 2.w, right: 1.w),
+                                          child: Iconify(
+                                            Ph.link_duotone,
+                                            color: primaryColorOfApp,
+                                            size: 20.sp,
+                                          ))
                                       : Padding(
-                                          padding: EdgeInsets.only(left: 1.w),
+                                          padding: EdgeInsets.only(
+                                              left: 2.w, right: 1.w),
                                           child: Iconify(
                                             MaterialSymbols.location_on,
                                             color: primaryColorOfApp,

@@ -8,6 +8,7 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/add_post/addphoto1.dart';
 import 'package:flutter_application_1/chat_app/shared_preference.dart';
 import 'package:flutter_application_1/comment/comments.dart';
+import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/promote/promote.dart';
@@ -35,12 +36,18 @@ class Home1 extends StatefulWidget {
   State<Home1> createState() => _Home1State();
 }
 
-badsha(context) async {
-  await getkar.pickforImagePost();
-   Get.to(() => const Addphoto1());
-}
-
 class _Home1State extends State<Home1> {
+  final GetImage getkar = Get.put(GetImage());
+  badsha() async {
+    await getkar.pickforImagePost();
+
+    if (getkar.imagePostList.isNotEmpty) {
+      Get.to(() => const Addphoto1());
+    } else {
+      return;
+    }
+  }
+
   var images = [
     'assets/image1.webp',
     'assets/image2.jpg',
@@ -283,9 +290,9 @@ class _Home1State extends State<Home1> {
                                 InkWell(
                                   onTap: () {
                                     Navigator.pop(context);
-                                    setState(() {
+                                    /*  setState(() {
                                       floatchupa = true;
-                                    });
+                                    }); */
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -342,7 +349,7 @@ class _Home1State extends State<Home1> {
                                     /*  setState(() {
                                       floatchupa = true;
                                     }); */
-                                    badsha(context);
+                                    badsha();
                                   },
                                   child: Padding(
                                     padding: EdgeInsets.only(left: 5.w),

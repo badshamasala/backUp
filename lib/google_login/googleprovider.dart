@@ -93,6 +93,9 @@ class Googleprovider extends ChangeNotifier {
     notifyListeners();
   }
 
+
+ 
+
   Future loginmethod(String value1, String value2, context) async {
     try {
       final response = await http.post(

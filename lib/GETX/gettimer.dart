@@ -260,8 +260,10 @@ class GetImage extends GetxController {
   pickforImagePost() async {
     try {
       final List<XFile> imagePost = await ImagePicker().pickMultiImage();
+      if (imagePost == null) return;
       /*    final imageBytes = File(imagePost.path).readAsBytesSync(); */
       if (imagePost.length >= 5) {
+        print("for loop chal ra hai matlab");
         Fluttertoast.showToast(
             msg: 'Maxium 5 images at a time',
             backgroundColor: Colors.black,
@@ -272,7 +274,10 @@ class GetImage extends GetxController {
           imagePostList.add(imagePost[i]);
         }
       } else if (imagePostList.length < 5) {
-         imagePostList.clear();
+                print("for loop chal ra hai matlab");
+
+                
+        imagePostList.clear();
         imagePostList.addAll(imagePost);
       }
 
