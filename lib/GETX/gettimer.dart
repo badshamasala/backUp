@@ -88,6 +88,7 @@ class GetImage extends GetxController {
   File? imagePost;
   List<XFile> imageList = [];
   List<XFile> imagePostList = [];
+  List<String> imagePostPathList = [];
 
   pickforprofile(ImageSource source) async {
     try {
@@ -257,11 +258,37 @@ class GetImage extends GetxController {
     update();
   }
 
-  pickforImagePost() async {
+  pickforImagePost(context) async {
     try {
       final List<XFile> imagePost = await ImagePicker().pickMultiImage();
       if (imagePost == null) return;
-      /*    final imageBytes = File(imagePost.path).readAsBytesSync(); */
+   /*    List _image1 = [];
+      for (int i = 0; i < imagePost.length; i++) {
+        _image1 = File(imagePost[i].path) as List;
+
+       /*  int checkinmbimage = _image1.lengthSync(); */
+    /*     double sizeInMbimage = checkinmbimage / (1024 * 1024); */
+
+        if (sizeInMbimage > 11) {
+          Widget okButton = TextButton(
+            child: Text("OK"),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          );
+          print('Image must be less than 10 MB');
+          print("Image-----------------------$checkinmbimage");
+          print("Image-----------------------$sizeInMbimage");
+          AlertDialog alert = AlertDialog(
+            title: Text(" Alert"),
+            content: Text("Image must be less than 10 MB"),
+            actions: [
+              okButton,
+            ],
+          );
+        }
+      } */
+
       if (imagePost.length >= 5) {
         print("for loop chal ra hai matlab");
         Fluttertoast.showToast(
@@ -269,16 +296,19 @@ class GetImage extends GetxController {
             backgroundColor: Colors.black,
             textColor: Colors.white,
             fontSize: 16.0);
+
         imagePostList.clear();
         for (var i = 0; i < 5; i++) {
           imagePostList.add(imagePost[i]);
+          imagePostPathList.add(imagePost[i].path);
         }
+        /*   final imageBytes = File(imagePost.toString()).readAsBytesSync(); */
       } else if (imagePostList.length < 5) {
-                print("for loop chal ra hai matlab");
+        print("for loop chal ra hai matlab");
 
-                
         imagePostList.clear();
         imagePostList.addAll(imagePost);
+        imagePostPathList.addAll(imagePost.map((e) => e.path).toList());
       }
 
       print("----------------------------------${imagePostList.length}");

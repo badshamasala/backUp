@@ -93,9 +93,6 @@ class Googleprovider extends ChangeNotifier {
     notifyListeners();
   }
 
-
- 
-
   Future loginmethod(String value1, String value2, context) async {
     try {
       final response = await http.post(
@@ -135,7 +132,7 @@ class Googleprovider extends ChangeNotifier {
     }
   }
 
-  newmethod(pick) async {
+  newmethod(listimage) async {
     var headers = {
       'Authorization':
           'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYmYiOjE2NzM4NDU4MTYsImV4cCI6MTY3NDQ1MDYxNiwiaWF0IjoxNjczODQ1ODE2fQ.tnP8Cj1xDNUKvmXYotw4DAGodOt4cNVZFq1tnCHpNW4'
@@ -146,8 +143,8 @@ class Googleprovider extends ChangeNotifier {
       'api_key': 'myttube123456',
       'signup_master_id': '2',
       'post_type': 'image',
-      'short_description': 'test',
-      'long_description': 'test',
+      'short_description': 'rashidbadsha',
+      'long_description': 'masala',
       'has_tag': 'flutter',
       'mention_profile': 'saifs377',
       'url_link': 'https://localhost:44328/api/Post/add-post',
@@ -158,68 +155,21 @@ class Googleprovider extends ChangeNotifier {
       'restricted_mode': 'true',
       'single_file': ''
     });
-    request.files.add(
-        await http.MultipartFile.fromPath('multiple_files', pick.toString()));
-/* request.files.add(await http.MultipartFile.fromPath('multiple_files', '/C:/Users/ADMIN/Pictures/Screenshots/Screenshot (6).png')); */
+    for (var img in listimage) {
+      request.files
+          .add(await http.MultipartFile.fromPath('multiple_files', img));
+      print("--------------------------");
+    }
+    print("post done----------------------------------------");
     request.headers.addAll(headers);
 
     http.StreamedResponse response = await request.send();
 
     if (response.statusCode == 200) {
+      print("ho gaya----------------------------------------");
       print(await response.stream.bytesToString());
     } else {
       print(response.reasonPhrase);
-    }
-  }
-
-  Future addPost(pickedImages) async {
-    try {
-      var token =
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYmYiOjE2NzM4NDU4MTYsImV4cCI6MTY3NDQ1MDYxNiwiaWF0IjoxNjczODQ1ODE2fQ.tnP8Cj1xDNUKvmXYotw4DAGodOt4cNVZFq1tnCHpNW4";
-      final response = await http.post(
-        Uri.parse(ApiUrl.addPost),
-        headers: <String, String>{
-          /*     'Content-Type': 'multipart/form-data', */
-          'Authorization': 'Bearer $token'
-        },
-        body: /* jsonEncode( */ {
-          "api_key": "myttube123456",
-          "signup_master_id": "2",
-          "post_type": "image",
-          "short_description": "test",
-          "long_description": "test",
-          "has_tag": "flutter",
-          "mention_profile": "saifs377",
-          "url_link": "https://localhost:44328/api/Post/add-post",
-          "url_music": "https://localhost:44328/api/Post/add-post",
-          "location": "Mumbai",
-          "schedule_date": "10-08-2023",
-          "partner_id": "1",
-          "restricted_mode": "true",
-          "multiple_files": pickedImages,
-          "single_file": "image",
-        } /* ) */,
-      );
-
-      var jsondata = jsonDecode(response.body);
-      /*      print(response.body); */
-      print(jsondata);
-
-      if (response.statusCode == 200) {
-        return true;
-      } else {
-        Fluttertoast.showToast(
-            msg: 'Something Went Wrong',
-            backgroundColor: Colors.black,
-            textColor: Colors.white,
-            fontSize: 16.0);
-      }
-    } catch (e) {
-      Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.black,
-          textColor: Colors.white,
-          fontSize: 16.0);
     }
   }
 
@@ -260,8 +210,6 @@ class Googleprovider extends ChangeNotifier {
           fontSize: 16.0);
     }
   }
-
- 
 
   Future checkUsername(dynamic username) async {
     try {

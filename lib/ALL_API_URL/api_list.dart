@@ -12,6 +12,7 @@ class ApiUrl {
 
   static const addPost ="https://api.myttube.com/api/Post/add-post";
   static const hashTag ="https://api.myttube.com/api/HasTag/add-has-tag";
+  static const mentionUser ="https://api.myttube.com/api/Post/get-all-mentions";  //------------GET
   
   static const sendOtp ="http://103.69.242.42:8080/TestAPI/message.svc/sendOTP";
   

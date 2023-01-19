@@ -2,8 +2,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/add_post/addphoto1.dart';
-import 'package:flutter_application_1/add_post/checktag.dart';
+
 import 'package:flutter_application_1/add_post/hashTag.dart';
+import 'package:flutter_application_1/add_post/mention_user.dart';
 import 'package:flutter_application_1/globals/app_theme_widget.dart';
 import 'package:flutter_application_1/archive_post/history1.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
@@ -73,7 +74,8 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
         ChangeNotifierProvider(create: (_) => RadioProvider()),
         ChangeNotifierProvider(create: (_) => GiftProvider()),
         ChangeNotifierProvider(create: (_) => Filterprovider()),
-        ChangeNotifierProvider(create: (_) => HashtagProvier()),
+        ChangeNotifierProvider(create: (_) => HashtagProvider()),
+        ChangeNotifierProvider(create: (_) => MentionProvider()),
 
         /*      ChangeNotifierProvider(create: (_) => ThemeProvider()), */
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
@@ -103,7 +105,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: Home() /* LoginPage12() */
+                  home: MentionUser() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(

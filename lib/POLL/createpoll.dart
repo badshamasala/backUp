@@ -630,7 +630,7 @@ class CreatePollProvider extends ChangeNotifier {
         );
       },
     );
-    /*  if (newDate == null) return; */
+    if (newDate == null) return;
 
     newDate = selectedDate!;
     notifyListeners();

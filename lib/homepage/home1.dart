@@ -39,7 +39,7 @@ class Home1 extends StatefulWidget {
 class _Home1State extends State<Home1> {
   final GetImage getkar = Get.put(GetImage());
   badsha() async {
-    await getkar.pickforImagePost();
+    await getkar.pickforImagePost(context);
 
     if (getkar.imagePostList.isNotEmpty) {
       Get.to(() => const Addphoto1());

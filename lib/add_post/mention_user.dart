@@ -12,26 +12,26 @@ import 'package:sizer/sizer.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 import 'package:http/http.dart' as http;
 
-class HashTag extends StatefulWidget {
-  const HashTag({super.key});
+class MentionUser extends StatefulWidget {
+  const MentionUser({super.key});
 
   @override
-  State<HashTag> createState() => _HashTagState();
+  State<MentionUser> createState() => _MentionUserState();
 }
 
-class _HashTagState extends State<HashTag> {
+class _MentionUserState extends State<MentionUser> {
   var futureAlbum;
 
   @override
   void initState() {
     super.initState();
-    futureAlbum = Provider.of<HashtagProvider>(context, listen: false).hashtag();
+    futureAlbum = Provider.of<MentionProvider>(context, listen: false).mentionUser();
   }
   // ··
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<HashtagProvider>(context, listen: false);
+    final provider = Provider.of<MentionProvider>(context, listen: false);
     return Scaffold(
         appBar: AppBar(
           toolbarHeight: 7.h,
@@ -39,7 +39,7 @@ class _HashTagState extends State<HashTag> {
           titleSpacing: -2.sp,
           elevation: 0,
           backgroundColor: Colors.transparent,
-          title: Text('Explore',
+          title: Text('Mention',
               style: TextStyle(
                   fontFamily: 'Poppins',
                   color: customTextColor,
@@ -66,13 +66,13 @@ class _HashTagState extends State<HashTag> {
                     itemBuilder: (context, index) => buildSkeleton(context));
               }
               return ListView.builder(
-                itemCount: provider.tags.length,
+                itemCount: provider.mentionList.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     onTap: () {
                       provider.getTag(index);
                     },
-                    title: Text(provider.tags[index].name.toString()),
+                    title: Text(provider.mentionList[index].userId.toString()),
                   );
                 },
               );
@@ -99,18 +99,22 @@ class _HashTagState extends State<HashTag> {
       );
 }
 
-class Modal {
-  String? name;
 
-  Modal({this.name});
+class MentionModal {
+  int? signupMasterId;
+  String? userId;
 
-  Modal.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
+  MentionModal({required this.signupMasterId, required this.userId});
+
+  MentionModal.fromJson(Map<String, dynamic> json) {
+    signupMasterId = json['signup_master_id'];
+    userId = json['user_id'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
+    data['signup_master_id'] = this.signupMasterId;
+    data['user_id'] = this.userId;
     return data;
   }
 }
@@ -157,32 +161,39 @@ class SkeletonContainer extends StatelessWidget {
       );
 }
 
-class HashtagProvider extends ChangeNotifier {
+class MentionProvider extends ChangeNotifier {
   List apiTag = [];
 
-  List<Modal> tags = [];
-  hashtag() async {
+  List<MentionModal> mentionList = [];
+  mentionUser() async {
     var token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYmYiOjE2NzM4NDU4MTYsImV4cCI6MTY3NDQ1MDYxNiwiaWF0IjoxNjczODQ1ODE2fQ.tnP8Cj1xDNUKvmXYotw4DAGodOt4cNVZFq1tnCHpNW4";
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc0MTMyMTIxLCJleHAiOjE2NzQ3MzY5MjEsImlhdCI6MTY3NDEzMjEyMX0.K9B4oMCWio5glv2Wzn_2Gw4ap0liy-qZY4ddjrcMeQQ";
     try {
-      final response = await http.post(
-        Uri.parse(ApiUrl.hashTag),
-        headers: <String, String>{'Authorization': 'Bearer $token'},
-        body: {"api_key": "myttube123456", "signupId": "20", "name": "iris"},
+      final response = await http.get(
+        Uri.parse(ApiUrl.mentionUser),
+        headers: <String, String>{
+          'Authorization': 'Bearer $token',
+     /*       */
+          },
+            
+        
+       
       );
+      
       var jsondata = jsonDecode(response.body);
       print(response.body);
 
       for (var u in jsondata) {
-        Modal user = Modal(
-          name: u['name'],
+        MentionModal user = MentionModal(
+          signupMasterId: u['signup_master_id'],
+          userId: u['user_id'],
         );
-        tags.add(user);
+        mentionList.add(user);
       }
 
-      print("------------------------$tags");
+      print("------------------------$mentionList");
       if (response.statusCode == 200) {
-        return tags;
+        return mentionList;
       }
     } catch (e) {
       Fluttertoast.showToast(
@@ -194,15 +205,15 @@ class HashtagProvider extends ChangeNotifier {
   }
 
   getTag(index) {
-    apiTag.add(tags[index].name);
-    print(tags[index].name);
+    apiTag.add(mentionList[index].userId);
+    print(mentionList[index].userId);
     print(apiTag);
     notifyListeners();
   }
 
   removeTag(index) {
     apiTag.removeAt(index);
-    print(tags[index].name);
+    print(mentionList[index].userId);
     print(apiTag);
     notifyListeners();
   }
