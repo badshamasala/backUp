@@ -92,6 +92,7 @@ dependencies:
   translator: ^0.1.7
   audioplayers: ^2.0.0
   textfield_tags: ^2.0.2
+  flutter_osm_plugin: ^0.42.0
 
   
   

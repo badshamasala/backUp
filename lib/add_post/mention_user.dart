@@ -1,9 +1,9 @@
+import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/add_post/search1.dart';
 import 'package:flutter_application_1/all_api_url/api_list.dart';
 import 'package:flutter_application_1/globals/colors.dart';
-import 'package:flutter_application_1/google_login/googleprovider.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
@@ -25,9 +25,12 @@ class _MentionUserState extends State<MentionUser> {
   @override
   void initState() {
     super.initState();
-    futureAlbum = Provider.of<MentionProvider>(context, listen: false).mentionUser();
+    futureAlbum =
+        Provider.of<MentionProvider>(context, listen: false).mentionCheck();
+
+    Provider.of<MentionProvider>(context, listen: false).users =
+        Provider.of<MentionProvider>(context, listen: false).mentionList;
   }
-  // ··
 
   @override
   Widget build(BuildContext context) {
@@ -54,29 +57,80 @@ class _MentionUserState extends State<MentionUser> {
                 Mdi.arrow_back,
                 color: primaryColorOfApp,
               )),
-        ),
-        body: FutureBuilder(
-            future: futureAlbum,
-            builder: (context, snapshot) {
-              print("asa");
-              if (snapshot.data == null) {
-                return ListView.separated(
-                    separatorBuilder: (context, index) => Divider(),
-                    itemCount: 10,
-                    itemBuilder: (context, index) => buildSkeleton(context));
-              }
-              return ListView.builder(
-                itemCount: provider.mentionList.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    onTap: () {
-                      provider.getTag(index);
-                    },
-                    title: Text(provider.mentionList[index].userId.toString()),
-                  );
+          actions: [
+            IconButton(
+                onPressed: () {
+                  /*     showSearch(context: context, delegate: SearchUser()); */
                 },
-              );
-            }));
+                icon: Icon(
+                  Icons.search,
+                  color: customTextColor,
+                ))
+          ],
+        ),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5.w),
+          child: Column(
+            children: [
+              Consumer<MentionProvider>(builder: (context, value, child) {
+                return TextField(
+                  onChanged: searchBook,
+                  decoration: InputDecoration(
+                      hintText: "Search User",
+                      hintStyle: TextStyle(
+                          color: customTextColor,
+                          fontFamily: "Poppins",
+                          fontSize: 10.sp),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      isDense: true,
+                      border:
+                          OutlineInputBorder(borderSide: BorderSide(width: 1))),
+                );
+              }),
+              Expanded(
+                  child: FutureBuilder(
+                      future: futureAlbum,
+                      builder: (context, snapshot) {
+                        print("asa");
+                        if (snapshot.data == null) {
+                          return ListView.separated(
+                              separatorBuilder: (context, index) => Divider(),
+                              itemCount: 10,
+                              itemBuilder: (context, index) =>
+                                  buildSkeleton(context));
+                        }
+                        return ListView.builder(
+                          itemCount: provider.users.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              onTap: () {
+                                provider.getMentionUser(index);
+                              },
+                              title:
+                                  Text(provider.users[index].userId.toString()),
+                            );
+                          },
+                        );
+                      })),
+            ],
+          ),
+        ));
+  }
+
+  searchBook(String query) async {
+    final provider = Provider.of<MentionProvider>(context, listen: false);
+    final users = provider.mentionList.where((e) {
+      final userId = e.userId!.toLowerCase();
+
+      final searchLower = query.toLowerCase();
+
+      return userId.contains(searchLower);
+    }).toList();
+    setState(() {
+      provider.query = query;
+      provider.users = users;
+    });
   }
 
   Widget buildSkeleton(BuildContext context) => Row(
@@ -98,7 +152,6 @@ class _MentionUserState extends State<MentionUser> {
         ],
       );
 }
-
 
 class MentionModal {
   int? signupMasterId;
@@ -162,59 +215,59 @@ class SkeletonContainer extends StatelessWidget {
 }
 
 class MentionProvider extends ChangeNotifier {
-  List apiTag = [];
+  List mentionTag = [];
 
   List<MentionModal> mentionList = [];
-  mentionUser() async {
-    var token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc0MTMyMTIxLCJleHAiOjE2NzQ3MzY5MjEsImlhdCI6MTY3NDEzMjEyMX0.K9B4oMCWio5glv2Wzn_2Gw4ap0liy-qZY4ddjrcMeQQ";
+  Future<List<MentionModal>> mentionCheck(/* String query */) async {
     try {
-      final response = await http.get(
-        Uri.parse(ApiUrl.mentionUser),
-        headers: <String, String>{
-          'Authorization': 'Bearer $token',
-     /*       */
-          },
-            
-        
-       
-      );
-      
-      var jsondata = jsonDecode(response.body);
-      print(response.body);
+      var headers = {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc0MTMwMjkyLCJleHAiOjE2NzQ3MzUwOTIsImlhdCI6MTY3NDEzMDI5Mn0.Y2HO5gmggkawC_-SVPbFyzUMF9FZmvCi8VMW2TFWxA8'
+      };
+      var request = http.MultipartRequest('GET',
+          Uri.parse('https://api.myttube.com/api/Post/get-all-mentions'));
+      request.fields.addAll({'api_key': 'myttube123456'});
 
-      for (var u in jsondata) {
-        MentionModal user = MentionModal(
-          signupMasterId: u['signup_master_id'],
-          userId: u['user_id'],
-        );
-        mentionList.add(user);
-      }
+      request.headers.addAll(headers);
 
-      print("------------------------$mentionList");
+      http.StreamedResponse response = await request.send();
+      var jsondata = jsonDecode(await response.stream.bytesToString());
+
       if (response.statusCode == 200) {
-        return mentionList;
+        for (var u in jsondata) {
+          MentionModal user = MentionModal(
+            signupMasterId: u['signup_master_id'],
+            userId: u['user_id'],
+          );
+          mentionList.add(user);
+        }
+
+        /*        print(
+          "1----------------------------${await response.stream.bytesToString()}"); */ //JAB HUM MULTIREQUEST USE KRTE HAI TAB response.body jo hai hamara wo response.stream.bytesToString ban jata hai
+
+      } else {
+        print("2----------------------------${response.reasonPhrase}");
       }
-    } catch (e) {
-      Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.black,
-          textColor: Colors.white,
-          fontSize: 16.0);
+    } on Exception catch (e) {
+      print('error: $e');
     }
+    return mentionList;
   }
 
-  getTag(index) {
-    apiTag.add(mentionList[index].userId);
+ late  List<MentionModal> users = [];
+  String query = '';
+
+  getMentionUser(index) {
+    mentionTag.add(users[index].userId);
     print(mentionList[index].userId);
-    print(apiTag);
+    print(mentionTag);
     notifyListeners();
   }
 
-  removeTag(index) {
-    apiTag.removeAt(index);
+  removeMentionUser(index) {
+    mentionTag.removeAt(index);
     print(mentionList[index].userId);
-    print(apiTag);
+    print(mentionTag);
     notifyListeners();
   }
 }
