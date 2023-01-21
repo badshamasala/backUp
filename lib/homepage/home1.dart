@@ -9,18 +9,21 @@ import 'package:flutter_application_1/add_post/addphoto1.dart';
 import 'package:flutter_application_1/chat_app/shared_preference.dart';
 import 'package:flutter_application_1/comment/comments.dart';
 import 'package:flutter_application_1/getx/gettimer.dart';
+import 'package:flutter_application_1/google_login/googleprovider.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/promote/promote.dart';
 import 'package:flutter_application_1/text_post/podcast.dart';
 import 'package:flutter_application_1/text_post/post_text.dart';
 import 'package:flutter_application_1/people_profile/people_profile.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/mingcute.dart';
 import 'package:iconify_flutter/icons/ri.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/link.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -41,7 +44,14 @@ class _Home1State extends State<Home1> {
   badsha() async {
     await getkar.pickforImagePost(context);
 
-    if (getkar.imagePostList.isNotEmpty) {
+    if (getkar.checkimagesize > 500) {
+      Fluttertoast.showToast(
+          msg: 'Image Size should not be greater tha 500KB',
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 16.0);
+      return;
+    } else if (getkar.imagePostList.isNotEmpty && getkar.checkimagesize < 500) {
       Get.to(() => const Addphoto1());
     } else {
       return;
@@ -137,7 +147,7 @@ class _Home1State extends State<Home1> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double height = size.height, width = size.width;
-
+    final provider = Provider.of<Googleprovider>(context, listen: false);
     return Scaffold(
         backgroundColor: customTextColor,
         appBar: AppBar(
@@ -195,9 +205,11 @@ class _Home1State extends State<Home1> {
                           padding: EdgeInsets.zero,
                           constraints: const BoxConstraints(),
                           onPressed: () async {
-                            var token = await SharedPref.getToken();
+                         /*    await provider.registerUser("1245", "ek_no.",
+                                "passko", "badshamasal", "adada@gmail.com"); */
+                            /* var token = await SharedPref.getToken();
 
-                            print(token);
+                            print(token); */
                           },
                           icon: Iconify(
                             appBaricon[index],

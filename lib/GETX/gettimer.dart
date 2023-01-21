@@ -258,11 +258,70 @@ class GetImage extends GetxController {
     update();
   }
 
+  List newlist = [];
+
+  var checkimagesize;
   pickforImagePost(context) async {
     try {
-      final List<XFile> imagePost = await ImagePicker().pickMultiImage();
+      final List<XFile> imagePost =
+          await ImagePicker().pickMultiImage(imageQuality: 40);
       if (imagePost == null) return;
-   /*    List _image1 = [];
+
+      if (imagePost.length >= 5) {
+        print("for loop chal ra hai matlab");
+        Fluttertoast.showToast(
+            msg: 'Maxium 5 images at a time',
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+            fontSize: 16.0);
+
+        imagePostList.clear();
+        for (var i = 0; i < 5; i++) {
+          checkimagesize = (((await imagePost[i].readAsBytes()).length) / 1024);
+          /*      if (checkimagesize > 500) {
+            Fluttertoast.showToast(
+                msg: 'Image Size should not be greater tha 500KB',
+                backgroundColor: Colors.black,
+                textColor: Colors.white,
+                fontSize: 16.0);
+          } else { */
+          newlist.addAll(await checkimagesize);
+          imagePostList.add(imagePost[i]);
+          imagePostPathList.add(imagePost[i].path);
+          print("--------------------------------------------------$newlist");
+          /*   } */
+          /*     if (( (await imagePost[i].readAsBytes()).length) / 1024 < 500) { */
+          print(
+              "Read as Byte----------------------------------${(await imagePost[i].readAsBytes()).length}");
+
+          print(
+              "KB Size---1------------------------------------$checkimagesize");
+          /*      }  */
+
+        }
+        /*   final imageBytes = File(imagePost.toString()).readAsBytesSync(); */
+      } else if (imagePostList.length < 5) {
+        checkimagesize =
+            (((await imagePost.map((e) => e.readAsBytes())).length) / 1024);
+        print("for loop chal ra hai matlab");
+        print("KB Size---2------------------------------------$checkimagesize");
+        imagePostList.clear();
+        imagePostList.addAll(imagePost);
+        imagePostPathList.addAll(imagePost.map((e) => e.path).toList());
+      }
+
+      print("----------------------------------${imagePostList.length}");
+      print("IMAGE1----------------------------------$imagePostList");
+      print("IMAGE2----------------------------------$imagePost");
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print('Failed to pick image: $e');
+      }
+    }
+    update();
+  }
+}
+ /*    List _image1 = [];
       for (int i = 0; i < imagePost.length; i++) {
         _image1 = File(imagePost[i].path) as List;
 
@@ -288,41 +347,6 @@ class GetImage extends GetxController {
           );
         }
       } */
-
-      if (imagePost.length >= 5) {
-        print("for loop chal ra hai matlab");
-        Fluttertoast.showToast(
-            msg: 'Maxium 5 images at a time',
-            backgroundColor: Colors.black,
-            textColor: Colors.white,
-            fontSize: 16.0);
-
-        imagePostList.clear();
-        for (var i = 0; i < 5; i++) {
-          imagePostList.add(imagePost[i]);
-          imagePostPathList.add(imagePost[i].path);
-        }
-        /*   final imageBytes = File(imagePost.toString()).readAsBytesSync(); */
-      } else if (imagePostList.length < 5) {
-        print("for loop chal ra hai matlab");
-
-        imagePostList.clear();
-        imagePostList.addAll(imagePost);
-        imagePostPathList.addAll(imagePost.map((e) => e.path).toList());
-      }
-
-      print("----------------------------------${imagePostList.length}");
-      print("IMAGE1----------------------------------$imagePostList");
-      print("IMAGE2----------------------------------$imagePost");
-    } on PlatformException catch (e) {
-      if (kDebugMode) {
-        print('Failed to pick image: $e');
-      }
-    }
-    update();
-  }
-}
-
 
 /* class ProviderUpdateSeconds extends ChangeNotifier{
 

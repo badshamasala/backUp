@@ -332,7 +332,56 @@ class Googleprovider extends ChangeNotifier {
     }
   }
 
-  Future registerUser(mobileno, username, password, fullname, email) async {
+  Future newrRegisterMethod(mobileno, username, password, fullname, email,
+      accountType, genderkiValue, image) async {
+    print("vfgfgfgfy");
+    var request =
+        http.MultipartRequest('POST', Uri.parse(ApiUrl.userRegistration));
+    request.fields.addAll({
+      'api_key': 'myttube123456',
+      "mobile_no": mobileno,
+      "acc_type": accountType,
+      "user_id": username,
+      "password": password,
+      "full_name": fullname,
+      "email": email,
+      "show_all": "true",
+      "register_type": "manual",
+      "signup_language": "english",
+      "gender": genderkiValue,
+      "dob": "15-10-2002",
+      "dd": "10",
+      "mm": "2002",
+      "yy": "male",
+      "age_group": "21-45",
+    });
+    print("Mobilemo---------$mobileno");
+    print("Accounttype--------$accountType");
+    print("Username----------------$username");
+    print("Password---------------$password");
+    print("Full name---------------$fullname");
+    print("Email-----------------------$email");
+    print("Gender---------------------$genderkiValue");
+    /*  request.files.add(await http.MultipartFile.fromPath('profile_img',await image)); */
+
+    http.StreamedResponse response = await request.send();
+    var jsondata = jsonDecode(await response.stream.bytesToString());
+
+    print('JsonData-- $jsondata');
+    /*  print('Response-- $response'); */
+
+    var status = jsondata["status"];
+    print('Status - $status');
+    if (response.statusCode == 200) {
+      /* print("--------------------------------------${await response.stream.bytesToString()}"); */
+      return status;
+    } else {
+      print(response.reasonPhrase);
+    }
+  }
+
+  /* Future registerUser(mobileno, username, password, fullname, email,
+      accountType, genderkiValue) async {
     try {
       final response = await http.post(
         Uri.parse(ApiUrl.userRegistration),
@@ -342,18 +391,29 @@ class Googleprovider extends ChangeNotifier {
         body: jsonEncode({
           "api_key": "myttube123456",
           "mobile_no": mobileno,
-          "acc_type": "Viewer",
+          "acc_type": accountType,
           "user_id": username,
           "password": password,
           "full_name": fullname,
           "email": email,
-          "show_all": true
+          "show_all": true,
+          "register_type": "manual",
+          "signup_language": "english",
+          "gender": genderkiValue,
+          "dob": "15-10-2002",
+          "dd": "10",
+          "mm": "2002",
+          "yy": "male",
+          "age_group": "21-45",
+          "profile_img": "image",
         }),
       );
       var jsondata = jsonDecode(response.body);
-      print('Response-- ${response.body}');
+      print('Response.body-- ${response.body}');
+      print('JsonData-- $jsondata');
+      print('Response-- $response');
 
-      var status = jsondata[0]["status"];
+      var status = jsondata["status"];
       print('Status - $status');
 
       if (response.statusCode == 200) {
@@ -368,7 +428,7 @@ class Googleprovider extends ChangeNotifier {
           textColor: Colors.white,
           fontSize: 16.0);
     }
-  }
+  } */
 
   Future logout() async {
     await googlesignin.disconnect();

@@ -118,7 +118,7 @@ class _Addphoto1State extends State<Addphoto1> {
                         },
                       ));
             }),
-            getkar.imagePostList.length == 1 ? SizedBox() : buildIndicator(),
+            getkar.imagePostList.length != 1 ? SizedBox() : buildIndicator(),
             SizedBox(
               height: 10.h,
             ),

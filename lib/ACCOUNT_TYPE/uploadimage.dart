@@ -27,13 +27,16 @@ class UploadImage extends StatefulWidget {
   final value3;
   final value4;
   final value5;
-  const UploadImage(
-      {super.key,
-      this.value1,
-      this.value2,
-      this.value3,
-      this.value4,
-      this.value5});
+  final accounttype;
+  const UploadImage({
+    super.key,
+    this.value1,
+    this.value2,
+    this.value3,
+    this.value4,
+    this.value5,
+    this.accounttype,
+  });
 
   @override
   State<UploadImage> createState() => _UploadImageState();
@@ -64,7 +67,7 @@ class _UploadImageState extends State<UploadImage> {
   bool birth = true;
 
   bool btnchng = true;
-
+  var imagepath;
   File? image;
   Future pickImage(ImageSource source) async {
     try {
@@ -72,6 +75,10 @@ class _UploadImageState extends State<UploadImage> {
       if (image == null) return;
       final imageTemporary = File(image.path);
       setState(() => this.image = imageTemporary);
+      imagepath = image.path;
+      print("1------------------------------------------------${image.path}");
+      print(
+          "2------------------------------------------------------$imagepath");
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print('Failed to pick image: $e');
@@ -322,6 +329,7 @@ class _UploadImageState extends State<UploadImage> {
                         male = false;
                         female = true;
                         other = true;
+                        print(genderValue);
                       });
                     },
                     child: Container(
@@ -370,6 +378,7 @@ class _UploadImageState extends State<UploadImage> {
                         female = false;
                         male = true;
                         other = true;
+                        print(genderValue);
                       });
                     },
                     child: Container(
@@ -416,6 +425,7 @@ class _UploadImageState extends State<UploadImage> {
                         other = false;
                         male = true;
                         female = true;
+                        print(genderValue);
                       });
                     },
                     child: Container(
@@ -549,24 +559,24 @@ class _UploadImageState extends State<UploadImage> {
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.sp,
-                                                        color:
-                                                            const Color(0xff000000)),
+                                                        color: const Color(
+                                                            0xff000000)),
                                                   ),
                                                   Text(
                                                     'Day',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.sp,
-                                                        color:
-                                                            const Color(0xff000000)),
+                                                        color: const Color(
+                                                            0xff000000)),
                                                   ),
                                                   Text(
                                                     'Year',
                                                     style: TextStyle(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.sp,
-                                                        color:
-                                                            const Color(0xff000000)),
+                                                        color: const Color(
+                                                            0xff000000)),
                                                   ),
                                                 ],
                                               ),
@@ -581,8 +591,8 @@ class _UploadImageState extends State<UploadImage> {
                                                     style: TextStyle(
                                                         fontSize: 10.sp,
                                                         fontFamily: 'Poppins',
-                                                        color:
-                                                            const Color(0xff515253)),
+                                                        color: const Color(
+                                                            0xff515253)),
                                                   ),
                                                   Checkbox(
                                                       shape:
@@ -608,8 +618,8 @@ class _UploadImageState extends State<UploadImage> {
                                                     style: TextStyle(
                                                         fontSize: 10.sp,
                                                         fontFamily: 'Poppins',
-                                                        color:
-                                                            const Color(0xff515253)),
+                                                        color: const Color(
+                                                            0xff515253)),
                                                   ),
                                                   Switch.adaptive(
                                                       materialTapTargetSize:
@@ -633,8 +643,8 @@ class _UploadImageState extends State<UploadImage> {
                                                     style: TextStyle(
                                                         fontSize: 10.sp,
                                                         fontFamily: 'Poppins',
-                                                        color:
-                                                            const Color(0xff515253)),
+                                                        color: const Color(
+                                                            0xff515253)),
                                                   ),
                                                   Switch.adaptive(
                                                       materialTapTargetSize:
@@ -990,15 +1000,24 @@ class _UploadImageState extends State<UploadImage> {
                 width: double.infinity,
                 height: 6.h,
                 child: ElevatedButton(
-                  onPressed: male && female && other
+                  onPressed:
+                      /* male && female && other
                       ? null
-                      : () {
-                          final provider = Provider.of<Googleprovider>(context,
-                              listen: false);
-                          provider
-                              .registerUser(widget.value1, widget.value2,
-                                  widget.value3, widget.value4, widget.value5)
-                              .then(
+                      : */
+                      () async {
+                    final provider =
+                        Provider.of<Googleprovider>(context, listen: false);
+                    print("--------------------------");
+                   await provider.newrRegisterMethod(
+                        widget.value1,
+                        widget.value2,
+                        widget.value3,
+                        widget.value4,
+                        widget.value5,
+                        widget.accounttype,
+                        genderValue,
+                        imagepath)
+                               .then(
                             (value) async {
                               if (value == true) {
                                 await SharedPref.savemytubeMobileno(
@@ -1039,12 +1058,12 @@ class _UploadImageState extends State<UploadImage> {
                               }
                             },
                           );
-                          /*    Navigator.push(
+                    /*    Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const SplashScreen()),
                     ); */
-                        },
+                  },
                   style: ElevatedButton.styleFrom(
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       padding: EdgeInsets.zero,

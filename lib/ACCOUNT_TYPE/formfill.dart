@@ -21,12 +21,14 @@ class Formfill extends StatefulWidget {
   final value2;
   final value3;
   final value;
+  final accounttype;
   const Formfill({
     Key? key,
     this.value1,
     this.value2,
     this.value3,
     this.value,
+    this.accounttype,
   }) : super(key: key);
 
   @override
@@ -382,6 +384,7 @@ class _FormfillState extends State<Formfill> {
                         height: 6.h,
                         child: ElevatedButton(
                           onPressed: () {
+                            /*       print("adaswdaswdasw"); */
                             /* Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -689,8 +692,9 @@ class _FormfillState extends State<Formfill> {
         labelText: labeltext,
         errorStyle: const TextStyle(fontSize: 8, height: 0.2),
         labelStyle: TextStyle(
-            color:
-                emailfocusNode.hasFocus ? customTextColor : const Color(0xffc4c4c4),
+            color: emailfocusNode.hasFocus
+                ? customTextColor
+                : const Color(0xffc4c4c4),
             fontFamily: 'Poppins',
             fontSize: 12),
         focusedBorder: OutlineInputBorder(
@@ -745,6 +749,7 @@ class _FormfillState extends State<Formfill> {
                         value3: password,
                         value4: fullname,
                         value5: email,
+                        accounttype: widget.accounttype,
                       )),
             );
           } else if (widget.value2) {

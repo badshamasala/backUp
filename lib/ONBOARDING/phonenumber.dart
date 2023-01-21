@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api, avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/account_type/accounttype.dart';
@@ -8,13 +6,8 @@ import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 
 import 'package:flutter_application_1/ONBOARDING/slider.dart';
-import 'package:flutter_application_1/google_login/googleprovider.dart';
-import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class PhoneNumber extends StatefulWidget {
@@ -239,7 +232,15 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   width: double.infinity,
                   height: 6.h,
                   child: ElevatedButton(
-                    onPressed: check10number
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AccountType(
+                                    value: phonekanumber,
+                                  )));
+                    },
+                    /* check10number
                         ? null
                         : () async {
                             final provider = Provider.of<Googleprovider>(
@@ -353,56 +354,6 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                     SizedBox(
                                                       height: height * 0.05,
                                                     ),
-                                                    /*   GetBuilder< HomeController>(
-                                                          builder:(controller) {
-                                                        return */
-                                                    /*  Obx((() =>
-                                                          PinFieldAutoFill(
-                                                            textInputAction:
-                                                                TextInputAction
-                                                                    .done,
-                                                            controller: controller
-                                                                .otpEditingController,
-                                                            decoration:
-                                                                UnderlineDecoration(
-                                                              textStyle: const TextStyle(
-                                                                  fontSize:
-                                                                      16,
-                                                                  color: Colors
-                                                                      .blue),
-                                                              colorBuilder:
-                                                                  const FixedColorBuilder(
-                                                                Colors
-                                                                    .transparent,
-                                                              ),
-                                                              bgColorBuilder:
-                                                                  FixedColorBuilder(
-                                                                Colors.grey
-                                                                    .withOpacity(
-                                                                        0.2),
-                                                              ),
-                                                            ),
-                                                            currentCode:
-                                                                controller
-                                                                    .messageOtpCode
-                                                                    .value,
-                                                            onCodeSubmitted:
-                                                                (code) {},
-                                                            onCodeChanged:
-                                                                (code) {
-                                                              controller
-                                                                  .messageOtpCode
-                                                                  .value = code!;
-                                                              controller
-                                                                  .countdownController
-                                                                  .pause();
-                                                              if (code.length ==
-                                                                  6) {
-                                                                // To perform some operation
-                                                              }
-                                                            },
-                                                          ))), */
-                                                    /* }), */
                                                     Padding(
                                                       padding:
                                                           EdgeInsets.symmetric(
@@ -455,8 +406,6 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                         backgroundColor:
                                                             Colors.transparent,
                                                         enableActiveFill: true,
-                                                        /* errorAnimationController: errorController,
-  controller: textEditingController, */
                                                         onCompleted:
                                                             (verificationCode) {
                                                           setState(() {
@@ -477,24 +426,6 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                             });
                                                           }
                                                         },
-                                                        /*   onSubmitted:
-                                                            (verificationCode) {
-                                                          setState(() {
-                                                            checktoken =
-                                                                verificationCode;
-                                                          });
-                                                          if (verificationCode
-                                                                  .length !=
-                                                              6) {
-                                                            setState(() {
-                                                              check6digit = true;
-                                                            });
-                                                          } else {
-                                                            setState(() {
-                                                              check6digit = false;
-                                                            });
-                                                          }
-                                                        }, */
                                                         onChanged: (value) {
                                                           setState(() {
                                                             checktoken = token;
@@ -510,48 +441,6 @@ class _PhoneNumberState extends State<PhoneNumber> {
                                                         },
                                                       ),
                                                     ),
-                                                    /*   OtpTextField(
-                                                      onCodeChanged: (value) {
-                                                        setState(() {
-                                                          checktoken = token;
-                                                        });
-                                                      },
-                                                      autoFocus: true,
-                                                      filled: true,
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                              right: 3.0),
-                                                      fieldWidth: 44,
-                                                      fillColor: const Color(
-                                                          0xffDFEEFC),
-                                                      borderWidth: 0.5,
-                                                      focusedBorderColor:
-                                                          primaryColorOfApp,
-                                                      numberOfFields: 6,
-                                                      enabledBorderColor:
-                                                          customTextColor,
-                                                      borderColor:
-                                                          customTextColor,
-                                                      showFieldAsBox: true,
-                                                      onSubmit:
-                                                          (verificationCode) {
-                                                        setState(() {
-                                                          checktoken =
-                                                              verificationCode;
-                                                        });
-                                                        if (verificationCode
-                                                                .length !=
-                                                            6) {
-                                                          setState(() {
-                                                            check6digit = true;
-                                                          });
-                                                        } else {
-                                                          setState(() {
-                                                            check6digit = false;
-                                                          });
-                                                        }
-                                                      },
-                                                    ), */
                                                     SizedBox(
                                                       height: height * 0.01,
                                                     ),
@@ -679,7 +568,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
                             /* }
                               },
                             ); */
-                          },
+                          }, */
                     style: ElevatedButton.styleFrom(
                         elevation: 0,
                         backgroundColor: const Color(0xff0087FF),

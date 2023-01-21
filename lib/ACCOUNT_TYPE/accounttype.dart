@@ -16,32 +16,35 @@ class AccountType extends StatefulWidget {
   @override
   State<AccountType> createState() => _AccountTypeState();
 }
+
 bool value1 = false;
-  bool value2 = false;
-  bool value3 = false;
-  dynamic groupvalues;
+bool value2 = false;
+bool value3 = false;
+dynamic groupvalues;
+dynamic accountTypeId;
 
-  List acttypeList = [
-    {
-      "type": "Viewer Or Private",
-      "label1": "#content-excellent for Entertainment,",
-      "label2": "collect points, surprise gift and more"
-    },
-    {
-      "type": "Business Or Brand",
-      "label1": "#content-excellent for grow your",
-      "label2": "brand, business in the world and more"
-    },
-    {
-      "type": "Creator Or Public Figure",
-      "label1": "#content-excellent for collaboration,",
-      "label2": "earn money and many more"
-    },
-  ];
-
+List acttypeList = [
+  {
+    "type": "Viewer Or Private",
+    "id": "Viewer",
+    "label1": "#content-excellent for Entertainment,",
+    "label2": "collect points, surprise gift and more"
+  },
+  {
+    "type": "Business Or Brand",
+    "id": "Business",
+    "label1": "#content-excellent for grow your",
+    "label2": "brand, business in the world and more"
+  },
+  {
+    "type": "Creator Or Public Figure",
+    "id": "Creator",
+    "label1": "#content-excellent for collaboration,",
+    "label2": "earn money and many more"
+  },
+];
 
 class _AccountTypeState extends State<AccountType> {
-  
   @override
   Widget build(BuildContext context) {
     Size size;
@@ -231,13 +234,16 @@ class _AccountTypeState extends State<AccountType> {
                                             ? value2
                                             : value3,
                                     groupValue: groupvalues,
-                                    onChanged: (val) {
+                                    onChanged: (val) async {
                                       if (index == 0) {
                                         setState(() {
                                           value1 = true;
                                           value2 = false;
                                           value3 = false;
                                           groupvalues = value1;
+
+                                          accountTypeId =
+                                              acttypeList[index]["id"];
                                         });
                                       } else if (index == 1) {
                                         setState(() {
@@ -245,6 +251,8 @@ class _AccountTypeState extends State<AccountType> {
                                           value2 = true;
                                           value3 = false;
                                           groupvalues = value2;
+                                          accountTypeId =
+                                              acttypeList[index]["id"];
                                         });
                                       } else if (index == 2) {
                                         setState(() {
@@ -252,6 +260,8 @@ class _AccountTypeState extends State<AccountType> {
                                           value2 = false;
                                           value3 = true;
                                           groupvalues = value3;
+                                          accountTypeId =
+                                              acttypeList[index]["id"];
                                         });
                                       }
                                     },
@@ -450,6 +460,7 @@ class _AccountTypeState extends State<AccountType> {
                                       value2: value2,
                                       value3: value3,
                                       value: widget.value,
+                                      accounttype: accountTypeId,
                                     )),
                           );
                         },
