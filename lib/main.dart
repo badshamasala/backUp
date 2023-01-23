@@ -9,6 +9,7 @@ import 'package:flutter_application_1/globals/app_theme_widget.dart';
 import 'package:flutter_application_1/archive_post/history1.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
 import 'package:flutter_application_1/homepage/homepage.dart';
+import 'package:flutter_application_1/onboarding/loginpage.dart';
 import 'package:flutter_application_1/onboarding/slider.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/promote/promote.dart';
@@ -106,7 +107,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: Slider1() /* LoginPage12() */
+                  home: HomePage() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(

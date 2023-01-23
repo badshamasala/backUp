@@ -258,8 +258,9 @@ class GetImage extends GetxController {
     update();
   }
 
-  List newlist = [];
-
+  List<double> newlist = [];
+  /* List newlist = []; */
+  dynamic sum = 0;
   var checkimagesize;
   pickforImagePost(context) async {
     try {
@@ -278,36 +279,51 @@ class GetImage extends GetxController {
         imagePostList.clear();
         for (var i = 0; i < 5; i++) {
           checkimagesize = (((await imagePost[i].readAsBytes()).length) / 1024);
-          /*      if (checkimagesize > 500) {
-            Fluttertoast.showToast(
-                msg: 'Image Size should not be greater tha 500KB',
-                backgroundColor: Colors.black,
-                textColor: Colors.white,
-                fontSize: 16.0);
-          } else { */
-          newlist.addAll(await checkimagesize);
-          imagePostList.add(imagePost[i]);
-          imagePostPathList.add(imagePost[i].path);
-          print("--------------------------------------------------$newlist");
-          /*   } */
-          /*     if (( (await imagePost[i].readAsBytes()).length) / 1024 < 500) { */
-          print(
-              "Read as Byte----------------------------------${(await imagePost[i].readAsBytes()).length}");
+          newlist.add(checkimagesize);
+          if (checkimagesize < 501) {
+            imagePostList.add(imagePost[i]);
+            imagePostPathList.add(imagePost[i].path);
+          }
 
+          /*     sum += newlist[i]; */
+
+          print(
+              "Sum of all images size------------------------------------------$sum");
+          print(
+              "NewList--------------------------------------------------$newlist");
+          /* print("Read as Byte----------------------------------${(await imagePost[i].readAsBytes()).length}"); */
           print(
               "KB Size---1------------------------------------$checkimagesize");
-          /*      }  */
-
         }
-        /*   final imageBytes = File(imagePost.toString()).readAsBytesSync(); */
       } else if (imagePostList.length < 5) {
         checkimagesize =
             (((await imagePost.map((e) => e.readAsBytes())).length) / 1024);
         print("for loop chal ra hai matlab");
         print("KB Size---2------------------------------------$checkimagesize");
         imagePostList.clear();
-        imagePostList.addAll(imagePost);
+        for (var i = 0; i < imagePost.length; i++) {
+          checkimagesize = (((await imagePost[i].readAsBytes()).length) / 1024);
+          newlist.add(checkimagesize);
+          if (checkimagesize < 501) {
+            imagePostList.add(imagePost[i]);
+            imagePostPathList.add(imagePost[i].path);
+          }
+
+          /*     sum += newlist[i]; */
+
+          print(
+              "Sum of all images size------------------------------------------$sum");
+          print(
+              "NewList--------------------------------------------------$newlist");
+          /* print("Read as Byte----------------------------------${(await imagePost[i].readAsBytes()).length}"); */
+          print(
+              "KB Size---2------------------------------------$checkimagesize");
+        }
+        /* if (checkimagesize <501) {
+            imagePostList.addAll(imagePost);
         imagePostPathList.addAll(imagePost.map((e) => e.path).toList());
+        } */
+
       }
 
       print("----------------------------------${imagePostList.length}");

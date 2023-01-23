@@ -44,14 +44,7 @@ class _Home1State extends State<Home1> {
   badsha() async {
     await getkar.pickforImagePost(context);
 
-    if (getkar.checkimagesize > 500) {
-      Fluttertoast.showToast(
-          msg: 'Image Size should not be greater tha 500KB',
-          backgroundColor: Colors.black,
-          textColor: Colors.white,
-          fontSize: 16.0);
-      return;
-    } else if (getkar.imagePostList.isNotEmpty && getkar.checkimagesize < 500) {
+    if (getkar.imagePostList.isNotEmpty) {
       Get.to(() => const Addphoto1());
     } else {
       return;
@@ -205,7 +198,7 @@ class _Home1State extends State<Home1> {
                           padding: EdgeInsets.zero,
                           constraints: const BoxConstraints(),
                           onPressed: () async {
-                         /*    await provider.registerUser("1245", "ek_no.",
+                            /*    await provider.registerUser("1245", "ek_no.",
                                 "passko", "badshamasal", "adada@gmail.com"); */
                             /* var token = await SharedPref.getToken();
 
@@ -407,17 +400,17 @@ class _Home1State extends State<Home1> {
                                   color: Colors.transparent,
                                 ),
                                 InkWell(
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                    setState(() {
-                                      floatchupa = true;
-                                    });
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Promote()),
+                                  onTap: () async {
+                                    print("dddaa");
+                                    var _picker = ImagePicker();
+                                    final XFile? video =
+                                        await _picker.pickVideo(
+                                      source: ImageSource.camera,
                                     );
+                                    print(
+                                        "Path----------------------------------------------${video!.path}");
+                                    print(
+                                        "Video----------------------------------------------$video");
                                   },
                                   child: Padding(
                                     padding: EdgeInsets.only(left: 5.w),
@@ -576,41 +569,56 @@ class _Home1State extends State<Home1> {
                                   height: 2.2.h,
                                   color: Colors.transparent,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 5.w),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Material(
-                                        borderRadius:
-                                            BorderRadius.circular(25.sp),
-                                        elevation: 10,
-                                        child: Container(
-                                          decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.white),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(13.sp),
-                                            child: const Iconify(
-                                                Ic.baseline_live_tv,
-                                                color: primaryColorOfApp),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    setState(() {
+                                      floatchupa = true;
+                                    });
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Promote()),
+                                    );
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: 5.w),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Material(
+                                          borderRadius:
+                                              BorderRadius.circular(25.sp),
+                                          elevation: 10,
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.white),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(13.sp),
+                                              child: const Iconify(
+                                                  Ic.baseline_live_tv,
+                                                  color: primaryColorOfApp),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10.0),
-                                        child: Text(
-                                          'Live',
-                                          style: TextStyle(
-                                              color: primaryColorOfApp,
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w600,
-                                              letterSpacing: 0.2,
-                                              fontSize: 12.sp),
-                                        ),
-                                      )
-                                    ],
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10.0),
+                                          child: Text(
+                                            'Live',
+                                            style: TextStyle(
+                                                color: primaryColorOfApp,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w600,
+                                                letterSpacing: 0.2,
+                                                fontSize: 12.sp),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 Divider(

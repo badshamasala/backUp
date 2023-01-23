@@ -112,7 +112,7 @@ class _Addphoto2State extends State<Addphoto2> {
                   ),
                   OutlinedButton(
                     onPressed: () async {
-                      await provider2.newmethod(getkar.imagePostPathList);
+                      await provider2.postImageMethod(getkar.imagePostPathList);
                     },
                     style: OutlinedButton.styleFrom(
                         padding: EdgeInsets.zero,

@@ -132,7 +132,7 @@ class Googleprovider extends ChangeNotifier {
     }
   }
 
-  newmethod(listimage) async {
+  postImageMethod(listimage) async {
     var headers = {
       'Authorization':
           'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYmYiOjE2NzM4NDU4MTYsImV4cCI6MTY3NDQ1MDYxNiwiaWF0IjoxNjczODQ1ODE2fQ.tnP8Cj1xDNUKvmXYotw4DAGodOt4cNVZFq1tnCHpNW4'
@@ -160,6 +160,46 @@ class Googleprovider extends ChangeNotifier {
           .add(await http.MultipartFile.fromPath('multiple_files', img));
       print("--------------------------");
     }
+    print("post done----------------------------------------");
+    request.headers.addAll(headers);
+
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      print("ho gaya----------------------------------------");
+      print(await response.stream.bytesToString());
+    } else {
+      print(response.reasonPhrase);
+    }
+  }
+  postVideoMethod(video) async {
+    var headers = {
+      'Authorization':
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYmYiOjE2NzM4NDU4MTYsImV4cCI6MTY3NDQ1MDYxNiwiaWF0IjoxNjczODQ1ODE2fQ.tnP8Cj1xDNUKvmXYotw4DAGodOt4cNVZFq1tnCHpNW4'
+    };
+    var request = http.MultipartRequest(
+        'POST', Uri.parse('https://api.myttube.com/api/Post/add-post'));
+    request.fields.addAll({
+      'api_key': 'myttube123456',
+      'signup_master_id': '2',
+      'post_type': 'video',
+      'short_description': 'rashidbadsha',
+      'long_description': 'masala',
+      'has_tag': 'flutter',
+      'mention_profile': 'saifs377',
+      'url_link': 'https://localhost:44328/api/Post/add-post',
+      'url_music': 'https://localhost:44328/api/Post/add-post',
+      'location': 'Mumbai',
+      'schedule_date': '10-08-2023',
+      'partner_id': '1',
+      'restricted_mode': 'true',
+    
+    });
+   
+      request.files
+          .add(await http.MultipartFile.fromPath('single_file', video));
+      print("--------------------------");
+   
     print("post done----------------------------------------");
     request.headers.addAll(headers);
 
