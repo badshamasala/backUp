@@ -11,6 +11,7 @@ import 'package:flutter_application_1/comment/comments.dart';
 import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/google_login/googleprovider.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
+import 'package:flutter_application_1/homepage/video_player.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/promote/promote.dart';
 import 'package:flutter_application_1/text_post/podcast.dart';
@@ -41,11 +42,23 @@ class Home1 extends StatefulWidget {
 
 class _Home1State extends State<Home1> {
   final GetImage getkar = Get.put(GetImage());
-  badsha() async {
-    await getkar.pickforImagePost(context);
+  imagePage() async {
+    await getkar.pickforImagePost();
 
     if (getkar.imagePostList.isNotEmpty) {
       Get.to(() => const Addphoto1());
+    } else {
+      return;
+    }
+  }
+
+  videoPage() async {
+    await getkar.pickforVideoPost();
+
+    if (getkar.videopath!.path.isNotEmpty) {
+      Get.to(() => VideoApp(
+            value: getkar.videopath,
+          ));
     } else {
       return;
     }
@@ -351,10 +364,8 @@ class _Home1State extends State<Home1> {
                                 InkWell(
                                   onTap: () {
                                     Navigator.pop(context);
-                                    /*  setState(() {
-                                      floatchupa = true;
-                                    }); */
-                                    badsha();
+
+                                    imagePage();
                                   },
                                   child: Padding(
                                     padding: EdgeInsets.only(left: 5.w),
@@ -401,16 +412,7 @@ class _Home1State extends State<Home1> {
                                 ),
                                 InkWell(
                                   onTap: () async {
-                                    print("dddaa");
-                                    var _picker = ImagePicker();
-                                    final XFile? video =
-                                        await _picker.pickVideo(
-                                      source: ImageSource.camera,
-                                    );
-                                    print(
-                                        "Path----------------------------------------------${video!.path}");
-                                    print(
-                                        "Video----------------------------------------------$video");
+                                    await videoPage();
                                   },
                                   child: Padding(
                                     padding: EdgeInsets.only(left: 5.w),

@@ -13,6 +13,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:video_player/video_player.dart';
 
 class GetUpdateSeconds extends GetxController {
   File? image;
@@ -262,7 +263,7 @@ class GetImage extends GetxController {
   /* List newlist = []; */
   dynamic sum = 0;
   var checkimagesize;
-  pickforImagePost(context) async {
+  pickforImagePost() async {
     try {
       final List<XFile> imagePost =
           await ImagePicker().pickMultiImage(imageQuality: 40);
@@ -336,78 +337,25 @@ class GetImage extends GetxController {
     }
     update();
   }
+
+  File? videopath;
+  VideoPlayerController? videoPlayerController;
+  pickforVideoPost() async {
+    var picker = ImagePicker();
+    XFile? video = await picker.pickVideo(
+      source: ImageSource.gallery,
+    );
+    if (video == null) return;
+
+    videopath = File(video.path);
+    videoPlayerController = VideoPlayerController.file(videopath!)
+      ..initialize().then((_) {
+        videoPlayerController!.play();
+      });
+    print("Path----------------------------------------------${video.path}");
+    print("Video----------------------------------------------$video");
+    update();
+  }
 }
- /*    List _image1 = [];
-      for (int i = 0; i < imagePost.length; i++) {
-        _image1 = File(imagePost[i].path) as List;
-
-       /*  int checkinmbimage = _image1.lengthSync(); */
-    /*     double sizeInMbimage = checkinmbimage / (1024 * 1024); */
-
-        if (sizeInMbimage > 11) {
-          Widget okButton = TextButton(
-            child: Text("OK"),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          );
-          print('Image must be less than 10 MB');
-          print("Image-----------------------$checkinmbimage");
-          print("Image-----------------------$sizeInMbimage");
-          AlertDialog alert = AlertDialog(
-            title: Text(" Alert"),
-            content: Text("Image must be less than 10 MB"),
-            actions: [
-              okButton,
-            ],
-          );
-        }
-      } */
-
-/* class ProviderUpdateSeconds extends ChangeNotifier{
 
 
-   int seconds = 30;
-   int get _seconds => seconds;
-
-  late Timer? timer;
-
-  bool timerkhatam1 = true;
-  void startTimer() {
-    print('---------------------------');
-    print('badsmadladknsk');
-    timer = Timer.periodic( Duration(seconds: 1), (_) {
-      if (seconds > 0) {
-        seconds--;
-        timerchalu();
-        notifyListeners();
-      } else {
-        timer!.cancel();
-        timerband();
-        /* timerkinewvalue(); */
-     notifyListeners();
-      }
-    });
-  }
-
-
-  
-  timerchalu() {
-    timerkhatam1 = true;
-    notifyListeners();
-  }
-
-  timerband() {
-    timerkhatam1 = false;
-   notifyListeners();
-  }
-
-  nayamethod() {
-    timerkhatam1 = true;
-    seconds = 30;
-    startTimer();
-  notifyListeners();
-  }
-
-}
- */
