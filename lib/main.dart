@@ -5,6 +5,7 @@ import 'package:flutter_application_1/add_post/addphoto1.dart';
 
 import 'package:flutter_application_1/add_post/hashTag.dart';
 import 'package:flutter_application_1/add_post/mention_user.dart';
+import 'package:flutter_application_1/getx/check.dart';
 import 'package:flutter_application_1/globals/app_theme_widget.dart';
 import 'package:flutter_application_1/archive_post/history1.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';

@@ -113,7 +113,7 @@ class _AtrompostState extends State<Atrompost> {
                       },
                       if(allpost[index]['media_type']==2)...{
                    
-                    VideoApp(value:allpost[index]['media'])
+                    /* VideoApp(value:allpost[index]['media']) */
                         
                   
                       }

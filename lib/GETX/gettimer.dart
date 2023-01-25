@@ -338,24 +338,10 @@ class GetImage extends GetxController {
     update();
   }
 
-  File? videopath;
-  VideoPlayerController? videoPlayerController;
-  pickforVideoPost() async {
-    var picker = ImagePicker();
-    XFile? video = await picker.pickVideo(
-      source: ImageSource.gallery,
-    );
-    if (video == null) return;
+  
 
-    videopath = File(video.path);
-    videoPlayerController = VideoPlayerController.file(videopath!)
-      ..initialize().then((_) {
-        videoPlayerController!.play();
-      });
-    print("Path----------------------------------------------${video.path}");
-    print("Video----------------------------------------------$video");
-    update();
-  }
+  /*  initialize(){
+  
+   
+  } */
 }
-
-

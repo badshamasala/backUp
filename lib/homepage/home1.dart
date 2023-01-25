@@ -12,12 +12,14 @@ import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/google_login/googleprovider.dart';
 import 'package:flutter_application_1/homepage/giftsend.dart';
 import 'package:flutter_application_1/homepage/video_player.dart';
+import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/promote/promote.dart';
 import 'package:flutter_application_1/text_post/podcast.dart';
 import 'package:flutter_application_1/text_post/post_text.dart';
 import 'package:flutter_application_1/people_profile/people_profile.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/icons/emojione_monotone.dart';
 import 'package:iconify_flutter/icons/ic.dart';
@@ -32,6 +34,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/ooui.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:video_player/video_player.dart';
 
 class Home1 extends StatefulWidget {
   const Home1({super.key});
@@ -52,16 +55,230 @@ class _Home1State extends State<Home1> {
     }
   }
 
-  videoPage() async {
-    await getkar.pickforVideoPost();
+  VideoPlayerController? _controller;
+  VideoPlayerController? _toBeDisposed;
+  bool isCamera = false;
+  final ImagePicker _picker = ImagePicker();
+  var videopath;
+  var videopath1;
+  var checkMbSize;
+  Future<void> pickforVideoPost(ImageSource source) async {
+    XFile? file = await _picker.pickVideo(
+        source: source, maxDuration: Duration(seconds: 30));
+    if (file == null) return;
+    if (file != null && mounted) {
+      await _disposeVideoController();
+      late VideoPlayerController controller;
 
-    if (getkar.videopath!.path.isNotEmpty) {
-      Get.to(() => VideoApp(
-            value: getkar.videopath,
-          ));
-    } else {
+      controller = VideoPlayerController.file(File(file.path));
+
+      _controller = controller;
+      videopath = file.path;
+      videopath1 = File(file.path);
+      await controller.initialize();
+
+      print("Size-------------------------${videopath1.lengthSync()}");
+      checkMbSize = await (videopath1.lengthSync() / 1000000);
+      print("Size---------------------------------------------------${checkMbSize}");
+      print("Size---------------------------------------------------${videopath}");
+     if ( controller.value.duration.inSeconds > 30 || checkMbSize  > 5 ) {
+        print("-----------------------If1-------------------------");
+        Fluttertoast.showToast(
+            msg: "Video Should less than 30 seconds and 5-Mb",
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+            fontSize: 16.0);
+        return;
+      } else {
+        print("-----------------------Else1-------------------------");
+        await controller.setLooping(true);
+        await controller.play();
+        setState(() {});
+      }
+    }
+  }
+
+  Future<void> retrieveLostData() async {
+    final LostDataResponse response = await _picker.retrieveLostData();
+    if (response.isEmpty) {
       return;
     }
+    if (response.file != null) {
+      if (response.type == RetrieveType.video) {
+        await pickforVideoPost(
+            isCamera ? ImageSource.camera : ImageSource.gallery);
+      }
+    }
+  }
+
+  Future<void> _disposeVideoController() async {
+    if (_toBeDisposed != null) {
+      await _toBeDisposed!.dispose();
+    }
+    _toBeDisposed = _controller;
+    _controller = null;
+  }
+
+  videoPage() async {
+    await showModalBottomSheet(
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          // <-- SEE HERE
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(20.0),
+          ),
+        ),
+        context: context,
+        builder: (BuildContext context) {
+          return Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Container(
+                      color: const Color(0xffE2E2E2),
+                      height: 7,
+                      width: 70,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(left: 80.0),
+                        child: Text(
+                          'Your Profile Photo',
+                          style: TextStyle(
+                              color: Color(0xff333333),
+                              fontSize: 15,
+                              fontFamily: 'Poppins'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  const Divider(),
+                  SizedBox(
+                    height: 3.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          RawMaterialButton(
+                            padding: EdgeInsets.zero,
+                            constraints: const BoxConstraints(
+                                minHeight: 45, minWidth: 45),
+                            onPressed: () async {
+                              await pickforVideoPost(ImageSource.camera);
+                              Navigator.pop(context);
+                              setState(() {
+                                isCamera = true;
+                              });
+
+                              if (videopath == null || checkMbSize > 5) {
+                                print(
+                                    "-----------------------If2-------------------------");
+                                return;
+                              } else {
+                                print(
+                                    "-----------------------Else2-------------------------");
+                                Get.to(() => VideoApp(
+                                    controller: _controller,
+                                    isInitialize: retrieveLostData(),
+                                    videopath: videopath));
+                              }
+                            },
+                            elevation: 0,
+                            fillColor: const Color(0xffDADADA),
+                            /*  padding: EdgeInsets.all(15.0), */
+                            shape: const CircleBorder(
+                                /* side: BorderSide(
+                                                            width: 1,
+                                                            color: Color(0xff0087FF)) */
+                                ),
+                            child: const FaIcon(
+                              FontAwesomeIcons.camera,
+                              color: Color(0xff0087FF),
+                              size: 17,
+                            ),
+                          ),
+                          const Text(
+                            'camera',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333)),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          RawMaterialButton(
+                            padding: EdgeInsets.zero,
+                            constraints: const BoxConstraints(
+                                minHeight: 45, minWidth: 45),
+                            onPressed: () async {
+                              await pickforVideoPost(ImageSource.gallery);
+                              Navigator.pop(context);
+
+                              if (videopath == null || checkMbSize > 5 || _controller!.value.duration.inSeconds > 30) {
+                                print(
+                                    "-----------------------If2-------------------------");
+                                return;
+                              } else {
+                                print(
+                                    "-----------------------Else2-------------------------");
+                                Get.to(() => VideoApp(
+                                    controller: _controller,
+                                    isInitialize: retrieveLostData(),
+                                    videopath: videopath));
+                              }
+                            },
+                            elevation: 0,
+                            fillColor: const Color(0xffDADADA),
+                            /*  padding: EdgeInsets.all(15.0), */
+                            shape: const CircleBorder(
+                                /* side: BorderSide(
+                                                            width: 1,
+                                                            color: Color(0xff0087FF)) */
+                                ),
+                            child: const Icon(
+                              Icons.photo,
+                              color: Color(0xff0087FF),
+                              size: 17,
+                            ),
+                          ),
+                          const Text(
+                            'gallery',
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xff333333)),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                ],
+              ),
+              positionCross(context)
+            ],
+          );
+        });
   }
 
   var images = [
@@ -412,6 +629,7 @@ class _Home1State extends State<Home1> {
                                 ),
                                 InkWell(
                                   onTap: () async {
+                                    Navigator.pop(context);
                                     await videoPage();
                                   },
                                   child: Padding(

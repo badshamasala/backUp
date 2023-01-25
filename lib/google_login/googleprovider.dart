@@ -172,10 +172,14 @@ class Googleprovider extends ChangeNotifier {
       print(response.reasonPhrase);
     }
   }
+
+  bool isloading = false;
+
   postVideoMethod(video) async {
+    print("-------------------Api se Pehel-----------------------------");
     var headers = {
       'Authorization':
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYmYiOjE2NzM4NDU4MTYsImV4cCI6MTY3NDQ1MDYxNiwiaWF0IjoxNjczODQ1ODE2fQ.tnP8Cj1xDNUKvmXYotw4DAGodOt4cNVZFq1tnCHpNW4'
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc0NDU0NjkwLCJleHAiOjE2NzUwNTk0OTAsImlhdCI6MTY3NDQ1NDY5MH0.f4sGel40WAQecA94YLbXTrvN1FySUQs0riRkVMknpEg'
     };
     var request = http.MultipartRequest(
         'POST', Uri.parse('https://api.myttube.com/api/Post/add-post'));
@@ -193,24 +197,27 @@ class Googleprovider extends ChangeNotifier {
       'schedule_date': '10-08-2023',
       'partner_id': '1',
       'restricted_mode': 'true',
-    
     });
-   
-      request.files
-          .add(await http.MultipartFile.fromPath('single_file', video));
-      print("--------------------------");
-   
-    print("post done----------------------------------------");
+    print("-------------------Api ke Baad-----------------------------");
+    print(
+        "Path Check-----------------------------------------------------------$video");
+    request.files.add(await http.MultipartFile.fromPath('single_file', video));
+    print("1----------------------------------------");
     request.headers.addAll(headers);
-
-    http.StreamedResponse response = await request.send();
-
+    print("2----------------------------------------");
+    isloading = true;
+    http.StreamedResponse response = await request.send().whenComplete(() {
+      isloading = false;
+    });
+    print("3----------------------------------------");
     if (response.statusCode == 200) {
-      print("ho gaya----------------------------------------");
+      print("4----------------------------------------");
       print(await response.stream.bytesToString());
+      print("5----------------------------------------");
     } else {
       print(response.reasonPhrase);
     }
+    notifyListeners();
   }
 
   Future otpmethod(dynamic mobileno) async {
