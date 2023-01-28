@@ -3,6 +3,7 @@ class ApiUrl {
 
   static const addPost = "https://api.myttube.com/api/Post/add-post";
   static const hashTag = "https://api.myttube.com/api/HasTag/add-has-tag";
+  static const getImageList = "https://api.myttube.com/api/Post/get-image-post";
   static const mentionUser =
       "https://api.myttube.com/api/Post/get-all-mentions"; //------------GET
 

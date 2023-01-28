@@ -24,6 +24,9 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import 'people_profile/getVideoList.dart';
+import 'people_profile/getimagelist.dart';
+
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -79,6 +82,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
         ChangeNotifierProvider(create: (_) => Filterprovider()),
         ChangeNotifierProvider(create: (_) => HashtagProvider()),
         ChangeNotifierProvider(create: (_) => MentionProvider()),
+      
 
         /*      ChangeNotifierProvider(create: (_) => ThemeProvider()), */
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
@@ -108,7 +112,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: HomePage() /* LoginPage12() */
+                  home: GetVideoList() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(

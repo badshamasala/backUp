@@ -128,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                             decoration: InputDecoration(
                               isDense: true,
                               errorStyle:
-                               TextStyle(fontSize: 8.sp, height: 0.2),
+                                  TextStyle(fontSize: 8.sp, height: 0.2),
                               labelText: 'username'.tr,
                               labelStyle: TextStyle(
                                   color: customTextColor,
@@ -152,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: const UploadImage().radius(),
                                   borderSide: const BorderSide(
                                       color: Color(0xff0087FF), width: 0.5)),
-                              contentPadding:  EdgeInsets.symmetric(
+                              contentPadding: EdgeInsets.symmetric(
                                   vertical: 10.sp, horizontal: 10.sp),
                             ),
                             onChanged: (value) {
@@ -1064,8 +1064,12 @@ class _LoginPageState extends State<LoginPage> {
       print('rashid');
       final provider = Provider.of<Googleprovider>(context, listen: false);
       await provider
-          .loginmethod(username.text, password.text, context)
+          .loginmethod(
+        username.text,
+        password.text,
+      )
           .then((value) async {
+        print("Value---------------------------------------------------------------------------$value");
         if (value == true) {
           setState(() {
             isloading = false;

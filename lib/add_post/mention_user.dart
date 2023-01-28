@@ -225,7 +225,7 @@ class MentionProvider extends ChangeNotifier {
             'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc0MTMwMjkyLCJleHAiOjE2NzQ3MzUwOTIsImlhdCI6MTY3NDEzMDI5Mn0.Y2HO5gmggkawC_-SVPbFyzUMF9FZmvCi8VMW2TFWxA8'
       };
       var request = http.MultipartRequest('GET',
-          Uri.parse('https://api.myttube.com/api/Post/get-all-mentions'));
+          Uri.parse(ApiUrl.mentionUser));
       request.fields.addAll({'api_key': 'myttube123456'});
 
       request.headers.addAll(headers);

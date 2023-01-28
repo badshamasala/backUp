@@ -79,9 +79,11 @@ class _Home1State extends State<Home1> {
 
       print("Size-------------------------${videopath1.lengthSync()}");
       checkMbSize = await (videopath1.lengthSync() / 1000000);
-      print("Size---------------------------------------------------${checkMbSize}");
-      print("Size---------------------------------------------------${videopath}");
-     if ( controller.value.duration.inSeconds > 30 || checkMbSize  > 5 ) {
+      print(
+          "Size---------------------------------------------------${checkMbSize}");
+      print(
+          "Size---------------------------------------------------${videopath}");
+      if (controller.value.duration.inSeconds > 30 || checkMbSize > 5) {
         print("-----------------------If1-------------------------");
         Fluttertoast.showToast(
             msg: "Video Should less than 30 seconds and 5-Mb",
@@ -233,7 +235,9 @@ class _Home1State extends State<Home1> {
                               await pickforVideoPost(ImageSource.gallery);
                               Navigator.pop(context);
 
-                              if (videopath == null || checkMbSize > 5 || _controller!.value.duration.inSeconds > 30) {
+                              if (videopath == null ||
+                                  checkMbSize > 5 ||
+                                  _controller!.value.duration.inSeconds > 30) {
                                 print(
                                     "-----------------------If2-------------------------");
                                 return;
@@ -430,9 +434,9 @@ class _Home1State extends State<Home1> {
                           onPressed: () async {
                             /*    await provider.registerUser("1245", "ek_no.",
                                 "passko", "badshamasal", "adada@gmail.com"); */
-                            /* var token = await SharedPref.getToken();
+                            var token = await SharedPref.getToken();
 
-                            print(token); */
+                            print(token);
                           },
                           icon: Iconify(
                             appBaricon[index],

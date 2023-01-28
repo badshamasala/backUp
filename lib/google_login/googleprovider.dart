@@ -93,26 +93,27 @@ class Googleprovider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future loginmethod(String value1, String value2, context) async {
+  Future loginmethod(String value1, String value2) async {
     try {
       final response = await http.post(
         Uri.parse(ApiUrl.loginApi),
         headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
+          /* 'Content-Type': 'application/json; charset=UTF-8', */
         },
-        body: jsonEncode({
+        body: /* jsonEncode( */{
           /*      "api_key": "myttube123456", */
           "username": value1,
           "password": value2
-        }),
+        }/* ), */
       );
+      print("Value1--------------------------------------------------------------$value1");
+      print("Value2--------------------------------------------------------------$value2");
       var jsondata = jsonDecode(response.body);
-      print(response.body);
+      print(
+          "Response-----------------------------------------------------------${response.body}");
 
-      var status = jsondata["id"];
       var token = jsondata["token"];
       await SharedPref.saveToken(token);
-      print(status);
 
       if (response.statusCode == 200) {
         return true;
@@ -257,6 +258,9 @@ class Googleprovider extends ChangeNotifier {
           fontSize: 16.0);
     }
   }
+/*   shhjsd(){
+    final respose = 
+  } */
 
   Future checkUsername(dynamic username) async {
     try {
@@ -396,7 +400,7 @@ class Googleprovider extends ChangeNotifier {
       "register_type": "manual",
       "signup_language": "english",
       "gender": genderkiValue,
-      "dob": "15-10-2002",
+      "dob": "12-10-2002",
       "dd": "10",
       "mm": "2002",
       "yy": "male",
