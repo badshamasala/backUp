@@ -7,7 +7,7 @@ import 'package:flutter_application_1/archive_post/history1.dart';
 import 'package:flutter_application_1/archive_post/saved1.dart';
 import 'package:flutter_application_1/homepage/inside_setting.dart';
 import 'package:flutter_application_1/homepage/profile_acitvity.dart';
-import 'package:flutter_application_1/homepage/profile_self.dart';
+import 'package:flutter_application_1/profile_self/profile_self.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';

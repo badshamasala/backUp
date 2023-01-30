@@ -13,6 +13,8 @@ import 'package:flutter_application_1/homepage/homepage.dart';
 import 'package:flutter_application_1/onboarding/loginpage.dart';
 import 'package:flutter_application_1/onboarding/slider.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
+import 'package:flutter_application_1/poll/prac.dart';
+import 'package:flutter_application_1/poll/payment_success.dart';
 import 'package:flutter_application_1/promote/promote.dart';
 import 'package:flutter_application_1/promote/promote2.dart';
 import 'package:flutter_application_1/share/tag_friend.dart';
@@ -23,9 +25,8 @@ import 'package:flutter_application_1/share/localestring.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-
-import 'people_profile/getVideoList.dart';
-import 'people_profile/getimagelist.dart';
+import 'poll/successfully_posted.dart';
+import 'profile_self/getimagelist.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -112,7 +113,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: GetVideoList() /* LoginPage12() */
+                  home: SucessFullyPosted() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(

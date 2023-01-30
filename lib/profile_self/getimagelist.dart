@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/all_api_url/api_list.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'dart:convert';
 import 'package:sizer/sizer.dart';
 
 class Getimagelist extends StatefulWidget {
@@ -17,7 +15,7 @@ class _GetimagelistState extends State<Getimagelist> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        title: const Text('sa'),
       ),
       body: FutureBuilder<GetImageModal?>(
         future: getImageList(),
@@ -196,5 +194,3 @@ Future<GetImageModal?> getImageList() async {
     print(response.reasonPhrase);
   }
 }
-
-

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/globals/colors.dart';
 import 'package:flutter_application_1/globals/securityfile.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
+import 'package:flutter_application_1/profile_self/profile_self.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/eva.dart';
 
-import '../homepage/profile_self.dart';
+
 
 class GiftCheck extends StatefulWidget {
   const GiftCheck({Key? key}) : super(key: key);

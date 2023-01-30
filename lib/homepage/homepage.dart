@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/chatmytube.dart';
 import 'package:flutter_application_1/homepage/home1.dart';
-import 'package:flutter_application_1/homepage/profile_self.dart';
+import 'package:flutter_application_1/profile_self/profile_self.dart';
 import 'package:flutter_application_1/homepage/reels.dart';
 import 'package:flutter_application_1/homepage/search.dart';
 import 'package:flutter_svg/flutter_svg.dart';

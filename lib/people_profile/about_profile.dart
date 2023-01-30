@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/GLOBALS/securityfile.dart';
 import 'package:flutter_application_1/globals/colors.dart';
-import 'package:flutter_application_1/homepage/profile_self.dart';
+import 'package:flutter_application_1/profile_self/profile_self.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

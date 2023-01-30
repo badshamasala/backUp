@@ -5,28 +5,26 @@ import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/image_click_profile/image_click.dart';
 import 'package:flutter_application_1/archive_post/gotodashboard.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
-import 'package:flutter_application_1/homepage/monetize_check.dart';
 import 'package:flutter_application_1/homepage/setting1.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
+import 'package:flutter_application_1/profile_self/profile_image_modal.dart';
 import 'package:flutter_application_1/share/interaction.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' hide Response;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
-import 'package:iconify_flutter/icons/bi.dart';
-import 'package:iconify_flutter/icons/ei.dart';
-import 'package:iconify_flutter/icons/emojione_monotone.dart';
-import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/tabler.dart';
-
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
+import 'dart:convert';
+import 'package:http/http.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ProfileSelf extends StatefulWidget {
   ProfileSelf({super.key});
@@ -702,6 +700,8 @@ buildbutton(context) {
 class _ProfileSelfState extends State<ProfileSelf> {
   final GetImage getkar = Get.put(GetImage());
 
+  var futureFunction;
+
   var names = [
     "Rashid",
     "farhan",
@@ -713,6 +713,13 @@ class _ProfileSelfState extends State<ProfileSelf> {
     "sadaf",
     "tahera",
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    futureFunction = getImageList();
+  }
+
   bool valueofswitch = true;
 
   bool emailid = false;
@@ -1603,36 +1610,80 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     }),
               ),
             ),
+            /*  onTap: () {
+                      Get.to(() => ImageClick());
+                    }, */
             SizedBox(
               height: 33.5.h,
               child: TabBarView(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(() => ImageClick());
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5.w),
-                      child: GridView.builder(
+                  FutureBuilder<GetImageModal?>(
+                    future: futureFunction,
+                    builder: (context, snapshot) {
+                      if (snapshot.data == null) {
+                        return Center(
+                            child: const CircularProgressIndicator(
+                                color: primaryColorOfApp));
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.waiting) {
+                        return const Center(child: Text('Waiting....'));
+                      } else if (snapshot.hasError) {
+                        return const Center(child: Text('Something wrong'));
+                      } else {
+                        List<Post> posts = snapshot.data!.post;
+                        return GridView.builder(
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisSpacing: 1.w,
-                                  mainAxisSpacing: 1.w,
-                                  crossAxisCount: 3),
-                          scrollDirection: Axis.vertical,
-                          itemCount: photos.length,
-                          itemBuilder: (_, i) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(5),
-                                image: DecorationImage(
-                                    image: AssetImage(photos[i]),
-                                    fit: BoxFit.cover),
-                              ),
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisSpacing: 3,
+                            mainAxisSpacing: 3,
+                            crossAxisCount: 3,
+                          ),
+                          shrinkWrap: true,
+                          physics: ScrollPhysics(),
+                          itemCount: posts.length,
+                          itemBuilder: (context, i) {
+                            print(
+                                "Post length---------------------------------------------------------${posts.length}");
+                            Post? post = posts[i];
+                            List<UserImage> userImages = post.userImages;
+
+                            if (userImages.isEmpty) {
+                              return Image.network(
+                                  "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
+                            }
+
+                            return GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      /*   mainAxisExtent: 10, */
+                                      crossAxisSpacing: 0,
+                                      mainAxisSpacing: 0,
+                                      crossAxisCount: 1),
+                              shrinkWrap: true,
+                              physics: ScrollPhysics(),
+                              itemCount: userImages.length,
+                              itemBuilder: (context, index) {
+                                print(
+                                    "Userimages length---------------------------------------------------------${userImages.length}");
+                                return ClipRRect(
+                                  borderRadius: BorderRadius.circular(7.sp),
+                                  child: Image.network(
+                                    userImages[index].filePath,
+                                    height: 10.h,
+                                    width: 18.w,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      return Image.network(
+                                          "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
+                                    },
+                                  ),
+                                );
+                              },
                             );
-                          }),
-                    ),
+                          },
+                        );
+                      }
+                    },
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -1829,6 +1880,39 @@ class _ProfileSelfState extends State<ProfileSelf> {
     return SizedBox(
       width: width * 0.01,
     );
+  }
+}
+
+Future<GetImageModal?> getImageList() async {
+  try {
+    var headers = {
+      'Authorization':
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc0Nzk1NzY1LCJleHAiOjE2NzU0MDA1NjUsImlhdCI6MTY3NDc5NTc2NX0.itV5BtqQfNyxfa0u6uYjuc86fqVs22Xy1sZBEYGDhNw'
+    };
+    var request = MultipartRequest(
+        'GET', Uri.parse('https://api.myttube.com/api/Post/get-image-post'));
+    request.fields.addAll({'api_key': 'myttube123456', 'signup_id': '2'});
+
+    request.headers.addAll(headers);
+    Response response = await Response.fromStream(await request.send());
+
+    if (response.statusCode == 200) {
+      var jsondata = jsonDecode(response.body);
+
+      GetImageModal imagesModel = GetImageModal.fromJson(jsondata);
+
+      return imagesModel;
+    } else {
+      print(
+          "Error Message------------------------------------------------------${response.reasonPhrase}");
+      return null;
+    }
+  } catch (e) {
+    Fluttertoast.showToast(
+        msg: e.toString(),
+        backgroundColor: Colors.black,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 }
 

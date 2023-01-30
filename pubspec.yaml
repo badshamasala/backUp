@@ -94,6 +94,7 @@ dependencies:
   textfield_tags: ^2.0.2
   flutter_osm_plugin: ^0.42.0
   google_place: ^0.4.7
+  circular_reveal_animation: ^2.0.1
 
   
   
