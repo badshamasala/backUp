@@ -2,13 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
-import 'package:flutter_application_1/image_click_profile/image_click.dart';
 import 'package:flutter_application_1/archive_post/gotodashboard.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/setting1.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
 import 'package:flutter_application_1/profile_self/profile_image_modal.dart';
+import 'package:flutter_application_1/profile_self/profile_video_modal.dart';
+import 'package:flutter_application_1/profile_self/video_class_player.dart';
 import 'package:flutter_application_1/share/interaction.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,6 +26,8 @@ import 'package:iconify_flutter/icons/mdi.dart';
 import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:video_player/video_player.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
 
 class ProfileSelf extends StatefulWidget {
   ProfileSelf({super.key});
@@ -112,7 +115,7 @@ class ProfileSelf extends StatefulWidget {
                           'Search Location',
                           Padding(
                             padding: EdgeInsets.only(left: 2.w),
-                            child: Icon(
+                            child: const Icon(
                               Icons.search,
                               color: Color(0xffe2e2e2),
                             ),
@@ -592,7 +595,7 @@ buildbutton(context) {
                                       Text(
                                         'Remove',
                                         style: TextStyle(
-                                            color: Color(0xffED1B24),
+                                            color: const Color(0xffED1B24),
                                             fontSize: 10.sp,
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w600),
@@ -610,7 +613,7 @@ buildbutton(context) {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 60.0),
+                        padding: const EdgeInsets.only(left: 60.0),
                         child: Text(
                           'Change Your Profile Photo',
                           style: TextStyle(
@@ -701,6 +704,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
   final GetImage getkar = Get.put(GetImage());
 
   var futureFunction;
+  var futureFunction1;
 
   var names = [
     "Rashid",
@@ -713,11 +717,45 @@ class _ProfileSelfState extends State<ProfileSelf> {
     "sadaf",
     "tahera",
   ];
+  VideoPlayerController? _controller;
+  initializeMethod(a) async {
+    print(
+        "1--------------------------------------------------------------------\n-----------------------------");
+    print(
+        "2--------------------------------------------------------------------\n-----------------------------");
+    print(
+        "3--------------------------------------------------------------------\n-----------------------------");
+    print(
+        "535--------------------------------------------------------------------\n-----------------------------");
+    print(
+        "53--------------------------------------------------------------------\n-----------------------------");
+    print(
+        "3424--------------------------------------------------------------------\n-----------------------------");
+    print(
+        "424--------------------------------------------------------------------\n-----------------------------");
+    final controller = VideoPlayerController.network(
+      a,
+    );
+    _controller = controller;
+
+    if (_controller != null) {
+      await controller.initialize();
+      await controller.setLooping(false);
+      await controller.pause();
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller!.dispose();
+  }
 
   @override
   void initState() {
     super.initState();
     futureFunction = getImageList();
+    futureFunction1 = getVideoList();
   }
 
   bool valueofswitch = true;
@@ -831,7 +869,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
               alignment: Alignment.bottomLeft,
               children: [
                 Container(
-                  /*     color: Colors.red, */
+                  /*color: Colors.red,*/
                   height: 12.h,
                   margin: EdgeInsets.only(bottom: bottom),
                   child: GetBuilder<GetImage>(builder: (controller) {
@@ -1403,7 +1441,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                     width: double.infinity,
                     child: OutlinedButton(
                       onPressed: () {
-                        Get.to(() => Gotodashboard());
+                        Get.to(() => const Gotodashboard());
                       },
                       style: OutlinedButton.styleFrom(
                           /*   minimumSize: Size(32, 30), */
@@ -1617,120 +1655,187 @@ class _ProfileSelfState extends State<ProfileSelf> {
               height: 33.5.h,
               child: TabBarView(
                 children: [
-                  FutureBuilder<GetImageModal?>(
-                    future: futureFunction,
-                    builder: (context, snapshot) {
-                      if (snapshot.data == null) {
-                        return Center(
-                            child: const CircularProgressIndicator(
-                                color: primaryColorOfApp));
-                      } else if (snapshot.connectionState ==
-                          ConnectionState.waiting) {
-                        return const Center(child: Text('Waiting....'));
-                      } else if (snapshot.hasError) {
-                        return const Center(child: Text('Something wrong'));
-                      } else {
-                        List<Post> posts = snapshot.data!.post;
-                        return GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisSpacing: 3,
-                            mainAxisSpacing: 3,
-                            crossAxisCount: 3,
-                          ),
-                          shrinkWrap: true,
-                          physics: ScrollPhysics(),
-                          itemCount: posts.length,
-                          itemBuilder: (context, i) {
-                            print(
-                                "Post length---------------------------------------------------------${posts.length}");
-                            Post? post = posts[i];
-                            List<UserImage> userImages = post.userImages;
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    child: FutureBuilder<GetImageModal?>(
+                      future: futureFunction,
+                      builder: (context, snapshot) {
+                        if (snapshot.data == null) {
+                          return const Center(
+                              child: CircularProgressIndicator(
+                                  color: primaryColorOfApp));
+                        } else if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(child: Text('Waiting....'));
+                        } else if (snapshot.hasError) {
+                          return const Center(child: Text('Something wrong'));
+                        } else {
+                          List<Post> posts = snapshot.data!.post;
+                          return GridView.builder(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisSpacing: 3,
+                              mainAxisSpacing: 3,
+                              crossAxisCount: 3,
+                            ),
+                            shrinkWrap: true,
+                            physics: const ScrollPhysics(),
+                            itemCount: posts.length,
+                            itemBuilder: (context, i) {
+                              print(
+                                  "Post length---------------------------------------------------------${posts.length}");
+                              Post? post = posts[i];
+                              List<UserImage> userImages = post.userImages;
 
-                            if (userImages.isEmpty) {
-                              return Image.network(
-                                  "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
-                            }
+                              if (userImages.isEmpty) {
+                                return Image.network(
+                                    "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
+                              }
 
-                            return GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                      /*   mainAxisExtent: 10, */
-                                      crossAxisSpacing: 0,
-                                      mainAxisSpacing: 0,
-                                      crossAxisCount: 1),
-                              shrinkWrap: true,
-                              physics: ScrollPhysics(),
-                              itemCount: userImages.length,
-                              itemBuilder: (context, index) {
-                                print(
-                                    "Userimages length---------------------------------------------------------${userImages.length}");
-                                return ClipRRect(
-                                  borderRadius: BorderRadius.circular(7.sp),
-                                  child: Image.network(
-                                    userImages[index].filePath,
-                                    height: 10.h,
-                                    width: 18.w,
-                                    fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      return Image.network(
-                                          "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
-                                    },
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                        );
-                      }
-                    },
+                              return GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                        /*   mainAxisExtent: 10, */
+                                        crossAxisSpacing: 0,
+                                        mainAxisSpacing: 0,
+                                        crossAxisCount: 1),
+                                shrinkWrap: true,
+                                physics: const ScrollPhysics(),
+                                itemCount: userImages.length,
+                                itemBuilder: (context, index) {
+                                  print(
+                                      "Userimages length---------------------------------------------------------${userImages.length}");
+                                  return ClipRRect(
+                                    borderRadius: BorderRadius.circular(7.sp),
+                                    child: Image.network(
+                                      userImages[index].filePath,
+                                      height: 10.h,
+                                      width: 18.w,
+                                      fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) {
+                                        return Image.network(
+                                            "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
+                                      },
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          );
+                        }
+                      },
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5.w),
-                    child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            mainAxisExtent: 25.h,
-                            crossAxisSpacing: 1.w,
-                            mainAxisSpacing: 1.w,
-                            crossAxisCount: 3),
-                        scrollDirection: Axis.vertical,
-                        itemCount: photos.length,
-                        itemBuilder: (_, i) {
-                          return Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Container(
-                                /*      width: 200,
-                              height: 300, */
+                    child: FutureBuilder<GetVideoModal?>(
+                      future: futureFunction1,
+                      builder: (context, snapshot) {
+                        print(
+                            "Future-Builder------------------------------------------");
+                        if (snapshot.data == null) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        } else {
+                          /*     List<Post1> posts = snapshot.data!.post; */
+                          return GridView.builder(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisExtent: 30.h,
+                              crossAxisSpacing: 3,
+                              mainAxisSpacing: 3,
+                              crossAxisCount: 3,
+                            ),
+                            shrinkWrap: true,
+                            physics: const ScrollPhysics(),
+                            itemCount: myList.length,
+                            itemBuilder: (context, i) {
+                              print(
+                                  "GridView-Builder------------------------------------------");
+                              /*           initializeMethod(myList[i]); */
 
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        photos[i],
-                                      ),
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white.withOpacity(0.5)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: SvgPicture.asset(
-                                    'assets/playicon.svg',
-                                    height: 2.h,
-                                    width: 2.w,
-                                    fit: BoxFit.cover,
-                                    /*   height: 18,
-                                                  width: 18, */
+                              return Container(); /* VideoClassPlayer(
+                                value: myList[i]
+                              ); /* */ Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: const Color(0xffe2e2e2),
+                                        borderRadius:
+                                            BorderRadius.circular(7.sp)),
+                                    child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(7.sp),
+                                        child: VideoPlayer(_controller!)),
                                   ),
-                                ),
-                              ),
-                            ],
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.white.withOpacity(0.5)),
+                                    child: const Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Icon(Icons.play_arrow),
+                                    ),
+                                  ),
+                                ],
+                              ); */
+                              /*   print(
+                                  "Post length---------------------------------------------------------${posts.length}"); */
+                              /* Post1? post = posts[i];
+                              List<UserImage1> userImages = post.userImages; */
+/* 
+                              if (userImages.isEmpty) {
+                                return Image.network(
+                                    "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
+                              } */
+
+                              /* return GridView.builder(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                        mainAxisExtent: 30.h,
+                                        crossAxisSpacing: 0,
+                                        mainAxisSpacing: 0,
+                                        crossAxisCount: 1),
+                                shrinkWrap: true,
+                                physics: ScrollPhysics(),
+                                itemCount: userImages.length,
+                                itemBuilder: (context, index) {
+                                  initializeMethod(userImages[index].filePath);
+                                  /* controller!.play(); */
+                                  /*        print(
+                                      "Userimages length---------------------------------------------------------${userImages.length}"); */
+                                  /*   if (/* controller !=null && */ controller!
+                                      .value.isInitialized) {
+                                    return  */
+                                  return Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Container(
+                                        color: Colors.red,
+                                        child: VideoPlayer(_controller!),
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color:
+                                                Colors.white.withOpacity(0.5)),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Icon(Icons.play_arrow),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                              
+                                },
+                              ); */
+                            },
                           );
-                        }),
+                        }
+                      },
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -1916,14 +2021,64 @@ Future<GetImageModal?> getImageList() async {
   }
 }
 
+/* VideoPlayerController? controller; */
+List myList = [];
+Future<GetVideoModal?> getVideoList() async {
+  var headers = {
+    'Authorization':
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc0Nzk1NzY1LCJleHAiOjE2NzU0MDA1NjUsImlhdCI6MTY3NDc5NTc2NX0.itV5BtqQfNyxfa0u6uYjuc86fqVs22Xy1sZBEYGDhNw'
+  };
+  var request = MultipartRequest(
+      'GET', Uri.parse('https://api.myttube.com/api/Post/get-video-post'));
+  request.fields.addAll({'api_key': 'myttube123456', 'signup_id': '2'});
+
+  request.headers.addAll(headers);
+  Response response = await Response.fromStream(await request.send());
+
+  if (response.statusCode == 200) {
+    var jsondata = jsonDecode(response.body);
+    dynamic list = jsondata["post"];
+
+    for (int i = 0; i < list.length; i++) {
+      if (list != null) {
+        dynamic getlist = list[i]["userImages"];
+        //print("-----------------------------------${getlist.length}");
+        for (int i = 0; i < getlist.length; i++) {
+          myList.add(getlist[i]["file_path"]);
+          /*  final fileName = await VideoThumbnail.thumbnailFile(
+  video: myList[i],
+  thumbnailPath: (await getTemporaryDirectory()).path,
+  imageFormat: ImageFormat.WEBP,
+  maxHeight: 64, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
+  quality: 75,
+); */
+        }
+        //print(list[i]["user_images"][i]["file_path"]);
+
+        //print(list[i]["user_images"]);
+      }
+    }
+    print(myList);
+    print(myList.length);
+
+    GetVideoModal videosModel = GetVideoModal.fromJson(jsondata);
+
+    return videosModel;
+  } else {
+    print(response.reasonPhrase);
+  }
+}
+
 buildaddressDecotaion(labeltext, icon) {
   return InputDecoration(
       prefixIcon: icon,
-      prefixIconConstraints: BoxConstraints(),
+      prefixIconConstraints: const BoxConstraints(),
       isDense: true,
       labelText: labeltext,
       labelStyle: TextStyle(
-          color: Color(0xffc4c4c4), fontFamily: 'Poppins', fontSize: 10.sp),
+          color: const Color(0xffc4c4c4),
+          fontFamily: 'Poppins',
+          fontSize: 10.sp),
       focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(color: primaryColorOfApp, width: 0.5)),

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_player/video_player.dart';
@@ -28,7 +29,8 @@ class _GetVideoListState extends State<GetVideoList> {
           } else {
             List<Post> posts = snapshot.data!.post;
             return GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                mainAxisExtent: 30.h,
                 crossAxisSpacing: 3,
                 mainAxisSpacing: 3,
                 crossAxisCount: 3,
@@ -48,8 +50,8 @@ class _GetVideoListState extends State<GetVideoList> {
                 }
 
                 return GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      /*   mainAxisExtent: 10, */
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 30.h,
                       crossAxisSpacing: 0,
                       mainAxisSpacing: 0,
                       crossAxisCount: 1),
@@ -59,18 +61,35 @@ class _GetVideoListState extends State<GetVideoList> {
                   itemBuilder: (context, index) {
                     controller = VideoPlayerController.network(
                         userImages[index].filePath);
-                      controller!.initialize();
+                    controller!.initialize();
                     controller!.setLooping(false);
-     controller!.play();
+                    /* controller!.play(); */
                     print(
                         "Userimages length---------------------------------------------------------${userImages.length}");
-                    return Container(
-                      color: Colors.red,
-                      width: 18.w,
-                      height: 15.h,
-                      child: AspectRatio(
-                          aspectRatio: controller!.value.aspectRatio,
-                          child: VideoPlayer(controller!)),
+                    return Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Container(
+                          color: Colors.red,
+                     
+                          child: VideoPlayer(controller!),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white.withOpacity(0.5)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: SvgPicture.asset(
+                              'assets/playicon.svg',
+                              height: 2.h,
+                              width: 2.w,
+                              fit: BoxFit.cover,
+                          
+                            ),
+                          ),
+                        ),
+                      ],
                     );
                   },
                 );

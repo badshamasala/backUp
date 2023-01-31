@@ -95,19 +95,19 @@ class Googleprovider extends ChangeNotifier {
 
   Future loginmethod(String value1, String value2) async {
     try {
-      final response = await http.post(
-        Uri.parse(ApiUrl.loginApi),
-        headers: <String, String>{
-          /* 'Content-Type': 'application/json; charset=UTF-8', */
-        },
-        body: /* jsonEncode( */{
-          /*      "api_key": "myttube123456", */
-          "username": value1,
-          "password": value2
-        }/* ), */
-      );
-      print("Value1--------------------------------------------------------------$value1");
-      print("Value2--------------------------------------------------------------$value2");
+      final response =
+          await http.post(Uri.parse(ApiUrl.loginApi), headers: <String, String>{
+        /* 'Content-Type': 'application/json; charset=UTF-8', */
+      }, body: /* jsonEncode( */ {
+        /*      "api_key": "myttube123456", */
+        "username": value1,
+        "password": value2
+      } /* ), */
+              );
+      print(
+          "Value1--------------------------------------------------------------$value1");
+      print(
+          "Value2--------------------------------------------------------------$value2");
       var jsondata = jsonDecode(response.body);
       print(
           "Response-----------------------------------------------------------${response.body}");
@@ -178,6 +178,7 @@ class Googleprovider extends ChangeNotifier {
 
   postVideoMethod(video) async {
     print("-------------------Api se Pehel-----------------------------");
+   var token = await SharedPref.getToken();
     var headers = {
       'Authorization':
           'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc0NDU0NjkwLCJleHAiOjE2NzUwNTk0OTAsImlhdCI6MTY3NDQ1NDY5MH0.f4sGel40WAQecA94YLbXTrvN1FySUQs0riRkVMknpEg'
@@ -413,7 +414,8 @@ class Googleprovider extends ChangeNotifier {
     print("Full name---------------$fullname");
     print("Email-----------------------$email");
     print("Gender---------------------$genderkiValue");
-    /*  request.files.add(await http.MultipartFile.fromPath('profile_img',await image)); */
+    print("Image---------------------$image");
+    request.files.add(await http.MultipartFile.fromPath('profile_img', image));
 
     http.StreamedResponse response = await request.send();
     var jsondata = jsonDecode(await response.stream.bytesToString());

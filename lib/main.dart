@@ -15,6 +15,7 @@ import 'package:flutter_application_1/onboarding/slider.dart';
 import 'package:flutter_application_1/poll/createpoll.dart';
 import 'package:flutter_application_1/poll/prac.dart';
 import 'package:flutter_application_1/poll/payment_success.dart';
+import 'package:flutter_application_1/profile_self/getVideoList.dart';
 import 'package:flutter_application_1/promote/promote.dart';
 import 'package:flutter_application_1/promote/promote2.dart';
 import 'package:flutter_application_1/share/tag_friend.dart';
@@ -83,7 +84,6 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
         ChangeNotifierProvider(create: (_) => Filterprovider()),
         ChangeNotifierProvider(create: (_) => HashtagProvider()),
         ChangeNotifierProvider(create: (_) => MentionProvider()),
-      
 
         /*      ChangeNotifierProvider(create: (_) => ThemeProvider()), */
         /*     ChangeNotifierProvider(create: (_) => ProviderUpdateSeconds()), */
@@ -113,7 +113,7 @@ class /* _ */ MyApp /* State */ extends /* State<MyApp> */ StatelessWidget {
                 GlobalWidgetsLocalizations.delegate
                       ], */
 
-                  home: SucessFullyPosted() /* LoginPage12() */
+                  home: HomePage() /* LoginPage12() */
                   /*IntroScreen()*/ /* _isLoggedIn
                     ? Chathomepage()
                     : LoginPage12() */ /* FutureBuilder(
