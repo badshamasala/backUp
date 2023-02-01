@@ -432,11 +432,7 @@ class _Home1State extends State<Home1> {
                           padding: EdgeInsets.zero,
                           constraints: const BoxConstraints(),
                           onPressed: () async {
-                            /*    await provider.registerUser("1245", "ek_no.",
-                                "passko", "badshamasal", "adada@gmail.com"); */
-                            var token = await SharedPref.getToken();
-
-                            print(token);
+                         
                           },
                           icon: Iconify(
                             appBaricon[index],

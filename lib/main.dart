@@ -28,6 +28,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'poll/successfully_posted.dart';
 import 'profile_self/getimagelist.dart';
+import 'reel_check/reelcheck.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -4,15 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/homepage/change_interest.dart';
 import 'package:flutter_application_1/homepage/self_profile.dart';
-import 'package:flutter_application_1/homepage/setting1.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/profile_self/profile_self.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
-import 'package:iconify_flutter/icons/bx.dart';
-import 'package:iconify_flutter/icons/bxs.dart';
 import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:image_picker/image_picker.dart';
@@ -323,9 +320,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           children: [
                             Row(
                               children: [
-                                SizedBox(
-                                  /*  color: Colors.red, */
-                                  width: 65.w,
+                                Container(
+                                  width: 70.w,
                                   child: TextFormField(
                                       cursorColor: primaryColorOfApp,
                                       enabled: fullname,

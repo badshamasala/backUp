@@ -93,6 +93,7 @@ class Googleprovider extends ChangeNotifier {
     notifyListeners();
   }
 
+  dynamic profileImage;
   Future loginmethod(String value1, String value2) async {
     try {
       final response =
@@ -112,10 +113,18 @@ class Googleprovider extends ChangeNotifier {
       print(
           "Response-----------------------------------------------------------${response.body}");
 
+      var userId = jsondata["userId"];
+      var fullName = jsondata["fullName"];
+      profileImage = jsondata["profile_path"];
       var token = jsondata["token"];
-      await SharedPref.saveToken(token);
+      print(
+          "123456------------------------------------------------------------------------------$profileImage");
 
       if (response.statusCode == 200) {
+        await SharedPref.savemytubeUsername(userId);
+        await SharedPref.savemytubeFullname(fullName);
+        await SharedPref.savemytubeProfileImage(profileImage);
+        await SharedPref.saveToken(token);
         return true;
       } else {
         Fluttertoast.showToast(
@@ -131,6 +140,42 @@ class Googleprovider extends ChangeNotifier {
           textColor: Colors.white,
           fontSize: 16.0);
     }
+    notifyListeners();
+  }
+
+  dynamic follower;
+  dynamic following;
+  dynamic bio;
+  dynamic profileBanner;
+  dynamic profileRating;
+  dynamic isProfileVerifed;
+  getUserBioBanner() async {
+    var headers = {
+      'Authorization':
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc1MjQwODUwLCJleHAiOjE2NzU4NDU2NTAsImlhdCI6MTY3NTI0MDg1MH0.pv02Pe7tHoOYesKXBTAw6GrkmpRcl_YTxV-WgZHeNdU'
+    };
+    var request = http.MultipartRequest(
+        'GET', Uri.parse('https://api.myttube.com/api/profile/get-profile-id'));
+    request.fields.addAll({'api_key': 'myttube123456', 'signup_id': '10097'});
+
+    request.headers.addAll(headers);
+
+    http.StreamedResponse response = await request.send();
+    var jsondata = await jsonDecode(await response.stream.bytesToString());
+    follower = jsondata["follower"];
+    following = jsondata["following"];
+    bio = jsondata["bio"];
+    profileBanner = jsondata["profile_banner"];
+    profileRating = jsondata["profile_rating"];
+    isProfileVerifed = jsondata["is_profile_verifed"];
+    print(jsondata["follower"]);
+
+    if (response.statusCode == 200) {
+      /* print(await response.stream.bytesToString()); */
+    } else {
+      print(response.reasonPhrase);
+    }
+    notifyListeners();
   }
 
   postImageMethod(listimage) async {
@@ -178,7 +223,7 @@ class Googleprovider extends ChangeNotifier {
 
   postVideoMethod(video) async {
     print("-------------------Api se Pehel-----------------------------");
-   var token = await SharedPref.getToken();
+    var token = await SharedPref.getToken();
     var headers = {
       'Authorization':
           'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMDk3IiwibmJmIjoxNjc0NDU0NjkwLCJleHAiOjE2NzUwNTk0OTAsImlhdCI6MTY3NDQ1NDY5MH0.f4sGel40WAQecA94YLbXTrvN1FySUQs0riRkVMknpEg'

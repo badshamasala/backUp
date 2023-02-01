@@ -1,12 +1,15 @@
 // ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables, avoid_print
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/chat_app/shared_preference.dart';
 import 'package:flutter_application_1/getx/gettimer.dart';
 import 'package:flutter_application_1/GLOBALS/colors.dart';
 import 'package:flutter_application_1/archive_post/gotodashboard.dart';
+import 'package:flutter_application_1/google_login/googleprovider.dart';
 import 'package:flutter_application_1/homepage/edit_profile_page.dart';
 import 'package:flutter_application_1/homepage/setting1.dart';
 import 'package:flutter_application_1/homepage/widget_notification.dart';
 import 'package:flutter_application_1/homepage/widget_profile_page.dart';
+import 'package:flutter_application_1/image_click_profile/image_click.dart';
 import 'package:flutter_application_1/profile_self/profile_image_modal.dart';
 import 'package:flutter_application_1/profile_self/profile_video_modal.dart';
 import 'package:flutter_application_1/profile_self/video_class_player.dart';
@@ -21,6 +24,7 @@ import 'package:iconify_flutter/icons/heroicons.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:iconify_flutter/icons/tabler.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 import 'dart:convert';
@@ -700,8 +704,36 @@ buildbutton(context) {
       });
 }
 
+var userName;
+var fullName;
+var profileImage;
+
 class _ProfileSelfState extends State<ProfileSelf> {
   final GetImage getkar = Get.put(GetImage());
+
+  getUserDetails() async {
+    await SharedPref.getmytubeUsername().then((value) {
+      if (value != null) {
+        setState(() {
+          userName = value;
+        });
+      }
+    });
+    await SharedPref.getmytubeFullname().then((value) {
+      if (value != null) {
+        setState(() {
+          fullName = value;
+        });
+      }
+    });
+    await SharedPref.getmytubeProfileImage().then((value) {
+      if (value != null) {
+        setState(() {
+          profileImage = value;
+        });
+      }
+    });
+  }
 
   var futureFunction;
   var futureFunction1;
@@ -745,15 +777,17 @@ class _ProfileSelfState extends State<ProfileSelf> {
     }
   }
 
-  @override
+/*   @override
   void dispose() {
     super.dispose();
     _controller!.dispose();
-  }
+  } */
 
   @override
   void initState() {
     super.initState();
+    getUserDetails();
+    Provider.of<Googleprovider>(context, listen: false).getUserBioBanner();
     futureFunction = getImageList();
     futureFunction1 = getVideoList();
   }
@@ -851,6 +885,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
   final top = 4.5.h;
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<Googleprovider>(context, listen: false);
     Size size;
     double height, width;
     size = MediaQuery.of(context).size;
@@ -883,75 +918,23 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 fit: BoxFit.cover,
                               ),
                             )
-                          : SizedBox(
-                              width: double.infinity,
-                              height: coverheight,
-                              child: Icon(
-                                Icons.photo,
-                                color: const Color(0xffc4c4c4),
-                                size: 25.sp,
-                              )),
+                          : Consumer<Googleprovider>(
+                              builder: (context, value, child) {
+                              return Image.network(
+                                provider.profileBanner ??
+                                    "https://myttube.com/default/Profile_Banner.jpg",
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                height: coverheight,
+                              );
+                            }),
                     );
                   }),
                 ),
-                /*  Positioned(
-                    top: 4,
-                    child: SizedBox(
-                      width: 310,
-                      /*     color: Colors.red, */
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                              margin: const EdgeInsets.all(0),
-                              padding: const EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-
-                                  /*   borderRadius: BorderRadius.circular(40), */
-                                  border: Border.all(
-                                      width: 1, color: primaryColorOfApp)),
-                              child: IconButton(
-                                  padding: const EdgeInsets.all(0),
-                                  constraints: const BoxConstraints(),
-                                  onPressed: () {},
-                                  icon: const Iconify(
-                                    Ooui.bell,
-                                    size: 20,
-                                    color: iconColor,
-                                  ))),
-                          SizedBox(
-                            width: width * 0.01,
-                          ),
-                          Container(
-                              margin: const EdgeInsets.all(0),
-                              padding: const EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-
-                                  /*   borderRadius: BorderRadius.circular(40), */
-                                  border: Border.all(
-                                      width: 1, color: primaryColorOfApp)),
-                              child: IconButton(
-                                  padding: const EdgeInsets.all(0),
-                                  constraints: const BoxConstraints(),
-                                  onPressed: () {},
-                                  icon: SvgPicture.asset(
-                                    'assets/c2c.svg',
-                                    width: 18,
-                                    height: 18,
-                                  ))),
-                        ],
-                      ),
-                    )), */
                 Positioned(
                   top: top,
                   child: Row(
-                    /*  mainAxisSize: MainAxisSize.max, */
-                    /*     crossAxisAlignment: CrossAxisAlignment.center, */
-                    /*  mainAxisAlignment: MainAxisAlignment.spaceEvenly, */
                     children: [
-                      /*  Spacer(), */
                       SizedBox(
                         width: 2.w,
                       ),
@@ -982,11 +965,15 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                       child: CircleAvatar(
                                         radius: 46.sp,
                                         backgroundColor: Colors.white,
-                                        child: Icon(
-                                          Icons.account_circle,
-                                          size: 90.sp,
-                                          color: const Color(0xffc4c4c4),
-                                        ),
+                                        child: Consumer<Googleprovider>(
+                                            builder: (context, value, child) {
+                                          return CircleAvatar(
+                                            backgroundColor: Colors.white,
+                                            radius: 44.sp,
+                                            backgroundImage: NetworkImage(profileImage ??
+                                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNaI3k3GEVnCEXd54ISam3Ix7uwWZtIj1nHg&usqp=CAU"),
+                                          );
+                                        }),
                                       ),
                                     ),
                             );
@@ -1027,14 +1014,17 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 borderRadius: BorderRadius.circular(5.0))),
                         child: Row(
                           children: [
-                            Text(
-                              "12.5M",
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontSize: 9.sp,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold),
-                            ),
+                            Consumer<Googleprovider>(
+                                builder: (context, value, child) {
+                              return Text(
+                                provider.follower.toString(),
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontSize: 9.sp,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.bold),
+                              );
+                            }),
                             SizedBox(
                               width: 1.w,
                             ),
@@ -1069,16 +1059,19 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 borderRadius: BorderRadius.circular(5.0))),
                         child: Row(
                           children: [
-                            Text(
-                              "200",
-                              style: TextStyle(
-                                  color: customTextColor,
-                                  fontSize: 9.sp,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold),
-                            ),
+                            Consumer<Googleprovider>(
+                                builder: (context, value, child) {
+                              return Text(
+                                provider.following.toString(),
+                                style: TextStyle(
+                                    color: customTextColor,
+                                    fontSize: 9.sp,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.bold),
+                              );
+                            }),
                             SizedBox(
-                              width: width * 0.001,
+                              width: 1.w,
                             ),
                             Text(
                               "Following",
@@ -1133,7 +1126,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Nanncy Jain',
+                            fullName ?? "123456",
                             style: TextStyle(
                                 fontSize: 12.sp,
                                 fontFamily: 'Poppins',
@@ -1151,135 +1144,12 @@ class _ProfileSelfState extends State<ProfileSelf> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '@Nanncyjain23',
+                                    userName == null ? "666666" : "@$userName",
                                     style: TextStyle(
                                         fontSize: 11.sp,
                                         fontFamily: 'Poppins',
                                         color: primaryColorOfApp),
                                   ),
-                                  /* IconButton(
-                                    padding: EdgeInsets.zero,
-                                    constraints: const BoxConstraints(),
-                                    onPressed: () {
-                                      showModalBottomSheet(
-                                          /*    isScrollControlled: true, */
-                                          shape: const RoundedRectangleBorder(
-                                            // <-- SEE HERE
-                                            borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(20.0),
-                                            ),
-                                          ),
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return StatefulBuilder(builder:
-                                                (BuildContext context,
-                                                    StateSetter setState) {
-                                              return Stack(
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  Padding(
-                                                      padding: const EdgeInsets
-                                                              .symmetric(
-                                                          horizontal: 16.0),
-                                                      child: Column(
-                                                          /*    mainAxisSize:
-                                                              MainAxisSize.min, */
-                                                          children: [
-                                                            Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Iconify(
-                                                                  Bi.patch_check,
-                                                                  color: const Color(
-                                                                      0xff037F26),
-                                                                  size: 20.sp,
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: const [
-                                                                Text(
-                                                                  'Verified',
-                                                                  style: TextStyle(
-                                                                      color: Color(
-                                                                          0xff037F26),
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          15),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: const [
-                                                                Text(
-                                                                  'This is a private viewer’s profile,#continue.....content',
-                                                                  style: TextStyle(
-                                                                      color:
-                                                                          customTextColor,
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          10),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ])),
-                                                  Positioned.fill(
-                                                      top: -36,
-                                                      child: Align(
-                                                        alignment:
-                                                            Alignment.topCenter,
-                                                        child: InkWell(
-                                                          onTap: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: Container(
-                                                            /*   width: 45,
-                                height: 45, */
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              border: Border.all(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  width: 2),
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                const Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(4.0),
-                                                              child: Icon(
-                                                                Icons.close,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ))
-                                                ],
-                                              );
-                                            });
-                                          });
-                                    },
-                                    icon: Iconify(
-                                      Bi.patch_check,
-                                      size: 15.sp,
-                                      color: primaryColorOfApp,
-                                    ),
-                                  ), */
                                 ],
                               ),
                               /*   SizedBox(
@@ -1288,20 +1158,23 @@ class _ProfileSelfState extends State<ProfileSelf> {
                             ],
                           ),
                           SizedBox(
-                            width: 15.w,
+                            width: 35.w,
                           ),
                           Iconify(
                             MaterialSymbols.star_rounded,
                             color: const Color(0xff08A434),
                             size: 15.sp,
                           ),
-                          Text(
-                            '4.8',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                color: customTextColor,
-                                fontSize: 11.sp),
-                          ),
+                          Consumer<Googleprovider>(
+                              builder: (context, value, child) {
+                            return Text(
+                              provider.profileRating.toString(),
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: customTextColor,
+                                  fontSize: 11.sp),
+                            );
+                          }),
                         ],
                       ),
                     ],
@@ -1313,17 +1186,16 @@ class _ProfileSelfState extends State<ProfileSelf> {
               padding: EdgeInsets.symmetric(horizontal: 2.w),
               child: Column(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 1.w),
-                    child: Text(
-                      'Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..Bio #content #Lorem ipsum doler sit amet cosecteture adipiscing elit cursus in lobortis risus quis nibh #sample #more..',
+                  Consumer<Googleprovider>(builder: (context, value, child) {
+                    return Text(
+                      provider.bio ?? "null",
                       textAlign: TextAlign.justify,
                       style: TextStyle(
                           color: const Color(0xff03194B),
-                          fontSize: 8.sp,
+                          fontSize: 9.sp,
                           fontFamily: 'Poppins'),
-                    ),
-                  ),
+                    );
+                  }),
                   Padding(
                     padding: EdgeInsets.only(left: 1.w),
                     child: Row(
@@ -1649,7 +1521,7 @@ class _ProfileSelfState extends State<ProfileSelf> {
               ),
             ),
             /*  onTap: () {
-                      Get.to(() => ImageClick());
+                
                     }, */
             SizedBox(
               height: 33.5.h,
@@ -1671,57 +1543,66 @@ class _ProfileSelfState extends State<ProfileSelf> {
                           return const Center(child: Text('Something wrong'));
                         } else {
                           List<Post> posts = snapshot.data!.post;
-                          return GridView.builder(
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisSpacing: 3,
-                              mainAxisSpacing: 3,
-                              crossAxisCount: 3,
-                            ),
-                            shrinkWrap: true,
-                            physics: const ScrollPhysics(),
-                            itemCount: posts.length,
-                            itemBuilder: (context, i) {
-                              print(
-                                  "Post length---------------------------------------------------------${posts.length}");
-                              Post? post = posts[i];
-                              List<UserImage> userImages = post.userImages;
-
-                              if (userImages.isEmpty) {
-                                return Image.network(
-                                    "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
-                              }
-
-                              return GridView.builder(
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                        /*   mainAxisExtent: 10, */
-                                        crossAxisSpacing: 0,
-                                        mainAxisSpacing: 0,
-                                        crossAxisCount: 1),
-                                shrinkWrap: true,
-                                physics: const ScrollPhysics(),
-                                itemCount: userImages.length,
-                                itemBuilder: (context, index) {
-                                  print(
-                                      "Userimages length---------------------------------------------------------${userImages.length}");
-                                  return ClipRRect(
-                                    borderRadius: BorderRadius.circular(7.sp),
-                                    child: Image.network(
-                                      userImages[index].filePath,
-                                      height: 10.h,
-                                      width: 18.w,
-                                      fit: BoxFit.cover,
-                                      errorBuilder:
-                                          (context, error, stackTrace) {
-                                        return Image.network(
-                                            "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
-                                      },
-                                    ),
-                                  );
-                                },
-                              );
+                          return GestureDetector(
+                            onTap: () {
+                              Get.to(() => ImageClick(
+                                 userId: userName,
+                                 fullName: fullName,
+                                 profile: profileImage,
+                                  ));
                             },
+                            child: GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisSpacing: 3,
+                                mainAxisSpacing: 3,
+                                crossAxisCount: 3,
+                              ),
+                              shrinkWrap: true,
+                              physics: const ScrollPhysics(),
+                              itemCount: posts.length,
+                              itemBuilder: (context, i) {
+                                print(
+                                    "Post length---------------------------------------------------------${posts.length}");
+                                Post? post = posts[i];
+                                List<UserImage> userImages = post.userImages;
+
+                                if (userImages.isEmpty) {
+                                  return Image.network(
+                                      "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
+                                }
+
+                                return GridView.builder(
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                          /*   mainAxisExtent: 10, */
+                                          crossAxisSpacing: 0,
+                                          mainAxisSpacing: 0,
+                                          crossAxisCount: 1),
+                                  shrinkWrap: true,
+                                  physics: const ScrollPhysics(),
+                                  itemCount: userImages.length,
+                                  itemBuilder: (context, index) {
+                                    print(
+                                        "Userimages length---------------------------------------------------------${userImages.length}");
+                                    return ClipRRect(
+                                      borderRadius: BorderRadius.circular(7.sp),
+                                      child: Image.network(
+                                        userImages[index].filePath,
+                                        height: 10.h,
+                                        width: 18.w,
+                                        fit: BoxFit.cover,
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
+                                          return Image.network(
+                                              "https://www.meu.edu.in/wp-content/uploads/2021/09/placeholder-43.png");
+                                        },
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                            ),
                           );
                         }
                       },

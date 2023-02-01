@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/account_type/uploadimage.dart';
-
 import 'package:flutter_application_1/globals/colors.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -176,12 +175,12 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorPadding: EdgeInsets.zero,
                 labelColor: primaryColorOfApp,
-                unselectedLabelColor: Color(0xff333333),
-                tabs: [
-                  Tab(
+                unselectedLabelColor: const Color(0xff333333),
+                tabs: const [
+                   Tab(
                     text: 'trending',
                   ),
-                  Tab(
+                   Tab(
                     text: 'nearby',
                   ),
                 ],
@@ -234,7 +233,7 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
                       SizedBox(
                         height: 17.h,
                         child: ListView.separated(
-                            physics: BouncingScrollPhysics(),
+                            physics: const BouncingScrollPhysics(),
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: ((context, index) {
@@ -336,7 +335,7 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
                       SizedBox(
                         height: 10.h,
                         child: ListView.separated(
-                            physics: BouncingScrollPhysics(),
+                            physics: const BouncingScrollPhysics(),
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: ((context, index) {
@@ -345,7 +344,7 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
                                 backgroundColor: primaryColorOfApp,
                                 child: CircleAvatar(
                                   radius: 26.sp,
-                                  backgroundColor: Color(0xffe2e2e2),
+                                  backgroundColor: const Color(0xffe2e2e2),
                                   child: CircleAvatar(
                                     radius: 24.sp,
                                     backgroundColor: Colors.white,
@@ -385,7 +384,7 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
                       SizedBox(
                         height: 35.h,
                         child: ListView.separated(
-                            physics: BouncingScrollPhysics(),
+                            physics: const BouncingScrollPhysics(),
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: ((context, index) {
@@ -428,7 +427,7 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
                                               SizedBox(
                                                 width: 15.w,
                                               ),
-                                              Icon(
+                                              const Icon(
                                                 FluentIcons.share_24_filled,
                                                 color: primaryColorOfApp,
                                               )
@@ -566,7 +565,7 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
                                               ElevatedButton(
                                                 onPressed: () {},
                                                 style: ElevatedButton.styleFrom(
-                                                    side: BorderSide(
+                                                    side: const BorderSide(
                                                         color:
                                                             primaryColorOfApp),
                                                     elevation: 0,
@@ -611,7 +610,7 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
                                               ElevatedButton(
                                                 onPressed: () {},
                                                 style: ElevatedButton.styleFrom(
-                                                    side: BorderSide(
+                                                    side: const BorderSide(
                                                         color:
                                                             primaryColorOfApp),
                                                     elevation: 0,
@@ -667,9 +666,9 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
   }
 
   Widget buildIndicator() => Padding(
-        padding: EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(5.0),
         child: AnimatedSmoothIndicator(
-            effect: JumpingDotEffect(
+            effect: const JumpingDotEffect(
                 spacing: 1,
                 activeDotColor: primaryColorOfApp,
                 dotColor: Colors.white,
@@ -685,7 +684,7 @@ class _SearchState extends State<Search> with TickerProviderStateMixin {
         padding: EdgeInsets.only(left: 5.w),
         child: const Icon(Icons.search),
       ),
-      prefixIconConstraints: BoxConstraints(),
+      prefixIconConstraints: const BoxConstraints(),
       labelText: labeltext,
       labelStyle: const TextStyle(
           color: Color(0xffE2E2E2), fontFamily: 'Poppins', fontSize: 12),
